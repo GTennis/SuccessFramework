@@ -1,0 +1,15 @@
+.DS_Store
+.idea
+*~.nib
+*.swp
+
+adhoc/
+build/
+
+.xcodeproj/ !*.xcodeproj/project.pbxproj
+
+*.mode1v3
+*.mode2v3
+
+build/
+xcuserdata

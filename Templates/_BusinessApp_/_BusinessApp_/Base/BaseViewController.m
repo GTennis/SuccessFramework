@@ -71,20 +71,6 @@
     [super viewDidLoad];
     
     [self addCustomNavigationBar];
-}
-
-- (void)viewWillAppear:(BOOL)animated {
-    
-    [super viewWillAppear:animated];
-    
-    // Log current screen
-    [self logForCrashReports];
-    
-    // Listen for notifications
-    [self subcribeForGeneralNotifications];
-    
-    // Make sure menu will be closed when user wants to open and tapps on any button which opens new screen. It's needed for iPad because otherwise swipe to go back stops working.
-    [self closeMenuIfOpened];
     
     //Adding environment switch buttons for DEBUG only
 #if defined(ENTERPRISE_BUILD) || defined(DEBUG)
@@ -103,7 +89,20 @@
     [self.navigationItem.titleView addGestureRecognizer:_swipeConsoleLoggerGestureRecognizer];
     
 #endif
+}
+
+- (void)viewWillAppear:(BOOL)animated {
     
+    [super viewWillAppear:animated];
+    
+    // Log current screen
+    [self logForCrashReports];
+    
+    // Listen for notifications
+    [self subcribeForGeneralNotifications];
+    
+    // Make sure menu will be closed when user wants to open and tapps on any button which opens new screen. It's needed for iPad because otherwise swipe to go back stops working.
+    [self closeMenuIfOpened];
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
@@ -268,12 +267,10 @@
 
 #pragma mark - AppNavigationBarDelegate
 
-- (void)didPressedInfo {
+- (void)didPressedContacts {
     
-    // TODO...
-    
-    //UIViewController *vc = (UIViewController *) [self.viewControllerFactory contactsViewControllerWithContext:nil];
-    //[self presentModalViewController:vc animated:YES];
+    UIViewController *vc = (UIViewController *) [self.viewControllerFactory contactsViewControllerWithContext:nil];
+    [self presentModalViewController:vc animated:YES];
 }
 
 - (void)didPressedBack {

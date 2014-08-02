@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="5056" systemVersion="13E28" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6751" systemVersion="13F1077" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ContactsViewController_iphone">
@@ -11,12 +12,72 @@
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
-            <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+            <rect key="frame" x="0.0" y="64" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xbb-hf-FKP">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="64"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="64" id="K0Q-QZ-yft"/>
+                    </constraints>
+                    <items>
+                        <barButtonItem title="Cancel" id="gdI-V6-JOw">
+                            <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="string" keyPath="accessibilityIdentifier" value="UserAccess_btnCancel"/>
+                            </userDefinedRuntimeAttributes>
+                        </barButtonItem>
+                    </items>
+                </toolbar>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Contacts title" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IdT-HK-5eo" userLabel="TitleLabel">
+                    <rect key="frame" x="109" y="32" width="103" height="21"/>
+                    <accessibility key="accessibilityConfiguration" label="TermsAndConditions_lblTitle"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="string" keyPath="fontType" value="FontLight"/>
+                        <userDefinedRuntimeAttribute type="string" keyPath="labelTitleColorName" value="ColorGrayDark"/>
+                        <userDefinedRuntimeAttribute type="string" keyPath="accessibilityIdentifier" value="TermsAndConditions_lblTitle"/>
+                    </userDefinedRuntimeAttributes>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vga-dz-ZA2" customClass="NormalButton">
+                    <rect key="frame" x="107" y="116" width="107" height="30"/>
+                    <state key="normal" title="Call 123456789">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="phoneCallButtonPressed:" destination="-1" eventType="touchUpInside" id="XEm-d7-7Ft"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="axl-9F-n5D" customClass="NormalButton">
+                    <rect key="frame" x="112" y="160" width="97" height="30"/>
+                    <state key="normal" title="Send email us">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="emailButtonPressed:" destination="-1" eventType="touchUpInside" id="FPr-cd-Vpl"/>
+                    </connections>
+                </button>
+            </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-            <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
-            <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
-            <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+            <constraints>
+                <constraint firstItem="IdT-HK-5eo" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="32" id="2Nv-DA-pWR"/>
+                <constraint firstAttribute="trailing" secondItem="xbb-hf-FKP" secondAttribute="trailing" id="LWi-e6-mrh"/>
+                <constraint firstAttribute="centerX" secondItem="IdT-HK-5eo" secondAttribute="centerX" id="La6-o6-cVB"/>
+                <constraint firstItem="axl-9F-n5D" firstAttribute="top" secondItem="vga-dz-ZA2" secondAttribute="bottom" constant="14" id="Qrs-Gx-hnG"/>
+                <constraint firstAttribute="centerX" secondItem="axl-9F-n5D" secondAttribute="centerX" id="e0M-po-dYv"/>
+                <constraint firstItem="xbb-hf-FKP" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="eDW-UL-ZUj"/>
+                <constraint firstItem="vga-dz-ZA2" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="116" id="kLe-m4-5hG"/>
+                <constraint firstItem="xbb-hf-FKP" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="n2r-d5-LjY"/>
+                <constraint firstAttribute="centerX" secondItem="vga-dz-ZA2" secondAttribute="centerX" id="rwJ-Mk-mB1"/>
+            </constraints>
+            <nil key="simulatedTopBarMetrics"/>
         </view>
     </objects>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination" type="retina4"/>
+    </simulatedMetricsContainer>
 </document>

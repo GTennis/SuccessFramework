@@ -80,11 +80,11 @@
 
 #pragma mark - IBActions
 
-- (IBAction)infoPressed:(id)sender {
+- (IBAction)contactsPressed:(id)sender {
     
-    if ([_delegate respondsToSelector:@selector(didPressedInfo)]) {
+    if ([_delegate respondsToSelector:@selector(didPressedContacts)]) {
         
-        [_delegate didPressedInfo];
+        [_delegate didPressedContacts];
     }
 }
 

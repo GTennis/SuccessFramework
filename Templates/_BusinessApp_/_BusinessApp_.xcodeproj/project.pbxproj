@@ -164,6 +164,8 @@
 		0FE1CB5C1AF691FE006769FE /* TermsConditionsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FE1CB5B1AF691FE006769FE /* TermsConditionsModel.m */; };
 		0FE1CB801AF6A851006769FE /* ManagerFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FE1CB7F1AF6A851006769FE /* ManagerFactory.m */; };
 		0FE1CB891AF6ABAF006769FE /* UIToolbar+Custom.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FE1CB881AF6ABAF006769FE /* UIToolbar+Custom.m */; };
+		31912E9A1B0CC926007C0C89 /* PhoneCallCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = 31912E991B0CC926007C0C89 /* PhoneCallCommand.m */; };
+		31912EA01B0CC9B6007C0C89 /* SendEmailCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = 31912E9F1B0CC9B6007C0C89 /* SendEmailCommand.m */; };
 		7E48B6A029D4462B99F94BBA /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4BE886A7686A4EC6BF56CDC8 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -487,6 +489,11 @@
 		0FE1CB871AF6ABAF006769FE /* UIToolbar+Custom.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIToolbar+Custom.h"; sourceTree = "<group>"; };
 		0FE1CB881AF6ABAF006769FE /* UIToolbar+Custom.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIToolbar+Custom.m"; sourceTree = "<group>"; };
 		28D92D4B24CACDF282AC3836 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		31912E911B0CC87F007C0C89 /* CommandProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CommandProtocol.h; sourceTree = "<group>"; };
+		31912E981B0CC926007C0C89 /* PhoneCallCommand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhoneCallCommand.h; sourceTree = "<group>"; };
+		31912E991B0CC926007C0C89 /* PhoneCallCommand.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhoneCallCommand.m; sourceTree = "<group>"; };
+		31912E9E1B0CC9B6007C0C89 /* SendEmailCommand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SendEmailCommand.h; sourceTree = "<group>"; };
+		31912E9F1B0CC9B6007C0C89 /* SendEmailCommand.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SendEmailCommand.m; sourceTree = "<group>"; };
 		4BE886A7686A4EC6BF56CDC8 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		6E0BD085B1D95E6D8A405F54 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -872,6 +879,7 @@
 			children = (
 				0FA695A719BB9A720058A722 /* AppDelegate.h */,
 				0FA695A819BB9A720058A722 /* AppDelegate.m */,
+				31912E901B0CC83B007C0C89 /* Commands */,
 				0FE1CAC51AF64AC8006769FE /* Core */,
 				0FE1CAB31AF641AD006769FE /* Factories */,
 				0FA695D019BB9A7C0058A722 /* Constants */,
@@ -1676,6 +1684,18 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		31912E901B0CC83B007C0C89 /* Commands */ = {
+			isa = PBXGroup;
+			children = (
+				31912E911B0CC87F007C0C89 /* CommandProtocol.h */,
+				31912E981B0CC926007C0C89 /* PhoneCallCommand.h */,
+				31912E991B0CC926007C0C89 /* PhoneCallCommand.m */,
+				31912E9E1B0CC9B6007C0C89 /* SendEmailCommand.h */,
+				31912E9F1B0CC9B6007C0C89 /* SendEmailCommand.m */,
+			);
+			path = Commands;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1886,6 +1906,7 @@
 				0F8D56871AFFA8A1005681A7 /* GMAlertView.m in Sources */,
 				0FE1CB131AF661C1006769FE /* UIView+Colors.m in Sources */,
 				0FA839C119BC5DF40037B5F3 /* SettingsViewController.m in Sources */,
+				31912E9A1B0CC926007C0C89 /* PhoneCallCommand.m in Sources */,
 				0FC719F31AF933DD00912FF1 /* MenuModel.m in Sources */,
 				0FC719D71AF92F1600912FF1 /* APIClientErrorHandler.m in Sources */,
 				0FA62C7419CF39EE002D3DDC /* SeparatorLineView.m in Sources */,
@@ -1910,6 +1931,7 @@
 				0FC29C4D1AFFC070006944D4 /* GMLanguage.m in Sources */,
 				0FE1CB2C1AF66A66006769FE /* BaseTextField.m in Sources */,
 				0FE1CB891AF6ABAF006769FE /* UIToolbar+Custom.m in Sources */,
+				31912EA01B0CC9B6007C0C89 /* SendEmailCommand.m in Sources */,
 				0FE1CAE31AF65572006769FE /* SettingObject.m in Sources */,
 				0FA8625019C425A1004D4A32 /* HomeViewController_iphone.m in Sources */,
 				0FE1CB1F1AF664CC006769FE /* NSArray+JSON.m in Sources */,

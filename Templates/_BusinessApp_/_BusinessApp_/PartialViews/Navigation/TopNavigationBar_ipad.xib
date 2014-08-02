@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.iPad.XIB" version="3.0" toolsVersion="6254" systemVersion="14B25" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.iPad.XIB" version="3.0" toolsVersion="6751" systemVersion="13F1077" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
@@ -53,7 +53,7 @@
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                     <connections>
-                        <action selector="infoPressed:" destination="csU-tQ-UZW" eventType="touchUpInside" id="XyA-CI-IPm"/>
+                        <action selector="contactsPressed:" destination="csU-tQ-UZW" eventType="touchUpInside" id="mh9-Sd-oDY"/>
                     </connections>
                 </button>
             </subviews>
@@ -73,6 +73,7 @@
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
                 <outlet property="backButton" destination="IjA-x3-fdJ" id="jo7-O6-Ihx"/>
+                <outlet property="contactsButton" destination="BBj-OM-7FN" id="xSL-jW-hUp"/>
                 <outlet property="infoButton" destination="BBj-OM-7FN" id="9Qp-7y-swY"/>
                 <outlet property="menuButton" destination="omf-mH-Szn" id="7lo-JW-3q6"/>
                 <outlet property="titleLabel" destination="oFJ-Wh-1Vh" id="4Jw-aG-Q4h"/>

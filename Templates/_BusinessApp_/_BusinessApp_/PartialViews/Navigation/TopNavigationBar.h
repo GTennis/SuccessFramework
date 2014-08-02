@@ -10,7 +10,7 @@
 
 @protocol TopNavigationBarDelegate <NSObject>
 
-- (void)didPressedInfo;
+- (void)didPressedContacts;
 - (void)didPressedBack;
 - (void)didPressedMenu;
 
@@ -25,7 +25,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 @property (weak, nonatomic) IBOutlet UIButton *userActionButton;
 @property (weak, nonatomic) IBOutlet UIButton *settingsButton;
-@property (weak, nonatomic) IBOutlet UIButton *infoButton;
+@property (weak, nonatomic) IBOutlet UIButton *contactsButton;
 
 + (void)applyStyleForNavigationBar:(UINavigationBar *)navigationBar;
 

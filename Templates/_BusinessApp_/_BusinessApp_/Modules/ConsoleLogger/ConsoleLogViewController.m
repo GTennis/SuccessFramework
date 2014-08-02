@@ -8,15 +8,28 @@
 
 #import "ConsoleLogViewController.h"
 #import "GMAlertView.h"
+#import "SendEmailCommand.h"
+
+#define kConsoleLogViewControllerDevEmail @"developer@dev.com"
+#define kConsoleLogViewControllerCannotSendEmptyLogAlertOkKey @"Ok"
+#define kConsoleLogViewControllerCannotSendEmptyLogAlertMessage @"kConsoleLogViewControllerCannotSendEmptyLogAlertMessage"
 
 @interface ConsoleLogViewController () {
     
     NSMutableString *_logString;
+    SendEmailCommand *_sendEmailCommand;
 }
 
 @end
 
 @implementation ConsoleLogViewController
+
+- (void)commonInit {
+    
+    [super commonInit];
+    
+    _sendEmailCommand = [[SendEmailCommand alloc] initWithViewController:self subject:@"AppLogs" message:nil recipients:@[kConsoleLogViewControllerDevEmail]];
+}
 
 - (instancetype)init {
     
@@ -116,12 +129,23 @@
     
     if ([_logString length] > 0) {
         
-        // Send log to server
-        //[ReportLogWebservice sendLog:_logText withDeviceInfo:deviceInfo delegate:self context:nil];
+        _sendEmailCommand.message = _logString;
+        NSError *error = nil;
+        BOOL canExecute = [_sendEmailCommand canExecute:&error];
+        
+        if (canExecute) {
+            
+            [_sendEmailCommand execute];
+            
+        } else {
+            
+            GMAlertView *alertView = [[GMAlertView alloc] initWithViewController:self title:nil message:error.localizedDescription cancelButtonTitle:GMLocalizedString(kConsoleLogViewControllerCannotSendEmptyLogAlertOkKey) otherButtonTitles:nil];
+            [alertView show];
+        }
         
     } else {
         
-        GMAlertView *alert = [[GMAlertView alloc] initWithViewController:self title:nil message:GMLocalizedString(@"Log is empty") cancelButtonTitle:GMLocalizedString(@"OK") otherButtonTitles:nil];
+        GMAlertView *alert = [[GMAlertView alloc] initWithViewController:self title:nil message:GMLocalizedString(kConsoleLogViewControllerCannotSendEmptyLogAlertMessage) cancelButtonTitle:GMLocalizedString(kConsoleLogViewControllerCannotSendEmptyLogAlertOkKey) otherButtonTitles:nil];
         [alert show];
     }
 }

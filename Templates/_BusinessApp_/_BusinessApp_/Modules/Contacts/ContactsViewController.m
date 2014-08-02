@@ -8,67 +8,77 @@
 
 #import "ContactsViewController.h"
 #import <MessageUI/MessageUI.h>
+#import "GMAlertView.h"
+#import "SendEmailCommand.h"
+#import "PhoneCallCommand.h"
 
-@interface ContactsViewController () <MFMailComposeViewControllerDelegate>
+// Send email settings
+#define kContactsViewControllerEmailSubject @"From Success Framework app"
+#define kContactsViewControllerEmailMessage @"Hello, I have a question!"
+#define kContactsViewControllerRecipients @[@"test@test.com"]
+
+// Phone call settings
+#define kContactsViewControllerPhoneNumber @"123456789"
+
+#define kContactsViewControllerOkKey @"Ok"
+
+@interface ContactsViewController () {
+    
+    SendEmailCommand *_sendEmailCommand;
+    PhoneCallCommand *_phoneCallCommand;
+}
 
 @end
 
 @implementation ContactsViewController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
+- (void)commonInit {
+    
+    [super commonInit];
+    
+    _sendEmailCommand = [[SendEmailCommand alloc] initWithViewController:self subject:kContactsViewControllerEmailSubject message:kContactsViewControllerEmailMessage recipients:kContactsViewControllerRecipients];
+    _phoneCallCommand = [[PhoneCallCommand alloc] initWithPhoneNumberString:kContactsViewControllerPhoneNumber];
 }
 
-- (void)viewDidLoad
-{
+- (void)viewDidLoad {
+    
     [super viewDidLoad];
     // Do any additional setup after loading the view.
 }
 
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
 
 #pragma mark - IBActions
 
 - (IBAction)emailButtonPressed:(UIButton *)sender {
     
-    if ([MFMailComposeViewController canSendMail]) {
-        MFMailComposeViewController *mailComposeViewController = [MFMailComposeViewController new];
-        [mailComposeViewController setToRecipients:@[sender.titleLabel.text]];
-        mailComposeViewController.mailComposeDelegate = self;
-        [self presentViewController:mailComposeViewController animated:YES completion:nil];
+    NSError *error = nil;
+    BOOL canExecute = [_sendEmailCommand canExecute:&error];
+    
+    if (canExecute) {
+        
+        [_sendEmailCommand execute];
+        
+    } else {
+        
+        GMAlertView *alertView = [[GMAlertView alloc] initWithViewController:self title:nil message:error.localizedDescription cancelButtonTitle:GMLocalizedString(kContactsViewControllerOkKey) otherButtonTitles:nil];
+        [alertView show];
     }
 }
 
-- (void)dialPhone:(NSString *)phoneString {
+- (IBAction)phoneCallButtonPressed:(UIButton *)sender {
     
-    // Prepare url
-    NSString *cleanedString = [[phoneString componentsSeparatedByCharactersInSet:[[NSCharacterSet characterSetWithCharactersInString:@"0123456789-+()"] invertedSet]] componentsJoinedByString:@""];
-    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"telprompt:%@", cleanedString]];
+    NSError *error = nil;
+    BOOL canExecute = [_phoneCallCommand canExecute:&error];
     
-    // Open url
-    [[UIApplication sharedApplication] openURL:url];
-}
-
-- (IBAction)dialPhoneButtonPressed:(UIButton *)sender {
-    
-    // By convention, it assumes the phone is written on the button
-    [self dialPhone:sender.titleLabel.text];
-}
-
-#pragma mark - MFMailComposeViewControllerDelegate
-
-- (void)mailComposeController:(MFMailComposeViewController *)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError *)error {
-    
-    [self dismissViewControllerAnimated:YES completion:nil];
+    if (canExecute) {
+        
+        [_phoneCallCommand execute];
+        
+    } else {
+        
+        GMAlertView *alertView = [[GMAlertView alloc] initWithViewController:self title:nil message:error.localizedDescription cancelButtonTitle:GMLocalizedString(kContactsViewControllerOkKey) otherButtonTitles:nil];
+        [alertView show];
+    }
 }
 
 @end
