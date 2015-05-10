@@ -1,0 +1,62 @@
+PODS:
+  - AFNetworking (2.4.1):
+    - AFNetworking/NSURLConnection (= 2.4.1)
+    - AFNetworking/NSURLSession (= 2.4.1)
+    - AFNetworking/Reachability (= 2.4.1)
+    - AFNetworking/Security (= 2.4.1)
+    - AFNetworking/Serialization (= 2.4.1)
+    - AFNetworking/UIKit (= 2.4.1)
+  - AFNetworking/NSURLConnection (2.4.1):
+    - AFNetworking/Reachability
+    - AFNetworking/Security
+    - AFNetworking/Serialization
+  - AFNetworking/NSURLSession (2.4.1):
+    - AFNetworking/Reachability
+    - AFNetworking/Security
+    - AFNetworking/Serialization
+  - AFNetworking/Reachability (2.4.1)
+  - AFNetworking/Security (2.4.1)
+  - AFNetworking/Serialization (2.4.1)
+  - AFNetworking/UIKit (2.4.1):
+    - AFNetworking/NSURLConnection
+    - AFNetworking/NSURLSession
+  - BSKeyboardControls (2.2)
+  - CountryPicker (1.2.3)
+  - Fabric/Core (1.2.3)
+  - Fabric/Crashlytics (1.2.3)
+  - GoogleAnalytics-iOS-SDK (3.0.9)
+  - iVersion (1.10.6)
+  - JVFloatLabeledTextField (0.0.9)
+  - MBProgressHUD (0.9)
+  - MFSideMenu (0.5.5)
+  - SwipeView (1.2.10)
+  - TWMessageBarManager (1.7.0)
+
+DEPENDENCIES:
+  - AFNetworking (~> 2.4)
+  - BSKeyboardControls (= 2.2)
+  - CountryPicker (~> 1.2)
+  - Fabric/Core (~> 1.2)
+  - Fabric/Crashlytics (~> 1.2)
+  - GoogleAnalytics-iOS-SDK (~> 3.0.9)
+  - iVersion (~> 1.10.6)
+  - JVFloatLabeledTextField (~> 0.0.5)
+  - MBProgressHUD (~> 0.9)
+  - MFSideMenu (~> 0.5)
+  - SwipeView (~> 1.2.10)
+  - TWMessageBarManager (~> 1.7)
+
+SPEC CHECKSUMS:
+  AFNetworking: 41d45d2c14219af0fa5addf3cfd433a002c13c9f
+  BSKeyboardControls: b701935e789961102e3f20063bba7185800a2d3f
+  CountryPicker: 6f166e2f1cc250f07eba4c587fbe1c0efc21049b
+  Fabric: 8a5b89c2131962830d92bbc88d482e80665846b2
+  GoogleAnalytics-iOS-SDK: 3b0994bef22ed2e176a9e2a4d1660c7c2542eb47
+  iVersion: 4f941852969a9dc27edd55e39b809a59ad23137b
+  JVFloatLabeledTextField: 46a6adc518b128ac59f77da5e855acb29902e22f
+  MBProgressHUD: d8e7ea388dc1549a42e0d219067cf5f2c898fb66
+  MFSideMenu: 268122e6894f2747fc3a2b48578100b232506c60
+  SwipeView: f3218ebe076345a2ab2d030a8b92dda3874938c2
+  TWMessageBarManager: 8b334f1b160b9686cd6b7a909b199c2e38dc037f
+
+COCOAPODS: 0.36.3

@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6254" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HomeViewController_iphone">
+            <connections>
+                <outlet property="collectionView" destination="kO1-aZ-JNR" id="IZO-5p-hf1"/>
+                <outlet property="progressLabel" destination="haN-vy-Bb3" id="SvA-az-vR4"/>
+                <outlet property="view" destination="3zi-Rj-tT1" id="UIl-Gq-5ZT"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="3zi-Rj-tT1">
+            <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="kO1-aZ-JNR">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="504"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="176-n5-vr1">
+                        <size key="itemSize" width="50" height="50"/>
+                        <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                        <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                        <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                    </collectionViewFlowLayout>
+                    <connections>
+                        <outlet property="dataSource" destination="-1" id="wkV-mN-wBD"/>
+                        <outlet property="delegate" destination="-1" id="9Uk-cy-hug"/>
+                    </connections>
+                </collectionView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Data is loading..." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="haN-vy-Bb3" customClass="NormalLabel">
+                    <rect key="frame" x="95" y="192" width="128.5" height="20.5"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="centerX" secondItem="haN-vy-Bb3" secondAttribute="centerX" id="4MU-0Q-Ia7"/>
+                <constraint firstItem="kO1-aZ-JNR" firstAttribute="top" secondItem="3zi-Rj-tT1" secondAttribute="top" id="51A-mA-6IM"/>
+                <constraint firstAttribute="trailing" secondItem="kO1-aZ-JNR" secondAttribute="trailing" id="MJZ-AV-579"/>
+                <constraint firstItem="kO1-aZ-JNR" firstAttribute="leading" secondItem="3zi-Rj-tT1" secondAttribute="leading" id="uq4-MV-M0e"/>
+                <constraint firstAttribute="centerY" secondItem="haN-vy-Bb3" secondAttribute="centerY" constant="50" id="vPv-8e-nz9"/>
+                <constraint firstAttribute="bottom" secondItem="kO1-aZ-JNR" secondAttribute="bottom" id="xQK-7x-R9s"/>
+            </constraints>
+            <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
+            <point key="canvasLocation" x="237" y="348"/>
+        </view>
+    </objects>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination" type="retina4"/>
+    </simulatedMetricsContainer>
+</document>

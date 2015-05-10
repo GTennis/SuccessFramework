@@ -1,0 +1,102 @@
+//
+//  Prefix header
+//
+//  The contents of this file are implicitly included at the beginning of every source file.
+//
+
+// Common headers
+#import <Availability.h>
+
+#ifndef __IPHONE_5_0
+#warning "This project uses features only available in iOS SDK 5.0 and later."
+#endif
+
+#ifdef __OBJC__
+
+//#define GA_DEBUG
+//#define SHORT_DLOG
+
+//Assertions and Logging
+#ifdef DEBUG
+
+/*#ifndef SHORT_DLOG
+ 
+ #define DLog(...) NSLog(@"%s(%p) %@", __PRETTY_FUNCTION__, self, [NSString stringWithFormat:__VA_ARGS__])
+ #define DLog(FORMAT,...) printf("%s\n", [[NSString stringWithFormat:FORMAT, ##__VA_ARGS__] UTF8String]);
+ 
+ #else
+ 
+ // Used partialy from http://stackoverflow.com/questions/5588855/standard-alternative-to-gccs-va-args-trick
+ // Print only class name and first argument (mostly text)
+ #define FIRST_HELPER(first, ...) first
+ #define DLog(...) printf("%s[%p]: %s\n", [NSStringFromClass([self class]) UTF8String], NSStringFromClass([self class]), [[FIRST_HELPER(__VA_ARGS__) substringToIndex:NSMaxRange([FIRST_HELPER(__VA_ARGS__) rangeOfString:@"%"])-1] UTF8String])
+ #endif*/
+
+#import "GMConsoleLogger.h"
+#define DLog(...) customLogger([NSString stringWithFormat:__VA_ARGS__]);
+
+#else
+
+#ifdef ENTERPRISE_BUILD
+
+#import "AucConsoleLogger.h"
+#define DLog(...) customLogger([NSString stringWithFormat:__VA_ARGS__]);
+
+#else
+
+#define DLog(...) do { } while (0)
+
+#endif
+
+#endif
+
+//#define XAssert(condition, ...) do { if (!(condition)) { ALog(__VA_ARGS__); }} while(0)
+
+// Statistics tracking logging for GA and Mixpanel
+#ifdef DEBUG
+
+// GA logging
+#ifdef GA_DEBUG
+#define GALog(...) NSLog(@"GA log> %@", [NSString stringWithFormat:__VA_ARGS__])
+#else
+#define GALog(...) do { } while (0)
+#endif
+
+#else
+
+#define GALog(...) do { } while (0)
+
+#endif
+
+#define PRODUCTION_TARGET
+
+// Debugging
+#ifdef DEBUG
+
+#import "NSObject+Description.h"
+
+#endif
+
+#warning Import common classes 
+#import <UIKit/UIKit.h>
+#import <Foundation/Foundation.h>
+#import "Consts.h"
+#import "Registry.h"
+#import "LocalizationSystem.h"
+#import "UIView+Autolayout.h"
+#import "UIView+Colors.h"
+#import "NSString+Validator.h"
+#import "NormalTextField.h"
+#import "NormalLabel.h"
+#import "BasePartialView.h"
+#import "NSString+Validator.h"
+#import "ImageDownloader.h"
+#import "BaseModel.h"
+#import "NSDate+Common.h"
+#import "NSString+Utils.h"
+#import "ViewControllerFactory.h"
+
+// Consts
+#import "ConstStrings.h"
+
+#endif

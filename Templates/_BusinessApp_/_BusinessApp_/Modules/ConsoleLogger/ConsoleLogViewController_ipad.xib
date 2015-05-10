@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.iPad.XIB" version="3.0" toolsVersion="6254" systemVersion="14B25" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ConsoleLogViewController_ipad">
+            <connections>
+                <outlet property="scrollView" destination="7EP-E2-U1V" id="K5h-Pb-hz2"/>
+                <outlet property="textView" destination="6h7-7D-A8d" id="0G4-IY-Lwe"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GiL-S3-wKC">
+                    <rect key="frame" x="0.0" y="0.0" width="67" height="44"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="67" id="E7A-9X-9CL"/>
+                        <constraint firstAttribute="height" constant="44" id="mtU-gp-RQN"/>
+                    </constraints>
+                    <state key="normal" title="Close">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="closePressed:" destination="-1" eventType="touchUpInside" id="JP9-9r-O20"/>
+                    </connections>
+                </button>
+                <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="5hG-rV-9ug">
+                    <rect key="frame" x="69" y="0.0" width="112" height="44"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="44" id="FSe-3c-cNl"/>
+                        <constraint firstAttribute="width" constant="112" id="Wh5-aO-UTP"/>
+                    </constraints>
+                    <textInputTraits key="textInputTraits"/>
+                </searchBar>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aGG-a8-Uy0">
+                    <rect key="frame" x="181" y="0.0" width="73" height="42"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="73" id="69G-sl-AoL"/>
+                        <constraint firstAttribute="height" constant="42" id="KIn-Sq-xIi"/>
+                    </constraints>
+                    <state key="normal" title="Send">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="reportPressed:" destination="-1" eventType="touchUpInside" id="jM5-XV-rTs"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h73-Od-3qJ">
+                    <rect key="frame" x="256" y="0.0" width="64" height="44"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="64" id="iZD-TW-eUt"/>
+                        <constraint firstAttribute="height" constant="44" id="kj5-YR-05n"/>
+                    </constraints>
+                    <state key="normal" title="Clear">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="clearLogPressed:" destination="-1" eventType="touchUpInside" id="CwX-BC-TeD"/>
+                    </connections>
+                </button>
+                <scrollView autoresizesSubviews="NO" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7EP-E2-U1V">
+                    <rect key="frame" x="0.0" y="44" width="1024" height="660"/>
+                    <subviews>
+                        <textView userInteractionEnabled="NO" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" indicatorStyle="black" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6h7-7D-A8d">
+                            <rect key="frame" x="0.0" y="0.0" width="1024" height="660"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="1024" id="4qy-SP-nl5"/>
+                                <constraint firstAttribute="height" constant="660" id="R6V-FA-aoF"/>
+                            </constraints>
+                            <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                            <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                        </textView>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstItem="6h7-7D-A8d" firstAttribute="top" secondItem="7EP-E2-U1V" secondAttribute="top" id="Aob-i0-lq5"/>
+                        <constraint firstItem="6h7-7D-A8d" firstAttribute="leading" secondItem="7EP-E2-U1V" secondAttribute="leading" id="dwT-m1-orb"/>
+                        <constraint firstAttribute="trailing" secondItem="6h7-7D-A8d" secondAttribute="trailing" id="jCm-nX-cSl"/>
+                        <constraint firstAttribute="bottom" secondItem="6h7-7D-A8d" secondAttribute="bottom" id="nup-a7-3KB"/>
+                    </constraints>
+                </scrollView>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="GiL-S3-wKC" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="1CP-7Y-eeX"/>
+                <constraint firstItem="aGG-a8-Uy0" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="D5l-59-BAM"/>
+                <constraint firstItem="7EP-E2-U1V" firstAttribute="top" secondItem="GiL-S3-wKC" secondAttribute="bottom" id="DXH-Pq-9S3"/>
+                <constraint firstItem="7EP-E2-U1V" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="EgP-V7-KGQ"/>
+                <constraint firstItem="h73-Od-3qJ" firstAttribute="leading" secondItem="aGG-a8-Uy0" secondAttribute="trailing" constant="2" id="IDw-zv-jiV"/>
+                <constraint firstItem="GiL-S3-wKC" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="J4v-1d-aqp"/>
+                <constraint firstItem="5hG-rV-9ug" firstAttribute="leading" secondItem="GiL-S3-wKC" secondAttribute="trailing" constant="2" id="KTR-Sn-Sot"/>
+                <constraint firstItem="aGG-a8-Uy0" firstAttribute="leading" secondItem="5hG-rV-9ug" secondAttribute="trailing" id="cUX-Ho-YQG"/>
+                <constraint firstAttribute="bottom" secondItem="7EP-E2-U1V" secondAttribute="bottom" constant="320" id="qSd-pp-5Av"/>
+                <constraint firstAttribute="trailing" secondItem="7EP-E2-U1V" secondAttribute="trailing" constant="-256" id="t2l-ou-6ub"/>
+                <constraint firstItem="5hG-rV-9ug" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="tpK-Ma-L3C"/>
+                <constraint firstItem="h73-Od-3qJ" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="xXw-Nh-7I9"/>
+            </constraints>
+            <point key="canvasLocation" x="314" y="331"/>
+        </view>
+    </objects>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination"/>
+    </simulatedMetricsContainer>
+</document>
