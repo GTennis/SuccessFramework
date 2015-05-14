@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0510"
+   LastUpgradeVersion = "0640"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "FAD16248311BE8A6924A235A"
+               BlueprintIdentifier = "2E2A41B29D21A6C7EA33AF4C"
                BuildableName = "libPods-CountryPicker.a"
                BlueprintName = "Pods-CountryPicker"
                ReferencedContainer = "container:Pods.xcodeproj">

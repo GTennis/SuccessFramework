@@ -29,7 +29,6 @@ PODS:
   - JVFloatLabeledTextField (0.0.9)
   - MBProgressHUD (0.9)
   - MFSideMenu (0.5.5)
-  - SwipeView (1.2.10)
   - TWMessageBarManager (1.7.0)
 
 DEPENDENCIES:
@@ -43,7 +42,6 @@ DEPENDENCIES:
   - JVFloatLabeledTextField (~> 0.0.5)
   - MBProgressHUD (~> 0.9)
   - MFSideMenu (~> 0.5)
-  - SwipeView (~> 1.2.10)
   - TWMessageBarManager (~> 1.7)
 
 SPEC CHECKSUMS:
@@ -56,7 +54,6 @@ SPEC CHECKSUMS:
   JVFloatLabeledTextField: 46a6adc518b128ac59f77da5e855acb29902e22f
   MBProgressHUD: d8e7ea388dc1549a42e0d219067cf5f2c898fb66
   MFSideMenu: 268122e6894f2747fc3a2b48578100b232506c60
-  SwipeView: f3218ebe076345a2ab2d030a8b92dda3874938c2
   TWMessageBarManager: 8b334f1b160b9686cd6b7a909b199c2e38dc037f
 
-COCOAPODS: 0.36.3
+COCOAPODS: 0.37.1

@@ -19,11 +19,6 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>Pods-GoogleAnalytics-iOS-SDK.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
 		<key>Pods-JVFloatLabeledTextField.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -35,11 +30,6 @@
 			<false/>
 		</dict>
 		<key>Pods-MFSideMenu.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
-		<key>Pods-SwipeView.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -62,57 +52,47 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>08F816B68A8B916E60C3BF5F</key>
+		<key>2150CA89D17AD5743DF38C85</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>366E29AFADA5FDDBC9B8A436</key>
+		<key>2E2A41B29D21A6C7EA33AF4C</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>5180FEDB33EC0ED74FFC2AFB</key>
+		<key>4BA11D3D1DC5AD487C8E7F6B</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>5391811B2FC5F5E9F6CC55FB</key>
+		<key>4EB434FD831B3FE33168D269</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>6CA10A06682C9529C98C96A7</key>
+		<key>68516BD426E6D5D802077710</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>6F5DE3FE8A242C9FFF3B36C7</key>
+		<key>830B311033B2882DC34871AD</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>770338627C11BD5E2E13130B</key>
+		<key>B63615451F8E3F6D3690A6FD</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>7A22C3F422CEFCDBCF435D39</key>
+		<key>DB1C13F620A07E625D42AF00</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>7E348AEDD52C805774001C95</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>B4B11E52335C7A32FB2CBFB5</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>FAD16248311BE8A6924A235A</key>
+		<key>FFAAD933215FD50F768B5DFB</key>
 		<dict>
 			<key>primary</key>
 			<true/>
