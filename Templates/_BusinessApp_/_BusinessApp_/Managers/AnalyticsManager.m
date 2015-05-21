@@ -54,7 +54,7 @@
     return self;
 }
 
-- (void)beginSession {
+- (void)startSession {
     
     [_defaultTracker set:kGAISessionControl value:@"start"];
 }
@@ -70,7 +70,7 @@
         GALog(@"%@", screeName);
         
         [_defaultTracker set:kGAIScreenName value:screeName];
-        [_defaultTracker send:[[GAIDictionaryBuilder createAppView] build]];
+        [_defaultTracker send:[[GAIDictionaryBuilder createScreenView] build]];
     }
 }
 

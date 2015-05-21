@@ -24,7 +24,9 @@ PODS:
   - CountryPicker (1.2.3)
   - Fabric/Core (1.2.3)
   - Fabric/Crashlytics (1.2.3)
-  - GoogleAnalytics-iOS-SDK (3.0.9)
+  - GoogleAnalytics-iOS-SDK (3.12):
+    - GoogleAnalytics-iOS-SDK/Core (= 3.12)
+  - GoogleAnalytics-iOS-SDK/Core (3.12)
   - iVersion (1.10.6)
   - JVFloatLabeledTextField (0.0.9)
   - MBProgressHUD (0.9)
@@ -37,7 +39,7 @@ DEPENDENCIES:
   - CountryPicker (~> 1.2)
   - Fabric/Core (~> 1.2)
   - Fabric/Crashlytics (~> 1.2)
-  - GoogleAnalytics-iOS-SDK (~> 3.0.9)
+  - GoogleAnalytics-iOS-SDK (~> 3.11)
   - iVersion (~> 1.10.6)
   - JVFloatLabeledTextField (~> 0.0.5)
   - MBProgressHUD (~> 0.9)
@@ -49,11 +51,11 @@ SPEC CHECKSUMS:
   BSKeyboardControls: b701935e789961102e3f20063bba7185800a2d3f
   CountryPicker: 6f166e2f1cc250f07eba4c587fbe1c0efc21049b
   Fabric: 8a5b89c2131962830d92bbc88d482e80665846b2
-  GoogleAnalytics-iOS-SDK: 3b0994bef22ed2e176a9e2a4d1660c7c2542eb47
+  GoogleAnalytics-iOS-SDK: 0a3327a993b8ed2b8fe1c6c4a8dcf5b76d2237a8
   iVersion: 4f941852969a9dc27edd55e39b809a59ad23137b
   JVFloatLabeledTextField: 46a6adc518b128ac59f77da5e855acb29902e22f
   MBProgressHUD: d8e7ea388dc1549a42e0d219067cf5f2c898fb66
   MFSideMenu: 268122e6894f2747fc3a2b48578100b232506c60
   TWMessageBarManager: 8b334f1b160b9686cd6b7a909b199c2e38dc037f
 
-COCOAPODS: 0.37.1
+COCOAPODS: 0.36.0

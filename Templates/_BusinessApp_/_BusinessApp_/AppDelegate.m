@@ -123,7 +123,7 @@
     }
     
     // Start GA session
-    [_analyticsManager beginSession];
+    [_analyticsManager startSession];
     
     // Track user status for crash reports
     if ([_userManager isUserLoggedIn]) {

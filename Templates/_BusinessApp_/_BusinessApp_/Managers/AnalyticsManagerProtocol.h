@@ -10,7 +10,7 @@
 
 @protocol AnalyticsManagerProtocol
 
-- (void)beginSession;
+- (void)startSession;
 - (void)endSession;
 - (void)logScreen:(NSString *)screeName;
 //- (void)logEventWithCategory:(NSString *)category action:(NSString *)action title:(NSString *)title value:(NSNumber *)value;
