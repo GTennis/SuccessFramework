@@ -7,7 +7,10 @@
 //
 
 #import "BaseModel.h"
+#import "UserManagerObserver.h"
 
-@interface MenuModel : BaseModel
+@interface MenuModel : BaseModel <UserManagerObserver>
+
+@property (nonatomic, strong) NSMutableArray *menuItems;
 
 @end

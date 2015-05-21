@@ -106,14 +106,14 @@
 - (void)onDataLoaded:(id)data {
     
     // Implement in child classes
-    NSAssert(NO, @"onLoadData is not implemented in class: %@", NSStringFromClass([self class]));
+    NSAssert(NO, @"onDataLoaded is not implemented in class: %@", NSStringFromClass([self class]));
 }
 
 // Every subclass shoud override this method and assign passed data to its internal property
 - (void)onDataLoading:(Callback)callback {
     
     // Implement in child classes
-    NSAssert(NO, @"storeData is not implemented in class: %@", NSStringFromClass([self class]));
+    NSAssert(NO, @"onDataLoading is not implemented in class: %@", NSStringFromClass([self class]));
 }
 
 #pragma mark - Network change

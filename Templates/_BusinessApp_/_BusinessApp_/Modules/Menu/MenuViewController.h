@@ -13,5 +13,6 @@
 @interface MenuViewController : BaseViewController <UITableViewDataSource, UITableViewDelegate>
 
 @property (nonatomic, strong) MenuModel *model;
+@property (nonatomic, strong) IBOutlet UITableView *tableView;
 
 @end

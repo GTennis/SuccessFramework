@@ -8,6 +8,9 @@
 
 #import "MenuViewController.h"
 #import "MenuNavigator.h"
+#import "MenuModel.h"
+#import "MenuItemObject.h"
+
 #import "HomeViewController.h"
 #import "TableViewExampleViewController.h"
 #import "ScrollViewExampleViewController.h"
@@ -19,6 +22,28 @@
 #define kMenuCellIdentifier @"MenuCellIdentifier"
 
 @implementation MenuViewController
+
+- (void)viewDidLoad {
+    
+    [super viewDidLoad];
+    
+    [self prepareUI];
+    [self loadModel];
+}
+
+#pragma mark - Model
+
+- (void)loadModel {
+    
+    [super loadModel];
+    
+    __weak typeof(self) weakSelf = self;
+    
+    [_model loadData:^(BOOL success, id result, NSError *error) {
+       
+        [weakSelf renderUI];
+    }];
+}
 
 #pragma mark - UITableViewDataSource
 
@@ -41,9 +66,9 @@
     return 1;
 }
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
-    return 5;
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    
+    return _model.menuItems.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -69,80 +94,41 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    BaseViewController *viewController = nil;
-    
-    switch (indexPath.row) {
-            
-        case 0:
-            
-            viewController = [self.viewControllerFactory homeViewControllerWithContext:nil];
-            
-            break;
-            
-        case 1:
-            
-            viewController = [self.viewControllerFactory settingsViewControllerWithContext:nil];
-            break;
-            
-        case 2:
-            
-            viewController = [self.viewControllerFactory termsConditionsViewControllerWithContext:nil];
-            break;
-            
-        case 3:
-            
-            viewController = [self.viewControllerFactory scrollViewExampleViewControllerWithContext:nil];
-            break;
-            
-        case 4:
-            
-            viewController = [self.viewControllerFactory tableViewExampleViewControllerWithContext:nil];
-            break;
-            
-        default:
-            break;
-    }
+    MenuItemObject *menuItem = _model.menuItems[indexPath.row];
     
     MenuNavigator *menuNavigator = [REGISTRY getObject:[MenuNavigator class]];
-    [menuNavigator setViewController:[[UINavigationController alloc] initWithRootViewController:viewController]];
+    [menuNavigator setViewController:[[UINavigationController alloc] initWithRootViewController:menuItem.viewController]];
+}
+
+#pragma mark - Handling language change
+
+- (void)notificationLocalizationHasChanged {
+    
+    [self prepareUI];
+    [self loadModel];
 }
 
 #pragma mark - Helpers
+
+- (void)prepareUI {
+    
+    [super prepareUI];
+}
+
+- (void)renderUI {
+    
+    [super renderUI];
+    
+    [_tableView reloadData];
+}
 
 - (NSString *)titleForMenuSection:(NSInteger)section row:(NSInteger)row {
     
     NSString *result = nil;
     
-    switch (row) {
-        case 0:
-            
-            result = GMLocalizedString(@"Home");
-            break;
-            
-        case 1:
-            
-            result = GMLocalizedString(@"Settings");
-            break;
-            
-        case 2:
-            
-            result = GMLocalizedString(@"TermsConditions");
-            break;
-        
-        case 3:
-            
-            result = GMLocalizedString(@"ScrollViewExample");
-            break;
-            
-        case 4:
-            
-            result = GMLocalizedString(@"TableViewExample");
-            break;
-            
-        default:
-            break;
-    }
-            
+    MenuItemObject *menuItem = _model.menuItems[row];
+    result = menuItem.menuTitle;
+    
     return result;
 }
 

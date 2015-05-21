@@ -158,7 +158,7 @@
 - (void)notificationLocalizationHasChanged {
     
     [self prepareUI];
-    [self renderUI];
+    [self loadModel];
 }
 
 @end
