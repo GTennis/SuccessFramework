@@ -44,15 +44,12 @@
 		0FA4E8FB19CD60C50046CA90 /* ScrollViewExampleViewController_ipad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0FA4E8F919CD60C50046CA90 /* ScrollViewExampleViewController_ipad.xib */; };
 		0FA62C6A19CF0CF6002D3DDC /* UIView+Fonts.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FA62C6919CF0CF6002D3DDC /* UIView+Fonts.m */; };
 		0FA62C6D19CF2D70002D3DDC /* BaseTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FA62C6C19CF2D70002D3DDC /* BaseTableViewCell.m */; };
-		0FA62C7419CF39EE002D3DDC /* SeparatorLineView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FA62C7319CF39EE002D3DDC /* SeparatorLineView.m */; };
 		0FA62C7719CF5DE6002D3DDC /* NSObject+Selectors.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FA62C7619CF5DE6002D3DDC /* NSObject+Selectors.m */; };
 		0FA62C7A19CF6D17002D3DDC /* HomeModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FA62C7919CF6D17002D3DDC /* HomeModel.m */; };
 		0FA67F7719C4F6B500E00FDA /* SettingsViewController_ipad.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FA67F7519C4F6B500E00FDA /* SettingsViewController_ipad.m */; };
 		0FA67F7819C4F6B600E00FDA /* SettingsViewController_ipad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0FA67F7619C4F6B500E00FDA /* SettingsViewController_ipad.xib */; };
 		0FA67F7B19C4FF4F00E00FDA /* BasePartialView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FA67F7A19C4FF4F00E00FDA /* BasePartialView.m */; };
 		0FA67F7E19C61F8600E00FDA /* BaseWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FA67F7D19C61F8600E00FDA /* BaseWebViewController.m */; };
-		0FA694DD19DD5DB200CC4E83 /* CalaBol.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0FA694DB19DD5DB200CC4E83 /* CalaBol.ttf */; };
-		0FA694DE19DD5DB200CC4E83 /* CalaLig.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0FA694DC19DD5DB200CC4E83 /* CalaLig.ttf */; };
 		0FA6959919BB9A720058A722 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0FA6959819BB9A720058A722 /* Foundation.framework */; };
 		0FA6959B19BB9A720058A722 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0FA6959A19BB9A720058A722 /* CoreGraphics.framework */; };
 		0FA6959D19BB9A720058A722 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0FA6959C19BB9A720058A722 /* UIKit.framework */; };
@@ -164,6 +161,9 @@
 		0FE1CB5C1AF691FE006769FE /* TermsConditionsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FE1CB5B1AF691FE006769FE /* TermsConditionsModel.m */; };
 		0FE1CB801AF6A851006769FE /* ManagerFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FE1CB7F1AF6A851006769FE /* ManagerFactory.m */; };
 		0FE1CB891AF6ABAF006769FE /* UIToolbar+Custom.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FE1CB881AF6ABAF006769FE /* UIToolbar+Custom.m */; };
+		3119A3F91B0DD4D1001CCA38 /* NormalModalToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = 3119A3F81B0DD4D1001CCA38 /* NormalModalToolbar.m */; };
+		3119A3FC1B0DD544001CCA38 /* SeparatorHorizontalLineView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3119A3FB1B0DD544001CCA38 /* SeparatorHorizontalLineView.m */; };
+		3119A3FF1B0DD554001CCA38 /* SeparatorVerticalLineView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3119A3FE1B0DD554001CCA38 /* SeparatorVerticalLineView.m */; };
 		31912E9A1B0CC926007C0C89 /* PhoneCallCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = 31912E991B0CC926007C0C89 /* PhoneCallCommand.m */; };
 		31912EA01B0CC9B6007C0C89 /* SendEmailCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = 31912E9F1B0CC9B6007C0C89 /* SendEmailCommand.m */; };
 		7E48B6A029D4462B99F94BBA /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4BE886A7686A4EC6BF56CDC8 /* libPods.a */; };
@@ -244,8 +244,6 @@
 		0FA62C6919CF0CF6002D3DDC /* UIView+Fonts.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Fonts.m"; sourceTree = "<group>"; };
 		0FA62C6B19CF2D70002D3DDC /* BaseTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseTableViewCell.h; sourceTree = "<group>"; };
 		0FA62C6C19CF2D70002D3DDC /* BaseTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseTableViewCell.m; sourceTree = "<group>"; };
-		0FA62C7219CF39EE002D3DDC /* SeparatorLineView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SeparatorLineView.h; sourceTree = "<group>"; };
-		0FA62C7319CF39EE002D3DDC /* SeparatorLineView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SeparatorLineView.m; sourceTree = "<group>"; };
 		0FA62C7519CF5DE6002D3DDC /* NSObject+Selectors.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+Selectors.h"; sourceTree = "<group>"; };
 		0FA62C7619CF5DE6002D3DDC /* NSObject+Selectors.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+Selectors.m"; sourceTree = "<group>"; };
 		0FA62C7819CF6D17002D3DDC /* HomeModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeModel.h; sourceTree = "<group>"; };
@@ -257,8 +255,6 @@
 		0FA67F7A19C4FF4F00E00FDA /* BasePartialView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BasePartialView.m; sourceTree = "<group>"; };
 		0FA67F7C19C61F8600E00FDA /* BaseWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseWebViewController.h; sourceTree = "<group>"; };
 		0FA67F7D19C61F8600E00FDA /* BaseWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseWebViewController.m; sourceTree = "<group>"; };
-		0FA694DB19DD5DB200CC4E83 /* CalaBol.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = CalaBol.ttf; sourceTree = "<group>"; };
-		0FA694DC19DD5DB200CC4E83 /* CalaLig.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = CalaLig.ttf; sourceTree = "<group>"; };
 		0FA6959519BB9A720058A722 /* _BusinessApp_.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = _BusinessApp_.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0FA6959819BB9A720058A722 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		0FA6959A19BB9A720058A722 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -489,6 +485,13 @@
 		0FE1CB871AF6ABAF006769FE /* UIToolbar+Custom.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIToolbar+Custom.h"; sourceTree = "<group>"; };
 		0FE1CB881AF6ABAF006769FE /* UIToolbar+Custom.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIToolbar+Custom.m"; sourceTree = "<group>"; };
 		28D92D4B24CACDF282AC3836 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		3119A3F71B0DD4D1001CCA38 /* NormalModalToolbar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NormalModalToolbar.h; sourceTree = "<group>"; };
+		3119A3F81B0DD4D1001CCA38 /* NormalModalToolbar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NormalModalToolbar.m; sourceTree = "<group>"; };
+		3119A3FA1B0DD544001CCA38 /* SeparatorHorizontalLineView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SeparatorHorizontalLineView.h; sourceTree = "<group>"; };
+		3119A3FB1B0DD544001CCA38 /* SeparatorHorizontalLineView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SeparatorHorizontalLineView.m; sourceTree = "<group>"; };
+		3119A3FD1B0DD554001CCA38 /* SeparatorVerticalLineView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SeparatorVerticalLineView.h; sourceTree = "<group>"; };
+		3119A3FE1B0DD554001CCA38 /* SeparatorVerticalLineView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SeparatorVerticalLineView.m; sourceTree = "<group>"; };
+		3119A4001B0DDDC6001CCA38 /* glockenspiel.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = glockenspiel.ttf; sourceTree = "<group>"; };
 		31912E911B0CC87F007C0C89 /* CommandProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CommandProtocol.h; sourceTree = "<group>"; };
 		31912E981B0CC926007C0C89 /* PhoneCallCommand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhoneCallCommand.h; sourceTree = "<group>"; };
 		31912E991B0CC926007C0C89 /* PhoneCallCommand.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhoneCallCommand.m; sourceTree = "<group>"; };
@@ -711,8 +714,7 @@
 		0FA62C5819CEFB52002D3DDC /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
-				0FA694DB19DD5DB200CC4E83 /* CalaBol.ttf */,
-				0FA694DC19DD5DB200CC4E83 /* CalaLig.ttf */,
+				3119A4001B0DDDC6001CCA38 /* glockenspiel.ttf */,
 			);
 			path = Fonts;
 			sourceTree = "<group>";
@@ -720,8 +722,10 @@
 		0FA62C7119CF39CE002D3DDC /* Lines */ = {
 			isa = PBXGroup;
 			children = (
-				0FA62C7219CF39EE002D3DDC /* SeparatorLineView.h */,
-				0FA62C7319CF39EE002D3DDC /* SeparatorLineView.m */,
+				3119A3FA1B0DD544001CCA38 /* SeparatorHorizontalLineView.h */,
+				3119A3FB1B0DD544001CCA38 /* SeparatorHorizontalLineView.m */,
+				3119A3FD1B0DD554001CCA38 /* SeparatorVerticalLineView.h */,
+				3119A3FE1B0DD554001CCA38 /* SeparatorVerticalLineView.m */,
 			);
 			path = Lines;
 			sourceTree = "<group>";
@@ -801,14 +805,14 @@
 			name = iphone;
 			sourceTree = "<group>";
 		};
-		0FA67FA419C6367400E00FDA /* Top */ = {
+		0FA67FA419C6367400E00FDA /* TopToolbarDefault */ = {
 			isa = PBXGroup;
 			children = (
 				0F70DF391AFFC54A004293F1 /* Base */,
 				0FA67F6919C4F40E00E00FDA /* iphone */,
 				0FA67F6819C4F40800E00FDA /* ipad */,
 			);
-			name = Top;
+			name = TopToolbarDefault;
 			sourceTree = "<group>";
 		};
 		0FA67FB619C6380000E00FDA /* TermsConditions */ = {
@@ -1111,7 +1115,8 @@
 		0FA839C319BC7B6F0037B5F3 /* Navigation */ = {
 			isa = PBXGroup;
 			children = (
-				0FA67FA419C6367400E00FDA /* Top */,
+				0FA67FA419C6367400E00FDA /* TopToolbarDefault */,
+				3119A3F61B0DD47F001CCA38 /* TopToolbarModal */,
 			);
 			path = Navigation;
 			sourceTree = "<group>";
@@ -1684,6 +1689,15 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		3119A3F61B0DD47F001CCA38 /* TopToolbarModal */ = {
+			isa = PBXGroup;
+			children = (
+				3119A3F71B0DD4D1001CCA38 /* NormalModalToolbar.h */,
+				3119A3F81B0DD4D1001CCA38 /* NormalModalToolbar.m */,
+			);
+			name = TopToolbarModal;
+			sourceTree = "<group>";
+		};
 		31912E901B0CC83B007C0C89 /* Commands */ = {
 			isa = PBXGroup;
 			children = (
@@ -1800,11 +1814,9 @@
 				0FA695A319BB9A720058A722 /* InfoPlist.strings in Resources */,
 				0FA839D519BCD8470037B5F3 /* CustomImages.xcassets in Resources */,
 				0FE1CB081AF65EC1006769FE /* ConsoleLogViewController_iphone.xib in Resources */,
-				0FA694DE19DD5DB200CC4E83 /* CalaLig.ttf in Resources */,
 				0FA839EE19BCF8E50037B5F3 /* Localizable.strings in Resources */,
 				0FC719BC1AF9253400912FF1 /* LaunchViewController_ipad.xib in Resources */,
 				0F7A854D1AFFF95300A2F6C4 /* ScrollViewExampleViewController_iphone.xib in Resources */,
-				0FA694DD19DD5DB200CC4E83 /* CalaBol.ttf in Resources */,
 				0FB3F48D19E52E3C0040E4D7 /* Default-568h@2x.png in Resources */,
 				0FC719B71AF9251D00912FF1 /* LaunchViewController_iphone.xib in Resources */,
 				0F7A85361AFFEDE500A2F6C4 /* HomeListItemView_iphone.xib in Resources */,
@@ -1900,6 +1912,7 @@
 				0FA3FA1E19C78840001FC84F /* SocialManager.m in Sources */,
 				0FA695EC19BB9C040058A722 /* UIView+Autolayout.m in Sources */,
 				0FE1CB391AF66CD6006769FE /* NormalLabel.m in Sources */,
+				3119A3FF1B0DD554001CCA38 /* SeparatorVerticalLineView.m in Sources */,
 				0FE1CABC1AF64471006769FE /* AnalyticsManager.m in Sources */,
 				0F8D568D1AFFB510005681A7 /* KeyboardControl.m in Sources */,
 				0FC719FF1AF9346500912FF1 /* ContactsModel.m in Sources */,
@@ -1909,7 +1922,6 @@
 				31912E9A1B0CC926007C0C89 /* PhoneCallCommand.m in Sources */,
 				0FC719F31AF933DD00912FF1 /* MenuModel.m in Sources */,
 				0FC719D71AF92F1600912FF1 /* APIClientErrorHandler.m in Sources */,
-				0FA62C7419CF39EE002D3DDC /* SeparatorLineView.m in Sources */,
 				0FC719F61AF933F400912FF1 /* UserProfileViewController.m in Sources */,
 				0FC719DC1AF9330100912FF1 /* UserLoginViewController.m in Sources */,
 				0FC719ED1AF933A000912FF1 /* UserForgotPasswordModel.m in Sources */,
@@ -1925,8 +1937,10 @@
 				0FE1CB001AF65D70006769FE /* GMConsoleLogger.m in Sources */,
 				0F7A85451AFFF65E00A2F6C4 /* TermsConditionsViewController_ipad.m in Sources */,
 				0FC719F01AF933BA00912FF1 /* SettingsModel.m in Sources */,
+				3119A3FC1B0DD544001CCA38 /* SeparatorHorizontalLineView.m in Sources */,
 				0FC4D1671AFBE0CA00CF4C24 /* MenuViewController_iphone.m in Sources */,
 				0FA67F7719C4F6B500E00FDA /* SettingsViewController_ipad.m in Sources */,
+				3119A3F91B0DD4D1001CCA38 /* NormalModalToolbar.m in Sources */,
 				0FE1CB5C1AF691FE006769FE /* TermsConditionsModel.m in Sources */,
 				0FC29C4D1AFFC070006944D4 /* GMLanguage.m in Sources */,
 				0FE1CB2C1AF66A66006769FE /* BaseTextField.m in Sources */,

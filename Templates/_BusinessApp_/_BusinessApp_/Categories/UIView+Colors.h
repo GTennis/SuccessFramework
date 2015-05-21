@@ -10,8 +10,13 @@
 
 @interface UIView (Colors)
 
+// For setting style on UI views via user runtime attributes in interface builder
 @property (nonatomic, strong) NSString *backgroundColorName;
 @property (nonatomic, strong) NSString *labelTitleColorName;
 @property (nonatomic, strong) NSString *buttonTitleColorName;
+
+// Helpers
+- (BOOL)color:(UIColor *)color isEqualToColor:(UIColor *)otherColor;
+- (UIImage *)imageWithColor:(UIColor *)color;
 
 @end

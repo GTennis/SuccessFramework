@@ -19,9 +19,9 @@
 - (void)handleBackPressed;
 
 // Modal screen handling
-@property (strong, nonatomic) IBOutlet UIBarButtonItem *btnCancel;
-@property (strong, nonatomic) IBOutlet UIToolbar *toolBarModal;
-@property (strong, nonatomic) IBOutlet UILabel *lblTitle;
+@property (strong, nonatomic) IBOutlet UIBarButtonItem *cancelButton;
+@property (strong, nonatomic) IBOutlet UIToolbar *modalToolbar;
+@property (strong, nonatomic) IBOutlet UILabel *titleLabel;
 - (void)presentModalViewController:(UIViewController *)viewController animated:(BOOL)animated;
 - (void)dismissModalViewControllerAnimated:(BOOL)animated;
 - (void)setToolbarHidden:(BOOL)hidden;
@@ -55,6 +55,6 @@
 // Language changed
 - (void)notificationLocalizationHasChanged;
 
-- (IBAction)btnCancelTapped:(id)sender;
+- (IBAction)cancelButtonTapped:(id)sender;
 
 @end

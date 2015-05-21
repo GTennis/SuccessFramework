@@ -28,10 +28,10 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:a]
 #define kColorGrayLight1      rgbColor(0xDDDDDD)
 
 #define kColorGrayLightName2  @"ColorGrayLight2"
-#define kColorGrayLight2    rgbColor(0xf1f1f1)
+#define kColorGrayLight2    rgbColor(0xF1F1F1)
 
 #define kColorGrayDarkName  @"ColorGrayDark"
-#define kColorGrayDark     rgbColor(0x353535)
+#define kColorGrayDark     rgbColor(0x363636)
 
 #define kColorGrayName  @"ColorGray"
 #define kColorGray     rgbColor(0x606060)
@@ -40,13 +40,13 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:a]
 #define kColorBlack     rgbColor(0x000000)
 
 #define kColorRedLightName @"ColorRedLight"
-#define kColorRedLight      rgbColor(0xE6B1B3)
+#define kColorRedLight      rgbColor(0xFD4545)
 
 #define kColorRedName  @"ColorRed"
-#define kColorRed      rgbColor(0xDC5D63)
+#define kColorRed      rgbColor(0xFF0000)
 
 #define kColorRedDarkName @"ColorRedDark"
-#define kColorRedDark      rgbColor(0xC54649)
+#define kColorRedDark      rgbColor(0x9C0707)
 
 #define kColorBlueName  @"ColorBlue"
 #define kColorBlue      rgbColor(0x0000FF)
@@ -54,8 +54,8 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:a]
 #define kColorWhiteName  @"ColorWhite"
 #define kColorWhite      rgbColor(0xFFFFFF)
 
-#define kColorGoldName  @"ColorGold"
-#define kColorGold      rgbColor(0x8C7C22)
+#define kColorYellowName  @"ColorYellow"
+#define kColorYellow     rgbColor(0xFFFF00)
 
 #define kColorGreenName  @"ColorGreen"
-#define kColorGreen      rgbColor(0x46AF66)
+#define kColorGreen      rgbColor(0x46AF65)

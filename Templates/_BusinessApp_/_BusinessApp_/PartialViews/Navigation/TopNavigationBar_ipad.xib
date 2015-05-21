@@ -74,7 +74,6 @@
             <connections>
                 <outlet property="backButton" destination="IjA-x3-fdJ" id="jo7-O6-Ihx"/>
                 <outlet property="contactsButton" destination="BBj-OM-7FN" id="xSL-jW-hUp"/>
-                <outlet property="infoButton" destination="BBj-OM-7FN" id="9Qp-7y-swY"/>
                 <outlet property="menuButton" destination="omf-mH-Szn" id="7lo-JW-3q6"/>
                 <outlet property="titleLabel" destination="oFJ-Wh-1Vh" id="4Jw-aG-Q4h"/>
             </connections>

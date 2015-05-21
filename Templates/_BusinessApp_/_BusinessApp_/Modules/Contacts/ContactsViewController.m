@@ -44,8 +44,9 @@
     
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    [self prepareUI];
 }
-
 
 #pragma mark - IBActions
 
@@ -79,6 +80,18 @@
         GMAlertView *alertView = [[GMAlertView alloc] initWithViewController:self title:nil message:error.localizedDescription cancelButtonTitle:GMLocalizedString(kContactsViewControllerOkKey) otherButtonTitles:nil];
         [alertView show];
     }
+}
+
+#pragma mark - Helpers
+
+- (void)prepareUI {
+    
+    [super prepareUI];
+}
+
+- (void)renderUI {
+    
+    [self renderUI];
 }
 
 @end

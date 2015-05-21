@@ -10,6 +10,7 @@
 
 @implementation UIToolbar (Custom)
 
+#warning Demo only. Will refactor and won't use magic constants :)
 - (UIBarButtonItem *)createAndSetBarButtonToBackWithTarget:(id)target selector:(SEL)selector {
     
     CGFloat buttonWidth = 60.0f;
@@ -36,7 +37,7 @@
     
     //UIBarButtonItem *flex = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:self action:nil];
     
-    //UIBarButtonItem *rightButton = [[UIBarButtonItem alloc] initWithTitle:@"Item" style:UIBarButtonItemStyleBordered target:self action:@selector(btnItem2Pressed:)];
+    //UIBarButtonItem *rightButton = [[UIBarButtonItem alloc] initWithTitle:@"Item" style:UIBarButtonItemStyleBordered target:self action:@selector(itemButton2Pressed:)];
     
     self.items = @[leftButton];
     

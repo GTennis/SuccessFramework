@@ -58,9 +58,9 @@
         
         backgroundColorName = kColorBlackName;
 
-    } else if ([self color:color isEqualToColor:kColorGold]) {
+    } else if ([self color:color isEqualToColor:kColorYellow]) {
 
-        backgroundColorName = kColorGoldName;
+        backgroundColorName = kColorYellowName;
 
     } else if ([self color:color isEqualToColor:kColorGreen]) {
 
@@ -118,9 +118,9 @@
         
         color = kColorBlack;
 
-    } else if ([colorName isEqualToString:kColorGoldName]) {
+    } else if ([colorName isEqualToString:kColorYellowName]) {
 
-        color = kColorGold;
+        color = kColorYellow;
 
     } else if ([colorName isEqualToString:kColorGreenName]) {
 
@@ -149,6 +149,21 @@
     CGColorSpaceRelease(colorSpaceRGB);
     
     return [selfColor isEqual:otherColor];
+}
+
+- (UIImage *)imageWithColor:(UIColor *)color {
+    
+    CGRect rect = CGRectMake(0.0f, 0.0f, 1.0f, 1.0f);
+    UIGraphicsBeginImageContext(rect.size);
+    CGContextRef context = UIGraphicsGetCurrentContext();
+    
+    CGContextSetFillColorWithColor(context, [color CGColor]);
+    CGContextFillRect(context, rect);
+    
+    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    
+    return image;
 }
 
 #pragma mark - Background colors

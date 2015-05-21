@@ -10,4 +10,6 @@
 
 @interface ContactsViewController_ipad : ContactsViewController
 
+@property (weak, nonatomic) IBOutlet UIView *backgroundMaskView;
+
 @end

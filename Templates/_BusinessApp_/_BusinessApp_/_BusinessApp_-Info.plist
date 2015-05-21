@@ -26,8 +26,7 @@
 	<true/>
 	<key>UIAppFonts</key>
 	<array>
-		<string>CalaBol.ttf</string>
-		<string>CalaLig.ttf</string>
+		<string>glockenspiel.ttf</string>
 	</array>
 	<key>UIRequiredDeviceCapabilities</key>
 	<array>

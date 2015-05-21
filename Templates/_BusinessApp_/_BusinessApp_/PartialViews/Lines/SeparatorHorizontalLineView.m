@@ -1,12 +1,12 @@
 //
-//  SeparatorLineView.m
+//  SeparatorHorizontalLineView.m
 //  _BusinessApp_
 //
-//  Created by Gytenis Mikulėnas on 3/24/14.
-//  Copyright (c) 2014 Gytenis Mikulėnas. All rights reserved.
+//  Created by Gytenis Mikulenas on 21/05/15.
+//  Copyright (c) 2015 Gytenis Mikulėnas. All rights reserved.
 //
 
-#import "SeparatorLineView.h"
+#import "SeparatorHorizontalLineView.h"
 
 // Stroke size
 #define kSeparatorLineSize 0.5f
@@ -17,7 +17,7 @@
 //#define kSeparatorMiddleLineColor rgbColor(246, 246, 246)
 //#define kSeparatorBottomLineColor rgbColor(250, 250, 250)
 
-@implementation SeparatorLineView
+@implementation SeparatorHorizontalLineView
 
 // For using line views from IB only. Just set height constraint in SB with 1 px and it will be changed to 0.5 during runtime.
 - (void)awakeFromNib {

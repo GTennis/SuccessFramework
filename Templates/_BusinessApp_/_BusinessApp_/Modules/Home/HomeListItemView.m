@@ -28,7 +28,7 @@
     _authorLabel.text = image.author;
     
     // Download image
-    [ImageDownloader downloadImageWithUrl:image.imageUrl forImageView:_imageView loadingPlaceholder:kContentPlaceholderImage failedPlaceholder:kContentPlaceholderImage activityIndicatorView:_activityIndicatorView];
+    //[ImageDownloader downloadImageWithUrl:image.imageUrl forImageView:_imageView loadingPlaceholder:kContentPlaceholderImage failedPlaceholder:kContentPlaceholderImage activityIndicatorView:_activityIndicatorView];
 }
 
 #pragma mark - IBActions

@@ -104,7 +104,8 @@
                                                  name:kNOTIFICATION_LOCALIZATION_HAS_CHANGED
                                                object:nil];
     
-    [self.view setIsAccessibilityElement:YES];
+    // Add identifiers for functional tests
+    self.view.isAccessibilityElement = YES;
     NSString *screenName = NSStringFromClass(self.class);
     screenName = [screenName stringByReplacingOccurrencesOfString:@"_iphone" withString:@""];
     screenName = [screenName stringByReplacingOccurrencesOfString:@"_ipad" withString:@""];
@@ -145,11 +146,20 @@
 - (void)prepareUI {
 
     // Set cancel button target and title in case screen is presented modally
-    _btnCancel.target = self;
-    _btnCancel.action = @selector(btnCancelTapped:);
-    _btnCancel.title = GMLocalizedString(kCancelKey);
-
-    [_btnCancel setTitleTextAttributes:@{NSForegroundColorAttributeName:kColorRed} forState:UIControlStateNormal];
+    _cancelButton.target = self;
+    _cancelButton.action = @selector(cancelButtonTapped:);
+    _cancelButton.title = GMLocalizedString(kCancelKey);
+    
+    // Add identifiers for functional tests
+    NSString *buttonName = [NSString stringWithFormat:@"%@ModalScreenToolbarCancelButton", NSStringFromClass([self class])];
+    _cancelButton.isAccessibilityElement = YES;
+    _cancelButton.accessibilityLabel = buttonName;
+    _cancelButton.accessibilityIdentifier = buttonName;
+    
+    NSString *labelName = [NSString stringWithFormat:@"%@ModalScreenToolbarTitleLabel", NSStringFromClass([self class])];
+    _titleLabel.isAccessibilityElement = YES;
+    _titleLabel.accessibilityLabel = labelName;
+    _titleLabel.accessibilityIdentifier = labelName;
 }
 
 - (void)renderUI {
@@ -224,7 +234,7 @@
     [self.presentingViewController dismissViewControllerAnimated:animated completion:nil];
 }
 
-- (IBAction)btnCancelTapped:(id)sender {
+- (IBAction)cancelButtonTapped:(id)sender {
     
     [self dismissModalViewControllerAnimated:YES];
 }
@@ -233,14 +243,14 @@
     
     if (hidden) {
         
-        [self.toolBarModal removeFromSuperview];
+        [_modalToolbar removeFromSuperview];
         
     } else {
         
-        [self.view addSubview:self.toolBarModal];
+        [self.view addSubview:_modalToolbar];
     }
     
-    [self.lblTitle setHidden:hidden];
+    [_titleLabel setHidden:hidden];
 }
 
 #pragma mark - Override

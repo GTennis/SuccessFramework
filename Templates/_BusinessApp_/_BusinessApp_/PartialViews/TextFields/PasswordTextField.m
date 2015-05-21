@@ -67,8 +67,12 @@
     [_togglePasswordRevealButton setTitle:@"" forState:UIControlStateNormal];
     [_togglePasswordRevealButton setImage:[UIImage imageNamed:@"password-show"] forState:UIControlStateNormal];
     [_togglePasswordRevealButton addTarget:self action:@selector(togglePasswordReveal) forControlEvents:UIControlEventTouchUpInside];
-    _togglePasswordRevealButton.accessibilityLabel = @"btn_ShowHidePassword";
-    _togglePasswordRevealButton.accessibilityIdentifier = _togglePasswordRevealButton.accessibilityLabel;
+    
+    // Add identifiers for functional tests
+    NSString *buttonName = @"ShowHidePasswordButton";
+    _togglePasswordRevealButton.isAccessibilityElement = YES;
+    _togglePasswordRevealButton.accessibilityLabel = buttonName;
+    _togglePasswordRevealButton.accessibilityIdentifier = buttonName;
     
     // Create separator
     UIView *rightSpaceSeparatorView = [[UIView alloc] initWithFrame:CGRectMake(togglePasswordButtonWidth, 0, rightSpaceSeparatorViewWidth, rightSpaceSeparatorViewHeight)];

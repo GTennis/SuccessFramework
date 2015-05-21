@@ -10,4 +10,28 @@
 
 @implementation NormalButton
 
+#pragma mark - Overrided
+
+- (void)initializeProperties {
+    
+    [super initializeProperties];
+    
+    self.borderSize = kButtonBorderSize;
+    self.borderColor = kButtonBorderColor;
+    
+    self.cornerRadius = kButtonCornerRadius;
+    
+    self.backgroundNormalColor = kButtonBackgroundColorNormalState;
+    self.textNormalColor = kButtonTextColorNormalState;
+    
+    self.backgroundHighlightedColor = kButtonBackgroundColorHighlightedState;
+    self.textHighlightedColor = kButtonTextColorHighlightedState;
+    
+    self.backgroundDisabledColor = kButtonBackgroundColorDisabledState;
+    self.textDisabledColor = kButtonTextColorDisabledState;
+    
+    self.fontName = kButtonTextFont;
+    self.fontSize = kButtonTextFontSize;
+}
+
 @end

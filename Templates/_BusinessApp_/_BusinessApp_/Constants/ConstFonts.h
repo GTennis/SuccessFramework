@@ -11,10 +11,10 @@
 // Store custom fonts in Resources/Fonts folder. For each font add an entry (filename.extension) under UIAppFonts (Fonts provided by application) inside plist
 
 #define kFontBoldType   @"FontBold"
-#define kFontBold   @"Cala-Bold"
+#define kFontBold   @"Glockenspiel"
 
 #define kFontNormalType @"FontNormal"
-#define kFontNormal @"Cala-Bold"
+#define kFontNormal @"Glockenspiel"
 
 // Aliases for fontWithName: method
 #define kFontBoldWithSize(__SIZE__) [UIFont fontWithName:kFontBold size:__SIZE__]

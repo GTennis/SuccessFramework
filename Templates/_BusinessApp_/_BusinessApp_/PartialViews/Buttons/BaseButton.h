@@ -7,31 +7,6 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "ConstColors.h"
-#import "ConstFonts.h"
-
-// Border
-#define kButtonBorderSize 1.0f
-#define kButtonBorderColor kColorWhite
-
-// Corner
-#define kButtonCornerRadius 3.0f
-
-// Normal state style
-#define kButtonBackgroundColorNormalState kColorGrayDark
-#define kButtonTextColorNormalState kColorWhite
-
-// Highlighted state style
-#define kButtonBackgroundColorHighlightedState kColorBlack
-#define kButtonTextColorHighlightedState kColorWhite
-
-// Disabled state style
-#define kButtonBackgroundColorDisabledState kColorGrayLight1
-#define kButtonTextColorDisabledState kColorWhite
-
-// Font
-#define kButtonTextFont kFontNormal
-#define kButtonTextFontSize 15
 
 @interface BaseButton : UIButton
 

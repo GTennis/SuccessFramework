@@ -38,8 +38,11 @@
     
     [super prepareUI];
     
+    // This will set title for standard navigation bar title
     self.title = GMLocalizedString(@"TermsAndConditions_Title");
-    self.lblTitle.text = self.title;
+    
+    // This will set title for modal screen (if used) custom toolbar title
+    self.titleLabel.text = self.title;
 }
 
 - (void)renderUI {

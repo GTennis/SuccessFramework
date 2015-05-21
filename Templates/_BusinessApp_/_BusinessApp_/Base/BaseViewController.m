@@ -17,6 +17,7 @@
 #import "APIClientErrorHandler.h"
 #import "ViewControllerFactoryProtocol.h"
 #import "MenuNavigator.h"
+#import "UIView+Fonts.h"
 
 @interface BaseViewController () <TopNavigationBarDelegate, UIGestureRecognizerDelegate> {
     
@@ -144,6 +145,25 @@
     DLog(@"[%@]: didReceiveMemoryWarning", NSStringFromClass([self class]));
 }
 
+- (void)prepareUI {
+    
+    [super prepareUI];
+    
+    self.cancelButton.title = GMLocalizedString(kCancelKey);
+    
+    // Adjust style
+    [self.cancelButton setTitleTextAttributes:@{NSForegroundColorAttributeName:kColorRed} forState:UIControlStateNormal];
+    self.titleLabel.fontType = kFontNormal;
+}
+
+- (void)renderUI {
+    
+    [super renderUI];
+    
+    // Implement in child classes
+    //NSAssert(NO, @"renderUI is not implemented in class: %@", NSStringFromClass([self class]));
+}
+
 - (void)loadModel {
     
     // Implement in child classes
@@ -225,13 +245,13 @@
 /*- (void)showNavigationBarRightButton {
  
  AppNavigationBar *navigationBar = (AppNavigationBar *) self.navigationItem.titleView;
- navigationBar.btnSearch.hidden = NO;
+ navigationBar.searchButton.hidden = NO;
  }
  
  - (void)hideNavigationBarRightButton {
  
  AppNavigationBar *navigationBar = (AppNavigationBar *) self.navigationItem.titleView;
- navigationBar.btnSearch.hidden = YES;
+ navigationBar.searchButton.hidden = YES;
  }*/
 
 #pragma mark - Helpers

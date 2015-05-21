@@ -7,7 +7,7 @@
 //
 
 #import "BaseTextField.h"
-#import "SeparatorLineView.h"
+#import "SeparatorHorizontalLineView.h"
 #import <QuartzCore/QuartzCore.h>
 
 @interface BaseTextField () {
@@ -200,7 +200,7 @@
 - (void)addTopSeparatorLine{
     
     // Add separator line
-    SeparatorLineView *lineView = [SeparatorLineView autolayoutView];
+    SeparatorHorizontalLineView *lineView = [SeparatorHorizontalLineView autolayoutView];
     [lineView fitIntoContainerView:self color:nil alignTop:YES leftOffset:0 rightOffset:0];
     [self addSubview:lineView];
 }
@@ -208,7 +208,7 @@
 - (void)addMiddleSeparatorLine{
     
     // Add separator line
-    SeparatorLineView *lineView = [SeparatorLineView autolayoutView];
+    SeparatorHorizontalLineView *lineView = [SeparatorHorizontalLineView autolayoutView];
     [lineView fitIntoContainerView:self color:nil alignTop:YES leftOffset:kTextFieldSeparatorLeftOffset rightOffset:0];
     [self addSubview:lineView];
 }
@@ -216,7 +216,7 @@
 - (void)addBottomSeparatorLine{
     
     // Add separator line
-    SeparatorLineView *lineView = [SeparatorLineView autolayoutView];
+    SeparatorHorizontalLineView *lineView = [SeparatorHorizontalLineView autolayoutView];
     [lineView fitIntoContainerView:self color:nil alignTop:NO leftOffset:0 rightOffset:0];
     [self addSubview:lineView];
 }

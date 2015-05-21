@@ -40,13 +40,13 @@
     _keyboardToolBar.barStyle = UIBarStyleDefault;
     
     UIBarButtonItem *cancelButton = [[UIBarButtonItem alloc]initWithTitle:GMLocalizedString(kCancelKey) style:UIBarButtonItemStyleBordered target:self action:@selector(toolbarCancelPressed)];
-    cancelButton.accessibilityLabel = @"keyboard_btnCancel";
+    cancelButton.accessibilityLabel = @"keyboardToolbarCancelButton";
     [cancelButton setTitleTextAttributes:@{NSForegroundColorAttributeName:kColorGrayDark} forState:UIControlStateNormal];
     
     UIBarButtonItem *separator = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
     
     UIBarButtonItem *actionButton = [[UIBarButtonItem alloc]initWithTitle:_actionTitle style:UIBarButtonItemStyleBordered/*UIBarButtonItemStyleDone*/ target:self action:@selector(toolbarActionPressed)];
-    actionButton.accessibilityLabel = @"keyboard_btnAction";
+    actionButton.accessibilityLabel = @"keyboardToolbarActionButton";
     [actionButton setTitleTextAttributes:@{NSForegroundColorAttributeName:kColorGrayDark} forState:UIControlStateNormal];
     
     [_keyboardToolBar setItems:@[cancelButton, separator, actionButton]];

@@ -7,6 +7,9 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ContactsViewController_iphone">
             <connections>
+                <outlet property="cancelButton" destination="gdI-V6-JOw" id="IG3-LV-NER"/>
+                <outlet property="modalToolbar" destination="xbb-hf-FKP" id="ga3-TM-1wo"/>
+                <outlet property="titleLabel" destination="IdT-HK-5eo" id="M6K-hm-OdM"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -15,7 +18,7 @@
             <rect key="frame" x="0.0" y="64" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xbb-hf-FKP">
+                <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xbb-hf-FKP" customClass="NormalModalToolbar">
                     <rect key="frame" x="0.0" y="0.0" width="320" height="64"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="64" id="K0Q-QZ-yft"/>
@@ -23,26 +26,26 @@
                     <items>
                         <barButtonItem title="Cancel" id="gdI-V6-JOw">
                             <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                            <userDefinedRuntimeAttributes>
-                                <userDefinedRuntimeAttribute type="string" keyPath="accessibilityIdentifier" value="UserAccess_btnCancel"/>
-                            </userDefinedRuntimeAttributes>
                         </barButtonItem>
                     </items>
                 </toolbar>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Contacts title" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IdT-HK-5eo" userLabel="TitleLabel">
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Contacts title" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IdT-HK-5eo" userLabel="TitleLabel" customClass="NormalLabel">
                     <rect key="frame" x="109" y="32" width="103" height="21"/>
-                    <accessibility key="accessibilityConfiguration" label="TermsAndConditions_lblTitle"/>
+                    <accessibility key="accessibilityConfiguration" label=""/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                     <userDefinedRuntimeAttributes>
-                        <userDefinedRuntimeAttribute type="string" keyPath="fontType" value="FontLight"/>
+                        <userDefinedRuntimeAttribute type="string" keyPath="fontType" value="FontNormal"/>
                         <userDefinedRuntimeAttribute type="string" keyPath="labelTitleColorName" value="ColorGrayDark"/>
-                        <userDefinedRuntimeAttribute type="string" keyPath="accessibilityIdentifier" value="TermsAndConditions_lblTitle"/>
                     </userDefinedRuntimeAttributes>
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vga-dz-ZA2" customClass="NormalButton">
-                    <rect key="frame" x="107" y="116" width="107" height="30"/>
+                    <rect key="frame" x="60" y="116" width="200" height="30"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="30" id="GbE-7h-nuk"/>
+                        <constraint firstAttribute="width" constant="200" id="utE-wx-JV9"/>
+                    </constraints>
                     <state key="normal" title="Call 123456789">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
@@ -51,7 +54,11 @@
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="axl-9F-n5D" customClass="NormalButton">
-                    <rect key="frame" x="112" y="160" width="97" height="30"/>
+                    <rect key="frame" x="60" y="160" width="200" height="30"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="30" id="Ssv-mV-de3"/>
+                        <constraint firstAttribute="width" constant="200" id="tau-R2-VCG"/>
+                    </constraints>
                     <state key="normal" title="Send email us">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>

@@ -8,6 +8,7 @@
 
 #import "BaseButton.h"
 #import <QuartzCore/QuartzCore.h>
+#import "UIView+Colors.h"
 
 @implementation BaseButton
 
@@ -72,39 +73,8 @@
 
 - (void)initializeProperties {
     
-    _borderSize = kButtonBorderSize;
-    _borderColor = kButtonBorderColor;
-    
-    _cornerRadius = kButtonCornerRadius;
-    
-    _backgroundNormalColor = kButtonBackgroundColorNormalState;
-    _textNormalColor = kButtonTextColorNormalState;
-    
-    _backgroundHighlightedColor = kButtonBackgroundColorHighlightedState;
-    _textHighlightedColor = kButtonTextColorHighlightedState;
-    
-    _backgroundDisabledColor = kButtonBackgroundColorDisabledState;
-    _textDisabledColor = kButtonTextColorDisabledState;
-    
-    _fontName = kButtonTextFont;
-    _fontSize = kButtonTextFontSize;
-}
-
-#pragma mark - Helpers
-
-- (UIImage *)imageWithColor:(UIColor *)color {
-    
-    CGRect rect = CGRectMake(0.0f, 0.0f, 1.0f, 1.0f);
-    UIGraphicsBeginImageContext(rect.size);
-    CGContextRef context = UIGraphicsGetCurrentContext();
-    
-    CGContextSetFillColorWithColor(context, [color CGColor]);
-    CGContextFillRect(context, rect);
-    
-    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
-    UIGraphicsEndImageContext();
-    
-    return image;
+    // Override in child classes
+    // ...
 }
 
 @end
