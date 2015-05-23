@@ -65,7 +65,7 @@
     ViewControllerFactory *viewControllerFactory = [[ViewControllerFactory alloc] init];
     [REGISTRY registerObject:viewControllerFactory];
     
-#warning Push notifications
+#warning TODO push notifications
     // Register for push notifications
     [application registerForRemoteNotificationTypes:(UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeAlert | UIRemoteNotificationTypeSound)];
     
@@ -265,6 +265,11 @@
 
 #pragma mark - Helpers
 
+- (UINavigationController *)navigationController {
+    
+    return _menuNavigator.centerViewController;
+}
+
 - (void)initializeManagers {
     
     // Create managers and other shared single objects
@@ -311,7 +316,7 @@
     [userManager loadUser];
 
     // Apply style
-    //[AppNavigationBar applyStyleForNavigationBar:_navigationController.navigationBar];
+    [TopNavigationBar applyStyleForNavigationBar:self.navigationController.navigationBar];
 }
 
 // Currently the app supports 2 languages only - "en" and "de". If user has selected other language than those two then "en" will be set as default

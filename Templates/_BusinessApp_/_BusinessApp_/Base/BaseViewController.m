@@ -23,11 +23,11 @@
     
 #if defined(ENTERPRISE_BUILD) || defined(DEBUG)
     NetworkEnvironmentSwitch4Testing *_networkSwitch4Testing;
-    UISwipeGestureRecognizer *_swipeNetworkChangeGestureRecognizer;
+    UITapGestureRecognizer *_networkChangeGestureRecognizer;
     BOOL _isVisibleDebugNetworkEnvironmentSwich;
     
     ConsoleLogViewController *_consoleLoggerVC;
-    UISwipeGestureRecognizer *_swipeConsoleLoggerGestureRecognizer;
+    UILongPressGestureRecognizer *_consoleLoggerGestureRecognizer;
     BOOL _isVisibleConsoleLogger;
 #endif
 }
@@ -79,15 +79,17 @@
     // Add network change switch
     _networkSwitch4Testing = [[NetworkEnvironmentSwitch4Testing alloc] init];
     _networkSwitch4Testing.delegate = (id<NetworkEnvironmentSwitch4TestingDelegate>) self;
-    _swipeNetworkChangeGestureRecognizer = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(handleNetworkChangeSwitch)];
-    _swipeNetworkChangeGestureRecognizer.direction = UISwipeGestureRecognizerDirectionRight;
+    _networkChangeGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleNetworkChangeSwitch)];
+    //_networkChangeGestureRecognizer.direction = UISwipeGestureRecognizerDirectionLeft;
+    _networkChangeGestureRecognizer.numberOfTapsRequired = 3;
     
-    [self.navigationItem.titleView addGestureRecognizer:_swipeNetworkChangeGestureRecognizer];
+    [self.navigationItem.titleView addGestureRecognizer:_networkChangeGestureRecognizer];
     
     // Add console log
-    _swipeConsoleLoggerGestureRecognizer = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(handleConsoleLog)];
-    _swipeConsoleLoggerGestureRecognizer.direction = UISwipeGestureRecognizerDirectionLeft;
-    [self.navigationItem.titleView addGestureRecognizer:_swipeConsoleLoggerGestureRecognizer];
+    _consoleLoggerGestureRecognizer = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(handleConsoleLog:)];
+    _consoleLoggerGestureRecognizer.minimumPressDuration = 0.5f;
+    //_consoleLoggerGestureRecognizer.direction = UISwipeGestureRecognizerDirectionDown;
+    [self.navigationItem.titleView addGestureRecognizer:_consoleLoggerGestureRecognizer];
     
 #endif
 }
@@ -402,7 +404,12 @@
     [self loadModel];
 }
 
-- (void)handleConsoleLog {
+- (void)handleConsoleLog:(UILongPressGestureRecognizer*)sender {
+    
+    if (sender.state != UIGestureRecognizerStateEnded) {
+        
+        return;
+    }
     
     if (!_isVisibleConsoleLogger) {
         
