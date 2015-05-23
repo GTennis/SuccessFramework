@@ -555,6 +555,13 @@
 			path = ErrorViews;
 			sourceTree = "<group>";
 		};
+		0F763BFA1B0F05D7004182F3 /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Modules;
+			sourceTree = "<group>";
+		};
 		0F7A853A1AFFF37400A2F6C4 /* Base */ = {
 			isa = PBXGroup;
 			children = (
@@ -919,6 +926,7 @@
 		0FA695C019BB9A720058A722 /* _BusinessApp_Tests */ = {
 			isa = PBXGroup;
 			children = (
+				0F763BFA1B0F05D7004182F3 /* Modules */,
 				0FA695C619BB9A720058A722 /* _BusinessApp_Tests.m */,
 				0FA695C119BB9A720058A722 /* Supporting Files */,
 			);
@@ -2187,6 +2195,7 @@
 		};
 		0FA695CE19BB9A720058A722 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 28D92D4B24CACDF282AC3836 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/_BusinessApp_.app/_BusinessApp_";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -2209,6 +2218,7 @@
 		};
 		0FA695CF19BB9A720058A722 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6E0BD085B1D95E6D8A405F54 /* Pods.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/_BusinessApp_.app/_BusinessApp_";
 				FRAMEWORK_SEARCH_PATHS = (
