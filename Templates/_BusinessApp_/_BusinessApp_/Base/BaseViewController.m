@@ -79,17 +79,31 @@
     // Add network change switch
     _networkSwitch4Testing = [[NetworkEnvironmentSwitch4Testing alloc] init];
     _networkSwitch4Testing.delegate = (id<NetworkEnvironmentSwitch4TestingDelegate>) self;
-    _networkChangeGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleNetworkChangeSwitch)];
+    //_networkChangeGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleNetworkChangeSwitch)];
     //_networkChangeGestureRecognizer.direction = UISwipeGestureRecognizerDirectionLeft;
-    _networkChangeGestureRecognizer.numberOfTapsRequired = 3;
+    //_networkChangeGestureRecognizer.numberOfTapsRequired = 3;
     
-    [self.navigationItem.titleView addGestureRecognizer:_networkChangeGestureRecognizer];
+    //[self.navigationItem.titleView addGestureRecognizer:_networkChangeGestureRecognizer];
+    
+    UIButton *networkChangeButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    networkChangeButton.frame = CGRectMake(50, 5, 40, 30);
+    networkChangeButton.backgroundColor = [UIColor greenColor];
+    [networkChangeButton setTitle:@"Env" forState:UIControlStateNormal];
+    [networkChangeButton addTarget:self action:@selector(handleNetworkChangeSwitch) forControlEvents:UIControlEventTouchUpInside];
+    [self.navigationItem.titleView addSubview:networkChangeButton];
     
     // Add console log
-    _consoleLoggerGestureRecognizer = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(handleConsoleLog:)];
-    _consoleLoggerGestureRecognizer.minimumPressDuration = 0.5f;
+    //_consoleLoggerGestureRecognizer = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(handleConsoleLog:)];
+    //_consoleLoggerGestureRecognizer.minimumPressDuration = 0.5f;
     //_consoleLoggerGestureRecognizer.direction = UISwipeGestureRecognizerDirectionDown;
-    [self.navigationItem.titleView addGestureRecognizer:_consoleLoggerGestureRecognizer];
+    //[self.navigationItem.titleView addGestureRecognizer:_consoleLoggerGestureRecognizer];
+    
+    UIButton *consoleLoggerButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    consoleLoggerButton.frame = CGRectMake(95, 5, 40, 30);
+    consoleLoggerButton.backgroundColor = [UIColor magentaColor];
+    [consoleLoggerButton setTitle:@"Log" forState:UIControlStateNormal];
+    [consoleLoggerButton addTarget:self action:@selector(handleConsoleLog:) forControlEvents:UIControlEventTouchUpInside];
+    [self.navigationItem.titleView addSubview:consoleLoggerButton];
     
 #endif
 }
@@ -406,10 +420,10 @@
 
 - (void)handleConsoleLog:(UILongPressGestureRecognizer*)sender {
     
-    if (sender.state != UIGestureRecognizerStateEnded) {
+    /*if (sender.state != UIGestureRecognizerStateEnded) {
         
         return;
-    }
+    }*/
     
     if (!_isVisibleConsoleLogger) {
         
@@ -418,11 +432,16 @@
         
         [self.view addSubview:_consoleLoggerVC.view];
         
+        // Need to showing alert/email sending
+        [self addChildViewController:_consoleLoggerVC];
+        [_consoleLoggerVC didMoveToParentViewController:self];
+        
         _isVisibleConsoleLogger = YES;
         
     } else {
         
         [_consoleLoggerVC.view removeFromSuperview];
+        [_consoleLoggerVC removeFromParentViewController];
         _consoleLoggerVC = nil;
         
         _isVisibleConsoleLogger = NO;

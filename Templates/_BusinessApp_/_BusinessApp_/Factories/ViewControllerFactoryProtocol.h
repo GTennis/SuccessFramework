@@ -22,6 +22,7 @@
 @class ContactViewController;
 @class TableViewExampleViewController;
 @class ScrollViewExampleViewController;
+@class PhotoDetailsViewController;
 
 @protocol ViewControllerFactoryProtocol <NSObject>
 
@@ -40,8 +41,10 @@
 // User profile
 - (UserProfileViewController *)userProfileViewControllerWithContext:(id)context;
 
-// Main
+// Home related
 - (HomeViewController *)homeViewControllerWithContext:(id)context;
+
+- (PhotoDetailsViewController *)photoDetailsViewControllerWithContext:(id)context;
 
 // Terms and Conditions
 - (TermsConditionsViewController *)termsConditionsViewControllerWithContext:(id)context;

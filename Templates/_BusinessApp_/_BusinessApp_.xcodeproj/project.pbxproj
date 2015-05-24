@@ -96,6 +96,13 @@
 		0FC41E1F1B105BC000C7210B /* HomeModelTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FC41E1E1B105BC000C7210B /* HomeModelTests.m */; };
 		0FC41E211B105BE400C7210B /* HomeListItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FC41E201B105BE400C7210B /* HomeListItemView.m */; };
 		0FC41E231B105BF700C7210B /* HomeViewControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FC41E221B105BF700C7210B /* HomeViewControllerTests.m */; };
+		0FC47F181B126E7F007A7E8D /* PhotoDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FC47F171B126E7F007A7E8D /* PhotoDetailsViewController.m */; };
+		0FC47F1C1B126E95007A7E8D /* PhotoDetailsViewController_iphone.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FC47F1A1B126E95007A7E8D /* PhotoDetailsViewController_iphone.m */; };
+		0FC47F1D1B126E95007A7E8D /* PhotoDetailsViewController_iphone.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0FC47F1B1B126E95007A7E8D /* PhotoDetailsViewController_iphone.xib */; };
+		0FC47F211B126EAD007A7E8D /* PhotoDetailsViewController_ipad.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FC47F1F1B126EAD007A7E8D /* PhotoDetailsViewController_ipad.m */; };
+		0FC47F221B126EAD007A7E8D /* PhotoDetailsViewController_ipad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0FC47F201B126EAD007A7E8D /* PhotoDetailsViewController_ipad.xib */; };
+		0FC47F251B126ED3007A7E8D /* PhotoDetailsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FC47F241B126ED3007A7E8D /* PhotoDetailsModel.m */; };
+		0FC47F261B127A67007A7E8D /* glockenspiel.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3119A4001B0DDDC6001CCA38 /* glockenspiel.ttf */; };
 		0FC4D1671AFBE0CA00CF4C24 /* MenuViewController_iphone.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FC4D1651AFBE0CA00CF4C24 /* MenuViewController_iphone.m */; };
 		0FC4D1681AFBE0CA00CF4C24 /* MenuViewController_iphone.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0FC4D1661AFBE0CA00CF4C24 /* MenuViewController_iphone.xib */; };
 		0FC4D16C1AFBE11500CF4C24 /* MenuViewController_ipad.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FC4D16A1AFBE11500CF4C24 /* MenuViewController_ipad.m */; };
@@ -334,6 +341,16 @@
 		0FC41E1E1B105BC000C7210B /* HomeModelTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeModelTests.m; sourceTree = "<group>"; };
 		0FC41E201B105BE400C7210B /* HomeListItemView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeListItemView.m; sourceTree = "<group>"; };
 		0FC41E221B105BF700C7210B /* HomeViewControllerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewControllerTests.m; sourceTree = "<group>"; };
+		0FC47F161B126E7F007A7E8D /* PhotoDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoDetailsViewController.h; sourceTree = "<group>"; };
+		0FC47F171B126E7F007A7E8D /* PhotoDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoDetailsViewController.m; sourceTree = "<group>"; };
+		0FC47F191B126E95007A7E8D /* PhotoDetailsViewController_iphone.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoDetailsViewController_iphone.h; sourceTree = "<group>"; };
+		0FC47F1A1B126E95007A7E8D /* PhotoDetailsViewController_iphone.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoDetailsViewController_iphone.m; sourceTree = "<group>"; };
+		0FC47F1B1B126E95007A7E8D /* PhotoDetailsViewController_iphone.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PhotoDetailsViewController_iphone.xib; sourceTree = "<group>"; };
+		0FC47F1E1B126EAD007A7E8D /* PhotoDetailsViewController_ipad.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoDetailsViewController_ipad.h; sourceTree = "<group>"; };
+		0FC47F1F1B126EAD007A7E8D /* PhotoDetailsViewController_ipad.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoDetailsViewController_ipad.m; sourceTree = "<group>"; };
+		0FC47F201B126EAD007A7E8D /* PhotoDetailsViewController_ipad.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PhotoDetailsViewController_ipad.xib; sourceTree = "<group>"; };
+		0FC47F231B126ED3007A7E8D /* PhotoDetailsModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoDetailsModel.h; sourceTree = "<group>"; };
+		0FC47F241B126ED3007A7E8D /* PhotoDetailsModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoDetailsModel.m; sourceTree = "<group>"; };
 		0FC4D1641AFBE0CA00CF4C24 /* MenuViewController_iphone.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuViewController_iphone.h; sourceTree = "<group>"; };
 		0FC4D1651AFBE0CA00CF4C24 /* MenuViewController_iphone.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuViewController_iphone.m; sourceTree = "<group>"; };
 		0FC4D1661AFBE0CA00CF4C24 /* MenuViewController_iphone.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MenuViewController_iphone.xib; sourceTree = "<group>"; };
@@ -612,10 +629,10 @@
 		0F7A85481AFFF92800A2F6C4 /* Base */ = {
 			isa = PBXGroup;
 			children = (
-				0FABA6F019CAFD8400CC7DD3 /* ContactsViewController.h */,
-				0FABA6F119CAFD8400CC7DD3 /* ContactsViewController.m */,
 				0FC719FD1AF9346500912FF1 /* ContactsModel.h */,
 				0FC719FE1AF9346500912FF1 /* ContactsModel.m */,
+				0FABA6F019CAFD8400CC7DD3 /* ContactsViewController.h */,
+				0FABA6F119CAFD8400CC7DD3 /* ContactsViewController.m */,
 			);
 			name = Base;
 			sourceTree = "<group>";
@@ -846,10 +863,10 @@
 			isa = PBXGroup;
 			children = (
 				0FA694DA19DD4E4600CC4E83 /* Cells */,
-				0FA839B819BC58C20037B5F3 /* HomeViewController.h */,
-				0FA839B919BC58C20037B5F3 /* HomeViewController.m */,
 				0FA62C7819CF6D17002D3DDC /* HomeModel.h */,
 				0FA62C7919CF6D17002D3DDC /* HomeModel.m */,
+				0FA839B819BC58C20037B5F3 /* HomeViewController.h */,
+				0FA839B919BC58C20037B5F3 /* HomeViewController.m */,
 			);
 			name = Base;
 			sourceTree = "<group>";
@@ -1041,17 +1058,18 @@
 		0FA695D919BB9B0F0058A722 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
-				0FC71A071AF93A6100912FF1 /* CountryPicker */,
 				0FC719BD1AF925D600912FF1 /* Walkthrough */,
 				0FE1CB421AF674A1006769FE /* Menu */,
 				0FE1CA8F1AF63369006769FE /* User */,
 				0FA839CE19BCCA7C0037B5F3 /* Launch */,
 				0FA839B719BC58AB0037B5F3 /* Home */,
+				0FC47F121B126E36007A7E8D /* PhotoDetails */,
 				0FA839BD19BC5DE00037B5F3 /* Settings */,
 				0FA67FB619C6380000E00FDA /* TermsConditions */,
 				0FA3F9FA19C76BFD001FC84F /* TableViewExample */,
 				0FA4E8EE19CD5F540046CA90 /* ScrollViewExample */,
 				0FABA6ED19CAFD4600CC7DD3 /* Contacts */,
+				0FC71A071AF93A6100912FF1 /* CountryPicker */,
 				0FE1CAFA1AF65CFD006769FE /* ConsoleLogger */,
 			);
 			path = Modules;
@@ -1279,6 +1297,47 @@
 				0FC41E221B105BF700C7210B /* HomeViewControllerTests.m */,
 			);
 			name = Base;
+			sourceTree = "<group>";
+		};
+		0FC47F121B126E36007A7E8D /* PhotoDetails */ = {
+			isa = PBXGroup;
+			children = (
+				0FC47F131B126E49007A7E8D /* Base */,
+				0FC47F141B126E4E007A7E8D /* iphone */,
+				0FC47F151B126E54007A7E8D /* ipad */,
+			);
+			name = PhotoDetails;
+			sourceTree = "<group>";
+		};
+		0FC47F131B126E49007A7E8D /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				0FC47F231B126ED3007A7E8D /* PhotoDetailsModel.h */,
+				0FC47F241B126ED3007A7E8D /* PhotoDetailsModel.m */,
+				0FC47F161B126E7F007A7E8D /* PhotoDetailsViewController.h */,
+				0FC47F171B126E7F007A7E8D /* PhotoDetailsViewController.m */,
+			);
+			name = Base;
+			sourceTree = "<group>";
+		};
+		0FC47F141B126E4E007A7E8D /* iphone */ = {
+			isa = PBXGroup;
+			children = (
+				0FC47F191B126E95007A7E8D /* PhotoDetailsViewController_iphone.h */,
+				0FC47F1A1B126E95007A7E8D /* PhotoDetailsViewController_iphone.m */,
+				0FC47F1B1B126E95007A7E8D /* PhotoDetailsViewController_iphone.xib */,
+			);
+			name = iphone;
+			sourceTree = "<group>";
+		};
+		0FC47F151B126E54007A7E8D /* ipad */ = {
+			isa = PBXGroup;
+			children = (
+				0FC47F1E1B126EAD007A7E8D /* PhotoDetailsViewController_ipad.h */,
+				0FC47F1F1B126EAD007A7E8D /* PhotoDetailsViewController_ipad.m */,
+				0FC47F201B126EAD007A7E8D /* PhotoDetailsViewController_ipad.xib */,
+			);
+			name = ipad;
 			sourceTree = "<group>";
 		};
 		0FC4D1611AFBE09B00CF4C24 /* Base */ = {
@@ -1827,6 +1886,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0FC47F261B127A67007A7E8D /* glockenspiel.ttf in Resources */,
 				0FB3F4A519E5388A0040E4D7 /* Default-Portrait@2x.png in Resources */,
 				0FB3F49F19E5387E0040E4D7 /* Default-Landscape@2x.png in Resources */,
 				0FC4D16D1AFBE11500CF4C24 /* MenuViewController_ipad.xib in Resources */,
@@ -1836,6 +1896,7 @@
 				0FA695B419BB9A720058A722 /* SystemImages.xcassets in Resources */,
 				0FABA6FC19CAFDC400CC7DD3 /* ContactsViewController_iphone.xib in Resources */,
 				0FC4D1681AFBE0CA00CF4C24 /* MenuViewController_iphone.xib in Resources */,
+				0FC47F1D1B126E95007A7E8D /* PhotoDetailsViewController_iphone.xib in Resources */,
 				0FA3FA0419C77794001FC84F /* TableViewExampleViewController_ipad.xib in Resources */,
 				0FE1CB0D1AF65EEC006769FE /* ConsoleLogViewController_ipad.xib in Resources */,
 				0FB3F48E19E52E3C0040E4D7 /* Default.png in Resources */,
@@ -1850,6 +1911,7 @@
 				0FA3FA0A19C777FC001FC84F /* TableViewExampleCell_ipad.xib in Resources */,
 				0FABA6F719CAFD9C00CC7DD3 /* ContactsViewController_ipad.xib in Resources */,
 				0FA695A319BB9A720058A722 /* InfoPlist.strings in Resources */,
+				0FC47F221B126EAD007A7E8D /* PhotoDetailsViewController_ipad.xib in Resources */,
 				0FA839D519BCD8470037B5F3 /* CustomImages.xcassets in Resources */,
 				0FE1CB081AF65EC1006769FE /* ConsoleLogViewController_iphone.xib in Resources */,
 				0FA839EE19BCF8E50037B5F3 /* Localizable.strings in Resources */,
@@ -1925,6 +1987,7 @@
 				0FE1CAED1AF6564B006769FE /* ImageObject.m in Sources */,
 				0FE1CB541AF68FCF006769FE /* KeychainManager.m in Sources */,
 				0FE1CAC91AF64B29006769FE /* GMObserverList.m in Sources */,
+				0FC47F181B126E7F007A7E8D /* PhotoDetailsViewController.m in Sources */,
 				0FC719C31AF92D2A00912FF1 /* BaseNetworkOperation.m in Sources */,
 				0FE1CB301AF66B98006769FE /* NormalTextField.m in Sources */,
 				0F70DF311AFFC4C5004293F1 /* TopNavigationBar_iphone.m in Sources */,
@@ -1944,6 +2007,7 @@
 				0FE1CAB81AF64246006769FE /* ViewControllerFactory.m in Sources */,
 				0F70DF401AFFD2E4004293F1 /* HomeListItemView_ipad.m in Sources */,
 				0FC4D16C1AFBE11500CF4C24 /* MenuViewController_ipad.m in Sources */,
+				0FC47F251B126ED3007A7E8D /* PhotoDetailsModel.m in Sources */,
 				0FE1CB331AF66BAD006769FE /* PasswordTextField.m in Sources */,
 				0FE1CB281AF669BC006769FE /* BaseLabel.m in Sources */,
 				0FC719DF1AF9331A00912FF1 /* UserLoginModel.m in Sources */,
@@ -1965,6 +2029,7 @@
 				0FC719ED1AF933A000912FF1 /* UserForgotPasswordModel.m in Sources */,
 				0FABA70D19CB07A600CC7DD3 /* UISynchedWebView.m in Sources */,
 				0FA3FA0319C77794001FC84F /* TableViewExampleViewController_ipad.m in Sources */,
+				0FC47F1C1B126E95007A7E8D /* PhotoDetailsViewController_iphone.m in Sources */,
 				0FE1CB361AF66C52006769FE /* NormalButton.m in Sources */,
 				0FA3FA1619C780EF001FC84F /* OrderItemObject.m in Sources */,
 				0FA67F7E19C61F8600E00FDA /* BaseWebViewController.m in Sources */,
@@ -2009,6 +2074,7 @@
 				0FA3F9FF19C77777001FC84F /* TableViewExampleViewController.m in Sources */,
 				0FE1CB191AF664A1006769FE /* NSDictionary+JSON.m in Sources */,
 				0FA3FA0819C777DD001FC84F /* TableViewExampleCell.m in Sources */,
+				0FC47F211B126EAD007A7E8D /* PhotoDetailsViewController_ipad.m in Sources */,
 				0FA839BB19BC58C20037B5F3 /* HomeViewController.m in Sources */,
 				0FABA6E919CAEC4B00CC7DD3 /* MessageBarManager.m in Sources */,
 				0FE1CAA11AF63B77006769FE /* Registry.m in Sources */,

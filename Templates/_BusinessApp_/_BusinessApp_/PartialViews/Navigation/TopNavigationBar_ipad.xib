@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.iPad.XIB" version="3.0" toolsVersion="6751" systemVersion="13F1077" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.iPad.XIB" version="3.0" toolsVersion="6254" systemVersion="14B25" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
@@ -11,25 +11,25 @@
             <rect key="frame" x="0.0" y="0.0" width="1024" height="44"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IjA-x3-fdJ">
-                    <rect key="frame" x="0.0" y="1" width="46" height="43"/>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IjA-x3-fdJ" userLabel="Back">
+                    <rect key="frame" x="0.0" y="0.0" width="46" height="44"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="46" id="fGD-CB-9Ff"/>
-                        <constraint firstAttribute="height" constant="43" id="yOi-KT-lgd"/>
+                        <constraint firstAttribute="height" constant="44" id="yOi-KT-lgd"/>
                     </constraints>
-                    <state key="normal" title="Back">
+                    <state key="normal" image="iconBack">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                     <connections>
                         <action selector="backPressed:" destination="csU-tQ-UZW" eventType="touchUpInside" id="HHe-SE-UgN"/>
                     </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="omf-mH-Szn">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="omf-mH-Szn" userLabel="Menu">
                     <rect key="frame" x="0.0" y="0.0" width="46" height="44"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="46" id="KY0-KB-EGP"/>
                     </constraints>
-                    <state key="normal" title="Menu">
+                    <state key="normal" image="iconMenu">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                     <connections>
@@ -37,7 +37,7 @@
                     </connections>
                 </button>
                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oFJ-Wh-1Vh">
-                    <rect key="frame" x="69" y="11" width="899" height="21"/>
+                    <rect key="frame" x="48" y="11" width="940" height="21"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="21" id="JKo-tm-lXS"/>
                     </constraints>
@@ -59,15 +59,15 @@
             </subviews>
             <constraints>
                 <constraint firstItem="omf-mH-Szn" firstAttribute="leading" secondItem="csU-tQ-UZW" secondAttribute="leading" id="2PU-wu-Mn2"/>
-                <constraint firstAttribute="centerY" secondItem="IjA-x3-fdJ" secondAttribute="centerY" id="7IX-z0-rSf"/>
                 <constraint firstAttribute="centerY" secondItem="BBj-OM-7FN" secondAttribute="centerY" id="Ao0-re-unc"/>
-                <constraint firstItem="oFJ-Wh-1Vh" firstAttribute="leading" secondItem="IjA-x3-fdJ" secondAttribute="trailing" constant="23" id="PbQ-no-si3"/>
+                <constraint firstItem="oFJ-Wh-1Vh" firstAttribute="leading" secondItem="IjA-x3-fdJ" secondAttribute="trailing" constant="2" id="PbQ-no-si3"/>
                 <constraint firstItem="IjA-x3-fdJ" firstAttribute="leading" secondItem="csU-tQ-UZW" secondAttribute="leading" id="QCM-Go-a2b"/>
+                <constraint firstItem="IjA-x3-fdJ" firstAttribute="top" secondItem="csU-tQ-UZW" secondAttribute="top" id="WVE-7p-tEH"/>
                 <constraint firstAttribute="centerY" secondItem="oFJ-Wh-1Vh" secondAttribute="centerY" id="j4G-nD-BSn"/>
                 <constraint firstItem="omf-mH-Szn" firstAttribute="top" secondItem="csU-tQ-UZW" secondAttribute="top" id="k4y-kR-6Kv"/>
                 <constraint firstAttribute="bottom" secondItem="omf-mH-Szn" secondAttribute="bottom" id="oFz-kz-cWr"/>
                 <constraint firstAttribute="trailing" secondItem="BBj-OM-7FN" secondAttribute="trailing" constant="6" id="pQ3-5h-fga"/>
-                <constraint firstItem="BBj-OM-7FN" firstAttribute="leading" secondItem="oFJ-Wh-1Vh" secondAttribute="trailing" constant="28" id="xEH-25-81E"/>
+                <constraint firstItem="BBj-OM-7FN" firstAttribute="leading" secondItem="oFJ-Wh-1Vh" secondAttribute="trailing" constant="8" id="xEH-25-81E"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
@@ -80,6 +80,10 @@
             <point key="canvasLocation" x="143" y="340"/>
         </view>
     </objects>
+    <resources>
+        <image name="iconBack" width="12" height="23"/>
+        <image name="iconMenu" width="20" height="14"/>
+    </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

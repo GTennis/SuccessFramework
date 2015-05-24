@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6751" systemVersion="13F1077" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6254" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
@@ -11,25 +11,28 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wU2-cf-fj6">
-                    <rect key="frame" x="0.0" y="7" width="46" height="30"/>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wU2-cf-fj6" userLabel="Back">
+                    <rect key="frame" x="0.0" y="0.0" width="46" height="44"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="46" id="DzL-BF-LFj"/>
-                        <constraint firstAttribute="height" constant="30" id="FEF-6G-X0q"/>
+                        <constraint firstAttribute="height" constant="44" id="FEF-6G-X0q"/>
                     </constraints>
-                    <state key="normal" title="Back">
+                    <inset key="contentEdgeInsets" minX="-10" minY="0.0" maxX="0.0" maxY="0.0"/>
+                    <state key="normal" image="iconBack">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                     <connections>
                         <action selector="backPressed:" destination="gde-7P-8qV" eventType="touchUpInside" id="CWu-29-otJ"/>
                     </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JTx-74-JtF">
-                    <rect key="frame" x="0.0" y="0.0" width="46" height="44"/>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JTx-74-JtF" userLabel="Menu">
+                    <rect key="frame" x="0.0" y="0.0" width="51" height="44"/>
+                    <rect key="contentStretch" x="1" y="0.0" width="1" height="1"/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="46" id="ReN-Xr-Drw"/>
+                        <constraint firstAttribute="width" constant="51" id="ReN-Xr-Drw"/>
                     </constraints>
-                    <state key="normal" title="Menu">
+                    <inset key="contentEdgeInsets" minX="-10" minY="0.0" maxX="0.0" maxY="0.0"/>
+                    <state key="normal" image="iconMenu">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                     <connections>
@@ -37,7 +40,7 @@
                     </connections>
                 </button>
                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3BZ-G5-9e5">
-                    <rect key="frame" x="69" y="11" width="182" height="21"/>
+                    <rect key="frame" x="48" y="11" width="235" height="21"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="21" id="5SH-qX-qaD"/>
                     </constraints>
@@ -59,12 +62,12 @@
                 <constraint firstAttribute="trailing" secondItem="0iI-yR-vsX" secondAttribute="trailing" constant="7" id="8m3-4G-awl"/>
                 <constraint firstAttribute="bottom" secondItem="JTx-74-JtF" secondAttribute="bottom" id="HcG-or-Wo1"/>
                 <constraint firstAttribute="centerY" secondItem="0iI-yR-vsX" secondAttribute="centerY" id="NJh-ul-UNg"/>
-                <constraint firstItem="3BZ-G5-9e5" firstAttribute="leading" secondItem="wU2-cf-fj6" secondAttribute="trailing" constant="23" id="Nht-kF-Su9"/>
                 <constraint firstItem="wU2-cf-fj6" firstAttribute="leading" secondItem="gde-7P-8qV" secondAttribute="leading" id="UbN-5E-78m"/>
-                <constraint firstAttribute="centerY" secondItem="wU2-cf-fj6" secondAttribute="centerY" id="bVr-uB-H3d"/>
+                <constraint firstItem="wU2-cf-fj6" firstAttribute="top" secondItem="gde-7P-8qV" secondAttribute="top" id="V17-CZ-9EU"/>
                 <constraint firstItem="JTx-74-JtF" firstAttribute="top" secondItem="gde-7P-8qV" secondAttribute="top" id="fZL-mA-fEx"/>
                 <constraint firstItem="JTx-74-JtF" firstAttribute="leading" secondItem="gde-7P-8qV" secondAttribute="leading" id="jkL-dr-Ir9"/>
-                <constraint firstAttribute="centerX" secondItem="3BZ-G5-9e5" secondAttribute="centerX" id="tfm-ca-6hy"/>
+                <constraint firstItem="3BZ-G5-9e5" firstAttribute="leading" secondItem="gde-7P-8qV" secondAttribute="leading" constant="48" id="o2R-mD-Y8n"/>
+                <constraint firstAttribute="trailing" secondItem="3BZ-G5-9e5" secondAttribute="trailing" constant="37" id="vkM-11-47o"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
@@ -77,6 +80,10 @@
             <point key="canvasLocation" x="419" y="263"/>
         </view>
     </objects>
+    <resources>
+        <image name="iconBack" width="12" height="23"/>
+        <image name="iconMenu" width="20" height="14"/>
+    </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

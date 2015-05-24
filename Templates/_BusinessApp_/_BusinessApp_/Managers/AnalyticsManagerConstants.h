@@ -14,6 +14,7 @@
 //---------- Screens -----------//
 
 #define kAnalyticsManagerScreenHome @"Home"
+#define kAnalyticsManagerScreenPhotoDetails @"PhotoDetails"
 #define kAnalyticsManagerScreenTermsConditions @"TermsConditions"
 #define kAnalyticsManagerScreenUserLogin @"UserLogin"
 #define kAnalyticsManagerScreenUserSignUp @"UserSignUp"

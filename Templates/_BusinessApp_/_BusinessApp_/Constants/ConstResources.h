@@ -10,4 +10,4 @@
 // ...
 
 // #define kPlaceholderLoadingImageName @"someImageWhichWillBeShownWhenLoadingOriginalOne"
-#define kContentPlaceholderImage @"ContentPlaceholder"
+#define kContentPlaceholderImage @"contentPlaceholder"

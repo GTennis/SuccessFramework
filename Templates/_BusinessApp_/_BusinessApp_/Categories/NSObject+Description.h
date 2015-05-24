@@ -16,7 +16,7 @@
 
 // Overrides native method and prints out all properties and their variables
 // Used from: http://stackoverflow.com/questions/6376344/generic-objective-c-description-method-to-print-ivar-values
-- (NSString *)description;
+//- (NSString *)description;
 
 #endif
 

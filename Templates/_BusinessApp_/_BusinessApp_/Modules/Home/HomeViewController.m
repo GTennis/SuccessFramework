@@ -10,6 +10,9 @@
 #import "HomeModel.h"
 #import "ImagesObject.h"
 
+#define kHomeViewControllerTitle @"Home"
+#define kHomeViewControllerDataLoadingProgressLabel @"HomeProgressLabel"
+
 @interface HomeViewController () {
     
 }
@@ -118,8 +121,8 @@
 
 - (void)didPressedWithImage:(ImageObject *)image {
     
-    // Handle cell click
-    // ...
+    UIViewController *viewController = (UIViewController *)[self.viewControllerFactory photoDetailsViewControllerWithContext:image];
+    [self.navigationController pushViewController:viewController animated:YES];
 }
 
 #pragma mark - Helpers
@@ -129,8 +132,8 @@
     [super prepareUI];
     
     // Set title
-    self.title = GMLocalizedString(@"Home");
-    _progressLabel.text = GMLocalizedString(@"HomeProgressLabel");
+    self.title = GMLocalizedString(kHomeViewControllerTitle);
+    _progressLabel.text = GMLocalizedString(kHomeViewControllerDataLoadingProgressLabel);
 }
 
 - (void)renderUI {

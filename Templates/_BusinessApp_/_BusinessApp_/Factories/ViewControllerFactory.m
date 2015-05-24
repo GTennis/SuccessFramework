@@ -15,9 +15,11 @@
 #import "BackendAPIClient.h"
 #import "MessageBarManager.h"
 
-// Home
+// Home related
 #import "HomeViewController.h"
 #import "HomeModel.h"
+#import "PhotoDetailsViewController.h"
+#import "PhotoDetailsModel.h"
 
 // User container
 #import "UserContainerViewController.h"
@@ -65,7 +67,7 @@
 
 @implementation ViewControllerFactory
 
-#pragma mark - Home
+#pragma mark - Home related
 
 - (HomeViewController *)homeViewControllerWithContext:(id)context {
     
@@ -74,6 +76,15 @@
     homeViewController.model = homeModel;
 
     return homeViewController;
+}
+
+- (PhotoDetailsViewController *)photoDetailsViewControllerWithContext:(id)context {
+    
+    PhotoDetailsModel *model = (PhotoDetailsModel *)[self modelWithClass:[PhotoDetailsModel class] context:context];
+    PhotoDetailsViewController *viewController = (PhotoDetailsViewController *)[self viewControllerWithClass:[PhotoDetailsViewController class] context:context];
+    viewController.model = model;
+    
+    return viewController;
 }
 
 #pragma mark - User related

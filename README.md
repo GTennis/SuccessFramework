@@ -67,30 +67,32 @@ PS: -d will clean the contents of "Projects" folder.
 
 4. Model and data object separation for separating concerns between business logic (models) and data containers (data objects)
 
-5. Common shared functionality facade type components (Manager):**UserManager** (encapsulates login, signUp, logout, resetPassword and other related functionality, and allow observer to subscribe for status change callbacks), **MessageBarManager** (for showing animated nice short messages on top of the screen), **CrashManager** (for encapsulating crash reporting related logic), **SettingsManager** (for encapsulating business logic when working NSUserDefaults or any other simple data storage), **ReachabilityManager** (for encapsulating network status logic and allow observer to subscribe for status change callbacks), **AnalyticsManager** (for encapsulating Google Analytics or other reporting service related logic).
+5. Ready to go for TDD architecture with dependency injection for viewControllers and their models
 
-6. API clients and operation style classes for communicating with backend
+6. Common shared functionality facade type components (Manager):**UserManager** (encapsulates login, signUp, logout, resetPassword and other related functionality, and allow observer to subscribe for status change callbacks), **MessageBarManager** (for showing animated nice short messages on top of the screen), **CrashManager** (for encapsulating crash reporting related logic), **SettingsManager** (for encapsulating business logic when working NSUserDefaults or any other simple data storage), **ReachabilityManager** (for encapsulating network status logic and allow observer to subscribe for status change callbacks), **AnalyticsManager** (for encapsulating Google Analytics or other reporting service related logic).
 
-7. Colors, fonts and styles are managed and configured via single Constants configuration files
+7. API clients and operation style classes for communicating with backend
 
-8. Simple UI components for cross app UI consistency (NormalLabel, NormalButton, NormalTextField, PasswordTextField)
+8. Colors, fonts and styles are managed and configured via single Constants configuration files
 
-9. Custom and cross app consistent navigation bar (TopNavigationBar) 
+9. Simple UI components for cross app UI consistency (NormalLabel, NormalButton, NormalTextField, PasswordTextField)
 
-10. Hidden console logger view (tap and hold for 1 second on navigation bar to open)
+10. Custom and cross app consistent navigation bar (TopNavigationBar) 
 
-11. Development, Stage and Production network switch support via DEBUG and 
+11. Custom font support
+
+12. Development, Stage and Production network switch support via DEBUG and 
 ConstNetworkConfig.h
 
-12. Hidden console logger view (tap and hold for 1 second on navigation bar to open)
+13. Console logger view (Magento Log button on navigation bar)
 
-13. Hidden network environment change on runtime for debug (tap three times on navigation bar to open)
+14. Network environment switch for debug (Green Env button on navigation bar)
 
-14. Language change support during runtime via Settings screen
+15. Language change support during runtime via Settings screen
 
-15. Demo form screen (ScrollViewExample) with input fields and validation
+16. Demo form screen (ScrollViewExample) with input fields and validation
 
-16. Demo list screen (Home, TableViewExample)
+17. Demo list screen (Home, TableViewExample)
 
-17. Nice and handy date, view and other helpers methods via categories.
+18. Nice and handy date, view and other helpers methods via categories.
 
