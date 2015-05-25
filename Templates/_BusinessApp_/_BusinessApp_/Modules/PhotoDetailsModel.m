@@ -10,13 +10,13 @@
 
 @implementation PhotoDetailsModel
 
-- (void)onDataLoading:(Callback)callback {
+- (void)willStartModelLoading:(Callback)callback {
     
     // Passed parameters when creating viewControllers, are injected as context to viewController and its model in viewControllerFactory
     callback(YES, self.context, nil);
 }
 
-- (void)onDataLoaded:(id)data {
+- (void)didFinishModelLoadingWithData:(id)data {
     
     // Store data
     _image = (ImageObject *)data;

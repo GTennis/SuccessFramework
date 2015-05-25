@@ -88,35 +88,6 @@
     return CGSizeZero;
 }
 
-#pragma mark - Model
-
-- (void)loadModel {
-    
-    [super loadModel];
-    
-    __weak typeof(self) weakSelf = self;
-    
-    [weakSelf showScreenActivityIndicator];
-    _progressLabel.hidden = NO;
-    
-    [_model loadData:^(BOOL success, id result, NSError *error) {
-        
-        [weakSelf hideScreenActivityIndicator];
-        weakSelf.progressLabel.hidden = YES;
-        
-        if (success) {
-            
-            // Render UI
-            [weakSelf renderUI];
-            
-        } else {
-            
-            // Show refresh button when error happens
-            // ...
-        }
-    }];
-}
-
 #pragma mark - HomeListItemViewDelegate
 
 - (void)didPressedWithImage:(ImageObject *)image {
@@ -154,6 +125,33 @@
         //_refreshButtonWhenListIsEmpty.hidden = NO;
         //_collectionView.hidden = YES;
     }
+}
+
+- (void)loadModel {
+    
+    [super loadModel];
+    
+    __weak typeof(self) weakSelf = self;
+    
+    [weakSelf showScreenActivityIndicator];
+    _progressLabel.hidden = NO;
+    
+    [_model loadData:^(BOOL success, id result, NSError *error) {
+        
+        [weakSelf hideScreenActivityIndicator];
+        weakSelf.progressLabel.hidden = YES;
+        
+        if (success) {
+            
+            // Render UI
+            [weakSelf renderUI];
+            
+        } else {
+            
+            // Show refresh button when error happens
+            // ...
+        }
+    }];
 }
 
 #pragma mark - Handling language change

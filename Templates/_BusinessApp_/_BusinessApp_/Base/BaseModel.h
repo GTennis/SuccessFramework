@@ -36,9 +36,9 @@
 - (void)loadData:(Callback)callback;
 
 //-- Protected --
-- (void)onDataLoaded:(id)data;
-- (void)onDataLoading:(Callback)callback;
 - (void)commonInit;
+- (void)willStartModelLoading:(Callback)callback;
+- (void)didFinishModelLoadingWithData:(id)data;
 //-- End of Protected --
 
 @optional

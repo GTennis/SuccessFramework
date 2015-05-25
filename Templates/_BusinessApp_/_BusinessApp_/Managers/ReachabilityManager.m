@@ -98,18 +98,16 @@
 
 - (void)applicationWillResignActive {
     
-    DLog(@"ApplicationWillResignActive");
+    DLog(@"[%@]: ApplicationWillResignActive", NSStringFromClass([self class]));
     
     [self notifyObserversWithApplicationDidBecomeInactive];
 }
 
 - (void)applicationDidBecomeActive {
     
-    DLog(@"applicationDidBecomeActive");
+    DLog(@"[%@]: applicationDidBecomeActive", NSStringFromClass([self class]));
     
     if ([self isInternetOn] && [self isAppActive]) {
-        
-        DLog(@"Will notify observers...");
         
         [self notifyObserversWithApplicationDidBecomeActive];
     }
@@ -121,6 +119,11 @@
     
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wundeclared-selector"
+    
+    if (_observers.observers.count > 0) {
+        
+        DLog(@"[%@]: will notify observers", NSStringFromClass([self class]));
+    }
     
     [_observers notifyObserversForSelector:@selector(applicationDidBecomeActive)];
     

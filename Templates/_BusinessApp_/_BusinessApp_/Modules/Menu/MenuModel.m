@@ -25,7 +25,7 @@
     [self.userManager addServiceObserver:self];
 }
 
-- (void)onDataLoading:(Callback)callback {
+- (void)willStartModelLoading:(Callback)callback {
     
     // Create menu items
     NSMutableArray *itemList = [[NSMutableArray alloc] init];
@@ -67,7 +67,7 @@
     callback(YES, itemList, nil);
 }
 
-- (void)onDataLoaded:(id)data {
+- (void)didFinishModelLoadingWithData:(id)data {
     
     // Store menu items
     _menuItems = data;

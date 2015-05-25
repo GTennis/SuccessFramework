@@ -40,8 +40,6 @@
 
 - (void)dealloc {
     
-    DLog(@"[%@]: dealloc", NSStringFromClass([self class]));
-    
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
@@ -163,6 +161,8 @@
 
 - (void)prepareUI {
     
+    DLog(@"[%@]: prepareUI", NSStringFromClass([self class]));
+    
     [super prepareUI];
     
     self.cancelButton.title = GMLocalizedString(kCancelKey);
@@ -174,6 +174,8 @@
 
 - (void)renderUI {
     
+    DLog(@"[%@]: renderUI", NSStringFromClass([self class]));
+    
     [super renderUI];
     
     // Implement in child classes
@@ -181,6 +183,8 @@
 }
 
 - (void)loadModel {
+    
+    DLog(@"[%@]: loadModel", NSStringFromClass([self class]));
     
     // Implement in child classes
     //NSAssert(NO, @"loadModel is not implemented in class: %@", NSStringFromClass([self class]));

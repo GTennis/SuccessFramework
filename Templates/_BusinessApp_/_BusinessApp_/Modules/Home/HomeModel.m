@@ -10,12 +10,12 @@
 
 @implementation HomeModel
 
-- (void)onDataLoading:(Callback)callback {
+- (void)willStartModelLoading:(Callback)callback {
     
     [self.backendAPIClient getTopImagesWithTag:nil callback:callback];
 }
 
-- (void)onDataLoaded:(id)data {
+- (void)didFinishModelLoadingWithData:(id)data {
 
     // Store data
     _images = (ImagesObject *)data;

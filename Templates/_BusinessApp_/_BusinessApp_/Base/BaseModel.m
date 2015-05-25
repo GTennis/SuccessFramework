@@ -89,7 +89,9 @@
             
             weakSelf.isLoaded = YES;
             
-            [weakSelf onDataLoaded:result];
+            DLog(@"[%@]: didFinishModelLoadingWithData", NSStringFromClass([self class]));
+            
+            [weakSelf didFinishModelLoadingWithData:result];
         }
         else {
             
@@ -99,21 +101,23 @@
         callback(success, result, error);
     };
     
-    [self onDataLoading:wrappedCallback];
+    DLog(@"[%@]: willStartModelLoading", NSStringFromClass([self class]));
+    
+    [self willStartModelLoading:wrappedCallback];
 }
 
 // Every subclass shoud override this method and perform data loading
-- (void)onDataLoaded:(id)data {
+- (void)didFinishModelLoadingWithData:(id)data {
     
     // Implement in child classes
-    NSAssert(NO, @"onDataLoaded is not implemented in class: %@", NSStringFromClass([self class]));
+    NSAssert(NO, @"didFinishModelLoadingWithData is not implemented in class: %@", NSStringFromClass([self class]));
 }
 
 // Every subclass shoud override this method and assign passed data to its internal property
-- (void)onDataLoading:(Callback)callback {
+- (void)willStartModelLoading:(Callback)callback {
     
     // Implement in child classes
-    NSAssert(NO, @"onDataLoading is not implemented in class: %@", NSStringFromClass([self class]));
+    NSAssert(NO, @"willStartModelLoading is not implemented in class: %@", NSStringFromClass([self class]));
 }
 
 #pragma mark - Network change
