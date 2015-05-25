@@ -92,6 +92,10 @@
 		0FB3F4A519E5388A0040E4D7 /* Default-Portrait@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0FB3F4A719E5388A0040E4D7 /* Default-Portrait@2x.png */; };
 		0FBFDF591B12F87500FA4EFD /* GMLanguage.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FBFDF561B12F87500FA4EFD /* GMLanguage.m */; };
 		0FBFDF5A1B12F87500FA4EFD /* LocalizationSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FBFDF581B12F87500FA4EFD /* LocalizationSystem.m */; };
+		0FBFDF5E1B13A84E00FA4EFD /* TableViewExampleViewController_iphone.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FBFDF5C1B13A84E00FA4EFD /* TableViewExampleViewController_iphone.m */; };
+		0FBFDF5F1B13A84E00FA4EFD /* TableViewExampleViewController_iphone.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0FBFDF5D1B13A84E00FA4EFD /* TableViewExampleViewController_iphone.xib */; };
+		0FBFDF631B13A88E00FA4EFD /* TableViewExampleCell_iphone.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FBFDF621B13A88E00FA4EFD /* TableViewExampleCell_iphone.m */; };
+		0FBFDF651B13A89C00FA4EFD /* TableViewExampleCell_iphone.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0FBFDF641B13A89C00FA4EFD /* TableViewExampleCell_iphone.xib */; };
 		0FC41E1F1B105BC000C7210B /* HomeModelTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FC41E1E1B105BC000C7210B /* HomeModelTests.m */; };
 		0FC47F181B126E7F007A7E8D /* PhotoDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FC47F171B126E7F007A7E8D /* PhotoDetailsViewController.m */; };
 		0FC47F1C1B126E95007A7E8D /* PhotoDetailsViewController_iphone.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FC47F1A1B126E95007A7E8D /* PhotoDetailsViewController_iphone.m */; };
@@ -334,6 +338,12 @@
 		0FBFDF561B12F87500FA4EFD /* GMLanguage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GMLanguage.m; sourceTree = "<group>"; };
 		0FBFDF571B12F87500FA4EFD /* LocalizationSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocalizationSystem.h; sourceTree = "<group>"; };
 		0FBFDF581B12F87500FA4EFD /* LocalizationSystem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocalizationSystem.m; sourceTree = "<group>"; };
+		0FBFDF5B1B13A84E00FA4EFD /* TableViewExampleViewController_iphone.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableViewExampleViewController_iphone.h; sourceTree = "<group>"; };
+		0FBFDF5C1B13A84E00FA4EFD /* TableViewExampleViewController_iphone.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableViewExampleViewController_iphone.m; sourceTree = "<group>"; };
+		0FBFDF5D1B13A84E00FA4EFD /* TableViewExampleViewController_iphone.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TableViewExampleViewController_iphone.xib; sourceTree = "<group>"; };
+		0FBFDF611B13A88E00FA4EFD /* TableViewExampleCell_iphone.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableViewExampleCell_iphone.h; sourceTree = "<group>"; };
+		0FBFDF621B13A88E00FA4EFD /* TableViewExampleCell_iphone.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableViewExampleCell_iphone.m; sourceTree = "<group>"; };
+		0FBFDF641B13A89C00FA4EFD /* TableViewExampleCell_iphone.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TableViewExampleCell_iphone.xib; sourceTree = "<group>"; };
 		0FC41E1E1B105BC000C7210B /* HomeModelTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeModelTests.m; sourceTree = "<group>"; };
 		0FC47F161B126E7F007A7E8D /* PhotoDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoDetailsViewController.h; sourceTree = "<group>"; };
 		0FC47F171B126E7F007A7E8D /* PhotoDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoDetailsViewController.m; sourceTree = "<group>"; };
@@ -674,6 +684,10 @@
 		0FA3F9FC19C77752001FC84F /* iphone */ = {
 			isa = PBXGroup;
 			children = (
+				0FBFDF601B13A87700FA4EFD /* Cells */,
+				0FBFDF5B1B13A84E00FA4EFD /* TableViewExampleViewController_iphone.h */,
+				0FBFDF5C1B13A84E00FA4EFD /* TableViewExampleViewController_iphone.m */,
+				0FBFDF5D1B13A84E00FA4EFD /* TableViewExampleViewController_iphone.xib */,
 			);
 			name = iphone;
 			sourceTree = "<group>";
@@ -1271,6 +1285,16 @@
 				0FBFDF581B12F87500FA4EFD /* LocalizationSystem.m */,
 			);
 			path = Localization;
+			sourceTree = "<group>";
+		};
+		0FBFDF601B13A87700FA4EFD /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				0FBFDF611B13A88E00FA4EFD /* TableViewExampleCell_iphone.h */,
+				0FBFDF621B13A88E00FA4EFD /* TableViewExampleCell_iphone.m */,
+				0FBFDF641B13A89C00FA4EFD /* TableViewExampleCell_iphone.xib */,
+			);
+			name = Cells;
 			sourceTree = "<group>";
 		};
 		0FC41E191B105B1D00C7210B /* Home */ = {
@@ -1881,6 +1905,7 @@
 				0FB3F4A519E5388A0040E4D7 /* Default-Portrait@2x.png in Resources */,
 				0FB3F49F19E5387E0040E4D7 /* Default-Landscape@2x.png in Resources */,
 				0FC4D16D1AFBE11500CF4C24 /* MenuViewController_ipad.xib in Resources */,
+				0FBFDF5F1B13A84E00FA4EFD /* TableViewExampleViewController_iphone.xib in Resources */,
 				0F70DF331AFFC4D8004293F1 /* TopNavigationBar_iphone.xib in Resources */,
 				0F7A85411AFFF64B00A2F6C4 /* TermsConditionsViewController_iphone.xib in Resources */,
 				0FB3F48F19E52E3C0040E4D7 /* Default@2x.png in Resources */,
@@ -1901,6 +1926,7 @@
 				0FB3F4A219E538870040E4D7 /* Default-Portrait.png in Resources */,
 				0FA3FA0A19C777FC001FC84F /* TableViewExampleCell_ipad.xib in Resources */,
 				0FABA6F719CAFD9C00CC7DD3 /* ContactsViewController_ipad.xib in Resources */,
+				0FBFDF651B13A89C00FA4EFD /* TableViewExampleCell_iphone.xib in Resources */,
 				0FA695A319BB9A720058A722 /* InfoPlist.strings in Resources */,
 				0FC47F221B126EAD007A7E8D /* PhotoDetailsViewController_ipad.xib in Resources */,
 				0FA839D519BCD8470037B5F3 /* CustomImages.xcassets in Resources */,
@@ -1998,6 +2024,7 @@
 				0FE1CAB81AF64246006769FE /* ViewControllerFactory.m in Sources */,
 				0F70DF401AFFD2E4004293F1 /* HomeListItemView_ipad.m in Sources */,
 				0FC4D16C1AFBE11500CF4C24 /* MenuViewController_ipad.m in Sources */,
+				0FBFDF5E1B13A84E00FA4EFD /* TableViewExampleViewController_iphone.m in Sources */,
 				0FC47F251B126ED3007A7E8D /* PhotoDetailsModel.m in Sources */,
 				0FE1CB331AF66BAD006769FE /* PasswordTextField.m in Sources */,
 				0FE1CB281AF669BC006769FE /* BaseLabel.m in Sources */,
@@ -2082,6 +2109,7 @@
 				0FE1CB071AF65EC1006769FE /* ConsoleLogViewController_iphone.m in Sources */,
 				0FC4D1701AFBEC3500CF4C24 /* MenuNavigator.m in Sources */,
 				0FE1CB161AF663E6006769FE /* NSString+Validator.m in Sources */,
+				0FBFDF631B13A88E00FA4EFD /* TableViewExampleCell_iphone.m in Sources */,
 				0FA695A519BB9A720058A722 /* main.m in Sources */,
 				0FE1CB1C1AF664B7006769FE /* NSObject+Description.m in Sources */,
 				0FE1CAD81AF6527C006769FE /* BaseAPIClient.m in Sources */,

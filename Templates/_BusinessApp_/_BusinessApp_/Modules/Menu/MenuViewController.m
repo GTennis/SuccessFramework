@@ -19,6 +19,8 @@
 #import "ScrollViewExampleViewController.h"
 #import "TableViewExampleViewController.h"
 
+#import "TopNavigationBar.h"
+
 #define kMenuCellIdentifier @"MenuCellIdentifier"
 
 @implementation MenuViewController
@@ -84,7 +86,11 @@
     MenuItemObject *menuItem = _model.menuItems[indexPath.row];
     
     MenuNavigator *menuNavigator = [REGISTRY getObject:[MenuNavigator class]];
-    [menuNavigator setViewController:[[UINavigationController alloc] initWithRootViewController:menuItem.viewController]];
+    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:menuItem.viewController];
+    
+    [TopNavigationBar applyStyleForNavigationBar:navigationController.navigationBar];
+    
+    [menuNavigator setViewController:navigationController];
 }
 
 #pragma mark - Handling language change

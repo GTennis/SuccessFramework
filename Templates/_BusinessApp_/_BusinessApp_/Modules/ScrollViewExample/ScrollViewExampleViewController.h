@@ -22,6 +22,4 @@
 @property (nonatomic, strong) IBOutlet BaseTextField *lastNameTextField;
 @property (nonatomic, strong) IBOutlet BaseTextField *birthDateTextField;
 
-- (id)initWithUser:(UserObject *)user;
-
 @end

@@ -122,9 +122,9 @@
     [self.tableView cellForRowAtIndexPath:indexPath];
     
     UserObject *user = (UserObject *)[_userArray objectAtIndex:indexPath.row];
-    ScrollViewExampleViewController *detailsVC = [[ScrollViewExampleViewController alloc] initWithUser:user];
+    UIViewController *viewController = [self.viewControllerFactory scrollViewExampleViewControllerWithContext:user];
     
-    [self.navigationController pushViewController:detailsVC animated:YES];
+    [self.navigationController pushViewController:viewController animated:YES];
 }
 
 @end

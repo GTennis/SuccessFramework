@@ -9,48 +9,22 @@
 #import "ScrollViewExampleViewController.h"
 #import "UserObject.h"
 
+#define kScrollViewExampleViewControllerTitle @"ScrollViewExample"
+
 @interface ScrollViewExampleViewController () {
     
-    UserObject *_user;
 }
 
 @end
 
 @implementation ScrollViewExampleViewController
 
-- (void)commonInit {
-    
-    // Setup models and other
-    
-    //_detailsModel = [[EventDetailsModel alloc] initWithDelegate:self];
-    //_detailsModel.progressIndicatorController = self;
-    //_detailsModel.observer = self;
-}
-
-- (id)initWithUser:(UserObject *)user {
-    
-    self = [super init];
-    if (self) {
-        
-        _user = user;
-        
-        [self commonInit];
-    }
-    return self;
-}
-
 - (void)viewDidLoad {
     
     [super viewDidLoad];
 
-    // Render UI
-    self.title = GMLocalizedString(@"Details screen");
-    
-    // Add styles
-    [self adjustStyleForTextFields];
-    
-    // Setup input fields
-    [self setupInputFields];
+    [self prepareUI];
+    [self loadModel];
 }
 
 #pragma mark - IBActions
@@ -61,20 +35,6 @@
     // if no then mark them
     
     [self applyStyleForMissingRequiredFields];
-}
-
-#pragma mark - Model
-
-- (void)initializeModel {
-    
-    // Do network requests, load data or other
-    // ...
-}
-
-- (void)updateModel {
-    
-    // Update data if needed
-    [self initializeModel];
 }
 
 #pragma mark - Input fields
@@ -106,6 +66,37 @@
     [self setTextFieldsForKeyboard:textFields];
 }
 
+#pragma mark - Helpers
 
+- (void)prepareUI {
+    
+    [super prepareUI];
+    
+    // Render UI
+    self.title = GMLocalizedString(kScrollViewExampleViewControllerTitle);
+    
+    // Add styles
+    [self adjustStyleForTextFields];
+    
+    // Setup input fields
+    [self setupInputFields];
+}
+
+- (void)renderUI {
+    
+    [super renderUI];
+    
+    // Update UI with loaded data
+    // ...
+}
+
+- (void)loadModel {
+    
+    [super loadModel];
+    
+    // ...
+    
+    [self renderUI];
+}
 
 @end
