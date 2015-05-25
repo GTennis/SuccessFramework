@@ -59,8 +59,14 @@
                                     <constraint firstAttribute="trailing" secondItem="ILP-wk-gXA" secondAttribute="trailing" id="wGz-ta-zk4"/>
                                 </constraints>
                             </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TODO: downloaded demo image is too large. Therefore it's resized when scrolling but this causes lag." lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lLV-Kj-QPA" customClass="NormalLabel">
+                                <rect key="frame" x="8" y="402" width="270" height="54"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pCh-TH-Bl0" userLabel="CellPressButton">
-                                <rect key="frame" x="0.0" y="0.0" width="762" height="704"/>
+                                <rect key="frame" x="0.0" y="-21" width="762" height="704"/>
                                 <state key="normal">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -72,6 +78,8 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="KF9-Xd-5pd" firstAttribute="centerY" secondItem="rrc-ty-TQB" secondAttribute="centerY" id="3kh-lv-3O1"/>
+                            <constraint firstItem="lLV-Kj-QPA" firstAttribute="leading" secondItem="WSK-X5-bol" secondAttribute="leading" constant="8" id="9uZ-NZ-Ld5"/>
+                            <constraint firstAttribute="trailing" secondItem="lLV-Kj-QPA" secondAttribute="trailing" constant="8" id="DjE-Z3-gLZ"/>
                             <constraint firstAttribute="trailing" secondItem="KF9-Xd-5pd" secondAttribute="trailing" id="N00-5D-vJk"/>
                             <constraint firstItem="KF9-Xd-5pd" firstAttribute="centerX" secondItem="rrc-ty-TQB" secondAttribute="centerX" id="PV4-OC-mB1"/>
                             <constraint firstItem="1Se-fZ-ECJ" firstAttribute="leading" secondItem="WSK-X5-bol" secondAttribute="leading" constant="19" id="eJW-pU-wHR"/>
@@ -79,6 +87,7 @@
                             <constraint firstAttribute="trailing" secondItem="1Se-fZ-ECJ" secondAttribute="trailing" constant="17" id="gWH-fT-FFP"/>
                             <constraint firstItem="1Se-fZ-ECJ" firstAttribute="top" secondItem="WSK-X5-bol" secondAttribute="top" constant="23" id="hKV-kL-CDV"/>
                             <constraint firstItem="KF9-Xd-5pd" firstAttribute="top" secondItem="WSK-X5-bol" secondAttribute="top" id="qYX-oI-3xj"/>
+                            <constraint firstAttribute="bottom" secondItem="lLV-Kj-QPA" secondAttribute="bottom" constant="8" id="tTL-Lz-tKS"/>
                             <constraint firstAttribute="bottom" secondItem="KF9-Xd-5pd" secondAttribute="bottom" id="xjN-rA-j8a"/>
                         </constraints>
                     </view>
