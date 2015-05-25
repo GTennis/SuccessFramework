@@ -7,7 +7,50 @@
 //
 
 #import "NormalLabel.h"
+#import "UIView+Fonts.h"
 
 @implementation NormalLabel
+
+- (void)commonInit {
+    
+    self.fontType = kFontNormalType;
+}
+
+- (void)awakeFromNib {
+    
+    [super awakeFromNib];
+    
+    [self commonInit];
+}
+
+- (instancetype)initWithFrame:(CGRect)frame {
+    
+    self = [super initWithFrame:frame];
+    if (self) {
+        
+        [self commonInit];
+    }
+    return self;
+}
+
+- (instancetype)initWithCoder:(NSCoder *)coder {
+    
+    self = [super initWithCoder:coder];
+    if (self) {
+        
+        [self commonInit];
+    }
+    return self;
+}
+
+- (instancetype)init {
+    
+    self = [super init];
+    if (self) {
+        
+        [self commonInit];
+    }
+    return self;
+}
 
 @end

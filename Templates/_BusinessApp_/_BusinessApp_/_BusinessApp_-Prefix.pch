@@ -50,9 +50,7 @@
 
 #endif
 
-//#define XAssert(condition, ...) do { if (!(condition)) { ALog(__VA_ARGS__); }} while(0)
-
-// Statistics tracking logging for GA and Mixpanel
+// Statistics tracking logging for GA
 #ifdef DEBUG
 
 // GA logging
@@ -83,18 +81,22 @@
 #import "Consts.h"
 #import "Registry.h"
 #import "LocalizationSystem.h"
-#import "UIView+Autolayout.h"
-#import "UIView+Colors.h"
-#import "NSString+Validator.h"
-#import "NormalTextField.h"
-#import "NormalLabel.h"
-#import "BasePartialView.h"
-#import "NSString+Validator.h"
 #import "ImageDownloader.h"
 #import "BaseModel.h"
 #import "NSDate+Common.h"
 #import "NSString+Utils.h"
 #import "ViewControllerFactory.h"
+
+// Common UI elements
+#import "NormalLabel.h"
+#import "NormalButton.h"
+#import "NormalTextField.h"
+
+// Common categories
+#import "NSString+Validator.h"
+#import "UIView+Autolayout.h"
+#import "UIView+Colors.h"
+#import "UIView+Fonts.h"
 
 // Consts
 #import "ConstStrings.h"

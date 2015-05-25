@@ -6,8 +6,6 @@
 //  Copyright (c) 2015 Gytenis Mikulėnas. All rights reserved.
 //
 
-#import "BasePartialView.h"
-
 @class ImageObject;
 
 @protocol HomeListItemViewDelegate <NSObject>

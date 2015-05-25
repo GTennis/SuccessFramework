@@ -198,7 +198,7 @@
     [_backendAPIClient resetPasswordWithData:data callback:wrappedCallback];
 }
 
-- (void)getUserDataWithCallback:(Callback)callback {
+- (void)getUserProfileWithCallback:(Callback)callback {
     
     __weak typeof(self) weakSelf = self;
     

@@ -43,6 +43,9 @@
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <nil key="highlightedColor"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="string" keyPath="fontType" value="FontNormal"/>
+                    </userDefinedRuntimeAttributes>
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="infoLight" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BBj-OM-7FN" userLabel="Contact">
                     <rect key="frame" x="996" y="11" width="22" height="22"/>
@@ -81,7 +84,7 @@
         </view>
     </objects>
     <resources>
-        <image name="iconBack" width="12" height="23"/>
+        <image name="iconBack" width="11" height="20"/>
         <image name="iconMenu" width="20" height="14"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

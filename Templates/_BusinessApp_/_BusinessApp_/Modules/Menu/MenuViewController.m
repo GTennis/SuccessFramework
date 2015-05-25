@@ -69,6 +69,7 @@
         UIView *bgView = [[UIView alloc] initWithFrame:cell.frame];
         [bgView setBackgroundColor:[UIColor lightGrayColor]];
         cell.selectedBackgroundView = bgView;
+        cell.textLabel.fontType = kFontNormalType;
     }
     
     cell.textLabel.text = [self titleForMenuSection:indexPath.section row:indexPath.row];

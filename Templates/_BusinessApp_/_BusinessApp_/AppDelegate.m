@@ -31,7 +31,7 @@
 
 #import <iVersion.h>
 
-#warning Update this link before releasing to the app store!
+#warning Update the link before releasing to the app store!
 #define kAppItunesLink @"yourAppStoreLink"
 
 @implementation AppDelegate

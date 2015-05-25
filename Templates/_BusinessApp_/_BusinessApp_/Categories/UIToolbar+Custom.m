@@ -10,10 +10,12 @@
 
 @implementation UIToolbar (Custom)
 
-#warning Demo only. Will refactor and won't use magic constants :)
 - (UIBarButtonItem *)createAndSetBarButtonToBackWithTarget:(id)target selector:(SEL)selector {
     
-    CGFloat buttonWidth = 60.0f;
+    // TODO:
+    // Change demo with normal implementation
+    
+    /*CGFloat buttonWidth = 60.0f;
     CGFloat buttonHeight = 44.0f;
     
     UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -44,7 +46,9 @@
     // Need to set color again because setItems: reset background color to white
     self.barTintColor = kColorGrayLight2;
     
-    return leftButton;
+    return leftButton;*/
+    
+    return nil;
 }
 
 - (UIBarButtonItem *)createAndSetBarButtonCancelWithTarget:(id)target selector:(SEL)selector {

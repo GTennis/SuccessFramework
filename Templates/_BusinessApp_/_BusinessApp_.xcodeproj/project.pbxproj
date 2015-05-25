@@ -71,7 +71,6 @@
 		0FA839C119BC5DF40037B5F3 /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FA839BF19BC5DF40037B5F3 /* SettingsViewController.m */; };
 		0FA839D519BCD8470037B5F3 /* CustomImages.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0FA839D419BCD8470037B5F3 /* CustomImages.xcassets */; };
 		0FA839D819BCDB070037B5F3 /* CrashManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FA839D719BCDB070037B5F3 /* CrashManager.m */; };
-		0FA839E419BCE6630037B5F3 /* LocalizationSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FA839E319BCE6630037B5F3 /* LocalizationSystem.m */; };
 		0FA839EE19BCF8E50037B5F3 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0FA839F019BCF8E50037B5F3 /* Localizable.strings */; };
 		0FA839FD19BD1E5A0037B5F3 /* UserManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FA839FC19BD1E5A0037B5F3 /* UserManager.m */; };
 		0FA8625019C425A1004D4A32 /* HomeViewController_iphone.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FA8624E19C425A1004D4A32 /* HomeViewController_iphone.m */; };
@@ -92,7 +91,8 @@
 		0FB3F49F19E5387E0040E4D7 /* Default-Landscape@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0FB3F4A119E5387E0040E4D7 /* Default-Landscape@2x.png */; };
 		0FB3F4A219E538870040E4D7 /* Default-Portrait.png in Resources */ = {isa = PBXBuildFile; fileRef = 0FB3F4A419E538870040E4D7 /* Default-Portrait.png */; };
 		0FB3F4A519E5388A0040E4D7 /* Default-Portrait@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0FB3F4A719E5388A0040E4D7 /* Default-Portrait@2x.png */; };
-		0FC29C4D1AFFC070006944D4 /* GMLanguage.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FC29C4C1AFFC070006944D4 /* GMLanguage.m */; };
+		0FBFDF591B12F87500FA4EFD /* GMLanguage.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FBFDF561B12F87500FA4EFD /* GMLanguage.m */; };
+		0FBFDF5A1B12F87500FA4EFD /* LocalizationSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FBFDF581B12F87500FA4EFD /* LocalizationSystem.m */; };
 		0FC41E1F1B105BC000C7210B /* HomeModelTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FC41E1E1B105BC000C7210B /* HomeModelTests.m */; };
 		0FC41E211B105BE400C7210B /* HomeListItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FC41E201B105BE400C7210B /* HomeListItemView.m */; };
 		0FC41E231B105BF700C7210B /* HomeViewControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FC41E221B105BF700C7210B /* HomeViewControllerTests.m */; };
@@ -299,8 +299,6 @@
 		0FA839D419BCD8470037B5F3 /* CustomImages.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = CustomImages.xcassets; sourceTree = "<group>"; };
 		0FA839D619BCDB070037B5F3 /* CrashManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CrashManager.h; sourceTree = "<group>"; };
 		0FA839D719BCDB070037B5F3 /* CrashManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CrashManager.m; sourceTree = "<group>"; };
-		0FA839E219BCE6630037B5F3 /* LocalizationSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocalizationSystem.h; sourceTree = "<group>"; };
-		0FA839E319BCE6630037B5F3 /* LocalizationSystem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocalizationSystem.m; sourceTree = "<group>"; };
 		0FA839EF19BCF8E50037B5F3 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		0FA839F119BCF8F60037B5F3 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
 		0FA839FB19BD1E5A0037B5F3 /* UserManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserManager.h; sourceTree = "<group>"; };
@@ -336,8 +334,10 @@
 		0FB3F4A919E538940040E4D7 /* de */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = de; path = "de.lproj/Default-Landscape@2x.png"; sourceTree = "<group>"; };
 		0FB3F4AA19E538970040E4D7 /* de */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = de; path = "de.lproj/Default-Portrait.png"; sourceTree = "<group>"; };
 		0FB3F4AB19E538990040E4D7 /* de */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = de; path = "de.lproj/Default-Portrait@2x.png"; sourceTree = "<group>"; };
-		0FC29C4B1AFFC070006944D4 /* GMLanguage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GMLanguage.h; sourceTree = "<group>"; };
-		0FC29C4C1AFFC070006944D4 /* GMLanguage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GMLanguage.m; sourceTree = "<group>"; };
+		0FBFDF551B12F87500FA4EFD /* GMLanguage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GMLanguage.h; sourceTree = "<group>"; };
+		0FBFDF561B12F87500FA4EFD /* GMLanguage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GMLanguage.m; sourceTree = "<group>"; };
+		0FBFDF571B12F87500FA4EFD /* LocalizationSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocalizationSystem.h; sourceTree = "<group>"; };
+		0FBFDF581B12F87500FA4EFD /* LocalizationSystem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocalizationSystem.m; sourceTree = "<group>"; };
 		0FC41E1E1B105BC000C7210B /* HomeModelTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeModelTests.m; sourceTree = "<group>"; };
 		0FC41E201B105BE400C7210B /* HomeListItemView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeListItemView.m; sourceTree = "<group>"; };
 		0FC41E221B105BF700C7210B /* HomeViewControllerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewControllerTests.m; sourceTree = "<group>"; };
@@ -917,18 +917,17 @@
 			children = (
 				0FA695A719BB9A720058A722 /* AppDelegate.h */,
 				0FA695A819BB9A720058A722 /* AppDelegate.m */,
-				31912E901B0CC83B007C0C89 /* Commands */,
 				0FE1CAC51AF64AC8006769FE /* Core */,
+				0FA695D119BB9AA80058A722 /* Base */,
 				0FE1CAB31AF641AD006769FE /* Factories */,
 				0FA695D019BB9A7C0058A722 /* Constants */,
-				0FA695D119BB9AA80058A722 /* Base */,
+				0FA695E319BB9BC50058A722 /* Categories */,
+				31912E901B0CC83B007C0C89 /* Commands */,
 				0FA695D219BB9AAE0058A722 /* PartialViews */,
 				0FA695D319BB9AC60058A722 /* Managers */,
 				0FA695D419BB9AD70058A722 /* DataObjects */,
 				0FA695DA19BB9B1A0058A722 /* Network */,
 				0FA695D919BB9B0F0058A722 /* Modules */,
-				0FA695E319BB9BC50058A722 /* Categories */,
-				0FA839E119BCE6210037B5F3 /* Localization */,
 				0FA62C5719CEFAD0002D3DDC /* Resources */,
 				0FA6959F19BB9A720058A722 /* Supporting Files */,
 			);
@@ -1167,17 +1166,6 @@
 			path = Launch;
 			sourceTree = "<group>";
 		};
-		0FA839E119BCE6210037B5F3 /* Localization */ = {
-			isa = PBXGroup;
-			children = (
-				0FA839E219BCE6630037B5F3 /* LocalizationSystem.h */,
-				0FA839E319BCE6630037B5F3 /* LocalizationSystem.m */,
-				0FC29C4B1AFFC070006944D4 /* GMLanguage.h */,
-				0FC29C4C1AFFC070006944D4 /* GMLanguage.m */,
-			);
-			path = Localization;
-			sourceTree = "<group>";
-		};
 		0FA8623919C41FD7004D4A32 /* iphone */ = {
 			isa = PBXGroup;
 			children = (
@@ -1279,6 +1267,17 @@
 				0FB3F4A719E5388A0040E4D7 /* Default-Portrait@2x.png */,
 			);
 			name = Launch;
+			sourceTree = "<group>";
+		};
+		0FBFDF541B12F85600FA4EFD /* Localization */ = {
+			isa = PBXGroup;
+			children = (
+				0FBFDF551B12F87500FA4EFD /* GMLanguage.h */,
+				0FBFDF561B12F87500FA4EFD /* GMLanguage.m */,
+				0FBFDF571B12F87500FA4EFD /* LocalizationSystem.h */,
+				0FBFDF581B12F87500FA4EFD /* LocalizationSystem.m */,
+			);
+			path = Localization;
 			sourceTree = "<group>";
 		};
 		0FC41E191B105B1D00C7210B /* Home */ = {
@@ -1513,6 +1512,7 @@
 		0FE1CAC51AF64AC8006769FE /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				0FBFDF541B12F85600FA4EFD /* Localization */,
 				0FE1CAC61AF64AF2006769FE /* Observers */,
 				0FE1CB3A1AF66DFD006769FE /* CoreViewController.h */,
 				0FE1CB3B1AF66DFD006769FE /* CoreViewController.m */,
@@ -2045,7 +2045,6 @@
 				0FA67F7719C4F6B500E00FDA /* SettingsViewController_ipad.m in Sources */,
 				3119A3F91B0DD4D1001CCA38 /* NormalModalToolbar.m in Sources */,
 				0FE1CB5C1AF691FE006769FE /* TermsConditionsModel.m in Sources */,
-				0FC29C4D1AFFC070006944D4 /* GMLanguage.m in Sources */,
 				0FE1CB2C1AF66A66006769FE /* BaseTextField.m in Sources */,
 				0FE1CB891AF6ABAF006769FE /* UIToolbar+Custom.m in Sources */,
 				31912EA01B0CC9B6007C0C89 /* SendEmailCommand.m in Sources */,
@@ -2057,6 +2056,7 @@
 				0FC719E31AF9335200912FF1 /* UserSignUpViewController.m in Sources */,
 				0FE1CB3C1AF66DFD006769FE /* CoreViewController.m in Sources */,
 				0FC719E61AF9336300912FF1 /* UserSignUpModel.m in Sources */,
+				0FBFDF5A1B12F87500FA4EFD /* LocalizationSystem.m in Sources */,
 				3119A4031B0DE3ED001CCA38 /* MenuItemObject.m in Sources */,
 				0FC71A031AF935CC00912FF1 /* UserContainerViewController.m in Sources */,
 				0FA839FD19BD1E5A0037B5F3 /* UserManager.m in Sources */,
@@ -2064,7 +2064,6 @@
 				0FC71A0D1AF93B9A00912FF1 /* UserContainerModel.m in Sources */,
 				0FA67F7B19C4FF4F00E00FDA /* BasePartialView.m in Sources */,
 				0FABA6F219CAFD8400CC7DD3 /* ContactsViewController.m in Sources */,
-				0FA839E419BCE6630037B5F3 /* LocalizationSystem.m in Sources */,
 				0FA695A919BB9A720058A722 /* AppDelegate.m in Sources */,
 				0FA62C6D19CF2D70002D3DDC /* BaseTableViewCell.m in Sources */,
 				0FA8625519C425E0004D4A32 /* SettingsViewController_iphone.m in Sources */,
@@ -2076,6 +2075,7 @@
 				0FA3FA0819C777DD001FC84F /* TableViewExampleCell.m in Sources */,
 				0FC47F211B126EAD007A7E8D /* PhotoDetailsViewController_ipad.m in Sources */,
 				0FA839BB19BC58C20037B5F3 /* HomeViewController.m in Sources */,
+				0FBFDF591B12F87500FA4EFD /* GMLanguage.m in Sources */,
 				0FABA6E919CAEC4B00CC7DD3 /* MessageBarManager.m in Sources */,
 				0FE1CAA11AF63B77006769FE /* Registry.m in Sources */,
 				0FA3FA1B19C78484001FC84F /* OrderObject.m in Sources */,
