@@ -61,7 +61,6 @@
 		0FA695BC19BB9A720058A722 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0FA6959819BB9A720058A722 /* Foundation.framework */; };
 		0FA695BD19BB9A720058A722 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0FA6959C19BB9A720058A722 /* UIKit.framework */; };
 		0FA695C519BB9A720058A722 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0FA695C319BB9A720058A722 /* InfoPlist.strings */; };
-		0FA695C719BB9A720058A722 /* _BusinessApp_Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FA695C619BB9A720058A722 /* _BusinessApp_Tests.m */; };
 		0FA695D819BB9B030058A722 /* SettingsManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FA695D719BB9B030058A722 /* SettingsManager.m */; };
 		0FA695E619BB9BD90058A722 /* NSDate+Common.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FA695E519BB9BD90058A722 /* NSDate+Common.m */; };
 		0FA695E919BB9BF10058A722 /* CALayer+Border.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FA695E819BB9BF10058A722 /* CALayer+Border.m */; };
@@ -94,8 +93,6 @@
 		0FBFDF591B12F87500FA4EFD /* GMLanguage.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FBFDF561B12F87500FA4EFD /* GMLanguage.m */; };
 		0FBFDF5A1B12F87500FA4EFD /* LocalizationSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FBFDF581B12F87500FA4EFD /* LocalizationSystem.m */; };
 		0FC41E1F1B105BC000C7210B /* HomeModelTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FC41E1E1B105BC000C7210B /* HomeModelTests.m */; };
-		0FC41E211B105BE400C7210B /* HomeListItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FC41E201B105BE400C7210B /* HomeListItemView.m */; };
-		0FC41E231B105BF700C7210B /* HomeViewControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FC41E221B105BF700C7210B /* HomeViewControllerTests.m */; };
 		0FC47F181B126E7F007A7E8D /* PhotoDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FC47F171B126E7F007A7E8D /* PhotoDetailsViewController.m */; };
 		0FC47F1C1B126E95007A7E8D /* PhotoDetailsViewController_iphone.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FC47F1A1B126E95007A7E8D /* PhotoDetailsViewController_iphone.m */; };
 		0FC47F1D1B126E95007A7E8D /* PhotoDetailsViewController_iphone.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0FC47F1B1B126E95007A7E8D /* PhotoDetailsViewController_iphone.xib */; };
@@ -281,7 +278,6 @@
 		0FA695BA19BB9A720058A722 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		0FA695C219BB9A720058A722 /* _BusinessApp_Tests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "_BusinessApp_Tests-Info.plist"; sourceTree = "<group>"; };
 		0FA695C419BB9A720058A722 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		0FA695C619BB9A720058A722 /* _BusinessApp_Tests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = _BusinessApp_Tests.m; sourceTree = "<group>"; };
 		0FA695D619BB9B030058A722 /* SettingsManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsManager.h; sourceTree = "<group>"; };
 		0FA695D719BB9B030058A722 /* SettingsManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsManager.m; sourceTree = "<group>"; };
 		0FA695E419BB9BD90058A722 /* NSDate+Common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+Common.h"; sourceTree = "<group>"; };
@@ -339,8 +335,6 @@
 		0FBFDF571B12F87500FA4EFD /* LocalizationSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocalizationSystem.h; sourceTree = "<group>"; };
 		0FBFDF581B12F87500FA4EFD /* LocalizationSystem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocalizationSystem.m; sourceTree = "<group>"; };
 		0FC41E1E1B105BC000C7210B /* HomeModelTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeModelTests.m; sourceTree = "<group>"; };
-		0FC41E201B105BE400C7210B /* HomeListItemView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeListItemView.m; sourceTree = "<group>"; };
-		0FC41E221B105BF700C7210B /* HomeViewControllerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewControllerTests.m; sourceTree = "<group>"; };
 		0FC47F161B126E7F007A7E8D /* PhotoDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoDetailsViewController.h; sourceTree = "<group>"; };
 		0FC47F171B126E7F007A7E8D /* PhotoDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoDetailsViewController.m; sourceTree = "<group>"; };
 		0FC47F191B126E95007A7E8D /* PhotoDetailsViewController_iphone.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoDetailsViewController_iphone.h; sourceTree = "<group>"; };
@@ -950,7 +944,6 @@
 			isa = PBXGroup;
 			children = (
 				0F763BFA1B0F05D7004182F3 /* Modules */,
-				0FA695C619BB9A720058A722 /* _BusinessApp_Tests.m */,
 				0FA695C119BB9A720058A722 /* Supporting Files */,
 			);
 			path = _BusinessApp_Tests;
@@ -1292,8 +1285,6 @@
 			isa = PBXGroup;
 			children = (
 				0FC41E1E1B105BC000C7210B /* HomeModelTests.m */,
-				0FC41E201B105BE400C7210B /* HomeListItemView.m */,
-				0FC41E221B105BF700C7210B /* HomeViewControllerTests.m */,
 			);
 			name = Base;
 			sourceTree = "<group>";
@@ -2103,10 +2094,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0FC41E211B105BE400C7210B /* HomeListItemView.m in Sources */,
 				0FC41E1F1B105BC000C7210B /* HomeModelTests.m in Sources */,
-				0FA695C719BB9A720058A722 /* _BusinessApp_Tests.m in Sources */,
-				0FC41E231B105BF700C7210B /* HomeViewControllerTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -16,7 +16,7 @@
 
 @protocol ViewControllerFactoryProtocol;
 
-@interface BaseViewController : CoreViewController <BaseModelDelegate>
+@interface BaseViewController : CoreViewController /*<BaseModelDelegate>*/
 
 // For passing parameters between view controlers
 @property (nonatomic, strong) id context;
