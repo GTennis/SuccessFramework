@@ -260,7 +260,7 @@
 
 - (BOOL)iVersionShouldDisplayNewVersion:(NSString *)version details:(NSString *)versionDetails {
     
-    return YES;//NO;
+    return YES;
 }
 
 #pragma mark - Helpers
@@ -336,7 +336,7 @@
     
     //Checking period is set to 1 day
     [iVersion sharedInstance].checkPeriod = 1;
-    [iVersion sharedInstance].displayAppUsingStorekitIfAvailable = NO;
+    //[iVersion sharedInstance].displayAppUsingStorekitIfAvailable = NO;
 }
 
 @end

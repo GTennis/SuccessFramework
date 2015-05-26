@@ -62,7 +62,6 @@
 #import "TableViewExampleViewController.h"
 
 // Pickers
-#warning Add country picker from Cocoapods: https://cocoapods.org/pods/CountryPicker
 #import "CountryPickerViewController.h"
 
 @implementation ViewControllerFactory
@@ -212,9 +211,9 @@
 // Country list
 - (CountryPickerViewController *)countryPickerViewControllerWithDelegate:(id<CountryPickerViewControllerDelegate>)delegate context:(id)context {
     
-    // TODO...
+    CountryPickerViewController *countryPickerVC = (CountryPickerViewController *) [self viewControllerWithClass:[CountryPickerViewController class] context:context];
     
-    return nil;
+    return countryPickerVC;
 }
 
 #pragma mark - Helpers

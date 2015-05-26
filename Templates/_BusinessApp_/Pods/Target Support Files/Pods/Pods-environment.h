@@ -54,11 +54,11 @@
 #define COCOAPODS_VERSION_MINOR_BSKeyboardControls 2
 #define COCOAPODS_VERSION_PATCH_BSKeyboardControls 0
 
-// CountryPicker
-#define COCOAPODS_POD_AVAILABLE_CountryPicker
-#define COCOAPODS_VERSION_MAJOR_CountryPicker 1
-#define COCOAPODS_VERSION_MINOR_CountryPicker 2
-#define COCOAPODS_VERSION_PATCH_CountryPicker 3
+// EMCCountryPickerController
+#define COCOAPODS_POD_AVAILABLE_EMCCountryPickerController
+#define COCOAPODS_VERSION_MAJOR_EMCCountryPickerController 1
+#define COCOAPODS_VERSION_MINOR_EMCCountryPickerController 3
+#define COCOAPODS_VERSION_PATCH_EMCCountryPickerController 2
 
 // Fabric/Core
 #define COCOAPODS_POD_AVAILABLE_Fabric_Core
@@ -117,6 +117,6 @@
 // iVersion
 #define COCOAPODS_POD_AVAILABLE_iVersion
 #define COCOAPODS_VERSION_MAJOR_iVersion 1
-#define COCOAPODS_VERSION_MINOR_iVersion 10
-#define COCOAPODS_VERSION_PATCH_iVersion 6
+#define COCOAPODS_VERSION_MINOR_iVersion 11
+#define COCOAPODS_VERSION_PATCH_iVersion 4
 

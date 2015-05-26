@@ -131,7 +131,6 @@
 		0FC719F91AF9341600912FF1 /* UserProfileModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FC719F81AF9341600912FF1 /* UserProfileModel.m */; };
 		0FC719FF1AF9346500912FF1 /* ContactsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FC719FE1AF9346500912FF1 /* ContactsModel.m */; };
 		0FC71A031AF935CC00912FF1 /* UserContainerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FC71A021AF935CC00912FF1 /* UserContainerViewController.m */; };
-		0FC71A0A1AF93A8200912FF1 /* CountryPickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FC71A091AF93A8200912FF1 /* CountryPickerViewController.m */; };
 		0FC71A0D1AF93B9A00912FF1 /* UserContainerModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FC71A0C1AF93B9A00912FF1 /* UserContainerModel.m */; };
 		0FE1CAA11AF63B77006769FE /* Registry.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FE1CAA01AF63B77006769FE /* Registry.m */; };
 		0FE1CAB81AF64246006769FE /* ViewControllerFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FE1CAB71AF64246006769FE /* ViewControllerFactory.m */; };
@@ -178,6 +177,11 @@
 		3119A4031B0DE3ED001CCA38 /* MenuItemObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 3119A4021B0DE3ED001CCA38 /* MenuItemObject.m */; };
 		31912E9A1B0CC926007C0C89 /* PhoneCallCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = 31912E991B0CC926007C0C89 /* PhoneCallCommand.m */; };
 		31912EA01B0CC9B6007C0C89 /* SendEmailCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = 31912E9F1B0CC9B6007C0C89 /* SendEmailCommand.m */; };
+		31CB852B1B14B50E00F827F7 /* CountryPickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 31CB852A1B14B50E00F827F7 /* CountryPickerViewController.m */; };
+		31CB85311B14B53B00F827F7 /* CountryPickerViewController_iphone.m in Sources */ = {isa = PBXBuildFile; fileRef = 31CB852F1B14B53B00F827F7 /* CountryPickerViewController_iphone.m */; };
+		31CB85321B14B53B00F827F7 /* CountryPickerViewController_iphone.xib in Resources */ = {isa = PBXBuildFile; fileRef = 31CB85301B14B53B00F827F7 /* CountryPickerViewController_iphone.xib */; };
+		31CB85361B14B55600F827F7 /* CountryPickerViewController_ipad.m in Sources */ = {isa = PBXBuildFile; fileRef = 31CB85341B14B55600F827F7 /* CountryPickerViewController_ipad.m */; };
+		31CB85371B14B55600F827F7 /* CountryPickerViewController_ipad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 31CB85351B14B55600F827F7 /* CountryPickerViewController_ipad.xib */; };
 		7E48B6A029D4462B99F94BBA /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4BE886A7686A4EC6BF56CDC8 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -408,8 +412,6 @@
 		0FC719FE1AF9346500912FF1 /* ContactsModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContactsModel.m; sourceTree = "<group>"; };
 		0FC71A011AF935CC00912FF1 /* UserContainerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserContainerViewController.h; sourceTree = "<group>"; };
 		0FC71A021AF935CC00912FF1 /* UserContainerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserContainerViewController.m; sourceTree = "<group>"; };
-		0FC71A081AF93A8200912FF1 /* CountryPickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CountryPickerViewController.h; sourceTree = "<group>"; };
-		0FC71A091AF93A8200912FF1 /* CountryPickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CountryPickerViewController.m; sourceTree = "<group>"; };
 		0FC71A0B1AF93B9A00912FF1 /* UserContainerModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserContainerModel.h; sourceTree = "<group>"; };
 		0FC71A0C1AF93B9A00912FF1 /* UserContainerModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserContainerModel.m; sourceTree = "<group>"; };
 		0FE1CA8E1AF63278006769FE /* Consts.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Consts.h; sourceTree = "<group>"; };
@@ -527,6 +529,14 @@
 		31912E991B0CC926007C0C89 /* PhoneCallCommand.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhoneCallCommand.m; sourceTree = "<group>"; };
 		31912E9E1B0CC9B6007C0C89 /* SendEmailCommand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SendEmailCommand.h; sourceTree = "<group>"; };
 		31912E9F1B0CC9B6007C0C89 /* SendEmailCommand.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SendEmailCommand.m; sourceTree = "<group>"; };
+		31CB85291B14B50D00F827F7 /* CountryPickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CountryPickerViewController.h; sourceTree = "<group>"; };
+		31CB852A1B14B50E00F827F7 /* CountryPickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CountryPickerViewController.m; sourceTree = "<group>"; };
+		31CB852E1B14B53B00F827F7 /* CountryPickerViewController_iphone.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CountryPickerViewController_iphone.h; sourceTree = "<group>"; };
+		31CB852F1B14B53B00F827F7 /* CountryPickerViewController_iphone.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CountryPickerViewController_iphone.m; sourceTree = "<group>"; };
+		31CB85301B14B53B00F827F7 /* CountryPickerViewController_iphone.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CountryPickerViewController_iphone.xib; sourceTree = "<group>"; };
+		31CB85331B14B55600F827F7 /* CountryPickerViewController_ipad.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CountryPickerViewController_ipad.h; sourceTree = "<group>"; };
+		31CB85341B14B55600F827F7 /* CountryPickerViewController_ipad.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CountryPickerViewController_ipad.m; sourceTree = "<group>"; };
+		31CB85351B14B55600F827F7 /* CountryPickerViewController_ipad.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CountryPickerViewController_ipad.xib; sourceTree = "<group>"; };
 		4BE886A7686A4EC6BF56CDC8 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		6E0BD085B1D95E6D8A405F54 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -1320,7 +1330,7 @@
 				0FC47F141B126E4E007A7E8D /* iphone */,
 				0FC47F151B126E54007A7E8D /* ipad */,
 			);
-			name = PhotoDetails;
+			path = PhotoDetails;
 			sourceTree = "<group>";
 		};
 		0FC47F131B126E49007A7E8D /* Base */ = {
@@ -1451,8 +1461,9 @@
 		0FC71A071AF93A6100912FF1 /* CountryPicker */ = {
 			isa = PBXGroup;
 			children = (
-				0FC71A081AF93A8200912FF1 /* CountryPickerViewController.h */,
-				0FC71A091AF93A8200912FF1 /* CountryPickerViewController.m */,
+				31CB85281B14B47700F827F7 /* Base */,
+				31CB852D1B14B51B00F827F7 /* iphone */,
+				31CB852C1B14B51600F827F7 /* ipad */,
 			);
 			path = CountryPicker;
 			sourceTree = "<group>";
@@ -1822,6 +1833,35 @@
 			path = Commands;
 			sourceTree = "<group>";
 		};
+		31CB85281B14B47700F827F7 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				31CB85291B14B50D00F827F7 /* CountryPickerViewController.h */,
+				31CB852A1B14B50E00F827F7 /* CountryPickerViewController.m */,
+			);
+			name = Base;
+			sourceTree = "<group>";
+		};
+		31CB852C1B14B51600F827F7 /* ipad */ = {
+			isa = PBXGroup;
+			children = (
+				31CB85331B14B55600F827F7 /* CountryPickerViewController_ipad.h */,
+				31CB85341B14B55600F827F7 /* CountryPickerViewController_ipad.m */,
+				31CB85351B14B55600F827F7 /* CountryPickerViewController_ipad.xib */,
+			);
+			name = ipad;
+			sourceTree = "<group>";
+		};
+		31CB852D1B14B51B00F827F7 /* iphone */ = {
+			isa = PBXGroup;
+			children = (
+				31CB852E1B14B53B00F827F7 /* CountryPickerViewController_iphone.h */,
+				31CB852F1B14B53B00F827F7 /* CountryPickerViewController_iphone.m */,
+				31CB85301B14B53B00F827F7 /* CountryPickerViewController_iphone.xib */,
+			);
+			name = iphone;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1913,6 +1953,7 @@
 				0FABA6FC19CAFDC400CC7DD3 /* ContactsViewController_iphone.xib in Resources */,
 				0FC4D1681AFBE0CA00CF4C24 /* MenuViewController_iphone.xib in Resources */,
 				0FC47F1D1B126E95007A7E8D /* PhotoDetailsViewController_iphone.xib in Resources */,
+				31CB85321B14B53B00F827F7 /* CountryPickerViewController_iphone.xib in Resources */,
 				0FA3FA0419C77794001FC84F /* TableViewExampleViewController_ipad.xib in Resources */,
 				0FE1CB0D1AF65EEC006769FE /* ConsoleLogViewController_ipad.xib in Resources */,
 				0FB3F48E19E52E3C0040E4D7 /* Default.png in Resources */,
@@ -1935,6 +1976,7 @@
 				0FC719BC1AF9253400912FF1 /* LaunchViewController_ipad.xib in Resources */,
 				0F7A854D1AFFF95300A2F6C4 /* ScrollViewExampleViewController_iphone.xib in Resources */,
 				0FB3F48D19E52E3C0040E4D7 /* Default-568h@2x.png in Resources */,
+				31CB85371B14B55600F827F7 /* CountryPickerViewController_ipad.xib in Resources */,
 				0FC719B71AF9251D00912FF1 /* LaunchViewController_iphone.xib in Resources */,
 				0F7A85361AFFEDE500A2F6C4 /* HomeListItemView_iphone.xib in Resources */,
 				0FA8625619C425E0004D4A32 /* SettingsViewController_iphone.xib in Resources */,
@@ -1996,9 +2038,9 @@
 				0FABA6F619CAFD9C00CC7DD3 /* ContactsViewController_ipad.m in Sources */,
 				0F7A85391AFFEDF800A2F6C4 /* HomeListItemView_iphone.m in Sources */,
 				0FA62C6A19CF0CF6002D3DDC /* UIView+Fonts.m in Sources */,
-				0FC71A0A1AF93A8200912FF1 /* CountryPickerViewController.m in Sources */,
 				0F7A85401AFFF64B00A2F6C4 /* TermsConditionsViewController_iphone.m in Sources */,
 				0FE1CB451AF674CB006769FE /* MenuViewController.m in Sources */,
+				31CB85361B14B55600F827F7 /* CountryPickerViewController_ipad.m in Sources */,
 				0FE1CB101AF6613C006769FE /* NSString+Utils.m in Sources */,
 				0FC719BB1AF9253400912FF1 /* LaunchViewController_ipad.m in Sources */,
 				0FE1CAED1AF6564B006769FE /* ImageObject.m in Sources */,
@@ -2019,6 +2061,7 @@
 				0FE1CB031AF65E22006769FE /* ConsoleLogViewController.m in Sources */,
 				0FC719CD1AF92DCD00912FF1 /* GMAFJSONResponseSerializer.m in Sources */,
 				0FA695F919BB9CCD0058A722 /* BaseViewController.m in Sources */,
+				31CB85311B14B53B00F827F7 /* CountryPickerViewController_iphone.m in Sources */,
 				0FA4980719DA0B970057D9F4 /* ImageDownloader.m in Sources */,
 				0FE1CB251AF669A0006769FE /* BaseButton.m in Sources */,
 				0FE1CAB81AF64246006769FE /* ViewControllerFactory.m in Sources */,
@@ -2045,6 +2088,7 @@
 				0FC719F61AF933F400912FF1 /* UserProfileViewController.m in Sources */,
 				0FC719DC1AF9330100912FF1 /* UserLoginViewController.m in Sources */,
 				0FC719ED1AF933A000912FF1 /* UserForgotPasswordModel.m in Sources */,
+				31CB852B1B14B50E00F827F7 /* CountryPickerViewController.m in Sources */,
 				0FABA70D19CB07A600CC7DD3 /* UISynchedWebView.m in Sources */,
 				0FA3FA0319C77794001FC84F /* TableViewExampleViewController_ipad.m in Sources */,
 				0FC47F1C1B126E95007A7E8D /* PhotoDetailsViewController_iphone.m in Sources */,
