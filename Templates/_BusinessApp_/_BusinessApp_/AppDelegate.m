@@ -3,18 +3,41 @@
 //  _BusinessApp_
 //
 //  Created by Gytenis Mikulėnas on 1/12/14.
-//  Copyright (c) 2014 Gytenis Mikulėnas. All rights reserved.
+//  Copyright (c) 2015 Gytenis Mikulėnas
+//  (https://github.com/GitTennis/SuccessFramework)
+//
+//  Permission is hereby granted, free of charge, to any person obtaining a copy
+//  of this software and associated documentation files (the "Software"), to deal
+//  in the Software without restriction, including without limitation the rights
+//  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+//  copies of the Software, and to permit persons to whom the Software is
+//  furnished to do so, subject to the following conditions:
+//
+//  The above copyright notice and this permission notice shall be included in all
+//  copies or substantial portions of the Software.
+//
+//  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+//  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+//  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+//  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+//  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+//  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+//  SOFTWARE. All rights reserved.
 //
 
 #import "AppDelegate.h"
 
+// Navigation
 #import "MenuNavigator.h"
-
-#import "HomeViewController.h"
 #import "TopNavigationBar.h"
+
+// ViewControllers
+#import "HomeViewController.h"
 #import "MenuViewController.h"
 #import "LaunchViewController.h"
+#import "WalkthroughViewController.h"
 
+// Managers
 #import "AnalyticsManager.h"
 #import "UserManager.h"
 #import "CrashManager.h"
@@ -22,17 +45,21 @@
 #import "SettingsManager.h"
 #import "ReachabilityManager.h"
 
+// Network
 #import "BackendAPIClient.h"
 #import "AppSettingsNetworkOperation.h"
 #import "SettingObject.h"
 #import "ConstNetworkConfig.h"
 
-#import "GMAlertView.h"
-
+// Other
 #import <iVersion.h>
 
 #warning Update the link before releasing to the app store!
 #define kAppItunesLink @"yourAppStoreLink"
+
+@interface AppDelegate () <LaunchViewControllerDelegate, WalkthroughViewControllerDelegate>
+
+@end
 
 @implementation AppDelegate
 
@@ -43,9 +70,6 @@
     
     // Setting app new app version detection and alerting functionality
     [self setupIVersion];
-    
-    // Show launch screen first.
-    self.window.rootViewController = [[LaunchViewController alloc] init];
     
     // Initializing all the managers and registering them on Registry
     [self initializeManagers];
@@ -64,6 +88,11 @@
     // Creating and registering shared factory
     ViewControllerFactory *viewControllerFactory = [[ViewControllerFactory alloc] init];
     [REGISTRY registerObject:viewControllerFactory];
+    
+    // Show launch screen first.
+    LaunchViewController *launchVC = [viewControllerFactory launchViewControllerWithContext:nil];
+    launchVC.delegate = self;
+    self.window.rootViewController = launchVC;
     
 #warning TODO push notifications
     // Register for push notifications
@@ -193,8 +222,53 @@
     }
 }
 
+#pragma mark - LaunchViewControllerDelegate
+
+- (void)didFinishShowingCustomLaunch {
+    
+    ViewControllerFactory *viewControllerFactory = [REGISTRY getObject:[ViewControllerFactory class]];
+    
+    // Proceed to the app after user completes walkthrough
+    WalkthroughViewController *walkthroughVC = [viewControllerFactory walkthroughViewControllerWithContext:nil];
+    walkthroughVC.delegate = self;
+    self.window.rootViewController = walkthroughVC;
+}
+
+#pragma mark - WalkthroughViewControllerDelegate
+
+- (void)didFinishShowingWalkthrough {
+    
+    // Create root view controller
+    ViewControllerFactory *factory = [REGISTRY getObject:[ViewControllerFactory class]];
+    
+    MenuViewController *menuVC = [factory menuViewControllerWithContext:nil];
+    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:[factory homeViewControllerWithContext:nil]];
+    
+    // Create and configure side menu component (width, shadow, panning speed and etc.)
+    _menuNavigator = [[MenuNavigator alloc] initWithMenuViewControler:menuVC contentViewController:navigationController];
+    [REGISTRY registerObject:_menuNavigator];
+    
+    // Assign side menu component as main app navigator
+    self.window.rootViewController = _menuNavigator;
+    
+    // Load user if logged in before
+    UserManager *userManager = [REGISTRY getObject:[UserManager class]];
+    [userManager loadUser];
+    
+    // Apply style
+    [TopNavigationBar applyStyleForNavigationBar:self.navigationController.navigationBar];
+}
+
 #pragma mark - Force to update
 
+// Method performs request to the backend and passes current app version. Backend returns bool indicating app should be updated or not. If yes then user is shown alert, navigated to app store for update and app is closed. Sometimes we need such functionality because of:
+//
+//  1. Previously released app contains critical errors and we need to update ASAP.
+//  2. We released new app version which uses new backend API which is not backwards compatible with the old app
+//  3. We have released a new app version which introduces major changes and there's no profit in allowing a users to continue to use old app.
+//
+//  A good example of such force to update is Clash of clans game app.
+//
 - (void)checkForAppUpdate {
     
     AppSettingsNetworkOperation *appSettingsNetworkOperation = [[AppSettingsNetworkOperation alloc] init];
@@ -294,29 +368,6 @@
     
     // Register API clients
     [REGISTRY registerObject:backendAPIClient];
-}
-
-- (void)closeLaunchScreenAndProceed {
-    
-    // Create root view controller
-    ViewControllerFactory *factory = [REGISTRY getObject:[ViewControllerFactory class]];
-    
-    MenuViewController *menuVC = [factory menuViewControllerWithContext:nil];
-    UINavigationController *navigationController = [[UINavigationController alloc]initWithRootViewController:[factory homeViewControllerWithContext:nil]];
-
-    // Create and configure side menu component (width, shadow, panning speed and etc.)
-    _menuNavigator = [[MenuNavigator alloc] initWithMenuViewControler:menuVC contentViewController:navigationController];
-    [REGISTRY registerObject:_menuNavigator];
-    
-    // Assign side menu component as main app navigator
-    self.window.rootViewController = _menuNavigator;
-    
-    // Load user if logged in before
-    UserManager *userManager = [REGISTRY getObject:[UserManager class]];
-    [userManager loadUser];
-
-    // Apply style
-    [TopNavigationBar applyStyleForNavigationBar:self.navigationController.navigationBar];
 }
 
 // Currently the app supports 2 languages only - "en" and "de". If user has selected other language than those two then "en" will be set as default

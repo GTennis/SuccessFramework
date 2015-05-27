@@ -3,7 +3,26 @@
 //  _BusinessApp_
 //
 //  Created by Gytenis Mikulėnas on 1/15/14.
-//  Copyright (c) 2014 Gytenis Mikulėnas. All rights reserved.
+//  Copyright (c) 2015 Gytenis Mikulėnas
+//  (https://github.com/GitTennis/SuccessFramework)
+//
+//  Permission is hereby granted, free of charge, to any person obtaining a copy
+//  of this software and associated documentation files (the "Software"), to deal
+//  in the Software without restriction, including without limitation the rights
+//  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+//  copies of the Software, and to permit persons to whom the Software is
+//  furnished to do so, subject to the following conditions:
+//
+//  The above copyright notice and this permission notice shall be included in all
+//  copies or substantial portions of the Software.
+//
+//  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+//  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+//  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+//  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+//  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+//  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+//  SOFTWARE. All rights reserved.
 //
 
 #import "ViewControllerFactory.h"
@@ -14,6 +33,11 @@
 #import "ReachabilityManager.h"
 #import "BackendAPIClient.h"
 #import "MessageBarManager.h"
+
+// Launch related
+#import "LaunchViewController.h"
+#import "WalkthroughViewController.h"
+#import "WalkthroughModel.h"
 
 // Home related
 #import "HomeViewController.h"
@@ -66,15 +90,33 @@
 
 @implementation ViewControllerFactory
 
+#pragma mark - Launch related
+
+- (LaunchViewController *)launchViewControllerWithContext:(id)context {
+
+    LaunchViewController *viewController = (LaunchViewController *)[self viewControllerWithClass:[LaunchViewController class] context:context];
+    
+    return viewController;
+}
+
+- (WalkthroughViewController *)walkthroughViewControllerWithContext:(id)context {
+    
+    WalkthroughModel *model = (WalkthroughModel *)[self modelWithClass:[WalkthroughModel class] context:context];
+    WalkthroughViewController *viewController = (WalkthroughViewController *)[self viewControllerWithClass:[WalkthroughViewController class] context:context];
+    viewController.model = model;
+    
+    return viewController;
+}
+
 #pragma mark - Home related
 
 - (HomeViewController *)homeViewControllerWithContext:(id)context {
     
-    HomeModel *homeModel = (HomeModel *)[self modelWithClass:[HomeModel class] context:context];
-    HomeViewController *homeViewController = (HomeViewController *)[self viewControllerWithClass:[HomeViewController class] context:context];
-    homeViewController.model = homeModel;
+    HomeModel *model = (HomeModel *)[self modelWithClass:[HomeModel class] context:context];
+    HomeViewController *viewController = (HomeViewController *)[self viewControllerWithClass:[HomeViewController class] context:context];
+    viewController.model = model;
 
-    return homeViewController;
+    return viewController;
 }
 
 - (PhotoDetailsViewController *)photoDetailsViewControllerWithContext:(id)context {
@@ -90,120 +132,120 @@
 
 - (UserContainerViewController *)userContainerViewControllerWithContext:(id)context {
     
-    UserContainerModel *userModel = (UserContainerModel *)[self modelWithClass:[UserContainerModel class] context:context];
-    UserContainerViewController *userContainerViewController = (UserContainerViewController *)[self viewControllerWithClass:[UserContainerViewController class] context:context];
-    userContainerViewController.model = userModel;
+    UserContainerModel *model = (UserContainerModel *)[self modelWithClass:[UserContainerModel class] context:context];
+    UserContainerViewController *viewController = (UserContainerViewController *)[self viewControllerWithClass:[UserContainerViewController class] context:context];
+    viewController.model = model;
     
-    userModel.delegate = userContainerViewController;
+    model.delegate = viewController;
     
-    return userContainerViewController;
+    return viewController;
 }
 
 - (UserLoginViewController *)userLoginViewControllerWithContext:(id)context {
     
-    UserLoginModel *userLoginModel = (UserLoginModel *)[self modelWithClass:[UserLoginModel class] context:context];
-    UserLoginViewController *userLoginViewController = (UserLoginViewController *)[self viewControllerWithClass:[UserLoginViewController class] context:context];
-    userLoginViewController.model = userLoginModel;
+    UserLoginModel *model = (UserLoginModel *)[self modelWithClass:[UserLoginModel class] context:context];
+    UserLoginViewController *viewController = (UserLoginViewController *)[self viewControllerWithClass:[UserLoginViewController class] context:context];
+    viewController.model = model;
     
-    userLoginModel.delegate = userLoginViewController;
+    model.delegate = viewController;
     
-    return userLoginViewController;
+    return viewController;
 }
 
 - (UserSignUpViewController *)userSignUpViewControllerWithContext:(id)context {
     
-    UserSignUpModel *userSignUpModel = (UserSignUpModel *)[self modelWithClass:[UserSignUpModel class] context:context];
-    UserSignUpViewController *userSignUpViewController = (UserSignUpViewController *)[self viewControllerWithClass:[UserSignUpViewController class] context:context];
-    userSignUpViewController.model = userSignUpModel;
+    UserSignUpModel *model = (UserSignUpModel *)[self modelWithClass:[UserSignUpModel class] context:context];
+    UserSignUpViewController *viewController = (UserSignUpViewController *)[self viewControllerWithClass:[UserSignUpViewController class] context:context];
+    viewController.model = model;
     
-    userSignUpModel.delegate = userSignUpViewController;
+    model.delegate = viewController;
     
-    return userSignUpViewController;
+    return viewController;
 }
 
 - (UserForgotPasswordViewController *)userForgotPasswordViewControllerWithContext:(id)context {
     
-    UserForgotPasswordModel *userForgotPasswordModel = (UserForgotPasswordModel *)[self modelWithClass:[UserForgotPasswordModel class] context:context];
+    UserForgotPasswordModel *model = (UserForgotPasswordModel *)[self modelWithClass:[UserForgotPasswordModel class] context:context];
 
-    UserForgotPasswordViewController *userResetPasswordViewController = (UserForgotPasswordViewController *)[self viewControllerWithClass:[UserForgotPasswordViewController class] context:context];
-    userResetPasswordViewController.model = userForgotPasswordModel;
+    UserForgotPasswordViewController *viewController = (UserForgotPasswordViewController *)[self viewControllerWithClass:[UserForgotPasswordViewController class] context:context];
+    viewController.model = model;
     
-    userForgotPasswordModel.delegate = userResetPasswordViewController;
+    model.delegate = viewController;
     
-    return userResetPasswordViewController;
+    return viewController;
 }
 
 #pragma mark - Settings
 
 - (SettingsViewController *)settingsViewControllerWithContext:(id)context {
     
-    SettingsModel *settingsModel = (SettingsModel *)[self modelWithClass:[SettingsModel class] context:context];
-    SettingsViewController *settingsViewController = (SettingsViewController *)[self viewControllerWithClass:[SettingsViewController class] context:context];
-    settingsViewController.model = settingsModel;
+    SettingsModel *model = (SettingsModel *)[self modelWithClass:[SettingsModel class] context:context];
+    SettingsViewController *viewController = (SettingsViewController *)[self viewControllerWithClass:[SettingsViewController class] context:context];
+    viewController.model = model;
     
-    return settingsViewController;
+    return viewController;
 }
 
 #pragma mark - Menu
 
 - (MenuViewController *)menuViewControllerWithContext:(id)context {
 
-    MenuModel *menuModel = (MenuModel *)[self modelWithClass:[MenuModel class] context:context];
+    MenuModel *model = (MenuModel *)[self modelWithClass:[MenuModel class] context:context];
     //[menuModel.userManager addServiceObserver:menuModel];
-    MenuViewController *menuViewController = (MenuViewController *)[self viewControllerWithClass:[MenuViewController class] context:context];
-    menuViewController.model = menuModel;
-    menuModel.delegate = menuViewController;
+    MenuViewController *viewController = (MenuViewController *)[self viewControllerWithClass:[MenuViewController class] context:context];
+    viewController.model = model;
+    model.delegate = viewController;
 
-    return menuViewController;
+    return viewController;
 }
 
 #pragma mark - User Profile
 
 - (UserProfileViewController *)userProfileViewControllerWithContext:(id)context {
 
-    UserProfileModel *userProfileModel = (UserProfileModel *)[self modelWithClass:[UserProfileModel class] context:context];
-    UserProfileViewController *userProfileViewController = (UserProfileViewController *)[self viewControllerWithClass:[UserProfileViewController class] context:context];
-    userProfileViewController.model = userProfileModel;
+    UserProfileModel *model = (UserProfileModel *)[self modelWithClass:[UserProfileModel class] context:context];
+    UserProfileViewController *viewController = (UserProfileViewController *)[self viewControllerWithClass:[UserProfileViewController class] context:context];
+    viewController.model = model;
 
-    return userProfileViewController;
+    return viewController;
 }
 
 #pragma mark - Terms and Conditions
 
 - (TermsConditionsViewController *)termsConditionsViewControllerWithContext:(id)context {
 
-    TermsConditionsModel *termsConditionsModel = (TermsConditionsModel *)[self modelWithClass:[TermsConditionsModel class] context:context];
-    TermsConditionsViewController *termsConditionsViewController = (TermsConditionsViewController *)[self viewControllerWithClass:[TermsConditionsViewController class] context:context];
-    termsConditionsViewController.model = termsConditionsModel;
+    TermsConditionsModel *model = (TermsConditionsModel *)[self modelWithClass:[TermsConditionsModel class] context:context];
+    TermsConditionsViewController *viewController = (TermsConditionsViewController *)[self viewControllerWithClass:[TermsConditionsViewController class] context:context];
+    viewController.model = model;
 
-    return termsConditionsViewController;
+    return viewController;
 }
 
 #pragma mark - Contacts
 
 - (ContactsViewController *)contactsViewControllerWithContext:(id)context {
 
-    ContactsModel *contactsModel = (ContactsModel *)[self modelWithClass:[ContactsModel class] context:context];
-    ContactsViewController *contactsViewController = (ContactsViewController *)[self viewControllerWithClass:[ContactsViewController class] context:context];
-    contactsViewController.model = contactsModel;
+    ContactsModel *model = (ContactsModel *)[self modelWithClass:[ContactsModel class] context:context];
+    ContactsViewController *viewController = (ContactsViewController *)[self viewControllerWithClass:[ContactsViewController class] context:context];
+    viewController.model = model;
 
-    return contactsViewController;
+    return viewController;
 }
 
 #pragma mark - Demos
 
 - (ScrollViewExampleViewController *)scrollViewExampleViewControllerWithContext:(id)context {
     
-    ScrollViewExampleViewController *scrollViewExampleViewController = (ScrollViewExampleViewController *)[self viewControllerWithClass:[ScrollViewExampleViewController class] context:context];
+    ScrollViewExampleViewController *viewController = (ScrollViewExampleViewController *)[self viewControllerWithClass:[ScrollViewExampleViewController class] context:context];
     
-    return scrollViewExampleViewController;
+    return viewController;
 }
 
 - (TableViewExampleViewController *)tableViewExampleViewControllerWithContext:(id)context {
     
-    TableViewExampleViewController *tableViewExampleViewController = (TableViewExampleViewController *)[self viewControllerWithClass:[TableViewExampleViewController class] context:context];
+    TableViewExampleViewController *viewController = (TableViewExampleViewController *)[self viewControllerWithClass:[TableViewExampleViewController class] context:context];
     
-    return tableViewExampleViewController;
+    return viewController;
 }
 
 #pragma mark - Pickers
@@ -211,9 +253,9 @@
 // Country list
 - (CountryPickerViewController *)countryPickerViewControllerWithDelegate:(id<CountryPickerViewControllerDelegate>)delegate context:(id)context {
     
-    CountryPickerViewController *countryPickerVC = (CountryPickerViewController *) [self viewControllerWithClass:[CountryPickerViewController class] context:context];
+    CountryPickerViewController *viewController = (CountryPickerViewController *) [self viewControllerWithClass:[CountryPickerViewController class] context:context];
     
-    return countryPickerVC;
+    return viewController;
 }
 
 #pragma mark - Helpers

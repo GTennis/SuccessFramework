@@ -143,7 +143,6 @@
 		0FE1CAE71AF65593006769FE /* ErrorObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FE1CAE61AF65593006769FE /* ErrorObject.m */; };
 		0FE1CAED1AF6564B006769FE /* ImageObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FE1CAEA1AF6564B006769FE /* ImageObject.m */; };
 		0FE1CAEE1AF6564B006769FE /* ImagesObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FE1CAEC1AF6564B006769FE /* ImagesObject.m */; };
-		0FE1CAF91AF659C3006769FE /* UserObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FE1CAF81AF659C3006769FE /* UserObject.m */; };
 		0FE1CB001AF65D70006769FE /* GMConsoleLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FE1CAFF1AF65D70006769FE /* GMConsoleLogger.m */; };
 		0FE1CB031AF65E22006769FE /* ConsoleLogViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FE1CB021AF65E22006769FE /* ConsoleLogViewController.m */; };
 		0FE1CB071AF65EC1006769FE /* ConsoleLogViewController_iphone.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FE1CB051AF65EC1006769FE /* ConsoleLogViewController_iphone.m */; };
@@ -182,6 +181,13 @@
 		31CB85321B14B53B00F827F7 /* CountryPickerViewController_iphone.xib in Resources */ = {isa = PBXBuildFile; fileRef = 31CB85301B14B53B00F827F7 /* CountryPickerViewController_iphone.xib */; };
 		31CB85361B14B55600F827F7 /* CountryPickerViewController_ipad.m in Sources */ = {isa = PBXBuildFile; fileRef = 31CB85341B14B55600F827F7 /* CountryPickerViewController_ipad.m */; };
 		31CB85371B14B55600F827F7 /* CountryPickerViewController_ipad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 31CB85351B14B55600F827F7 /* CountryPickerViewController_ipad.xib */; };
+		31CB85461B15B2A100F827F7 /* UserObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 31CB85451B15B2A100F827F7 /* UserObject.m */; };
+		31CB85501B15BFB800F827F7 /* WalkthroughViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 31CB854F1B15BFB800F827F7 /* WalkthroughViewController.m */; };
+		31CB85541B15BFCF00F827F7 /* WalkthroughViewController_iphone.m in Sources */ = {isa = PBXBuildFile; fileRef = 31CB85521B15BFCF00F827F7 /* WalkthroughViewController_iphone.m */; };
+		31CB85551B15BFCF00F827F7 /* WalkthroughViewController_iphone.xib in Resources */ = {isa = PBXBuildFile; fileRef = 31CB85531B15BFCF00F827F7 /* WalkthroughViewController_iphone.xib */; };
+		31CB85591B15BFEC00F827F7 /* WalkthroughViewController_ipad.m in Sources */ = {isa = PBXBuildFile; fileRef = 31CB85571B15BFEC00F827F7 /* WalkthroughViewController_ipad.m */; };
+		31CB855A1B15BFEC00F827F7 /* WalkthroughViewController_ipad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 31CB85581B15BFEC00F827F7 /* WalkthroughViewController_ipad.xib */; };
+		31CB855D1B15D0BC00F827F7 /* WalkthroughModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 31CB855C1B15D0BC00F827F7 /* WalkthroughModel.m */; };
 		7E48B6A029D4462B99F94BBA /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4BE886A7686A4EC6BF56CDC8 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -315,8 +321,6 @@
 		0FA8625419C425E0004D4A32 /* SettingsViewController_iphone.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SettingsViewController_iphone.xib; sourceTree = "<group>"; };
 		0FABA6E719CAEC4B00CC7DD3 /* MessageBarManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageBarManager.h; sourceTree = "<group>"; };
 		0FABA6E819CAEC4B00CC7DD3 /* MessageBarManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessageBarManager.m; sourceTree = "<group>"; };
-		0FABA6EA19CAF81E00CC7DD3 /* UserObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserObject.h; sourceTree = "<group>"; };
-		0FABA6EB19CAF81E00CC7DD3 /* UserObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserObject.m; sourceTree = "<group>"; };
 		0FABA6F019CAFD8400CC7DD3 /* ContactsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContactsViewController.h; sourceTree = "<group>"; };
 		0FABA6F119CAFD8400CC7DD3 /* ContactsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContactsViewController.m; sourceTree = "<group>"; };
 		0FABA6F319CAFD9C00CC7DD3 /* ContactsViewController_ipad.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContactsViewController_ipad.h; sourceTree = "<group>"; };
@@ -455,8 +459,6 @@
 		0FE1CAEC1AF6564B006769FE /* ImagesObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImagesObject.m; sourceTree = "<group>"; };
 		0FE1CAF41AF65782006769FE /* MessageBarManagerProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MessageBarManagerProtocol.h; sourceTree = "<group>"; };
 		0FE1CAF51AF657C4006769FE /* SettingsManagerProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SettingsManagerProtocol.h; sourceTree = "<group>"; };
-		0FE1CAF71AF659C3006769FE /* UserObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserObject.h; sourceTree = "<group>"; };
-		0FE1CAF81AF659C3006769FE /* UserObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserObject.m; sourceTree = "<group>"; };
 		0FE1CAFE1AF65D70006769FE /* GMConsoleLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GMConsoleLogger.h; sourceTree = "<group>"; };
 		0FE1CAFF1AF65D70006769FE /* GMConsoleLogger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GMConsoleLogger.m; sourceTree = "<group>"; };
 		0FE1CB011AF65E22006769FE /* ConsoleLogViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConsoleLogViewController.h; sourceTree = "<group>"; };
@@ -537,6 +539,18 @@
 		31CB85331B14B55600F827F7 /* CountryPickerViewController_ipad.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CountryPickerViewController_ipad.h; sourceTree = "<group>"; };
 		31CB85341B14B55600F827F7 /* CountryPickerViewController_ipad.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CountryPickerViewController_ipad.m; sourceTree = "<group>"; };
 		31CB85351B14B55600F827F7 /* CountryPickerViewController_ipad.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CountryPickerViewController_ipad.xib; sourceTree = "<group>"; };
+		31CB85441B15B2A100F827F7 /* UserObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserObject.h; sourceTree = "<group>"; };
+		31CB85451B15B2A100F827F7 /* UserObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserObject.m; sourceTree = "<group>"; };
+		31CB854E1B15BFB800F827F7 /* WalkthroughViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WalkthroughViewController.h; sourceTree = SOURCE_ROOT; };
+		31CB854F1B15BFB800F827F7 /* WalkthroughViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WalkthroughViewController.m; sourceTree = SOURCE_ROOT; };
+		31CB85511B15BFCF00F827F7 /* WalkthroughViewController_iphone.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WalkthroughViewController_iphone.h; sourceTree = SOURCE_ROOT; };
+		31CB85521B15BFCF00F827F7 /* WalkthroughViewController_iphone.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WalkthroughViewController_iphone.m; sourceTree = SOURCE_ROOT; };
+		31CB85531B15BFCF00F827F7 /* WalkthroughViewController_iphone.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WalkthroughViewController_iphone.xib; sourceTree = SOURCE_ROOT; };
+		31CB85561B15BFEC00F827F7 /* WalkthroughViewController_ipad.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WalkthroughViewController_ipad.h; sourceTree = SOURCE_ROOT; };
+		31CB85571B15BFEC00F827F7 /* WalkthroughViewController_ipad.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WalkthroughViewController_ipad.m; sourceTree = SOURCE_ROOT; };
+		31CB85581B15BFEC00F827F7 /* WalkthroughViewController_ipad.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WalkthroughViewController_ipad.xib; sourceTree = SOURCE_ROOT; };
+		31CB855B1B15D0BC00F827F7 /* WalkthroughModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WalkthroughModel.h; sourceTree = SOURCE_ROOT; };
+		31CB855C1B15D0BC00F827F7 /* WalkthroughModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WalkthroughModel.m; sourceTree = SOURCE_ROOT; };
 		4BE886A7686A4EC6BF56CDC8 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		6E0BD085B1D95E6D8A405F54 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -1061,12 +1075,7 @@
 				0FE1CAE81AF655C8006769FE /* Images */,
 				0FE1CAE41AF65584006769FE /* Errors */,
 				0FE1CAE01AF6555E006769FE /* Settings */,
-				0FA3FA1419C780EF001FC84F /* OrderItemObject.h */,
-				0FA3FA1519C780EF001FC84F /* OrderItemObject.m */,
-				0FA3FA1919C78484001FC84F /* OrderObject.h */,
-				0FA3FA1A19C78484001FC84F /* OrderObject.m */,
-				0FABA6EA19CAF81E00CC7DD3 /* UserObject.h */,
-				0FABA6EB19CAF81E00CC7DD3 /* UserObject.m */,
+				31CB85471B15B76800F827F7 /* Orders */,
 			);
 			path = DataObjects;
 			sourceTree = "<group>";
@@ -1402,6 +1411,9 @@
 		0FC719BD1AF925D600912FF1 /* Walkthrough */ = {
 			isa = PBXGroup;
 			children = (
+				31CB854D1B15BFA400F827F7 /* Base */,
+				31CB854C1B15BF9F00F827F7 /* iphone */,
+				31CB854B1B15BF9A00F827F7 /* ipad */,
 			);
 			path = Walkthrough;
 			sourceTree = "<group>";
@@ -1666,8 +1678,8 @@
 		0FE1CAF61AF65983006769FE /* Users */ = {
 			isa = PBXGroup;
 			children = (
-				0FE1CAF71AF659C3006769FE /* UserObject.h */,
-				0FE1CAF81AF659C3006769FE /* UserObject.m */,
+				31CB85441B15B2A100F827F7 /* UserObject.h */,
+				31CB85451B15B2A100F827F7 /* UserObject.m */,
 			);
 			name = Users;
 			sourceTree = "<group>";
@@ -1862,6 +1874,48 @@
 			name = iphone;
 			sourceTree = "<group>";
 		};
+		31CB85471B15B76800F827F7 /* Orders */ = {
+			isa = PBXGroup;
+			children = (
+				0FA3FA1419C780EF001FC84F /* OrderItemObject.h */,
+				0FA3FA1519C780EF001FC84F /* OrderItemObject.m */,
+				0FA3FA1919C78484001FC84F /* OrderObject.h */,
+				0FA3FA1A19C78484001FC84F /* OrderObject.m */,
+			);
+			name = Orders;
+			sourceTree = "<group>";
+		};
+		31CB854B1B15BF9A00F827F7 /* ipad */ = {
+			isa = PBXGroup;
+			children = (
+				31CB85561B15BFEC00F827F7 /* WalkthroughViewController_ipad.h */,
+				31CB85571B15BFEC00F827F7 /* WalkthroughViewController_ipad.m */,
+				31CB85581B15BFEC00F827F7 /* WalkthroughViewController_ipad.xib */,
+			);
+			name = ipad;
+			sourceTree = "<group>";
+		};
+		31CB854C1B15BF9F00F827F7 /* iphone */ = {
+			isa = PBXGroup;
+			children = (
+				31CB85511B15BFCF00F827F7 /* WalkthroughViewController_iphone.h */,
+				31CB85521B15BFCF00F827F7 /* WalkthroughViewController_iphone.m */,
+				31CB85531B15BFCF00F827F7 /* WalkthroughViewController_iphone.xib */,
+			);
+			name = iphone;
+			sourceTree = "<group>";
+		};
+		31CB854D1B15BFA400F827F7 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				31CB855B1B15D0BC00F827F7 /* WalkthroughModel.h */,
+				31CB855C1B15D0BC00F827F7 /* WalkthroughModel.m */,
+				31CB854E1B15BFB800F827F7 /* WalkthroughViewController.h */,
+				31CB854F1B15BFB800F827F7 /* WalkthroughViewController.m */,
+			);
+			name = Base;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1909,7 +1963,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 0510;
-				ORGANIZATIONNAME = "Gytenis Mikulėnas";
+				ORGANIZATIONNAME = "Gytenis Mikulėnas \n//  (https://github.com/GitTennis/SuccessFramework)\n//\n//  Permission is hereby granted, free of charge, to any person obtaining a copy\n//  of this software and associated documentation files (the \"Software\"), to deal\n//  in the Software without restriction, including without limitation the rights\n//  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell\n//  copies of the Software, and to permit persons to whom the Software is\n//  furnished to do so, subject to the following conditions:\n//\n//  The above copyright notice and this permission notice shall be included in all\n//  copies or substantial portions of the Software.\n//\n//  THE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR\n//  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,\n//  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE\n//  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER\n//  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,\n//  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE\n//  SOFTWARE.";
 				TargetAttributes = {
 					0FA695B819BB9A720058A722 = {
 						TestTargetID = 0FA6959419BB9A720058A722;
@@ -1944,6 +1998,7 @@
 				0FC47F261B127A67007A7E8D /* glockenspiel.ttf in Resources */,
 				0FB3F4A519E5388A0040E4D7 /* Default-Portrait@2x.png in Resources */,
 				0FB3F49F19E5387E0040E4D7 /* Default-Landscape@2x.png in Resources */,
+				31CB85551B15BFCF00F827F7 /* WalkthroughViewController_iphone.xib in Resources */,
 				0FC4D16D1AFBE11500CF4C24 /* MenuViewController_ipad.xib in Resources */,
 				0FBFDF5F1B13A84E00FA4EFD /* TableViewExampleViewController_iphone.xib in Resources */,
 				0F70DF331AFFC4D8004293F1 /* TopNavigationBar_iphone.xib in Resources */,
@@ -1953,6 +2008,7 @@
 				0FABA6FC19CAFDC400CC7DD3 /* ContactsViewController_iphone.xib in Resources */,
 				0FC4D1681AFBE0CA00CF4C24 /* MenuViewController_iphone.xib in Resources */,
 				0FC47F1D1B126E95007A7E8D /* PhotoDetailsViewController_iphone.xib in Resources */,
+				31CB855A1B15BFEC00F827F7 /* WalkthroughViewController_ipad.xib in Resources */,
 				31CB85321B14B53B00F827F7 /* CountryPickerViewController_iphone.xib in Resources */,
 				0FA3FA0419C77794001FC84F /* TableViewExampleViewController_ipad.xib in Resources */,
 				0FE1CB0D1AF65EEC006769FE /* ConsoleLogViewController_ipad.xib in Resources */,
@@ -2037,6 +2093,7 @@
 				0FC719B21AF924E100912FF1 /* LaunchViewController.m in Sources */,
 				0FABA6F619CAFD9C00CC7DD3 /* ContactsViewController_ipad.m in Sources */,
 				0F7A85391AFFEDF800A2F6C4 /* HomeListItemView_iphone.m in Sources */,
+				31CB85501B15BFB800F827F7 /* WalkthroughViewController.m in Sources */,
 				0FA62C6A19CF0CF6002D3DDC /* UIView+Fonts.m in Sources */,
 				0F7A85401AFFF64B00A2F6C4 /* TermsConditionsViewController_iphone.m in Sources */,
 				0FE1CB451AF674CB006769FE /* MenuViewController.m in Sources */,
@@ -2074,6 +2131,7 @@
 				0FC719DF1AF9331A00912FF1 /* UserLoginModel.m in Sources */,
 				0FA3FA1E19C78840001FC84F /* SocialManager.m in Sources */,
 				0FA695EC19BB9C040058A722 /* UIView+Autolayout.m in Sources */,
+				31CB855D1B15D0BC00F827F7 /* WalkthroughModel.m in Sources */,
 				0FE1CB391AF66CD6006769FE /* NormalLabel.m in Sources */,
 				3119A3FF1B0DD554001CCA38 /* SeparatorVerticalLineView.m in Sources */,
 				0FE1CABC1AF64471006769FE /* AnalyticsManager.m in Sources */,
@@ -2097,7 +2155,6 @@
 				0FA67F7E19C61F8600E00FDA /* BaseWebViewController.m in Sources */,
 				0FC719F91AF9341600912FF1 /* UserProfileModel.m in Sources */,
 				0FE1CAD41AF6517D006769FE /* NetworkEnvironmentSwitch4Testing.m in Sources */,
-				0FE1CAF91AF659C3006769FE /* UserObject.m in Sources */,
 				0FA4E8FA19CD60C50046CA90 /* ScrollViewExampleViewController_ipad.m in Sources */,
 				0FE1CB001AF65D70006769FE /* GMConsoleLogger.m in Sources */,
 				0F7A85451AFFF65E00A2F6C4 /* TermsConditionsViewController_ipad.m in Sources */,
@@ -2108,6 +2165,7 @@
 				3119A3F91B0DD4D1001CCA38 /* NormalModalToolbar.m in Sources */,
 				0FE1CB5C1AF691FE006769FE /* TermsConditionsModel.m in Sources */,
 				0FE1CB2C1AF66A66006769FE /* BaseTextField.m in Sources */,
+				31CB85591B15BFEC00F827F7 /* WalkthroughViewController_ipad.m in Sources */,
 				0FE1CB891AF6ABAF006769FE /* UIToolbar+Custom.m in Sources */,
 				31912EA01B0CC9B6007C0C89 /* SendEmailCommand.m in Sources */,
 				0FE1CAE31AF65572006769FE /* SettingObject.m in Sources */,
@@ -2154,10 +2212,12 @@
 				0FC4D1701AFBEC3500CF4C24 /* MenuNavigator.m in Sources */,
 				0FE1CB161AF663E6006769FE /* NSString+Validator.m in Sources */,
 				0FBFDF631B13A88E00FA4EFD /* TableViewExampleCell_iphone.m in Sources */,
+				31CB85461B15B2A100F827F7 /* UserObject.m in Sources */,
 				0FA695A519BB9A720058A722 /* main.m in Sources */,
 				0FE1CB1C1AF664B7006769FE /* NSObject+Description.m in Sources */,
 				0FE1CAD81AF6527C006769FE /* BaseAPIClient.m in Sources */,
 				0FE1CB591AF691D2006769FE /* TermsConditionsViewController.m in Sources */,
+				31CB85541B15BFCF00F827F7 /* WalkthroughViewController_iphone.m in Sources */,
 				0FA695E619BB9BD90058A722 /* NSDate+Common.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2277,7 +2337,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -2310,7 +2370,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;

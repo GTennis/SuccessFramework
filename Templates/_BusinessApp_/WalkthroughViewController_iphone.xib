@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6751" systemVersion="13F1077" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="WalkthroughViewController_iphone">
+            <connections>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hi there!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rq5-Zm-eIZ" customClass="NormalLabel">
+                    <rect key="frame" x="24" y="73" width="272" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fHF-wz-oAB" userLabel="SkipButton" customClass="NormalButton">
+                    <rect key="frame" x="24" y="500" width="272" height="50"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="50" id="mNU-t3-u3n"/>
+                    </constraints>
+                    <state key="normal" title="Skip">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="skipPressed:" destination="-1" eventType="touchUpInside" id="Xb6-xg-sYN"/>
+                    </connections>
+                </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This is a place where you can put some short introduction for newcomer users who are launching your app for the first time!" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t0e-r3-S4V" customClass="NormalLabel">
+                    <rect key="frame" x="24" y="110" width="272" height="82"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="rq5-Zm-eIZ" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="73" id="CVz-cG-OPH"/>
+                <constraint firstItem="fHF-wz-oAB" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="24" id="JPc-Xw-yBg"/>
+                <constraint firstItem="t0e-r3-S4V" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="24" id="NcV-Qp-50o"/>
+                <constraint firstItem="rq5-Zm-eIZ" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="24" id="QDs-Lb-u5X"/>
+                <constraint firstAttribute="trailing" secondItem="t0e-r3-S4V" secondAttribute="trailing" constant="24" id="ZS2-a5-PRL"/>
+                <constraint firstItem="t0e-r3-S4V" firstAttribute="top" secondItem="rq5-Zm-eIZ" secondAttribute="bottom" constant="16" id="mC3-57-gTi"/>
+                <constraint firstAttribute="bottom" secondItem="fHF-wz-oAB" secondAttribute="bottom" constant="18" id="mDX-7u-5pG"/>
+                <constraint firstAttribute="trailing" secondItem="fHF-wz-oAB" secondAttribute="trailing" constant="24" id="od7-XH-j4Z"/>
+                <constraint firstAttribute="trailing" secondItem="rq5-Zm-eIZ" secondAttribute="trailing" constant="24" id="wHd-SQ-z61"/>
+            </constraints>
+            <point key="canvasLocation" x="422" y="398"/>
+        </view>
+    </objects>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination" type="retina4"/>
+    </simulatedMetricsContainer>
+</document>

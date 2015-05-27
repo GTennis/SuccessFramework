@@ -6,17 +6,26 @@
 //  Copyright (c) 2014 Gytenis Mikulėnas. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+#import "ParsableObject.h"
 
-@interface OrderItemObject : NSObject
+#define kOrderItemIdKey @"itemId"
+#define kOrderItemTitleKey @"title"
+#define kOrderItemTrackingCodeKey @"trackingCode"
+#define kOrderItemQuantityKey @"quantity"
+#define kOrderItemPriceKey @"price"
+#define kOrderItemCurrencyKey @"currency"
 
-@property (nonatomic, copy) NSString *orderItemId;
+@protocol OrderItemObject <ParsableObject>
+
+@property (nonatomic, copy) NSString *itemId;
 @property (nonatomic, copy) NSString *title;
-@property (nonatomic, copy) NSString *gaSkuCode;
+@property (nonatomic, copy) NSString *trackingCode;
 @property (nonatomic, strong) NSNumber *quantity;
 @property (nonatomic, strong) NSNumber *price;
-@property (nonatomic, copy) NSString *currencyCode;
+@property (nonatomic, copy) NSString *currency;
 
-+ (id)objectWithDictionary:(NSDictionary *)dict;
+@end
+
+@interface OrderItemObject : NSObject <OrderItemObject>
 
 @end
