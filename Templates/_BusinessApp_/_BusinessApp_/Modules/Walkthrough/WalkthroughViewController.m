@@ -1,10 +1,10 @@
 //
-//  WalkthroughViewController_ipad.h
+//  WalkthroughViewController.m
 //  _BusinessApp_
 //
 //  Created by Gytenis Mikulenas on 27/05/15.
 //  Copyright (c) 2015 Gytenis Mikulėnas 
-//  (https://github.com/GitTennis/SuccessFramework)
+//  https://github.com/GitTennis/SuccessFramework
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
 //  of this software and associated documentation files (the "Software"), to deal
@@ -26,7 +26,57 @@
 //
 
 #import "WalkthroughViewController.h"
+#import "WalkthroughModel.h"
 
-@interface WalkthroughViewController_ipad : WalkthroughViewController
+@interface WalkthroughViewController ()
+
+@end
+
+@implementation WalkthroughViewController
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    // Do any additional setup after loading the view.
+    
+    [self prepareUI];
+    [self loadModel];
+}
+
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
+
+#pragma mark - IBActions
+
+- (IBAction)skipPressed:(id)sender {
+    
+    if ([_delegate respondsToSelector:@selector(didFinishShowingWalkthrough)]) {
+        
+        [_delegate didFinishShowingWalkthrough];
+    }
+}
+
+#pragma mark - Helpers
+
+- (void)prepareUI {
+    
+    [super prepareUI];
+}
+
+- (void)renderUI {
+    
+    [super renderUI];
+}
+
+- (void)loadModel {
+    
+    [super loadModel];
+
+    [_model loadData:^(BOOL success, id result, NSError *error) {
+        
+        // Loading model will set flag about app's first time launch
+    }];
+}
 
 @end

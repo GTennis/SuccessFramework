@@ -4,7 +4,7 @@
 //
 //  Created by Gytenis Mikulėnas on 4/14/14.
 //  Copyright (c) 2015 Gytenis Mikulėnas
-//  (https://github.com/GitTennis/SuccessFramework)
+//  https://github.com/GitTennis/SuccessFramework
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
 //  of this software and associated documentation files (the "Software"), to deal

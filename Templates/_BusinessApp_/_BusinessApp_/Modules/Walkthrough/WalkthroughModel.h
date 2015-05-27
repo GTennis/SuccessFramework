@@ -1,10 +1,10 @@
 //
-//  WalkthroughViewController.h
+//  WalkthroughModel.h
 //  _BusinessApp_
 //
 //  Created by Gytenis Mikulenas on 27/05/15.
 //  Copyright (c) 2015 Gytenis Mikulėnas 
-//  (https://github.com/GitTennis/SuccessFramework)
+//  https://github.com/GitTennis/SuccessFramework
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
 //  of this software and associated documentation files (the "Software"), to deal
@@ -25,19 +25,8 @@
 //  SOFTWARE. All rights reserved.
 //
 
-#import "BaseViewController.h"
+#import "BaseModel.h"
 
-@class WalkthroughModel;
-
-@protocol WalkthroughViewControllerDelegate <NSObject>
-
-- (void)didFinishShowingWalkthrough;
-
-@end
-
-@interface WalkthroughViewController : BaseViewController
-
-@property (nonatomic, weak) id<WalkthroughViewControllerDelegate> delegate;
-@property (nonatomic, strong) WalkthroughModel *model;
+@interface WalkthroughModel : BaseModel
 
 @end

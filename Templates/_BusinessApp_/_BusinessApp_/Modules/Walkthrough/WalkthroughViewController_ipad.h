@@ -1,10 +1,10 @@
 //
-//  WalkthroughViewController_iphone.m
+//  WalkthroughViewController_ipad.h
 //  _BusinessApp_
 //
 //  Created by Gytenis Mikulenas on 27/05/15.
 //  Copyright (c) 2015 Gytenis Mikulėnas 
-//  (https://github.com/GitTennis/SuccessFramework)
+//  https://github.com/GitTennis/SuccessFramework
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
 //  of this software and associated documentation files (the "Software"), to deal
@@ -25,32 +25,8 @@
 //  SOFTWARE. All rights reserved.
 //
 
-#import "WalkthroughViewController_iphone.h"
+#import "WalkthroughViewController.h"
 
-@interface WalkthroughViewController_iphone ()
-
-@end
-
-@implementation WalkthroughViewController_iphone
-
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
-}
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
+@interface WalkthroughViewController_ipad : WalkthroughViewController
 
 @end

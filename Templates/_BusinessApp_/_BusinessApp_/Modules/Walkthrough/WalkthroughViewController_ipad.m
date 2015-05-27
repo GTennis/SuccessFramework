@@ -1,10 +1,10 @@
 //
-//  WalkthroughModel.m
+//  WalkthroughViewController_ipad.m
 //  _BusinessApp_
 //
 //  Created by Gytenis Mikulenas on 27/05/15.
 //  Copyright (c) 2015 Gytenis Mikulėnas 
-//  (https://github.com/GitTennis/SuccessFramework)
+//  https://github.com/GitTennis/SuccessFramework
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
 //  of this software and associated documentation files (the "Software"), to deal
@@ -25,19 +25,32 @@
 //  SOFTWARE. All rights reserved.
 //
 
-#import "WalkthroughModel.h"
+#import "WalkthroughViewController_ipad.h"
 
-@implementation WalkthroughModel
+@interface WalkthroughViewController_ipad ()
 
-- (void)willStartModelLoading:(Callback)callback {
-    
-    // Setting will be marked when the model will load for the first time
-    [self.settingsManager setIsFirstTimeAppLaunch:NO];
+@end
+
+@implementation WalkthroughViewController_ipad
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    // Do any additional setup after loading the view from its nib.
 }
 
-- (void)didFinishModelLoadingWithData:(id)data {
-    
-    // ...
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
 }
+
+/*
+#pragma mark - Navigation
+
+// In a storyboard-based application, you will often want to do a little preparation before navigation
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    // Get the new view controller using [segue destinationViewController].
+    // Pass the selected object to the new view controller.
+}
+*/
 
 @end
