@@ -37,6 +37,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    [self prepareUI];
+    [self loadModel];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -52,6 +55,28 @@
         
         [_delegate didFinishShowingWalkthrough];
     }
+}
+
+#pragma mark - Helpers
+
+- (void)prepareUI {
+    
+    [super prepareUI];
+}
+
+- (void)renderUI {
+    
+    [super renderUI];
+}
+
+- (void)loadModel {
+    
+    [super loadModel];
+
+    [_model loadData:^(BOOL success, id result, NSError *error) {
+        
+        // Loading model will set flag about app's first time launch
+    }];
 }
 
 @end

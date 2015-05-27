@@ -227,36 +227,26 @@
 - (void)didFinishShowingCustomLaunch {
     
     ViewControllerFactory *viewControllerFactory = [REGISTRY getObject:[ViewControllerFactory class]];
-    
-    // Proceed to the app after user completes walkthrough
-    WalkthroughViewController *walkthroughVC = [viewControllerFactory walkthroughViewControllerWithContext:nil];
-    walkthroughVC.delegate = self;
-    self.window.rootViewController = walkthroughVC;
+    SettingsManager *settingsManager = [REGISTRY getObject:[SettingsManager class]];
+
+    if (settingsManager.isFirstTimeAppLaunch) {
+        
+        WalkthroughViewController *walkthroughVC = [viewControllerFactory walkthroughViewControllerWithContext:nil];
+        walkthroughVC.delegate = self;
+        self.window.rootViewController = walkthroughVC;
+        
+    } else {
+
+        [self proceedToTheApp];
+    }
 }
 
 #pragma mark - WalkthroughViewControllerDelegate
 
 - (void)didFinishShowingWalkthrough {
     
-    // Create root view controller
-    ViewControllerFactory *factory = [REGISTRY getObject:[ViewControllerFactory class]];
-    
-    MenuViewController *menuVC = [factory menuViewControllerWithContext:nil];
-    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:[factory homeViewControllerWithContext:nil]];
-    
-    // Create and configure side menu component (width, shadow, panning speed and etc.)
-    _menuNavigator = [[MenuNavigator alloc] initWithMenuViewControler:menuVC contentViewController:navigationController];
-    [REGISTRY registerObject:_menuNavigator];
-    
-    // Assign side menu component as main app navigator
-    self.window.rootViewController = _menuNavigator;
-    
-    // Load user if logged in before
-    UserManager *userManager = [REGISTRY getObject:[UserManager class]];
-    [userManager loadUser];
-    
-    // Apply style
-    [TopNavigationBar applyStyleForNavigationBar:self.navigationController.navigationBar];
+    // Proceed to the app after user completes walkthrough
+    [self proceedToTheApp];
 }
 
 #pragma mark - Force to update
@@ -368,6 +358,28 @@
     
     // Register API clients
     [REGISTRY registerObject:backendAPIClient];
+}
+
+- (void)proceedToTheApp {
+    
+    ViewControllerFactory *factory = [REGISTRY getObject:[ViewControllerFactory class]];
+    
+    MenuViewController *menuVC = [factory menuViewControllerWithContext:nil];
+    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:[factory homeViewControllerWithContext:nil]];
+    
+    // Create and configure side menu component (width, shadow, panning speed and etc.)
+    _menuNavigator = [[MenuNavigator alloc] initWithMenuViewControler:menuVC contentViewController:navigationController];
+    [REGISTRY registerObject:_menuNavigator];
+    
+    // Assign side menu component as main app navigator
+    self.window.rootViewController = _menuNavigator;
+    
+    // Load user if logged in before
+    UserManager *userManager = [REGISTRY getObject:[UserManager class]];
+    [userManager loadUser];
+    
+    // Apply style
+    [TopNavigationBar applyStyleForNavigationBar:self.navigationController.navigationBar];
 }
 
 // Currently the app supports 2 languages only - "en" and "de". If user has selected other language than those two then "en" will be set as default

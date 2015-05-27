@@ -141,7 +141,7 @@
 
 - (void)setIsFirstTimeAppLaunch:(BOOL)isFirstTimeLaunch {
     
-    [super setValue:[NSNumber numberWithBool:isFirstTimeLaunch] forKey:kSettingsFirstTimeAppLaunch];
+    [self setValue:[NSNumber numberWithBool:isFirstTimeLaunch] forKey:kSettingsFirstTimeAppLaunch];
 }
 
 #pragma mark - Languages
