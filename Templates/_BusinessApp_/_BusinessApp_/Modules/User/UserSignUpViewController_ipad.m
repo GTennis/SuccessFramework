@@ -1,9 +1,9 @@
 //
-//  UserSignUpViewController.h
+//  UserSignUpViewController_ipad.m
 //  _BusinessApp_
 //
-//  Created by Gytenis Mikulėnas on 5/16/14.
-//  Copyright (c) 2015 Gytenis Mikulėnas
+//  Created by Gytenis Mikulenas on 27/05/15.
+//  Copyright (c) 2015 Gytenis Mikulėnas 
 //  https://github.com/GitTennis/SuccessFramework
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -25,21 +25,32 @@
 //  SOFTWARE. All rights reserved.
 //
 
-#import "BaseViewController.h"
+#import "UserSignUpViewController_ipad.h"
 
-@class UserSignUpModel;
-
-@protocol UserSignUpViewControllerDelegate <NSObject>
-
-- (CGSize)containerViewSizeForSignUp;
+@interface UserSignUpViewController_ipad ()
 
 @end
 
-@interface UserSignUpViewController : BaseViewController
+@implementation UserSignUpViewController_ipad
 
-@property (nonatomic, strong) UserSignUpModel *model;
-@property (nonatomic, weak) id<UserSignUpViewControllerDelegate> delegate;
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    // Do any additional setup after loading the view from its nib.
+}
 
-- (void)clearInputFields;
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
+
+/*
+#pragma mark - Navigation
+
+// In a storyboard-based application, you will often want to do a little preparation before navigation
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    // Get the new view controller using [segue destinationViewController].
+    // Pass the selected object to the new view controller.
+}
+*/
 
 @end

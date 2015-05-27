@@ -1,9 +1,9 @@
 //
-//  UserSignUpViewController.h
+//  UserContainerViewController_ipad.h
 //  _BusinessApp_
 //
-//  Created by Gytenis Mikulėnas on 5/16/14.
-//  Copyright (c) 2015 Gytenis Mikulėnas
+//  Created by Gytenis Mikulenas on 27/05/15.
+//  Copyright (c) 2015 Gytenis Mikulėnas 
 //  https://github.com/GitTennis/SuccessFramework
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -25,21 +25,8 @@
 //  SOFTWARE. All rights reserved.
 //
 
-#import "BaseViewController.h"
+#import "UserContainerViewController.h"
 
-@class UserSignUpModel;
-
-@protocol UserSignUpViewControllerDelegate <NSObject>
-
-- (CGSize)containerViewSizeForSignUp;
-
-@end
-
-@interface UserSignUpViewController : BaseViewController
-
-@property (nonatomic, strong) UserSignUpModel *model;
-@property (nonatomic, weak) id<UserSignUpViewControllerDelegate> delegate;
-
-- (void)clearInputFields;
+@interface UserContainerViewController_ipad : UserContainerViewController
 
 @end

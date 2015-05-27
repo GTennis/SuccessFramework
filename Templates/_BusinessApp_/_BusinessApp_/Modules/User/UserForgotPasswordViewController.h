@@ -29,8 +29,13 @@
 
 @class UserForgotPasswordModel;
 
+@protocol UserForgotPasswordViewControllerDelegate <NSObject>
+
+@end
+
 @interface UserForgotPasswordViewController : BaseViewController
 
 @property (nonatomic, strong) UserForgotPasswordModel *model;
+@property (nonatomic, weak) id<UserForgotPasswordViewControllerDelegate> delegate;
 
 @end

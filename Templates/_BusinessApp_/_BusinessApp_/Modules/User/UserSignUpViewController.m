@@ -43,14 +43,32 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (void)clearInputFields {
+    
+#warning TODO finish
+    
+    /*self.model.selectedCountryCode = @"";
+    self.model.selectedCountryName = @"";
+    self.model.userSignUp = [[UserSignUpObject alloc] init];
+    
+    [self setupLabels];
+    
+    _txtFirstName.text = @"";
+    _txtLastName.text = @"";
+    _txtAddressLine1.text = @"";
+    _txtAddressLine2.text = @"";
+    _txtPostCode.text = @"";
+    _txtCity.text = @"";
+    _txtState.text = @"";
+    _txtPhoneNumber.text = @"";
+    _txtEmail.text = @"";
+    _txtPassword.text = @"";
+    
+    _switchSubscribeToNewsletter.on = NO;
+    
+    [self unmarkMissingRequiredFields];
+    [_txtEmail setValueStatus:AucTextFieldValueStatusNormal];
+    [_btnSelectCountry setTitleColor:kColorBlack forState:UIControlStateNormal];*/
 }
-*/
 
 @end

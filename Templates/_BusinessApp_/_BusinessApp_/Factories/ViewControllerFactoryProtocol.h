@@ -33,7 +33,7 @@
 @class UserContainerViewController;
 @class UserLoginViewController;
 @class UserSignUpViewController;
-@class UserResetPasswordViewController;
+@class UserForgotPasswordViewController;
 
 @class SettingsViewController;
 @class TermsConditionsViewController;
@@ -53,7 +53,7 @@
 // User related
 - (UserContainerViewController *)userContainerViewControllerWithContext:(id)context;
 - (UserSignUpViewController *)userSignUpViewControllerWithContext:(id)context;
-- (UserResetPasswordViewController *)userForgotPasswordViewControllerWithContext:(id)context;
+- (UserForgotPasswordViewController *)userForgotPasswordViewControllerWithContext:(id)context;
 - (UserLoginViewController *)userLoginViewControllerWithContext:(id)context;
 
 // Settings

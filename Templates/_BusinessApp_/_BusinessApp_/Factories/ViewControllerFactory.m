@@ -57,7 +57,7 @@
 #import "UserSignUpViewController.h"
 #import "UserSignUpModel.h"
 
-// User resetPassword
+// User forgotPassword
 #import "UserForgotPasswordViewController.h"
 #import "UserForgotPasswordModel.h"
 

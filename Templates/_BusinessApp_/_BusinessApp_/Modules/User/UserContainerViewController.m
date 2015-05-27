@@ -26,6 +26,13 @@
 //
 
 #import "UserContainerViewController.h"
+#import "UserLoginViewController.h"
+#import "UserSignUpViewController.h"
+#import "UserForgotPasswordViewController.h"
+
+#define kUserContainerViewControllerLoginTitle @"Login"
+#define kUserContainerViewControllerSignUpTitle @"SignUp"
+#define kUserContainerViewControllerForgotPasswordTitle @"Forgot password"
 
 @interface UserContainerViewController ()
 
@@ -33,24 +40,186 @@
 
 @implementation UserContainerViewController
 
+- (void)commonInit {
+    
+    [super commonInit];
+    
+    _userLoginVC = [self.viewControllerFactory userLoginViewControllerWithContext:nil];
+    _userLoginVC.delegate = self;
+    
+    _userSignUpVC = [self.viewControllerFactory userSignUpViewControllerWithContext:nil];
+    _userSignUpVC.delegate = self;
+    
+    _userForgotPasswordVC = [self.viewControllerFactory userForgotPasswordViewControllerWithContext:nil];
+    _userForgotPasswordVC.delegate = self;
+}
+
 - (void)viewDidLoad {
+    
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    [self prepareUI];
+    [self showLoginWithAnimation:NO];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (void)showLoginWithAnimation:(BOOL)animated {
+    
+    self.titleLabel.text = GMLocalizedString(kUserContainerViewControllerLoginTitle);
+    
+    [self transitionWithNextViewController:_userLoginVC animated:animated];
+    
+    //_model.isLogin = YES;
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (void)showSignUpWithAnimation:(BOOL)animated {
+    
+    self.titleLabel.text = GMLocalizedString(kUserContainerViewControllerSignUpTitle);
+    
+    [_userSignUpVC clearInputFields];
+    
+    [self transitionWithNextViewController:_userSignUpVC animated:animated];
+    
+    //_model.isLogin = NO;
+    
+    //[self showBack];
 }
-*/
+
+- (void)showForgotPasswordWithAnimation:(BOOL)animated email:(NSString *)email {
+    
+    self.titleLabel.text = GMLocalizedString(kUserContainerViewControllerForgotPasswordTitle);
+    
+    //[_userForgotPasswordVC setEmail:email];
+    
+    [self transitionWithNextViewController:_userForgotPasswordVC animated:animated];
+    
+    //_model.isLogin = NO;
+    
+    //[self showBack];
+}
+
+#pragma mark - IBActions
+
+- (void)cancelPressed:(id)sender {
+    
+    if ([self isLoginViewControllerPresented]) {
+        
+        // Will close modal screen
+        [super cancelPressed:sender];
+        
+    } else {
+
+        //[self showCancel];
+        [self showLoginWithAnimation:YES];
+    }
+}
+
+#pragma mark - UserLoginViewControllerDelegate
+
+- (void)didPressSignUp {
+    
+    [self showSignUpWithAnimation:YES];
+}
+
+- (void)didPressForgotPasswordWithEmail:(NSString *)email {
+    
+    
+}
+
+- (CGSize)containerViewSizeForLogin {
+    
+    return CGSizeZero;
+}
+
+#pragma mark - UserSignUpViewControllerDelegate
+
+- (CGSize)containerViewSizeForSignUp {
+    
+    return CGSizeZero;
+}
+
+#pragma mark - UserForgotPasswordViewControllerDelegate
+
+- (void)didSendEmailToUser {
+    
+    [self showLoginWithAnimation:YES];
+}
+
+#pragma mark - Helpers
+
+- (void)prepareUI {
+    
+    [super prepareUI];
+}
+
+- (void)renderUI {
+    
+    [super renderUI];
+}
+
+- (void)loadModel {
+    
+    [super loadModel];
+}
+
+- (BOOL)isLoginViewControllerPresented {
+    
+    UIViewController *currentViewController = self.childViewControllers.firstObject;
+    
+    if ([currentViewController isKindOfClass:[UserLoginViewController class]]) {
+        
+        return YES;
+        
+    } else {
+     
+        return NO;
+    }
+}
+
+- (void)transitionWithNextViewController:(UIViewController *)nextViewController animated:(BOOL)animated {
+    
+    UIViewController *currentViewController = [self.childViewControllers firstObject];
+    
+    if (animated) {
+        
+        __weak typeof (self) weakSelf = self;
+        
+        [currentViewController removeFromParentViewController];
+        
+        [UIView transitionWithView:self.containerView
+                          duration:1.0
+                           options:UIViewAnimationOptionTransitionFlipFromRight
+                        animations:^{
+                            
+                            [self addNextViewController:nextViewController];
+                            
+                        } completion:^(BOOL finished){
+                        
+                            [weakSelf removePreviousViewController:currentViewController];
+                        }
+         ];
+        
+    } else {
+        
+        [self removePreviousViewController:currentViewController];
+        [self addNextViewController:nextViewController];
+    }
+}
+
+- (void)removePreviousViewController:(UIViewController *)viewController {
+    
+    [viewController.view removeFromSuperview];
+    [viewController removeFromParentViewController];
+}
+
+- (void)addNextViewController:(UIViewController *)nextViewController {
+    
+    // Adjust size
+    nextViewController.view.frame = self.containerView.bounds;
+    
+    // Add
+    [self addChildViewController:nextViewController];
+    [self.containerView addSubview:nextViewController.view];
+}
 
 @end

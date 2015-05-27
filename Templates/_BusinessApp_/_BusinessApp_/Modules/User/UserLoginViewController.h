@@ -29,8 +29,17 @@
 
 @class UserLoginModel;
 
+@protocol UserLoginViewControllerDelegate <NSObject>
+
+- (void)didPressSignUp;
+- (void)didPressForgotPasswordWithEmail:(NSString *)email;
+- (CGSize)containerViewSizeForLogin;
+
+@end
+
 @interface UserLoginViewController : BaseViewController
 
 @property (nonatomic, strong) UserLoginModel *model;
+@property (nonatomic, weak) id<UserLoginViewControllerDelegate> delegate;
 
 @end

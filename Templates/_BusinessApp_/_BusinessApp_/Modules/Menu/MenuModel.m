@@ -29,6 +29,13 @@
 #import "ViewControllerFactory.h"
 #import "MenuItemObject.h"
 
+#define kMenuModelMenuItemHome @"Home"
+#define kMenuModelMenuItemSettings @"Settings"
+#define kMenuModelMenuItemTermsConditions @"TermsConditions"
+#define kMenuModelMenuItemLogin @"Login"
+#define kMenuModelMenuItemScrollViewExample @"ScrollViewExample"
+#define kMenuModelMenuItemTableViewExample @"TableViewExample"
+
 @implementation MenuModel
 
 - (void)dealloc {
@@ -54,31 +61,38 @@
     
     // Home
     MenuItemObject *item = [[MenuItemObject alloc] init];
-    item.menuTitle = GMLocalizedString(@"Home");
+    item.menuTitle = GMLocalizedString(kMenuModelMenuItemHome);
     item.viewController = (UIViewController *) [viewControllerFactory homeViewControllerWithContext:nil];
     [itemList addObject:item];
     
     // Settings
     item = [[MenuItemObject alloc] init];
-    item.menuTitle = GMLocalizedString(@"Settings");
+    item.menuTitle = GMLocalizedString(kMenuModelMenuItemSettings);
     item.viewController = (UIViewController *) [viewControllerFactory settingsViewControllerWithContext:nil];
+    [itemList addObject:item];
+
+    // User login
+    item = [[MenuItemObject alloc] init];
+    item.menuTitle = GMLocalizedString(kMenuModelMenuItemLogin);
+    item.viewController = (UIViewController *) [viewControllerFactory userContainerViewControllerWithContext:nil];
+    item.isPresentedModally = YES;
     [itemList addObject:item];
     
     // TermsConditions
     item = [[MenuItemObject alloc] init];
-    item.menuTitle = GMLocalizedString(@"TermsConditions");
+    item.menuTitle = GMLocalizedString(kMenuModelMenuItemTermsConditions);
     item.viewController = (UIViewController *) [viewControllerFactory termsConditionsViewControllerWithContext:nil];
     [itemList addObject:item];
     
     // ScrollViewExample
     item = [[MenuItemObject alloc] init];
-    item.menuTitle = GMLocalizedString(@"ScrollViewExample");
+    item.menuTitle = GMLocalizedString(kMenuModelMenuItemScrollViewExample);
     item.viewController = (UIViewController *) [viewControllerFactory scrollViewExampleViewControllerWithContext:nil];
     [itemList addObject:item];
     
     // TableViewExample
     item = [[MenuItemObject alloc] init];
-    item.menuTitle = GMLocalizedString(@"TableViewExample");
+    item.menuTitle = GMLocalizedString(kMenuModelMenuItemTableViewExample);
     item.viewController = (UIViewController *) [viewControllerFactory tableViewExampleViewControllerWithContext:nil];
     [itemList addObject:item];
     

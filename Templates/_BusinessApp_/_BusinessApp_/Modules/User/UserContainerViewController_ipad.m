@@ -1,9 +1,9 @@
 //
-//  UserSignUpViewController.h
+//  UserContainerViewController_ipad.m
 //  _BusinessApp_
 //
-//  Created by Gytenis Mikulėnas on 5/16/14.
-//  Copyright (c) 2015 Gytenis Mikulėnas
+//  Created by Gytenis Mikulenas on 27/05/15.
+//  Copyright (c) 2015 Gytenis Mikulėnas 
 //  https://github.com/GitTennis/SuccessFramework
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -25,21 +25,29 @@
 //  SOFTWARE. All rights reserved.
 //
 
-#import "BaseViewController.h"
+#import "UserContainerViewController_ipad.h"
 
-@class UserSignUpModel;
-
-@protocol UserSignUpViewControllerDelegate <NSObject>
-
-- (CGSize)containerViewSizeForSignUp;
+@interface UserContainerViewController_ipad ()
 
 @end
 
-@interface UserSignUpViewController : BaseViewController
+@implementation UserContainerViewController_ipad
 
-@property (nonatomic, strong) UserSignUpModel *model;
-@property (nonatomic, weak) id<UserSignUpViewControllerDelegate> delegate;
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    // Do any additional setup after loading the view from its nib.
+}
 
-- (void)clearInputFields;
+#pragma mark - Override
+
+- (CGSize)containerViewSizeForLogin {
+    
+    return self.containerView.bounds.size;
+}
+
+- (CGSize)containerViewSizeForSignUp {
+    
+    return self.containerView.bounds.size;
+}
 
 @end

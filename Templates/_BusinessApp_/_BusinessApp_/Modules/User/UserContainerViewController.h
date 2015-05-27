@@ -26,11 +26,24 @@
 //
 
 #import "BaseViewController.h"
+#import "UserLoginViewController.h"
+#import "UserSignUpViewController.h"
+#import "UserForgotPasswordViewController.h"
 
 @class UserContainerModel;
+@class UserForgotPasswordViewController;
 
-@interface UserContainerViewController : BaseViewController
+@interface UserContainerViewController : BaseViewController <UserLoginViewControllerDelegate, UserSignUpViewControllerDelegate, UserForgotPasswordViewControllerDelegate>
 
 @property (nonatomic, strong) UserContainerModel *model;
+@property (weak, nonatomic) IBOutlet UIView *containerView;
+
+@property (nonatomic, strong) UserLoginViewController *userLoginVC;
+@property (nonatomic, strong) UserSignUpViewController *userSignUpVC;
+@property (nonatomic, strong) UserForgotPasswordViewController *userForgotPasswordVC;
+
+- (void)showLoginWithAnimation:(BOOL)animated;
+- (void)showSignUpWithAnimation:(BOOL)animated;
+- (void)showForgotPasswordWithAnimation:(BOOL)animated email:(NSString *)email;
 
 @end

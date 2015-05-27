@@ -33,7 +33,7 @@ In order to be comfortable with the framework you need agree to terms and condit
 
 9. You don’t overuse categories and definitely are not using them as substitutes for subclassing. Therefore you use them as little helpers by adding small but reused methods to native UIKit classes.
 
-10. You understand both composition and extension has a place in this world. And you like to be able to have common functionality for you all viewControllers and models therefore you are comfortable by extending BaseViewController or similar for all of your viewController, and BaseModel for your models. You understand you could try to workaround that with composition, categories or other, however you understand that very granular composition solutions overcomplicate the code and require more time for newcomer devs.
+10. You understand both composition and inheritance have a place in this world. And you like to be able to have common functionality for you all viewControllers and models, therefore you are comfortable by extending BaseViewController or similar for all of your viewControllers, and BaseModel for your models. You understand you could try to workaround that with composition, categories or other, however you understand that very granular composition solutions overcomplicate the code and require more time for newcomer devs.
 
 ##New project generation from template intructions
 

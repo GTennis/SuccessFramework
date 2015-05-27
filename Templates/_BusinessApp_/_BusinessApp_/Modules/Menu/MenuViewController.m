@@ -104,12 +104,19 @@
     
     MenuItemObject *menuItem = _model.menuItems[indexPath.row];
     
-    MenuNavigator *menuNavigator = [REGISTRY getObject:[MenuNavigator class]];
-    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:menuItem.viewController];
-    
-    [TopNavigationBar applyStyleForNavigationBar:navigationController.navigationBar];
-    
-    [menuNavigator setViewController:navigationController];
+    if (menuItem.isPresentedModally) {
+        
+        [self presentModalViewController:menuItem.viewController animated:YES];
+        
+    } else {
+        
+        MenuNavigator *menuNavigator = [REGISTRY getObject:[MenuNavigator class]];
+        UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:menuItem.viewController];
+        
+        [TopNavigationBar applyStyleForNavigationBar:navigationController.navigationBar];
+        
+        [menuNavigator setViewController:navigationController];
+    }
 }
 
 #pragma mark - Handling language change
