@@ -86,6 +86,25 @@
     XCTAssertTrue(isCalled, @"Callback not called");
 }
 
+// DEMO only: the same unit test but differently implementation with XCTestExpectation
+- (void)test_loadData_CallbackIsCalled2 {
+    
+    HomeModel *model = [[HomeModel alloc] init];
+    BackendAPIClient *backendAPIClient = [[BackendAPIClient alloc] init];
+    model.backendAPIClient = backendAPIClient;
+    
+    XCTestExpectation *expectation = [self expectationWithDescription:@"Completion called"];
+    Callback callback = ^(BOOL success, id result, NSError *error){
+        [expectation fulfill];
+    };
+    
+    // Perform tested method
+    [model loadData:callback];
+    
+    // Check if callback was called
+    [self waitForExpectationsWithTimeout:1 handler:nil];
+}
+
 - (void)test_willStartModelLoading_BackendAPIClientIsCalled {
     
     HomeModel *model = [[HomeModel alloc] init];
