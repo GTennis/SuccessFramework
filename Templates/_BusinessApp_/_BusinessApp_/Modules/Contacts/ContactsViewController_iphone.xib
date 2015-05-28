@@ -7,9 +7,6 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ContactsViewController_iphone">
             <connections>
-                <outlet property="cancelButton" destination="gdI-V6-JOw" id="IG3-LV-NER"/>
-                <outlet property="modalToolbar" destination="xbb-hf-FKP" id="ga3-TM-1wo"/>
-                <outlet property="titleLabel" destination="IdT-HK-5eo" id="M6K-hm-OdM"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -18,28 +15,6 @@
             <rect key="frame" x="0.0" y="64" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xbb-hf-FKP" customClass="NormalModalToolbar">
-                    <rect key="frame" x="0.0" y="0.0" width="320" height="64"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="64" id="K0Q-QZ-yft"/>
-                    </constraints>
-                    <items>
-                        <barButtonItem title="Cancel" id="gdI-V6-JOw">
-                            <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                        </barButtonItem>
-                    </items>
-                </toolbar>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Contacts title" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IdT-HK-5eo" userLabel="TitleLabel" customClass="NormalLabel">
-                    <rect key="frame" x="109" y="32" width="103" height="21"/>
-                    <accessibility key="accessibilityConfiguration" label=""/>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                    <nil key="highlightedColor"/>
-                    <userDefinedRuntimeAttributes>
-                        <userDefinedRuntimeAttribute type="string" keyPath="fontType" value="FontNormal"/>
-                        <userDefinedRuntimeAttribute type="string" keyPath="labelTitleColorName" value="ColorGrayDark"/>
-                    </userDefinedRuntimeAttributes>
-                </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vga-dz-ZA2" customClass="NormalButton">
                     <rect key="frame" x="60" y="116" width="200" height="30"/>
                     <constraints>
@@ -69,14 +44,9 @@
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstItem="IdT-HK-5eo" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="32" id="2Nv-DA-pWR"/>
-                <constraint firstAttribute="trailing" secondItem="xbb-hf-FKP" secondAttribute="trailing" id="LWi-e6-mrh"/>
-                <constraint firstAttribute="centerX" secondItem="IdT-HK-5eo" secondAttribute="centerX" id="La6-o6-cVB"/>
                 <constraint firstItem="axl-9F-n5D" firstAttribute="top" secondItem="vga-dz-ZA2" secondAttribute="bottom" constant="14" id="Qrs-Gx-hnG"/>
                 <constraint firstAttribute="centerX" secondItem="axl-9F-n5D" secondAttribute="centerX" id="e0M-po-dYv"/>
-                <constraint firstItem="xbb-hf-FKP" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="eDW-UL-ZUj"/>
                 <constraint firstItem="vga-dz-ZA2" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="116" id="kLe-m4-5hG"/>
-                <constraint firstItem="xbb-hf-FKP" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="n2r-d5-LjY"/>
                 <constraint firstAttribute="centerX" secondItem="vga-dz-ZA2" secondAttribute="centerX" id="rwJ-Mk-mB1"/>
             </constraints>
             <nil key="simulatedTopBarMetrics"/>

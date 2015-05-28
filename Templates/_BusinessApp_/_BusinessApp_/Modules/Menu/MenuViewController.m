@@ -52,6 +52,32 @@
     [self loadModel];
 }
 
+#pragma mark - Base methods
+
+- (void)prepareUI {
+    
+    [super prepareUI];
+}
+
+- (void)renderUI {
+    
+    [super renderUI];
+    
+    [_tableView reloadData];
+}
+
+- (void)loadModel {
+    
+    [super loadModel];
+    
+    __weak typeof(self) weakSelf = self;
+    
+    [_model loadData:^(BOOL success, id result, NSError *error) {
+        
+        [weakSelf renderUI];
+    }];
+}
+
 #pragma mark - UITableViewDataSource
 
 // For hiding separators between empty cell below table view
@@ -128,30 +154,6 @@
 }
 
 #pragma mark - Helpers
-
-- (void)prepareUI {
-    
-    [super prepareUI];
-}
-
-- (void)renderUI {
-    
-    [super renderUI];
-    
-    [_tableView reloadData];
-}
-
-- (void)loadModel {
-    
-    [super loadModel];
-    
-    __weak typeof(self) weakSelf = self;
-    
-    [_model loadData:^(BOOL success, id result, NSError *error) {
-        
-        [weakSelf renderUI];
-    }];
-}
 
 - (NSString *)titleForMenuSection:(NSInteger)section row:(NSInteger)row {
     

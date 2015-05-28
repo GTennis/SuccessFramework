@@ -51,14 +51,6 @@
 
 @implementation ContactsViewController
 
-- (void)commonInit {
-    
-    [super commonInit];
-    
-    _sendEmailCommand = [[SendEmailCommand alloc] initWithViewController:self subject:kContactsViewControllerEmailSubject message:kContactsViewControllerEmailMessage recipients:kContactsViewControllerRecipients];
-    _phoneCallCommand = [[PhoneCallCommand alloc] initWithPhoneNumberString:kContactsViewControllerPhoneNumber];
-}
-
 - (void)viewDidLoad {
     
     [super viewDidLoad];
@@ -101,16 +93,28 @@
     }
 }
 
-#pragma mark - Helpers
+#pragma mark - Base methods
+
+- (void)commonInit {
+    
+    [super commonInit];
+    
+    _sendEmailCommand = [[SendEmailCommand alloc] initWithViewController:self subject:kContactsViewControllerEmailSubject message:kContactsViewControllerEmailMessage recipients:kContactsViewControllerRecipients];
+    _phoneCallCommand = [[PhoneCallCommand alloc] initWithPhoneNumberString:kContactsViewControllerPhoneNumber];
+}
 
 - (void)prepareUI {
     
     [super prepareUI];
+    
+    // ...
 }
 
 - (void)renderUI {
     
     [self renderUI];
+    
+    // ...
 }
 
 @end

@@ -30,7 +30,7 @@
 @interface MenuItemObject : NSObject
 
 @property (nonatomic, strong) NSString *menuTitle;
-@property (nonatomic, strong) UIViewController *viewController;
+@property (nonatomic, strong) BaseViewController *viewController;
 @property (nonatomic) BOOL isPresentedModally;
 
 @end

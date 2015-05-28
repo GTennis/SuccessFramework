@@ -30,29 +30,20 @@
 
 @interface CoreViewController : UIViewController
 
-// Navigation
-- (void)showDefaultNavigationBar;
-/* Navigation controller and its bar is shared across all controllers. However, if we need to provide custom navigation bar for specific controller then use this method, disable navigation bar in Xib, drag-n-drop navigationBar to xib and customize it */
-- (void)hideDefaultNavigationBar;
-- (BOOL)hasNavigationBar;
-- (void)handleBackPressed;
+// Xib loading
+- (UIView *)loadViewFromXibOfClass:(Class)class;
+- (UIView *)loadViewFromXib:(NSString *)name ofClass:(Class)class;
 
-// Modal screen handling
-@property (strong, nonatomic) IBOutlet UIBarButtonItem *cancelButton;
-@property (strong, nonatomic) IBOutlet UIToolbar *modalToolbar;
-@property (strong, nonatomic) IBOutlet UILabel *titleLabel;
-- (void)presentModalViewController:(UIViewController *)viewController animated:(BOOL)animated;
-- (void)dismissModalViewControllerAnimated:(BOOL)animated;
-- (void)setToolbarHidden:(BOOL)hidden;
+// Navigation
+- (void)showNavigationBar;
+- (void)hideNavigationBar;
+- (BOOL)hasNavigationBar;
+- (void)didPressedBack;
 
 // Popup showing, hiding
 /*- (void)showPartialViewController:(CoreViewController *)childViewController insideContainerView:(UIView *)containerView;
 - (void)hidePartialViewControllerFromContainerView:(UIView *)containerView;
 - (CGFloat)popupFadeDuration;*/
-
-// Xib loading
-- (UIView *)loadViewFromXibOfClass:(Class)class;
-- (UIView *)loadViewFromXib:(NSString *)name ofClass:(Class)class;
 
 // Screen activity indicators
 - (void)showScreenActivityIndicator;
@@ -67,13 +58,10 @@
 - (void)loadModel;
 
 // Error handling
-//- (void)closeTheApp;
 - (void)handleNetworkRequestError:(NSNotification *)notification;
 - (void)handleNetworkRequestSuccess:(NSNotification *)notification;
 
 // Language changed
 - (void)notificationLocalizationHasChanged;
-
-- (IBAction)cancelPressed:(id)sender;
 
 @end

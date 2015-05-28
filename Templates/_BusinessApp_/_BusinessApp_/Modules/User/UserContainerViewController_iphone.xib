@@ -2,15 +2,12 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6751" systemVersion="13F1077" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6751"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="UserContainerViewController_iphone">
             <connections>
-                <outlet property="cancelButton" destination="HMk-oU-RQo" id="FlR-Qn-B7G"/>
                 <outlet property="containerView" destination="XPo-9K-fL9" id="ph0-Dq-z59"/>
-                <outlet property="modalToolbar" destination="mW9-lq-coy" id="2he-v3-iRo"/>
-                <outlet property="titleLabel" destination="nks-l4-NhB" id="2mr-eg-Nt3"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -19,44 +16,16 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mW9-lq-coy" customClass="NormalModalToolbar">
-                    <rect key="frame" x="0.0" y="0.0" width="320" height="64"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="64" id="HsE-wr-cVj"/>
-                    </constraints>
-                    <items>
-                        <barButtonItem title="Cancel" id="HMk-oU-RQo">
-                            <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                        </barButtonItem>
-                    </items>
-                </toolbar>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Screen title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nks-l4-NhB" userLabel="Title">
-                    <rect key="frame" x="117" y="32" width="87" height="21"/>
-                    <accessibility key="accessibilityConfiguration" label="UserAccess_lblTitle"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                    <nil key="highlightedColor"/>
-                    <userDefinedRuntimeAttributes>
-                        <userDefinedRuntimeAttribute type="string" keyPath="fontType" value="FontLight"/>
-                        <userDefinedRuntimeAttribute type="string" keyPath="labelTitleColorName" value="ColorGrayDark"/>
-                        <userDefinedRuntimeAttribute type="string" keyPath="accessibilityIdentifier" value="UserAccess_lblTitle"/>
-                    </userDefinedRuntimeAttributes>
-                </label>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XPo-9K-fL9" userLabel="ContainerView">
-                    <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                 </view>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstAttribute="bottom" secondItem="XPo-9K-fL9" secondAttribute="bottom" id="4d9-L9-sKY"/>
-                <constraint firstAttribute="trailing" secondItem="mW9-lq-coy" secondAttribute="trailing" id="6Sp-AK-Lo1"/>
-                <constraint firstItem="mW9-lq-coy" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="Cwi-2x-CTB"/>
-                <constraint firstItem="mW9-lq-coy" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="dq7-PH-fMI"/>
-                <constraint firstAttribute="centerX" secondItem="nks-l4-NhB" secondAttribute="centerX" id="eEJ-UE-ZHn"/>
                 <constraint firstItem="XPo-9K-fL9" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="gDP-Jt-ChE"/>
-                <constraint firstItem="mW9-lq-coy" firstAttribute="centerY" secondItem="nks-l4-NhB" secondAttribute="centerY" constant="-10.5" id="igO-lS-OBF"/>
-                <constraint firstItem="XPo-9K-fL9" firstAttribute="top" secondItem="mW9-lq-coy" secondAttribute="bottom" id="zRI-X0-khb"/>
+                <constraint firstItem="XPo-9K-fL9" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="v9o-Pp-Zye"/>
                 <constraint firstAttribute="trailing" secondItem="XPo-9K-fL9" secondAttribute="trailing" id="zw3-EG-0Jx"/>
             </constraints>
             <point key="canvasLocation" x="350" y="342"/>

@@ -169,8 +169,6 @@
 		0FE1CB591AF691D2006769FE /* TermsConditionsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FE1CB581AF691D2006769FE /* TermsConditionsViewController.m */; };
 		0FE1CB5C1AF691FE006769FE /* TermsConditionsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FE1CB5B1AF691FE006769FE /* TermsConditionsModel.m */; };
 		0FE1CB801AF6A851006769FE /* ManagerFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FE1CB7F1AF6A851006769FE /* ManagerFactory.m */; };
-		0FE1CB891AF6ABAF006769FE /* UIToolbar+Custom.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FE1CB881AF6ABAF006769FE /* UIToolbar+Custom.m */; };
-		3119A3F91B0DD4D1001CCA38 /* NormalModalToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = 3119A3F81B0DD4D1001CCA38 /* NormalModalToolbar.m */; };
 		3119A3FC1B0DD544001CCA38 /* SeparatorHorizontalLineView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3119A3FB1B0DD544001CCA38 /* SeparatorHorizontalLineView.m */; };
 		3119A3FF1B0DD554001CCA38 /* SeparatorVerticalLineView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3119A3FE1B0DD554001CCA38 /* SeparatorVerticalLineView.m */; };
 		3119A4031B0DE3ED001CCA38 /* MenuItemObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 3119A4021B0DE3ED001CCA38 /* MenuItemObject.m */; };
@@ -208,6 +206,12 @@
 		31CB859C1B15F9D900F827F7 /* UserSignUpViewController_iphone.xib in Resources */ = {isa = PBXBuildFile; fileRef = 31CB859A1B15F9D900F827F7 /* UserSignUpViewController_iphone.xib */; };
 		31CB85A01B15F9EF00F827F7 /* UserSignUpViewController_ipad.m in Sources */ = {isa = PBXBuildFile; fileRef = 31CB859E1B15F9EF00F827F7 /* UserSignUpViewController_ipad.m */; };
 		31CB85A11B15F9EF00F827F7 /* UserSignUpViewController_ipad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 31CB859F1B15F9EF00F827F7 /* UserSignUpViewController_ipad.xib */; };
+		31CB9EE81B175D2E0012F1F4 /* BaseNavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 31CB9EE71B175D2E0012F1F4 /* BaseNavigationBar.m */; };
+		31CB9EEB1B175E8A0012F1F4 /* TopModalNavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 31CB9EEA1B175E8A0012F1F4 /* TopModalNavigationBar.m */; };
+		31CB9EEE1B175ED50012F1F4 /* TopModalNavigationBar_iphone.m in Sources */ = {isa = PBXBuildFile; fileRef = 31CB9EED1B175ED50012F1F4 /* TopModalNavigationBar_iphone.m */; };
+		31CB9EF01B175EE10012F1F4 /* TopModalNavigationBar_iphone.xib in Resources */ = {isa = PBXBuildFile; fileRef = 31CB9EEF1B175EE10012F1F4 /* TopModalNavigationBar_iphone.xib */; };
+		31CB9EF21B175F0E0012F1F4 /* TopModalNavigationBar_ipad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 31CB9EF11B175F0E0012F1F4 /* TopModalNavigationBar_ipad.xib */; };
+		31CB9EF51B175F210012F1F4 /* TopModalNavigationBar_ipad.m in Sources */ = {isa = PBXBuildFile; fileRef = 31CB9EF41B175F210012F1F4 /* TopModalNavigationBar_ipad.m */; };
 		7E48B6A029D4462B99F94BBA /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4BE886A7686A4EC6BF56CDC8 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -534,11 +538,7 @@
 		0FE1CB5B1AF691FE006769FE /* TermsConditionsModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TermsConditionsModel.m; sourceTree = "<group>"; };
 		0FE1CB7E1AF6A851006769FE /* ManagerFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ManagerFactory.h; sourceTree = "<group>"; };
 		0FE1CB7F1AF6A851006769FE /* ManagerFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ManagerFactory.m; sourceTree = "<group>"; };
-		0FE1CB871AF6ABAF006769FE /* UIToolbar+Custom.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIToolbar+Custom.h"; sourceTree = "<group>"; };
-		0FE1CB881AF6ABAF006769FE /* UIToolbar+Custom.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIToolbar+Custom.m"; sourceTree = "<group>"; };
 		28D92D4B24CACDF282AC3836 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
-		3119A3F71B0DD4D1001CCA38 /* NormalModalToolbar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NormalModalToolbar.h; sourceTree = "<group>"; };
-		3119A3F81B0DD4D1001CCA38 /* NormalModalToolbar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NormalModalToolbar.m; sourceTree = "<group>"; };
 		3119A3FA1B0DD544001CCA38 /* SeparatorHorizontalLineView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SeparatorHorizontalLineView.h; sourceTree = "<group>"; };
 		3119A3FB1B0DD544001CCA38 /* SeparatorHorizontalLineView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SeparatorHorizontalLineView.m; sourceTree = "<group>"; };
 		3119A3FD1B0DD554001CCA38 /* SeparatorVerticalLineView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SeparatorVerticalLineView.h; sourceTree = "<group>"; };
@@ -601,6 +601,16 @@
 		31CB859D1B15F9EF00F827F7 /* UserSignUpViewController_ipad.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserSignUpViewController_ipad.h; sourceTree = "<group>"; };
 		31CB859E1B15F9EF00F827F7 /* UserSignUpViewController_ipad.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserSignUpViewController_ipad.m; sourceTree = "<group>"; };
 		31CB859F1B15F9EF00F827F7 /* UserSignUpViewController_ipad.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UserSignUpViewController_ipad.xib; sourceTree = "<group>"; };
+		31CB9EE61B175D2E0012F1F4 /* BaseNavigationBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseNavigationBar.h; sourceTree = "<group>"; };
+		31CB9EE71B175D2E0012F1F4 /* BaseNavigationBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseNavigationBar.m; sourceTree = "<group>"; };
+		31CB9EE91B175E8A0012F1F4 /* TopModalNavigationBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TopModalNavigationBar.h; sourceTree = "<group>"; };
+		31CB9EEA1B175E8A0012F1F4 /* TopModalNavigationBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TopModalNavigationBar.m; sourceTree = "<group>"; };
+		31CB9EEC1B175ED50012F1F4 /* TopModalNavigationBar_iphone.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TopModalNavigationBar_iphone.h; sourceTree = "<group>"; };
+		31CB9EED1B175ED50012F1F4 /* TopModalNavigationBar_iphone.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TopModalNavigationBar_iphone.m; sourceTree = "<group>"; };
+		31CB9EEF1B175EE10012F1F4 /* TopModalNavigationBar_iphone.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TopModalNavigationBar_iphone.xib; sourceTree = "<group>"; };
+		31CB9EF11B175F0E0012F1F4 /* TopModalNavigationBar_ipad.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TopModalNavigationBar_ipad.xib; sourceTree = "<group>"; };
+		31CB9EF31B175F210012F1F4 /* TopModalNavigationBar_ipad.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TopModalNavigationBar_ipad.h; sourceTree = "<group>"; };
+		31CB9EF41B175F210012F1F4 /* TopModalNavigationBar_ipad.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TopModalNavigationBar_ipad.m; sourceTree = "<group>"; };
 		4BE886A7686A4EC6BF56CDC8 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		6E0BD085B1D95E6D8A405F54 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -1197,8 +1207,6 @@
 				0FE1CB151AF663E6006769FE /* NSString+Validator.m */,
 				0FA62C7519CF5DE6002D3DDC /* NSObject+Selectors.h */,
 				0FA62C7619CF5DE6002D3DDC /* NSObject+Selectors.m */,
-				0FE1CB871AF6ABAF006769FE /* UIToolbar+Custom.h */,
-				0FE1CB881AF6ABAF006769FE /* UIToolbar+Custom.m */,
 			);
 			path = Categories;
 			sourceTree = "<group>";
@@ -1226,6 +1234,7 @@
 		0FA839C319BC7B6F0037B5F3 /* Navigation */ = {
 			isa = PBXGroup;
 			children = (
+				31CB9EE51B175CFF0012F1F4 /* BaseToolbar */,
 				0FA67FA419C6367400E00FDA /* TopToolbarDefault */,
 				3119A3F61B0DD47F001CCA38 /* TopToolbarModal */,
 			);
@@ -1872,8 +1881,9 @@
 		3119A3F61B0DD47F001CCA38 /* TopToolbarModal */ = {
 			isa = PBXGroup;
 			children = (
-				3119A3F71B0DD4D1001CCA38 /* NormalModalToolbar.h */,
-				3119A3F81B0DD4D1001CCA38 /* NormalModalToolbar.m */,
+				31CB9ED51B175AB50012F1F4 /* Base */,
+				31CB9EDA1B175B7E0012F1F4 /* iphone */,
+				31CB9ED91B175B790012F1F4 /* ipad */,
 			);
 			name = TopToolbarModal;
 			sourceTree = "<group>";
@@ -2116,6 +2126,44 @@
 			name = Base;
 			sourceTree = "<group>";
 		};
+		31CB9ED51B175AB50012F1F4 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				31CB9EE91B175E8A0012F1F4 /* TopModalNavigationBar.h */,
+				31CB9EEA1B175E8A0012F1F4 /* TopModalNavigationBar.m */,
+			);
+			name = Base;
+			sourceTree = "<group>";
+		};
+		31CB9ED91B175B790012F1F4 /* ipad */ = {
+			isa = PBXGroup;
+			children = (
+				31CB9EF31B175F210012F1F4 /* TopModalNavigationBar_ipad.h */,
+				31CB9EF41B175F210012F1F4 /* TopModalNavigationBar_ipad.m */,
+				31CB9EF11B175F0E0012F1F4 /* TopModalNavigationBar_ipad.xib */,
+			);
+			name = ipad;
+			sourceTree = "<group>";
+		};
+		31CB9EDA1B175B7E0012F1F4 /* iphone */ = {
+			isa = PBXGroup;
+			children = (
+				31CB9EEC1B175ED50012F1F4 /* TopModalNavigationBar_iphone.h */,
+				31CB9EED1B175ED50012F1F4 /* TopModalNavigationBar_iphone.m */,
+				31CB9EEF1B175EE10012F1F4 /* TopModalNavigationBar_iphone.xib */,
+			);
+			name = iphone;
+			sourceTree = "<group>";
+		};
+		31CB9EE51B175CFF0012F1F4 /* BaseToolbar */ = {
+			isa = PBXGroup;
+			children = (
+				31CB9EE61B175D2E0012F1F4 /* BaseNavigationBar.h */,
+				31CB9EE71B175D2E0012F1F4 /* BaseNavigationBar.m */,
+			);
+			name = BaseToolbar;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -2240,6 +2288,7 @@
 				0FA839EE19BCF8E50037B5F3 /* Localizable.strings in Resources */,
 				0FC719BC1AF9253400912FF1 /* LaunchViewController_ipad.xib in Resources */,
 				0F7A854D1AFFF95300A2F6C4 /* ScrollViewExampleViewController_iphone.xib in Resources */,
+				31CB9EF01B175EE10012F1F4 /* TopModalNavigationBar_iphone.xib in Resources */,
 				0FB3F48D19E52E3C0040E4D7 /* Default-568h@2x.png in Resources */,
 				31CB85371B14B55600F827F7 /* CountryPickerViewController_ipad.xib in Resources */,
 				31CB856D1B15F11200F827F7 /* UserContainerViewController_ipad.xib in Resources */,
@@ -2247,6 +2296,7 @@
 				0F7A85361AFFEDE500A2F6C4 /* HomeListItemView_iphone.xib in Resources */,
 				0FA8625619C425E0004D4A32 /* SettingsViewController_iphone.xib in Resources */,
 				0F70DF351AFFC512004293F1 /* TopNavigationBar_ipad.xib in Resources */,
+				31CB9EF21B175F0E0012F1F4 /* TopModalNavigationBar_ipad.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2375,21 +2425,22 @@
 				0FA4E8FA19CD60C50046CA90 /* ScrollViewExampleViewController_ipad.m in Sources */,
 				31CB856C1B15F11200F827F7 /* UserContainerViewController_ipad.m in Sources */,
 				0FE1CB001AF65D70006769FE /* GMConsoleLogger.m in Sources */,
+				31CB9EEE1B175ED50012F1F4 /* TopModalNavigationBar_iphone.m in Sources */,
 				0F7A85451AFFF65E00A2F6C4 /* TermsConditionsViewController_ipad.m in Sources */,
 				0FC719F01AF933BA00912FF1 /* SettingsModel.m in Sources */,
 				3119A3FC1B0DD544001CCA38 /* SeparatorHorizontalLineView.m in Sources */,
 				0FC4D1671AFBE0CA00CF4C24 /* MenuViewController_iphone.m in Sources */,
 				0FA67F7719C4F6B500E00FDA /* SettingsViewController_ipad.m in Sources */,
-				3119A3F91B0DD4D1001CCA38 /* NormalModalToolbar.m in Sources */,
 				0FE1CB5C1AF691FE006769FE /* TermsConditionsModel.m in Sources */,
 				0FE1CB2C1AF66A66006769FE /* BaseTextField.m in Sources */,
 				31CB85591B15BFEC00F827F7 /* WalkthroughViewController_ipad.m in Sources */,
-				0FE1CB891AF6ABAF006769FE /* UIToolbar+Custom.m in Sources */,
+				31CB9EF51B175F210012F1F4 /* TopModalNavigationBar_ipad.m in Sources */,
 				31912EA01B0CC9B6007C0C89 /* SendEmailCommand.m in Sources */,
 				0FE1CAE31AF65572006769FE /* SettingObject.m in Sources */,
 				0FA8625019C425A1004D4A32 /* HomeViewController_iphone.m in Sources */,
 				0FE1CB1F1AF664CC006769FE /* NSArray+JSON.m in Sources */,
 				0FE1CB801AF6A851006769FE /* ManagerFactory.m in Sources */,
+				31CB9EE81B175D2E0012F1F4 /* BaseNavigationBar.m in Sources */,
 				0F8D568E1AFFB510005681A7 /* KeyboardControlPrevNext.m in Sources */,
 				0FC719E31AF9335200912FF1 /* UserSignUpViewController.m in Sources */,
 				0FE1CB3C1AF66DFD006769FE /* CoreViewController.m in Sources */,
@@ -2406,6 +2457,7 @@
 				0FABA6F219CAFD8400CC7DD3 /* ContactsViewController.m in Sources */,
 				0FA695A919BB9A720058A722 /* AppDelegate.m in Sources */,
 				0FA62C6D19CF2D70002D3DDC /* BaseTableViewCell.m in Sources */,
+				31CB9EEB1B175E8A0012F1F4 /* TopModalNavigationBar.m in Sources */,
 				0FA8625519C425E0004D4A32 /* SettingsViewController_iphone.m in Sources */,
 				0FC719C61AF92D8700912FF1 /* AppSettingsNetworkOperation.m in Sources */,
 				0F70DF2E1AFFC47E004293F1 /* TopNavigationBar.m in Sources */,

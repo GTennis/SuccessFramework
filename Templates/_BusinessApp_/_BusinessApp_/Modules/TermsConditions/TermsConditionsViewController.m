@@ -27,6 +27,8 @@
 
 #import "TermsConditionsViewController.h"
 
+#define kTermsConditionsViewControllerTitle @"TermsConditions"
+
 @interface TermsConditionsViewController ()
 
 @end
@@ -53,15 +55,14 @@
     [self.analyticsManager logScreen:kAnalyticsManagerScreenTermsConditions];
 }
 
+#pragma mark - Base methods
+
 - (void)prepareUI {
     
     [super prepareUI];
     
     // This will set title for standard navigation bar title
-    self.title = GMLocalizedString(@"TermsAndConditions_Title");
-    
-    // This will set title for modal screen (if used) custom toolbar title
-    self.titleLabel.text = self.title;
+    self.title = GMLocalizedString(kTermsConditionsViewControllerTitle);
 }
 
 - (void)renderUI {

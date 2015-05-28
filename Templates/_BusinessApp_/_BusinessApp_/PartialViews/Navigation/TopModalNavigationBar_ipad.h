@@ -1,9 +1,9 @@
 //
-//  UIToolbar+Custom.h
+//  TopModalNavigationBar_ipad.h
 //  _BusinessApp_
 //
-//  Created by Gytenis Mikulėnas on 6/4/14.
-//  Copyright (c) 2015 Gytenis Mikulėnas
+//  Created by Gytenis Mikulenas on 28/05/15.
+//  Copyright (c) 2015 Gytenis Mikulėnas 
 //  https://github.com/GitTennis/SuccessFramework
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -25,9 +25,8 @@
 //  SOFTWARE. All rights reserved.
 //
 
-@interface UIToolbar (Custom)
+#import "TopModalNavigationBar.h"
 
-- (UIBarButtonItem *)createAndSetBarButtonToBackWithTarget:(id)target selector:(SEL)selector;
-- (UIBarButtonItem *)createAndSetBarButtonCancelWithTarget:(id)target selector:(SEL)selector;
+@interface TopModalNavigationBar_ipad : TopModalNavigationBar
 
 @end

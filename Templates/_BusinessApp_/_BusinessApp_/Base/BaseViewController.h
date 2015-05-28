@@ -33,6 +33,8 @@
 #import "ViewControllerFactoryProtocol.h"
 #import "BaseModel.h"
 
+@class TopModalNavigationBar;
+
 @protocol ViewControllerFactoryProtocol;
 
 @interface BaseViewController : CoreViewController <BaseModelDelegate>
@@ -46,12 +48,20 @@
 @property (nonatomic, strong) id<MessageBarManagerProtocol> messageBarManager;
 @property (nonatomic, strong) id<ViewControllerFactoryProtocol> viewControllerFactory;
 
+@property (nonatomic) BOOL isModallyPressented;
+
 - (instancetype)initWithCrashManager:(id<CrashManagerProtocol>)crashManager analyticsManager:(id<AnalyticsManagerProtocol>)analyticsManager messageBarManager:(id<MessageBarManagerProtocol>)messageBarManager viewControllerFactory:(id<ViewControllerFactoryProtocol>)viewControllerFactory context:(id)context;
 
-//- (void)showNavigationBarRightButton;
-//- (void)hideNavigationBarRightButton;
-- (void)loadModel;
-// Override for custom log
+// Modal screen handling
+@property (nonatomic, readonly) TopModalNavigationBar *modalNavigationBar;
+- (void)presentModalViewController:(BaseViewController *)viewController animated:(BOOL)animated;
+- (void)dismissModalViewControllerAnimated:(BOOL)animated;
+
+// Override for custom handling
+- (void)didPressedCancelModal;
+- (void)didPressedBackModal;
+
+// Override for custom screen name log
 - (void)logForCrashReports;
 
 @end

@@ -8,9 +8,6 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ContactsViewController_ipad">
             <connections>
                 <outlet property="backgroundMaskView" destination="HsM-hz-az4" id="HmW-mq-qXW"/>
-                <outlet property="cancelButton" destination="ALV-74-z4m" id="JKO-8H-0Sx"/>
-                <outlet property="modalToolbar" destination="CVq-sf-iUX" id="IoK-pr-deg"/>
-                <outlet property="titleLabel" destination="3ov-6N-1fL" id="0Fk-X0-LNI"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -30,7 +27,7 @@
                 <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KUQ-pS-mbL" userLabel="ContentView">
                     <rect key="frame" x="352" y="68" width="320" height="568"/>
                     <subviews>
-                        <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CVq-sf-iUX" customClass="NormalModalToolbar">
+                        <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CVq-sf-iUX">
                             <rect key="frame" x="0.0" y="0.0" width="320" height="64"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="64" id="LPT-D0-U55"/>

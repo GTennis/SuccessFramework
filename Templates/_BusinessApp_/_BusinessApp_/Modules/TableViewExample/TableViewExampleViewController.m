@@ -75,6 +75,36 @@
     // Dispose of any resources that can be recreated.
 }
 
+#pragma mark - Base methods
+
+- (void)commonInit {
+    
+    [super commonInit];
+    
+    // ...
+}
+
+- (void)prepareUI {
+    
+    [super prepareUI];
+    
+    // ...
+}
+
+- (void)renderUI {
+    
+    [super renderUI];
+    
+    // ...
+}
+
+- (void)loadModel {
+    
+    [super loadModel];
+    
+    // ...
+}
+
 #pragma mark - UITableViewDataSource
 
 // For hiding blank lines at the bottom of the table view

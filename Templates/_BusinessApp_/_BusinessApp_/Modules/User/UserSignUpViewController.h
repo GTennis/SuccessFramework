@@ -35,7 +35,7 @@
 
 @end
 
-@interface UserSignUpViewController : BaseViewController
+@interface UserSignUpViewController : BaseViewController <CountryPickerViewControllerDelegate>
 
 @property (nonatomic, strong) UserSignUpModel *model;
 @property (nonatomic, weak) id<UserSignUpViewControllerDelegate> delegate;

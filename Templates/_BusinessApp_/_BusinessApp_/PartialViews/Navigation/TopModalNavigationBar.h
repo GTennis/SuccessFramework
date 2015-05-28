@@ -1,9 +1,9 @@
 //
-//  UserLoginViewController.m
+//  TopModalNavigationBar.h
 //  _BusinessApp_
 //
-//  Created by Gytenis Mikulėnas on 5/16/14.
-//  Copyright (c) 2015 Gytenis Mikulėnas
+//  Created by Gytenis Mikulenas on 28/05/15.
+//  Copyright (c) 2015 Gytenis Mikulėnas 
 //  https://github.com/GitTennis/SuccessFramework
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -25,64 +25,25 @@
 //  SOFTWARE. All rights reserved.
 //
 
-#import "UserLoginViewController.h"
+#import "BaseNavigationBar.h"
 
-@interface UserLoginViewController ()
+@protocol TopModalNavigationBarDelegate <NSObject>
+
+- (void)didPressedCancelModal;
+- (void)didPressedBackModal;
 
 @end
 
-@implementation UserLoginViewController
+@interface TopModalNavigationBar : BaseNavigationBar
 
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    // Do any additional setup after loading the view.
-}
+@property (nonatomic, weak) id<TopModalNavigationBarDelegate> delegate;
 
-- (IBAction)showSignUpPressed:(id)sender {
-    
-    if ([_delegate respondsToSelector:@selector(didPressSignUp)]) {
-        
-        [_delegate didPressSignUp];
-    }
-}
+@property (weak, nonatomic) IBOutlet UIButton *backButton;
+@property (weak, nonatomic) IBOutlet UIButton *cancelButton;
 
-- (IBAction)resetPasswordPressed:(id)sender {
-    
-    if ([_delegate respondsToSelector:@selector(didPressForgotPasswordWithEmail:)]) {
-        
-#warning TODO: pass entered email
-        [_delegate didPressForgotPasswordWithEmail:nil];
-    }
-}
+- (void)showCancelButton;
+- (void)showBackButton;
 
-#pragma mark - Base methods
-
-- (void)commonInit {
-    
-    [super commonInit];
-
-    // ...
-}
-
-- (void)prepareUI {
-    
-    [super prepareUI];
-    
-    // ...
-}
-
-- (void)renderUI {
-    
-    [super renderUI];
-    
-    // ...
-}
-
-- (void)loadModel {
-    
-    [super loadModel];
-    
-    // ...
-}
++ (void)applyStyleForModalNavigationBar:(UINavigationBar *)navigationBar;
 
 @end

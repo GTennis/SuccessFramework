@@ -61,11 +61,12 @@
     // Dispose of any resources that can be recreated.
 }
 
-#pragma mark - Helpers
+#pragma mark - Base methods
 
-- (void)renderUI {
+- (void)commonInit {
     
-    // Overrride in subclass for customization
+    [super commonInit];
+    
     // ...
 }
 
@@ -80,6 +81,22 @@
     // Proceed to app after a couple of seconds
     [self performSelector:@selector(close) withObject:nil afterDelay:1.0f];
 }
+
+- (void)renderUI {
+    
+    [super renderUI];
+    
+    // ...
+}
+
+- (void)loadModel {
+    
+    [super loadModel];
+    
+    // ...
+}
+
+#pragma mark - Helpers
 
 - (void)close {
     

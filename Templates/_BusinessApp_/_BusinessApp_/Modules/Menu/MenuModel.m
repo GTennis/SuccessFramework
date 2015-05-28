@@ -62,38 +62,38 @@
     // Home
     MenuItemObject *item = [[MenuItemObject alloc] init];
     item.menuTitle = GMLocalizedString(kMenuModelMenuItemHome);
-    item.viewController = (UIViewController *) [viewControllerFactory homeViewControllerWithContext:nil];
+    item.viewController = (BaseViewController *) [viewControllerFactory homeViewControllerWithContext:nil];
     [itemList addObject:item];
     
     // Settings
     item = [[MenuItemObject alloc] init];
     item.menuTitle = GMLocalizedString(kMenuModelMenuItemSettings);
-    item.viewController = (UIViewController *) [viewControllerFactory settingsViewControllerWithContext:nil];
+    item.viewController = (BaseViewController *) [viewControllerFactory settingsViewControllerWithContext:nil];
     [itemList addObject:item];
 
     // User login
     item = [[MenuItemObject alloc] init];
     item.menuTitle = GMLocalizedString(kMenuModelMenuItemLogin);
-    item.viewController = (UIViewController *) [viewControllerFactory userContainerViewControllerWithContext:nil];
+    item.viewController = (BaseViewController *) [viewControllerFactory userContainerViewControllerWithContext:nil];
     item.isPresentedModally = YES;
     [itemList addObject:item];
     
     // TermsConditions
     item = [[MenuItemObject alloc] init];
     item.menuTitle = GMLocalizedString(kMenuModelMenuItemTermsConditions);
-    item.viewController = (UIViewController *) [viewControllerFactory termsConditionsViewControllerWithContext:nil];
+    item.viewController = (BaseViewController *) [viewControllerFactory termsConditionsViewControllerWithContext:nil];
     [itemList addObject:item];
     
     // ScrollViewExample
     item = [[MenuItemObject alloc] init];
     item.menuTitle = GMLocalizedString(kMenuModelMenuItemScrollViewExample);
-    item.viewController = (UIViewController *) [viewControllerFactory scrollViewExampleViewControllerWithContext:nil];
+    item.viewController = (BaseViewController *) [viewControllerFactory scrollViewExampleViewControllerWithContext:nil];
     [itemList addObject:item];
     
     // TableViewExample
     item = [[MenuItemObject alloc] init];
     item.menuTitle = GMLocalizedString(kMenuModelMenuItemTableViewExample);
-    item.viewController = (UIViewController *) [viewControllerFactory tableViewExampleViewControllerWithContext:nil];
+    item.viewController = (BaseViewController *) [viewControllerFactory tableViewExampleViewControllerWithContext:nil];
     [itemList addObject:item];
     
     // Done

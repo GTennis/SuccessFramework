@@ -29,6 +29,7 @@
 #import "UserLoginViewController.h"
 #import "UserSignUpViewController.h"
 #import "UserForgotPasswordViewController.h"
+#import "TopModalNavigationBar.h"
 
 #define kUserContainerViewControllerLoginTitle @"Login"
 #define kUserContainerViewControllerSignUpTitle @"SignUp"
@@ -39,6 +40,49 @@
 @end
 
 @implementation UserContainerViewController
+
+- (void)viewDidLoad {
+    
+    [super viewDidLoad];
+    // Do any additional setup after loading the view.
+    
+    [self prepareUI];
+    [self showLoginWithAnimation:NO];
+}
+
+- (void)showLoginWithAnimation:(BOOL)animated {
+
+    // Prepare UI
+    self.title = GMLocalizedString(kUserContainerViewControllerLoginTitle);
+    [self.modalNavigationBar showCancelButton];
+    
+    // Perform transition
+    [self transitionWithNextViewController:_userLoginVC animated:animated];
+}
+
+- (void)showSignUpWithAnimation:(BOOL)animated {
+
+    // Prepare UI
+    self.title = GMLocalizedString(kUserContainerViewControllerSignUpTitle);
+    [_userSignUpVC clearInputFields];
+    [self.modalNavigationBar showBackButton];
+
+    // Perform transition
+    [self transitionWithNextViewController:_userSignUpVC animated:animated];
+}
+
+- (void)showForgotPasswordWithAnimation:(BOOL)animated email:(NSString *)email {
+    
+    // Prepare UI
+    self.title = GMLocalizedString(kUserContainerViewControllerForgotPasswordTitle);
+    //[_userForgotPasswordVC setEmail:email];
+    [self.modalNavigationBar showBackButton];
+
+    // Perform transition
+    [self transitionWithNextViewController:_userForgotPasswordVC animated:animated];
+}
+
+#pragma mark - Base methods
 
 - (void)commonInit {
     
@@ -54,64 +98,32 @@
     _userForgotPasswordVC.delegate = self;
 }
 
-- (void)viewDidLoad {
+- (void)prepareUI {
     
-    [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    [super prepareUI];
     
-    [self prepareUI];
-    [self showLoginWithAnimation:NO];
+    // ...
 }
 
-- (void)showLoginWithAnimation:(BOOL)animated {
+- (void)renderUI {
     
-    self.titleLabel.text = GMLocalizedString(kUserContainerViewControllerLoginTitle);
+    [super renderUI];
     
-    [self transitionWithNextViewController:_userLoginVC animated:animated];
-    
-    //_model.isLogin = YES;
+    // ...
 }
 
-- (void)showSignUpWithAnimation:(BOOL)animated {
+- (void)loadModel {
     
-    self.titleLabel.text = GMLocalizedString(kUserContainerViewControllerSignUpTitle);
+    [super loadModel];
     
-    [_userSignUpVC clearInputFields];
-    
-    [self transitionWithNextViewController:_userSignUpVC animated:animated];
-    
-    //_model.isLogin = NO;
-    
-    //[self showBack];
+    // ...
 }
 
-- (void)showForgotPasswordWithAnimation:(BOOL)animated email:(NSString *)email {
-    
-    self.titleLabel.text = GMLocalizedString(kUserContainerViewControllerForgotPasswordTitle);
-    
-    //[_userForgotPasswordVC setEmail:email];
-    
-    [self transitionWithNextViewController:_userForgotPasswordVC animated:animated];
-    
-    //_model.isLogin = NO;
-    
-    //[self showBack];
-}
+#pragma mark - Override TopModalNavigationBarDelegate
 
-#pragma mark - IBActions
-
-- (void)cancelPressed:(id)sender {
+- (void)didPressedBackModal {
     
-    if ([self isLoginViewControllerPresented]) {
-        
-        // Will close modal screen
-        [super cancelPressed:sender];
-        
-    } else {
-
-        //[self showCancel];
-        [self showLoginWithAnimation:YES];
-    }
+     [self showLoginWithAnimation:YES];
 }
 
 #pragma mark - UserLoginViewControllerDelegate
@@ -146,35 +158,6 @@
 }
 
 #pragma mark - Helpers
-
-- (void)prepareUI {
-    
-    [super prepareUI];
-}
-
-- (void)renderUI {
-    
-    [super renderUI];
-}
-
-- (void)loadModel {
-    
-    [super loadModel];
-}
-
-- (BOOL)isLoginViewControllerPresented {
-    
-    UIViewController *currentViewController = self.childViewControllers.firstObject;
-    
-    if ([currentViewController isKindOfClass:[UserLoginViewController class]]) {
-        
-        return YES;
-        
-    } else {
-     
-        return NO;
-    }
-}
 
 - (void)transitionWithNextViewController:(UIViewController *)nextViewController animated:(BOOL)animated {
     

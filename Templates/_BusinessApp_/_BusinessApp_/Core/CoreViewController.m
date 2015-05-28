@@ -27,7 +27,6 @@
 
 #import "CoreViewController.h"
 #import "MBProgressHUD.h"
-#import "AppDelegate.h"
 
 // Activity indicator tags
 #define kScreenActivityIndicatorTag 20131217
@@ -158,30 +157,21 @@
 
 - (void)commonInit {
     
-    // Implement in child classes to initialize all required properties
-    // ...
+    // Implement in child classes
+    //NSAssert(NO, @"commonInit is not implemented in class: %@", NSStringFromClass([self class]));
 }
 
 - (void)prepareUI {
 
-    // Set cancel button target and title in case screen is presented modally
-    _cancelButton.target = self;
-    _cancelButton.action = @selector(cancelPressed:);
-    _cancelButton.title = GMLocalizedString(kCancelKey);
+    // Implement in child classes
+    DLog(@"[%@]: prepareUI", NSStringFromClass([self class]));
     
-    // Add identifiers for functional tests
-    NSString *buttonName = [NSString stringWithFormat:@"%@ModalScreenToolbarCancelButton", NSStringFromClass([self class])];
-    _cancelButton.isAccessibilityElement = YES;
-    _cancelButton.accessibilityLabel = buttonName;
-    _cancelButton.accessibilityIdentifier = buttonName;
-    
-    NSString *labelName = [NSString stringWithFormat:@"%@ModalScreenToolbarTitleLabel", NSStringFromClass([self class])];
-    _titleLabel.isAccessibilityElement = YES;
-    _titleLabel.accessibilityLabel = labelName;
-    _titleLabel.accessibilityIdentifier = labelName;
+    //NSAssert(NO, @"prepareUI is not implemented in class: %@", NSStringFromClass([self class]));
 }
 
 - (void)renderUI {
+    
+    DLog(@"[%@]: renderUI", NSStringFromClass([self class]));
     
     // Implement in child classes
     //NSAssert(NO, @"renderUI is not implemented in class: %@", NSStringFromClass([self class]));
@@ -189,29 +179,26 @@
 
 - (void)loadModel {
     
+    DLog(@"[%@]: loadModel", NSStringFromClass([self class]));
+    
     // Implement in child classes
-    //NSAssert(NO, @"renderUI is not implemented in class: %@", NSStringFromClass([self class]));
+    //NSAssert(NO, @"loadModel is not implemented in class: %@", NSStringFromClass([self class]));
 }
 
 #pragma mark - Navigation
 
-- (void)handleBackPressed {
+- (void)didPressedBack {
     
-    // Disable user interaction is used for keeping user in screen
-    // So need to check before poping
-    //if (self.view.isUserInteractionEnabled) {
-        
-        [self.navigationController popViewControllerAnimated:YES];
-    //}
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
-- (void)showDefaultNavigationBar {
+- (void)showNavigationBar {
     
     self.navigationController.navigationBar.translucent = NO;
     self.navigationController.navigationBarHidden = NO;
 }
 
-- (void)hideDefaultNavigationBar {
+- (void)hideNavigationBar {
     
     self.navigationController.navigationBar.translucent = YES;
     self.navigationController.navigationBarHidden = YES;
@@ -220,63 +207,6 @@
 - (BOOL)hasNavigationBar {
     
     return !self.navigationController.navigationBarHidden;
-}
-
-#pragma mark - Modal screen handling
-
-- (void)presentModalViewController:(UIViewController *)viewController animated:(BOOL)animated {
-    
-    if (SYSTEM_VERSION_LESS_THAN(@"8")) {
-        
-        AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
-        
-        [self presentViewController:viewController animated:animated completion:^{
-            
-            [viewController dismissViewControllerAnimated:NO completion:^{
-                
-                appDelegate.window.rootViewController.modalPresentationStyle = UIModalPresentationCurrentContext;
-                [self presentViewController:viewController animated:NO completion:nil];
-                appDelegate.window.rootViewController.modalPresentationStyle = UIModalPresentationFullScreen;
-                
-            }];
-        }];
-        
-    } else {
-        
-        viewController.modalPresentationStyle = UIModalPresentationOverCurrentContext;
-        [self presentViewController:viewController animated:animated completion:nil];
-    }
-}
-
-- (void)dismissModalViewControllerAnimated:(BOOL)animated {
-    
-    [self.presentingViewController dismissViewControllerAnimated:animated completion:nil];
-}
-
-- (IBAction)cancelPressed:(id)sender {
-    
-    [self dismissModalViewControllerAnimated:YES];
-}
-
-- (void)setToolbarHidden:(BOOL)hidden {
-    
-    if (hidden) {
-        
-        [_modalToolbar removeFromSuperview];
-        
-    } else {
-        
-        [self.view addSubview:_modalToolbar];
-    }
-    
-    [_titleLabel setHidden:hidden];
-}
-
-#pragma mark - Override
-
-- (void)setTitle:(NSString *)title {
-    
-    [super setTitle:title];
 }
 
 #pragma mark - Xib loading
@@ -357,20 +287,6 @@
 }
 
 #pragma mark - Notification error handling
-
-// Solution used from http://stackoverflow.com/questions/355168/proper-way-to-exit-iphone-application
-/*- (void)closeTheApp {
-    
-    //home button press programmatically
-    UIApplication *app = [UIApplication sharedApplication];
-    [app performSelector:@selector(suspend)];
-    
-    //wait 2 seconds while app is going background
-    [NSThread sleepForTimeInterval:2.0];
-    
-    //exit app when app is in background
-    exit(EXIT_SUCCESS);
-}*/
 
 /*
  Any controller can subscribe itself as an observer for network requests status by adding this code in viewDidLoad:

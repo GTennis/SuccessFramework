@@ -85,7 +85,7 @@
     [self setTextFieldsForKeyboard:textFields];
 }
 
-#pragma mark - Helpers
+#pragma mark - Base methods
 
 - (void)prepareUI {
     
@@ -105,7 +105,6 @@
     
     [super renderUI];
     
-    // Update UI with loaded data
     // ...
 }
 
@@ -113,9 +112,9 @@
     
     [super loadModel];
     
-    // ...
-    
     [self renderUI];
 }
+
+#pragma mark - Helpers
 
 @end

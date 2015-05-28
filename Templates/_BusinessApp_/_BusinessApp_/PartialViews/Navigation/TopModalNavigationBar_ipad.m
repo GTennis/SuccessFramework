@@ -1,9 +1,9 @@
 //
-//  NormalModalToolbar.m
+//  TopModalNavigationBar_ipad.m
 //  _BusinessApp_
 //
-//  Created by Gytenis Mikulenas on 21/05/15.
-//  Copyright (c) 2015 Gytenis Mikulėnas
+//  Created by Gytenis Mikulenas on 28/05/15.
+//  Copyright (c) 2015 Gytenis Mikulėnas 
 //  https://github.com/GitTennis/SuccessFramework
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -25,24 +25,16 @@
 //  SOFTWARE. All rights reserved.
 //
 
-#import "NormalModalToolbar.h"
-#import "SeparatorHorizontalLineView.h"
+#import "TopModalNavigationBar_ipad.h"
 
-@implementation NormalModalToolbar
+@implementation TopModalNavigationBar_ipad
 
-- (void)awakeFromNib {
-    
-    [super awakeFromNib];
-    
-    [self prepareUI];
+/*
+// Only override drawRect: if you perform custom drawing.
+// An empty implementation adversely affects performance during animation.
+- (void)drawRect:(CGRect)rect {
+    // Drawing code
 }
-
-- (void)prepareUI {
-    
-    SeparatorHorizontalLineView *lineView = [[SeparatorHorizontalLineView alloc] init];
-    
-    [lineView fitIntoContainerView:self color:kColorGrayDark alignTop:NO leftOffset:0 rightOffset:0];
-    [self addSubview:lineView];
-}
+*/
 
 @end

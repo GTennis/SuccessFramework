@@ -378,7 +378,7 @@
     UserManager *userManager = [REGISTRY getObject:[UserManager class]];
     [userManager loadUser];
     
-    // Apply style
+    // Apply common style
     [TopNavigationBar applyStyleForNavigationBar:self.navigationController.navigationBar];
 }
 

@@ -25,7 +25,7 @@
 //  SOFTWARE. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "BaseNavigationBar.h"
 
 @protocol TopNavigationBarDelegate <NSObject>
 
@@ -35,16 +35,16 @@
 
 @end
 
-@interface TopNavigationBar : UIView
+@interface TopNavigationBar : BaseNavigationBar
 
 @property (weak, nonatomic) id<TopNavigationBarDelegate> delegate;
 
 @property (weak, nonatomic) IBOutlet UIButton *backButton;
 @property (weak, nonatomic) IBOutlet UIButton *menuButton;
-@property (weak, nonatomic) IBOutlet UILabel *titleLabel;
-@property (weak, nonatomic) IBOutlet UIButton *userActionButton;
-@property (weak, nonatomic) IBOutlet UIButton *settingsButton;
 @property (weak, nonatomic) IBOutlet UIButton *contactsButton;
+
+- (void)showMenuButton;
+- (void)showBackButton;
 
 + (void)applyStyleForNavigationBar:(UINavigationBar *)navigationBar;
 

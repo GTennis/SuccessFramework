@@ -1,9 +1,9 @@
 //
-//  TopNavigationBar.m
+//  TopModalNavigationBar.m
 //  _BusinessApp_
 //
-//  Created by Gytenis Mikulenas on 5/10/15.
-//  Copyright (c) 2015 Gytenis Mikulėnas
+//  Created by Gytenis Mikulenas on 28/05/15.
+//  Copyright (c) 2015 Gytenis Mikulėnas 
 //  https://github.com/GitTennis/SuccessFramework
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -25,14 +25,9 @@
 //  SOFTWARE. All rights reserved.
 //
 
-#import "TopNavigationBar.h"
+#import "TopModalNavigationBar.h"
 
-@implementation TopNavigationBar
-
-- (void)dealloc {
-    
-    _delegate = nil;
-}
+@implementation TopModalNavigationBar
 
 - (void)awakeFromNib {
     
@@ -43,11 +38,14 @@
     
     self.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
     
+    // Prepare UI
+    [_cancelButton setTitle:GMLocalizedString(kCancelKey) forState:UIControlStateNormal];
+    
     // Add identifiers for functional tests
     NSString *buttonName = [NSString stringWithFormat:@"%@ScreenToolbarCancelButton", NSStringFromClass([self class])];
-    self.menuButton.isAccessibilityElement = YES;
-    self.menuButton.accessibilityLabel = buttonName;
-    self.menuButton.accessibilityIdentifier = buttonName;
+    self.cancelButton.isAccessibilityElement = YES;
+    self.cancelButton.accessibilityLabel = buttonName;
+    self.cancelButton.accessibilityIdentifier = buttonName;
     
     NSString *labelName = [NSString stringWithFormat:@"%@ScreenToolbarTitleLabel", NSStringFromClass([self class])];
     self.titleLabel.isAccessibilityElement = YES;
@@ -55,30 +53,19 @@
     self.titleLabel.accessibilityIdentifier = labelName;
 }
 
-- (id)initWithFrame:(CGRect)frame {
-    
-    self = [super initWithFrame:frame];
-    if (self) {
-        // Initialization code
-    }
-    return self;
-}
-
-#pragma mark - Public
-
-- (void)showMenuButton {
+- (void)showCancelButton {
     
     _backButton.hidden = YES;
-    _menuButton.hidden = NO;
+    _cancelButton.hidden = NO;
 }
 
 - (void)showBackButton {
     
+    _cancelButton.hidden = YES;
     _backButton.hidden = NO;
-    _menuButton.hidden = YES;
 }
 
-+ (void)applyStyleForNavigationBar:(UINavigationBar *)navigationBar {
++ (void)applyStyleForModalNavigationBar:(UINavigationBar *)navigationBar {
     
     navigationBar.translucent = NO;
     
@@ -87,27 +74,19 @@
 
 #pragma mark - IBActions
 
-- (IBAction)contactsPressed:(id)sender {
-    
-    if ([_delegate respondsToSelector:@selector(didPressedContacts)]) {
-        
-        [_delegate didPressedContacts];
-    }
-}
-
 - (IBAction)backPressed:(id)sender {
     
-    if ([_delegate respondsToSelector:@selector(didPressedBack)]) {
+    if ([_delegate respondsToSelector:@selector(didPressedBackModal)]) {
         
-        [_delegate didPressedBack];
+        [_delegate didPressedBackModal];
     }
 }
 
-- (IBAction)menuPressed:(id)sender {
+- (IBAction)cancelPressed:(id)sender {
     
-    if ([_delegate respondsToSelector:@selector(didPressedMenu)]) {
+    if ([_delegate respondsToSelector:@selector(didPressedCancelModal)]) {
         
-        [_delegate didPressedMenu];
+        [_delegate didPressedCancelModal];
     }
 }
 

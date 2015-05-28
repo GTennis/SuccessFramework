@@ -56,7 +56,23 @@
     [self.analyticsManager logScreen:kAnalyticsManagerScreenPhotoDetails];
 }
 
-#pragma mark - Helpers
+#pragma mark - Base methods
+
+- (void)prepareUI {
+    
+    [super prepareUI];
+    
+    // Set title
+    self.title = GMLocalizedString(kPhotoDetailsViewControllerTitle);
+}
+
+- (void)renderUI {
+    
+    [super renderUI];
+    
+    // Download image
+    [ImageDownloader downloadImageWithUrl:_model.image.imageUrl forImageView:_imageView loadingPlaceholder:kContentPlaceholderImage failedPlaceholder:kContentPlaceholderImage activityIndicatorView:_imageActivityIndicatorView];
+}
 
 - (void)loadModel {
     
@@ -83,22 +99,6 @@
     }];
 }
 
-- (void)prepareUI {
-    
-    [super prepareUI];
-    
-    // Set title
-    self.title = GMLocalizedString(kPhotoDetailsViewControllerTitle);
-}
-
-- (void)renderUI {
-    
-    [super renderUI];
-    
-    // Download image
-    [ImageDownloader downloadImageWithUrl:_model.image.imageUrl forImageView:_imageView loadingPlaceholder:kContentPlaceholderImage failedPlaceholder:kContentPlaceholderImage activityIndicatorView:_imageActivityIndicatorView];
-}
-
 #pragma mark - Handling language change
 
 - (void)notificationLocalizationHasChanged {
@@ -106,5 +106,7 @@
     [self prepareUI];
     [self loadModel];
 }
+
+#pragma mark - Helpers
 
 @end

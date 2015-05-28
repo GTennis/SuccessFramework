@@ -47,17 +47,7 @@
     // Dispose of any resources that can be recreated.
 }
 
-#pragma mark - IBActions
-
-- (IBAction)skipPressed:(id)sender {
-    
-    if ([_delegate respondsToSelector:@selector(didFinishShowingWalkthrough)]) {
-        
-        [_delegate didFinishShowingWalkthrough];
-    }
-}
-
-#pragma mark - Helpers
+#pragma mark - Base methods
 
 - (void)prepareUI {
     
@@ -72,11 +62,21 @@
 - (void)loadModel {
     
     [super loadModel];
-
+    
     [_model loadData:^(BOOL success, id result, NSError *error) {
         
         // Loading model will set flag about app's first time launch
     }];
+}
+
+#pragma mark - IBActions
+
+- (IBAction)skipPressed:(id)sender {
+    
+    if ([_delegate respondsToSelector:@selector(didFinishShowingWalkthrough)]) {
+        
+        [_delegate didFinishShowingWalkthrough];
+    }
 }
 
 @end

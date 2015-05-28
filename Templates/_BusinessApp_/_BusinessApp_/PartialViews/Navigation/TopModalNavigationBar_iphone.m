@@ -1,9 +1,9 @@
 //
-//  NormalModalToolbar.h
+//  TopModalNavigationBar_iphone.m
 //  _BusinessApp_
 //
-//  Created by Gytenis Mikulenas on 21/05/15.
-//  Copyright (c) 2015 Gytenis Mikulėnas
+//  Created by Gytenis Mikulenas on 28/05/15.
+//  Copyright (c) 2015 Gytenis Mikulėnas 
 //  https://github.com/GitTennis/SuccessFramework
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -25,8 +25,16 @@
 //  SOFTWARE. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "TopModalNavigationBar_iphone.h"
 
-@interface NormalModalToolbar : UIToolbar
+@implementation TopModalNavigationBar_iphone
+
+/*
+// Only override drawRect: if you perform custom drawing.
+// An empty implementation adversely affects performance during animation.
+- (void)drawRect:(CGRect)rect {
+    // Drawing code
+}
+*/
 
 @end

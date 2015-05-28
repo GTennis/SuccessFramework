@@ -49,6 +49,8 @@
     // Dispose of any resources that can be recreated.
 }
 
+#pragma mark - Base methods
+
 - (void)prepareUI {
     
     self.title = GMLocalizedString(@"Settings");

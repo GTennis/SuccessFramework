@@ -71,51 +71,7 @@
     // Dispose of any resources that can be recreated.
 }
 
-#pragma mark - UICollectionViewDataSource
-
-- (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
-    
-    // Return the number of sections.
-    return 1;
-}
-
-- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    
-    // Return the number of rows in the section.
-    return _model.images.list.count;
-}
-
-- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-    
-    HomeListItemView *cell = [collectionView dequeueReusableCellWithReuseIdentifier:kHomeListItemCellReusableIdentifier forIndexPath:indexPath];
-    cell.delegate = self;
-        
-    ImageObject *image = _model.images.list[indexPath.row];
-    [cell renderWithObject:image];
-    
-    return (UICollectionViewCell *)cell;
-}
-
-- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
-    
-    return self.collectionViewCellSize;
-}
-
-- (CGSize)collectionViewCellSize {
-    
-    // Override in child classes
-    return CGSizeZero;
-}
-
-#pragma mark - HomeListItemViewDelegate
-
-- (void)didPressedWithImage:(ImageObject *)image {
-    
-    UIViewController *viewController = (UIViewController *)[self.viewControllerFactory photoDetailsViewControllerWithContext:image];
-    [self.navigationController pushViewController:viewController animated:YES];
-}
-
-#pragma mark - Helpers
+#pragma mark - Base methods
 
 - (void)prepareUI {
     
@@ -173,6 +129,51 @@
     }];
 }
 
+
+#pragma mark - UICollectionViewDataSource
+
+- (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
+    
+    // Return the number of sections.
+    return 1;
+}
+
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
+    
+    // Return the number of rows in the section.
+    return _model.images.list.count;
+}
+
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
+    
+    HomeListItemView *cell = [collectionView dequeueReusableCellWithReuseIdentifier:kHomeListItemCellReusableIdentifier forIndexPath:indexPath];
+    cell.delegate = self;
+        
+    ImageObject *image = _model.images.list[indexPath.row];
+    [cell renderWithObject:image];
+    
+    return (UICollectionViewCell *)cell;
+}
+
+- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
+    
+    return self.collectionViewCellSize;
+}
+
+- (CGSize)collectionViewCellSize {
+    
+    // Override in child classes
+    return CGSizeZero;
+}
+
+#pragma mark - HomeListItemViewDelegate
+
+- (void)didPressedWithImage:(ImageObject *)image {
+    
+    UIViewController *viewController = (UIViewController *)[self.viewControllerFactory photoDetailsViewControllerWithContext:image];
+    [self.navigationController pushViewController:viewController animated:YES];
+}
+
 #pragma mark - Handling language change
 
 - (void)notificationLocalizationHasChanged {
@@ -180,5 +181,7 @@
     [self prepareUI];
     [self loadModel];
 }
+
+#pragma mark - Helpers
 
 @end

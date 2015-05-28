@@ -71,4 +71,43 @@
     [_btnSelectCountry setTitleColor:kColorBlack forState:UIControlStateNormal];*/
 }
 
+#pragma mark - Base methods
+
+- (void)commonInit {
+    
+    [super commonInit];
+    
+    // ...
+}
+
+- (void)prepareUI {
+    
+    [super prepareUI];
+    
+    // ...
+}
+
+- (void)renderUI {
+    
+    [super renderUI];
+    
+    // ...
+}
+
+- (void)loadModel {
+    
+    [super loadModel];
+    
+    // ...
+}
+
+#pragma mark - IBActions
+
+- (IBAction)countryPressed:(id)sender {
+    
+    BaseViewController *countryVC = [self.viewControllerFactory countryPickerViewControllerWithDelegate:self context:nil];
+    
+    [self presentModalViewController:countryVC animated:YES];
+}
+
 @end

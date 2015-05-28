@@ -31,14 +31,16 @@
 #endif
 
 #import "BaseViewController.h"
-#import "GMAlertView.h"
 #import "TopNavigationBar.h"
+#import "TopModalNavigationBar.h"
+
 #import "APIClientErrorHandler.h"
 #import "ViewControllerFactoryProtocol.h"
 #import "MenuNavigator.h"
-#import "UIView+Fonts.h"
 
-@interface BaseViewController () <TopNavigationBarDelegate, UIGestureRecognizerDelegate> {
+#import "AppDelegate.h"
+
+@interface BaseViewController () <TopNavigationBarDelegate, TopModalNavigationBarDelegate, UIGestureRecognizerDelegate> {
     
 #if defined(ENTERPRISE_BUILD) || defined(DEBUG)
     NetworkEnvironmentSwitch4Testing *_networkSwitch4Testing;
@@ -54,8 +56,6 @@
 @end
 
 @implementation BaseViewController
-
-#pragma mark - Override
 
 - (void)dealloc {
     
@@ -79,16 +79,18 @@
     return self;
 }
 
-- (void)commonInit {
-    
-    [super commonInit];
-}
-
 - (void)viewDidLoad {
     
     [super viewDidLoad];
     
-    [self addCustomNavigationBar];
+    if (_isModallyPressented) {
+
+        [self addCustomModalNavigationBar];
+        
+    } else {
+    
+        [self addCustomNavigationBar];
+    }
     
     //Adding environment switch buttons for DEBUG only
 #if defined(ENTERPRISE_BUILD) || defined(DEBUG)
@@ -103,8 +105,8 @@
     //[self.navigationItem.titleView addGestureRecognizer:_networkChangeGestureRecognizer];
     
     UIButton *networkChangeButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    networkChangeButton.frame = CGRectMake(50, 5, 40, 30);
-    networkChangeButton.backgroundColor = [UIColor greenColor];
+    networkChangeButton.frame = CGRectMake(54, 5, 40, 30);
+    networkChangeButton.backgroundColor = [UIColor grayColor]; //[UIColor greenColor];
     [networkChangeButton setTitle:@"Env" forState:UIControlStateNormal];
     [networkChangeButton addTarget:self action:@selector(handleNetworkChangeSwitch) forControlEvents:UIControlEventTouchUpInside];
     [self.navigationItem.titleView addSubview:networkChangeButton];
@@ -117,7 +119,7 @@
     
     UIButton *consoleLoggerButton = [UIButton buttonWithType:UIButtonTypeCustom];
     consoleLoggerButton.frame = CGRectMake(95, 5, 40, 30);
-    consoleLoggerButton.backgroundColor = [UIColor magentaColor];
+    consoleLoggerButton.backgroundColor = [UIColor grayColor]; //[UIColor magentaColor];
     [consoleLoggerButton setTitle:@"Log" forState:UIControlStateNormal];
     [consoleLoggerButton addTarget:self action:@selector(handleConsoleLog:) forControlEvents:UIControlEventTouchUpInside];
     [self.navigationItem.titleView addSubview:consoleLoggerButton];
@@ -178,22 +180,27 @@
     DLog(@"[%@]: didReceiveMemoryWarning", NSStringFromClass([self class]));
 }
 
+// Logs current screen name
+- (void)logForCrashReports {
+    
+    [_crashManager logScreenAction:NSStringFromClass([self class])];
+}
+
+#pragma mark - Base methods
+
+// These methods are the main custom methods for initialing custom objects (commonInit), updating static UI (prepareUI), loading data (loadModel) and updating with data (renderUI)
+
+- (void)commonInit {
+    
+    [super commonInit];
+}
+
 - (void)prepareUI {
     
-    DLog(@"[%@]: prepareUI", NSStringFromClass([self class]));
-    
     [super prepareUI];
-    
-    self.cancelButton.title = GMLocalizedString(kCancelKey);
-    
-    // Adjust style
-    [self.cancelButton setTitleTextAttributes:@{NSForegroundColorAttributeName:kColorRed} forState:UIControlStateNormal];
-    self.titleLabel.fontType = kFontNormal;
 }
 
 - (void)renderUI {
-    
-    DLog(@"[%@]: renderUI", NSStringFromClass([self class]));
     
     [super renderUI];
     
@@ -203,20 +210,13 @@
 
 - (void)loadModel {
     
-    DLog(@"[%@]: loadModel", NSStringFromClass([self class]));
+    [super loadModel];
     
     // Implement in child classes
     //NSAssert(NO, @"loadModel is not implemented in class: %@", NSStringFromClass([self class]));
 }
 
-// Override for custom log
-- (void)logForCrashReports {
-    
-    [_crashManager logScreenAction:NSStringFromClass([self class])];
-}
-
 #pragma mark - Override Notification error handling
-
 
 - (void)handleNetworkRequestError:(NSNotification *)notification {
     
@@ -257,41 +257,107 @@
     [super handleNetworkRequestSuccess:notification];
 }
 
-#pragma mark - Override Navigation
+#pragma mark - Modal screen handling
 
-- (void)handleBackPressed {
+- (TopModalNavigationBar *)modalNavigationBar {
     
-    [super handleBackPressed];
+    if ([self.navigationItem.titleView isKindOfClass:[TopModalNavigationBar class]]) {
+        
+        TopModalNavigationBar *navBar = (TopModalNavigationBar *) self.navigationItem.titleView;
+        return navBar;
+        
+    } else {
+
+        return nil;
+    }
 }
 
-- (void)handleMenuPressed {
+- (void)presentModalViewController:(BaseViewController *)viewController animated:(BOOL)animated {
+    
+    viewController.isModallyPressented = YES;
+    
+    UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:viewController];
+    
+    // Initially hide top navigation bar
+    navController.navigationBar.hidden = YES;
+    
+    // Apply common style
+    [TopNavigationBar applyStyleForNavigationBar:navController.navigationBar];
+    
+    if (SYSTEM_VERSION_LESS_THAN(@"8")) {
+        
+        AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+        
+        [self presentViewController:navController animated:animated completion:^{
+        
+            navController.navigationBar.hidden = NO;
+            
+            // For backwards compatibility. This allows to use transparent background view and see previous screen view
+            [navController dismissViewControllerAnimated:NO completion:^{
+                
+                appDelegate.window.rootViewController.modalPresentationStyle = UIModalPresentationCurrentContext;
+                [self presentViewController:navController animated:NO completion:nil];
+                appDelegate.window.rootViewController.modalPresentationStyle = UIModalPresentationFullScreen;
+                
+            }];
+        }];
+        
+    } else {
+        
+        navController.modalPresentationStyle = UIModalPresentationOverCurrentContext;
+        [self presentViewController:navController animated:animated completion:^{
+            
+            navController.navigationBar.hidden = NO;
+        }];
+    }
+}
+
+- (void)dismissModalViewControllerAnimated:(BOOL)animated {
+    
+    [self.presentingViewController dismissViewControllerAnimated:animated completion:nil];
+}
+
+#pragma mark - TopModalNavigationBarDelegate
+
+- (void)didPressedCancelModal {
+    
+    [self dismissModalViewControllerAnimated:YES];
+}
+
+- (void)didPressedBackModal {
+    
+    [self.modalNavigationBar showCancelButton];    
+}
+
+#pragma mark - TopNavigationBarDelegate
+
+- (void)didPressedContacts {
+    
+    BaseViewController *vc = (BaseViewController *) [self.viewControllerFactory contactsViewControllerWithContext:nil];
+    [self presentModalViewController:vc animated:YES];
+}
+
+- (void)didPressedBack {
+    
+    [super didPressedBack];
+}
+
+- (void)didPressedMenu {
     
     MenuNavigator *menuNavigator = [REGISTRY getObject:[MenuNavigator class]];
     [menuNavigator toggleMenu];
 }
 
-#pragma mark - Override
+#pragma mark - Override Screen title
 
 - (void)setTitle:(NSString *)title {
     
     [super setTitle:title];
     
-    // Setting title for our custom titleView which is actualy used
-    TopNavigationBar *navigationBar = (TopNavigationBar *)self.navigationItem.titleView;
+    // Setting title for top main or modal navigation bar
+    BaseNavigationBar *navigationBar = (BaseNavigationBar *)self.navigationItem.titleView;
     navigationBar.titleLabel.text = title;
 }
-
-/*- (void)showNavigationBarRightButton {
- 
- AppNavigationBar *navigationBar = (AppNavigationBar *) self.navigationItem.titleView;
- navigationBar.searchButton.hidden = NO;
- }
- 
- - (void)hideNavigationBarRightButton {
- 
- AppNavigationBar *navigationBar = (AppNavigationBar *) self.navigationItem.titleView;
- navigationBar.searchButton.hidden = YES;
- }*/
 
 #pragma mark - Helpers
 
@@ -305,18 +371,28 @@
     //taken from http://stackoverflow.com/questions/19151309/strange-ellipsis-appearing-in-uinavigationbar
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:[[UIView alloc] init]];
     
-    
     // Hide back button if it's root view controller
     if (self.navigationController.viewControllers.count > 1) {
         
-        navigationBar.backButton.hidden = NO;
-        navigationBar.menuButton.hidden = YES;
+        [navigationBar showBackButton];
         
     } else {
-        
-        navigationBar.backButton.hidden = YES;
-        navigationBar.menuButton.hidden = NO;
+
+        [navigationBar showMenuButton];
     }
+}
+
+- (void)addCustomModalNavigationBar {
+    
+    // Creating and adding custom navigation bar
+    TopModalNavigationBar *navigationBar = (TopModalNavigationBar *)[self loadViewFromXibOfClass:[TopModalNavigationBar class]];
+    navigationBar.delegate = self;
+    self.navigationItem.titleView = navigationBar;
+    //this is a work around to get rid of ellipsis when navigating back
+    //taken from http://stackoverflow.com/questions/19151309/strange-ellipsis-appearing-in-uinavigationbar
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:[[UIView alloc] init]];
+    
+    [navigationBar showCancelButton];
 }
 
 - (void)closeMenuIfOpened {
@@ -324,25 +400,23 @@
     // TODO...
 }
 
-#pragma mark - AppNavigationBarDelegate
-
-- (void)didPressedContacts {
+- (void)subcribeForGeneralNotifications {
     
-    UIViewController *vc = (UIViewController *) [self.viewControllerFactory contactsViewControllerWithContext:nil];
-    [self presentModalViewController:vc animated:YES];
+    // Reset previous observing (due to multiple calls through viewWillAppear:)
+    [self unsubcribeFromGeneralNotifications];
+    
+    // Subscribe for network requests status notifications
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handleNetworkRequestError:) name:kNetworkRequestErrorNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handleNetworkRequestSuccess:) name:kNetworkRequestSuccessNotification object:nil];
 }
 
-- (void)didPressedBack {
+- (void)unsubcribeFromGeneralNotifications {
     
-    [self handleBackPressed];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:kNetworkRequestErrorNotification object:nil];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:kNetworkRequestSuccessNotification object:nil];
 }
 
-- (void)didPressedMenu {
-    
-    [self handleMenuPressed];
-}
-
-#pragma mark - Rotations
+#pragma mark - Rotation handling
 
 - (BOOL)shouldAutorotate {
     
@@ -396,24 +470,6 @@
         
         return UIInterfaceOrientationPortrait;
     }
-}
-
-#pragma mark - Notifications
-
-- (void)subcribeForGeneralNotifications {
-    
-    // Reset previous observing (due to multiple calls through viewWillAppear:)
-    [self unsubcribeFromGeneralNotifications];
-    
-    // Subscribe for network requests status notifications
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handleNetworkRequestError:) name:kNetworkRequestErrorNotification object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handleNetworkRequestSuccess:) name:kNetworkRequestSuccessNotification object:nil];
-}
-
-- (void)unsubcribeFromGeneralNotifications {
-    
-    [[NSNotificationCenter defaultCenter] removeObserver:self name:kNetworkRequestErrorNotification object:nil];
-    [[NSNotificationCenter defaultCenter] removeObserver:self name:kNetworkRequestSuccessNotification object:nil];
 }
 
 #pragma mark - For ENTERPRISE_BUILD: network switch and console logger
