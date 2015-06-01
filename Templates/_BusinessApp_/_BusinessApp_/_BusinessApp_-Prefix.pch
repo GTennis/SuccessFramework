@@ -116,6 +116,7 @@
 #import "NormalLabel.h"
 #import "NormalButton.h"
 #import "NormalTextField.h"
+#import "PasswordTextField.h"
 
 // Common categories
 #import "NSString+Validator.h"

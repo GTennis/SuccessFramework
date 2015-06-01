@@ -25,7 +25,7 @@
 //  SOFTWARE. All rights reserved.
 //
 
-#import "BaseViewController.h"
+#import "BaseDetailsViewController.h"
 
 @class UserLoginModel;
 
@@ -37,9 +37,13 @@
 
 @end
 
-@interface UserLoginViewController : BaseViewController
+@interface UserLoginViewController : BaseDetailsViewController
 
 @property (nonatomic, strong) UserLoginModel *model;
 @property (nonatomic, weak) id<UserLoginViewControllerDelegate> delegate;
+
+@property (weak, nonatomic) IBOutlet NormalTextField *usernameTextField;
+@property (weak, nonatomic) IBOutlet PasswordTextField *passwordTextField;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *usernameWidthConstraint;
 
 @end

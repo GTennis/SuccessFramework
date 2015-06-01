@@ -27,6 +27,9 @@
 
 #import "UserLoginViewController.h"
 
+#define kUserLoginViewControllerUserNameKey @"Email"
+#define kUserLoginViewControllerPasswordKey @"Password"
+
 @interface UserLoginViewController ()
 
 @end
@@ -36,6 +39,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    [self prepareUI];
 }
 
 - (IBAction)showSignUpPressed:(id)sender {
@@ -68,7 +73,8 @@
     
     [super prepareUI];
     
-    // ...
+    [self configureScrollView];
+    [self setupInputFields];
 }
 
 - (void)renderUI {
@@ -83,6 +89,51 @@
     [super loadModel];
     
     // ...
+}
+
+#pragma mark - Helpers
+
+- (void)configureScrollView {
+    
+    //self.firstField = self.txtEmail;
+    //self.shouldScrollUpAfterKeyboard = YES;
+    self.contentScrollView.scrollEnabled = NO;
+    
+    //[self.txtEmail invalidateIntrinsicContentSize];
+    //self.txtEmailWidthConstraint.constant = [UIScreen mainScreen].bounds.size.width;//self.view.bounds.size.width;
+    self.usernameWidthConstraint.constant = [_delegate containerViewSizeForLogin].width;
+}
+
+// Add toolbar with previous and next buttons for navigating between input fields
+- (void)setupInputFields {
+    
+    // Add placeholders
+    _usernameTextField.placeholder = GMLocalizedString(kUserLoginViewControllerUserNameKey);
+    _passwordTextField.placeholder = GMLocalizedString(kUserLoginViewControllerPasswordKey);
+    
+    // Set required fields
+    _usernameTextField.isRequired = YES;
+    _passwordTextField.isRequired = YES;
+    
+    _usernameTextField.floatingLabelTextColor = kColorGrayDark;
+    _passwordTextField.floatingLabelTextColor = kColorGrayDark;
+    
+    _usernameTextField.floatingLabelActiveTextColor = kColorGrayDark;
+    _passwordTextField.floatingLabelActiveTextColor = kColorGrayDark;
+    
+    //_usernameTextField.floatingLabelFont = kFontNormalWithSize(kFloatingLabelFontSizeValue);
+    //_usernameTextField.floatingLabelYPadding = kFloatingLabelYPaddingValue;
+    
+    //_usernameTextField.floatingLabelFont = kFontNormalWithSize(kFloatingLabelFontSizeValue);
+    //_passwordTextField.floatingLabelYPadding = kFloatingLabelYPaddingValue;
+    
+    // Apply style
+    _usernameTextField.position = kTextFieldPositionIsFirst;
+    _passwordTextField.position = kTextFieldPositionIsLast;
+    
+    // Setup keyboard controls
+    NSArray *textFields = @[_usernameTextField, _passwordTextField];
+    [self setTextFieldsForKeyboard:textFields];
 }
 
 @end
