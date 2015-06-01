@@ -193,6 +193,9 @@
 - (void)commonInit {
     
     [super commonInit];
+    
+    // iPad related setting
+    _shouldModalNavigationBarAlwaysStickToModalContainerViewTopForIpad = YES;
 }
 
 - (void)prepareUI {
@@ -278,8 +281,10 @@
     
     UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:viewController];
     
-    // Initially hide top navigation bar
-    navController.navigationBar.hidden = YES;
+    if (isIpad && _shouldModalNavigationBarAlwaysStickToModalContainerViewTopForIpad) {
+        
+        navController.navigationBar.hidden = YES;
+    }
     
     // Apply common style
     [TopNavigationBar applyStyleForNavigationBar:navController.navigationBar];
@@ -290,8 +295,6 @@
         
         [self presentViewController:navController animated:animated completion:^{
         
-            navController.navigationBar.hidden = NO;
-            
             // For backwards compatibility. This allows to use transparent background view and see previous screen view
             [navController dismissViewControllerAnimated:NO completion:^{
                 
@@ -307,7 +310,6 @@
         navController.modalPresentationStyle = UIModalPresentationOverCurrentContext;
         [self presentViewController:navController animated:animated completion:^{
             
-            navController.navigationBar.hidden = NO;
         }];
     }
 }
@@ -385,13 +387,31 @@
 - (void)addCustomModalNavigationBar {
     
     // Creating and adding custom navigation bar
+    // Currently 
     TopModalNavigationBar *navigationBar = (TopModalNavigationBar *)[self loadViewFromXibOfClass:[TopModalNavigationBar class]];
     navigationBar.delegate = self;
-    self.navigationItem.titleView = navigationBar;
-    //this is a work around to get rid of ellipsis when navigating back
-    //taken from http://stackoverflow.com/questions/19151309/strange-ellipsis-appearing-in-uinavigationbar
-    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:[[UIView alloc] init]];
     
+    if (_shouldModalNavigationBarAlwaysStickToModalContainerViewTopForIpad && isIpad) {
+
+        // Add separator line
+        [navigationBar showHoritontalSeparatorLineView];
+        
+        // Add view and constraints
+        [_modalContainerView addSubview:navigationBar];
+        [navigationBar viewAddLeadingSpace:0 containerView:_modalContainerView];
+        [navigationBar viewAddTrailingSpace:0 containerView:_modalContainerView];
+        [navigationBar viewAddTopSpace:0 containerView:_modalContainerView];
+        
+    } else {
+    
+        // This will add navigation bar onto navigation controller's bar
+        self.navigationItem.titleView = navigationBar;
+        // this is a work around to get rid of ellipsis when navigating back
+        // taken from http://stackoverflow.com/questions/19151309/strange-ellipsis-appearing-in-uinavigationbar
+        self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:[[UIView alloc] init]];
+    }
+    
+    // Show cancel by default
     [navigationBar showCancelButton];
 }
 

@@ -43,6 +43,7 @@
 
 - (void)showCancelButton;
 - (void)showBackButton;
+- (void)showHoritontalSeparatorLineView;
 
 + (void)applyStyleForModalNavigationBar:(UINavigationBar *)navigationBar;
 

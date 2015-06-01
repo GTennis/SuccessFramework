@@ -49,6 +49,8 @@
 @property (nonatomic, strong) id<ViewControllerFactoryProtocol> viewControllerFactory;
 
 @property (nonatomic) BOOL isModallyPressented;
+@property (nonatomic, strong) IBOutlet UIView *modalContainerView;
+@property (nonatomic) BOOL shouldModalNavigationBarAlwaysStickToModalContainerViewTopForIpad; // iPad related setting
 
 - (instancetype)initWithCrashManager:(id<CrashManagerProtocol>)crashManager analyticsManager:(id<AnalyticsManagerProtocol>)analyticsManager messageBarManager:(id<MessageBarManagerProtocol>)messageBarManager viewControllerFactory:(id<ViewControllerFactoryProtocol>)viewControllerFactory context:(id)context;
 

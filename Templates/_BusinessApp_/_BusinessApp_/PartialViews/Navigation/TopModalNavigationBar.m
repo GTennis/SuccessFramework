@@ -26,6 +26,9 @@
 //
 
 #import "TopModalNavigationBar.h"
+#import "SeparatorHorizontalLineView.h"
+
+#define kTopModalNavigationBarHorizontalSeparatorLineViewColor kColorGrayLight2
 
 @implementation TopModalNavigationBar
 
@@ -63,6 +66,18 @@
     
     _cancelButton.hidden = YES;
     _backButton.hidden = NO;
+}
+
+- (void)showHoritontalSeparatorLineView {
+    
+    SeparatorHorizontalLineView *separator = [[SeparatorHorizontalLineView alloc] init];
+    separator.backgroundColor = kTopModalNavigationBarHorizontalSeparatorLineViewColor;
+    [self addSubview:separator];
+    
+    [separator viewAddHeight:1.0f];
+    [separator viewAddLeadingSpace:0 containerView:self];
+    [separator viewAddTrailingSpace:0 containerView:self];
+    [separator viewAddBottomSpace:0 containerView:self];
 }
 
 + (void)applyStyleForModalNavigationBar:(UINavigationBar *)navigationBar {

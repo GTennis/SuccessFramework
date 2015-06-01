@@ -75,7 +75,7 @@
     [super prepareUI];
     
     // Use and set the same launch image as screen background image
-    NSString *launchImageName = [self launchImageNameForOrientation:self. interfaceOrientation];
+    NSString *launchImageName = [self launchImageNameForOrientation:self.interfaceOrientation];
     _backgroundImageView.image = [UIImage imageNamed:launchImageName];
     
     // Proceed to app after a couple of seconds
