@@ -72,7 +72,7 @@
 }
 
 // Add toolbar with previous and next buttons for navigating between input fields
-- (void)setupInputFields {
+- (void)setupTextFields {
     
     // Set required fields
     self.firstNameTextField.isRequired = YES;
@@ -98,7 +98,7 @@
     [self adjustStyleForTextFields];
     
     // Setup input fields
-    [self setupInputFields];
+    [self setupTextFields];
 }
 
 - (void)renderUI {

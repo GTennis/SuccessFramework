@@ -26,7 +26,14 @@
 //
 
 #import "BaseModel.h"
+#import "UserObject.h"
 
 @interface UserLoginModel : BaseModel
+
+@property (nonatomic, strong) UserObject *user;
+
+- (BOOL)isValidData;
+- (void)clearData;
+- (void)login:(Callback)callback;
 
 @end

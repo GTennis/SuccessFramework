@@ -126,7 +126,19 @@
      [self showLoginWithAnimation:YES];
 }
 
+- (void)didPressedCancelModal {
+    
+    [super didPressedCancelModal];
+    
+    [_userLoginVC clearTextFields];
+}
+
 #pragma mark - UserLoginViewControllerDelegate
+
+- (void)dismissLogin {
+    
+    [self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
+}
 
 - (void)didPressSignUp {
     

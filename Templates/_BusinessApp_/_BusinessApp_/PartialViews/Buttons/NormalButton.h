@@ -37,11 +37,11 @@
 #define kButtonCornerRadius 3.0f
 
 // Normal state style
-#define kButtonBackgroundColorNormalState kColorGreen
+#define kButtonBackgroundColorNormalState kColorGrayLight //kColorGreen
 #define kButtonTextColorNormalState kColorWhite
 
 // Highlighted state style
-#define kButtonBackgroundColorHighlightedState kColorGreen
+#define kButtonBackgroundColorHighlightedState kColorGrayLight //kColorGreen
 #define kButtonTextColorHighlightedState kColorWhite
 
 // Disabled state style

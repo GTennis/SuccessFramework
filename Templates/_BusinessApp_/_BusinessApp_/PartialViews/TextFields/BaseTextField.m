@@ -212,6 +212,8 @@
     self.floatingLabel.backgroundColor = kTextFieldPlaceholderBackgroundColor;
     self.floatingLabelActiveTextColor = kTextFieldFloatingPlaceholderColorWhileEditing;
     self.floatingLabelTextColor = kTextFieldFloatingPlaceholderColor;
+    self.floatingLabelFont = kTextFieldFloatingLabelFont;
+    self.floatingLabelYPadding = kTextFieldFloatingLabelPaddingY;
     
     self.tintColor = kTextFieldCursorColor;
 }

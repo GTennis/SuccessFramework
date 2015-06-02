@@ -29,13 +29,15 @@
 
 @protocol KeyboardControlDelegate <NSObject>
 
-- (NSString *)keyboardToolbarActionTitle;
-- (void)didPressToolbarAction;
+@required
+
 - (void)didPressGo; // When last text field is active then GO button is shown right+bottom on the keyboard and it should be used for handling action (Save, Send, Register, ...)
 
 @optional
 
 - (void)didPressToolbarCancel;
+- (NSString *)keyboardToolbarActionTitle;
+- (void)didPressToolbarAction;
 
 @end
 

@@ -79,20 +79,23 @@ PS: -d will clean the contents of "Projects" folder.
 
 10. Custom and cross app consistent navigation bar (TopNavigationBar) 
 
-11. Custom font support
+11. Custom and cross app consistent modal navigation bar (TopToolbarModal) 
 
-12. Development, Stage and Production network switch support via DEBUG and 
+12. Additional support for functional testing (accessibilityLabel, accessibilityIdentifier)
+
+13. Custom font support
+
+14. Development, Stage and Production network switch support via DEBUG and 
 ConstNetworkConfig.h
 
-13. Console logger view (Magento Log button on navigation bar)
+15. Console logger view (Magento Log button on navigation bar)
 
-14. Network environment switch for debug (Green Env button on navigation bar)
+16. Network environment switch for debug (Green Env button on navigation bar)
 
-15. Language change support during runtime via Settings screen
+17. Language change support during runtime via Settings screen
 
-16. Demo form screen (ScrollViewExample) with input fields and validation
+18. Demo form screen (ScrollViewExample) with input fields and validation
 
-17. Demo list screen (Home, TableViewExample)
+19. Demo list screen (Home, TableViewExample)
 
-18. Nice and handy date, view and other helpers methods via categories.
-
+20. Nice and handy date, view and other helpers methods via categories.

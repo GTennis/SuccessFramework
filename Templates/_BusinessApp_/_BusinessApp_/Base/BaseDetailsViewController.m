@@ -50,8 +50,6 @@
 - (void)viewDidLoad {
     
     [super viewDidLoad];
-    
-    self.keyboardScrollViewContentOffset = 88.0f;
 }
 
 - (void)viewDidDisappear:(BOOL)animated {
@@ -78,8 +76,14 @@
     // Proceed only for screens with text fields contained in scrollView (details screens)
     if (self.contentScrollView && !_keyboardControls.activeField) {
         
-        CGFloat maxViewOriginY = CGRectGetHeight(self.contentScrollView.bounds);
+        UIView *firstSubview = self.contentScrollView.subviews.firstObject;
+        CGFloat maxViewOriginY = firstSubview.frame.origin.y;
         CGFloat viewOriginY = 0;
+    
+        // Disabling scroll indicators. Otherwise two UIImageViews will exist inside scrollView and vertical image will be causing scrolling issue
+        // http://stackoverflow.com/questions/5388703/strange-uiimageview-in-uiscrollview
+        self.contentScrollView.showsVerticalScrollIndicator = NO;
+        self.contentScrollView.showsHorizontalScrollIndicator = NO;
         
         // Find most bottom view
         for (UIView *subView in self.contentScrollView.subviews) {
@@ -92,7 +96,7 @@
             }
         }
         
-        // set content height using most bottom view position
+        // Set content height using most bottom view position
         self.contentScrollView.contentSize = CGSizeMake(CGRectGetWidth(self.view.bounds), maxViewOriginY);
     }
 }
@@ -291,6 +295,16 @@
     // Used from http://stackoverflow.com/a/13163543/597292
     
     UIEdgeInsets contentInsets = UIEdgeInsetsZero;
+    
+    // Adjust top offset
+    contentInsets.top = _keyboardScrollViewContentOffset;
+    
+    // Reset to zero if flag was set
+    if (_shouldReturnToZeroScrollOffset) {
+        
+        contentInsets.top = 0;
+    }
+    
     self.contentScrollView.contentInset = contentInsets;
     self.contentScrollView.scrollIndicatorInsets = contentInsets;
     

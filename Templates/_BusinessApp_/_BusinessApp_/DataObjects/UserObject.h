@@ -57,6 +57,8 @@
 @property (nonatomic, copy) NSString *email;
 @property (nonatomic, copy) NSString *phone;
 
+@property (nonatomic, copy) NSString *password;
+
 @end
 
 @interface UserObject : NSObject <UserObject>

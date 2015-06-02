@@ -33,18 +33,6 @@
 @interface BaseDetailsViewController : BaseViewController
 
 // Use this property in form / text field based screens
-/*
-
-// Field navigation
-
-- (void)setTextFielsForPrevNextNavigation:(NSArray *)textFields;
-- (void)nextTextFieldBecomeFirstResponder;
-- (void)donePressed; // Implement the method in child classes for callback from keyboard
-
-// For marking required input fields
-- (void)applyStyleForMissingRequiredFields;*/
-
-// Use this property in form / text field based screens
 @property (nonatomic, weak) IBOutlet UIScrollView *contentScrollView;
 
 // Flag for checking if keybaord is present

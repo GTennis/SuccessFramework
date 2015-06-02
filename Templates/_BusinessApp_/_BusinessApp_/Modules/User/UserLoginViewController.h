@@ -26,10 +26,13 @@
 //
 
 #import "BaseDetailsViewController.h"
+#import "KeyboardControl.h"
 
 @class UserLoginModel;
 
 @protocol UserLoginViewControllerDelegate <NSObject>
+
+- (void)dismissLogin;
 
 - (void)didPressSignUp;
 - (void)didPressForgotPasswordWithEmail:(NSString *)email;
@@ -37,7 +40,7 @@
 
 @end
 
-@interface UserLoginViewController : BaseDetailsViewController
+@interface UserLoginViewController : BaseDetailsViewController <KeyboardControlDelegate>
 
 @property (nonatomic, strong) UserLoginModel *model;
 @property (nonatomic, weak) id<UserLoginViewControllerDelegate> delegate;
@@ -45,5 +48,8 @@
 @property (weak, nonatomic) IBOutlet NormalTextField *usernameTextField;
 @property (weak, nonatomic) IBOutlet PasswordTextField *passwordTextField;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *usernameWidthConstraint;
+
+- (IBAction)loginPressed:(id)sender;
+- (void)clearTextFields;
 
 @end

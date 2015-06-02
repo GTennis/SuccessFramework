@@ -30,6 +30,10 @@
 #define kTogglePasswordButtonWidth 50.0f
 #define kTogglePasswordButtonHeight 30.0f
 
+#define kTogglePasswordButtonToggleButtonTitleKey @"Toggle"
+#define kTogglePasswordButtonToggleButtonTitleFontSize 12.0f
+#define kTogglePasswordButtonToggleButtonTitleColor kColorGrayDark
+
 @interface PasswordTextField () {
     
     UIButton *_togglePasswordRevealButton;
@@ -82,9 +86,10 @@
     // Create toggle button
     _togglePasswordRevealButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, togglePasswordButtonWidth, togglePasswordButtonHeight)];
     UIFont *font = _togglePasswordRevealButton.titleLabel.font;
-    _togglePasswordRevealButton.titleLabel.font = [font fontWithSize:10];
-    [_togglePasswordRevealButton setTitle:@"" forState:UIControlStateNormal];
-    [_togglePasswordRevealButton setImage:[UIImage imageNamed:@"password-show"] forState:UIControlStateNormal];
+    _togglePasswordRevealButton.titleLabel.font = [font fontWithSize:kTogglePasswordButtonToggleButtonTitleFontSize];
+    [_togglePasswordRevealButton setTitle:kTogglePasswordButtonToggleButtonTitleKey forState:UIControlStateNormal];
+    [_togglePasswordRevealButton setTitleColor:kTogglePasswordButtonToggleButtonTitleColor forState:UIControlStateNormal];
+    //[_togglePasswordRevealButton setImage:[UIImage imageNamed:@"IconShowHidePassword"] forState:UIControlStateNormal];
     [_togglePasswordRevealButton addTarget:self action:@selector(togglePasswordReveal) forControlEvents:UIControlEventTouchUpInside];
     
     // Add identifiers for functional tests

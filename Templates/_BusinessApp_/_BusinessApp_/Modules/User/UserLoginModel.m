@@ -26,7 +26,38 @@
 //
 
 #import "UserLoginModel.h"
+#import "NSString+Validator.h"
 
 @implementation UserLoginModel
+
+- (void)commonInit {
+    
+    [super commonInit];
+    
+    _user = [[UserObject alloc] init];
+}
+
+- (BOOL)isValidData {
+    
+    BOOL isEmailValid = [_user.email isMailValid];
+    BOOL isPasswordValid = [_user.email isPasswordValid];
+    
+    BOOL result = isEmailValid & isPasswordValid;
+    
+    return result;
+}
+
+- (void)clearData {
+    
+    _user.email = nil;
+    _user.password = nil;
+}
+
+- (void)login:(Callback)callback {
+    
+    // TODO...
+    
+    callback(YES, nil, nil);
+}
 
 @end

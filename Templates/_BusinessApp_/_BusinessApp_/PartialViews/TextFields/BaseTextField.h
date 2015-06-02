@@ -49,10 +49,14 @@
 
 // Placeholder
 #define kTextFieldPlaceholderBackgroundColor [UIColor clearColor]
-#define kTextFieldFloatingPlaceholderColorWhileEditing kColorBlue
-#define kTextFieldFloatingPlaceholderColor kColorBlue
-#define kTextFieldPlaceholderColor kColorBlue
+#define kTextFieldFloatingPlaceholderColorWhileEditing kColorGreen
+#define kTextFieldFloatingPlaceholderColor kColorGreen
+#define kTextFieldPlaceholderColor kColorGreen
 #define kTextFieldCursorColor kColorGrayDark
+
+// Floating label
+#define kTextFieldFloatingLabelFont kFontNormalWithSize(12)
+#define kTextFieldFloatingLabelPaddingY 5.0f
 
 // Separator line left offset
 #define kTextFieldSeparatorLeftOffset 12.0f

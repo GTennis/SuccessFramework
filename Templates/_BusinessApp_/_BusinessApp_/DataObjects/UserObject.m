@@ -43,6 +43,8 @@
 @synthesize email = _email;
 @synthesize phone = _phone;
 
+@synthesize password = _password;
+
 - (instancetype)initWithDict:(NSDictionary *)dict {
     
     self = [self init];

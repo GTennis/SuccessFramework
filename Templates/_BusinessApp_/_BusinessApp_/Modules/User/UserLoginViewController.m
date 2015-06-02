@@ -26,9 +26,11 @@
 //
 
 #import "UserLoginViewController.h"
+#import "UserLoginModel.h"
 
 #define kUserLoginViewControllerUserNameKey @"Email"
 #define kUserLoginViewControllerPasswordKey @"Password"
+#define kUserLoginViewControllerIncorrectDataKey @"WrongEmailOrPasswordWasProvided"
 
 @interface UserLoginViewController ()
 
@@ -41,6 +43,11 @@
     // Do any additional setup after loading the view.
     
     [self prepareUI];
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+    
+    [super viewWillDisappear:animated];
 }
 
 - (IBAction)showSignUpPressed:(id)sender {
@@ -60,6 +67,16 @@
     }
 }
 
+- (void)clearTextFields {
+    
+    [_model clearData];
+    
+    _usernameTextField.text = nil;
+    _passwordTextField.text = nil;
+    
+    [_usernameTextField becomeFirstResponder];
+}
+
 #pragma mark - Base methods
 
 - (void)commonInit {
@@ -74,7 +91,7 @@
     [super prepareUI];
     
     [self configureScrollView];
-    [self setupInputFields];
+    [self setupTextFields];
 }
 
 - (void)renderUI {
@@ -91,21 +108,70 @@
     // ...
 }
 
+- (void)updateModel {
+    
+    _model.user.email = _usernameTextField.text;
+    _model.user.password = _passwordTextField.text;
+}
+
+#pragma mark - IBActions
+
+- (IBAction)loginPressed:(id)sender {
+    
+    [self updateModel];
+    
+    if (![_model isValidData]) {
+        
+        // Mark required but empty fields in red
+        [self applyStyleForMissingRequiredFields];
+        
+        GMAlertView *alertView = [[GMAlertView alloc] initWithViewController:self title:nil message:GMLocalizedString(kUserLoginViewControllerIncorrectDataKey) cancelButtonTitle:GMLocalizedString(kOkKey) otherButtonTitles:nil];
+        alertView.accessibilityLabel = [NSString stringWithFormat:@"%@WrongEmailOrPassword", [self class]];
+        alertView.accessibilityIdentifier = alertView.accessibilityLabel;
+        [alertView show];
+        
+    } else {
+        
+        // Reset previous warnings from fields
+        [self resetStyleForMissingRequiredFields];
+        
+        __weak typeof(self) weakSelf = self;
+        [weakSelf showScreenActivityIndicator];
+        
+        // Do login
+        [_model login:^(BOOL success, id result, NSError *error){
+            
+            [weakSelf hideScreenActivityIndicator];
+            
+            if (success) {
+                
+                [weakSelf clearTextFields];
+                [_delegate dismissLogin];
+            }
+        }];
+    }
+}
+
+#pragma mark - KeyboardControlDelegate
+
+- (void)didPressGo {
+    
+    [self loginPressed:nil];
+}
+
 #pragma mark - Helpers
 
 - (void)configureScrollView {
     
-    //self.firstField = self.txtEmail;
-    //self.shouldScrollUpAfterKeyboard = YES;
-    self.contentScrollView.scrollEnabled = NO;
+    //self.contentScrollView.scrollEnabled = NO;
+    self.shouldReturnToZeroScrollOffset = YES;
     
-    //[self.txtEmail invalidateIntrinsicContentSize];
-    //self.txtEmailWidthConstraint.constant = [UIScreen mainScreen].bounds.size.width;//self.view.bounds.size.width;
+    // Adjust scrollView width
     self.usernameWidthConstraint.constant = [_delegate containerViewSizeForLogin].width;
 }
 
 // Add toolbar with previous and next buttons for navigating between input fields
-- (void)setupInputFields {
+- (void)setupTextFields {
     
     // Add placeholders
     _usernameTextField.placeholder = GMLocalizedString(kUserLoginViewControllerUserNameKey);
@@ -114,18 +180,6 @@
     // Set required fields
     _usernameTextField.isRequired = YES;
     _passwordTextField.isRequired = YES;
-    
-    _usernameTextField.floatingLabelTextColor = kColorGrayDark;
-    _passwordTextField.floatingLabelTextColor = kColorGrayDark;
-    
-    _usernameTextField.floatingLabelActiveTextColor = kColorGrayDark;
-    _passwordTextField.floatingLabelActiveTextColor = kColorGrayDark;
-    
-    //_usernameTextField.floatingLabelFont = kFontNormalWithSize(kFloatingLabelFontSizeValue);
-    //_usernameTextField.floatingLabelYPadding = kFloatingLabelYPaddingValue;
-    
-    //_usernameTextField.floatingLabelFont = kFontNormalWithSize(kFloatingLabelFontSizeValue);
-    //_passwordTextField.floatingLabelYPadding = kFloatingLabelYPaddingValue;
     
     // Apply style
     _usernameTextField.position = kTextFieldPositionIsFirst;
