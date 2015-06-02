@@ -129,6 +129,9 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
     MenuItemObject *menuItem = _model.menuItems[indexPath.row];
+
+    MenuNavigator *menuNavigator = [REGISTRY getObject:[MenuNavigator class]];
+    [menuNavigator closeMenu];
     
     if (menuItem.isPresentedModally) {
         
@@ -136,7 +139,6 @@
         
     } else {
         
-        MenuNavigator *menuNavigator = [REGISTRY getObject:[MenuNavigator class]];
         UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:menuItem.viewController];
         
         [TopNavigationBar applyStyleForNavigationBar:navigationController.navigationBar];

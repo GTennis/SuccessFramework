@@ -22,20 +22,14 @@
                 <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e6b-HK-uKx">
                     <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                     <subviews>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Fk-dr-Bbo" customClass="NormalLabel">
-                            <rect key="frame" x="119" y="20" width="82" height="24"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                            <nil key="highlightedColor"/>
-                        </label>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please login" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F4h-Xy-rRS" customClass="NormalLabel">
-                            <rect key="frame" x="114" y="52" width="93" height="21"/>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter your email and password" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F4h-Xy-rRS" customClass="NormalLabel">
+                            <rect key="frame" x="41" y="50" width="238" height="21"/>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="LWd-dm-Nba" userLabel="Username Text Field" customClass="NormalTextField">
-                            <rect key="frame" x="0.0" y="93" width="320" height="44"/>
+                            <rect key="frame" x="0.0" y="91" width="320" height="44"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="320" id="Yh3-5j-BqN"/>
                                 <constraint firstAttribute="height" constant="44" id="dbE-mi-ar8"/>
@@ -44,7 +38,7 @@
                             <textInputTraits key="textInputTraits" autocorrectionType="no"/>
                         </textField>
                         <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="u8d-Ki-3Zx" customClass="PasswordTextField">
-                            <rect key="frame" x="0.0" y="137" width="320" height="44"/>
+                            <rect key="frame" x="0.0" y="135" width="320" height="44"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="44" id="k6j-BB-KHq"/>
                             </constraints>
@@ -52,7 +46,7 @@
                             <textInputTraits key="textInputTraits" autocorrectionType="no"/>
                         </textField>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e1P-xQ-f5b" customClass="NormalButton">
-                            <rect key="frame" x="8" y="199" width="304" height="44"/>
+                            <rect key="frame" x="8" y="197" width="304" height="44"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="44" id="9FT-sV-CjW"/>
                             </constraints>
@@ -64,13 +58,13 @@
                             </connections>
                         </button>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="or" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XOh-6A-Py9" customClass="NormalLabel">
-                            <rect key="frame" x="152" y="251" width="16" height="21"/>
+                            <rect key="frame" x="152" y="249" width="16" height="21"/>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tpD-Bm-Add" customClass="NormalButton">
-                            <rect key="frame" x="8" y="280" width="304" height="44"/>
+                            <rect key="frame" x="8" y="278" width="304" height="44"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="44" id="BG1-Q3-O7G"/>
                             </constraints>
@@ -88,17 +82,15 @@
                         <constraint firstAttribute="centerX" secondItem="XOh-6A-Py9" secondAttribute="centerX" id="1F9-Dr-O2p"/>
                         <constraint firstAttribute="trailing" secondItem="LWd-dm-Nba" secondAttribute="trailing" id="7Je-B2-5Fw"/>
                         <constraint firstItem="e1P-xQ-f5b" firstAttribute="leading" secondItem="e6b-HK-uKx" secondAttribute="leading" constant="8" id="7MM-BW-dqy"/>
-                        <constraint firstAttribute="centerX" secondItem="7Fk-dr-Bbo" secondAttribute="centerX" id="E9r-Mo-TXm"/>
                         <constraint firstAttribute="trailing" secondItem="u8d-Ki-3Zx" secondAttribute="trailing" id="EOt-eT-Mq0"/>
                         <constraint firstItem="u8d-Ki-3Zx" firstAttribute="leading" secondItem="e6b-HK-uKx" secondAttribute="leading" id="JBo-Ix-Dex"/>
+                        <constraint firstItem="F4h-Xy-rRS" firstAttribute="top" secondItem="e6b-HK-uKx" secondAttribute="top" constant="50" id="Lab-Be-H94"/>
                         <constraint firstItem="LWd-dm-Nba" firstAttribute="top" secondItem="F4h-Xy-rRS" secondAttribute="bottom" constant="20" id="M4u-qv-UQs"/>
                         <constraint firstItem="u8d-Ki-3Zx" firstAttribute="top" secondItem="LWd-dm-Nba" secondAttribute="bottom" id="M8H-EV-eEr"/>
                         <constraint firstItem="e1P-xQ-f5b" firstAttribute="top" secondItem="u8d-Ki-3Zx" secondAttribute="bottom" constant="18" id="SLb-70-VZf"/>
                         <constraint firstAttribute="centerX" secondItem="F4h-Xy-rRS" secondAttribute="centerX" id="VWj-Hi-IZC"/>
                         <constraint firstItem="LWd-dm-Nba" firstAttribute="leading" secondItem="e6b-HK-uKx" secondAttribute="leading" id="WBT-of-2To"/>
-                        <constraint firstItem="7Fk-dr-Bbo" firstAttribute="top" secondItem="e6b-HK-uKx" secondAttribute="top" constant="20" id="aMN-Ue-DoS"/>
                         <constraint firstItem="tpD-Bm-Add" firstAttribute="leading" secondItem="e6b-HK-uKx" secondAttribute="leading" constant="8" id="jND-iS-fig"/>
-                        <constraint firstItem="F4h-Xy-rRS" firstAttribute="top" secondItem="7Fk-dr-Bbo" secondAttribute="bottom" constant="8" id="njn-aV-5oi"/>
                         <constraint firstItem="tpD-Bm-Add" firstAttribute="top" secondItem="XOh-6A-Py9" secondAttribute="bottom" constant="8" id="nwa-4q-cRj"/>
                         <constraint firstItem="XOh-6A-Py9" firstAttribute="top" secondItem="e1P-xQ-f5b" secondAttribute="bottom" constant="8" id="quR-Hp-z2G"/>
                         <constraint firstAttribute="trailing" secondItem="tpD-Bm-Add" secondAttribute="trailing" constant="8" id="r47-nI-DgO"/>

@@ -7,6 +7,9 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="UserContainerViewController_ipad">
             <connections>
+                <outlet property="backgroundMaskView" destination="T11-NV-EB5" id="HBN-Bg-Gqg"/>
+                <outlet property="containerView" destination="V1u-Qt-zNq" id="TMq-0E-Tui"/>
+                <outlet property="modalContainerView" destination="9TR-XB-eoX" id="oof-sh-cYj"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -14,10 +17,58 @@
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
             <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <view alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="T11-NV-EB5" userLabel="BackgroundMaskView">
+                    <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
+                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                    <gestureRecognizers/>
+                    <connections>
+                        <outletCollection property="gestureRecognizers" destination="z9X-jG-IzU" appends="YES" id="yKM-Yz-LiU"/>
+                    </connections>
+                </view>
+                <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9TR-XB-eoX" userLabel="ModalContainerView">
+                    <rect key="frame" x="352" y="50" width="320" height="568"/>
+                    <subviews>
+                        <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1aI-Nu-WNE">
+                            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                            <items/>
+                        </toolbar>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="V1u-Qt-zNq" userLabel="ContainerView">
+                            <rect key="frame" x="0.0" y="44" width="320" height="524"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        </view>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstItem="V1u-Qt-zNq" firstAttribute="leading" secondItem="9TR-XB-eoX" secondAttribute="leading" id="32d-bt-Dmt"/>
+                        <constraint firstItem="V1u-Qt-zNq" firstAttribute="top" secondItem="1aI-Nu-WNE" secondAttribute="bottom" id="7L4-is-OLV"/>
+                        <constraint firstAttribute="width" constant="320" id="9ln-Yt-qkW"/>
+                        <constraint firstItem="1aI-Nu-WNE" firstAttribute="leading" secondItem="9TR-XB-eoX" secondAttribute="leading" id="OLj-ds-WWK"/>
+                        <constraint firstItem="1aI-Nu-WNE" firstAttribute="top" secondItem="9TR-XB-eoX" secondAttribute="top" id="Wq8-eP-hvm"/>
+                        <constraint firstAttribute="bottom" secondItem="V1u-Qt-zNq" secondAttribute="bottom" id="Z36-YR-Ps8"/>
+                        <constraint firstAttribute="trailing" secondItem="V1u-Qt-zNq" secondAttribute="trailing" id="cyj-Fa-tIM"/>
+                        <constraint firstAttribute="height" constant="568" id="hzg-kx-83u"/>
+                        <constraint firstAttribute="trailing" secondItem="1aI-Nu-WNE" secondAttribute="trailing" id="mda-C8-nQL"/>
+                    </constraints>
+                </view>
+            </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="T11-NV-EB5" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="DFj-gT-dKb"/>
+                <constraint firstAttribute="trailing" secondItem="T11-NV-EB5" secondAttribute="trailing" id="UaY-XJ-fd7"/>
+                <constraint firstAttribute="centerY" secondItem="9TR-XB-eoX" secondAttribute="centerY" constant="50" id="aCM-4Y-xsm"/>
+                <constraint firstAttribute="bottom" secondItem="T11-NV-EB5" secondAttribute="bottom" id="d46-ts-szW"/>
+                <constraint firstItem="T11-NV-EB5" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="doS-4O-bFq"/>
+                <constraint firstAttribute="centerX" secondItem="9TR-XB-eoX" secondAttribute="centerX" id="xQg-0Z-0s6"/>
+            </constraints>
             <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
             <point key="canvasLocation" x="305" y="132"/>
         </view>
+        <tapGestureRecognizer id="z9X-jG-IzU" userLabel="TapToCloseGestureRecognizer">
+            <connections>
+                <action selector="outsideContentViewTapPressed:" destination="-1" id="6t4-xV-a42"/>
+            </connections>
+        </tapGestureRecognizer>
     </objects>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>

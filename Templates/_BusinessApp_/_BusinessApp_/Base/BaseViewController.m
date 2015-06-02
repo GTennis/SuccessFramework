@@ -262,19 +262,6 @@
 
 #pragma mark - Modal screen handling
 
-- (TopModalNavigationBar *)modalNavigationBar {
-    
-    if ([self.navigationItem.titleView isKindOfClass:[TopModalNavigationBar class]]) {
-        
-        TopModalNavigationBar *navBar = (TopModalNavigationBar *) self.navigationItem.titleView;
-        return navBar;
-        
-    } else {
-
-        return nil;
-    }
-}
-
 - (void)presentModalViewController:(BaseViewController *)viewController animated:(BOOL)animated {
     
     viewController.isModallyPressented = YES;
@@ -328,7 +315,7 @@
 
 - (void)didPressedBackModal {
     
-    [self.modalNavigationBar showCancelButton];    
+    [self.topModalNavigationBar showCancelButton];
 }
 
 #pragma mark - TopNavigationBarDelegate
@@ -388,31 +375,31 @@
     
     // Creating and adding custom navigation bar
     // Currently 
-    TopModalNavigationBar *navigationBar = (TopModalNavigationBar *)[self loadViewFromXibOfClass:[TopModalNavigationBar class]];
-    navigationBar.delegate = self;
+    _topModalNavigationBar = (TopModalNavigationBar *)[self loadViewFromXibOfClass:[TopModalNavigationBar class]];
+    _topModalNavigationBar.delegate = self;
     
     if (_shouldModalNavigationBarAlwaysStickToModalContainerViewTopForIpad && isIpad) {
 
         // Add separator line
-        [navigationBar showHoritontalSeparatorLineView];
+        [_topModalNavigationBar showHoritontalSeparatorLineView];
         
         // Add view and constraints
-        [_modalContainerView addSubview:navigationBar];
-        [navigationBar viewAddLeadingSpace:0 containerView:_modalContainerView];
-        [navigationBar viewAddTrailingSpace:0 containerView:_modalContainerView];
-        [navigationBar viewAddTopSpace:0 containerView:_modalContainerView];
+        [_modalContainerView addSubview:_topModalNavigationBar];
+        [_topModalNavigationBar viewAddLeadingSpace:0 containerView:_modalContainerView];
+        [_topModalNavigationBar viewAddTrailingSpace:0 containerView:_modalContainerView];
+        [_topModalNavigationBar viewAddTopSpace:0 containerView:_modalContainerView];
         
     } else {
     
         // This will add navigation bar onto navigation controller's bar
-        self.navigationItem.titleView = navigationBar;
+        self.navigationItem.titleView = _topModalNavigationBar;
         // this is a work around to get rid of ellipsis when navigating back
         // taken from http://stackoverflow.com/questions/19151309/strange-ellipsis-appearing-in-uinavigationbar
         self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:[[UIView alloc] init]];
     }
     
     // Show cancel by default
-    [navigationBar showCancelButton];
+    [_topModalNavigationBar showCancelButton];
 }
 
 - (void)closeMenuIfOpened {

@@ -54,7 +54,7 @@
 
     // Prepare UI
     self.title = GMLocalizedString(kUserContainerViewControllerLoginTitle);
-    [self.modalNavigationBar showCancelButton];
+    [self.topModalNavigationBar showCancelButton];
     
     // Perform transition
     [self transitionWithNextViewController:_userLoginVC animated:animated];
@@ -65,7 +65,7 @@
     // Prepare UI
     self.title = GMLocalizedString(kUserContainerViewControllerSignUpTitle);
     [_userSignUpVC clearInputFields];
-    [self.modalNavigationBar showBackButton];
+    [self.topModalNavigationBar showBackButton];
 
     // Perform transition
     [self transitionWithNextViewController:_userSignUpVC animated:animated];
@@ -76,7 +76,7 @@
     // Prepare UI
     self.title = GMLocalizedString(kUserContainerViewControllerForgotPasswordTitle);
     //[_userForgotPasswordVC setEmail:email];
-    [self.modalNavigationBar showBackButton];
+    [self.topModalNavigationBar showBackButton];
 
     // Perform transition
     [self transitionWithNextViewController:_userForgotPasswordVC animated:animated];

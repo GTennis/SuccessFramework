@@ -27,7 +27,10 @@
 
 #import "UserContainerViewController_ipad.h"
 
-@interface UserContainerViewController_ipad ()
+@interface UserContainerViewController_ipad () {
+ 
+    BOOL _isKeyboardShown;
+}
 
 @end
 
@@ -36,6 +39,35 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+}
+
+- (void)viewDidDisappear:(BOOL)animated {
+    
+    [super viewDidDisappear:animated];
+    
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillShowNotification object:nil];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillHideNotification object:nil];
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    
+    [super viewWillAppear:animated];
+    
+    // Observe keyboard notifications
+    [[NSNotificationCenter defaultCenter] addObserver:self selector: @selector(keyboardWillAppear:) name:UIKeyboardWillShowNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillDisappear:) name:UIKeyboardWillHideNotification object:nil];
+}
+
+#pragma mark - Keyboard handling
+
+- (void)keyboardWillAppear:(NSNotification *)notification {
+    
+    _isKeyboardShown = YES;
+}
+
+- (void)keyboardWillDisappear:(NSNotification *)notification {
+    
+    _isKeyboardShown = NO;
 }
 
 #pragma mark - Override
@@ -48,6 +80,43 @@
 - (CGSize)containerViewSizeForSignUp {
     
     return self.containerView.bounds.size;
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    
+    [super viewDidAppear:animated];
+    
+    __weak typeof (UIView *) weakBackgroundMaskView = _backgroundMaskView;
+    
+    [UIView animateWithDuration:0.2f delay:0 options:UIViewAnimationOptionCurveEaseIn animations:^{
+        
+        weakBackgroundMaskView.alpha = 0.6f;
+        
+    } completion:nil];
+}
+
+#pragma mark - IBOutlets
+
+- (IBAction)outsideContentViewTapPressed:(id)sender {
+    
+    if (_isKeyboardShown) {
+        
+        [self closeKeyboard];
+        
+    } else {
+        
+        _backgroundMaskView.alpha = 0;
+        
+        [self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
+    }
+}
+
+#pragma mark - Helpers
+
+- (void)closeKeyboard {
+    
+    BaseDetailsViewController *currentVc = [self.childViewControllers lastObject];
+    [currentVc.keyboardControls.activeField resignFirstResponder];
 }
 
 @end

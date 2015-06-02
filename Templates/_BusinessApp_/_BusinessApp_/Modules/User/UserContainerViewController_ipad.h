@@ -29,4 +29,6 @@
 
 @interface UserContainerViewController_ipad : UserContainerViewController
 
+@property (weak, nonatomic) IBOutlet UIView *backgroundMaskView;
+
 @end

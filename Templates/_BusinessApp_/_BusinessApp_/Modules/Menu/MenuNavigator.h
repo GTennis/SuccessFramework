@@ -31,6 +31,7 @@
 @protocol MenuNavigatorProtocol <NSObject>
 
 - (instancetype)initWithMenuViewControler:(UIViewController *)menuViewController contentViewController:(UIViewController *)contentViewController;
+- (void)closeMenu;
 - (void)toggleMenu;
 - (void)setViewController:(UIViewController *)viewController;
 

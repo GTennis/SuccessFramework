@@ -193,19 +193,15 @@
 		31CB857A1B15F89F00F827F7 /* UserProfileViewController_iphone.m in Sources */ = {isa = PBXBuildFile; fileRef = 31CB85781B15F89F00F827F7 /* UserProfileViewController_iphone.m */; };
 		31CB857B1B15F89F00F827F7 /* UserProfileViewController_iphone.xib in Resources */ = {isa = PBXBuildFile; fileRef = 31CB85791B15F89F00F827F7 /* UserProfileViewController_iphone.xib */; };
 		31CB857F1B15F8B700F827F7 /* UserProfileViewController_ipad.m in Sources */ = {isa = PBXBuildFile; fileRef = 31CB857D1B15F8B700F827F7 /* UserProfileViewController_ipad.m */; };
-		31CB85801B15F8B700F827F7 /* UserProfileViewController_ipad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 31CB857E1B15F8B700F827F7 /* UserProfileViewController_ipad.xib */; };
 		31CB85871B15F8EE00F827F7 /* UserForgotPasswordViewController_iphone.m in Sources */ = {isa = PBXBuildFile; fileRef = 31CB85851B15F8EE00F827F7 /* UserForgotPasswordViewController_iphone.m */; };
 		31CB85881B15F8EE00F827F7 /* UserForgotPasswordViewController_iphone.xib in Resources */ = {isa = PBXBuildFile; fileRef = 31CB85861B15F8EE00F827F7 /* UserForgotPasswordViewController_iphone.xib */; };
 		31CB858C1B15F90300F827F7 /* UserForgotPasswordViewController_ipad.m in Sources */ = {isa = PBXBuildFile; fileRef = 31CB858A1B15F90300F827F7 /* UserForgotPasswordViewController_ipad.m */; };
-		31CB858D1B15F90300F827F7 /* UserForgotPasswordViewController_ipad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 31CB858B1B15F90300F827F7 /* UserForgotPasswordViewController_ipad.xib */; };
 		31CB85911B15F99900F827F7 /* UserLoginViewController_iphone.m in Sources */ = {isa = PBXBuildFile; fileRef = 31CB858F1B15F99900F827F7 /* UserLoginViewController_iphone.m */; };
 		31CB85921B15F99900F827F7 /* UserLoginViewController_iphone.xib in Resources */ = {isa = PBXBuildFile; fileRef = 31CB85901B15F99900F827F7 /* UserLoginViewController_iphone.xib */; };
 		31CB85961B15F9B400F827F7 /* UserLoginViewController_ipad.m in Sources */ = {isa = PBXBuildFile; fileRef = 31CB85941B15F9B400F827F7 /* UserLoginViewController_ipad.m */; };
-		31CB85971B15F9B400F827F7 /* UserLoginViewController_ipad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 31CB85951B15F9B400F827F7 /* UserLoginViewController_ipad.xib */; };
 		31CB859B1B15F9D900F827F7 /* UserSignUpViewController_iphone.m in Sources */ = {isa = PBXBuildFile; fileRef = 31CB85991B15F9D900F827F7 /* UserSignUpViewController_iphone.m */; };
 		31CB859C1B15F9D900F827F7 /* UserSignUpViewController_iphone.xib in Resources */ = {isa = PBXBuildFile; fileRef = 31CB859A1B15F9D900F827F7 /* UserSignUpViewController_iphone.xib */; };
 		31CB85A01B15F9EF00F827F7 /* UserSignUpViewController_ipad.m in Sources */ = {isa = PBXBuildFile; fileRef = 31CB859E1B15F9EF00F827F7 /* UserSignUpViewController_ipad.m */; };
-		31CB85A11B15F9EF00F827F7 /* UserSignUpViewController_ipad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 31CB859F1B15F9EF00F827F7 /* UserSignUpViewController_ipad.xib */; };
 		31CB9EE81B175D2E0012F1F4 /* BaseNavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 31CB9EE71B175D2E0012F1F4 /* BaseNavigationBar.m */; };
 		31CB9EEB1B175E8A0012F1F4 /* TopModalNavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 31CB9EEA1B175E8A0012F1F4 /* TopModalNavigationBar.m */; };
 		31CB9EEE1B175ED50012F1F4 /* TopModalNavigationBar_iphone.m in Sources */ = {isa = PBXBuildFile; fileRef = 31CB9EED1B175ED50012F1F4 /* TopModalNavigationBar_iphone.m */; };
@@ -582,25 +578,21 @@
 		31CB85791B15F89F00F827F7 /* UserProfileViewController_iphone.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UserProfileViewController_iphone.xib; sourceTree = "<group>"; };
 		31CB857C1B15F8B700F827F7 /* UserProfileViewController_ipad.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserProfileViewController_ipad.h; sourceTree = "<group>"; };
 		31CB857D1B15F8B700F827F7 /* UserProfileViewController_ipad.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserProfileViewController_ipad.m; sourceTree = "<group>"; };
-		31CB857E1B15F8B700F827F7 /* UserProfileViewController_ipad.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UserProfileViewController_ipad.xib; sourceTree = "<group>"; };
 		31CB85841B15F8EE00F827F7 /* UserForgotPasswordViewController_iphone.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserForgotPasswordViewController_iphone.h; sourceTree = "<group>"; };
 		31CB85851B15F8EE00F827F7 /* UserForgotPasswordViewController_iphone.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserForgotPasswordViewController_iphone.m; sourceTree = "<group>"; };
 		31CB85861B15F8EE00F827F7 /* UserForgotPasswordViewController_iphone.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UserForgotPasswordViewController_iphone.xib; sourceTree = "<group>"; };
 		31CB85891B15F90300F827F7 /* UserForgotPasswordViewController_ipad.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserForgotPasswordViewController_ipad.h; sourceTree = "<group>"; };
 		31CB858A1B15F90300F827F7 /* UserForgotPasswordViewController_ipad.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserForgotPasswordViewController_ipad.m; sourceTree = "<group>"; };
-		31CB858B1B15F90300F827F7 /* UserForgotPasswordViewController_ipad.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UserForgotPasswordViewController_ipad.xib; sourceTree = "<group>"; };
 		31CB858E1B15F99900F827F7 /* UserLoginViewController_iphone.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserLoginViewController_iphone.h; sourceTree = "<group>"; };
 		31CB858F1B15F99900F827F7 /* UserLoginViewController_iphone.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserLoginViewController_iphone.m; sourceTree = "<group>"; };
 		31CB85901B15F99900F827F7 /* UserLoginViewController_iphone.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UserLoginViewController_iphone.xib; sourceTree = "<group>"; };
 		31CB85931B15F9B400F827F7 /* UserLoginViewController_ipad.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserLoginViewController_ipad.h; sourceTree = "<group>"; };
 		31CB85941B15F9B400F827F7 /* UserLoginViewController_ipad.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserLoginViewController_ipad.m; sourceTree = "<group>"; };
-		31CB85951B15F9B400F827F7 /* UserLoginViewController_ipad.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UserLoginViewController_ipad.xib; sourceTree = "<group>"; };
 		31CB85981B15F9D900F827F7 /* UserSignUpViewController_iphone.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserSignUpViewController_iphone.h; sourceTree = "<group>"; };
 		31CB85991B15F9D900F827F7 /* UserSignUpViewController_iphone.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserSignUpViewController_iphone.m; sourceTree = "<group>"; };
 		31CB859A1B15F9D900F827F7 /* UserSignUpViewController_iphone.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UserSignUpViewController_iphone.xib; sourceTree = "<group>"; };
 		31CB859D1B15F9EF00F827F7 /* UserSignUpViewController_ipad.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserSignUpViewController_ipad.h; sourceTree = "<group>"; };
 		31CB859E1B15F9EF00F827F7 /* UserSignUpViewController_ipad.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserSignUpViewController_ipad.m; sourceTree = "<group>"; };
-		31CB859F1B15F9EF00F827F7 /* UserSignUpViewController_ipad.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UserSignUpViewController_ipad.xib; sourceTree = "<group>"; };
 		31CB9EE61B175D2E0012F1F4 /* BaseNavigationBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseNavigationBar.h; sourceTree = "<group>"; };
 		31CB9EE71B175D2E0012F1F4 /* BaseNavigationBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseNavigationBar.m; sourceTree = "<group>"; };
 		31CB9EE91B175E8A0012F1F4 /* TopModalNavigationBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TopModalNavigationBar.h; sourceTree = "<group>"; };
@@ -2007,7 +1999,6 @@
 			children = (
 				31CB85931B15F9B400F827F7 /* UserLoginViewController_ipad.h */,
 				31CB85941B15F9B400F827F7 /* UserLoginViewController_ipad.m */,
-				31CB85951B15F9B400F827F7 /* UserLoginViewController_ipad.xib */,
 			);
 			name = ipad;
 			sourceTree = "<group>";
@@ -2038,7 +2029,6 @@
 			children = (
 				31CB859D1B15F9EF00F827F7 /* UserSignUpViewController_ipad.h */,
 				31CB859E1B15F9EF00F827F7 /* UserSignUpViewController_ipad.m */,
-				31CB859F1B15F9EF00F827F7 /* UserSignUpViewController_ipad.xib */,
 			);
 			name = ipad;
 			sourceTree = "<group>";
@@ -2069,7 +2059,6 @@
 			children = (
 				31CB857C1B15F8B700F827F7 /* UserProfileViewController_ipad.h */,
 				31CB857D1B15F8B700F827F7 /* UserProfileViewController_ipad.m */,
-				31CB857E1B15F8B700F827F7 /* UserProfileViewController_ipad.xib */,
 			);
 			name = ipad;
 			sourceTree = "<group>";
@@ -2100,7 +2089,6 @@
 			children = (
 				31CB85891B15F90300F827F7 /* UserForgotPasswordViewController_ipad.h */,
 				31CB858A1B15F90300F827F7 /* UserForgotPasswordViewController_ipad.m */,
-				31CB858B1B15F90300F827F7 /* UserForgotPasswordViewController_ipad.xib */,
 			);
 			name = ipad;
 			sourceTree = "<group>";
@@ -2255,12 +2243,10 @@
 				0FB3F48F19E52E3C0040E4D7 /* Default@2x.png in Resources */,
 				0FA695B419BB9A720058A722 /* SystemImages.xcassets in Resources */,
 				0FABA6FC19CAFDC400CC7DD3 /* ContactsViewController_iphone.xib in Resources */,
-				31CB85801B15F8B700F827F7 /* UserProfileViewController_ipad.xib in Resources */,
 				0FC4D1681AFBE0CA00CF4C24 /* MenuViewController_iphone.xib in Resources */,
 				0FC47F1D1B126E95007A7E8D /* PhotoDetailsViewController_iphone.xib in Resources */,
 				31CB855A1B15BFEC00F827F7 /* WalkthroughViewController_ipad.xib in Resources */,
 				31CB85321B14B53B00F827F7 /* CountryPickerViewController_iphone.xib in Resources */,
-				31CB85A11B15F9EF00F827F7 /* UserSignUpViewController_ipad.xib in Resources */,
 				31CB857B1B15F89F00F827F7 /* UserProfileViewController_iphone.xib in Resources */,
 				0FA3FA0419C77794001FC84F /* TableViewExampleViewController_ipad.xib in Resources */,
 				0FE1CB0D1AF65EEC006769FE /* ConsoleLogViewController_ipad.xib in Resources */,
@@ -2269,14 +2255,12 @@
 				0FB3F49C19E5387A0040E4D7 /* Default-Landscape.png in Resources */,
 				0F7A85461AFFF65E00A2F6C4 /* TermsConditionsViewController_ipad.xib in Resources */,
 				0F70DF441AFFDF07004293F1 /* HomeListItemView_ipad.xib in Resources */,
-				31CB858D1B15F90300F827F7 /* UserForgotPasswordViewController_ipad.xib in Resources */,
 				31CB85681B15F0D400F827F7 /* UserContainerViewController_iphone.xib in Resources */,
 				0FA67F7819C4F6B600E00FDA /* SettingsViewController_ipad.xib in Resources */,
 				0FA4E8FB19CD60C50046CA90 /* ScrollViewExampleViewController_ipad.xib in Resources */,
 				0FA201DF19C43528007ABAC4 /* HomeViewController_ipad.xib in Resources */,
 				0FB3F4A219E538870040E4D7 /* Default-Portrait.png in Resources */,
 				0FA3FA0A19C777FC001FC84F /* TableViewExampleCell_ipad.xib in Resources */,
-				31CB85971B15F9B400F827F7 /* UserLoginViewController_ipad.xib in Resources */,
 				0FABA6F719CAFD9C00CC7DD3 /* ContactsViewController_ipad.xib in Resources */,
 				31CB85921B15F99900F827F7 /* UserLoginViewController_iphone.xib in Resources */,
 				0FBFDF651B13A89C00FA4EFD /* TableViewExampleCell_iphone.xib in Resources */,

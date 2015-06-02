@@ -49,6 +49,11 @@
     return self;
 }
 
+- (void)closeMenu {
+    
+    [self.menuContainerViewController setMenuState:MFSideMenuStateClosed completion:^{}];
+}
+
 - (void)toggleMenu {
     
     [self toggleLeftSideMenuCompletion:^{}];
