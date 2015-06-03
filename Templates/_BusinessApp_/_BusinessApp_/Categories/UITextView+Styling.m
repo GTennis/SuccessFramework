@@ -53,7 +53,9 @@
         self.tapGestureSubstringsAndCallbacks = [[NSMutableDictionary alloc] init];
     }
     
-    // Set needed flag
+    // http://stackoverflow.com/a/27612974/597292
+    // http://stackoverflow.com/a/17122745/597292
+    self.scrollEnabled = NO;
     self.selectable = YES;
     
     // Store substring and callback
@@ -94,10 +96,20 @@
     }
     
     NSString *identifier = substring;
-    [attributedText setAttributes:@{identifier:@(YES)} range:range];
+    
+    // Extract current attributes
+    NSMutableDictionary *mutableAttributes = [self attributesFromAttributedString:attributedText range:range];
+    
+    // Add new atribute
+    mutableAttributes[identifier] = @(YES);
+    
+    // Set attributes
+    [attributedText setAttributes:mutableAttributes range:range];
     
     // Set new attributed string
     self.attributedText = attributedText;
+    
+    self.scrollEnabled = YES;
 }
 
 #pragma mark - Gesture recognizer selectors
@@ -150,6 +162,11 @@
         return;
     }
     
+    // http://stackoverflow.com/a/27612974/597292
+    // http://stackoverflow.com/a/17122745/597292
+    self.scrollEnabled = NO;
+    self.selectable = YES;
+    
     // Extract attributed string
     NSMutableAttributedString *attributedText = nil;
     
@@ -165,11 +182,19 @@
     // Find substring location
     NSRange range = [self.text rangeOfString:substring];
     
-    // Set style
-    [attributedText setAttributes:attributes range:range];
+    // Extract current attributes
+    NSMutableDictionary *mutableAttributes = [self attributesFromAttributedString:attributedText range:range];
+    
+    // Add new attributes
+    [mutableAttributes addEntriesFromDictionary:attributes];
+    
+    // Set attributes
+    [attributedText setAttributes:mutableAttributes range:range];
     
     // Set new attributed string
     self.attributedText = attributedText;
+    
+    self.scrollEnabled = YES;
 }
 
 - (NSMutableDictionary *)tapGestureSubstringsAndCallbacks {
@@ -180,6 +205,18 @@
 - (void)setTapGestureSubstringsAndCallbacks:(NSMutableDictionary *)obj {
     
     [UITextFieldStylingIvars fetch:self].tapGestureSubstringsAndCallbacks = obj;
+}
+
+- (NSMutableDictionary *)attributesFromAttributedString:(NSMutableAttributedString *)attributedString range:(NSRange)range {
+    
+    __block NSMutableDictionary *mutableAttributes = nil;
+    [attributedString enumerateAttributesInRange:range options:NSAttributedStringEnumerationReverse usingBlock:
+     ^(NSDictionary *attributes, NSRange range, BOOL *stop) {
+         
+         mutableAttributes = [NSMutableDictionary dictionaryWithDictionary:attributes];
+     }];
+    
+    return mutableAttributes;
 }
 
 @end

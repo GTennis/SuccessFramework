@@ -275,8 +275,14 @@
     
     self.privacyAndTermsTextView.text = privacyAndTermsString;
     
+    [self.privacyAndTermsTextView applyColorWithSubstring:privacyString color:kColorBlue];
+    [self.privacyAndTermsTextView applyColorWithSubstring:termsString color:kColorBlue];
+    
     //[self.privacyAndTermsTextView applyBoldStyleWithSubstring:privacyString];
     //[self.privacyAndTermsTextView applyBoldStyleWithSubstring:termsString];
+    
+    //[self.privacyAndTermsTextView applyUnderlineStyleWithSubstring:privacyString];
+    //[self.privacyAndTermsTextView applyUnderlineStyleWithSubstring:termsString];
     
     [self.privacyAndTermsTextView addTapGestureWithSubstring:privacyString callback:^(BOOL success, id result, NSError *error) {
      

@@ -69,11 +69,29 @@
     // Find substring location
     NSRange range = [self.text rangeOfString:substring];
     
+    // Extract current attributes
+    NSMutableDictionary *mutableAttributes = [self attributesFromAttributedString:attributedText range:range];
+    
+    // Add new attributes
+    [mutableAttributes addEntriesFromDictionary:attributes];
+    
     // Set style
-    [attributedText setAttributes:attributes range:range];
+    [attributedText setAttributes:mutableAttributes range:range];
     
     // Set new attributed string
     self.attributedText = attributedText;
+}
+
+- (NSMutableDictionary *)attributesFromAttributedString:(NSMutableAttributedString *)attributedString range:(NSRange)range {
+    
+    __block NSMutableDictionary *mutableAttributes = nil;
+    [attributedString enumerateAttributesInRange:range options:NSAttributedStringEnumerationReverse usingBlock:
+     ^(NSDictionary *attributes, NSRange range, BOOL *stop) {
+         
+         mutableAttributes = [NSMutableDictionary dictionaryWithDictionary:attributes];
+     }];
+    
+    return mutableAttributes;
 }
 
 @end
