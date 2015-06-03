@@ -206,7 +206,9 @@
 - (void)configureScrollView {
     
     //self.contentScrollView.scrollEnabled = NO;
-    self.shouldReturnToZeroScrollOffset = YES;
+    //self.shouldReturnToZeroScrollOffset = YES;
+    
+    self.keyboardScrollViewContentEdgeInsets = UIEdgeInsetsMake(0, 0, 8.0f, 0);
     
     // Adjust scrollView width
     _salutatationTextFieldWidthConstraint.constant = [_delegate containerViewSizeForSignUp].width;

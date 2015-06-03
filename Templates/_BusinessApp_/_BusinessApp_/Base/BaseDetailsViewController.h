@@ -42,7 +42,7 @@
 @property BOOL observeKeyboard;
 
 // Use this when need to move scrollView content up with some offset
-@property (nonatomic) CGFloat keyboardScrollViewContentOffset;
+@property (nonatomic) UIEdgeInsets keyboardScrollViewContentEdgeInsets;
 
 // If set then will always scroll to this field regardless of other fields
 // Usefull in small screens (login) when need fixed scrolling

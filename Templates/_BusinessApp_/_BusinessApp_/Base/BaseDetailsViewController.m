@@ -96,8 +96,11 @@
             }
         }
         
+        CGFloat contentWidth = CGRectGetWidth(self.view.bounds) + _keyboardScrollViewContentEdgeInsets.left + _keyboardScrollViewContentEdgeInsets.right;
+        CGFloat contentHeight = maxViewOriginY + _keyboardScrollViewContentEdgeInsets.top + _keyboardScrollViewContentEdgeInsets.bottom;
+        
         // Set content height using most bottom view position
-        self.contentScrollView.contentSize = CGSizeMake(CGRectGetWidth(self.view.bounds), maxViewOriginY);
+        self.contentScrollView.contentSize = CGSizeMake(contentWidth, contentHeight);
     }
 }
 
@@ -116,7 +119,7 @@
     
     // Scroll to show textField if needed. Actually not clear why but need to add _keyboardHeight to field's frame origin, in order to do correct scrolling
     
-    rect.origin.y += _keyboardHeight + _keyboardScrollViewContentOffset;
+    rect.origin.y += _keyboardHeight + _keyboardScrollViewContentEdgeInsets.top;
     [self.contentScrollView scrollRectToVisible:rect animated:YES];
 }
 
@@ -294,19 +297,14 @@
     
     // Used from http://stackoverflow.com/a/13163543/597292
     
-    UIEdgeInsets contentInsets = UIEdgeInsetsZero;
-    
-    // Adjust top offset
-    contentInsets.top = _keyboardScrollViewContentOffset;
-    
     // Reset to zero if flag was set
     if (_shouldReturnToZeroScrollOffset) {
         
-        contentInsets.top = 0;
+        _keyboardScrollViewContentEdgeInsets = UIEdgeInsetsZero;
     }
     
-    self.contentScrollView.contentInset = contentInsets;
-    self.contentScrollView.scrollIndicatorInsets = contentInsets;
+    self.contentScrollView.contentInset = _keyboardScrollViewContentEdgeInsets;
+    self.contentScrollView.scrollIndicatorInsets = _keyboardScrollViewContentEdgeInsets;
     
     [self.view removeGestureRecognizer:_tapGestureRecognizer];
     
