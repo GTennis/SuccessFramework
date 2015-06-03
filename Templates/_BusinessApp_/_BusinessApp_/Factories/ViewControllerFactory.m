@@ -82,7 +82,6 @@
 #import "TermsConditionsModel.h"
 
 // Demo
-#import "ScrollViewExampleViewController.h"
 #import "TableViewExampleViewController.h"
 
 // Pickers
@@ -233,13 +232,6 @@
 }
 
 #pragma mark - Demos
-
-- (ScrollViewExampleViewController *)scrollViewExampleViewControllerWithContext:(id)context {
-    
-    ScrollViewExampleViewController *viewController = (ScrollViewExampleViewController *)[self viewControllerWithClass:[ScrollViewExampleViewController class] context:context];
-    
-    return viewController;
-}
 
 - (TableViewExampleViewController *)tableViewExampleViewControllerWithContext:(id)context {
     

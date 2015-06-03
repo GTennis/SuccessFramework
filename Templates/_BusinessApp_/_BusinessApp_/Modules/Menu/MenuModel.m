@@ -84,12 +84,6 @@
     item.viewController = (BaseViewController *) [viewControllerFactory termsConditionsViewControllerWithContext:nil];
     [itemList addObject:item];
     
-    // ScrollViewExample
-    item = [[MenuItemObject alloc] init];
-    item.menuTitle = GMLocalizedString(kMenuModelMenuItemScrollViewExample);
-    item.viewController = (BaseViewController *) [viewControllerFactory scrollViewExampleViewControllerWithContext:nil];
-    [itemList addObject:item];
-    
     // TableViewExample
     item = [[MenuItemObject alloc] init];
     item.menuTitle = GMLocalizedString(kMenuModelMenuItemTableViewExample);

@@ -32,10 +32,8 @@
 
 #import "HomeViewController.h"
 #import "TableViewExampleViewController.h"
-#import "ScrollViewExampleViewController.h"
 #import "SettingsViewController.h"
 #import "TermsConditionsViewController.h"
-#import "ScrollViewExampleViewController.h"
 #import "TableViewExampleViewController.h"
 
 #import "TopNavigationBar.h"
@@ -131,7 +129,7 @@
     MenuItemObject *menuItem = _model.menuItems[indexPath.row];
 
     MenuNavigator *menuNavigator = [REGISTRY getObject:[MenuNavigator class]];
-    [menuNavigator closeMenu];
+    //[menuNavigator closeMenu];
     
     if (menuItem.isPresentedModally) {
         

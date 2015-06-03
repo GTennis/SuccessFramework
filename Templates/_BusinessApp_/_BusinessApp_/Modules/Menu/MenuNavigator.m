@@ -45,13 +45,18 @@
         self.centerViewController = contentViewController;
         self.rightMenuViewController = nil;
         
+        self.menuAnimationDefaultDuration = 1.0f;
     }
     return self;
 }
 
+// Will close without animation
 - (void)closeMenu {
     
-    [self.menuContainerViewController setMenuState:MFSideMenuStateClosed completion:^{}];
+    if (self.menuState == MFSideMenuStateLeftMenuOpen) {
+        
+        [self.menuContainerViewController setMenuState:MFSideMenuStateClosed completion:^{}];
+    }
 }
 
 - (void)toggleMenu {

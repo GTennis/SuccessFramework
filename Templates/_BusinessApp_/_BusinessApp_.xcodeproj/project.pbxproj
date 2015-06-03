@@ -21,8 +21,6 @@
 		0F7A85411AFFF64B00A2F6C4 /* TermsConditionsViewController_iphone.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0F7A853F1AFFF64B00A2F6C4 /* TermsConditionsViewController_iphone.xib */; };
 		0F7A85451AFFF65E00A2F6C4 /* TermsConditionsViewController_ipad.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F7A85431AFFF65E00A2F6C4 /* TermsConditionsViewController_ipad.m */; };
 		0F7A85461AFFF65E00A2F6C4 /* TermsConditionsViewController_ipad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0F7A85441AFFF65E00A2F6C4 /* TermsConditionsViewController_ipad.xib */; };
-		0F7A854C1AFFF95300A2F6C4 /* ScrollViewExampleViewController_iphone.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F7A854A1AFFF95300A2F6C4 /* ScrollViewExampleViewController_iphone.m */; };
-		0F7A854D1AFFF95300A2F6C4 /* ScrollViewExampleViewController_iphone.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0F7A854B1AFFF95300A2F6C4 /* ScrollViewExampleViewController_iphone.xib */; };
 		0F8D56871AFFA8A1005681A7 /* GMAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F8D56861AFFA8A1005681A7 /* GMAlertView.m */; };
 		0F8D568D1AFFB510005681A7 /* KeyboardControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F8D56891AFFB510005681A7 /* KeyboardControl.m */; };
 		0F8D568E1AFFB510005681A7 /* KeyboardControlPrevNext.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F8D568B1AFFB510005681A7 /* KeyboardControlPrevNext.m */; };
@@ -39,9 +37,6 @@
 		0FA4980719DA0B970057D9F4 /* ImageDownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FA4980619DA0B970057D9F4 /* ImageDownloader.m */; };
 		0FA4980A19DA164F0057D9F4 /* BaseDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FA4980919DA164F0057D9F4 /* BaseDetailsViewController.m */; };
 		0FA4E8ED19CD5D950046CA90 /* TableViewExampleCell_ipad.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FA4E8EC19CD5D950046CA90 /* TableViewExampleCell_ipad.m */; };
-		0FA4E8F619CD5FF90046CA90 /* ScrollViewExampleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FA4E8F519CD5FF90046CA90 /* ScrollViewExampleViewController.m */; };
-		0FA4E8FA19CD60C50046CA90 /* ScrollViewExampleViewController_ipad.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FA4E8F819CD60C50046CA90 /* ScrollViewExampleViewController_ipad.m */; };
-		0FA4E8FB19CD60C50046CA90 /* ScrollViewExampleViewController_ipad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0FA4E8F919CD60C50046CA90 /* ScrollViewExampleViewController_ipad.xib */; };
 		0FA62C6A19CF0CF6002D3DDC /* UIView+Fonts.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FA62C6919CF0CF6002D3DDC /* UIView+Fonts.m */; };
 		0FA62C6D19CF2D70002D3DDC /* BaseTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FA62C6C19CF2D70002D3DDC /* BaseTableViewCell.m */; };
 		0FA62C7719CF5DE6002D3DDC /* NSObject+Selectors.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FA62C7619CF5DE6002D3DDC /* NSObject+Selectors.m */; };
@@ -244,9 +239,6 @@
 		0F7A85421AFFF65E00A2F6C4 /* TermsConditionsViewController_ipad.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TermsConditionsViewController_ipad.h; sourceTree = "<group>"; };
 		0F7A85431AFFF65E00A2F6C4 /* TermsConditionsViewController_ipad.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TermsConditionsViewController_ipad.m; sourceTree = "<group>"; };
 		0F7A85441AFFF65E00A2F6C4 /* TermsConditionsViewController_ipad.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TermsConditionsViewController_ipad.xib; sourceTree = "<group>"; };
-		0F7A85491AFFF95300A2F6C4 /* ScrollViewExampleViewController_iphone.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScrollViewExampleViewController_iphone.h; sourceTree = "<group>"; };
-		0F7A854A1AFFF95300A2F6C4 /* ScrollViewExampleViewController_iphone.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScrollViewExampleViewController_iphone.m; sourceTree = "<group>"; };
-		0F7A854B1AFFF95300A2F6C4 /* ScrollViewExampleViewController_iphone.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ScrollViewExampleViewController_iphone.xib; sourceTree = "<group>"; };
 		0F8D56851AFFA8A1005681A7 /* GMAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GMAlertView.h; sourceTree = "<group>"; };
 		0F8D56861AFFA8A1005681A7 /* GMAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GMAlertView.m; sourceTree = "<group>"; };
 		0F8D56881AFFB510005681A7 /* KeyboardControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KeyboardControl.h; sourceTree = "<group>"; };
@@ -277,11 +269,6 @@
 		0FA4980919DA164F0057D9F4 /* BaseDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseDetailsViewController.m; sourceTree = "<group>"; };
 		0FA4E8EB19CD5D950046CA90 /* TableViewExampleCell_ipad.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableViewExampleCell_ipad.h; sourceTree = "<group>"; };
 		0FA4E8EC19CD5D950046CA90 /* TableViewExampleCell_ipad.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableViewExampleCell_ipad.m; sourceTree = "<group>"; };
-		0FA4E8F419CD5FF90046CA90 /* ScrollViewExampleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScrollViewExampleViewController.h; sourceTree = "<group>"; };
-		0FA4E8F519CD5FF90046CA90 /* ScrollViewExampleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScrollViewExampleViewController.m; sourceTree = "<group>"; };
-		0FA4E8F719CD60C50046CA90 /* ScrollViewExampleViewController_ipad.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScrollViewExampleViewController_ipad.h; sourceTree = "<group>"; };
-		0FA4E8F819CD60C50046CA90 /* ScrollViewExampleViewController_ipad.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScrollViewExampleViewController_ipad.m; sourceTree = "<group>"; };
-		0FA4E8F919CD60C50046CA90 /* ScrollViewExampleViewController_ipad.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ScrollViewExampleViewController_ipad.xib; sourceTree = "<group>"; };
 		0FA62C6819CF0CF6002D3DDC /* UIView+Fonts.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Fonts.h"; sourceTree = "<group>"; };
 		0FA62C6919CF0CF6002D3DDC /* UIView+Fonts.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Fonts.m"; sourceTree = "<group>"; };
 		0FA62C6B19CF2D70002D3DDC /* BaseTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseTableViewCell.h; sourceTree = "<group>"; };
@@ -697,15 +684,6 @@
 			name = iphone;
 			sourceTree = "<group>";
 		};
-		0F7A85471AFFF91E00A2F6C4 /* Base */ = {
-			isa = PBXGroup;
-			children = (
-				0FA4E8F419CD5FF90046CA90 /* ScrollViewExampleViewController.h */,
-				0FA4E8F519CD5FF90046CA90 /* ScrollViewExampleViewController.m */,
-			);
-			name = Base;
-			sourceTree = "<group>";
-		};
 		0F7A85481AFFF92800A2F6C4 /* Base */ = {
 			isa = PBXGroup;
 			children = (
@@ -786,36 +764,6 @@
 				0F70DF431AFFDF07004293F1 /* HomeListItemView_ipad.xib */,
 			);
 			name = Cells;
-			sourceTree = "<group>";
-		};
-		0FA4E8EE19CD5F540046CA90 /* ScrollViewExample */ = {
-			isa = PBXGroup;
-			children = (
-				0F7A85471AFFF91E00A2F6C4 /* Base */,
-				0FA4E8F019CD5F800046CA90 /* iphone */,
-				0FA4E8EF19CD5F7B0046CA90 /* ipad */,
-			);
-			path = ScrollViewExample;
-			sourceTree = "<group>";
-		};
-		0FA4E8EF19CD5F7B0046CA90 /* ipad */ = {
-			isa = PBXGroup;
-			children = (
-				0FA4E8F719CD60C50046CA90 /* ScrollViewExampleViewController_ipad.h */,
-				0FA4E8F819CD60C50046CA90 /* ScrollViewExampleViewController_ipad.m */,
-				0FA4E8F919CD60C50046CA90 /* ScrollViewExampleViewController_ipad.xib */,
-			);
-			name = ipad;
-			sourceTree = "<group>";
-		};
-		0FA4E8F019CD5F800046CA90 /* iphone */ = {
-			isa = PBXGroup;
-			children = (
-				0F7A85491AFFF95300A2F6C4 /* ScrollViewExampleViewController_iphone.h */,
-				0F7A854A1AFFF95300A2F6C4 /* ScrollViewExampleViewController_iphone.m */,
-				0F7A854B1AFFF95300A2F6C4 /* ScrollViewExampleViewController_iphone.xib */,
-			);
-			name = iphone;
 			sourceTree = "<group>";
 		};
 		0FA62C5719CEFAD0002D3DDC /* Resources */ = {
@@ -1144,7 +1092,6 @@
 				0FA839BD19BC5DE00037B5F3 /* Settings */,
 				0FA67FB619C6380000E00FDA /* TermsConditions */,
 				0FA3F9FA19C76BFD001FC84F /* TableViewExample */,
-				0FA4E8EE19CD5F540046CA90 /* ScrollViewExample */,
 				0FABA6ED19CAFD4600CC7DD3 /* Contacts */,
 				0FC71A071AF93A6100912FF1 /* CountryPicker */,
 				0FE1CAFA1AF65CFD006769FE /* ConsoleLogger */,
@@ -2257,7 +2204,6 @@
 				0F70DF441AFFDF07004293F1 /* HomeListItemView_ipad.xib in Resources */,
 				31CB85681B15F0D400F827F7 /* UserContainerViewController_iphone.xib in Resources */,
 				0FA67F7819C4F6B600E00FDA /* SettingsViewController_ipad.xib in Resources */,
-				0FA4E8FB19CD60C50046CA90 /* ScrollViewExampleViewController_ipad.xib in Resources */,
 				0FA201DF19C43528007ABAC4 /* HomeViewController_ipad.xib in Resources */,
 				0FB3F4A219E538870040E4D7 /* Default-Portrait.png in Resources */,
 				0FA3FA0A19C777FC001FC84F /* TableViewExampleCell_ipad.xib in Resources */,
@@ -2271,7 +2217,6 @@
 				31CB859C1B15F9D900F827F7 /* UserSignUpViewController_iphone.xib in Resources */,
 				0FA839EE19BCF8E50037B5F3 /* Localizable.strings in Resources */,
 				0FC719BC1AF9253400912FF1 /* LaunchViewController_ipad.xib in Resources */,
-				0F7A854D1AFFF95300A2F6C4 /* ScrollViewExampleViewController_iphone.xib in Resources */,
 				31CB9EF01B175EE10012F1F4 /* TopModalNavigationBar_iphone.xib in Resources */,
 				0FB3F48D19E52E3C0040E4D7 /* Default-568h@2x.png in Resources */,
 				31CB85371B14B55600F827F7 /* CountryPickerViewController_ipad.xib in Resources */,
@@ -2361,7 +2306,6 @@
 				0FA4980A19DA164F0057D9F4 /* BaseDetailsViewController.m in Sources */,
 				0FA62C7A19CF6D17002D3DDC /* HomeModel.m in Sources */,
 				0FC719CA1AF92D9400912FF1 /* BackendAPIClient.m in Sources */,
-				0F7A854C1AFFF95300A2F6C4 /* ScrollViewExampleViewController_iphone.m in Sources */,
 				0FE1CB031AF65E22006769FE /* ConsoleLogViewController.m in Sources */,
 				0FC719CD1AF92DCD00912FF1 /* GMAFJSONResponseSerializer.m in Sources */,
 				0FA695F919BB9CCD0058A722 /* BaseViewController.m in Sources */,
@@ -2406,7 +2350,6 @@
 				0FC719F91AF9341600912FF1 /* UserProfileModel.m in Sources */,
 				0FE1CAD41AF6517D006769FE /* NetworkEnvironmentSwitch4Testing.m in Sources */,
 				31CB85A01B15F9EF00F827F7 /* UserSignUpViewController_ipad.m in Sources */,
-				0FA4E8FA19CD60C50046CA90 /* ScrollViewExampleViewController_ipad.m in Sources */,
 				31CB856C1B15F11200F827F7 /* UserContainerViewController_ipad.m in Sources */,
 				0FE1CB001AF65D70006769FE /* GMConsoleLogger.m in Sources */,
 				31CB9EEE1B175ED50012F1F4 /* TopModalNavigationBar_iphone.m in Sources */,
@@ -2458,7 +2401,6 @@
 				0FE1CAEE1AF6564B006769FE /* ImagesObject.m in Sources */,
 				0FE1CAE71AF65593006769FE /* ErrorObject.m in Sources */,
 				0FA695E919BB9BF10058A722 /* CALayer+Border.m in Sources */,
-				0FA4E8F619CD5FF90046CA90 /* ScrollViewExampleViewController.m in Sources */,
 				0FE1CB501AF67C64006769FE /* BaseModel.m in Sources */,
 				0FA201DE19C43528007ABAC4 /* HomeViewController_ipad.m in Sources */,
 				0FABA6FB19CAFDC400CC7DD3 /* ContactsViewController_iphone.m in Sources */,

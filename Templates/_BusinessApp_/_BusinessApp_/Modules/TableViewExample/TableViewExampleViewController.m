@@ -27,7 +27,6 @@
 
 #import "TableViewExampleViewController.h"
 #import "TableViewExampleCell.h"
-#import "ScrollViewExampleViewController.h"
 #import "UserObject.h"
 
 @interface TableViewExampleViewController () {
@@ -167,13 +166,8 @@
 #pragma mark - UITableViewDelegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    
-    [self.tableView cellForRowAtIndexPath:indexPath];
-    
-    UserObject *user = (UserObject *)[_userArray objectAtIndex:indexPath.row];
-    UIViewController *viewController = [self.viewControllerFactory scrollViewExampleViewControllerWithContext:user];
-    
-    [self.navigationController pushViewController:viewController animated:YES];
+
+    // Todo...
 }
 
 @end

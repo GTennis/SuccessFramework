@@ -41,7 +41,6 @@
 @class UserProfileViewController;
 @class ContactViewController;
 @class TableViewExampleViewController;
-@class ScrollViewExampleViewController;
 @class PhotoDetailsViewController;
 
 @protocol ViewControllerFactoryProtocol <NSObject>
@@ -81,6 +80,5 @@
 
 // Demo
 - (TableViewExampleViewController *)tableViewExampleViewControllerWithContext:(id)context;
-- (ScrollViewExampleViewController *)scrollViewExampleViewControllerWithContext:(id)context;
 
 @end
