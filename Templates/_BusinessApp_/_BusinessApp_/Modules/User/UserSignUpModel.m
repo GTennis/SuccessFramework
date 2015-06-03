@@ -26,7 +26,84 @@
 //
 
 #import "UserSignUpModel.h"
+#import "NSString+Validator.h"
 
 @implementation UserSignUpModel
+
+- (void)commonInit {
+    
+    [super commonInit];
+    
+    _user = [[UserObject alloc] init];
+}
+
+- (BOOL)isValidData {
+    
+    BOOL isEmailValid = [_user.email isMailValid];
+    BOOL result = isEmailValid;
+    
+    BOOL isPasswordValid = [_user.email isPasswordValid];
+    result &= isPasswordValid;
+    
+    BOOL isSalutationValid = _user.salutation ? YES : NO;
+    result &= isSalutationValid;
+    
+    BOOL isFirstNameValid = _user.firstName ? YES : NO;
+    result &= isFirstNameValid;
+    
+    BOOL isLastNameValid = _user.lastName ? YES : NO;
+    result &= isLastNameValid;
+    
+    BOOL isAddressValid = _user.address ? YES : NO;
+    result &= isAddressValid;
+    
+    BOOL isAddressOptionalValid = _user.addressOptional ? YES : NO;
+    result &= isAddressOptionalValid;
+    
+    BOOL isZipCodeValid = _user.zipCode ? YES : NO;
+    result &= isZipCodeValid;
+    
+    BOOL isCountryCodeValid = _user.countryCode ? YES : NO;
+    result &= isCountryCodeValid;
+    
+    BOOL isStateCodeValid = _user.stateCode ? YES : NO;
+    result &= isStateCodeValid;
+    
+    BOOL isCityValid = _user.city ? YES : NO;
+    result &= isCityValid;
+    
+    BOOL isPhoneValid = _user.phone ? YES : NO;
+    result &= isPhoneValid;
+
+    return result;
+}
+
+- (void)clearData {
+    
+    _user = [[UserObject alloc] init];
+}
+
+- (void)updateModelWithData:(UserObject *)user {
+    
+    _user.salutation = user.salutation;
+    _user.firstName = user.firstName;
+    _user.lastName = user.lastName;
+    _user.address = user.firstName;
+    _user.addressOptional = user.address;
+    _user.zipCode = user.addressOptional;
+    _user.countryCode = user.countryCode;
+    _user.stateCode = user.stateCode;
+    _user.city = user.city;
+    _user.phone = user.phone;
+    _user.email = user.email;
+    _user.password = user.password;
+}
+
+- (void)signUp:(Callback)callback {
+    
+    // TODO...
+    
+    callback(YES, nil, nil);
+}
 
 @end

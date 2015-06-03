@@ -25,21 +25,39 @@
 //  SOFTWARE. All rights reserved.
 //
 
-#import "BaseViewController.h"
+#import "BaseDetailsViewController.h"
+#import "KeyboardControl.h"
 
 @class UserSignUpModel;
 
 @protocol UserSignUpViewControllerDelegate <NSObject>
 
+- (void)didFinishSignUp;
 - (CGSize)containerViewSizeForSignUp;
 
 @end
 
-@interface UserSignUpViewController : BaseViewController <CountryPickerViewControllerDelegate>
+@interface UserSignUpViewController : BaseDetailsViewController <KeyboardControlDelegate, CountryPickerViewControllerDelegate>
 
 @property (nonatomic, strong) UserSignUpModel *model;
 @property (nonatomic, weak) id<UserSignUpViewControllerDelegate> delegate;
 
-- (void)clearInputFields;
+@property (weak, nonatomic) IBOutlet NormalTextField *emailTextField;
+@property (weak, nonatomic) IBOutlet PasswordTextField *passwordTextField;
+@property (weak, nonatomic) IBOutlet NormalTextField *salutationTextField;
+@property (weak, nonatomic) IBOutlet NormalTextField *firstNameTextField;
+@property (weak, nonatomic) IBOutlet NormalTextField *lastNameTextField;
+@property (weak, nonatomic) IBOutlet NormalTextField *addressTextField;
+@property (weak, nonatomic) IBOutlet NormalTextField *addressOptionalTextField;
+@property (weak, nonatomic) IBOutlet NormalTextField *countryCodeTextField;
+@property (weak, nonatomic) IBOutlet NormalTextField *stateCodeTextField;
+@property (weak, nonatomic) IBOutlet NormalTextField *cityTextField;
+@property (weak, nonatomic) IBOutlet NormalTextField *zipCodeTextField;
+@property (weak, nonatomic) IBOutlet NormalTextField *phoneTextField;
+
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *salutatationTextFieldWidthConstraint;
+
+- (IBAction)signUpPressed:(id)sender;
+- (void)clearTextFields;
 
 @end

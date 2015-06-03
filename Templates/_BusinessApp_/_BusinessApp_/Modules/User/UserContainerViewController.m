@@ -64,7 +64,6 @@
 
     // Prepare UI
     self.title = GMLocalizedString(kUserContainerViewControllerSignUpTitle);
-    [_userSignUpVC clearInputFields];
     [self.topModalNavigationBar showBackButton];
 
     // Perform transition
@@ -135,7 +134,12 @@
 
 #pragma mark - UserLoginViewControllerDelegate
 
-- (void)dismissLogin {
+- (void)didFinishLogin {
+    
+    [self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (void)didFinishSignUp {
     
     [self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
 }

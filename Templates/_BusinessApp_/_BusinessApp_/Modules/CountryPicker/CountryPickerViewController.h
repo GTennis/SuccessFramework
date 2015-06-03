@@ -29,9 +29,12 @@
 
 @protocol CountryPickerViewControllerDelegate <NSObject>
 
+- (void)didSelectCountryCode:(NSString *)countryCode;
 
 @end
 
 @interface CountryPickerViewController : BaseViewController
+
+@property (nonatomic, weak) id<CountryPickerViewControllerDelegate> delegate;
 
 @end

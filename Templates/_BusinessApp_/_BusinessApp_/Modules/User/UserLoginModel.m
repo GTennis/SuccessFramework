@@ -49,8 +49,13 @@
 
 - (void)clearData {
     
-    _user.email = nil;
-    _user.password = nil;
+    _user = [[UserObject alloc] init];    
+}
+
+- (void)updateModelWithData:(UserObject *)user {
+    
+    _user.email = user.email;
+    _user.password = user.password;
 }
 
 - (void)login:(Callback)callback {

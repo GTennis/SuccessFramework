@@ -91,6 +91,8 @@
 - (void)countryController:(id)sender didSelectCountry:(EMCCountry *)chosenCountry {
     
     [self close];
+    
+    [_delegate didSelectCountryCode:chosenCountry.countryCode];
 }
 
 #pragma mark - Helpers

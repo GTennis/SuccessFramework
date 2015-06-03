@@ -254,6 +254,7 @@
 - (CountryPickerViewController *)countryPickerViewControllerWithDelegate:(id<CountryPickerViewControllerDelegate>)delegate context:(id)context {
     
     CountryPickerViewController *viewController = (CountryPickerViewController *) [self viewControllerWithClass:[CountryPickerViewController class] context:context];
+    viewController.delegate = delegate;
     
     return viewController;
 }

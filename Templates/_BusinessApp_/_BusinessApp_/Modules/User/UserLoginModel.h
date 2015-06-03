@@ -34,6 +34,7 @@
 
 - (BOOL)isValidData;
 - (void)clearData;
+- (void)updateModelWithData:(UserObject *)user;
 - (void)login:(Callback)callback;
 
 @end

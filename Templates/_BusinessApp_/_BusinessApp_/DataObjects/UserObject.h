@@ -50,7 +50,7 @@
 @property (nonatomic, copy) NSString *lastName;
 @property (nonatomic, copy) NSString *address;
 @property (nonatomic, copy) NSString *addressOptional;
-@property (nonatomic, strong) NSNumber *zipCode;
+@property (nonatomic, copy) NSString *zipCode;
 @property (nonatomic, copy) NSString *countryCode;
 @property (nonatomic, copy) NSString *stateCode;
 @property (nonatomic, copy) NSString *city;

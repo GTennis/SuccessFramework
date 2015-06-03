@@ -28,7 +28,7 @@
 #import "UserLoginViewController.h"
 #import "UserLoginModel.h"
 
-#define kUserLoginViewControllerUserNameKey @"Email"
+#define kUserLoginViewControllerEmailKey @"Email"
 #define kUserLoginViewControllerPasswordKey @"Password"
 #define kUserLoginViewControllerIncorrectDataKey @"WrongEmailOrPasswordWasProvided"
 
@@ -45,36 +45,14 @@
     [self prepareUI];
 }
 
-- (void)viewWillDisappear:(BOOL)animated {
-    
-    [super viewWillDisappear:animated];
-}
-
-- (IBAction)showSignUpPressed:(id)sender {
-    
-    if ([_delegate respondsToSelector:@selector(didPressSignUp)]) {
-        
-        [_delegate didPressSignUp];
-    }
-}
-
-- (IBAction)resetPasswordPressed:(id)sender {
-    
-    if ([_delegate respondsToSelector:@selector(didPressForgotPasswordWithEmail:)]) {
-        
-#warning TODO: pass entered email
-        [_delegate didPressForgotPasswordWithEmail:nil];
-    }
-}
-
 - (void)clearTextFields {
     
     [_model clearData];
     
-    _usernameTextField.text = nil;
+    _emailTextField.text = nil;
     _passwordTextField.text = nil;
     
-    [_usernameTextField becomeFirstResponder];
+    [_emailTextField becomeFirstResponder];
 }
 
 #pragma mark - Base methods
@@ -110,8 +88,11 @@
 
 - (void)updateModel {
     
-    _model.user.email = _usernameTextField.text;
-    _model.user.password = _passwordTextField.text;
+    UserObject *user = [[UserObject alloc] init];
+    user.email = _emailTextField.text;
+    user.password = _passwordTextField.text;
+    
+    [_model updateModelWithData:user];
 }
 
 #pragma mark - IBActions
@@ -146,9 +127,26 @@
             if (success) {
                 
                 [weakSelf clearTextFields];
-                [_delegate dismissLogin];
+                [_delegate didFinishLogin];
             }
         }];
+    }
+}
+
+- (IBAction)signUpPressed:(id)sender {
+    
+    if ([_delegate respondsToSelector:@selector(didPressSignUp)]) {
+        
+        [_delegate didPressSignUp];
+    }
+}
+
+- (IBAction)resetPasswordPressed:(id)sender {
+    
+    if ([_delegate respondsToSelector:@selector(didPressForgotPasswordWithEmail:)]) {
+        
+    // TODO.. pass email
+        [_delegate didPressForgotPasswordWithEmail:nil];
     }
 }
 
@@ -167,26 +165,26 @@
     self.shouldReturnToZeroScrollOffset = YES;
     
     // Adjust scrollView width
-    self.usernameWidthConstraint.constant = [_delegate containerViewSizeForLogin].width;
+    _emailTextFieldWidthConstraint.constant = [_delegate containerViewSizeForLogin].width;
 }
 
 // Add toolbar with previous and next buttons for navigating between input fields
 - (void)setupTextFields {
     
     // Add placeholders
-    _usernameTextField.placeholder = GMLocalizedString(kUserLoginViewControllerUserNameKey);
+    _emailTextField.placeholder = GMLocalizedString(kUserLoginViewControllerEmailKey);
     _passwordTextField.placeholder = GMLocalizedString(kUserLoginViewControllerPasswordKey);
     
     // Set required fields
-    _usernameTextField.isRequired = YES;
+    _emailTextField.isRequired = YES;
     _passwordTextField.isRequired = YES;
     
     // Apply style
-    _usernameTextField.position = kTextFieldPositionIsFirst;
+    _emailTextField.position = kTextFieldPositionIsFirst;
     _passwordTextField.position = kTextFieldPositionIsLast;
     
     // Setup keyboard controls
-    NSArray *textFields = @[_usernameTextField, _passwordTextField];
+    NSArray *textFields = @[_emailTextField, _passwordTextField];
     [self setTextFieldsForKeyboard:textFields];
 }
 

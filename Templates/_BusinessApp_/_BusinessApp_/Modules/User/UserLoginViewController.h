@@ -32,7 +32,7 @@
 
 @protocol UserLoginViewControllerDelegate <NSObject>
 
-- (void)dismissLogin;
+- (void)didFinishLogin;
 
 - (void)didPressSignUp;
 - (void)didPressForgotPasswordWithEmail:(NSString *)email;
@@ -45,9 +45,10 @@
 @property (nonatomic, strong) UserLoginModel *model;
 @property (nonatomic, weak) id<UserLoginViewControllerDelegate> delegate;
 
-@property (weak, nonatomic) IBOutlet NormalTextField *usernameTextField;
+@property (weak, nonatomic) IBOutlet NormalTextField *emailTextField;
 @property (weak, nonatomic) IBOutlet PasswordTextField *passwordTextField;
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *usernameWidthConstraint;
+
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *emailTextFieldWidthConstraint;
 
 - (IBAction)loginPressed:(id)sender;
 - (void)clearTextFields;
