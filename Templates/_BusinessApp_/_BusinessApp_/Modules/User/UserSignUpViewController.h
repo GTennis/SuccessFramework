@@ -54,6 +54,7 @@
 @property (weak, nonatomic) IBOutlet NormalTextField *cityTextField;
 @property (weak, nonatomic) IBOutlet NormalTextField *zipCodeTextField;
 @property (weak, nonatomic) IBOutlet NormalTextField *phoneTextField;
+@property (weak, nonatomic) IBOutlet UITextView *privacyAndTermsTextView;
 
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *salutatationTextFieldWidthConstraint;
 

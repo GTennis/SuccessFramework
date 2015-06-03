@@ -27,6 +27,8 @@
 
 #import "UserSignUpViewController.h"
 #import "UserSignUpModel.h"
+#import "UILabel+Styling.h"
+#import "UITextView+Styling.h"
 
 #define kUserSignUpViewControllerEmailKey @"Email"
 #define kUserSignUpViewControllerPasswordKey @"Password"
@@ -99,6 +101,7 @@
     
     [self configureScrollView];
     [self setupTextFields];
+    [self setupTappablePrivacyAndTermsTextView];
 }
 
 - (void)renderUI {
@@ -261,6 +264,29 @@
     // Setup keyboard controls
     NSArray *textFields = @[_salutationTextField, _firstNameTextField, _lastNameTextField, _addressTextField, _addressOptionalTextField, _countryCodeTextField, _stateCodeTextField, _cityTextField, _zipCodeTextField, _phoneTextField, _emailTextField, _passwordTextField];
     [self setTextFieldsForKeyboard:textFields];
+}
+
+- (void)setupTappablePrivacyAndTermsTextView {
+    
+    // Add rich style elements to privacy and terms and conditions
+    NSString *privacyString = @"privacy";
+    NSString *termsString = @"terms and conditions";
+    NSString *privacyAndTermsString = [NSString stringWithFormat:@"This is an example of %@ and %@.", privacyString, termsString];
+    
+    self.privacyAndTermsTextView.text = privacyAndTermsString;
+    
+    //[self.privacyAndTermsTextView applyBoldStyleWithSubstring:privacyString];
+    //[self.privacyAndTermsTextView applyBoldStyleWithSubstring:termsString];
+    
+    [self.privacyAndTermsTextView addTapGestureWithSubstring:privacyString callback:^(BOOL success, id result, NSError *error) {
+     
+        DLog(@"Privacy clicked");
+     }];
+     
+     [self.privacyAndTermsTextView addTapGestureWithSubstring:termsString callback:^(BOOL success, id result, NSError *error) {
+     
+         DLog(@"Terms clicked");
+     }];
 }
 
 @end

@@ -17,6 +17,7 @@
                 <outlet property="lastNameTextField" destination="grP-UF-DKz" id="PmR-TR-ziR"/>
                 <outlet property="passwordTextField" destination="UBj-za-XvD" id="e6y-AX-BJ6"/>
                 <outlet property="phoneTextField" destination="Fdi-Qe-sTf" id="pvO-In-IEr"/>
+                <outlet property="privacyAndTermsTextView" destination="prH-bP-hiI" id="QCp-kT-zjg"/>
                 <outlet property="salutatationTextFieldWidthConstraint" destination="h4G-jn-e2h" id="3cW-CR-4mh"/>
                 <outlet property="salutationTextField" destination="dq5-lF-7m4" id="QBz-mP-Vg5"/>
                 <outlet property="stateCodeTextField" destination="EWb-Qh-z3u" id="0TV-YW-1rP"/>
@@ -147,8 +148,17 @@
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <textInputTraits key="textInputTraits" autocorrectionType="no"/>
                         </textField>
+                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="This is and example of privacy and terms and conditions." selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="prH-bP-hiI" userLabel="PrivacyAndTerms Text View">
+                            <rect key="frame" x="0.0" y="596" width="320" height="44"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="44" id="uRz-o0-YBj"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
+                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                        </textView>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HMG-Vv-Xc0" userLabel="SignUp" customClass="NormalButton">
-                            <rect key="frame" x="8" y="596" width="304" height="44"/>
+                            <rect key="frame" x="8" y="640" width="304" height="44"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="44" id="Rvv-GV-3pc"/>
                             </constraints>
@@ -163,6 +173,8 @@
                     <constraints>
                         <constraint firstItem="QqF-Iy-Ny9" firstAttribute="leading" secondItem="Kfw-sA-6P2" secondAttribute="leading" id="14N-VL-3f8"/>
                         <constraint firstAttribute="trailing" secondItem="cAz-71-NQg" secondAttribute="trailing" id="3Vs-ii-gcD"/>
+                        <constraint firstAttribute="trailing" secondItem="prH-bP-hiI" secondAttribute="trailing" id="5mB-8h-uXM"/>
+                        <constraint firstItem="prH-bP-hiI" firstAttribute="leading" secondItem="Kfw-sA-6P2" secondAttribute="leading" id="5mH-yk-epS"/>
                         <constraint firstAttribute="trailing" secondItem="EWb-Qh-z3u" secondAttribute="trailing" id="7Ei-zj-Ns0"/>
                         <constraint firstItem="spK-oe-yG0" firstAttribute="leading" secondItem="Kfw-sA-6P2" secondAttribute="leading" id="8Nl-qV-W8r"/>
                         <constraint firstItem="WDN-RA-tae" firstAttribute="top" secondItem="hBp-2w-Cw3" secondAttribute="bottom" id="CPa-Tf-hg1"/>
@@ -171,6 +183,7 @@
                         <constraint firstItem="EWb-Qh-z3u" firstAttribute="leading" secondItem="Kfw-sA-6P2" secondAttribute="leading" id="H4g-JN-6Yf"/>
                         <constraint firstItem="spK-oe-yG0" firstAttribute="top" secondItem="Fdi-Qe-sTf" secondAttribute="bottom" id="IYG-p4-6Oa"/>
                         <constraint firstItem="EWb-Qh-z3u" firstAttribute="top" secondItem="rxQ-JZ-qIP" secondAttribute="bottom" id="KZm-po-LG4"/>
+                        <constraint firstItem="prH-bP-hiI" firstAttribute="top" secondItem="UBj-za-XvD" secondAttribute="bottom" constant="8" id="MgU-eS-5rY"/>
                         <constraint firstAttribute="trailing" secondItem="vqq-mL-brC" secondAttribute="trailing" id="Mx3-TS-tbE"/>
                         <constraint firstItem="WDN-RA-tae" firstAttribute="leading" secondItem="Kfw-sA-6P2" secondAttribute="leading" id="Mzf-1W-HE4"/>
                         <constraint firstItem="Tce-NL-lrz" firstAttribute="top" secondItem="Kfw-sA-6P2" secondAttribute="top" constant="20" id="Nrb-s1-keM"/>
@@ -195,17 +208,17 @@
                         <constraint firstItem="dq5-lF-7m4" firstAttribute="top" secondItem="Tce-NL-lrz" secondAttribute="bottom" constant="19" id="h7N-hO-Gbp"/>
                         <constraint firstItem="cAz-71-NQg" firstAttribute="top" secondItem="dq5-lF-7m4" secondAttribute="bottom" id="iYz-OG-vgt"/>
                         <constraint firstItem="rxQ-JZ-qIP" firstAttribute="leading" secondItem="Kfw-sA-6P2" secondAttribute="leading" id="kMb-Pb-rKs"/>
+                        <constraint firstAttribute="bottom" secondItem="HMG-Vv-Xc0" secondAttribute="bottom" constant="8" id="ljd-fN-Wya"/>
                         <constraint firstItem="Fdi-Qe-sTf" firstAttribute="leading" secondItem="Kfw-sA-6P2" secondAttribute="leading" id="ovJ-6H-33q"/>
                         <constraint firstAttribute="trailing" secondItem="WDN-RA-tae" secondAttribute="trailing" id="qRm-Lh-ETU"/>
                         <constraint firstAttribute="trailing" secondItem="rxQ-JZ-qIP" secondAttribute="trailing" id="r6Z-Ig-52x"/>
-                        <constraint firstItem="HMG-Vv-Xc0" firstAttribute="top" secondItem="UBj-za-XvD" secondAttribute="bottom" constant="8" id="rGP-9r-Bqd"/>
                         <constraint firstItem="grP-UF-DKz" firstAttribute="top" secondItem="cAz-71-NQg" secondAttribute="bottom" id="tPM-rC-PXa"/>
                         <constraint firstItem="hBp-2w-Cw3" firstAttribute="top" secondItem="vqq-mL-brC" secondAttribute="bottom" id="tln-Ou-cuP"/>
                         <constraint firstItem="Yds-J2-Kas" firstAttribute="top" secondItem="EWb-Qh-z3u" secondAttribute="bottom" id="tnD-V6-fvW"/>
                         <constraint firstItem="dq5-lF-7m4" firstAttribute="leading" secondItem="Kfw-sA-6P2" secondAttribute="leading" id="utv-KI-uPs"/>
-                        <constraint firstAttribute="bottom" secondItem="HMG-Vv-Xc0" secondAttribute="bottom" constant="8" id="wUy-dv-M00"/>
                         <constraint firstItem="vqq-mL-brC" firstAttribute="leading" secondItem="Kfw-sA-6P2" secondAttribute="leading" id="yDH-HB-iq8"/>
                         <constraint firstAttribute="trailing" secondItem="grP-UF-DKz" secondAttribute="trailing" id="ykS-VF-zgB"/>
+                        <constraint firstItem="HMG-Vv-Xc0" firstAttribute="top" secondItem="prH-bP-hiI" secondAttribute="bottom" id="zUb-0S-lTs"/>
                     </constraints>
                 </scrollView>
             </subviews>

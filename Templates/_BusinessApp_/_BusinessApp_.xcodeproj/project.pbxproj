@@ -169,6 +169,9 @@
 		3119A4031B0DE3ED001CCA38 /* MenuItemObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 3119A4021B0DE3ED001CCA38 /* MenuItemObject.m */; };
 		31912E9A1B0CC926007C0C89 /* PhoneCallCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = 31912E991B0CC926007C0C89 /* PhoneCallCommand.m */; };
 		31912EA01B0CC9B6007C0C89 /* SendEmailCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = 31912E9F1B0CC9B6007C0C89 /* SendEmailCommand.m */; };
+		31923AF61B1F61A000C70D3B /* UILabel+Styling.m in Sources */ = {isa = PBXBuildFile; fileRef = 31923AF51B1F61A000C70D3B /* UILabel+Styling.m */; };
+		31923AF91B1F6CD200C70D3B /* UITextView+Styling.m in Sources */ = {isa = PBXBuildFile; fileRef = 31923AF81B1F6CD200C70D3B /* UITextView+Styling.m */; };
+		31923AFC1B1F749900C70D3B /* UITextFieldStylingIvars.m in Sources */ = {isa = PBXBuildFile; fileRef = 31923AFB1B1F749900C70D3B /* UITextFieldStylingIvars.m */; };
 		31CB852B1B14B50E00F827F7 /* CountryPickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 31CB852A1B14B50E00F827F7 /* CountryPickerViewController.m */; };
 		31CB85311B14B53B00F827F7 /* CountryPickerViewController_iphone.m in Sources */ = {isa = PBXBuildFile; fileRef = 31CB852F1B14B53B00F827F7 /* CountryPickerViewController_iphone.m */; };
 		31CB85321B14B53B00F827F7 /* CountryPickerViewController_iphone.xib in Resources */ = {isa = PBXBuildFile; fileRef = 31CB85301B14B53B00F827F7 /* CountryPickerViewController_iphone.xib */; };
@@ -534,6 +537,12 @@
 		31912E991B0CC926007C0C89 /* PhoneCallCommand.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhoneCallCommand.m; sourceTree = "<group>"; };
 		31912E9E1B0CC9B6007C0C89 /* SendEmailCommand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SendEmailCommand.h; sourceTree = "<group>"; };
 		31912E9F1B0CC9B6007C0C89 /* SendEmailCommand.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SendEmailCommand.m; sourceTree = "<group>"; };
+		31923AF41B1F61A000C70D3B /* UILabel+Styling.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UILabel+Styling.h"; sourceTree = "<group>"; };
+		31923AF51B1F61A000C70D3B /* UILabel+Styling.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UILabel+Styling.m"; sourceTree = "<group>"; };
+		31923AF71B1F6CD200C70D3B /* UITextView+Styling.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITextView+Styling.h"; sourceTree = "<group>"; };
+		31923AF81B1F6CD200C70D3B /* UITextView+Styling.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITextView+Styling.m"; sourceTree = "<group>"; };
+		31923AFA1B1F749900C70D3B /* UITextFieldStylingIvars.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UITextFieldStylingIvars.h; sourceTree = "<group>"; };
+		31923AFB1B1F749900C70D3B /* UITextFieldStylingIvars.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UITextFieldStylingIvars.m; sourceTree = "<group>"; };
 		31CB85291B14B50D00F827F7 /* CountryPickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CountryPickerViewController.h; sourceTree = "<group>"; };
 		31CB852A1B14B50E00F827F7 /* CountryPickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CountryPickerViewController.m; sourceTree = "<group>"; };
 		31CB852E1B14B53B00F827F7 /* CountryPickerViewController_iphone.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CountryPickerViewController_iphone.h; sourceTree = "<group>"; };
@@ -1138,6 +1147,12 @@
 				0FE1CB121AF661C1006769FE /* UIView+Colors.m */,
 				0FA62C6819CF0CF6002D3DDC /* UIView+Fonts.h */,
 				0FA62C6919CF0CF6002D3DDC /* UIView+Fonts.m */,
+				31923AF41B1F61A000C70D3B /* UILabel+Styling.h */,
+				31923AF51B1F61A000C70D3B /* UILabel+Styling.m */,
+				31923AF71B1F6CD200C70D3B /* UITextView+Styling.h */,
+				31923AF81B1F6CD200C70D3B /* UITextView+Styling.m */,
+				31923AFA1B1F749900C70D3B /* UITextFieldStylingIvars.h */,
+				31923AFB1B1F749900C70D3B /* UITextFieldStylingIvars.m */,
 				0FA695E719BB9BF10058A722 /* CALayer+Border.h */,
 				0FA695E819BB9BF10058A722 /* CALayer+Border.m */,
 				0FA695EA19BB9C040058A722 /* UIView+Autolayout.h */,
@@ -2293,6 +2308,7 @@
 				0FC719BB1AF9253400912FF1 /* LaunchViewController_ipad.m in Sources */,
 				0FE1CAED1AF6564B006769FE /* ImageObject.m in Sources */,
 				31CB858C1B15F90300F827F7 /* UserForgotPasswordViewController_ipad.m in Sources */,
+				31923AFC1B1F749900C70D3B /* UITextFieldStylingIvars.m in Sources */,
 				0FE1CB541AF68FCF006769FE /* KeychainManager.m in Sources */,
 				0FE1CAC91AF64B29006769FE /* GMObserverList.m in Sources */,
 				0FC47F181B126E7F007A7E8D /* PhotoDetailsViewController.m in Sources */,
@@ -2321,6 +2337,7 @@
 				0FE1CB331AF66BAD006769FE /* PasswordTextField.m in Sources */,
 				0FE1CB281AF669BC006769FE /* BaseLabel.m in Sources */,
 				0FC719DF1AF9331A00912FF1 /* UserLoginModel.m in Sources */,
+				31923AF91B1F6CD200C70D3B /* UITextView+Styling.m in Sources */,
 				0FA3FA1E19C78840001FC84F /* SocialManager.m in Sources */,
 				0FA695EC19BB9C040058A722 /* UIView+Autolayout.m in Sources */,
 				31CB85961B15F9B400F827F7 /* UserLoginViewController_ipad.m in Sources */,
@@ -2333,6 +2350,7 @@
 				0F8D56871AFFA8A1005681A7 /* GMAlertView.m in Sources */,
 				0FE1CB131AF661C1006769FE /* UIView+Colors.m in Sources */,
 				0FA839C119BC5DF40037B5F3 /* SettingsViewController.m in Sources */,
+				31923AF61B1F61A000C70D3B /* UILabel+Styling.m in Sources */,
 				31912E9A1B0CC926007C0C89 /* PhoneCallCommand.m in Sources */,
 				0FC719F31AF933DD00912FF1 /* MenuModel.m in Sources */,
 				31CB85671B15F0D400F827F7 /* UserContainerViewController_iphone.m in Sources */,
