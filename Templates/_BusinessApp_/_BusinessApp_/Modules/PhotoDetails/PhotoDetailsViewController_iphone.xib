@@ -27,12 +27,27 @@
                 <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="KQU-pY-czs">
                     <rect key="frame" x="150" y="274" width="20" height="20"/>
                 </activityIndicatorView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1ON-7x-DyH" customClass="NormalButton">
+                    <rect key="frame" x="38" y="428" width="245" height="44"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="245" id="CH7-M1-IV9"/>
+                        <constraint firstAttribute="height" constant="44" id="WTL-Gq-HLJ"/>
+                    </constraints>
+                    <state key="normal" title="Add to favorites">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="addToFavoritesPressed:" destination="-1" eventType="touchUpInside" id="BcH-Rr-Hmw"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstAttribute="centerX" secondItem="q30-6z-249" secondAttribute="centerX" id="2U8-9e-CCv"/>
                 <constraint firstItem="KQU-pY-czs" firstAttribute="centerX" secondItem="q30-6z-249" secondAttribute="centerX" constant="-0.5" id="LPx-5X-y3o"/>
                 <constraint firstItem="KQU-pY-czs" firstAttribute="centerY" secondItem="q30-6z-249" secondAttribute="centerY" constant="0.5" id="Ncz-j7-Jwg"/>
+                <constraint firstItem="1ON-7x-DyH" firstAttribute="top" secondItem="q30-6z-249" secondAttribute="bottom" constant="34" id="bVe-Jd-vxC"/>
+                <constraint firstItem="1ON-7x-DyH" firstAttribute="centerX" secondItem="q30-6z-249" secondAttribute="centerX" id="bwE-Sq-RBe"/>
                 <constraint firstAttribute="centerY" secondItem="q30-6z-249" secondAttribute="centerY" id="n4X-TB-LGW"/>
             </constraints>
             <point key="canvasLocation" x="330" y="334"/>

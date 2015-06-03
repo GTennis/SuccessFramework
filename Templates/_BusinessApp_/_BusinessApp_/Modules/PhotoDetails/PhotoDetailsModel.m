@@ -41,4 +41,9 @@
     _image = (ImageObject *)data;
 }
 
+- (void)addToFavoritesWithCallback:(Callback)callback {
+    
+    callback(YES, nil, nil);
+}
+
 @end

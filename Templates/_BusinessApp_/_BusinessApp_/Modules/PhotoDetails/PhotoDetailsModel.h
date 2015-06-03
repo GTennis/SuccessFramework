@@ -32,4 +32,6 @@
 
 @property (nonatomic, strong) ImageObject *image;
 
+- (void)addToFavoritesWithCallback:(Callback)callback;
+
 @end

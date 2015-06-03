@@ -99,6 +99,24 @@
     }];
 }
 
+#pragma mark - IBActions
+
+- (IBAction)addToFavoritesPressed:(id)sender {
+    
+    __weak typeof(self) weakSelf = self;
+    
+    [_model addToFavoritesWithCallback:^(BOOL success, id result, NSError *error) {
+        
+        [weakSelf.messageBarManager showMessageWithTitle:GMLocalizedString(@"Added") description:GMLocalizedString(@"This photo was added to favorites")
+                                                    type:MessageBarMessageTypeInfo
+                                                duration:5.0
+                                                callback:^{
+                                                    
+                                                    // ...
+                                                }];
+    }];
+}
+
 #pragma mark - Handling language change
 
 - (void)notificationLocalizationHasChanged {
@@ -106,7 +124,5 @@
     [self prepareUI];
     [self loadModel];
 }
-
-#pragma mark - Helpers
 
 @end
