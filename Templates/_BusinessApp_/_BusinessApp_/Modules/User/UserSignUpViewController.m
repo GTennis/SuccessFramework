@@ -56,6 +56,14 @@
     [self prepareUI];
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    
+    [super viewWillAppear:animated];
+    
+    // Log user behaviour
+    [self.analyticsManager logScreen:kAnalyticsManagerScreenUserSignUp];
+}
+
 - (void)clearTextFields {
     
     [_model clearData];
@@ -75,6 +83,8 @@
     
     [_salutationTextField becomeFirstResponder];
 }
+
+#pragma mark - Base methods
 
 - (void)commonInit {
     
@@ -177,6 +187,20 @@
     [self signUpPressed:nil];
 }
 
+#pragma mark - Handling language change
+
+- (void)notificationLocalizationHasChanged {
+    
+    [self prepareUI];
+}
+
+#pragma mark - CountryPickerViewControllerDelegate
+
+- (void)didSelectCountryCode:(NSString *)countryCode {
+    
+    _countryCodeTextField.text = countryCode;
+}
+
 #pragma mark - Helpers
 
 - (void)configureScrollView {
@@ -186,13 +210,6 @@
     
     // Adjust scrollView width
     _salutatationTextFieldWidthConstraint.constant = [_delegate containerViewSizeForSignUp].width;
-}
-
-#pragma mark - CountryPickerViewControllerDelegate
-
-- (void)didSelectCountryCode:(NSString *)countryCode {
-    
-    _countryCodeTextField.text = countryCode;
 }
 
 // Add toolbar with previous and next buttons for navigating between input fields
@@ -225,7 +242,7 @@
     _emailTextField.isRequired = YES;
     _passwordTextField.isRequired = YES;
     
-    // Apply style    
+    // Apply style
     _salutationTextField.position = kTextFieldPositionIsFirst;
     _firstNameTextField.position = kTextFieldPositionIsMiddle;
     _lastNameTextField.position = kTextFieldPositionIsMiddle;

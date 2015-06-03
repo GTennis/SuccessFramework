@@ -27,6 +27,7 @@
 
 #import "UserLoginViewController.h"
 #import "UserLoginModel.h"
+#import "KeyboardControlProtocol.h"
 
 #define kUserLoginViewControllerEmailKey @"Email"
 #define kUserLoginViewControllerPasswordKey @"Password"
@@ -45,6 +46,14 @@
     [self prepareUI];
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    
+    [super viewWillAppear:animated];
+    
+    // Log user behaviour
+    [self.analyticsManager logScreen:kAnalyticsManagerScreenUserLogin];
+}
+
 - (void)clearTextFields {
     
     [_model clearData];
@@ -52,7 +61,7 @@
     _emailTextField.text = nil;
     _passwordTextField.text = nil;
     
-    [_emailTextField becomeFirstResponder];
+    [self.keyboardControls.activeField resignFirstResponder];
 }
 
 #pragma mark - Base methods
@@ -155,6 +164,13 @@
 - (void)didPressGo {
     
     [self loginPressed:nil];
+}
+
+#pragma mark - Handling language change
+
+- (void)notificationLocalizationHasChanged {
+    
+    [self prepareUI];
 }
 
 #pragma mark - Helpers

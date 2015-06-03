@@ -173,6 +173,13 @@
     [self showLoginWithAnimation:YES];
 }
 
+#pragma mark - Handling language change
+
+- (void)notificationLocalizationHasChanged {
+    
+    [self prepareUI];
+}
+
 #pragma mark - Helpers
 
 - (void)transitionWithNextViewController:(UIViewController *)nextViewController animated:(BOOL)animated {
@@ -184,13 +191,12 @@
         __weak typeof (self) weakSelf = self;
         
         [currentViewController removeFromParentViewController];
+        [self addNextViewController:nextViewController];
         
         [UIView transitionWithView:self.containerView
                           duration:1.0
                            options:UIViewAnimationOptionTransitionFlipFromRight
                         animations:^{
-                            
-                            [self addNextViewController:nextViewController];
                             
                         } completion:^(BOOL finished){
                         

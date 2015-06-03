@@ -94,7 +94,7 @@
     launchVC.delegate = self;
     self.window.rootViewController = launchVC;
     
-#warning TODO push notifications
+    /*// Handle push notifications:
     // Register for push notifications
     [application registerForRemoteNotificationTypes:(UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeAlert | UIRemoteNotificationTypeSound)];
     
@@ -107,7 +107,7 @@
         // Check and open related screen with
         // [self openScreenWithId:passedId];
         // ...
-    }
+    }*/
     
     // Check if app needs force update
     [self checkForAppUpdate];
@@ -186,15 +186,15 @@
     }
 }
 
-#pragma mark - Apple Push Notifications
+/*#pragma mark - Push Notifications
 
 // Handle received APN token
 - (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
     
     // Remove spaces and other symbols
-    /*NSString *deviceTokenString = [[[deviceToken.description stringByReplacingOccurrencesOfString:@"<" withString:@""]
+    NSString *deviceTokenString = [[[deviceToken.description stringByReplacingOccurrencesOfString:@"<" withString:@""]
                                     stringByReplacingOccurrencesOfString:@" " withString:@""]
-                                   stringByReplacingOccurrencesOfString:@">" withString:@""];*/
+                                   stringByReplacingOccurrencesOfString:@">" withString:@""];
     
     // TODO:
     
@@ -220,7 +220,7 @@
             // [self showMeSomeScreenWhenAppIsNotActive]
         }
     }
-}
+}*/
 
 #pragma mark - LaunchViewControllerDelegate
 
