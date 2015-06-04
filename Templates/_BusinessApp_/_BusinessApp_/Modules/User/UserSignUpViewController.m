@@ -278,8 +278,8 @@
     [self.privacyAndTermsTextView applyColorWithSubstring:privacyString color:kColorBlue];
     [self.privacyAndTermsTextView applyColorWithSubstring:termsString color:kColorBlue];
     
-    //[self.privacyAndTermsTextView applyBoldStyleWithSubstring:privacyString];
-    //[self.privacyAndTermsTextView applyBoldStyleWithSubstring:termsString];
+    //[_privacyAndTermsTextView applyBoldStyleWithSubstring:privacyString];
+    //[_privacyAndTermsTextView applyBoldStyleWithSubstring:termsString];
     
     //[self.privacyAndTermsTextView applyUnderlineStyleWithSubstring:privacyString];
     //[self.privacyAndTermsTextView applyUnderlineStyleWithSubstring:termsString];

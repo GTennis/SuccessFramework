@@ -26,10 +26,10 @@
 //
 
 #import "CrashManager.h"
-//#import <Fabric/Fabric.h>
-//#import <Crashlytics/Crashlytics.h>
+#import <Fabric/Fabric.h>
+#import <Crashlytics/Crashlytics.h>
 
-#define kCrashlyticsAPIKey @"304f198c97952f6b448f445fee4789a89fd427b2"
+#define kCrashlyticsAPIKey @"yourKey"
 #define kCrashlyticsMaxNumberOfActions 10
 
 //---------- Log object -----------//
@@ -89,13 +89,6 @@
     return self;
 }
 
-// For auction tracking
-- (void)setCurrentAuctionId:(NSString *)auctionId title:(NSString *)title {
-    
-    NSString *logValue = [NSString stringWithFormat:@"auctionId: %@, title: %@", auctionId, title];
-    [self logCustomAction:logValue];
-}
-
 - (NSString *)apiKey {
     
     return kCrashlyticsAPIKey;
@@ -132,7 +125,7 @@
 
 - (void)logCustomAction:(NSString *)actionString {
     
-    //[Crashlytics setObjectValue:actionString forKey:@"lastUsedAuctionItem"];
+    //[Crashlytics setObjectValue:actionString forKey:@"lastUsedItem"];
 }
 
 - (void)setUserHasLoggedIn:(BOOL)isLoggedIn {

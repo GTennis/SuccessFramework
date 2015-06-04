@@ -32,6 +32,10 @@
 
 - (void)applyBoldStyleWithSubstring:(NSString *)substring {
     
+    // We already setting this inside applyAttributesWithSubstring:attributes: . However need to set it earlier for setting bold style, otherwise self.font equals nil and it results in ommited string
+    // http://stackoverflow.com/a/27612974/597292
+    self.selectable = YES;
+    
     [self applyAttributesWithSubstring:substring attributes:@{NSFontAttributeName:[UIFont boldSystemFontOfSize:self.font.pointSize]}];
 }
 

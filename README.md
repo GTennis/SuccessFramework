@@ -99,3 +99,11 @@ ConstNetworkConfig.h
 19. Demo list screen (Home, TableViewExample)
 
 20. Nice and handy date, view and other helpers methods via categories.
+
+21. Simple send email and phone call commands (PhoneCallCommand, SendEmailCommand
+
+22. Nice applyBold, applyUnderline, applyColor methods for subtstring in label or textView (UILabel+Styling, UITextView+Styling)
+
+23. Nice apply tappable substring for textView method (UITextView+Styling)
+
+24. Convenient addLeadingSpace, addTrailingSpace, makeCenter and etc. view autolayout methods (UIView+Autolayout)
