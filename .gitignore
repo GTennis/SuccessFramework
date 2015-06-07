@@ -3,9 +3,6 @@
 *~.nib
 *.swp
 
-adhoc/
-build/
-
 .xcodeproj/ !*.xcodeproj/project.pbxproj
 
 *.mode1v3
@@ -13,3 +10,5 @@ build/
 
 build/
 xcuserdata
+
+Projects/
