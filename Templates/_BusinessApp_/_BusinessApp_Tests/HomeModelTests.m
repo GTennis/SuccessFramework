@@ -128,10 +128,10 @@
     id backendAPIClientMock = OCMProtocolMock(@protocol(BackendAPIClientProtocol));
     
     // Will simulate loaded data
-    ImagesObject *images = [[ImagesObject alloc] init];
-    ImageObject *image1 = [[ImageObject alloc] init];
-    ImageObject *image2 = [[ImageObject alloc] init];
-    images.list = (NSArray<ImageObject> *) @[image1, image2];
+    ImagesObject *itemList = [[ImagesObject alloc] init];
+    ImageObject *item1 = [[ImageObject alloc] init];
+    ImageObject *item2 = [[ImageObject alloc] init];
+    itemList.list = (NSArray<ImageObject> *) @[item1, item2];
     
     // Creating needed wrapper block for mock
     void (^proxyBlock)(NSInvocation *) = ^(NSInvocation *invocation) {
@@ -140,7 +140,7 @@
         
         [invocation getArgument: &callback atIndex: 3];
         
-        callback(YES, images, nil);
+        callback(YES, itemList, nil);
     };
     
     // Override getTopImagesWithTag:callback: and make it always perform proxy block and return success
@@ -157,8 +157,8 @@
     // Perform tested method
     [model loadData:callback];
     
-    XCTAssert(model.images == images, @"Loaded images are not stored");
-    XCTAssert(model.images.list.count == 2, @"Wrong number of images");
+    XCTAssert(model.images == itemList, @"Loaded data is not stored");
+    XCTAssert(model.images.list.count == 2, @"Wrong number of list items");
 }
 
 // Check method not called
