@@ -637,14 +637,14 @@
 			name = Base;
 			sourceTree = "<group>";
 		};
-		0F70DF3D1AFFD2A3004293F1 /* Cells */ = {
+		0F70DF3D1AFFD2A3004293F1 /* PartialViews */ = {
 			isa = PBXGroup;
 			children = (
 				0F7A85371AFFEDF800A2F6C4 /* HomeListItemView_iphone.h */,
 				0F7A85381AFFEDF800A2F6C4 /* HomeListItemView_iphone.m */,
 				0F7A85351AFFEDE500A2F6C4 /* HomeListItemView_iphone.xib */,
 			);
-			name = Cells;
+			name = PartialViews;
 			sourceTree = "<group>";
 		};
 		0F71AF6219BF69FE000FB1C7 /* ErrorViews */ = {
@@ -707,20 +707,20 @@
 		0F7A854E1AFFF97100A2F6C4 /* Base */ = {
 			isa = PBXGroup;
 			children = (
-				0F7A854F1AFFF97900A2F6C4 /* Cell */,
+				0F7A854F1AFFF97900A2F6C4 /* PartialViews */,
 				0FA3F9FD19C77777001FC84F /* TableViewExampleViewController.h */,
 				0FA3F9FE19C77777001FC84F /* TableViewExampleViewController.m */,
 			);
 			name = Base;
 			sourceTree = "<group>";
 		};
-		0F7A854F1AFFF97900A2F6C4 /* Cell */ = {
+		0F7A854F1AFFF97900A2F6C4 /* PartialViews */ = {
 			isa = PBXGroup;
 			children = (
 				0FA3FA0619C777DD001FC84F /* TableViewExampleCell.h */,
 				0FA3FA0719C777DD001FC84F /* TableViewExampleCell.m */,
 			);
-			name = Cell;
+			name = PartialViews;
 			sourceTree = "<group>";
 		};
 		0FA3F9FA19C76BFD001FC84F /* TableViewExample */ = {
@@ -736,7 +736,7 @@
 		0FA3F9FB19C77747001FC84F /* ipad */ = {
 			isa = PBXGroup;
 			children = (
-				0FA3FA0519C777AC001FC84F /* Cells */,
+				0FA3FA0519C777AC001FC84F /* PartialViews */,
 				0FA3FA0019C77794001FC84F /* TableViewExampleViewController_ipad.h */,
 				0FA3FA0119C77794001FC84F /* TableViewExampleViewController_ipad.m */,
 				0FA3FA0219C77794001FC84F /* TableViewExampleViewController_ipad.xib */,
@@ -747,7 +747,7 @@
 		0FA3F9FC19C77752001FC84F /* iphone */ = {
 			isa = PBXGroup;
 			children = (
-				0FBFDF601B13A87700FA4EFD /* Cells */,
+				0FBFDF601B13A87700FA4EFD /* PartialViews */,
 				0FBFDF5B1B13A84E00FA4EFD /* TableViewExampleViewController_iphone.h */,
 				0FBFDF5C1B13A84E00FA4EFD /* TableViewExampleViewController_iphone.m */,
 				0FBFDF5D1B13A84E00FA4EFD /* TableViewExampleViewController_iphone.xib */,
@@ -755,24 +755,24 @@
 			name = iphone;
 			sourceTree = "<group>";
 		};
-		0FA3FA0519C777AC001FC84F /* Cells */ = {
+		0FA3FA0519C777AC001FC84F /* PartialViews */ = {
 			isa = PBXGroup;
 			children = (
 				0FA4E8EB19CD5D950046CA90 /* TableViewExampleCell_ipad.h */,
 				0FA4E8EC19CD5D950046CA90 /* TableViewExampleCell_ipad.m */,
 				0FA3FA0919C777FC001FC84F /* TableViewExampleCell_ipad.xib */,
 			);
-			name = Cells;
+			name = PartialViews;
 			sourceTree = "<group>";
 		};
-		0FA497F019D9FF000057D9F4 /* Cells */ = {
+		0FA497F019D9FF000057D9F4 /* PartialViews */ = {
 			isa = PBXGroup;
 			children = (
 				0F70DF3E1AFFD2E4004293F1 /* HomeListItemView_ipad.h */,
 				0F70DF3F1AFFD2E4004293F1 /* HomeListItemView_ipad.m */,
 				0F70DF431AFFDF07004293F1 /* HomeListItemView_ipad.xib */,
 			);
-			name = Cells;
+			name = PartialViews;
 			sourceTree = "<group>";
 		};
 		0FA62C5719CEFAD0002D3DDC /* Resources */ = {
@@ -903,7 +903,7 @@
 		0FA694D919DD4E3D00CC4E83 /* Base */ = {
 			isa = PBXGroup;
 			children = (
-				0FA694DA19DD4E4600CC4E83 /* Cells */,
+				0FA694DA19DD4E4600CC4E83 /* PartialViews */,
 				0FA62C7819CF6D17002D3DDC /* HomeModel.h */,
 				0FA62C7919CF6D17002D3DDC /* HomeModel.m */,
 				0FA839B819BC58C20037B5F3 /* HomeViewController.h */,
@@ -912,13 +912,13 @@
 			name = Base;
 			sourceTree = "<group>";
 		};
-		0FA694DA19DD4E4600CC4E83 /* Cells */ = {
+		0FA694DA19DD4E4600CC4E83 /* PartialViews */ = {
 			isa = PBXGroup;
 			children = (
 				0F70DF3A1AFFD1EC004293F1 /* HomeListItemView.h */,
 				0F70DF3B1AFFD1EC004293F1 /* HomeListItemView.m */,
 			);
-			name = Cells;
+			name = PartialViews;
 			sourceTree = "<group>";
 		};
 		0FA6958C19BB9A720058A722 = {
@@ -1208,7 +1208,7 @@
 		0FA8623919C41FD7004D4A32 /* iphone */ = {
 			isa = PBXGroup;
 			children = (
-				0F70DF3D1AFFD2A3004293F1 /* Cells */,
+				0F70DF3D1AFFD2A3004293F1 /* PartialViews */,
 				0FA8624D19C425A1004D4A32 /* HomeViewController_iphone.h */,
 				0FA8624E19C425A1004D4A32 /* HomeViewController_iphone.m */,
 				0FA8624F19C425A1004D4A32 /* HomeViewController_iphone.xib */,
@@ -1219,7 +1219,7 @@
 		0FA8623A19C41FDF004D4A32 /* ipad */ = {
 			isa = PBXGroup;
 			children = (
-				0FA497F019D9FF000057D9F4 /* Cells */,
+				0FA497F019D9FF000057D9F4 /* PartialViews */,
 				0FA201DB19C43528007ABAC4 /* HomeViewController_ipad.h */,
 				0FA201DC19C43528007ABAC4 /* HomeViewController_ipad.m */,
 				0FA201DD19C43528007ABAC4 /* HomeViewController_ipad.xib */,
@@ -1319,14 +1319,14 @@
 			path = Localization;
 			sourceTree = "<group>";
 		};
-		0FBFDF601B13A87700FA4EFD /* Cells */ = {
+		0FBFDF601B13A87700FA4EFD /* PartialViews */ = {
 			isa = PBXGroup;
 			children = (
 				0FBFDF611B13A88E00FA4EFD /* TableViewExampleCell_iphone.h */,
 				0FBFDF621B13A88E00FA4EFD /* TableViewExampleCell_iphone.m */,
 				0FBFDF641B13A89C00FA4EFD /* TableViewExampleCell_iphone.xib */,
 			);
-			name = Cells;
+			name = PartialViews;
 			sourceTree = "<group>";
 		};
 		0FC41E191B105B1D00C7210B /* Home */ = {
