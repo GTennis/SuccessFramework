@@ -38,7 +38,7 @@
 
 #pragma mark - Add width and height
 
-- (void)viewAddWidth:(CGFloat)width {
+- (NSLayoutConstraint *)viewAddWidth:(CGFloat)width {
 
     [self prepareViewForAutolayout];
  
@@ -51,9 +51,11 @@
                                                                    constant:width];
     
     [self addConstraint:constraint];
+    
+    return constraint;
 }
 
-- (void)viewAddHeight:(CGFloat)height {
+- (NSLayoutConstraint *)viewAddHeight:(CGFloat)height {
     
     [self prepareViewForAutolayout];
     
@@ -66,6 +68,8 @@
                                   constant:height];
     
     [self addConstraint:constraint];
+    
+    return constraint;
 }
 
 #pragma mark - Center and fullsize alignment
@@ -128,7 +132,7 @@
 
 #pragma mark - Alignment to superView
 
-- (void)viewAddLeadingSpace:(CGFloat)leadingSpace containerView:(UIView *)containerView {
+- (NSLayoutConstraint *)viewAddLeadingSpace:(CGFloat)leadingSpace containerView:(UIView *)containerView {
     
     [self prepareViewForAutolayout];
     
@@ -140,9 +144,11 @@
      multiplier:1 constant:leadingSpace];
     
     [containerView addConstraint:constraint];
+    
+    return constraint;
 }
 
-- (void)viewAddTrailingSpace:(CGFloat)trailingSpace containerView:(UIView *)containerView {
+- (NSLayoutConstraint *)viewAddTrailingSpace:(CGFloat)trailingSpace containerView:(UIView *)containerView {
     
     [self prepareViewForAutolayout];
     
@@ -154,9 +160,11 @@
      multiplier:1 constant:trailingSpace];
     
     [containerView addConstraint:constraint];
+    
+    return constraint;
 }
 
-- (void)viewAddTopSpace:(CGFloat)topSpace containerView:(UIView *)containerView {
+- (NSLayoutConstraint *)viewAddTopSpace:(CGFloat)topSpace containerView:(UIView *)containerView {
     
     [self prepareViewForAutolayout];
     
@@ -168,9 +176,11 @@
      multiplier:1 constant:topSpace];
     
     [containerView addConstraint:constraint];
+    
+    return constraint;
 }
 
-- (void)viewAddBottomSpace:(CGFloat)bottomSpace containerView:(UIView *)containerView {
+- (NSLayoutConstraint *)viewAddBottomSpace:(CGFloat)bottomSpace containerView:(UIView *)containerView {
     
     [self prepareViewForAutolayout];
     
@@ -182,6 +192,8 @@
      multiplier:1 constant:bottomSpace];
     
     [containerView addConstraint:constraint];
+    
+    return constraint;
 }
 
 #pragma mark - Pin with next view

@@ -34,18 +34,18 @@
 + (id)autolayoutView;
 
 // Add width and height
-- (void)viewAddWidth:(CGFloat)width;
-- (void)viewAddHeight:(CGFloat)height;
+- (NSLayoutConstraint *)viewAddWidth:(CGFloat)width;
+- (NSLayoutConstraint *)viewAddHeight:(CGFloat)height;
 
 // Add center and fullsize alignment
 - (void)viewCenterInsideContainerView:(UIView *)containerView;
 - (void)viewMakeFullWidthAndHeightInsideContainerView:(UIView *)containerView;
 
 // Add superView alignment
-- (void)viewAddLeadingSpace:(CGFloat)leadingSpace containerView:(UIView *)containerView;
-- (void)viewAddTrailingSpace:(CGFloat)trailingSpace containerView:(UIView *)containerView;
-- (void)viewAddTopSpace:(CGFloat)topSpace containerView:(UIView *)containerView;
-- (void)viewAddBottomSpace:(CGFloat)bottomSpace containerView:(UIView *)containerView;
+- (NSLayoutConstraint *)viewAddLeadingSpace:(CGFloat)leadingSpace containerView:(UIView *)containerView;
+- (NSLayoutConstraint *)viewAddTrailingSpace:(CGFloat)trailingSpace containerView:(UIView *)containerView;
+- (NSLayoutConstraint *)viewAddTopSpace:(CGFloat)topSpace containerView:(UIView *)containerView;
+- (NSLayoutConstraint *)viewAddBottomSpace:(CGFloat)bottomSpace containerView:(UIView *)containerView;
 
 // Pin with next view
 - (void)viewAddHorizontalSpace:(CGFloat)horizontalSpace toRightView:(UIView *)rightView containerView:(UIView *)containerView;
