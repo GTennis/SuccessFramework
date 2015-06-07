@@ -144,7 +144,7 @@
 
 - (IBAction)reportPressed:(id)sender {
     
-    //DeviceInfo *deviceInfo = [[AucConsoleLogger sharedInstance] deviceInfo];
+    //DeviceInfo *deviceInfo = [[GMConsoleLogger sharedInstance] deviceInfo];
     
     if ([_logString length] > 0) {
         

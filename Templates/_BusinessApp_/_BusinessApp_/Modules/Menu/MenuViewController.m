@@ -50,7 +50,7 @@
     [self loadModel];
 }
 
-#pragma mark - Base methods
+#pragma mark - Protected methods
 
 - (void)prepareUI {
     

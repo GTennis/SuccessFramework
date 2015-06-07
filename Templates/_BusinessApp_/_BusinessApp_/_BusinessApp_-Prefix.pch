@@ -61,7 +61,7 @@
 
 #ifdef ENTERPRISE_BUILD
 
-#import "AucConsoleLogger.h"
+#import "GMConsoleLogger.h"
 #define DLog(...) customLogger([NSString stringWithFormat:__VA_ARGS__]);
 
 #else

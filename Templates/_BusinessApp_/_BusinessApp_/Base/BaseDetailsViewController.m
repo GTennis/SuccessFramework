@@ -321,7 +321,7 @@
     [_keyboardControls.activeField resignFirstResponder];
 }
 
-#pragma mark - AucKeyboardControlsDelegate
+#pragma mark - KeyboardControlDelegate
 
 - (NSString *)keyboardToolbarActionTitle {
     

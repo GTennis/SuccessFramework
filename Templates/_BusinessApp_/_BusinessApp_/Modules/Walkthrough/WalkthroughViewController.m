@@ -47,7 +47,7 @@
     // Dispose of any resources that can be recreated.
 }
 
-#pragma mark - Base methods
+#pragma mark - Protected methods
 
 - (void)prepareUI {
     

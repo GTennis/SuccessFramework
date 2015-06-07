@@ -49,9 +49,7 @@
 - (void)showScreenActivityIndicator;
 - (void)hideScreenActivityIndicator;
 
-// Protected: for overriding
-
-// Common initialization of view controller
+// Protected methods
 - (void)commonInit;
 - (void)prepareUI;
 - (void)renderUI;

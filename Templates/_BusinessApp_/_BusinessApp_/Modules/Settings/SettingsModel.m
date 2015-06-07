@@ -29,6 +29,8 @@
 
 @implementation SettingsModel
 
+#pragma mark - Public methods
+
 - (void)setLanguageEnglish {
     
     [self.settingsManager setLanguageEnglish];

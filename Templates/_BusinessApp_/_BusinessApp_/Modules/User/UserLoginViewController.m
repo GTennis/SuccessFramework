@@ -64,7 +64,7 @@
     [self.keyboardControls.activeField resignFirstResponder];
 }
 
-#pragma mark - Base methods
+#pragma mark - Protected methods
 
 - (void)commonInit {
     

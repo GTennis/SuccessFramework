@@ -30,12 +30,16 @@
 
 @implementation UserLoginModel
 
+#pragma mark - Protected methods
+
 - (void)commonInit {
     
     [super commonInit];
     
     _user = [[UserObject alloc] init];
 }
+
+#pragma mark - Public
 
 - (BOOL)isValidData {
     

@@ -59,6 +59,30 @@
     [self prepareUI];
 }
 
+#pragma mark - Protected methods
+
+- (void)commonInit {
+    
+    [super commonInit];
+    
+    _sendEmailCommand = [[SendEmailCommand alloc] initWithViewController:self subject:kContactsViewControllerEmailSubject message:kContactsViewControllerEmailMessage recipients:kContactsViewControllerRecipients];
+    _phoneCallCommand = [[PhoneCallCommand alloc] initWithPhoneNumberString:kContactsViewControllerPhoneNumber];
+}
+
+- (void)prepareUI {
+    
+    [super prepareUI];
+    
+    // ...
+}
+
+- (void)renderUI {
+    
+    [self renderUI];
+    
+    // ...
+}
+
 #pragma mark - IBActions
 
 - (IBAction)emailPressed:(UIButton *)sender {
@@ -91,30 +115,6 @@
         GMAlertView *alertView = [[GMAlertView alloc] initWithViewController:self title:nil message:error.localizedDescription cancelButtonTitle:GMLocalizedString(kContactsViewControllerOkKey) otherButtonTitles:nil];
         [alertView show];
     }
-}
-
-#pragma mark - Base methods
-
-- (void)commonInit {
-    
-    [super commonInit];
-    
-    _sendEmailCommand = [[SendEmailCommand alloc] initWithViewController:self subject:kContactsViewControllerEmailSubject message:kContactsViewControllerEmailMessage recipients:kContactsViewControllerRecipients];
-    _phoneCallCommand = [[PhoneCallCommand alloc] initWithPhoneNumberString:kContactsViewControllerPhoneNumber];
-}
-
-- (void)prepareUI {
-    
-    [super prepareUI];
-    
-    // ...
-}
-
-- (void)renderUI {
-    
-    [self renderUI];
-    
-    // ...
 }
 
 @end

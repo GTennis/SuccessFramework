@@ -46,7 +46,7 @@
     [self.analyticsManager logScreen:kAnalyticsManagerScreenUserProfile];
 }
 
-#pragma mark - Base methods
+#pragma mark - Protected methods
 
 - (void)commonInit {
     

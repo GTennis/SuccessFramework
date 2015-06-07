@@ -46,7 +46,7 @@
     [self.analyticsManager logScreen:kAnalyticsManagerScreenUserForgotPassword];
 }
 
-#pragma mark - Base methods
+#pragma mark - Protected methods
 
 - (void)commonInit {
     

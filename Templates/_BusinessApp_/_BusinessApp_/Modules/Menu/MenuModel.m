@@ -43,6 +43,8 @@
     [self.userManager removeServiceObserver:self];
 }
 
+#pragma mark - Protected methods
+
 - (void)commonInit {
     
     [super commonInit];

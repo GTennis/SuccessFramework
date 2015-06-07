@@ -29,6 +29,13 @@
 
 @implementation PhotoDetailsModel
 
+#pragma mark - Protected methods
+
+- (void)commonInit {
+    
+    [super commonInit];
+}
+
 - (void)willStartModelLoading:(Callback)callback {
     
     // Passed parameters when creating viewControllers, are injected as context to viewController and its model in viewControllerFactory

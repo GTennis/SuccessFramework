@@ -186,7 +186,7 @@
     [_crashManager logScreenAction:NSStringFromClass([self class])];
 }
 
-#pragma mark - Base methods
+#pragma mark - Protected methods
 
 // These methods are the main custom methods for initialing custom objects (commonInit), updating static UI (prepareUI), loading data (loadModel) and updating with data (renderUI)
 

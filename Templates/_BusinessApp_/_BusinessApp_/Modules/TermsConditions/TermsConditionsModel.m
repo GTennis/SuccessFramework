@@ -29,6 +29,8 @@
 
 @implementation TermsConditionsModel
 
+#pragma mark - Public methods
+
 - (NSURLRequest *)urlRequest {
     
     return [NSURLRequest requestWithURL:[NSURL URLWithString:@"https://help.github.com/articles/github-terms-of-service/"]];

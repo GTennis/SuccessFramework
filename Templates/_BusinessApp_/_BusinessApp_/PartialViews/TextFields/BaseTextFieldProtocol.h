@@ -27,8 +27,8 @@
 
 typedef NS_ENUM(NSInteger, TextFieldStateType) {
     
-    AucTextFieldStateNormal,
-    AucTextFieldStateValueMissing
+    kTextFieldStateNormal,
+    kTextFieldStateValueMissing
 };
 
 typedef NS_ENUM(NSInteger, TextFieldPosition) {

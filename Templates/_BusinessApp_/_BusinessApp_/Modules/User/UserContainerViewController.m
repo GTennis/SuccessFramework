@@ -81,7 +81,7 @@
     [self transitionWithNextViewController:_userForgotPasswordVC animated:animated];
 }
 
-#pragma mark - Base methods
+#pragma mark - Protected methods
 
 - (void)commonInit {
     

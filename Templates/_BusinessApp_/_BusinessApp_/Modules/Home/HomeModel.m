@@ -29,6 +29,13 @@
 
 @implementation HomeModel
 
+#pragma mark - Protected methods
+
+- (void)commonInit {
+    
+    [super commonInit];
+}
+
 - (void)willStartModelLoading:(Callback)callback {
     
     [self.backendAPIClient getTopImagesWithTag:nil callback:callback];

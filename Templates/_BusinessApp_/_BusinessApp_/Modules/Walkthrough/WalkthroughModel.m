@@ -29,6 +29,13 @@
 
 @implementation WalkthroughModel
 
+#pragma mark - Protected methods
+
+- (void)commonInit {
+    
+    [super commonInit];
+}
+
 - (void)willStartModelLoading:(Callback)callback {
     
     // Setting will be marked when the model will load for the first time

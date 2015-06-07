@@ -153,7 +153,7 @@
     // Dispose of any resources that can be recreated.
 }
 
-#pragma mark - Protected: for overriding
+#pragma mark - Protected methods
 
 - (void)commonInit {
     

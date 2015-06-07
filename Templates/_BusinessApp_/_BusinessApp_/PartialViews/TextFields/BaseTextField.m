@@ -175,8 +175,8 @@
     
     [super setText:text];
     
-    if (self.fieldState == AucTextFieldStateValueMissing && text.length > 0) {
-        self.fieldState = AucTextFieldStateNormal;
+    if (self.fieldState == kTextFieldStateValueMissing && text.length > 0) {
+        self.fieldState = kTextFieldStateNormal;
     }
 }
 
@@ -255,11 +255,11 @@
     
     switch (fieldState) {
             
-        case AucTextFieldStateNormal:
+        case kTextFieldStateNormal:
             [self setStyleNormal];
             break;
             
-        case AucTextFieldStateValueMissing:
+        case kTextFieldStateValueMissing:
             [self setStyleValueMissing];
             break;
     }
@@ -306,21 +306,21 @@
         
         if (!self.text.length) {
             
-            self.fieldState = AucTextFieldStateValueMissing;
+            self.fieldState = kTextFieldStateValueMissing;
         }
     }
 }
 
 - (void)resetValidatedValues {
     
-    self.fieldState = AucTextFieldStateNormal;
+    self.fieldState = kTextFieldStateNormal;
 }
 
 - (void)textChanged:(UITextField *)textField {
     
-    if (self.fieldState == AucTextFieldStateValueMissing && textField.text.length > 0) {
+    if (self.fieldState == kTextFieldStateValueMissing && textField.text.length > 0) {
         
-        self.fieldState = AucTextFieldStateNormal;
+        self.fieldState = kTextFieldStateNormal;
     }
 }
 

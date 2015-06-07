@@ -45,7 +45,7 @@
     [self prepareUI];
 }
 
-#pragma mark - Base methods
+#pragma mark - Protected methods
 
 - (void)commonInit {
     
