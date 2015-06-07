@@ -722,9 +722,24 @@ static UIColor *kTWDefaultMessageBarStyleSheetInfoStrokeColor = nil;
 
 #pragma mark - Helpers
 
-- (CGRect)orientFrame:(CGRect)frame
+// Original method
+/*- (CGRect)orientFrame:(CGRect)frame
 {
     if (UIDeviceOrientationIsLandscape([UIDevice currentDevice].orientation) || UIDeviceOrientationIsLandscape([UIApplication sharedApplication].statusBarOrientation))
+    {
+        frame = CGRectMake(frame.origin.x, frame.origin.y, frame.size.height, frame.size.width);
+    }
+    return frame;
+}*/
+
+// Using fix for iPad from here: https://github.com/terryworona/TWMessageBarManager/issues/59
+
+- (CGRect)orientFrame:(CGRect)frame {
+    
+    NSString *systemVersion = [UIDevice currentDevice].systemVersion;
+    NSUInteger systemInt = [systemVersion intValue];
+    
+    if ( (UIDeviceOrientationIsLandscape([UIDevice currentDevice].orientation) || UIDeviceOrientationIsLandscape([UIApplication sharedApplication].statusBarOrientation)) && systemInt < 8 )
     {
         frame = CGRectMake(frame.origin.x, frame.origin.y, frame.size.height, frame.size.width);
     }
