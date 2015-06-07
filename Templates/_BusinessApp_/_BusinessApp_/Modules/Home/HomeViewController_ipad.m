@@ -28,6 +28,7 @@
 #import "HomeViewController_ipad.h"
 
 #define kHomeListCellSizeIpad CGSizeMake(762.0f, 704.0f)
+#define kHomeListCellMarginIpad 10.0f
 #define kHomeListCellNibNameIpad @"HomeListItemView_ipad"
 
 @implementation HomeViewController_ipad
@@ -44,6 +45,28 @@
 - (CGSize)collectionViewCellSize {
     
     return kHomeListCellSizeIpad;
+}
+
+- (void)scrollViewWillEndDragging:(UIScrollView *)scrollView withVelocity:(CGPoint)velocity targetContentOffset:(inout CGPoint *)targetContentOffset
+{
+    float pageWidth = kHomeListCellSizeIpad.width + kHomeListCellMarginIpad;
+    
+    float currentOffset = scrollView.contentOffset.x;
+    float targetOffset = targetContentOffset->x;
+    float newTargetOffset = 0;
+    
+    if (targetOffset > currentOffset)
+        newTargetOffset = ceilf(currentOffset / pageWidth) * pageWidth;
+    else
+        newTargetOffset = floorf(currentOffset / pageWidth) * pageWidth;
+    
+    if (newTargetOffset < 0)
+        newTargetOffset = 0;
+    else if (newTargetOffset > scrollView.contentSize.width)
+        newTargetOffset = scrollView.contentSize.width;
+    
+    targetContentOffset->x = currentOffset;
+    [scrollView setContentOffset:CGPointMake(newTargetOffset, 0) animated:YES];
 }
 
 @end

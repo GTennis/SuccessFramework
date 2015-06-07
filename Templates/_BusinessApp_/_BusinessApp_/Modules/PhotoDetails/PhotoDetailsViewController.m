@@ -109,7 +109,7 @@
         
         [weakSelf.messageBarManager showMessageWithTitle:GMLocalizedString(@"Added") description:GMLocalizedString(@"This photo was added to favorites")
                                                     type:MessageBarMessageTypeInfo
-                                                duration:5.0
+                                                duration:1.5f
                                                 callback:^{
                                                     
                                                     // ...

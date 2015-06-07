@@ -26,11 +26,10 @@
 //
 
 #import "BaseViewController.h"
+#import "HomeModel.h"
 #import "HomeListItemView.h"
 
 #define kHomeListItemCellReusableIdentifier @"HomeListItemCellIdentifier"
-
-@class HomeModel;
 
 @interface HomeViewController : BaseViewController <UICollectionViewDataSource, UICollectionViewDelegate, HomeListItemViewDelegate>
 

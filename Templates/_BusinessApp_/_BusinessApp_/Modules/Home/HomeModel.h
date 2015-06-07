@@ -26,9 +26,7 @@
 //
 
 #import "BaseModel.h"
-
-@class ImagesObject;
-@class ImageObject;
+#import "ImagesObject.h"
 
 @interface HomeModel : BaseModel
 

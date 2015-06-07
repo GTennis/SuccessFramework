@@ -26,7 +26,6 @@
 //
 
 #import "HomeViewController.h"
-#import "HomeModel.h"
 #import "ImagesObject.h"
 
 #define kHomeViewControllerTitle @"Home"
@@ -90,7 +89,7 @@
     if (_model.images.list.count > 0) {
         
         //_refreshButtonWhenListIsEmpty.hidden = YES;
-        //_collectionView.hidden = NO;
+        _collectionView.hidden = NO;
         
         // Reload
         [self.collectionView reloadData];
@@ -98,7 +97,7 @@
     } else {
         
         //_refreshButtonWhenListIsEmpty.hidden = NO;
-        //_collectionView.hidden = YES;
+        _collectionView.hidden = YES;
     }
 }
 
