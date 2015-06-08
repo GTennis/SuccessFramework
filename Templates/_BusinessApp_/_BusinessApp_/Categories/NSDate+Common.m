@@ -51,7 +51,9 @@ static NSDateFormatter *_dateFormatterForParsingDates = nil;
         // Therefore manually setting time zone to 0
         _dateFormatterForParsingDates.TimeZone = [NSTimeZone timeZoneForSecondsFromGMT:0];
         
-        // No need to set locale for parsing dates
+        // Need to set this workaround. Otherwise parsing date from string (dateFromString) will return nil if user has turned off 24-Hour time in Time and Date settings.
+        // Solution used from: http://stackoverflow.com/questions/6613110/what-is-the-best-way-to-deal-with-the-nsdateformatter-locale-feature
+        _dateFormatterForParsingDates.locale = [[NSLocale alloc] initWithLocaleIdentifier:@"en_US_POSIX"];
     }
     
     if (!_dateFormatterForViewingDates) {
@@ -75,7 +77,9 @@ static NSDateFormatter *_dateFormatterForParsingDates = nil;
         // Therefore manually setting time zone to 0
         _dateFormatterForParsingDates.TimeZone = [NSTimeZone timeZoneForSecondsFromGMT:0];
         
-        // No need to set locale for parsing dates
+        // Need to set this workaround. Otherwise parsing date from string (dateFromString) will return nil if user has turned off 24-Hour time in Time and Date settings.
+        // Solution used from: http://stackoverflow.com/questions/6613110/what-is-the-best-way-to-deal-with-the-nsdateformatter-locale-feature
+        _dateFormatterForParsingDates.locale = [[NSLocale alloc] initWithLocaleIdentifier:@"en_US_POSIX"];
     }
     
     if (!_dateFormatterForViewingDates) {
@@ -261,7 +265,6 @@ static NSDateFormatter *_dateFormatterForParsingDates = nil;
     [df setDateFormat:kDateFormatForParsingDates];
     [df setTimeZone:[NSTimeZone timeZoneForSecondsFromGMT:0]];
     NSDate *result = [df dateFromString: dateString];
-    
     
     return result;
 }
