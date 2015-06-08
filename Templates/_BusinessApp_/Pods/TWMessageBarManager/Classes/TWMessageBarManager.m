@@ -535,7 +535,15 @@ static UIColor *kTWDefaultMessageBarStyleSheetInfoStrokeColor = nil;
         {
             if ([styleSheet respondsToSelector:@selector(iconImageForMessageType:)])
             {
-                [[styleSheet iconImageForMessageType:self.messageType] drawInRect:CGRectMake(xOffset, yOffset, kTWMessageViewIconSize, kTWMessageViewIconSize)];
+                // Original line
+                //[[styleSheet iconImageForMessageType:self.messageType] drawInRect:CGRectMake(xOffset, yOffset, kTWMessageViewIconSize, kTWMessageViewIconSize)];
+                
+                // Gytenis 07.05.15: icon's width and height will be adjusted according image
+                UIImage *image = [styleSheet iconImageForMessageType:self.messageType];
+                UIImageView *imageView = [[UIImageView alloc] initWithImage:image];
+                [imageView sizeToFit];
+                
+                [image drawInRect:CGRectMake(xOffset, yOffset, imageView.bounds.size.width, imageView.bounds.size.height)];
             }
         }
         CGContextRestoreGState(context);
