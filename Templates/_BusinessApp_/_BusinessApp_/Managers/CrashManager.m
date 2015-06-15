@@ -99,7 +99,7 @@
     return kCrashlyticsMaxNumberOfActions;
 }
 
-#pragma mark - Helpers
+#pragma mark - Private
 
 // Allows to log any custom action. Stores history.
 - (void)logScreenAction:(NSString *)actionString {

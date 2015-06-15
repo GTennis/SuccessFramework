@@ -251,7 +251,7 @@
     return viewController;
 }
 
-#pragma mark - Helpers
+#pragma mark - Private
 
 // For creating view controllers with default dependencies
 - (BaseViewController *)viewControllerWithClass:(Class)class context:(id)context {

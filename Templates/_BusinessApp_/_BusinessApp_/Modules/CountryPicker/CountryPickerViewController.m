@@ -45,7 +45,7 @@
     [self prepareUI];
 }
 
-#pragma mark - Protected methods
+#pragma mark - Protected
 
 - (void)commonInit {
     
@@ -95,7 +95,7 @@
     [_delegate didSelectCountryCode:chosenCountry.countryCode];
 }
 
-#pragma mark - Helpers
+#pragma mark - Private
 
 - (void)close {
     

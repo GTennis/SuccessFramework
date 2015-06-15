@@ -64,7 +64,7 @@
     [self.keyboardControls.activeField resignFirstResponder];
 }
 
-#pragma mark - Protected methods
+#pragma mark - Protected
 
 - (void)commonInit {
     
@@ -173,7 +173,7 @@
     [self prepareUI];
 }
 
-#pragma mark - Helpers
+#pragma mark - Private
 
 - (void)configureScrollView {
     

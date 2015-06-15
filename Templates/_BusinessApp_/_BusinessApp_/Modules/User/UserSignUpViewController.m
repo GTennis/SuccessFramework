@@ -86,7 +86,7 @@
     [_salutationTextField becomeFirstResponder];
 }
 
-#pragma mark - Protected methods
+#pragma mark - Protected
 
 - (void)commonInit {
     
@@ -204,7 +204,7 @@
     _countryCodeTextField.text = countryCode;
 }
 
-#pragma mark - Helpers
+#pragma mark - Private
 
 - (void)configureScrollView {
     

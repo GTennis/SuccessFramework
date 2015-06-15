@@ -222,7 +222,7 @@
     [containerView addConstraints:constraints];
 }
 
-#pragma mark - Helpers
+#pragma mark - Private
 
 - (void)prepareViewForAutolayout {
     

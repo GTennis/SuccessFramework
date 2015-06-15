@@ -111,7 +111,7 @@
     [productionButton removeFromSuperview];
 }
 
-#pragma mark - Helpers
+#pragma mark - Private
 
 - (void)changeNetworkEnvironment:(NetworkEnvironmentType)environment {
     

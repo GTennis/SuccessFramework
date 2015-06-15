@@ -156,7 +156,7 @@
     }
 }
 
-#pragma mark - Helpers
+#pragma mark - Private
 
 - (void)applyAttributesWithSubstring:(NSString *)substring attributes:(NSDictionary *)attributes {
     

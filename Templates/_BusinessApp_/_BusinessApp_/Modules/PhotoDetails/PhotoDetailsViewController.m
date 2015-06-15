@@ -56,7 +56,7 @@
     [self.analyticsManager logScreen:kAnalyticsManagerScreenPhotoDetails];
 }
 
-#pragma mark - Protected methods
+#pragma mark - Protected
 
 - (void)prepareUI {
     

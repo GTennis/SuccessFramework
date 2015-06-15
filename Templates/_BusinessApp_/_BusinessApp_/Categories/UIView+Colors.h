@@ -34,7 +34,7 @@
 @property (nonatomic, strong) NSString *labelTitleColorName;
 @property (nonatomic, strong) NSString *buttonTitleColorName;
 
-// Helpers
+// Private
 - (BOOL)color:(UIColor *)color isEqualToColor:(UIColor *)otherColor;
 - (UIImage *)imageWithColor:(UIColor *)color;
 

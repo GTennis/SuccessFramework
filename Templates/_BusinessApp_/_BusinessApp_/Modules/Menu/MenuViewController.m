@@ -50,7 +50,7 @@
     [self loadModel];
 }
 
-#pragma mark - Protected methods
+#pragma mark - Protected
 
 - (void)prepareUI {
     
@@ -153,7 +153,7 @@
     [self loadModel];
 }
 
-#pragma mark - Helpers
+#pragma mark - Private
 
 - (NSString *)titleForMenuSection:(NSInteger)section row:(NSInteger)row {
     

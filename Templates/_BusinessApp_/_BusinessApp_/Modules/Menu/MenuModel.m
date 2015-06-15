@@ -43,7 +43,7 @@
     [self.userManager removeServiceObserver:self];
 }
 
-#pragma mark - Protected methods
+#pragma mark - Protected
 
 - (void)commonInit {
     
@@ -106,7 +106,7 @@
 
 // ...
 
-#pragma mark - Helpers
+#pragma mark - Private
 
 // For mocking in unit tests
 - (id<ViewControllerFactoryProtocol>)viewControllerFactory {

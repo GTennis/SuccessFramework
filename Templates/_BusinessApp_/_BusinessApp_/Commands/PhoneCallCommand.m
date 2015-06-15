@@ -78,7 +78,7 @@
     }
 }
 
-#pragma mark - Helpers
+#pragma mark - Private
 
 - (NSURL *)phoneNumberUrl {
     

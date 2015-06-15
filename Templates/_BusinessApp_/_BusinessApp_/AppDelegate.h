@@ -38,7 +38,6 @@
 @property (strong, nonatomic) UIWindow *window;
 @property (strong, nonatomic) UINavigationController *navigationController;
 @property (strong, nonatomic) MenuNavigator *menuNavigator;
-@property (strong, nonatomic) UIViewController *rootViewController;
 
 @property (strong, nonatomic) id<CrashManagerProtocol> crashManager;
 @property (strong, nonatomic) id<AnalyticsManagerProtocol> analyticsManager;

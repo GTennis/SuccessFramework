@@ -29,7 +29,7 @@
 
 @implementation WalkthroughModel
 
-#pragma mark - Protected methods
+#pragma mark - Protected
 
 - (void)commonInit {
     

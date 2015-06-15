@@ -70,7 +70,7 @@
     // Dispose of any resources that can be recreated.
 }
 
-#pragma mark - Protected methods
+#pragma mark - Protected
 
 - (void)prepareUI {
     
@@ -181,6 +181,6 @@
     [self loadModel];
 }
 
-#pragma mark - Helpers
+#pragma mark - Private
 
 @end

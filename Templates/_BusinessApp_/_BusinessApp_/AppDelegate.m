@@ -83,7 +83,8 @@
     _crashManager = [REGISTRY getObject:[CrashManager class]];
     _messageBarManager = [REGISTRY getObject:[MessageBarManager class]];
     
-    [self checkAndOverrideGeneralSettingsLanguageIfNotSupported];
+    // Set default language
+    [self setDefaultLanguage];
     
     // Creating and registering shared factory
     ViewControllerFactory *viewControllerFactory = [[ViewControllerFactory alloc] init];
@@ -249,6 +250,26 @@
     [self proceedToTheApp];
 }
 
+#pragma mark - iVersionDelegate
+
+- (void)iVersionDidDetectNewVersion:(NSString *)version details:(NSString *)versionDetails {
+    
+    [_messageBarManager showMessageWithTitle:GMLocalizedString(@"New app version is available") description:GMLocalizedString(@"New app version is available")
+                                        type:MessageBarMessageTypeInfo
+                                    duration:5.0
+                                    callback:^{
+                                        
+                                        [iVersion sharedInstance].lastChecked = [NSDate date];
+                                        [iVersion sharedInstance].lastReminded = [NSDate date];
+                                        [[iVersion sharedInstance] openAppPageInAppStore];
+                                    }];
+}
+
+- (BOOL)iVersionShouldDisplayNewVersion:(NSString *)version details:(NSString *)versionDetails {
+    
+    return YES;
+}
+
 #pragma mark - Force to update
 
 // Method performs request to the backend and passes current app version. Backend returns bool indicating app should be updated or not. If yes then user is shown alert, navigated to app store for update and app is closed. Sometimes we need such functionality because of:
@@ -271,7 +292,7 @@
             
             DLog(@"App needs update...");
             
-            GMAlertView *alertView = [[GMAlertView alloc] initWithViewController:_rootViewController title:nil message:GMLocalizedString(@"AppNeedsUpdate") cancelButtonTitle:GMLocalizedString(@"Update") otherButtonTitles:nil];
+            GMAlertView *alertView = [[GMAlertView alloc] initWithViewController:self.window.rootViewController title:nil message:GMLocalizedString(@"AppNeedsUpdate") cancelButtonTitle:GMLocalizedString(@"Update") otherButtonTitles:nil];
             
             alertView.completion = ^(BOOL firstButtonPressed, NSInteger buttonIndex) {
                 
@@ -307,27 +328,7 @@
     exit(EXIT_SUCCESS);
 }
 
-#pragma mark - iVersionDelegate
-
-- (void)iVersionDidDetectNewVersion:(NSString *)version details:(NSString *)versionDetails {
-    
-    [_messageBarManager showMessageWithTitle:GMLocalizedString(@"New app version is available") description:GMLocalizedString(@"New app version is available")
-                                        type:MessageBarMessageTypeInfo
-                                    duration:5.0
-                                    callback:^{
-                                        
-                                        [iVersion sharedInstance].lastChecked = [NSDate date];
-                                        [iVersion sharedInstance].lastReminded = [NSDate date];
-                                        [[iVersion sharedInstance] openAppPageInAppStore];
-                                    }];
-}
-
-- (BOOL)iVersionShouldDisplayNewVersion:(NSString *)version details:(NSString *)versionDetails {
-    
-    return YES;
-}
-
-#pragma mark - Helpers
+#pragma mark - Private
 
 - (UINavigationController *)navigationController {
     
@@ -383,7 +384,7 @@
 }
 
 // Currently the app supports 2 languages only - "en" and "de". If user has selected other language than those two then "en" will be set as default
-- (void)checkAndOverrideGeneralSettingsLanguageIfNotSupported {
+- (void)setDefaultLanguage {
     
     SettingsManager *settingsManager = [REGISTRY getObject:[SettingsManager class]];
     

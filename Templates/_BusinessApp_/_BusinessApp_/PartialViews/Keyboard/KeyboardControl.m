@@ -84,7 +84,7 @@
     return self;
 }
 
-#pragma mark - Helpers
+#pragma mark - Private
 
 - (void)setFields:(NSArray *)fields {
     

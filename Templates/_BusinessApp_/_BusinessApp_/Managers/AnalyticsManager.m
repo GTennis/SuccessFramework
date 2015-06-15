@@ -127,7 +127,7 @@
  }
  }*/
 
-#pragma mark - Helpers
+#pragma mark - Private
 
 - (void)logEventWithCategory:(NSString *)category action:(NSString *)action title:(NSString *)title value:(NSNumber *)value {
     

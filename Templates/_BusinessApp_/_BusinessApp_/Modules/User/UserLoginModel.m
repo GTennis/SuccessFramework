@@ -30,7 +30,7 @@
 
 @implementation UserLoginModel
 
-#pragma mark - Protected methods
+#pragma mark - Protected
 
 - (void)commonInit {
     

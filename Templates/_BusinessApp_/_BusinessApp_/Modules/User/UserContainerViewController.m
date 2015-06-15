@@ -81,7 +81,7 @@
     [self transitionWithNextViewController:_userForgotPasswordVC animated:animated];
 }
 
-#pragma mark - Protected methods
+#pragma mark - Protected
 
 - (void)commonInit {
     
@@ -180,7 +180,7 @@
     [self prepareUI];
 }
 
-#pragma mark - Helpers
+#pragma mark - Private
 
 - (void)transitionWithNextViewController:(UIViewController *)nextViewController animated:(BOOL)animated {
     

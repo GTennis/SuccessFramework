@@ -223,7 +223,7 @@
     }
 }
 
-#pragma mark - Helpers
+#pragma mark - Private
 
 - (void)cancelAllRequests:(NSNotification *)networkRequestsCancellationNotification {
     
