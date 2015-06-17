@@ -34,7 +34,7 @@
 // Web root environment auto selection
 #ifdef DEBUG
 
-    #define BASE_URL DEVELOPMENT_BASE_URL // For internal testingTS_APPLICATION
+    #define BASE_URL DEVELOPMENT_BASE_URL // For internal testing
 
 #else
 

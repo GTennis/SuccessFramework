@@ -60,10 +60,9 @@
             self.requestSerializer = [AFJSONRequestSerializer serializer];
             [self.requestSerializer setValue:@"application/json" forHTTPHeaderField:@"Accept"];
             [self.requestSerializer setHTTPShouldHandleCookies:NO];
-            
-#ifndef RELEASE_BUILD
-            self.securityPolicy.allowInvalidCertificates = YES;
-#endif
+
+            // For internal local https environment with self signed certificate
+            //self.securityPolicy.allowInvalidCertificates = YES;
         }
     }
     

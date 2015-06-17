@@ -41,7 +41,7 @@
 // Should be overwritten in subclass. If set to YES, cancels all other API client's requests, before performing the called one
 - (BOOL)shouldCancelAllOtherRequests;
 
-// Should be overwritten in subclass. It set to YES, cancels its own requests when receives global cancel notification
+// Could be overwritten in subclass. It set to YES, cancels its own requests when receives global cancel notification
 - (BOOL)shouldCancelSelfRequests;
 
 // Increments and manages retries for the passed failCounter and retrySelector
