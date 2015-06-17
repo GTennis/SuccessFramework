@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.iPad.XIB" version="3.0" toolsVersion="6254" systemVersion="14B25" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.iPad.XIB" version="3.0" toolsVersion="6751" systemVersion="13F1077" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
@@ -69,22 +69,14 @@
                                     <action selector="cellPressed:" destination="zgg-1H-Wrg" eventType="touchUpInside" id="I1t-Xc-tBh"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TODO: downloaded demo image is too large. Therefore it's resized when scrolling but this causes lag." lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aX4-MV-YFu" customClass="NormalLabel">
-                                <rect key="frame" x="14" y="632" width="270" height="54"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="agR-6R-bM9" firstAttribute="leading" secondItem="aMK-si-rmR" secondAttribute="leading" id="5lv-KU-t8p"/>
                             <constraint firstAttribute="bottom" secondItem="agR-6R-bM9" secondAttribute="bottom" id="E77-Tp-lhY"/>
-                            <constraint firstItem="aX4-MV-YFu" firstAttribute="leading" secondItem="aMK-si-rmR" secondAttribute="leading" constant="14" id="I87-WG-7x4"/>
                             <constraint firstAttribute="trailing" secondItem="agR-6R-bM9" secondAttribute="trailing" id="MlF-8j-gft"/>
                             <constraint firstAttribute="trailing" secondItem="hKg-a2-xHE" secondAttribute="trailing" id="NQq-vx-o8N"/>
                             <constraint firstItem="hKg-a2-xHE" firstAttribute="leading" secondItem="aMK-si-rmR" secondAttribute="leading" constant="-18" id="RN3-ql-d9w"/>
-                            <constraint firstAttribute="bottom" secondItem="aX4-MV-YFu" secondAttribute="bottom" constant="18" id="VI1-Zk-c8R"/>
                             <constraint firstAttribute="centerX" secondItem="ZFb-4q-fxe" secondAttribute="centerX" id="dMJ-oH-CUr"/>
                             <constraint firstItem="9zP-Xo-eOl" firstAttribute="leading" secondItem="aMK-si-rmR" secondAttribute="leading" constant="19" id="gQC-VJ-s3h"/>
                             <constraint firstAttribute="centerY" secondItem="ZFb-4q-fxe" secondAttribute="centerY" id="n1I-Wn-1tM"/>
@@ -92,7 +84,6 @@
                             <constraint firstItem="hKg-a2-xHE" firstAttribute="top" secondItem="aMK-si-rmR" secondAttribute="top" id="rEv-Gk-Ryr"/>
                             <constraint firstItem="9zP-Xo-eOl" firstAttribute="top" secondItem="aMK-si-rmR" secondAttribute="top" constant="23" id="rPb-au-uI5"/>
                             <constraint firstAttribute="bottom" secondItem="hKg-a2-xHE" secondAttribute="bottom" id="vcP-ci-0gf"/>
-                            <constraint firstAttribute="trailing" secondItem="aX4-MV-YFu" secondAttribute="trailing" constant="478" id="wiS-aO-Lnp"/>
                         </constraints>
                     </view>
                 </subviews>

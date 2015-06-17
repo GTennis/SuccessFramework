@@ -47,7 +47,7 @@
     return kHomeListCellSizeIpad;
 }
 
-- (void)scrollViewWillEndDragging:(UIScrollView *)scrollView withVelocity:(CGPoint)velocity targetContentOffset:(inout CGPoint *)targetContentOffset
+/*- (void)scrollViewWillEndDragging:(UIScrollView *)scrollView withVelocity:(CGPoint)velocity targetContentOffset:(inout CGPoint *)targetContentOffset
 {
     float pageWidth = kHomeListCellSizeIpad.width + kHomeListCellMarginIpad;
     
@@ -67,6 +67,6 @@
     
     targetContentOffset->x = currentOffset;
     [scrollView setContentOffset:CGPointMake(newTargetOffset, 0) animated:YES];
-}
+}*/
 
 @end

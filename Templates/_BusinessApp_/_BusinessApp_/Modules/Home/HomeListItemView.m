@@ -46,6 +46,9 @@
     _titleLabel.text = image.title;
     _authorLabel.text = image.author;
     
+    // Clear previous image before downloading a new
+    _imageView.image = nil;
+    
     // Download image
     [ImageDownloader downloadImageWithUrl:image.imageUrl forImageView:_imageView loadingPlaceholder:kContentPlaceholderImage failedPlaceholder:kContentPlaceholderImage activityIndicatorView:_activityIndicatorView];
 }

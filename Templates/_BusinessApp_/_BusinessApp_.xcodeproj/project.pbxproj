@@ -543,6 +543,12 @@
 		31923AF81B1F6CD200C70D3B /* UITextView+Styling.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITextView+Styling.m"; sourceTree = "<group>"; };
 		31923AFA1B1F749900C70D3B /* UITextFieldStylingIvars.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UITextFieldStylingIvars.h; sourceTree = "<group>"; };
 		31923AFB1B1F749900C70D3B /* UITextFieldStylingIvars.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UITextFieldStylingIvars.m; sourceTree = "<group>"; };
+		31C7F1DC1B3170FA006D1571 /* 1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 1.jpg; sourceTree = "<group>"; };
+		31C7F1DD1B3170FA006D1571 /* 2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 2.jpg; sourceTree = "<group>"; };
+		31C7F1DE1B3170FA006D1571 /* 3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 3.jpg; sourceTree = "<group>"; };
+		31C7F1DF1B3170FA006D1571 /* 4.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 4.jpg; sourceTree = "<group>"; };
+		31C7F1E01B3170FA006D1571 /* 5.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 5.jpg; sourceTree = "<group>"; };
+		31C7F1E11B317D5F006D1571 /* flickrImages.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = flickrImages.json; sourceTree = "<group>"; };
 		31CB85291B14B50D00F827F7 /* CountryPickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CountryPickerViewController.h; sourceTree = "<group>"; };
 		31CB852A1B14B50E00F827F7 /* CountryPickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CountryPickerViewController.m; sourceTree = "<group>"; };
 		31CB852E1B14B53B00F827F7 /* CountryPickerViewController_iphone.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CountryPickerViewController_iphone.h; sourceTree = "<group>"; };
@@ -778,6 +784,7 @@
 		0FA62C5719CEFAD0002D3DDC /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				31C7F1D41B317073006D1571 /* LocalTestData */,
 				0FB3F47A19E52B0E0040E4D7 /* LocalizedImages */,
 				0FA62C5819CEFB52002D3DDC /* Fonts */,
 				0FA695B319BB9A720058A722 /* SystemImages.xcassets */,
@@ -1852,6 +1859,35 @@
 				31912E9F1B0CC9B6007C0C89 /* SendEmailCommand.m */,
 			);
 			path = Commands;
+			sourceTree = "<group>";
+		};
+		31C7F1D41B317073006D1571 /* LocalTestData */ = {
+			isa = PBXGroup;
+			children = (
+				31C7F1D51B3170B5006D1571 /* Images */,
+				31C7F1DB1B3170DA006D1571 /* Json */,
+			);
+			path = LocalTestData;
+			sourceTree = "<group>";
+		};
+		31C7F1D51B3170B5006D1571 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				31C7F1DC1B3170FA006D1571 /* 1.jpg */,
+				31C7F1DD1B3170FA006D1571 /* 2.jpg */,
+				31C7F1DE1B3170FA006D1571 /* 3.jpg */,
+				31C7F1DF1B3170FA006D1571 /* 4.jpg */,
+				31C7F1E01B3170FA006D1571 /* 5.jpg */,
+			);
+			path = Images;
+			sourceTree = "<group>";
+		};
+		31C7F1DB1B3170DA006D1571 /* Json */ = {
+			isa = PBXGroup;
+			children = (
+				31C7F1E11B317D5F006D1571 /* flickrImages.json */,
+			);
+			path = Json;
 			sourceTree = "<group>";
 		};
 		31CB85281B14B47700F827F7 /* Base */ = {

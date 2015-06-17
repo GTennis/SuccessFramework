@@ -88,7 +88,7 @@
     }
     
     // Perform request
-    [self GET:@"/flickrImages.json" parameters:paramsDic success:^(NSURLSessionDataTask *task, id responseObject) {
+    [self GET:@"/ws/v1/flickrImages.json" parameters:paramsDic success:^(NSURLSessionDataTask *task, id responseObject) {
         
         DLog(@"[%@]: getTopImagesWithTag success", [self class]);
         
