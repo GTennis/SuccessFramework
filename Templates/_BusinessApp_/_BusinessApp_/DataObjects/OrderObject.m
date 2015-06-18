@@ -52,14 +52,14 @@
         _currency = dict[kOrderCurrency];
         
         // Extract order items
-        NSArray *orders = dict[kOrderItemsKey];
-        NSMutableArray *resultList = [[NSMutableArray alloc] initWithCapacity:orders.count];
-        OrderObject *order = nil;
+        NSArray *list = dict[kOrderItemsKey];
+        NSMutableArray *resultList = [[NSMutableArray alloc] initWithCapacity:list.count];
+        OrderObject *item = nil;
         
-        for (NSDictionary *orderDic in orders) {
+        for (NSDictionary *itemDic in list) {
             
-            order = [[OrderObject alloc] initWithDict:orderDic];
-            [resultList addObject:order];
+            item = [[OrderObject alloc] initWithDict:itemDic];
+            [resultList addObject:item];
         }
         
         _list = (NSArray <OrderItemObject>*) resultList;

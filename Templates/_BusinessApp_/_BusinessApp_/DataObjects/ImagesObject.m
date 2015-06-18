@@ -36,14 +36,14 @@
     self = [self init];
     if (self && dict) {
         
-        NSArray *images = dict[kImagesKey];
-        NSMutableArray *resultList = [[NSMutableArray alloc] initWithCapacity:images.count];
-        ImageObject *image = nil;
+        NSArray *list = dict[kImagesKey];
+        NSMutableArray *resultList = [[NSMutableArray alloc] initWithCapacity:list.count];
+        ImageObject *item = nil;
         
-        for (NSDictionary *imageDic in images) {
+        for (NSDictionary *itemDic in list) {
             
-            image = [[ImageObject alloc] initWithDict:imageDic];
-            [resultList addObject:image];
+            item = [[ImageObject alloc] initWithDict:itemDic];
+            [resultList addObject:item];
         }
         
         _list = (NSArray <ImageObject>*) resultList;
