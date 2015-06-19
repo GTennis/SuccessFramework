@@ -1,9 +1,9 @@
 //
-//  AppSettingsNetworkOperation.h
+//  LanguageObject.h
 //  _BusinessApp_
 //
-//  Created by Gytenis Mikulėnas on 5/2/14.
-//  Copyright (c) 2015 Gytenis Mikulėnas
+//  Created by Gytenis Mikulenas on 19/06/15.
+//  Copyright (c) 2015 Gytenis Mikulėnas 
 //  https://github.com/GitTennis/SuccessFramework
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -25,8 +25,13 @@
 //  SOFTWARE. All rights reserved.
 //
 
-#import "BaseNetworkOperation.h"
+@interface LanguageObject : NSObject
 
-@interface AppSettingsNetworkOperation : BaseNetworkOperation
+#pragma mark - Public -
+
+@property (nonatomic, copy) NSString *shortName; // en, de
+@property (nonatomic, copy) NSString *longName;  // English, Deutsch
+
+- (id)initWithShortName:(NSString*)shortName withLongName:(NSString*)longName;
 
 @end

@@ -47,6 +47,8 @@
     _keyboardControls.delegate = nil;
 }
 
+#pragma mark - Public -
+
 - (id)initWithFields:(NSArray *)fields actionTitle:(NSString *)actionTitle {
     
     self = [super init];
@@ -58,7 +60,9 @@
     return self;
 }
 
-#pragma mark - Override
+#pragma mark - KeyboardControlProtocol -
+
+#pragma mark Override
 
 - (void)setActiveField:(UIView *)activeField {
     
@@ -73,7 +77,7 @@
     return _keyboardControls.activeField;
 }
 
-#pragma mark - BSKeyboardControlsDelegate
+#pragma mark - BSKeyboardControlsDelegate -
 
 - (void)keyboardControls:(BSKeyboardControls *)keyboardControls selectedField:(UIView *)field inDirection:(BSKeyboardControlsDirection)direction {
     

@@ -38,6 +38,8 @@
     return sharedInstance;
 }
 
+#pragma mark - Public -
+
 - (void)registerObject:(id)object {
     
     if (!_registeredObjects) {

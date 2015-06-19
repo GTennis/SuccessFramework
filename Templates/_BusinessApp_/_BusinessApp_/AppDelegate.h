@@ -35,10 +35,14 @@
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
+#pragma mark - Public -
+
+// Common
 @property (strong, nonatomic) UIWindow *window;
 @property (strong, nonatomic) UINavigationController *navigationController;
 @property (strong, nonatomic) MenuNavigator *menuNavigator;
 
+// Dependencies
 @property (strong, nonatomic) id<CrashManagerProtocol> crashManager;
 @property (strong, nonatomic) id<AnalyticsManagerProtocol> analyticsManager;
 @property (strong, nonatomic) id<UserManagerProtocol> userManager;

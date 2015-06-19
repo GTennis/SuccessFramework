@@ -52,7 +52,7 @@
     } completion:nil];
 }
 
-#pragma mark - IBOutlets
+#pragma mark - IBOutlets -
 
 - (IBAction)outsideContentViewTapPressed:(id)sender {
     

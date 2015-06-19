@@ -36,6 +36,8 @@
 @synthesize price = _price;
 @synthesize currency = _currency;
 
+#pragma mark - ParsableObject -
+
 - (instancetype)initWithDict:(NSDictionary *)dict {
     
     self = [self init];

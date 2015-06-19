@@ -55,16 +55,7 @@
     self.titleLabel.accessibilityIdentifier = labelName;
 }
 
-- (id)initWithFrame:(CGRect)frame {
-    
-    self = [super initWithFrame:frame];
-    if (self) {
-        // Initialization code
-    }
-    return self;
-}
-
-#pragma mark - Public
+#pragma mark - Public -
 
 - (void)showMenuButton {
     
@@ -85,7 +76,7 @@
     //[[UINavigationBar appearance] setBarTintColor:kColorGrayLight1];
 }
 
-#pragma mark - IBActions
+#pragma mark - IBActions -
 
 - (IBAction)contactsPressed:(id)sender {
     

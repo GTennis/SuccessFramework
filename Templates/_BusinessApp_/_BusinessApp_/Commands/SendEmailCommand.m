@@ -44,6 +44,8 @@
 
 @implementation SendEmailCommand
 
+#pragma mark - Public -
+
 - (instancetype)initWithViewController:(UIViewController *)viewController subject:(NSString *)subject message:(NSString *)message recipients:(NSArray *)recipients {
     
     self = [super init];
@@ -58,7 +60,7 @@
     return self;
 }
 
-#pragma mark - CommandProtocol
+#pragma mark - CommandProtocol -
 
 - (BOOL)canExecute:(NSError **)error {
     
@@ -109,7 +111,7 @@
     }
 }
 
-#pragma mark - MFMailComposeViewControllerDelegate
+#pragma mark - MFMailComposeViewControllerDelegate -
 
 - (void)mailComposeController:(MFMailComposeViewController *)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError *)error {
     

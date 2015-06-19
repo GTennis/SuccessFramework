@@ -60,6 +60,8 @@
     return self;
 }
 
+#pragma mark - Public -
+
 - (void)setPosition:(TextFieldPosition)position {
     
     _position = position;
@@ -90,6 +92,22 @@
             _hasMiddleSeparatorLine = YES;
             _hasBottomSeparatorLine = YES;
             
+            break;
+    }
+}
+
+- (void)setFieldState:(TextFieldStateType)fieldState {
+    
+    _fieldState = fieldState;
+    
+    switch (fieldState) {
+            
+        case kTextFieldStateNormal:
+            [self setStyleNormal];
+            break;
+            
+        case kTextFieldStateValueMissing:
+            [self setStyleValueMissing];
             break;
     }
 }
@@ -180,9 +198,7 @@
     }
 }
 
-#pragma mark - Private
-
-#pragma mark Customization
+#pragma mark - Protected -
 
 - (void)customize {
     
@@ -203,6 +219,8 @@
         self.layer.borderWidth = kTextFieldBorderWidth;
     }
 }
+
+#pragma mark - Private -
 
 - (void)customizeFloatingLabel {
     
@@ -247,23 +265,7 @@
     [self addTarget:self action:@selector(textChanged:) forControlEvents:UIControlEventEditingChanged];
 }
 
-#pragma mark StyleChanges
-
-- (void)setFieldState:(TextFieldStateType)fieldState {
-    
-    _fieldState = fieldState;
-    
-    switch (fieldState) {
-            
-        case kTextFieldStateNormal:
-            [self setStyleNormal];
-            break;
-            
-        case kTextFieldStateValueMissing:
-            [self setStyleValueMissing];
-            break;
-    }
-}
+#pragma mark Style change handling
 
 - (void)setStyleNormal {
     
@@ -298,7 +300,7 @@
     }
 }
 
-#pragma mark Changes observation
+#pragma mark Change observation
 
 - (void)validateValue {
     

@@ -29,7 +29,7 @@
 
 @implementation PhotoDetailsModel
 
-#pragma mark - Protected
+#pragma mark - Protected -
 
 - (void)commonInit {
     
@@ -47,6 +47,8 @@
     // Store data
     _image = (ImageObject *)data;
 }
+
+#pragma mark - Public -
 
 - (void)addToFavoritesWithCallback:(Callback)callback {
     

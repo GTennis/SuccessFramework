@@ -30,13 +30,11 @@
 
 @interface ConsoleLogViewController : BaseViewController <GMConsoleLoggerDelegate>
 
+#pragma mark - Public -
+
 @property (weak, nonatomic) IBOutlet UITextView *textView;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *textViewHeightConstraint;
 @property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
-
-- (IBAction)closePressed:(id)sender;
-- (IBAction)clearLogPressed:(id)sender;
-- (IBAction)reportPressed:(id)sender;
 
 @end

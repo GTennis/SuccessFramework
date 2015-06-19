@@ -29,15 +29,6 @@
 
 @implementation TableViewExampleCell_ipad
 
-- (id)initWithFrame:(CGRect)frame
-{
-    self = [super initWithFrame:frame];
-    if (self) {
-        // Initialization code
-    }
-    return self;
-}
-
 // Overrides base method
 + (CGFloat)heightForCell {
     

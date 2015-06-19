@@ -33,6 +33,8 @@
 @synthesize author = _author;
 @synthesize imageUrl = _imageUrl;
 
+#pragma mark - ParsableObject -
+
 - (instancetype)initWithDict:(NSDictionary *)dict {
     
     self = [self init];

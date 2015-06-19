@@ -38,8 +38,8 @@
 
 @implementation TableViewExampleCell
 
-- (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
-{
+- (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
+    
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
         // Initialization code
@@ -47,24 +47,21 @@
     return self;
 }
 
-- (void)awakeFromNib
-{
+- (void)awakeFromNib {
+    
     // Initialization code
     // ...
     
     // Do static customization
 }
 
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated
-{
+#pragma mark - Public -
+
+- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
+    
     [super setSelected:selected animated:animated];
 
     // Configure the view for the selected state
-}
-
-- (NSString *)reuseIdentifier {
-    
-    return kTableViewExampleCellIdentifier;
 }
 
 - (void)renderCellWithUser:(UserObject *)user {
@@ -74,6 +71,13 @@
     
     // Render
     _nameLabel.text = _user.firstName;
+}
+
+#pragma mark - Protected -
+
+- (NSString *)reuseIdentifier {
+    
+    return kTableViewExampleCellIdentifier;
 }
 
 @end

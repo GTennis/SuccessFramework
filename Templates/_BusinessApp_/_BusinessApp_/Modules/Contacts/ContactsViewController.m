@@ -59,7 +59,7 @@
     [self prepareUI];
 }
 
-#pragma mark - Protected
+#pragma mark - Protected -
 
 - (void)commonInit {
     
@@ -83,7 +83,7 @@
     // ...
 }
 
-#pragma mark - IBActions
+#pragma mark - IBActions -
 
 - (IBAction)emailPressed:(UIButton *)sender {
     

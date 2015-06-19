@@ -33,7 +33,7 @@
 
 @implementation MenuNavigator
 
-#pragma mark - MenuNavigatorProtocol
+#pragma mark - MenuNavigatorProtocol -
 
 - (instancetype)initWithMenuViewControler:(UIViewController *)menuViewController contentViewController:(UIViewController *)contentViewController {
     

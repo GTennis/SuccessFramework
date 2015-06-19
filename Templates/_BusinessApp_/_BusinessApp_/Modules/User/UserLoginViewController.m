@@ -54,6 +54,8 @@
     [self.analyticsManager logScreen:kAnalyticsManagerScreenUserLogin];
 }
 
+#pragma mark - Public -
+
 - (void)clearTextFields {
     
     [_model clearData];
@@ -64,7 +66,7 @@
     [self.keyboardControls.activeField resignFirstResponder];
 }
 
-#pragma mark - Protected
+#pragma mark - Protected -
 
 - (void)commonInit {
     
@@ -104,7 +106,14 @@
     [_model updateModelWithData:user];
 }
 
-#pragma mark - IBActions
+#pragma mark Language change handling
+
+- (void)notificationLocalizationHasChanged {
+    
+    [self prepareUI];
+}
+
+#pragma mark - IBActions -
 
 - (IBAction)loginPressed:(id)sender {
     
@@ -159,21 +168,14 @@
     }
 }
 
-#pragma mark - KeyboardControlDelegate
+#pragma mark - KeyboardControlDelegate -
 
 - (void)didPressGo {
     
     [self loginPressed:nil];
 }
 
-#pragma mark - Handling language change
-
-- (void)notificationLocalizationHasChanged {
-    
-    [self prepareUI];
-}
-
-#pragma mark - Private
+#pragma mark - Private -
 
 - (void)configureScrollView {
     

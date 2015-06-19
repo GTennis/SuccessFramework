@@ -34,6 +34,8 @@
 
 @interface PasswordTextField : BaseTextField
 
+#pragma mark - Public -
+
 @property (nonatomic, weak) id<PasswordTextFieldDelegate> toggleDelegate;
 @property (nonatomic) BOOL isPasswordShown;
 

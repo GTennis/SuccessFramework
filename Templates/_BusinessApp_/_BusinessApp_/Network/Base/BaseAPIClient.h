@@ -30,13 +30,23 @@
 
 @interface BaseAPIClient : AFHTTPSessionManager
 
+#pragma mark - Public -
+
+- (id)initWithBaseURL:(NSURL *)url userManager:(id<UserManagerProtocol>)userManager settingsManager:(id<SettingsManagerProtocol>)settingsManager analyticsManager:(id<AnalyticsManagerProtocol>)analyticsManager;
+
+#pragma mark - Protected -
+
+// Dependencies
+@property (nonatomic, strong) id<UserManagerProtocol> userManager;
 @property (nonatomic, strong) id<AnalyticsManagerProtocol> analyticsManager;
+@property (nonatomic, strong) id<SettingsManagerProtocol> settingsManager;
 
-- (id)initWithBaseURL:(NSURL *)url analyticsManager:(id<AnalyticsManagerProtocol>)analyticsManager;
+#pragma mark Common header handling
 
-// Protected:
-- (NSString *)setAuthorizationHeader;
-- (NSString *)currentLanguage;
+- (void)setAuthorizationHeader;
+- (void)setAcceptLanguageHeader;
+
+#pragma mark Priority handling
 
 // Should be overwritten in subclass. If set to YES, cancels all other API client's requests, before performing the called one
 - (BOOL)shouldCancelAllOtherRequests;
@@ -44,7 +54,8 @@
 // Could be overwritten in subclass. It set to YES, cancels its own requests when receives global cancel notification
 - (BOOL)shouldCancelSelfRequests;
 
-// Increments and manages retries for the passed failCounter and retrySelector
+#pragma mark Retry handling
+
 - (void)handleFailWithError:(NSError *)error failCounter:(NSInteger *)failCounter callback:(Callback)callback retrySelector:(SEL)retrySelector;
 - (void)handleFailWithError:(NSError *)error failCounter:(NSInteger *)failCounter callback:(Callback)callback retrySelector:(SEL)retrySelector param1:(id)param1;
 - (void)handleFailWithError:(NSError *)error failCounter:(NSInteger *)failCounter callback:(Callback)callback retrySelector:(SEL)retrySelector param1:(id)param1 param2:(id)param2;

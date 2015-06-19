@@ -31,6 +31,8 @@
 
 @interface BaseNavigationBar : UIView
 
+#pragma mark - Public -
+
 @property (weak, nonatomic) IBOutlet NormalLabel *titleLabel;
 
 @end

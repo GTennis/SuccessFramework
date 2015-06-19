@@ -50,17 +50,7 @@
 @synthesize settingsManager = _settingsManager;
 @synthesize analyticsManager = _analyticsManager;
 
-- (instancetype)initWithSettingsManager:(id <SettingsManagerProtocol>)settingsManager backendAPIClient:(id <BackendAPIClientProtocol>)backendAPIClient analyticsManager:(id<AnalyticsManagerProtocol>)analyticsManager; {
-    
-    self = [self init];
-    if (self) {
-        
-        _settingsManager = settingsManager;
-        _backendAPIClient = backendAPIClient;
-        _analyticsManager = analyticsManager;
-    }
-    return self;
-}
+#pragma mark - Public -
 
 - (instancetype)init {
     
@@ -69,6 +59,22 @@
         
         _user = [[UserObject alloc] init];
         _observers = [[GMObserverList alloc] initWithObservedSubject:self];
+    }
+    return self;
+}
+
+#pragma mark - UserManagerProtocol -
+
+#pragma mark User handling
+
+- (instancetype)initWithSettingsManager:(id <SettingsManagerProtocol>)settingsManager backendAPIClient:(id <BackendAPIClientProtocol>)backendAPIClient analyticsManager:(id<AnalyticsManagerProtocol>)analyticsManager; {
+    
+    self = [self init];
+    if (self) {
+        
+        _settingsManager = settingsManager;
+        _backendAPIClient = backendAPIClient;
+        _analyticsManager = analyticsManager;
     }
     return self;
 }
@@ -234,7 +240,7 @@
     [_backendAPIClient getUserWithData:_user callback:wrappedCallback];
 }
 
-#pragma mark - User state observers
+#pragma mark User state observer handling
 
 - (void)addServiceObserver:(id<UserManagerObserver>)observer {
     
@@ -246,7 +252,9 @@
     [_observers removeObserver:observer];
 }
 
-#pragma mark - UserManagerObserver
+#pragma mark - Private -
+
+#pragma mark UserManagerObserver handling
 
 - (void)notifyObserversWithLoginSuccess:(UserObject *)userObject {
     

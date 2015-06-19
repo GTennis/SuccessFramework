@@ -53,6 +53,8 @@
 // Represents custom logger which grabs all NSLog traffic
 @interface GMConsoleLogger : NSObject
 
+#pragma mark - Public -
+
 @property (nonatomic, readonly) NSMutableString *log;
 @property (nonatomic, assign) id<GMConsoleLoggerDelegate> delegate;
 

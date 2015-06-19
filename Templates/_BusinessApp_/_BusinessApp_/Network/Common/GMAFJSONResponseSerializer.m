@@ -38,6 +38,10 @@
 
 @implementation GMAFJSONResponseSerializer
 
+#pragma mark - Protected -
+
+#pragma mark Override
+
 - (id)responseObjectForResponse:(NSURLResponse *)response
                            data:(NSData *)data
                           error:(NSError *__autoreleasing *)error {

@@ -30,17 +30,7 @@
 
 @implementation NormalLabel
 
-- (void)commonInit {
-    
-    self.fontType = kFontNormalType;
-}
-
-- (void)awakeFromNib {
-    
-    [super awakeFromNib];
-    
-    [self commonInit];
-}
+#pragma mark - Public
 
 - (instancetype)initWithFrame:(CGRect)frame {
     
@@ -70,6 +60,22 @@
         [self commonInit];
     }
     return self;
+}
+
+#pragma mark - Protected -
+
+- (void)commonInit {
+    
+    [super commonInit];
+    
+    self.fontType = kFontNormalType;
+}
+
+- (void)awakeFromNib {
+    
+    [super awakeFromNib];
+    
+    [self commonInit];
 }
 
 @end

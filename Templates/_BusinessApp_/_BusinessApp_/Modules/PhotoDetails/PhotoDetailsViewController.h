@@ -31,6 +31,8 @@
 
 @interface PhotoDetailsViewController : BaseViewController
 
+#pragma mark - Public -
+
 @property (nonatomic, strong) PhotoDetailsModel *model;
 @property (nonatomic, strong) IBOutlet UIImageView *imageView;
 @property (nonatomic, strong) IBOutlet UIActivityIndicatorView *imageActivityIndicatorView;

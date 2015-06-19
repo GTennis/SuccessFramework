@@ -1,8 +1,8 @@
 //
-//  GMLanguage.m
-//  _BusinessApp_
+//  RegistryAPIConfig.h
+//  HereChallenge
 //
-//  Created by Gytenis Mikulėnas on 6/14/13.
+//  Created by Gytenis Mikulenas on 17/06/15.
 //  Copyright (c) 2015 Gytenis Mikulėnas
 //  https://github.com/GitTennis/SuccessFramework
 //
@@ -25,28 +25,38 @@
 //  SOFTWARE. All rights reserved.
 //
 
-#import "GMLanguage.h"
+//-------- App authentification ids and codes -------//
 
-@implementation GMLanguage
+#define kRegistryAPIClientDevelopmentAppId @"AAA"
+#define kRegistryAPIClientDevelopmentAppCode @"BBB"
 
-@synthesize shortName=_shortName;
-@synthesize longName=_longName;
+#define kRegistryAPIClientStageAppId @"stageAppId"
+#define kRegistryAPIClientStageAppCode @"stageAppCode"
 
-- (id)initWithShortName:(NSString *)shortName withLongName:(NSString *)longName {
-    
-    self = [super init];
-    if (self) {
-        
-        self.shortName  = shortName;
-        self.longName   = longName;
-    }
-    return self;
-}
+#define kRegistryAPIClientProductionAppId @"prodAppId"
+#define kRegistryAPIClientProductionAppCode @"prodAppCode"
 
-- (void)dealloc {
-    
-    self.shortName  = nil;
-    self.longName   = nil;
-}
+//------- Backend base url configs -------//
 
-@end
+#define REGISTRY_DEVELOPMENT_BASE_URL      @"http://dotheapp.com"
+#define REGISTRY_STAGE_BASE_URL          @"http://dotheapp.com"
+#define REGISTRY_PRODUCTION_BASE_URL       @"http://dotheapp.com"
+
+// Web root environment auto selection
+#ifdef DEBUG
+
+    #define REGISTRY_BASE_URL REGISTRY_DEVELOPMENT_BASE_URL // For internal testing
+
+#else
+
+    #ifdef ENTERPRISE_BUILD
+
+        #define REGISTRY_BASE_URL REGISTRY_STAGE_BASE_URL // For testing release build
+
+    #else
+
+        #define REGISTRY_BASE_URL REGISTRY_PRODUCTION_BASE_URL // Don't change this. For app store.
+
+    #endif
+
+#endif

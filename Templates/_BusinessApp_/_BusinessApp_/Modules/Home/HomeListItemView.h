@@ -35,6 +35,8 @@
 
 @interface HomeListItemView : UICollectionViewCell
 
+#pragma mark - Public -
+
 @property (nonatomic, weak) id<HomeListItemViewDelegate> delegate;
 
 @property (weak, nonatomic) IBOutlet NormalLabel *titleLabel;

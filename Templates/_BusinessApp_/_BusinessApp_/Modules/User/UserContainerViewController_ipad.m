@@ -41,6 +41,19 @@
     // Do any additional setup after loading the view from its nib.
 }
 
+- (void)viewDidAppear:(BOOL)animated {
+    
+    [super viewDidAppear:animated];
+    
+    __weak typeof (UIView *) weakBackgroundMaskView = _backgroundMaskView;
+    
+    [UIView animateWithDuration:0.2f delay:0 options:UIViewAnimationOptionCurveEaseIn animations:^{
+        
+        weakBackgroundMaskView.alpha = 0.6f;
+        
+    } completion:nil];
+}
+
 - (void)viewDidDisappear:(BOOL)animated {
     
     [super viewDidDisappear:animated];
@@ -70,7 +83,9 @@
     _isKeyboardShown = NO;
 }
 
-#pragma mark - Override
+#pragma mark - Protected 
+
+#pragma mark Override
 
 - (CGSize)containerViewSizeForLogin {
     
@@ -82,20 +97,7 @@
     return self.containerView.bounds.size;
 }
 
-- (void)viewDidAppear:(BOOL)animated {
-    
-    [super viewDidAppear:animated];
-    
-    __weak typeof (UIView *) weakBackgroundMaskView = _backgroundMaskView;
-    
-    [UIView animateWithDuration:0.2f delay:0 options:UIViewAnimationOptionCurveEaseIn animations:^{
-        
-        weakBackgroundMaskView.alpha = 0.6f;
-        
-    } completion:nil];
-}
-
-#pragma mark - IBOutlets
+#pragma mark - IBOutlets -
 
 - (IBAction)outsideContentViewTapPressed:(id)sender {
     
@@ -111,7 +113,7 @@
     }
 }
 
-#pragma mark - Private
+#pragma mark - Private -
 
 - (void)closeKeyboard {
     

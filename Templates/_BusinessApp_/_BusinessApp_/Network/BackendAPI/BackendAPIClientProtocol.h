@@ -1,5 +1,5 @@
 //
-//  NetworkEnvironmentSwitch4Testing.h
+//  BackendAPIClientProtocol.h
 //  _BusinessApp_
 //
 //  Created by Gytenis Mikulėnas on 5/2/14.
@@ -25,27 +25,16 @@
 //  SOFTWARE. All rights reserved.
 //
 
-#define kNetworkEnvironmentChangeNotification @"NetworkEnvironmentChangeNotification"
+@class UserObject;
 
-typedef NS_ENUM(NSInteger, NetworkEnvironmentType) {
-    
-    kEnvironmentStaging,
-    kEnvironmentDevelopment,
-    kEnvironmentProduction,
-    kEnvironmentCount   // For static tableViews it's very convenient to define last enum entry for total rows count and use in numberOfRowsAtSection:
-};
+@protocol BackendAPIClientProtocol <NSObject>
 
-@protocol NetworkEnvironmentSwitch4TestingDelegate <NSObject>
+- (void)getAppSettingsWithParam1:(id)param1 callback:(Callback)callback;
+- (void)getTopImagesWithTag:(id)tag callback:(Callback)callback;
 
-- (void)didChangeNetworkEnvironment;
-
-@end
-
-@interface NetworkEnvironmentSwitch4Testing : NSObject
-
-@property (nonatomic, weak) id<NetworkEnvironmentSwitch4TestingDelegate> delegate;
-
-- (void)addNetworkEnvironmentChangeButtonsInsideView:(UIView *)containerView;
-- (void)removeNetworkEnvironmentChangeButtons;
+- (void)loginUserWithData:(UserObject *)user callback:(Callback)callback;
+- (void)signUpUserWithData:(UserObject *)user callback:(Callback)callback;
+- (void)resetPasswordWithData:(UserObject *)user callback:(Callback)callback;
+- (void)getUserWithData:(UserObject *)user callback:(Callback)callback;
 
 @end

@@ -1,9 +1,9 @@
 //
-//  BaseTextFieldProtocol.h
+//  APIClientProtocol.h
 //  _BusinessApp_
 //
-//  Created by Gytenis Mikulėnas on 3/17/14.
-//  Copyright (c) 2015 Gytenis Mikulėnas
+//  Created by Gytenis Mikulenas on 19/06/15.
+//  Copyright (c) 2015 Gytenis Mikulėnas 
 //  https://github.com/GitTennis/SuccessFramework
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -25,26 +25,11 @@
 //  SOFTWARE. All rights reserved.
 //
 
-typedef NS_ENUM(NSInteger, TextFieldStateType) {
-    
-    kTextFieldStateNormal,
-    kTextFieldStateValueMissing
-};
+// All API clients should use related keys for API usage tracking
 
-typedef NS_ENUM(NSInteger, TextFieldPosition) {
-    
-    kTextFieldPositionIsSingle,
-    kTextFieldPositionIsFirst,
-    kTextFieldPositionIsMiddle,
-    kTextFieldPositionIsLast
-};
+@protocol APIClientProtocol <NSObject>
 
-@protocol BaseTextFieldProtocol <NSObject>
-
-@property (nonatomic) BOOL isRequired;
-
-- (void)setFieldState:(TextFieldStateType)fieldState;
-- (void)validateValue;
-- (void)resetValidatedValues;
+@property (nonatomic, readonly) NSString *appId;
+@property (nonatomic, readonly) NSString *appCode;
 
 @end

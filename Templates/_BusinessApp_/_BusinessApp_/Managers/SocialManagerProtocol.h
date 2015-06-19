@@ -1,9 +1,9 @@
 //
-//  BackendAPIClientProtocol.h
+//  SocialManagerProtocol.h
 //  _BusinessApp_
 //
-//  Created by Gytenis Mikulėnas on 5/2/14.
-//  Copyright (c) 2015 Gytenis Mikulėnas
+//  Created by Gytenis Mikulenas on 19/06/15.
+//  Copyright (c) 2015 Gytenis Mikulėnas 
 //  https://github.com/GitTennis/SuccessFramework
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -25,17 +25,6 @@
 //  SOFTWARE. All rights reserved.
 //
 
-@class UserObject;
-
-@protocol BackendAPIClientProtocol <NSObject>
-
-- (void)getAppSettingsWithParam1:(id)param1 callback:(Callback)callback;
-- (void)getTopImagesWithTag:(id)tag callback:(Callback)callback;
-
-// User related
-- (void)loginUserWithData:(UserObject *)user callback:(Callback)callback;
-- (void)signUpUserWithData:(UserObject *)user callback:(Callback)callback;
-- (void)resetPasswordWithData:(UserObject *)user callback:(Callback)callback;
-- (void)getUserWithData:(UserObject *)user callback:(Callback)callback;
+@protocol SocialManagerProtocol <NSObject>
 
 @end

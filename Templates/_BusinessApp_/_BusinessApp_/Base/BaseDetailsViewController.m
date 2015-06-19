@@ -26,7 +26,7 @@
 //
 
 #import "BaseDetailsViewController.h"
-#import "BaseTextFieldProtocol.h"
+#import "DataInputFormTextFieldProtocol.h"
 //#import "KeyboardControlPrevNext.h"
 #import "KeyboardControl.h"
 
@@ -41,6 +41,9 @@
     
     // Fields for keyboard navigation and form validation
     NSArray *_textFieldsForKeyboard;
+    
+    // Keyboard observing
+    BOOL _observeKeyboard;
 }
 
 @end
@@ -66,7 +69,9 @@
     [self subscribeForKeyboardNotifications];
 }
 
-#pragma mark - ScrollView
+#pragma mark - Protected -
+
+#pragma mark ScrollView related
 
 // Screens containing scrollView with content inside are mostly targeted for data input form screens. Therefore, need to calculate and set scrollView content height with respect to containing items.
 - (void)viewDidLayoutSubviews {
@@ -123,87 +128,7 @@
     [self.contentScrollView scrollRectToVisible:rect animated:YES];
 }
 
-#pragma mark - UITextFieldDelegate
-
-- (UITextField *)nextTextField {
-    
-    UITextField *nextTextField = [self nextFieldFromField:(UITextField *)_keyboardControls.activeField];
-    
-    return nextTextField;
-}
-
-- (UITextField *)nextFieldFromField:(UITextField *)fromField {
-    
-    UITextField *nextTextField = nil;
-    
-    // Current field index
-    NSInteger fieldIndex = [_keyboardControls.fields indexOfObject:fromField];
-    
-    // Proceed if there's at least one field managed by _keyboardControls
-    if (_keyboardControls.fields.lastObject) {
-        
-        // Next field index
-        if (fieldIndex < _keyboardControls.fields.count - 1) {
-            
-            fieldIndex++;
-            
-            nextTextField = _keyboardControls.fields[fieldIndex];
-            
-            // If textField is already last field
-        } else if (fieldIndex + 1 == _keyboardControls.fields.count) {
-            
-            //[self donePressed];
-        }
-    }
-    
-    // If text field is disable AND it's not the last field
-    if (!nextTextField.enabled && !(fieldIndex + 1 == _keyboardControls.fields.count)) {
-        
-        // Jump to the next field
-        nextTextField = [self nextFieldFromField:nextTextField];
-    }
-    
-    return nextTextField;
-}
-
-- (void)textFieldDidBeginEditing:(UITextField *)textField {
-    
-    if (_keyboardControls && textField) {
-        
-        [_keyboardControls setActiveField:textField];
-    }
-}
-
-- (BOOL)textFieldShouldReturn:(UITextField *)textField {
-    
-    if (_keyboardControls && textField) {
-        
-        UITextField *nextTextField = [self nextTextField];
-        
-        if (nextTextField) {
-            
-            [nextTextField becomeFirstResponder];
-            
-            // Scroll to show textField if needed. Actually not clear why but need to add _keyboardHeight to field's frame origin, in order to do correct scrolling
-            CGRect rect = _keyboardControls.activeField.frame;
-            rect.origin.y += _keyboardHeight;
-            [self.contentScrollView scrollRectToVisible:rect animated:YES];
-            
-        } else {
-            
-            [self lastFieldReturnPressed];
-        }
-    }
-    
-    return YES;
-}
-
-- (void)lastFieldReturnPressed {
-    
-    [self didPressGo];
-}
-
-#pragma mark - Keyboard controls
+#pragma mark Keyboard control handling
 
 - (void)setTextFieldsForKeyboard:(NSArray *)fields {
     
@@ -321,7 +246,105 @@
     [_keyboardControls.activeField resignFirstResponder];
 }
 
-#pragma mark - KeyboardControlDelegate
+#pragma mark Validation styling
+
+- (void)applyStyleForMissingRequiredFields {
+    
+    for (id<DataInputFormTextFieldProtocol> field in _textFieldsForKeyboard) {
+        
+        [field validateValue];
+    }
+}
+
+- (void)resetStyleForMissingRequiredFields {
+    
+    for (id<DataInputFormTextFieldProtocol> field in _textFieldsForKeyboard) {
+        
+        [field resetValidatedValues];
+    }
+}
+
+#pragma mark - UITextFieldDelegate -
+
+- (UITextField *)nextTextField {
+    
+    UITextField *nextTextField = [self nextFieldFromField:(UITextField *)_keyboardControls.activeField];
+    
+    return nextTextField;
+}
+
+- (UITextField *)nextFieldFromField:(UITextField *)fromField {
+    
+    UITextField *nextTextField = nil;
+    
+    // Current field index
+    NSInteger fieldIndex = [_keyboardControls.fields indexOfObject:fromField];
+    
+    // Proceed if there's at least one field managed by _keyboardControls
+    if (_keyboardControls.fields.lastObject) {
+        
+        // Next field index
+        if (fieldIndex < _keyboardControls.fields.count - 1) {
+            
+            fieldIndex++;
+            
+            nextTextField = _keyboardControls.fields[fieldIndex];
+            
+            // If textField is already last field
+        } else if (fieldIndex + 1 == _keyboardControls.fields.count) {
+            
+            //[self donePressed];
+        }
+    }
+    
+    // If text field is disable AND it's not the last field
+    if (!nextTextField.enabled && !(fieldIndex + 1 == _keyboardControls.fields.count)) {
+        
+        // Jump to the next field
+        nextTextField = [self nextFieldFromField:nextTextField];
+    }
+    
+    return nextTextField;
+}
+
+- (void)textFieldDidBeginEditing:(UITextField *)textField {
+    
+    if (_keyboardControls && textField) {
+        
+        [_keyboardControls setActiveField:textField];
+    }
+}
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    
+    if (_keyboardControls && textField) {
+        
+        UITextField *nextTextField = [self nextTextField];
+        
+        if (nextTextField) {
+            
+            [nextTextField becomeFirstResponder];
+            
+            // Scroll to show textField if needed. Actually not clear why but need to add _keyboardHeight to field's frame origin, in order to do correct scrolling
+            CGRect rect = _keyboardControls.activeField.frame;
+            rect.origin.y += _keyboardHeight;
+            [self.contentScrollView scrollRectToVisible:rect animated:YES];
+            
+        } else {
+            
+            [self lastFieldReturnPressed];
+        }
+    }
+    
+    return YES;
+}
+
+- (void)lastFieldReturnPressed {
+    
+    [self didPressGo];
+}
+
+#pragma mark - KeyboardControlDelegate -
 
 - (NSString *)keyboardToolbarActionTitle {
     
@@ -347,24 +370,6 @@
     
     // Implement in child classes for handling GO click on the last field
     // ...
-}
-
-#pragma mark - Styling
-
-- (void)applyStyleForMissingRequiredFields {
-    
-    for (id<BaseTextFieldProtocol> field in _textFieldsForKeyboard) {
-        
-        [field validateValue];
-    }
-}
-
-- (void)resetStyleForMissingRequiredFields {
-    
-    for (id<BaseTextFieldProtocol> field in _textFieldsForKeyboard) {
-        
-        [field resetValidatedValues];
-    }
 }
 
 @end

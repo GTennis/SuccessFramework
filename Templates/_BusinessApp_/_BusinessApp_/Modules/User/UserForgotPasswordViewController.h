@@ -35,6 +35,8 @@
 
 @interface UserForgotPasswordViewController : BaseViewController
 
+#pragma mark - Public -
+
 @property (nonatomic, strong) UserForgotPasswordModel *model;
 @property (nonatomic, weak) id<UserForgotPasswordViewControllerDelegate> delegate;
 

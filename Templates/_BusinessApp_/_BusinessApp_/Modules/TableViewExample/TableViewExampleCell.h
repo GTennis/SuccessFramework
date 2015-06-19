@@ -33,6 +33,8 @@
 
 @interface TableViewExampleCell : BaseTableViewCell
 
+#pragma mark - Public -
+
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
 
 - (void)renderCellWithUser:(UserObject *)user;

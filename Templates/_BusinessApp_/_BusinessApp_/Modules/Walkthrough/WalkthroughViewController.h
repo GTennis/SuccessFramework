@@ -37,6 +37,8 @@
 
 @interface WalkthroughViewController : BaseViewController
 
+#pragma mark - Public -
+
 @property (nonatomic, weak) id<WalkthroughViewControllerDelegate> delegate;
 @property (nonatomic, strong) WalkthroughModel *model;
 

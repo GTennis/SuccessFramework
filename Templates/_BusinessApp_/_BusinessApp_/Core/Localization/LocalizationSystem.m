@@ -8,7 +8,7 @@
 //
 
 #import "LocalizationSystem.h"
-#import "GMLanguage.h"
+#import "LanguageObject.h"
 
 @implementation LocalizationSystem
 
@@ -101,12 +101,12 @@ static NSBundle *bundle = nil;
     return code;
 }
 
-- (GMLanguage*) getCurrentACLanguage
+- (LanguageObject*) getCurrentACLanguage
 {
     NSString* shortName = [self getLanguage];
     NSString* longName = [self getFullLanguageNameForKey:shortName];
     
-    GMLanguage *lang = [[GMLanguage alloc] initWithShortName:shortName withLongName:longName];
+    LanguageObject *lang = [[LanguageObject alloc] initWithShortName:shortName withLongName:longName];
     
     return lang;
 }

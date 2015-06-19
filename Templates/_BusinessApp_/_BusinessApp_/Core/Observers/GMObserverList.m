@@ -38,10 +38,10 @@ _Pragma("clang diagnostic pop") \
 
 @interface GMObserverList () {
     
-    // Observed subject:
+    // Observed subject
     __weak id _observedSubject;
     
-    // Observers:
+    // Observers
     NSMutableArray *_observers;
 }
 
@@ -51,6 +51,8 @@ _Pragma("clang diagnostic pop") \
 
 @synthesize observedSubject=_observedSubject;
 @synthesize observers=_observers;
+
+#pragma mark - Public -
 
 - (id)initWithObservedSubject:(id)observedSubject {
     
@@ -63,7 +65,8 @@ _Pragma("clang diagnostic pop") \
     return self;
 }
 
-// Adds observer:
+#pragma mark Observer handling
+
 - (void)addObserver:(id)observer {
     
     BOOL contains;
@@ -86,7 +89,6 @@ _Pragma("clang diagnostic pop") \
     }
 }
 
-// Removes observer:
 - (void)removeObserver:(id)observer {
     
     if (_observers == nil)
@@ -94,7 +96,6 @@ _Pragma("clang diagnostic pop") \
     [_observers removeObject:observer];
 }
 
-// Determines whether specified observer instance already added
 - (BOOL)containsObserver:(id)observer {
     
     if (_observers == nil)
@@ -104,9 +105,10 @@ _Pragma("clang diagnostic pop") \
     return [_observers containsObject:observer];
 }
 
-// Generic notification method. Mostly used for list and details models
-// Notifies (invokes) all existing observers using the specified abstract selector on them
-- (void)notifyObserversForSelector:(SEL)observerSelector{
+#pragma mark Broadcasting to observers
+
+// Notifies added observers with specified selector
+- (void)notifyObserversForSelector:(SEL)observerSelector {
     
     if (_observers == nil)
         return;
@@ -134,15 +136,15 @@ _Pragma("clang diagnostic pop") \
     }
 }
 
-// Similar generic notification method but with custom context
-- (void)notifyObserversForSelector:(SEL)observerSelector withObject:(id)object
-{
-    if (_observers == nil)
+// Notifies added observers with specified selector and custom context
+- (void)notifyObserversForSelector:(SEL)observerSelector withObject:(id)object {
+    
+    if (_observers == nil) {
+     
         return;
+    }
     
     // Iterate observers:
-    //NSInteger i = [_observers count] - 1;
-    //while (i >= 0) {
     NSInteger i = 0;
     while (i < [_observers count]) {
         
@@ -157,15 +159,13 @@ _Pragma("clang diagnostic pop") \
         }
         
         // Next:
-        //i--;
         i++;
-        
     }
 }
 
-// Similar generic notification method but with custom context
-- (void)notifyObserversForSelector:(SEL)observerSelector withObject1:(id)object1 object2:(id)object2
-{
+// Notifies added observers with specified selector and several custom contexts
+- (void)notifyObserversForSelector:(SEL)observerSelector withObject1:(id)object1 object2:(id)object2 {
+    
     if (_observers == nil)
         return;
     

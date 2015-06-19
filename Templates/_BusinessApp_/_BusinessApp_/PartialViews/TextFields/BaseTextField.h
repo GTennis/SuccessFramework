@@ -25,7 +25,7 @@
 //  SOFTWARE. All rights reserved.
 //
 
-#import "BaseTextFieldProtocol.h"
+#import "DataInputFormTextFieldProtocol.h"
 #import "JVFloatLabeledTextField.h"
 #import "ConstColors.h"
 #import "ConstFonts.h"
@@ -61,12 +61,15 @@
 // Separator line left offset
 #define kTextFieldSeparatorLeftOffset 12.0f
 
-@interface BaseTextField : JVFloatLabeledTextField <BaseTextFieldProtocol>
+@interface BaseTextField : JVFloatLabeledTextField <DataInputFormTextFieldProtocol>
+
+#pragma mark - Public -
 
 @property (nonatomic) TextFieldPosition position;
 @property (nonatomic) TextFieldStateType fieldState;
 
-// Protected
+#pragma mark - Protected -
+
 - (void)customize;
 
 @end

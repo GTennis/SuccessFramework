@@ -48,6 +48,23 @@
     _delegate = nil;
 }
 
+#pragma mark - KeyboardControlProtocol -
+
+- (id)initWithFields:(NSArray *)fields actionTitle:(NSString *)actionTitle {
+    
+    self = [super init];
+    if (self) {
+        
+        _actionTitle = actionTitle;
+        
+        [self commonInit];
+        [self setFields:fields];
+    }
+    return self;
+}
+
+#pragma mark - Private -
+
 - (void)commonInit {
     
     CGFloat keyboardWidth = [UIScreen mainScreen].bounds.size.width;
@@ -70,21 +87,6 @@
     
     [_keyboardToolBar setItems:@[cancelButton, separator, actionButton]];
 }
-
-- (id)initWithFields:(NSArray *)fields actionTitle:(NSString *)actionTitle {
-    
-    self = [super init];
-    if (self) {
-        
-        _actionTitle = actionTitle;
-        
-        [self commonInit];
-        [self setFields:fields];
-    }
-    return self;
-}
-
-#pragma mark - Private
 
 - (void)setFields:(NSArray *)fields {
     

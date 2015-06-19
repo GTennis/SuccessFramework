@@ -62,23 +62,6 @@
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
-- (instancetype)initWithCrashManager:(id<CrashManagerProtocol>)crashManager analyticsManager:(id<AnalyticsManagerProtocol>)analyticsManager messageBarManager:(id<MessageBarManagerProtocol>)messageBarManager viewControllerFactory:(id<ViewControllerFactoryProtocol>)viewControllerFactory context:(id)context {
-    
-    self = [self init];
-    if (self) {
-        
-        _crashManager = crashManager;
-        _analyticsManager = analyticsManager;
-        _messageBarManager = messageBarManager;
-        _viewControllerFactory = viewControllerFactory;
-        
-        _context = context;
-        
-        [self commonInit];
-    }
-    return self;
-}
-
 - (void)viewDidLoad {
     
     [super viewDidLoad];
@@ -186,7 +169,76 @@
     [_crashManager logScreenAction:NSStringFromClass([self class])];
 }
 
-#pragma mark - Protected
+#pragma mark - Public -
+
+#pragma mark Custom initialization
+
+- (instancetype)initWithCrashManager:(id<CrashManagerProtocol>)crashManager analyticsManager:(id<AnalyticsManagerProtocol>)analyticsManager messageBarManager:(id<MessageBarManagerProtocol>)messageBarManager viewControllerFactory:(id<ViewControllerFactoryProtocol>)viewControllerFactory context:(id)context {
+    
+    self = [self init];
+    if (self) {
+        
+        _crashManager = crashManager;
+        _analyticsManager = analyticsManager;
+        _messageBarManager = messageBarManager;
+        _viewControllerFactory = viewControllerFactory;
+        
+        _context = context;
+        
+        [self commonInit];
+    }
+    return self;
+}
+
+#pragma mark Modal screen handling
+
+- (void)presentModalViewController:(BaseViewController *)viewController animated:(BOOL)animated {
+    
+    viewController.isModallyPressented = YES;
+    
+    UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:viewController];
+    
+    if (isIpad && _shouldModalNavigationBarAlwaysStickToModalContainerViewTopForIpad) {
+        
+        navController.navigationBar.hidden = YES;
+    }
+    
+    // Apply common style
+    [TopNavigationBar applyStyleForNavigationBar:navController.navigationBar];
+    
+    if (SYSTEM_VERSION_LESS_THAN(@"8")) {
+        
+        AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+        
+        [self presentViewController:navController animated:animated completion:^{
+            
+            // For backwards compatibility. This allows to use transparent background view and see previous screen view
+            [navController dismissViewControllerAnimated:NO completion:^{
+                
+                appDelegate.window.rootViewController.modalPresentationStyle = UIModalPresentationCurrentContext;
+                [self presentViewController:navController animated:NO completion:nil];
+                appDelegate.window.rootViewController.modalPresentationStyle = UIModalPresentationFullScreen;
+                
+            }];
+        }];
+        
+    } else {
+        
+        navController.modalPresentationStyle = UIModalPresentationOverCurrentContext;
+        [self presentViewController:navController animated:animated completion:^{
+            
+        }];
+    }
+}
+
+- (void)dismissModalViewControllerAnimated:(BOOL)animated {
+    
+    [self.presentingViewController dismissViewControllerAnimated:animated completion:nil];
+}
+
+#pragma mark - Protected -
+
+#pragma mark Common
 
 // These methods are the main custom methods for initialing custom objects (commonInit), updating static UI (prepareUI), loading data (loadModel) and updating with data (renderUI)
 
@@ -219,211 +271,7 @@
     //NSAssert(NO, @"loadModel is not implemented in class: %@", NSStringFromClass([self class]));
 }
 
-#pragma mark - Override Notification error handling
-
-- (void)handleNetworkRequestError:(NSNotification *)notification {
-    
-    [super handleNetworkRequestError:notification];
-    
-#warning TODO
-    // Get error code and update error image and labels
-    //NSError *error = notification.userInfo[kNetworkRequestErrorNotificationUserInfoKey];
-    
-    GMAlertView *alertView = [APIClientErrorHandler alertViewFromAPIErrorNotification:notification presentingViewController:self];
-    
-    // Ideally every request could return AppNeedsUpdate in case of app is too old. But we don't have it now and we have to make a separate call to handle it
-    /*if (error.code == kNetworkRequestAppNeedsUpdateError) {
-     
-     alertView.completion = ^(NSInteger buttonIndex) {
-     
-     if (buttonIndex == 0) {
-     
-     NSString *iTunesLink = kAppItunesLink;
-     [[UIApplication sharedApplication] openURL:[NSURL URLWithString:iTunesLink]];
-     
-     [super closeTheApp];
-     
-     } else {
-     
-     [super closeTheApp];
-     }
-     };
-     
-     }*/
-
-    [alertView show];
-    
-}
-
-- (void)handleNetworkRequestSuccess:(NSNotification *)notification {
-    
-    [super handleNetworkRequestSuccess:notification];
-}
-
-#pragma mark - Modal screen handling
-
-- (void)presentModalViewController:(BaseViewController *)viewController animated:(BOOL)animated {
-    
-    viewController.isModallyPressented = YES;
-    
-    UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:viewController];
-    
-    if (isIpad && _shouldModalNavigationBarAlwaysStickToModalContainerViewTopForIpad) {
-        
-        navController.navigationBar.hidden = YES;
-    }
-    
-    // Apply common style
-    [TopNavigationBar applyStyleForNavigationBar:navController.navigationBar];
-    
-    if (SYSTEM_VERSION_LESS_THAN(@"8")) {
-        
-        AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
-        
-        [self presentViewController:navController animated:animated completion:^{
-        
-            // For backwards compatibility. This allows to use transparent background view and see previous screen view
-            [navController dismissViewControllerAnimated:NO completion:^{
-                
-                appDelegate.window.rootViewController.modalPresentationStyle = UIModalPresentationCurrentContext;
-                [self presentViewController:navController animated:NO completion:nil];
-                appDelegate.window.rootViewController.modalPresentationStyle = UIModalPresentationFullScreen;
-                
-            }];
-        }];
-        
-    } else {
-        
-        navController.modalPresentationStyle = UIModalPresentationOverCurrentContext;
-        [self presentViewController:navController animated:animated completion:^{
-            
-        }];
-    }
-}
-
-- (void)dismissModalViewControllerAnimated:(BOOL)animated {
-    
-    [self.presentingViewController dismissViewControllerAnimated:animated completion:nil];
-}
-
-#pragma mark - TopModalNavigationBarDelegate
-
-- (void)didPressedCancelModal {
-    
-    [self dismissModalViewControllerAnimated:YES];
-}
-
-- (void)didPressedBackModal {
-    
-    [self.topModalNavigationBar showCancelButton];
-}
-
-#pragma mark - TopNavigationBarDelegate
-
-- (void)didPressedContacts {
-    
-    BaseViewController *vc = (BaseViewController *) [self.viewControllerFactory contactsViewControllerWithContext:nil];
-    [self presentModalViewController:vc animated:YES];
-}
-
-- (void)didPressedBack {
-    
-    [super didPressedBack];
-}
-
-- (void)didPressedMenu {
-    
-    MenuNavigator *menuNavigator = [REGISTRY getObject:[MenuNavigator class]];
-    [menuNavigator toggleMenu];
-}
-
-#pragma mark - Override Screen title
-
-- (void)setTitle:(NSString *)title {
-    
-    [super setTitle:title];
-    
-    // Setting title for top main or modal navigation bar
-    BaseNavigationBar *navigationBar = (BaseNavigationBar *)self.navigationItem.titleView;
-    navigationBar.titleLabel.text = title;
-}
-
-#pragma mark - Private
-
-- (void)addCustomNavigationBar {
-    
-    // Creating and adding custom navigation bar
-    TopNavigationBar *navigationBar = (TopNavigationBar *)[self loadViewFromXibOfClass:[TopNavigationBar class]];
-    navigationBar.delegate = self;
-    self.navigationItem.titleView = navigationBar;
-    //this is a work around to get rid of ellipsis when navigating back
-    //taken from http://stackoverflow.com/questions/19151309/strange-ellipsis-appearing-in-uinavigationbar
-    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:[[UIView alloc] init]];
-    
-    // Hide back button if it's root view controller
-    if (self.navigationController.viewControllers.count > 1) {
-        
-        [navigationBar showBackButton];
-        
-    } else {
-
-        [navigationBar showMenuButton];
-    }
-}
-
-- (void)addCustomModalNavigationBar {
-    
-    // Creating and adding custom navigation bar
-    // Currently 
-    _topModalNavigationBar = (TopModalNavigationBar *)[self loadViewFromXibOfClass:[TopModalNavigationBar class]];
-    _topModalNavigationBar.delegate = self;
-    
-    if (_shouldModalNavigationBarAlwaysStickToModalContainerViewTopForIpad && isIpad) {
-
-        // Add separator line
-        [_topModalNavigationBar showHoritontalSeparatorLineView];
-        
-        // Add view and constraints
-        [_modalContainerView addSubview:_topModalNavigationBar];
-        [_topModalNavigationBar viewAddLeadingSpace:0 containerView:_modalContainerView];
-        [_topModalNavigationBar viewAddTrailingSpace:0 containerView:_modalContainerView];
-        [_topModalNavigationBar viewAddTopSpace:0 containerView:_modalContainerView];
-        
-    } else {
-    
-        // This will add navigation bar onto navigation controller's bar
-        self.navigationItem.titleView = _topModalNavigationBar;
-        // this is a work around to get rid of ellipsis when navigating back
-        // taken from http://stackoverflow.com/questions/19151309/strange-ellipsis-appearing-in-uinavigationbar
-        self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:[[UIView alloc] init]];
-    }
-    
-    // Show cancel by default
-    [_topModalNavigationBar showCancelButton];
-}
-
-- (void)closeMenuIfOpened {
-    
-    // TODO...
-}
-
-- (void)subcribeForGeneralNotifications {
-    
-    // Reset previous observing (due to multiple calls through viewWillAppear:)
-    [self unsubcribeFromGeneralNotifications];
-    
-    // Subscribe for network requests status notifications
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handleNetworkRequestError:) name:kNetworkRequestErrorNotification object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handleNetworkRequestSuccess:) name:kNetworkRequestSuccessNotification object:nil];
-}
-
-- (void)unsubcribeFromGeneralNotifications {
-    
-    [[NSNotificationCenter defaultCenter] removeObserver:self name:kNetworkRequestErrorNotification object:nil];
-    [[NSNotificationCenter defaultCenter] removeObserver:self name:kNetworkRequestSuccessNotification object:nil];
-}
-
-#pragma mark - Rotation handling
+#pragma mark Rotation handling
 
 - (BOOL)shouldAutorotate {
     
@@ -479,7 +327,137 @@
     }
 }
 
-#pragma mark - For ENTERPRISE_BUILD: network switch and console logger
+#pragma mark Override: Error handling
+
+- (void)handleNetworkRequestError:(NSNotification *)notification {
+    
+    [super handleNetworkRequestError:notification];
+    
+    // ...
+}
+
+- (void)handleNetworkRequestSuccess:(NSNotification *)notification {
+    
+    [super handleNetworkRequestSuccess:notification];
+}
+
+#pragma mark Override: Screen title
+
+- (void)setTitle:(NSString *)title {
+    
+    [super setTitle:title];
+    
+    // Setting title for top main or modal navigation bar
+    BaseNavigationBar *navigationBar = (BaseNavigationBar *)self.navigationItem.titleView;
+    navigationBar.titleLabel.text = title;
+}
+
+#pragma mark - TopModalNavigationBarDelegate -
+
+- (void)didPressedCancelModal {
+    
+    [self dismissModalViewControllerAnimated:YES];
+}
+
+- (void)didPressedBackModal {
+    
+    [self.topModalNavigationBar showCancelButton];
+}
+
+#pragma mark - TopNavigationBarDelegate -
+
+- (void)didPressedContacts {
+    
+    BaseViewController *vc = (BaseViewController *) [self.viewControllerFactory contactsViewControllerWithContext:nil];
+    [self presentModalViewController:vc animated:YES];
+}
+
+- (void)didPressedBack {
+    
+    [super didPressedBack];
+}
+
+- (void)didPressedMenu {
+    
+    MenuNavigator *menuNavigator = [REGISTRY getObject:[MenuNavigator class]];
+    [menuNavigator toggleMenu];
+}
+
+#pragma mark - Private -
+
+- (void)addCustomNavigationBar {
+    
+    // Creating and adding custom navigation bar
+    TopNavigationBar *navigationBar = (TopNavigationBar *)[self loadViewFromXibWithClass:[TopNavigationBar class]];
+    navigationBar.delegate = self;
+    self.navigationItem.titleView = navigationBar;
+    //this is a work around to get rid of ellipsis when navigating back
+    //taken from http://stackoverflow.com/questions/19151309/strange-ellipsis-appearing-in-uinavigationbar
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:[[UIView alloc] init]];
+    
+    // Hide back button if it's root view controller
+    if (self.navigationController.viewControllers.count > 1) {
+        
+        [navigationBar showBackButton];
+        
+    } else {
+
+        [navigationBar showMenuButton];
+    }
+}
+
+- (void)addCustomModalNavigationBar {
+    
+    // Creating and adding custom navigation bar
+    _topModalNavigationBar = (TopModalNavigationBar *)[self loadViewFromXibWithClass:[TopModalNavigationBar class]];
+    _topModalNavigationBar.delegate = self;
+    
+    if (_shouldModalNavigationBarAlwaysStickToModalContainerViewTopForIpad && isIpad) {
+
+        // Add separator line
+        [_topModalNavigationBar showHoritontalSeparatorLineView];
+        
+        // Add view and constraints
+        [_modalContainerView addSubview:_topModalNavigationBar];
+        [_topModalNavigationBar viewAddLeadingSpace:0 containerView:_modalContainerView];
+        [_topModalNavigationBar viewAddTrailingSpace:0 containerView:_modalContainerView];
+        [_topModalNavigationBar viewAddTopSpace:0 containerView:_modalContainerView];
+        
+    } else {
+    
+        // This will add navigation bar onto navigation controller's bar
+        self.navigationItem.titleView = _topModalNavigationBar;
+        // this is a work around to get rid of ellipsis when navigating back
+        // taken from http://stackoverflow.com/questions/19151309/strange-ellipsis-appearing-in-uinavigationbar
+        self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:[[UIView alloc] init]];
+    }
+    
+    // Show cancel by default
+    [_topModalNavigationBar showCancelButton];
+}
+
+- (void)closeMenuIfOpened {
+    
+    // TODO...
+}
+
+- (void)subcribeForGeneralNotifications {
+    
+    // Reset previous observing (due to multiple calls through viewWillAppear:)
+    [self unsubcribeFromGeneralNotifications];
+    
+    // Subscribe for network requests status notifications
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handleNetworkRequestError:) name:kNetworkRequestErrorNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handleNetworkRequestSuccess:) name:kNetworkRequestSuccessNotification object:nil];
+}
+
+- (void)unsubcribeFromGeneralNotifications {
+    
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:kNetworkRequestErrorNotification object:nil];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:kNetworkRequestSuccessNotification object:nil];
+}
+
+#pragma mark - DEBUG: network switch and console logger -
 
 #if defined(ENTERPRISE_BUILD) || defined(DEBUG)
 

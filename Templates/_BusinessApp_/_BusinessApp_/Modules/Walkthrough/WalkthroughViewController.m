@@ -47,7 +47,7 @@
     // Dispose of any resources that can be recreated.
 }
 
-#pragma mark - Protected
+#pragma mark - Protected -
 
 - (void)prepareUI {
     
@@ -69,7 +69,7 @@
     }];
 }
 
-#pragma mark - IBActions
+#pragma mark - IBActions -
 
 - (IBAction)skipPressed:(id)sender {
     

@@ -32,6 +32,8 @@
 @synthesize code = _code;
 @synthesize message = _message;
 
+#pragma mark - ParsableObject -
+
 - (instancetype)initWithDict:(NSDictionary *)dict {
     
     self = [self init];

@@ -37,6 +37,8 @@
 
 @implementation HomeListItemView
 
+#pragma mark - Public -
+
 - (void)renderWithObject:(ImageObject *)image {
     
     // Store object
@@ -53,7 +55,7 @@
     [ImageDownloader downloadImageWithUrl:image.imageUrl forImageView:_imageView loadingPlaceholder:kContentPlaceholderImage failedPlaceholder:kContentPlaceholderImage activityIndicatorView:_activityIndicatorView];
 }
 
-#pragma mark - IBActions
+#pragma mark - IBActions -
 
 - (IBAction)cellPressed:(id)sender {
     

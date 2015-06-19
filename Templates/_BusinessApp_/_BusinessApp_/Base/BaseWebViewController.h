@@ -29,6 +29,8 @@
 
 @interface BaseWebViewController : BaseViewController <UIWebViewDelegate>
 
+#pragma mark - Public -
+
 @property (strong, nonatomic) IBOutlet UIWebView *webView;
 
 @end

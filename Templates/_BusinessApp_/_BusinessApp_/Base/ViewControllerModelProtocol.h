@@ -1,9 +1,9 @@
 //
-//  GMLanguage.h
+//  ViewControllerModelProtocol.h
 //  _BusinessApp_
 //
-//  Created by Gytenis Mikulenas on 6/14/13.
-//  Copyright (c) 2015 Gytenis Mikulėnas
+//  Created by Gytenis Mikulenas on 19/06/15.
+//  Copyright (c) 2015 Gytenis Mikulėnas 
 //  https://github.com/GitTennis/SuccessFramework
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -25,13 +25,9 @@
 //  SOFTWARE. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+@protocol ViewControllerModelProtocol <NSObject>
 
-@interface GMLanguage : NSObject
-
-@property (nonatomic, copy) NSString *shortName; // en, de
-@property (nonatomic, copy) NSString *longName;  // English, Deutsch
-
-- (id)initWithShortName:(NSString*)shortName withLongName:(NSString*)longName;
+- (void)willStartModelLoading:(Callback)callback;
+- (void)didFinishModelLoadingWithData:(id)data;
 
 @end

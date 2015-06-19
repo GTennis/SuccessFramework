@@ -27,9 +27,10 @@
 
 #import "BaseNetworkOperation.h"
 #import "NSString+Validator.h"
-#import "ConstNetworkConfig.h"
 
 @implementation BaseNetworkOperation
+
+#pragma mark - Public -
 
 - (instancetype)init {
     
@@ -38,11 +39,6 @@
         
     }
     return self;
-}
-
-- (NSString *)baseUrl {
-    
-    return BASE_URL;
 }
 
 - (id)initWithUrlString:(NSString *)urlString {
@@ -88,7 +84,36 @@
     [self start];
 }
 
-#pragma mark - wrapper callbacks
+#pragma mark - Protected -
+
+- (NSString *)baseUrl {
+    
+    // Implement in child classes
+    NSAssert(NO, @"baseUrl is not implemented in class: %@", NSStringFromClass([self class]));
+    
+    return nil;
+}
+
+- (void)handleReceivedDataWithSuccess:(BOOL)success result:(id)result error:(NSError *)error callback:(Callback)callback {
+    
+    NSAssert(NO, @"handleReceivedDataWithSuccess:result:error:callback is not implemented in class: %@", NSStringFromClass([self class]));
+}
+
+- (NSString *)method {
+    
+    NSAssert(NO, @"method is not implemented in class: %@", NSStringFromClass([self class]));
+    
+    return nil;
+}
+
+- (NSString *)urlString {
+    
+    NSAssert(NO, @"urlString is not implemented in class: %@", NSStringFromClass([self class]));
+    
+    return nil;
+}
+
+#pragma mark - Private -
 
 - (void(^)(AFHTTPRequestOperation *operation, id responseObject))successWrappedCallbackWithPassedCallback:(Callback)callback {
     
@@ -112,27 +137,6 @@
     };
     
     return failCallback;
-}
-
-#pragma mark - Should be overrided in child classes
-
-- (void)handleReceivedDataWithSuccess:(BOOL)success result:(id)result error:(NSError *)error callback:(Callback)callback {
-    
-    NSAssert(NO, @"handleReceivedDataWithSuccess:result:error:callback is not implemented in class: %@", NSStringFromClass([self class]));
-}
-
-- (NSString *)method {
-         
-    NSAssert(NO, @"method is not implemented in class: %@", NSStringFromClass([self class]));
-    
-    return nil;
-}
-
-- (NSString *)urlString {
-    
-    NSAssert(NO, @"urlString is not implemented in class: %@", NSStringFromClass([self class]));
-    
-    return nil;
 }
      
 @end

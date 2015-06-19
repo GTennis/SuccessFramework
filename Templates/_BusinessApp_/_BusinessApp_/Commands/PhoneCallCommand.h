@@ -29,6 +29,8 @@
 
 @interface PhoneCallCommand : NSObject <CommandProtocol>
 
+#pragma mark - Public -
+
 - (instancetype)initWithPhoneNumberString:(NSString *)phoneNumberString;
 
 @end

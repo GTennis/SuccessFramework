@@ -50,6 +50,8 @@
     [self showLoginWithAnimation:NO];
 }
 
+#pragma mark - Public -
+
 - (void)showLoginWithAnimation:(BOOL)animated {
 
     // Prepare UI
@@ -81,7 +83,7 @@
     [self transitionWithNextViewController:_userForgotPasswordVC animated:animated];
 }
 
-#pragma mark - Protected
+#pragma mark - Protected -
 
 - (void)commonInit {
     
@@ -118,7 +120,14 @@
     // ...
 }
 
-#pragma mark - Override TopModalNavigationBarDelegate
+#pragma mark Language change handling
+
+- (void)notificationLocalizationHasChanged {
+    
+    [self prepareUI];
+}
+
+#pragma mark - Override: TopModalNavigationBarDelegate -
 
 - (void)didPressedBackModal {
     
@@ -132,7 +141,7 @@
     [_userLoginVC clearTextFields];
 }
 
-#pragma mark - UserLoginViewControllerDelegate
+#pragma mark - UserLoginViewControllerDelegate -
 
 - (void)didFinishLogin {
     
@@ -159,28 +168,21 @@
     return CGSizeZero;
 }
 
-#pragma mark - UserSignUpViewControllerDelegate
+#pragma mark - UserSignUpViewControllerDelegate -
 
 - (CGSize)containerViewSizeForSignUp {
     
     return CGSizeZero;
 }
 
-#pragma mark - UserForgotPasswordViewControllerDelegate
+#pragma mark - UserForgotPasswordViewControllerDelegate -
 
 - (void)didSendEmailToUser {
     
     [self showLoginWithAnimation:YES];
 }
 
-#pragma mark - Handling language change
-
-- (void)notificationLocalizationHasChanged {
-    
-    [self prepareUI];
-}
-
-#pragma mark - Private
+#pragma mark - Private -
 
 - (void)transitionWithNextViewController:(UIViewController *)nextViewController animated:(BOOL)animated {
     

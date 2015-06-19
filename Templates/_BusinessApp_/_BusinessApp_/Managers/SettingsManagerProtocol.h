@@ -40,7 +40,7 @@
 - (void)setLanguageEnglish;
 - (void)setLanguageGerman;
 
-// Should not be used directly in order to avoid hardcoding @"en", @"de" strings inside other parts
+// Shouldn't be called directly in order to avoid hardcoding @"en", @"de" strings in other code places
 //- (void)setLanguage:(NSString *)language;
 
 @end

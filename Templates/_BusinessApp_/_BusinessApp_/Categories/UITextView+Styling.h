@@ -33,7 +33,4 @@
 
 - (void)addTapGestureWithSubstring:(NSString *)substring callback:(Callback)callback;
 
-// For internal usage
-@property (nonatomic, strong) NSMutableDictionary *tapGestureSubstringsAndCallbacks;
-
 @end

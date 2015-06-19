@@ -29,6 +29,8 @@
 
 @interface BaseButton : UIButton
 
+#pragma mark - Public -
+
 // Borders
 @property (nonatomic) CGFloat borderSize;
 @property (nonatomic, strong) UIColor *borderColor;
@@ -52,6 +54,8 @@
 @property (nonatomic, copy) NSString *fontName;
 @property (nonatomic) CGFloat fontSize;
 
-- (void)initializeProperties;
+#pragma mark - Protected -
+
+- (void)commonInit;
 
 @end

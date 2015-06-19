@@ -89,7 +89,9 @@
 
 @implementation ViewControllerFactory
 
-#pragma mark - Launch related
+#pragma mark - ViewControllerFactoryProtocol -
+
+#pragma mark Launch related
 
 - (LaunchViewController *)launchViewControllerWithContext:(id)context {
 
@@ -107,7 +109,7 @@
     return viewController;
 }
 
-#pragma mark - Home related
+#pragma mark Home related
 
 - (HomeViewController *)homeViewControllerWithContext:(id)context {
     
@@ -127,7 +129,7 @@
     return viewController;
 }
 
-#pragma mark - User related
+#pragma mark User related
 
 - (UserContainerViewController *)userContainerViewControllerWithContext:(id)context {
     
@@ -174,7 +176,16 @@
     return viewController;
 }
 
-#pragma mark - Settings
+- (UserProfileViewController *)userProfileViewControllerWithContext:(id)context {
+    
+    UserProfileModel *model = (UserProfileModel *)[self modelWithClass:[UserProfileModel class] context:context];
+    UserProfileViewController *viewController = (UserProfileViewController *)[self viewControllerWithClass:[UserProfileViewController class] context:context];
+    viewController.model = model;
+    
+    return viewController;
+}
+
+#pragma mark Settings related
 
 - (SettingsViewController *)settingsViewControllerWithContext:(id)context {
     
@@ -185,7 +196,7 @@
     return viewController;
 }
 
-#pragma mark - Menu
+#pragma mark Menu related
 
 - (MenuViewController *)menuViewControllerWithContext:(id)context {
 
@@ -198,18 +209,7 @@
     return viewController;
 }
 
-#pragma mark - User Profile
-
-- (UserProfileViewController *)userProfileViewControllerWithContext:(id)context {
-
-    UserProfileModel *model = (UserProfileModel *)[self modelWithClass:[UserProfileModel class] context:context];
-    UserProfileViewController *viewController = (UserProfileViewController *)[self viewControllerWithClass:[UserProfileViewController class] context:context];
-    viewController.model = model;
-
-    return viewController;
-}
-
-#pragma mark - Terms and Conditions
+#pragma mark Terms and Conditions related
 
 - (TermsConditionsViewController *)termsConditionsViewControllerWithContext:(id)context {
 
@@ -220,7 +220,7 @@
     return viewController;
 }
 
-#pragma mark - Contacts
+#pragma mark Contacts related
 
 - (ContactsViewController *)contactsViewControllerWithContext:(id)context {
 
@@ -231,7 +231,7 @@
     return viewController;
 }
 
-#pragma mark - Demos
+#pragma mark Demos
 
 - (TableViewExampleViewController *)tableViewExampleViewControllerWithContext:(id)context {
     
@@ -240,7 +240,7 @@
     return viewController;
 }
 
-#pragma mark - Pickers
+#pragma mark Pickers
 
 // Country list
 - (CountryPickerViewController *)countryPickerViewControllerWithDelegate:(id<CountryPickerViewControllerDelegate>)delegate context:(id)context {
@@ -251,7 +251,7 @@
     return viewController;
 }
 
-#pragma mark - Private
+#pragma mark - Private -
 
 // For creating view controllers with default dependencies
 - (BaseViewController *)viewControllerWithClass:(Class)class context:(id)context {
@@ -268,6 +268,8 @@
     
     return model;
 }
+
+#pragma mark Injectable
 
 - (UserManager *)userManager {
     

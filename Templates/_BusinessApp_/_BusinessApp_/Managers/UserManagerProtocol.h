@@ -43,7 +43,7 @@
 // Data object
 @property (nonatomic, strong) UserObject *user;
 
-// Public methods
+// User handling
 - (instancetype)initWithSettingsManager:(id <SettingsManagerProtocol>)settingsManager backendAPIClient:(id <BackendAPIClientProtocol>)backendAPIClient analyticsManager:(id<AnalyticsManagerProtocol>)analyticsManager;
 
 - (NSError *)saveUser;

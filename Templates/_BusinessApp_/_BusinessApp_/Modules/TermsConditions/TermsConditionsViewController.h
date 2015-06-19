@@ -30,6 +30,8 @@
 
 @interface TermsConditionsViewController : BaseWebViewController
 
+#pragma mark - Public -
+
 @property (nonatomic, strong) TermsConditionsModel *model;
 
 @end

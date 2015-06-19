@@ -29,10 +29,13 @@
 
 @interface BaseNetworkOperation : AFHTTPRequestOperation
 
+#pragma mark - Public -
+
 - (id)initWithUrlString:(NSString *)urlString;
 - (void)getDataWithCallback:(Callback)callback;
 
-// Protected
+#pragma mark - Protected -
+
 - (NSString *)baseUrl;
 - (NSString *)method;
 - (NSString *)urlString;

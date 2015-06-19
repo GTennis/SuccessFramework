@@ -25,6 +25,8 @@
 //  SOFTWARE. All rights reserved.
 //
 
+// Global enums
+
 typedef NS_ENUM(NSInteger, NetworkRequestErrorType) {
     
     kNetworkRequestNoError,

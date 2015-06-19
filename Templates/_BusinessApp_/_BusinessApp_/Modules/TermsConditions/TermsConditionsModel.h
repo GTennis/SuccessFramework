@@ -29,6 +29,8 @@
 
 @interface TermsConditionsModel : BaseModel
 
+#pragma mark - Public -
+
 @property (nonatomic, readonly) NSURLRequest *urlRequest;
 
 @end

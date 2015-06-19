@@ -31,11 +31,10 @@
 
 @interface SettingsViewController : BaseViewController
 
+#pragma mark - Public -
+
 @property (nonatomic, strong) SettingsModel *model;
 
 @property (weak, nonatomic) IBOutlet UILabel *languageLabel;
-
-- (IBAction)englishPressed:(id)sender;
-- (IBAction)germanPressed:(id)sender;
 
 @end

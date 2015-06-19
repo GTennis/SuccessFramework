@@ -42,6 +42,8 @@
 
 @interface UserLoginViewController : BaseDetailsViewController <KeyboardControlDelegate>
 
+#pragma mark - Public -
+
 @property (nonatomic, strong) UserLoginModel *model;
 @property (nonatomic, weak) id<UserLoginViewControllerDelegate> delegate;
 
@@ -50,7 +52,6 @@
 
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *emailTextFieldWidthConstraint;
 
-- (IBAction)loginPressed:(id)sender;
 - (void)clearTextFields;
 
 @end

@@ -27,7 +27,6 @@
 
 #import "BaseAPIClient.h"
 #import "NSObject+Selectors.h"
-#import "ConstNetworkConfig.h"
 #import "GMAFJSONResponseSerializer.h"
 #import "UserManager.h"
 #import "UserObject.h"
@@ -47,14 +46,18 @@
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
-- (id)initWithBaseURL:(NSURL *)url analyticsManager:(id<AnalyticsManagerProtocol>)analyticsManager {
+#pragma mark - Public -
+
+- (id)initWithBaseURL:(NSURL *)url userManager:(id<UserManagerProtocol>)userManager settingsManager:(id<SettingsManagerProtocol>)settingsManager analyticsManager:(id<AnalyticsManagerProtocol>)analyticsManager {
     
     self = [super initWithBaseURL:url];
     if (self) {
         
         if (self) {
             
+            _userManager = userManager;
             _analyticsManager = analyticsManager;
+            _settingsManager = settingsManager;
             
             self.responseSerializer = [GMAFJSONResponseSerializer serializer];
             self.requestSerializer = [AFJSONRequestSerializer serializer];
@@ -96,16 +99,9 @@
     return self;
 }
 
-- (void)clearCookies {
-    
-    //Clear cookies
-    NSHTTPCookieStorage *cookieStorage = [NSHTTPCookieStorage sharedHTTPCookieStorage];
-    
-    for (NSHTTPCookie *each in cookieStorage.cookies) {
-        
-        [cookieStorage deleteCookie:each];
-    }
-}
+#pragma mark - Protected -
+
+#pragma mark Override
 
 // Adds listening for common error codes and handles them all in one place. Notifications are broadcasted to observers upon request success or failure
 - (NSURLSessionDataTask *)GET:(NSString *)URLString
@@ -144,12 +140,21 @@
     return [super POST:URLString parameters:parameters success:[self successWrapperBlockWithSuccessBlock:success andFailureBlock:failure] failure:[self failureWrapperBlockWithFailureBlock:failure]];
 }
 
-/*- (void)appendVersionForParams:(NSMutableDictionary *)params {
- 
- params[@"version"] = [NSBundle mainBundle].infoDictionary[@"CFBundleShortVersionString"];
- }*/
+#pragma mark Common header handling
 
-#pragma mark - Protected
+- (void)setAuthorizationHeader {
+    
+    NSString *token = self.userManager.user.token;
+    [self.requestSerializer setValue:[NSString stringWithFormat:@"%@", token] forHTTPHeaderField:@"Authorization"];
+}
+
+- (void)setAcceptLanguageHeader {
+    
+    NSString *lang = self.settingsManager.language;
+    [self.requestSerializer setValue:[NSString stringWithFormat:@"%@", lang] forHTTPHeaderField:@"Accept-Language"];
+}
+
+#pragma mark Priority handling
 
 - (BOOL)shouldCancelAllOtherRequests {
     
@@ -159,6 +164,8 @@
     
     return YES;
 }
+
+#pragma mark Retry handling
 
 // For retries with method using callback as param only
 - (void)handleFailWithError:(NSError *)error failCounter:(NSInteger *)failCounter callback:(Callback)callback retrySelector:(SEL)retrySelector {
@@ -178,57 +185,24 @@
     [self coreHandleFailWithError:error failCounter:failCounter callback:callback retrySelector:retrySelector param1:param1 param2:param2];
 }
 
-// Core method for handling retries
-- (void)coreHandleFailWithError:(NSError *)error failCounter:(NSInteger *)failCounter callback:(Callback)callback retrySelector:(SEL)retrySelector param1:(id)param1 param2:(id)param2 {
-    
-    DLog(@"[%@]: Failed %@. Error: %@", NSStringFromClass([self class]), NSStringFromSelector(retrySelector), error.localizedDescription);
-    
-    // Count number of fails
-    (*failCounter)++;
-    
-    // Retry
-    if ((*failCounter) <= kBaseAPIClientRetryCount && error.code != kNetworkRequestBadInputDataError) {
-        
-        DLog(@"[%@]: Retrying %@ ...%ld", NSStringFromClass([self class]), NSStringFromSelector(retrySelector), (long)(*failCounter));
-        
-        // These pragma clang directives supresses a warning - "PerformSelector may cause a leak because its selector is unknown". Because by a convention, retrySelector will always call network based method with void return type. Therefore LLVM doesn't need to handle release of return objects because there's nothing to release
-        
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Warc-performSelector-leaks"
-        
-        if (param2) {
-            
-            [self performSelectorOnMainThread:retrySelector onTarget:self withObject:param1 withObject:param2 withObject:callback waitUntilDone:YES];
-            
-        } else if (param1) {
-            
-            [self performSelector:retrySelector withObject:param1 withObject:callback];
-            
-        } else {
-            
-            [self performSelector:retrySelector withObject:callback];
-        }
-        
-#pragma clang diagnostic pop
-        
-    } else {
-        
-        DLog(@"[%@]: Max number of retries reached (%d) for %@", NSStringFromClass([self class]), kBaseAPIClientRetryCount, NSStringFromSelector(retrySelector));
-        
-        // Resetting
-        (*failCounter) = 0;
-        
-        callback(NO, nil, error);
-    }
-}
-
-#pragma mark - Private
+#pragma mark - Private -
 
 - (void)cancelAllRequests:(NSNotification *)networkRequestsCancellationNotification {
     
     if (self.operationQueue.operationCount) {
         
         [self.operationQueue cancelAllOperations];
+    }
+}
+
+- (void)clearCookies {
+    
+    //Clear cookies
+    NSHTTPCookieStorage *cookieStorage = [NSHTTPCookieStorage sharedHTTPCookieStorage];
+    
+    for (NSHTTPCookie *each in cookieStorage.cookies) {
+        
+        [cookieStorage deleteCookie:each];
     }
 }
 
@@ -338,19 +312,48 @@
     return failureWrapperBlock;
 }
 
-- (NSString *)setAuthorizationHeader {
+// Core method for handling retries
+- (void)coreHandleFailWithError:(NSError *)error failCounter:(NSInteger *)failCounter callback:(Callback)callback retrySelector:(SEL)retrySelector param1:(id)param1 param2:(id)param2 {
     
-    UserManager *userManager = [REGISTRY getObject:[UserManager class]];
-    NSString *token = userManager.user.token;
-    [self.requestSerializer setValue:[NSString stringWithFormat:@"%@", token] forHTTPHeaderField:@"Authorization"];
-    return token;
-}
-
-- (NSString *)currentLanguage {
+    DLog(@"[%@]: Failed %@. Error: %@", NSStringFromClass([self class]), NSStringFromSelector(retrySelector), error.localizedDescription);
     
-    SettingsManager *settingsManager = [REGISTRY getObject:[SettingsManager class]];
+    // Count number of fails
+    (*failCounter)++;
     
-    return settingsManager.language;
+    // Retry
+    if ((*failCounter) <= kBaseAPIClientRetryCount && error.code != kNetworkRequestBadInputDataError) {
+        
+        DLog(@"[%@]: Retrying %@ ...%ld", NSStringFromClass([self class]), NSStringFromSelector(retrySelector), (long)(*failCounter));
+        
+        // These pragma clang directives supresses a warning - "PerformSelector may cause a leak because its selector is unknown". Because by a convention, retrySelector will always call network based method with void return type. Therefore LLVM doesn't need to handle release of return objects because there's nothing to release
+        
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Warc-performSelector-leaks"
+        
+        if (param2) {
+            
+            [self performSelectorOnMainThread:retrySelector onTarget:self withObject:param1 withObject:param2 withObject:callback waitUntilDone:YES];
+            
+        } else if (param1) {
+            
+            [self performSelector:retrySelector withObject:param1 withObject:callback];
+            
+        } else {
+            
+            [self performSelector:retrySelector withObject:callback];
+        }
+        
+#pragma clang diagnostic pop
+        
+    } else {
+        
+        DLog(@"[%@]: Max number of retries reached (%d) for %@", NSStringFromClass([self class]), kBaseAPIClientRetryCount, NSStringFromSelector(retrySelector));
+        
+        // Resetting
+        (*failCounter) = 0;
+        
+        callback(NO, nil, error);
+    }
 }
 
 @end

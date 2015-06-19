@@ -32,14 +32,15 @@
 
 @interface BaseDetailsViewController : BaseViewController
 
+#pragma mark - Public -
+
 // Use this property in form / text field based screens
 @property (nonatomic, weak) IBOutlet UIScrollView *contentScrollView;
 
+#pragma mark - Protected -
+
 // Flag for checking if keybaord is present
 @property (nonatomic) BOOL isKeyboardActive;
-
-// Keyboard observing
-@property BOOL observeKeyboard;
 
 // Use this when need to move scrollView content up with some offset
 @property (nonatomic) UIEdgeInsets keyboardScrollViewContentEdgeInsets;
@@ -53,14 +54,18 @@
 // Stores a list of fields for keyboard controls
 @property (nonatomic, strong) id<KeyboardControlProtocol> keyboardControls;
 
+#pragma mark Keyboard control handling
+
 - (void)setTextFieldsForKeyboard:(NSArray *)fields;
 - (void)scrollToActiveField:(UIView *)textField;
+
+- (void)keyboardWillAppear:(NSNotification *)notification;
+- (void)keyboardWillDisappear:(NSNotification *)notification;
+
+#pragma mark Validation styling
 
 // For marking required input fields
 - (void)applyStyleForMissingRequiredFields;
 - (void)resetStyleForMissingRequiredFields;
-
-- (void)keyboardWillAppear:(NSNotification *)notification;
-- (void)keyboardWillDisappear:(NSNotification *)notification;
 
 @end

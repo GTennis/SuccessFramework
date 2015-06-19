@@ -29,6 +29,8 @@
 
 @implementation KeychainManager
 
+#pragma mark - KeychainManagerProtocol -
+
 - (BOOL)setAuthentificationToken:(NSString *)token {
     
     return YES;

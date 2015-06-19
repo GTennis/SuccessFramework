@@ -35,6 +35,8 @@
 
 @interface LaunchViewController : BaseViewController
 
+#pragma mark - Public -
+
 @property (weak, nonatomic) IBOutlet UIImageView *backgroundImageView;
 @property (weak, nonatomic) id<LaunchViewControllerDelegate> delegate;
 

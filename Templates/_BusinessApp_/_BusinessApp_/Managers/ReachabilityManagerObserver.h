@@ -1,9 +1,9 @@
 //
-//  ConstNetworkConfig.h
+//  ReachabilityManagerObserver.h
 //  _BusinessApp_
 //
-//  Created by Gytenis Mikulėnas on 5/2/14.
-//  Copyright (c) 2015 Gytenis Mikulėnas
+//  Created by Gytenis Mikulenas on 19/06/15.
+//  Copyright (c) 2015 Gytenis Mikulėnas 
 //  https://github.com/GitTennis/SuccessFramework
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -25,27 +25,13 @@
 //  SOFTWARE. All rights reserved.
 //
 
-//------- Backend base url configs -------//
+@protocol ReachabilityManagerObserver <NSObject>
 
-#define DEVELOPMENT_BASE_URL      @"http://dotheapp.com"
-#define STAGE_BASE_URL          @"http://dotheapp.com"
-#define PRODUCTION_BASE_URL       @"http://dotheapp.com"
+@optional
 
-// Web root environment auto selection
-#ifdef DEBUG
+- (void)applicationDidBecomeActive;
+- (void)applicationDidBecomeInactive;
+- (void)internetDidBecomeOn;
+- (void)internetDidBecomeOff;
 
-    #define BASE_URL DEVELOPMENT_BASE_URL // For internal testing
-
-#else
-
-    #ifdef ENTERPRISE_BUILD
-
-        #define BASE_URL STAGE_BASE_URL // For testing release build
-
-    #else
-
-        #define BASE_URL PRODUCTION_BASE_URL // Don't change this. For app store.
-
-    #endif
-
-#endif
+@end

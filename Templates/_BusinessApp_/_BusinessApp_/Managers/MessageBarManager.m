@@ -39,8 +39,10 @@
 
 @implementation MessageBarManager
 
-- (instancetype)init
-{
+#pragma mark - Public
+
+- (instancetype)init {
+    
     self = [super init];
     if (self) {
         
@@ -49,6 +51,8 @@
     }
     return self;
 }
+
+#pragma mark - MessageBarManagerProtocol -
 
 // Add needed methods and wrap inside this class methods. Encapsulate and expose wrapped ones only.
 // https://github.com/terryworona/TWMessageBarManager
@@ -91,7 +95,7 @@
     
 }
 
-#pragma mark - private
+#pragma mark - Private -
 
 // Converts and maps public enum to private enum
 - (TWMessageBarMessageType)convertedMessageTypeForType:(MessageBarMessageType)messageType {
@@ -124,36 +128,47 @@
     [_messageBarManager showMessageWithTitle:title description:description type:messageType duration:duration];
 }
 
-#pragma mark - TWMessageBarStyleSheet
+#pragma mark - TWMessageBarStyleSheet -
 
 - (UIColor *)backgroundColorForMessageType:(TWMessageBarMessageType)type {
     
-    if(type == TWMessageBarMessageTypeSuccess)
+    if (type == TWMessageBarMessageTypeSuccess) {
+       
         return kColorGreen;
-    else if(type == TWMessageBarMessageTypeError)
+        
+    } else if (type == TWMessageBarMessageTypeError) {
+     
         return kColorRed;
+    }
     
     return kColorGray;
 }
 
 - (UIColor *)strokeColorForMessageType:(TWMessageBarMessageType)type {
     
-    if(type == TWMessageBarMessageTypeSuccess)
+    if (type == TWMessageBarMessageTypeSuccess) {
+      
         return kColorGreen;
-    else if(type == TWMessageBarMessageTypeError)
+    
+    } else if (type == TWMessageBarMessageTypeError) {
+     
         return kColorRed;
+    }
     
     return kColorGray;
 }
 
 - (UIImage *)iconImageForMessageType:(TWMessageBarMessageType)type {
     
-    if(type == TWMessageBarMessageTypeSuccess)
+    if (type == TWMessageBarMessageTypeSuccess) {
+      
         return [UIImage imageNamed:@"icon-success"];
-    else if(type == TWMessageBarMessageTypeError)
+        
+    } else if (type == TWMessageBarMessageTypeError) {
+     
         return [UIImage imageNamed:@"icon-error"];
+    }
     
-    //TODO: choose icon for info type
     return [UIImage imageNamed:@"icon-info"];
 }
 

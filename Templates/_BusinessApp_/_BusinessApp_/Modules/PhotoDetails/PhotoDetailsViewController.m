@@ -56,7 +56,7 @@
     [self.analyticsManager logScreen:kAnalyticsManagerScreenPhotoDetails];
 }
 
-#pragma mark - Protected
+#pragma mark - Protected -
 
 - (void)prepareUI {
     
@@ -99,7 +99,15 @@
     }];
 }
 
-#pragma mark - IBActions
+#pragma mark Language change handling
+
+- (void)notificationLocalizationHasChanged {
+    
+    [self prepareUI];
+    [self loadModel];
+}
+
+#pragma mark - IBActions -
 
 - (IBAction)addToFavoritesPressed:(id)sender {
     
@@ -115,14 +123,6 @@
                                                     // ...
                                                 }];
     }];
-}
-
-#pragma mark - Handling language change
-
-- (void)notificationLocalizationHasChanged {
-    
-    [self prepareUI];
-    [self loadModel];
 }
 
 @end

@@ -30,6 +30,8 @@
 
 @interface HomeModel : BaseModel
 
+#pragma mark - Public -
+
 @property (nonatomic, strong) ImagesObject *images;
 
 @end

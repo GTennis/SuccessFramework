@@ -25,16 +25,7 @@
 //  SOFTWARE. All rights reserved.
 //
 
-@protocol ReachabilityManagerObserver <NSObject>
-
-@optional
-
-- (void)applicationDidBecomeActive;
-- (void)applicationDidBecomeInactive;
-- (void)internetDidBecomeOn;
-- (void)internetDidBecomeOff;
-
-@end
+#import "ReachabilityManagerObserver.h"
 
 @protocol ReachabilityManagerProtocol <NSObject>
 

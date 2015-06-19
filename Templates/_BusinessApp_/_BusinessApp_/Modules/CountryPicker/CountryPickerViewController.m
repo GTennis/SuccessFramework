@@ -45,7 +45,7 @@
     [self prepareUI];
 }
 
-#pragma mark - Protected
+#pragma mark - Protected -
 
 - (void)commonInit {
     
@@ -86,7 +86,7 @@
     [self didMoveToParentViewController:self];
 }
 
-#pragma mark - EMCCountryDelegate
+#pragma mark - EMCCountryDelegate -
 
 - (void)countryController:(id)sender didSelectCountry:(EMCCountry *)chosenCountry {
     
@@ -95,7 +95,7 @@
     [_delegate didSelectCountryCode:chosenCountry.countryCode];
 }
 
-#pragma mark - Private
+#pragma mark - Private -
 
 - (void)close {
     

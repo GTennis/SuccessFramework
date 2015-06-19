@@ -41,7 +41,7 @@
     _webView.scalesPageToFit = YES;
 }
 
-#pragma mark - UIWebViewDelegate
+#pragma mark - UIWebViewDelegate -
 
 - (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType {
     

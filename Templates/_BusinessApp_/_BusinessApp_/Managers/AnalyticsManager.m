@@ -48,6 +48,8 @@
 
 @implementation AnalyticsManager
 
+#pragma mark - Public -
+
 - (id)init {
     
     self = [super init];
@@ -73,6 +75,8 @@
     return self;
 }
 
+#pragma mark - AnalyticsManagerProtocol -
+
 - (void)startSession {
     
     [_defaultTracker set:kGAISessionControl value:@"start"];
@@ -93,7 +97,9 @@
     }
 }
 
-#pragma mark - Custom action loggin
+#pragma mark - Private -
+
+#pragma mark Custom action logging
 
 
 /*- (void)logPurchaseItem:(OrderItemObject *)item transactionId:(NSString *)transactionId {
@@ -126,8 +132,6 @@
  currencyCode:order.currencyCode] build]];
  }
  }*/
-
-#pragma mark - Private
 
 - (void)logEventWithCategory:(NSString *)category action:(NSString *)action title:(NSString *)title value:(NSNumber *)value {
     

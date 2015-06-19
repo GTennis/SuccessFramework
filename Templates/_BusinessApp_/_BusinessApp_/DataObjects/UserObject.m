@@ -45,6 +45,8 @@
 
 @synthesize password = _password;
 
+#pragma mark - ParsableObject -
+
 - (instancetype)initWithDict:(NSDictionary *)dict {
     
     self = [self init];

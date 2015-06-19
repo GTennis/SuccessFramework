@@ -25,21 +25,24 @@
 //  SOFTWARE. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
-
 @interface GMObserverList : NSObject
 
-@property (nonatomic, readonly) id observedSubject; // Observed list model
+#pragma mark - Public -
+
+// Observed object
+@property (nonatomic, readonly) id observedSubject;
+
+// List of added observers
 @property (nonatomic, readonly) NSArray *observers;
 
 - (id)initWithObservedSubject:(id)observedSubject;
 
-// Observers:
+// Observer handling
 - (void)addObserver:(id)observer;
 - (void)removeObserver:(id)observer;
 - (BOOL)containsObserver:(id)observer;
 
-// Generic notification method. Mostly used for list and details models
+// Broadcasting to observers
 - (void)notifyObserversForSelector:(SEL)observerSelector;
 - (void)notifyObserversForSelector:(SEL)observerSelector withObject:(id)object;
 - (void)notifyObserversForSelector:(SEL)observerSelector withObject1:(id)object1 object2:(id)object2;

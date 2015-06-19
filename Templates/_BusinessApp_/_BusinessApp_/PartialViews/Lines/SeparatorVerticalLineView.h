@@ -25,8 +25,6 @@
 //  SOFTWARE. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
-
 @interface SeparatorVerticalLineView : UIView
 
 @end

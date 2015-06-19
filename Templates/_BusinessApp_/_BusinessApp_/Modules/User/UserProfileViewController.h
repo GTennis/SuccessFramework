@@ -31,6 +31,8 @@
 
 @interface UserProfileViewController : BaseViewController
 
+#pragma mark - Public -
+
 @property (nonatomic, strong) UserProfileModel *model;
 
 @end

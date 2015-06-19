@@ -43,6 +43,8 @@
 
 @interface KeyboardControl : NSObject <KeyboardControlProtocol>
 
+#pragma mark - Public -
+
 @property (nonatomic, weak) id<KeyboardControlDelegate> delegate;
 
 @end

@@ -29,6 +29,8 @@
 
 @interface SettingsModel : BaseModel
 
+#pragma mark - Public -
+
 - (void)setLanguageEnglish;
 - (void)setLanguageGerman;
 

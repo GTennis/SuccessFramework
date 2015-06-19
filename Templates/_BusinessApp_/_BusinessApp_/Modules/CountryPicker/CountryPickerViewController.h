@@ -35,6 +35,8 @@
 
 @interface CountryPickerViewController : BaseViewController
 
+#pragma mark - Public -
+
 @property (nonatomic, weak) id<CountryPickerViewControllerDelegate> delegate;
 
 @end

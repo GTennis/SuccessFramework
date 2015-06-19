@@ -37,10 +37,16 @@
 
 @implementation BackendAPIClient
 
+#pragma mark - Protected -
+
+#pragma mark Override
+
 - (BOOL)shouldCancelSelfRequests {
     
     return YES;
 }
+
+#pragma mark - BackendAPIClientProtocol -
 
 - (void)getAppSettingsWithParam1:(id)param1 callback:(Callback)callback {
     
@@ -108,7 +114,7 @@
     }];
 }
 
-#pragma mark - User related methods
+// User related methods
 
 - (void)loginUserWithData:(UserObject *)user callback:(Callback)callback {
     

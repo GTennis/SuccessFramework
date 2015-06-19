@@ -33,6 +33,8 @@
 
 @interface HomeViewController : BaseViewController <UICollectionViewDataSource, UICollectionViewDelegate, HomeListItemViewDelegate>
 
+#pragma mark - Public -
+
 @property (nonatomic, strong) HomeModel *model;
 @property (nonatomic, strong) IBOutlet UICollectionView *collectionView;
 @property (weak, nonatomic) IBOutlet NormalLabel *progressLabel;

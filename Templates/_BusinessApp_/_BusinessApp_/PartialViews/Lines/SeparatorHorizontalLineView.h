@@ -25,9 +25,9 @@
 //  SOFTWARE. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
-
 @interface SeparatorHorizontalLineView : UIView
+
+#pragma mark - Public -
 
 - (void)fitIntoContainerView:(UIView *)containerView color:(UIColor *)color alignTop:(BOOL)alignTop leftOffset:(CGFloat)leftOffset rightOffset:(CGFloat)rightOffset;
 

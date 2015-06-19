@@ -37,6 +37,8 @@
 
 @interface TopNavigationBar : BaseNavigationBar
 
+#pragma mark - Public -
+
 @property (weak, nonatomic) id<TopNavigationBarDelegate> delegate;
 
 @property (weak, nonatomic) IBOutlet UIButton *backButton;

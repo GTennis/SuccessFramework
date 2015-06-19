@@ -25,11 +25,11 @@
 //  SOFTWARE. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
-
 @interface GMAlertView : UIAlertView /*NSObject*/
 
 @property (copy, nonatomic) void (^completion)(BOOL, NSInteger);
+
+#pragma mark - Public -
 
 - (id)initWithViewController:(UIViewController *)viewController title:(NSString *)title message:(NSString *)message cancelButtonTitle:(NSString *)cancelButtonTitle otherButtonTitles:(NSArray *)otherButtonTitles;
 

@@ -34,6 +34,9 @@
 // Singleton
 + (Registry *)sharedRegistry;
 
+#pragma mark - Public -
+
+// Shared object handling
 - (void)registerObject:(id)object;
 - (void)unRegisterObject:(id)object;
 - (id)getObject:(id)object;

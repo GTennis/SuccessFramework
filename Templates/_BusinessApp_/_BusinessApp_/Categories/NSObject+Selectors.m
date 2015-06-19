@@ -30,133 +30,147 @@
 @implementation NSObject (Selectors)
 
 // Invokes selector on main thread with one argument
-- (void)performSelectorOnMainThread:(SEL)selector onTarget:(id)target withObject:(id)arg1 waitUntilDone:(BOOL)wait
-{
-	// Extrack method signature:
-	NSMethodSignature *sig = [target methodSignatureForSelector:selector];
-	if (!sig)
-		return;
+- (void)performSelectorOnMainThread:(SEL)selector onTarget:(id)target withObject:(id)arg1 waitUntilDone:(BOOL)wait {
+    
+	// Extract method signature
+	NSMethodSignature *methodSignature = [target methodSignatureForSelector:selector];
+    if (!methodSignature) {
 	
-	// Invoke selector:
-	NSInvocation *invo = [NSInvocation invocationWithMethodSignature:sig];
-	[invo setTarget:target];
-	[invo setSelector:selector];
-	[invo setArgument:&arg1 atIndex:2];
-	[invo retainArguments];
-	[invo performSelectorOnMainThread:@selector(invoke) withObject:nil waitUntilDone:wait];
+        return;
+    }
+	
+	// Create and invoke selector
+	NSInvocation *invocation = [NSInvocation invocationWithMethodSignature:methodSignature];
+	[invocation setTarget:target];
+	[invocation setSelector:selector];
+	[invocation setArgument:&arg1 atIndex:2];
+	[invocation retainArguments];
+	[invocation performSelectorOnMainThread:@selector(invoke) withObject:nil waitUntilDone:wait];
 }
 
 // Invokes selector on main thread with two arguments
-- (void)performSelectorOnMainThread:(SEL)selector onTarget:(id)target withObject:(id)arg1 withObject:(id)arg2 waitUntilDone:(BOOL)wait
-{
-	// Extrack method signature:
-	NSMethodSignature *sig = [target methodSignatureForSelector:selector];
-	if (!sig)
-		return;
+- (void)performSelectorOnMainThread:(SEL)selector onTarget:(id)target withObject:(id)arg1 withObject:(id)arg2 waitUntilDone:(BOOL)wait {
+    
+	// Extract method signature
+	NSMethodSignature *methodSignature = [target methodSignatureForSelector:selector];
+    if (!methodSignature) {
 	
-	// Invoke selector:
-	NSInvocation *invo = [NSInvocation invocationWithMethodSignature:sig];
-	[invo setTarget:target];
-	[invo setSelector:selector];
-	[invo setArgument:&arg1 atIndex:2];
-	[invo setArgument:&arg2 atIndex:3];
-	[invo retainArguments];
-	[invo performSelectorOnMainThread:@selector(invoke) withObject:nil waitUntilDone:wait];
+        return;
+    }
+	
+	// Create and invoke selector
+	NSInvocation *invocation = [NSInvocation invocationWithMethodSignature:methodSignature];
+	[invocation setTarget:target];
+	[invocation setSelector:selector];
+	[invocation setArgument:&arg1 atIndex:2];
+	[invocation setArgument:&arg2 atIndex:3];
+	[invocation retainArguments];
+	[invocation performSelectorOnMainThread:@selector(invoke) withObject:nil waitUntilDone:wait];
 }
 
 // Invokes selector on main thread with three arguments
-- (void)performSelectorOnMainThread:(SEL)selector onTarget:(id)target withObject:(id)arg1 withObject:(id)arg2 withObject:(id)arg3 waitUntilDone:(BOOL)wait
-{
-	// Extrack method signature:
-	NSMethodSignature *sig = [target methodSignatureForSelector:selector];
-	if (!sig)
-		return;
+- (void)performSelectorOnMainThread:(SEL)selector onTarget:(id)target withObject:(id)arg1 withObject:(id)arg2 withObject:(id)arg3 waitUntilDone:(BOOL)wait {
+    
+	// Extract method signature
+	NSMethodSignature *methodSignature = [target methodSignatureForSelector:selector];
+    if (!methodSignature) {
 	
-	// Invoke selector:
-	NSInvocation *invo = [NSInvocation invocationWithMethodSignature:sig];
-	[invo setTarget:target];
-	[invo setSelector:selector];
-	[invo setArgument:&arg1 atIndex:2];
-	[invo setArgument:&arg2 atIndex:3];
-	[invo setArgument:&arg3 atIndex:4];
-	[invo retainArguments];
-	[invo performSelectorOnMainThread:@selector(invoke) withObject:nil waitUntilDone:wait];
+        return;
+    }
+	
+	// Create and invoke selector
+	NSInvocation *invocation = [NSInvocation invocationWithMethodSignature:methodSignature];
+	[invocation setTarget:target];
+	[invocation setSelector:selector];
+	[invocation setArgument:&arg1 atIndex:2];
+	[invocation setArgument:&arg2 atIndex:3];
+	[invocation setArgument:&arg3 atIndex:4];
+	[invocation retainArguments];
+	[invocation performSelectorOnMainThread:@selector(invoke) withObject:nil waitUntilDone:wait];
 }
 
 // Invokes selector with three arguments
-- (void)performSelector:(SEL)selector onTarget:(id)target withObject:(id)arg1 withObject:(id)arg2 withObject:(id)arg3
-{
-	// Extrack method signature:
-	NSMethodSignature *sig = [target methodSignatureForSelector:selector];
-	if (!sig)
+- (void)performSelector:(SEL)selector onTarget:(id)target withObject:(id)arg1 withObject:(id)arg2 withObject:(id)arg3 {
+    
+	// Extract method signature
+	NSMethodSignature *methodSignature = [target methodSignatureForSelector:selector];
+	if (!methodSignature) {
+        
 		return;
+    }
 	
-	// Invoke selector:
-	NSInvocation *invo = [NSInvocation invocationWithMethodSignature:sig];
-	[invo setTarget:target];
-	[invo setSelector:selector];
-	[invo setArgument:&arg1 atIndex:2];
-	[invo setArgument:&arg2 atIndex:3];
-	[invo setArgument:&arg3 atIndex:4];
-	[invo retainArguments];
-	[invo performSelector:@selector(invoke) withObject:nil];
+	// Create and invoke selector
+	NSInvocation *invocation = [NSInvocation invocationWithMethodSignature:methodSignature];
+	[invocation setTarget:target];
+	[invocation setSelector:selector];
+	[invocation setArgument:&arg1 atIndex:2];
+	[invocation setArgument:&arg2 atIndex:3];
+	[invocation setArgument:&arg3 atIndex:4];
+	[invocation retainArguments];
+	[invocation performSelector:@selector(invoke) withObject:nil];
 }
 
-// Invokes selector in other thread with two arguments
-- (void)performSelectorInBackground:(SEL)selector onTarget:(id)target withObject:(id)arg1 withObject:(id)arg2
-{
-	// Extrack method signature:
-	NSMethodSignature *sig = [target methodSignatureForSelector:selector];
-	if (!sig)
-		return;
+// Invokes selector on another thread with two arguments
+- (void)performSelectorInBackground:(SEL)selector onTarget:(id)target withObject:(id)arg1 withObject:(id)arg2 {
+    
+	// Extract method signature
+	NSMethodSignature *methodSignature = [target methodSignatureForSelector:selector];
+    if (!methodSignature) {
 	
-	// Invoke selector:
-	NSInvocation *invo = [NSInvocation invocationWithMethodSignature:sig];
-	[invo setTarget:target];
-	[invo setSelector:selector];
-	[invo setArgument:&arg1 atIndex:2];
-	[invo setArgument:&arg2 atIndex:3];
-	[invo retainArguments];
-    [invo performSelectorInBackground:@selector(invoke) withObject:nil];
+        return;
+    }
+	
+	// Create and invoke selector
+	NSInvocation *invocation = [NSInvocation invocationWithMethodSignature:methodSignature];
+	[invocation setTarget:target];
+	[invocation setSelector:selector];
+	[invocation setArgument:&arg1 atIndex:2];
+	[invocation setArgument:&arg2 atIndex:3];
+	[invocation retainArguments];
+    [invocation performSelectorInBackground:@selector(invoke) withObject:nil];
 }
 
-// Invokes selector in other thread with three arguments
-- (void)performSelectorInBackground:(SEL)selector onTarget:(id)target withObject:(id)arg1 withObject:(id)arg2 withObject:(id)arg3
-{
-	// Extrack method signature:
-	NSMethodSignature *sig = [target methodSignatureForSelector:selector];
-	if (!sig)
-		return;
+// Invokes selector on another thread with three arguments
+- (void)performSelectorInBackground:(SEL)selector onTarget:(id)target withObject:(id)arg1 withObject:(id)arg2 withObject:(id)arg3 {
+    
+	// Extract method signature
+	NSMethodSignature *methodSignature = [target methodSignatureForSelector:selector];
+    if (!methodSignature) {
 	
-	// Invoke selector:
-	NSInvocation *invo = [NSInvocation invocationWithMethodSignature:sig];
-	[invo setTarget:target];
-	[invo setSelector:selector];
-	[invo setArgument:&arg1 atIndex:2];
-	[invo setArgument:&arg2 atIndex:3];
-    [invo setArgument:&arg3 atIndex:4];
-	[invo retainArguments];
-    [invo performSelectorInBackground:@selector(invoke) withObject:nil];
+        return;
+    }
+	
+	// Create and invoke selector
+	NSInvocation *invocation = [NSInvocation invocationWithMethodSignature:methodSignature];
+	[invocation setTarget:target];
+	[invocation setSelector:selector];
+	[invocation setArgument:&arg1 atIndex:2];
+	[invocation setArgument:&arg2 atIndex:3];
+    [invocation setArgument:&arg3 atIndex:4];
+	[invocation retainArguments];
+    [invocation performSelectorInBackground:@selector(invoke) withObject:nil];
 }
 
-// Invokes selector in other thread with four arguments
-- (void)performSelectorInBackground:(SEL)selector onTarget:(id)target withObject:(id)arg1 withObject:(id)arg2 withObject:(id)arg3 withObject:(id)arg4
-{
-	// Extrack method signature:
-	NSMethodSignature *sig = [target methodSignatureForSelector:selector];
-	if (!sig)
-		return;
+// Invokes selector on another thread with four arguments
+- (void)performSelectorInBackground:(SEL)selector onTarget:(id)target withObject:(id)arg1 withObject:(id)arg2 withObject:(id)arg3 withObject:(id)arg4 {
+    
+	// Extract method signature
+	NSMethodSignature *methodSignature = [target methodSignatureForSelector:selector];
+    if (!methodSignature) {
 	
-	// Invoke selector:
-	NSInvocation *invo = [NSInvocation invocationWithMethodSignature:sig];
-	[invo setTarget:target];
-	[invo setSelector:selector];
-	[invo setArgument:&arg1 atIndex:2];
-	[invo setArgument:&arg2 atIndex:3];
-    [invo setArgument:&arg3 atIndex:4];
-    [invo setArgument:&arg4 atIndex:5];
-	[invo retainArguments];
-    [invo performSelectorInBackground:@selector(invoke) withObject:nil];
+        return;
+    }
+	
+	// Create and invoke selector
+	NSInvocation *invocation = [NSInvocation invocationWithMethodSignature:methodSignature];
+	[invocation setTarget:target];
+	[invocation setSelector:selector];
+	[invocation setArgument:&arg1 atIndex:2];
+	[invocation setArgument:&arg2 atIndex:3];
+    [invocation setArgument:&arg3 atIndex:4];
+    [invocation setArgument:&arg4 atIndex:5];
+	[invocation retainArguments];
+    [invocation performSelectorInBackground:@selector(invoke) withObject:nil];
 }
 
 @end

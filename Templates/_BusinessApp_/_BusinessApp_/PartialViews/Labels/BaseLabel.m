@@ -29,12 +29,18 @@
 
 @implementation BaseLabel
 
+#pragma mark - Protected -
+
+- (void)commonInit {
+    
+    // ...
+}
+
 /*- (void)drawTextInRect:(CGRect)rect {
  
  UIEdgeInsets insets = {0, kLabelTextLeftOffset, 0, 0};
  
  return [super drawTextInRect:UIEdgeInsetsInsetRect(rect, insets)];
  }*/
-
 
 @end

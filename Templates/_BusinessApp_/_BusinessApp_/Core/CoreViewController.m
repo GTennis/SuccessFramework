@@ -153,7 +153,9 @@
     // Dispose of any resources that can be recreated.
 }
 
-#pragma mark - Protected
+#pragma mark - Protected -
+
+#pragma mark Common
 
 - (void)commonInit {
     
@@ -185,7 +187,42 @@
     //NSAssert(NO, @"loadModel is not implemented in class: %@", NSStringFromClass([self class]));
 }
 
-#pragma mark - Navigation
+#pragma mark Xib loading
+
+- (UIView *)loadViewFromXibWithClass:(Class)theClass {
+    
+    NSString *xibName = NSStringFromClass(theClass);
+    
+    if (isIpad) {
+        
+        xibName = [NSString stringWithFormat:@"%@_ipad", xibName];
+        
+    } else {
+        
+        xibName = [NSString stringWithFormat:@"%@_iphone", xibName];
+    }
+    
+    UIView *view = [self loadViewFromXib:xibName class:theClass];
+    return view;
+}
+
+- (UIView *)loadViewFromXib:(NSString *)name class:(Class)theClass {
+    
+    UIView *loadedView = nil;
+    
+    NSArray *viewFromXib = [[NSBundle mainBundle] loadNibNamed:name owner:nil options:nil];
+    if (viewFromXib.count > 0) {
+        
+        UIView *view = [viewFromXib objectAtIndex:0];
+        if ([view isKindOfClass:theClass]) {
+            
+            loadedView = view;
+        }
+    }
+    return loadedView;
+}
+
+#pragma mark Navigation handling
 
 - (void)didPressedBack {
     
@@ -209,42 +246,7 @@
     return !self.navigationController.navigationBarHidden;
 }
 
-#pragma mark - Xib loading
-
-- (UIView *)loadViewFromXibOfClass:(Class)class {
-    
-    NSString *xibName = NSStringFromClass(class);
-    
-    if (isIpad) {
-        
-        xibName = [NSString stringWithFormat:@"%@_ipad", xibName];
-        
-    } else {
-        
-        xibName = [NSString stringWithFormat:@"%@_iphone", xibName];
-    }
-    
-    UIView *view = [self loadViewFromXib:xibName ofClass:class];
-    return view;
-}
-
-- (UIView *)loadViewFromXib:(NSString *)name ofClass:(Class)class {
-    
-    UIView *loadedView = nil;
-    
-    NSArray *viewFromXib = [[NSBundle mainBundle] loadNibNamed:name owner:nil options:nil];
-    if (viewFromXib.count > 0)
-    {
-        UIView *view = [viewFromXib objectAtIndex:0];
-        if ([view isKindOfClass:class])
-        {
-            loadedView = view;
-        }
-    }
-    return loadedView;
-}
-
-#pragma mark - Screen activity indicators
+#pragma mark Progress indicators
 
 - (void)showScreenActivityIndicator {
     
@@ -271,6 +273,7 @@
     MBProgressHUD *activityView = (MBProgressHUD *) [self.view viewWithTag:kScreenActivityIndicatorTag];
     
     if (activityView) {
+        
         [activityView hide:YES];
         [activityView removeFromSuperview];
     }
@@ -278,29 +281,21 @@
     self.view.userInteractionEnabled = YES;
 }
 
-#pragma mark - Handling language change
-
-- (void)notificationLocalizationHasChanged {
-    
-    [self prepareUI];
-    [self loadModel];
-}
-
-#pragma mark - Notification error handling
+#pragma mark Error handling
 
 /*
- Any controller can subscribe itself as an observer for network requests status by adding this code in viewDidLoad:
+    Any controller can subscribe itself as an observer for network requests status by adding this code in viewDidLoad:
  
- // Listens for failed requests
- [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handleNetworkRequestError:) name:kNetworkRequestErrorOccuredNotification object:nil];
+    // Listens for failed requests
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handleNetworkRequestError:) name:kNetworkRequestErrorOccuredNotification object:nil];
  
- // Listens for successful requests
- [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handleNetworkRequestSuccess:) name:kNetworkRequestSuccessNotification object:nil];
+    // Listens for successful requests
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handleNetworkRequestSuccess:) name:kNetworkRequestSuccessNotification object:nil];
  
- These notifications transparently call these two internal methods:
+    These notifications transparently call these two internal methods:
  
- 1. handleNetworkRequestError: could be used for generic stuff, for example showing fullscreen overlay error message
- 2. handleNetworkRequestSuccess - could be used for generic stuff, for example removing shown fullscreen error
+    1. handleNetworkRequestError: could be used for generic stuff, for example showing fullscreen overlay error message
+    2. handleNetworkRequestSuccess - could be used for generic stuff, for example removing shown fullscreen error
  */
 
 - (void)handleNetworkRequestError:(NSNotification *)notification {
@@ -315,7 +310,15 @@
     // ...
 }
 
-//#pragma mark - Popup loading
+#pragma mark Language change handling
+
+- (void)notificationLocalizationHasChanged {
+    
+    [self prepareUI];
+    [self loadModel];
+}
+
+//#pragma mark Popup handling
 
 /*- (void)showPartialViewController:(CoreViewController *)childViewController insideContainerView:(UIView *)containerView {
     

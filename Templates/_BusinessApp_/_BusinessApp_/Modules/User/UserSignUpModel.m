@@ -30,7 +30,7 @@
 
 @implementation UserSignUpModel
 
-#pragma mark - Protected
+#pragma mark - Protected -
 
 - (void)commonInit {
     
@@ -39,7 +39,7 @@
     _user = [[UserObject alloc] init];
 }
 
-#pragma mark - Public methods
+#pragma mark - Public -
 
 - (BOOL)isValidData {
     

@@ -31,6 +31,8 @@
 
 @interface ContactsViewController : BaseViewController
 
+#pragma mark - Public -
+
 @property (nonatomic, strong) ContactsModel *model;
 
 @end

@@ -29,6 +29,8 @@
 
 @implementation GMAlertView
 
+#pragma mark - Public -
+
 - (id)initWithViewController:(UIViewController *)viewController title:(NSString *)title message:(NSString *)message cancelButtonTitle:(NSString *)cancelButtonTitle otherButtonTitles:(NSArray *)otherButtonTitles {
     
     self = [self initWithTitle:title message:message delegate:self cancelButtonTitle:cancelButtonTitle otherButtonTitles:nil];
@@ -40,6 +42,8 @@
     }
     return self;
 }
+
+#pragma mark - UIAlertViewDelegate -
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
     

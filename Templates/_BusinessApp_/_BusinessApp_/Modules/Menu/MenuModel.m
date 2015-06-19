@@ -43,7 +43,7 @@
     [self.userManager removeServiceObserver:self];
 }
 
-#pragma mark - Protected
+#pragma mark - Protected -
 
 - (void)commonInit {
     
@@ -102,11 +102,11 @@
     _menuItems = data;
 }
 
-#pragma mark - UserManagerObserver
+#pragma mark - UserManagerObserver -
 
 // ...
 
-#pragma mark - Private
+#pragma mark - Private -
 
 // For mocking in unit tests
 - (id<ViewControllerFactoryProtocol>)viewControllerFactory {

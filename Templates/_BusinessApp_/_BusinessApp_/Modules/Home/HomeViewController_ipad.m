@@ -33,7 +33,9 @@
 
 @implementation HomeViewController_ipad
 
-#pragma mark - Override
+#pragma mark - Protected -
+
+#pragma mark Override
 
 - (void)prepareUI {
     

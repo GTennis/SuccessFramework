@@ -27,8 +27,8 @@
 //  Implements sharing, login and other social functionality
 //
 
-#import <Foundation/Foundation.h>
+#import "SocialManagerProtocol.h"
 
-@interface SocialManager : NSObject
+@interface SocialManager : NSObject <SocialManagerProtocol>
 
 @end

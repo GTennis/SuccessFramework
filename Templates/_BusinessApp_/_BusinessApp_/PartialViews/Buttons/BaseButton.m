@@ -31,12 +31,7 @@
 
 @implementation BaseButton
 
-- (void)awakeFromNib {
-    
-    [super awakeFromNib];
-    
-    [self commonInit];
-}
+#pragma mark - Public -
 
 - (instancetype)init {
     
@@ -58,9 +53,9 @@
     return self;
 }
 
+#pragma mark - Protected -
+
 - (void)commonInit {
-    
-    [self initializeProperties];
     
     if (self.cornerRadius) {
         
@@ -90,10 +85,11 @@
     [self.titleLabel setFont:font];
 }
 
-- (void)initializeProperties {
+- (void)awakeFromNib {
     
-    // Override in child classes
-    // ...
+    [super awakeFromNib];
+    
+    [self commonInit];
 }
 
 @end

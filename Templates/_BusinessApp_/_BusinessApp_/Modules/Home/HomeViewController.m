@@ -39,11 +39,6 @@
 
 @implementation HomeViewController
 
-- (void)commonInit {
-    
-    [super commonInit];
-}
-
 - (void)viewDidLoad {
     
     [super viewDidLoad];
@@ -70,7 +65,12 @@
     // Dispose of any resources that can be recreated.
 }
 
-#pragma mark - Protected
+#pragma mark - Protected -
+
+- (void)commonInit {
+    
+    [super commonInit];
+}
 
 - (void)prepareUI {
     
@@ -128,8 +128,15 @@
     }];
 }
 
+#pragma mark Language change handling
 
-#pragma mark - UICollectionViewDataSource
+- (void)notificationLocalizationHasChanged {
+    
+    [self prepareUI];
+    [self loadModel];
+}
+
+#pragma mark - UICollectionViewDataSource -
 
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
     
@@ -165,7 +172,7 @@
     return CGSizeZero;
 }
 
-#pragma mark - HomeListItemViewDelegate
+#pragma mark - HomeListItemViewDelegate -
 
 - (void)didPressedWithImage:(ImageObject *)image {
     
@@ -173,14 +180,6 @@
     [self.navigationController pushViewController:viewController animated:YES];
 }
 
-#pragma mark - Handling language change
-
-- (void)notificationLocalizationHasChanged {
-    
-    [self prepareUI];
-    [self loadModel];
-}
-
-#pragma mark - Private
+#pragma mark - Private -
 
 @end

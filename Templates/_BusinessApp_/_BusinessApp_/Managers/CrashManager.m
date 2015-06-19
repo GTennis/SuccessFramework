@@ -65,6 +65,8 @@
 
 @synthesize maxAllowedStoredActionsCount;
 
+#pragma mark - Public -
+
 - (instancetype)init {
     
     self = [super init];
@@ -72,10 +74,7 @@
         
 #ifndef DEBUG
         
-        [Fabric with:@[CrashlyticsKit]];
-        
-        // Will only track crashes on production builds
-        //[Crashlytics startWithAPIKey:[self apiKey]];
+        [Fabric with:@[CrashlyticsKit]];        
 #endif
         
 #ifdef ENTERPRISE_BUILD
@@ -89,17 +88,12 @@
     return self;
 }
 
+#pragma mark - CrashManagerProtocol -
+
 - (NSString *)apiKey {
     
     return kCrashlyticsAPIKey;
 }
-
-- (NSInteger)maxAllowedStoredActionsCount {
-    
-    return kCrashlyticsMaxNumberOfActions;
-}
-
-#pragma mark - Private
 
 // Allows to log any custom action. Stores history.
 - (void)logScreenAction:(NSString *)actionString {
@@ -120,27 +114,34 @@
     [_actionsArray addObject:action];
     
     // Store log
-    //[Crashlytics setObjectValue:_actionsArray forKey:@"ControllerNavigationHistory"];
+    [Crashlytics setObjectValue:_actionsArray forKey:@"ControllerNavigationHistory"];
 }
 
 - (void)logCustomAction:(NSString *)actionString {
     
-    //[Crashlytics setObjectValue:actionString forKey:@"lastUsedItem"];
+    [Crashlytics setObjectValue:actionString forKey:@"lastUsedItem"];
 }
 
 - (void)setUserHasLoggedIn:(BOOL)isLoggedIn {
     
-    //[Crashlytics setIntValue:isLoggedIn forKey:@"isLoggedIn"];
+    [Crashlytics setIntValue:isLoggedIn forKey:@"isLoggedIn"];
 }
 
 - (void)setUserLanguage:(NSString *)language {
     
-    //[Crashlytics setObjectValue:language forKey:@"userLanguage"];
+    [Crashlytics setObjectValue:language forKey:@"userLanguage"];
 }
 
 - (void)crash {
     
-    //[[Crashlytics sharedInstance] crash];
+    [[Crashlytics sharedInstance] crash];
+}
+
+#pragma mark - Private -
+
+- (NSInteger)maxAllowedStoredActionsCount {
+    
+    return kCrashlyticsMaxNumberOfActions;
 }
 
 @end

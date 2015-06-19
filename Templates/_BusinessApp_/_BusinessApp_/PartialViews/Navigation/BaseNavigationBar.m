@@ -29,6 +29,8 @@
 
 @implementation BaseNavigationBar
 
+#pragma mark - Public -
+
 - (void)setFrame:(CGRect)frame {
     
     // The code deals with the following issue: navigation bar leaves some small blank margin space on the left and right sides of custom titleView. The workaround is protect and make width always be full width

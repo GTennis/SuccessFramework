@@ -29,7 +29,7 @@
 
 @implementation HomeModel
 
-#pragma mark - Protected
+#pragma mark - Protected -
 
 - (void)commonInit {
     

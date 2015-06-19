@@ -39,6 +39,8 @@
 
 @interface UserSignUpViewController : BaseDetailsViewController <KeyboardControlDelegate, CountryPickerViewControllerDelegate>
 
+#pragma mark - Public
+
 @property (nonatomic, strong) UserSignUpModel *model;
 @property (nonatomic, weak) id<UserSignUpViewControllerDelegate> delegate;
 
@@ -58,7 +60,6 @@
 
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *salutatationTextFieldWidthConstraint;
 
-- (IBAction)signUpPressed:(id)sender;
 - (void)clearTextFields;
 
 @end

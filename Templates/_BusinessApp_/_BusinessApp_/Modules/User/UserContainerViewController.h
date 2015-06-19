@@ -35,6 +35,8 @@
 
 @interface UserContainerViewController : BaseViewController <UserLoginViewControllerDelegate, UserSignUpViewControllerDelegate, UserForgotPasswordViewControllerDelegate>
 
+#pragma mark - Public
+
 @property (nonatomic, strong) UserContainerModel *model;
 @property (weak, nonatomic) IBOutlet UIView *containerView;
 

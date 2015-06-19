@@ -39,6 +39,8 @@
 
 @implementation PhoneCallCommand
 
+#pragma mark - Public -
+
 - (instancetype)initWithPhoneNumberString:(NSString *)phoneNumberString {
     
     self = [super init];
@@ -51,7 +53,7 @@
     return self;
 }
 
-#pragma mark - CommandProtocol
+#pragma mark - CommandProtocol -
 
 - (void)execute {
     
@@ -78,7 +80,7 @@
     }
 }
 
-#pragma mark - Private
+#pragma mark - Private -
 
 - (NSURL *)phoneNumberUrl {
     

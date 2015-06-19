@@ -55,7 +55,7 @@
     [self.analyticsManager logScreen:kAnalyticsManagerScreenTermsConditions];
 }
 
-#pragma mark - Protected
+#pragma mark - Protected -
 
 - (void)prepareUI {
     

@@ -29,7 +29,7 @@
 
 @implementation TermsConditionsModel
 
-#pragma mark - Public methods
+#pragma mark - Public -
 
 - (NSURLRequest *)urlRequest {
     

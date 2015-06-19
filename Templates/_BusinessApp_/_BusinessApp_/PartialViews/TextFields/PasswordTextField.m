@@ -43,6 +43,40 @@
 
 @implementation PasswordTextField
 
+#pragma mark - Public -
+
+- (void)togglePasswordReveal {
+    
+    if (_isPasswordShown) {
+        
+        self.secureTextEntry = YES;
+        //   [_togglePasswordRevealButton setTitle:GMLocalizedString(kShowKey) forState:UIControlStateNormal];
+        
+        [_togglePasswordRevealButton setImage:[UIImage imageNamed:@"password-show"] forState:UIControlStateNormal];
+        
+        
+        _isPasswordShown = NO;
+        
+    } else {
+        
+        self.secureTextEntry = NO;
+        // [_togglePasswordRevealButton setTitle:GMLocalizedString(kHideKey) forState:UIControlStateNormal];
+        [_togglePasswordRevealButton setImage:[UIImage imageNamed:@"password-hide"] forState:UIControlStateNormal];
+        
+        
+        _isPasswordShown = YES;
+    }
+    
+    if ([_toggleDelegate respondsToSelector:@selector(didPressedTogglePassword)]) {
+        
+        [_toggleDelegate didPressedTogglePassword];
+    }
+    
+    [self moveCursorToTheEndOfText];
+}
+
+#pragma mark - Protected -
+
 - (void)customize {
     
     [super customize];
@@ -68,6 +102,8 @@
     
     return editedBounds;
 }
+
+#pragma mark - Private -
 
 - (void)addShowHidePasswordControl {
     
@@ -109,36 +145,6 @@
     // Add right view
     self.rightView = showHideContainerView;
     self.rightViewMode = UITextFieldViewModeWhileEditing;
-}
-
-- (void)togglePasswordReveal {
-    
-    if (_isPasswordShown) {
-        
-        self.secureTextEntry = YES;
-        //   [_togglePasswordRevealButton setTitle:GMLocalizedString(kShowKey) forState:UIControlStateNormal];
-        
-        [_togglePasswordRevealButton setImage:[UIImage imageNamed:@"password-show"] forState:UIControlStateNormal];
-        
-        
-        _isPasswordShown = NO;
-        
-    } else {
-        
-        self.secureTextEntry = NO;
-        // [_togglePasswordRevealButton setTitle:GMLocalizedString(kHideKey) forState:UIControlStateNormal];
-        [_togglePasswordRevealButton setImage:[UIImage imageNamed:@"password-hide"] forState:UIControlStateNormal];
-        
-        
-        _isPasswordShown = YES;
-    }
-    
-    if ([_toggleDelegate respondsToSelector:@selector(didPressedTogglePassword)]) {
-        
-        [_toggleDelegate didPressedTogglePassword];
-    }
-    
-    [self moveCursorToTheEndOfText];
 }
 
 // Used from http://stackoverflow.com/questions/11157791/how-to-move-cursor-in-uitextfield-after-setting-its-value

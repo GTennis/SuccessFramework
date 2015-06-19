@@ -43,7 +43,9 @@
     // Dispose of any resources that can be recreated.
 }
 
-#pragma mark - Override
+#pragma mark - Protected
+
+#pragma mark Override
 
 - (CGSize)containerViewSizeForLogin {
     

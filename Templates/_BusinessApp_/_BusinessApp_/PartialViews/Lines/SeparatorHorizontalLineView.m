@@ -52,6 +52,8 @@
     }
 }
 
+#pragma mark - Public -
+
 // The method used when dynamicly creating or adding separator line
 - (void)fitIntoContainerView:(UIView *)containerView color:(UIColor *)color alignTop:(BOOL)alignTop leftOffset:(CGFloat)leftOffset rightOffset:(CGFloat)rightOffset {
     

@@ -29,7 +29,4 @@
 
 @interface SettingsManager : NSObject <SettingsManagerProtocol>
 
-// Should not be used directly in order to avoid hardcoding @"en", @"de" strings inside other parts
-//- (void)setLanguage:(NSString *)language;
-
 @end

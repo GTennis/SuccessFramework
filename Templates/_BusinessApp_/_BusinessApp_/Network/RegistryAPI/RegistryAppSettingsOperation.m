@@ -1,9 +1,9 @@
 //
-//  AppSettingsNetworkOperation.m
-//  _BusinessApp_
+//  RegistryAppSettingsOperation.m
+//  HereChallenge
 //
-//  Created by Gytenis Mikulėnas on 5/2/14.
-//  Copyright (c) 2015 Gytenis Mikulėnas
+//  Created by Gytenis Mikulenas on 17/06/15.
+//  Copyright (c) 2015 Gytenis Mikulėnas 
 //  https://github.com/GitTennis/SuccessFramework
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -25,10 +25,20 @@
 //  SOFTWARE. All rights reserved.
 //
 
-#import "AppSettingsNetworkOperation.h"
+#import "RegistryAppSettingsOperation.h"
 #import "SettingObject.h"
+#import "RegistryAPIConfig.h"
 
-@implementation AppSettingsNetworkOperation
+@implementation RegistryAppSettingsOperation
+
+#pragma mark - Protected -
+
+#pragma mark Override
+
+- (NSString *)baseUrl {
+    
+    return REGISTRY_BASE_URL;
+}
 
 - (NSString *)method {
     
@@ -38,7 +48,7 @@
 - (NSString *)urlString {
     
     NSString *appVersion = [NSBundle mainBundle].infoDictionary[@"CFBundleShortVersionString"];
-    NSString *urlString = [NSString stringWithFormat:@"%@/mvc-api/applications/v1/settings/ios-%@", [self baseUrl], appVersion];
+    NSString *urlString = [NSString stringWithFormat:@"%@/v1/settings/ios-%@", [self baseUrl], appVersion];
     
     return urlString;
 }

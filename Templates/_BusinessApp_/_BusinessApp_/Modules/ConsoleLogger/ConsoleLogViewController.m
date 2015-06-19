@@ -86,48 +86,7 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (void)appendLogMessage:(NSString *)logMessage {
-    
-    /*
-     // Check whether should truncate:
-     if (_logText.length + logMessage.length > kLogMaxLength) {
-     
-     // Truncate:
-     NSRange range = {_logText.length - (logMessage.length * 2) - 1, (logMessage.length * 2)};
-     [_logText deleteCharactersInRange:range];
-     }
-     */
-    
-    // Check whether matches current filter:
-    /*BOOL add = YES;
-     NSString *filterText = _searchBar.text;
-     if (filterText.length > 0) {
-     
-     NSRange filterMatchRange = [logMessage rangeOfString:filterText];
-     if (filterMatchRange.location == NSNotFound) {
-     
-     add = NO;
-     }
-     }
-     
-     // Append:
-     if (add) {*/
-    
-    //NSString *line = [[NSString alloc] initWithFormat:@"%@\n", logMessage];
-    //[_logString appendString:line];
-    
-    // Update text:
-    _textView.text = [GMConsoleLogger sharedInstance].log;
-    
-    CGSize newSize = [_textView sizeThatFits:CGSizeMake(_textView.frame.size.width, MAXFLOAT)];
-    
-    _textViewHeightConstraint.constant = newSize.height;
-    
-    _scrollView.contentSize = CGSizeMake(newSize.width, newSize.height);
-    //}
-}
-
-#pragma mark - IBActions
+#pragma mark - IBActions -
 
 - (IBAction)closePressed:(id)sender {
     
@@ -169,14 +128,14 @@
     }
 }
 
-#pragma mark - ACLoggerObserver
+#pragma mark - ACLoggerObserver -
 
 - (void)logger:(GMConsoleLogger *)logger didReceiveLogMessage:(NSString *)logMessage {
     
     [self performSelectorOnMainThread:@selector(appendLogMessage:) withObject:logMessage waitUntilDone:NO];
 }
 
-#pragma mark - Handle network request status
+#pragma mark - Protected -
 
 - (void)handleNetworkRequestSuccess:(NSNotification *)notification {
     
@@ -188,6 +147,49 @@
     
     //GMAlertView *alert = [[GMAlertView alloc] initWithViewController:self title:nil message:GMLocalizedString(@"Failed to post") cancelButtonTitle:GMLocalizedString(@"OK") otherButtonTitles:nil];
     //[alert show];
+}
+
+#pragma mark - Private -
+
+- (void)appendLogMessage:(NSString *)logMessage {
+    
+    /*
+     // Check whether should truncate:
+     if (_logText.length + logMessage.length > kLogMaxLength) {
+     
+     // Truncate:
+     NSRange range = {_logText.length - (logMessage.length * 2) - 1, (logMessage.length * 2)};
+     [_logText deleteCharactersInRange:range];
+     }
+     */
+    
+    // Check whether matches current filter:
+    /*BOOL add = YES;
+     NSString *filterText = _searchBar.text;
+     if (filterText.length > 0) {
+     
+     NSRange filterMatchRange = [logMessage rangeOfString:filterText];
+     if (filterMatchRange.location == NSNotFound) {
+     
+     add = NO;
+     }
+     }
+     
+     // Append:
+     if (add) {*/
+    
+    //NSString *line = [[NSString alloc] initWithFormat:@"%@\n", logMessage];
+    //[_logString appendString:line];
+    
+    // Update text:
+    _textView.text = [GMConsoleLogger sharedInstance].log;
+    
+    CGSize newSize = [_textView sizeThatFits:CGSizeMake(_textView.frame.size.width, MAXFLOAT)];
+    
+    _textViewHeightConstraint.constant = newSize.height;
+    
+    _scrollView.contentSize = CGSizeMake(newSize.width, newSize.height);
+    //}
 }
 
 @end

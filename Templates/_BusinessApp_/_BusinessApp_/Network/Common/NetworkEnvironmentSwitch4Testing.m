@@ -26,9 +26,11 @@
 //
 
 #import "NetworkEnvironmentSwitch4Testing.h"
-#import "ConstNetworkConfig.h"
+#import "BackendAPIConfig.h"
 #import "BackendAPIClient.h"
 #import "AnalyticsManager.h"
+#import "SettingsManager.h"
+#import "UserManager.h"
 
 // Used for testing only
 #define kDevButtonTag 201409181
@@ -43,6 +45,8 @@
 @end
 
 @implementation NetworkEnvironmentSwitch4Testing
+
+#pragma mark - Public -
 
 - (void)addNetworkEnvironmentChangeButtonsInsideView:(UIView *)containerView {
     
@@ -111,7 +115,7 @@
     [productionButton removeFromSuperview];
 }
 
-#pragma mark - Private
+#pragma mark - Private -
 
 - (void)changeNetworkEnvironment:(NetworkEnvironmentType)environment {
     
@@ -121,17 +125,17 @@
             
         case kEnvironmentStaging:
             
-            baseBackendUrlString = STAGE_BASE_URL;
+            baseBackendUrlString = BACKEND_STAGE_BASE_URL;
             break;
             
         case kEnvironmentDevelopment:
             
-            baseBackendUrlString = DEVELOPMENT_BASE_URL;
+            baseBackendUrlString = BACKEND_DEVELOPMENT_BASE_URL;
             break;
             
         case kEnvironmentProduction:
             
-            baseBackendUrlString = PRODUCTION_BASE_URL;
+            baseBackendUrlString = BACKEND_PRODUCTION_BASE_URL;
             break;
             
         default:
@@ -142,8 +146,10 @@
     
     NSURL *backendBaseUrl = [NSURL URLWithString:baseBackendUrlString];
     id<AnalyticsManagerProtocol> analyticsManager = [REGISTRY getObject:[AnalyticsManager class]];
+    id<SettingsManagerProtocol> settingsManager = [REGISTRY getObject:[SettingsManager class]];
+    id<UserManagerProtocol> userManager = [REGISTRY getObject:[UserManager class]];
     
-    BackendAPIClient *backendAPIClient = [[BackendAPIClient alloc] initWithBaseURL:backendBaseUrl analyticsManager:analyticsManager];
+    BackendAPIClient *backendAPIClient = [[BackendAPIClient alloc] initWithBaseURL:backendBaseUrl userManager:userManager settingsManager:settingsManager analyticsManager:analyticsManager];
     
     [REGISTRY registerObject:backendAPIClient];
     

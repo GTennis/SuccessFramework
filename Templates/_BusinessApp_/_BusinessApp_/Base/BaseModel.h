@@ -31,17 +31,27 @@
 #import "SettingsManagerProtocol.h"
 #import "AnalyticsManagerProtocol.h"
 #import "ReachabilityManagerProtocol.h"
+#import "ViewControllerModelDelegate.h"
+#import "ViewControllerModelProtocol.h"
 
-@protocol BaseModelDelegate;
+@interface BaseModel : NSObject <ViewControllerModelProtocol>
 
-// Base model protocol
-@protocol BaseModel <NSObject>
+#pragma mark - Public -
 
-@property (nonatomic, weak) id<BaseModelDelegate> delegate;
+// For callbacks
+@property (nonatomic, weak) id<ViewControllerModelDelegate> delegate;
+
+// For checking if model data is ready to use
 @property (nonatomic) BOOL isLoaded;
 
 // For passed parameters
 @property (nonatomic, strong) id context;
+
+- (instancetype)initWithUserManager:(id <UserManagerProtocol>)userManager backendAPIClient:(id <BackendAPIClientProtocol>)backendAPIClient settingsManager:(id <SettingsManagerProtocol>)settingsManager reachabilityManager:(id<ReachabilityManagerProtocol>)reachabilityManager analyticsManager:(id<AnalyticsManagerProtocol>)analyticsManager context:(id)context;
+
+- (void)loadData:(Callback)callback;
+
+#pragma mark - Protected -
 
 // Dependencies
 @property (nonatomic, strong) id<UserManagerProtocol> userManager;
@@ -50,34 +60,7 @@
 @property (nonatomic, strong) id<ReachabilityManagerProtocol> reachabilityManager;
 @property (nonatomic, strong) id<AnalyticsManagerProtocol> analyticsManager;
 
-- (instancetype)initWithUserManager:(id <UserManagerProtocol>)userManager backendAPIClient:(id <BackendAPIClientProtocol>)backendAPIClient settingsManager:(id <SettingsManagerProtocol>)settingsManager reachabilityManager:(id<ReachabilityManagerProtocol>)reachabilityManager analyticsManager:(id<AnalyticsManagerProtocol>)analyticsManager context:(id)context;
-
-- (void)loadData:(Callback)callback;
-
-//-- Protected --
+// Common initializer
 - (void)commonInit;
-- (void)willStartModelLoading:(Callback)callback;
-- (void)didFinishModelLoadingWithData:(id)data;
-//-- End of Protected --
-
-@optional
-
-@property (nonatomic, readonly) id<ParsableObject> list;
-@property (nonatomic, readonly) id<ParsableObject> details;
-
-@end
-
-// BaseModelDelegate
-@protocol BaseModelDelegate <NSObject>
-
-@optional
-
-- (void)modelHasChangedWithData:(id)data;
-- (void)modelFailedToChangeDataWithError:(NSError *)error;
-
-@end
-
-// Base class
-@interface BaseModel : NSObject <BaseModel>
 
 @end

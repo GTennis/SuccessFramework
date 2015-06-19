@@ -29,6 +29,8 @@
 
 @interface SendEmailCommand : NSObject <CommandProtocol>
 
+#pragma mark - Public -
+
 - (instancetype)initWithViewController:(UIViewController *)viewController subject:(NSString *)subject message:(NSString *)message recipients:(NSArray *)recipients;
 
 // Use if message is created later than object itself

@@ -38,6 +38,8 @@
 
 @synthesize list = _list;
 
+#pragma mark - ParsableObject -
+
 - (instancetype)initWithDict:(NSDictionary *)dict {
     
     self = [self init];

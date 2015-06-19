@@ -42,6 +42,8 @@
 
 @interface KeyboardControlPrevNext : NSObject <KeyboardControlProtocol>
 
+#pragma mark - Public -
+
 @property (nonatomic, weak) id<KeyboardControlPrevNextDelegate> delegate;
 
 @end

@@ -49,14 +49,22 @@
     // Dispose of any resources that can be recreated.
 }
 
-#pragma mark - Protected
+#pragma mark - Protected -
 
 - (void)prepareUI {
     
     self.title = GMLocalizedString(@"Settings");
 }
 
-#pragma mark - IBActions
+#pragma mark Language change handing
+
+- (void)notificationLocalizationHasChanged {
+    
+    [self prepareUI];
+    [self renderUI];
+}
+
+#pragma mark - IBActions -
 
 - (IBAction)englishPressed:(id)sender {
     
@@ -66,14 +74,6 @@
 - (IBAction)germanPressed:(id)sender {
     
     [_model setLanguageGerman];
-}
-
-#pragma mark - Handling language change
-
-- (void)notificationLocalizationHasChanged {
-    
-    [self prepareUI];
-    [self renderUI];
 }
 
 @end

@@ -73,7 +73,9 @@ void customLogger(NSString *format, ...) {
     va_end(argumentList);
 }
 
-#pragma mark - Singleton
+#pragma mark - Public -
+
+// Singleton
 
 static GMConsoleLogger *_sharedInstance = nil;
 

@@ -30,6 +30,8 @@
 
 @interface UserSignUpModel : BaseModel
 
+#pragma mark - Public -
+
 @property (nonatomic, strong) UserObject *user;
 
 - (BOOL)isValidData;

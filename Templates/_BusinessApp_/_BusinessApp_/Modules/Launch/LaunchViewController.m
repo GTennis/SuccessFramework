@@ -61,7 +61,7 @@
     // Dispose of any resources that can be recreated.
 }
 
-#pragma mark - Protected
+#pragma mark - Protected -
 
 - (void)commonInit {
     
@@ -96,7 +96,7 @@
     // ...
 }
 
-#pragma mark - Private
+#pragma mark - Private -
 
 - (void)close {
     

@@ -30,6 +30,8 @@
 
 @interface MenuModel : BaseModel <UserManagerObserver>
 
+#pragma mark - Public -
+
 @property (nonatomic, strong) NSMutableArray *menuItems;
 
 @end

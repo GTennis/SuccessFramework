@@ -46,7 +46,7 @@
 @synthesize analyticsManager = _analyticsManager;
 @synthesize context = _context;
 
-// Usualy unit tests instantiate model objects directly through init but we need commonInit to be called for setting initial values
+// Usualy unit tests instantiate model objects directly through init but we need commonInit to be called for setting initial values (if needed)
 - (instancetype)init {
     
     self = [super init];
@@ -65,7 +65,7 @@
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
-#pragma mark - Public methods
+#pragma mark - Public -
 
 - (instancetype)initWithUserManager:(id <UserManagerProtocol>)userManager backendAPIClient:(id <BackendAPIClientProtocol>)backendAPIClient settingsManager:(id <SettingsManagerProtocol>)settingsManager reachabilityManager:(id<ReachabilityManagerProtocol>)reachabilityManager analyticsManager:(id<AnalyticsManagerProtocol>)analyticsManager context:(id)context {
     
@@ -117,13 +117,15 @@
     [self willStartModelLoading:wrappedCallback];
 }
 
-#pragma mark - Protected
+#pragma mark - Protected -
 
 - (void)commonInit {
     
     // Override this method in child classes for setting initial values. In this method all the needed dependencies are already injected
     // ...
 }
+
+#pragma mark - ViewControllerModelProtocol -
 
 // Every subclass shoud override this method and perform data loading
 - (void)didFinishModelLoadingWithData:(id)data {
@@ -139,14 +141,14 @@
     NSAssert(NO, @"willStartModelLoading is not implemented in class: %@", NSStringFromClass([self class]));
 }
 
-#pragma mark - Network change
+#pragma mark - DEBUG: Network change handling
 
 #if defined(ENTERPRISE_BUILD) || defined(DEBUG)
 
 - (void)handleNetworkEnvironmentChange:(NSNotification *)notification {
 
     // Replace dependencies with new dependencies
-    self.backendAPIClient = [REGISTRY getObject:[BackendAPIClient class]];
+    _backendAPIClient = [REGISTRY getObject:[BackendAPIClient class]];
 }
 
 #endif

@@ -35,4 +35,8 @@
 
 @interface BaseLabel : UILabel
 
+#pragma mark - Protected -
+
+- (void)commonInit;
+
 @end

@@ -32,12 +32,31 @@
 #import "MessageBarManagerProtocol.h"
 #import "ViewControllerFactoryProtocol.h"
 #import "BaseModel.h"
+#import "ViewControllerModelDelegate.h"
 
 @class TopModalNavigationBar;
 
 @protocol ViewControllerFactoryProtocol;
 
-@interface BaseViewController : CoreViewController <BaseModelDelegate>
+@interface BaseViewController : CoreViewController <ViewControllerModelDelegate>
+
+#pragma mark - Public -
+
+#pragma mark Custom initialization
+
+- (instancetype)initWithCrashManager:(id<CrashManagerProtocol>)crashManager analyticsManager:(id<AnalyticsManagerProtocol>)analyticsManager messageBarManager:(id<MessageBarManagerProtocol>)messageBarManager viewControllerFactory:(id<ViewControllerFactoryProtocol>)viewControllerFactory context:(id)context;
+
+#pragma mark Modal screen handling
+
+@property (nonatomic) BOOL isModallyPressented;
+@property (nonatomic, strong) IBOutlet UIView *modalContainerView;
+@property (nonatomic, strong) IBOutlet TopModalNavigationBar *topModalNavigationBar;
+@property (nonatomic) BOOL shouldModalNavigationBarAlwaysStickToModalContainerViewTopForIpad; // iPad related setting
+
+- (void)presentModalViewController:(BaseViewController *)viewController animated:(BOOL)animated;
+- (void)dismissModalViewControllerAnimated:(BOOL)animated;
+
+#pragma mark - Protected -
 
 // For passing parameters between view controlers
 @property (nonatomic, strong) id context;
@@ -47,17 +66,6 @@
 @property (nonatomic, strong) id<AnalyticsManagerProtocol> analyticsManager;
 @property (nonatomic, strong) id<MessageBarManagerProtocol> messageBarManager;
 @property (nonatomic, strong) id<ViewControllerFactoryProtocol> viewControllerFactory;
-
-@property (nonatomic) BOOL isModallyPressented;
-@property (nonatomic, strong) IBOutlet UIView *modalContainerView;
-@property (nonatomic, strong) IBOutlet TopModalNavigationBar *topModalNavigationBar;
-@property (nonatomic) BOOL shouldModalNavigationBarAlwaysStickToModalContainerViewTopForIpad; // iPad related setting
-
-- (instancetype)initWithCrashManager:(id<CrashManagerProtocol>)crashManager analyticsManager:(id<AnalyticsManagerProtocol>)analyticsManager messageBarManager:(id<MessageBarManagerProtocol>)messageBarManager viewControllerFactory:(id<ViewControllerFactoryProtocol>)viewControllerFactory context:(id)context;
-
-// Modal screen handling
-- (void)presentModalViewController:(BaseViewController *)viewController animated:(BOOL)animated;
-- (void)dismissModalViewControllerAnimated:(BOOL)animated;
 
 // Override for custom handling
 - (void)didPressedCancelModal;

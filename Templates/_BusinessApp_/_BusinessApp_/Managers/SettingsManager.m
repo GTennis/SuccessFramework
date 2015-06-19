@@ -35,6 +35,8 @@
 
 @implementation SettingsManager
 
+#pragma mark - Public -
+
 - (instancetype)init {
     
     self = [super init];
@@ -46,7 +48,9 @@
     return self;
 }
 
-#pragma mark - Generic
+#pragma mark - Private -
+
+#pragma mark Generic
 
 // Generic setter
 - (void)setValue:(id)value forKey:(NSString *)valueKey {
@@ -122,7 +126,7 @@
     [userDefaults synchronize];
 }
 
-#pragma mark - First time app launch
+#pragma mark First time app launch
 
 - (BOOL)isFirstTimeAppLaunch {
     
@@ -144,7 +148,7 @@
     [self setValue:[NSNumber numberWithBool:isFirstTimeLaunch] forKey:kSettingsFirstTimeAppLaunch];
 }
 
-#pragma mark - Languages
+#pragma mark Languages
 
 - (NSString *)language {
     

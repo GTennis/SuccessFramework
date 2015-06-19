@@ -29,7 +29,7 @@
 
 @implementation SettingsModel
 
-#pragma mark - Public methods
+#pragma mark - Public -
 
 - (void)setLanguageEnglish {
     

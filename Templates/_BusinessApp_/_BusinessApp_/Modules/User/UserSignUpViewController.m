@@ -66,6 +66,8 @@
     [self.analyticsManager logScreen:kAnalyticsManagerScreenUserSignUp];
 }
 
+#pragma mark - Public -
+
 - (void)clearTextFields {
     
     [_model clearData];
@@ -86,7 +88,7 @@
     [_salutationTextField becomeFirstResponder];
 }
 
-#pragma mark - Protected
+#pragma mark - Protected -
 
 - (void)commonInit {
     
@@ -138,7 +140,14 @@
     [_model updateModelWithData:user];
 }
 
-#pragma mark - IBActions
+#pragma mark Language change handling
+
+- (void)notificationLocalizationHasChanged {
+    
+    [self prepareUI];
+}
+
+#pragma mark - IBActions -
 
 - (IBAction)countryPressed:(id)sender {
     
@@ -183,28 +192,21 @@
     }
 }
 
-#pragma mark - KeyboardControlDelegate
+#pragma mark - KeyboardControlDelegate -
 
 - (void)didPressGo {
     
     [self signUpPressed:nil];
 }
 
-#pragma mark - Handling language change
-
-- (void)notificationLocalizationHasChanged {
-    
-    [self prepareUI];
-}
-
-#pragma mark - CountryPickerViewControllerDelegate
+#pragma mark - CountryPickerViewControllerDelegate -
 
 - (void)didSelectCountryCode:(NSString *)countryCode {
     
     _countryCodeTextField.text = countryCode;
 }
 
-#pragma mark - Private
+#pragma mark - Private -
 
 - (void)configureScrollView {
     

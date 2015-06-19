@@ -30,6 +30,8 @@
 
 @interface PhotoDetailsModel : BaseModel
 
+#pragma mark - Public -
+
 @property (nonatomic, strong) ImageObject *image;
 
 - (void)addToFavoritesWithCallback:(Callback)callback;

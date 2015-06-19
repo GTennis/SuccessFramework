@@ -28,6 +28,7 @@
 #import "ReachabilityManager.h"
 #import "GMObserverList.h"
 #import <AFNetworkReachabilityManager.h>
+#import "ReachabilityManagerObserver.h"
 
 @interface ReachabilityManager () {
     
@@ -42,6 +43,8 @@
     
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
+
+#pragma mark - Public -
 
 - (instancetype)init {
     
@@ -76,6 +79,8 @@
     
     return self;
 }
+
+#pragma mark - ReachabilityManagerProtocol -
 
 - (BOOL)isAppActive {
     
@@ -113,7 +118,9 @@
     [_observers removeObserver:observer];
 }
 
-#pragma mark - Application state change handlers
+#pragma mark - Private -
+
+#pragma mark Application state change handlers
 
 - (void)applicationWillResignActive {
     
@@ -132,7 +139,7 @@
     }
 }
 
-#pragma mark - ReachabilityManagerObservers
+#pragma mark ReachabilityManagerObservers
 
 - (void)notifyObserversWithApplicationDidBecomeActive {
     

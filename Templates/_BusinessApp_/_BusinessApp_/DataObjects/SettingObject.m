@@ -31,6 +31,8 @@
 
 @synthesize isAppNeedUpdate = _isAppNeedUpdate;
 
+#pragma mark - ParsableObject -
+
 - (instancetype)initWithDict:(NSDictionary *)dict {
     
     self = [self init];

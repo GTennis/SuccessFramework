@@ -50,7 +50,7 @@
     [self loadModel];
 }
 
-#pragma mark - Protected
+#pragma mark - Protected -
 
 - (void)prepareUI {
     
@@ -76,7 +76,15 @@
     }];
 }
 
-#pragma mark - UITableViewDataSource
+#pragma mark Language change handling
+
+- (void)notificationLocalizationHasChanged {
+    
+    [self prepareUI];
+    [self loadModel];
+}
+
+#pragma mark - UITableViewDataSource -
 
 // For hiding separators between empty cell below table view
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
@@ -122,7 +130,7 @@
     return cell;
 }
 
-#pragma mark - UITableViewDelegate
+#pragma mark - UITableViewDelegate -
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
@@ -145,15 +153,7 @@
     }
 }
 
-#pragma mark - Handling language change
-
-- (void)notificationLocalizationHasChanged {
-    
-    [self prepareUI];
-    [self loadModel];
-}
-
-#pragma mark - Private
+#pragma mark - Private -
 
 - (NSString *)titleForMenuSection:(NSInteger)section row:(NSInteger)row {
     

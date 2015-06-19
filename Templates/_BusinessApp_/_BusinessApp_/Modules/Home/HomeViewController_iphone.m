@@ -32,7 +32,9 @@
 
 @implementation HomeViewController_iphone
 
-#pragma mark - Override
+#pragma mark - Protected -
+
+#pragma mark Override
 
 - (void)prepareUI {
     

@@ -29,11 +29,11 @@
 
 @property (nonatomic) NSInteger maxAllowedStoredActionsCount;
 
+- (NSString *)apiKey;
 - (void)logScreenAction:(NSString *)actionString;
 - (void)logCustomAction:(NSString *)actionString;
 - (void)setUserHasLoggedIn:(BOOL)isLoggedIn;
 - (void)setUserLanguage:(NSString *)language;
 - (void)crash;
-- (NSString *)apiKey;
 
 @end

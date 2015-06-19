@@ -31,9 +31,9 @@
 
 #pragma mark - Overrided
 
-- (void)initializeProperties {
+- (void)commonInit {
     
-    [super initializeProperties];
+    // Set subclass specific values
     
     self.borderSize = kButtonBorderSize;
     self.borderColor = kButtonBorderColor;
@@ -51,6 +51,10 @@
     
     self.fontName = kButtonTextFont;
     self.fontSize = kButtonTextFontSize;
+    
+    // Apply base stuff
+    
+    [super commonInit];
 }
 
 @end

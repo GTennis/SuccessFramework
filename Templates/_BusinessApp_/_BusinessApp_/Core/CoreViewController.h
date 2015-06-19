@@ -30,36 +30,45 @@
 
 @interface CoreViewController : UIViewController
 
-// Xib loading
-- (UIView *)loadViewFromXibOfClass:(Class)class;
-- (UIView *)loadViewFromXib:(NSString *)name ofClass:(Class)class;
+#pragma mark - Protected -
 
-// Navigation
-- (void)showNavigationBar;
-- (void)hideNavigationBar;
-- (BOOL)hasNavigationBar;
-- (void)didPressedBack;
+#pragma mark Common
 
-// Popup showing, hiding
-/*- (void)showPartialViewController:(CoreViewController *)childViewController insideContainerView:(UIView *)containerView;
-- (void)hidePartialViewControllerFromContainerView:(UIView *)containerView;
-- (CGFloat)popupFadeDuration;*/
-
-// Screen activity indicators
-- (void)showScreenActivityIndicator;
-- (void)hideScreenActivityIndicator;
-
-// Protected methods
 - (void)commonInit;
 - (void)prepareUI;
 - (void)renderUI;
 - (void)loadModel;
 
-// Error handling
+#pragma mark Xib loading
+
+- (UIView *)loadViewFromXib:(NSString *)name class:(Class)theClass;
+- (UIView *)loadViewFromXibWithClass:(Class)theClass;
+
+#pragma mark Navigation handling
+
+- (void)showNavigationBar;
+- (void)hideNavigationBar;
+- (BOOL)hasNavigationBar;
+- (void)didPressedBack;
+
+/* #pragma mark Popup handling
+ 
+ - (void)showPartialViewController:(CoreViewController *)childViewController insideContainerView:(UIView *)containerView;
+ - (void)hidePartialViewControllerFromContainerView:(UIView *)containerView;
+ - (CGFloat)popupFadeDuration;*/
+
+#pragma mark Progress indicators
+
+- (void)showScreenActivityIndicator;
+- (void)hideScreenActivityIndicator;
+
+#pragma mark Error handling
+
 - (void)handleNetworkRequestError:(NSNotification *)notification;
 - (void)handleNetworkRequestSuccess:(NSNotification *)notification;
 
-// Language changed
+#pragma mark Language change handling
+
 - (void)notificationLocalizationHasChanged;
 
 @end
