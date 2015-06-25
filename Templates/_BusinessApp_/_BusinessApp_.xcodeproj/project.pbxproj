@@ -160,6 +160,7 @@
 		3119A3FC1B0DD544001CCA38 /* SeparatorHorizontalLineView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3119A3FB1B0DD544001CCA38 /* SeparatorHorizontalLineView.m */; };
 		3119A3FF1B0DD554001CCA38 /* SeparatorVerticalLineView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3119A3FE1B0DD554001CCA38 /* SeparatorVerticalLineView.m */; };
 		3119A4031B0DE3ED001CCA38 /* MenuItemObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 3119A4021B0DE3ED001CCA38 /* MenuItemObject.m */; };
+		318633D21B3C321A004CF62E /* SettingsViewControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 318633D11B3C321A004CF62E /* SettingsViewControllerTests.m */; };
 		31912E9A1B0CC926007C0C89 /* PhoneCallCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = 31912E991B0CC926007C0C89 /* PhoneCallCommand.m */; };
 		31912EA01B0CC9B6007C0C89 /* SendEmailCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = 31912E9F1B0CC9B6007C0C89 /* SendEmailCommand.m */; };
 		31923AF61B1F61A000C70D3B /* UILabel+Styling.m in Sources */ = {isa = PBXBuildFile; fileRef = 31923AF51B1F61A000C70D3B /* UILabel+Styling.m */; };
@@ -514,6 +515,7 @@
 		3119A4001B0DDDC6001CCA38 /* glockenspiel.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = glockenspiel.ttf; sourceTree = "<group>"; };
 		3119A4011B0DE3ED001CCA38 /* MenuItemObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuItemObject.h; sourceTree = "<group>"; };
 		3119A4021B0DE3ED001CCA38 /* MenuItemObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuItemObject.m; sourceTree = "<group>"; };
+		318633D11B3C321A004CF62E /* SettingsViewControllerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewControllerTests.m; sourceTree = "<group>"; };
 		31912E911B0CC87F007C0C89 /* CommandProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CommandProtocol.h; sourceTree = "<group>"; };
 		31912E981B0CC926007C0C89 /* PhoneCallCommand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhoneCallCommand.h; sourceTree = "<group>"; };
 		31912E991B0CC926007C0C89 /* PhoneCallCommand.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhoneCallCommand.m; sourceTree = "<group>"; };
@@ -670,6 +672,7 @@
 			isa = PBXGroup;
 			children = (
 				0FC41E191B105B1D00C7210B /* Home */,
+				318633D01B3C3209004CF62E /* Settings */,
 			);
 			name = Modules;
 			sourceTree = "<group>";
@@ -1805,6 +1808,14 @@
 			name = TopToolbarModal;
 			sourceTree = "<group>";
 		};
+		318633D01B3C3209004CF62E /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				318633D11B3C321A004CF62E /* SettingsViewControllerTests.m */,
+			);
+			name = Settings;
+			sourceTree = "<group>";
+		};
 		31912E901B0CC83B007C0C89 /* Commands */ = {
 			isa = PBXGroup;
 			children = (
@@ -2531,6 +2542,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0FC41E1F1B105BC000C7210B /* HomeModelTests.m in Sources */,
+				318633D21B3C321A004CF62E /* SettingsViewControllerTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

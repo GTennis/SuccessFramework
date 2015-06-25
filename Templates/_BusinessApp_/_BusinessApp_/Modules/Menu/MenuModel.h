@@ -28,6 +28,12 @@
 #import "BaseModel.h"
 #import "UserManagerObserver.h"
 
+#define kMenuModelMenuItemMapKey @"MenuItemHome"
+#define kMenuModelMenuItemSettingsKey @"MenuItemSettings"
+#define kMenuModelMenuItemTermsConditionsKey @"MenuItemTermsConditions"
+#define kMenuModelMenuItemLoginKey @"MenuItemLogin"
+#define kMenuModelMenuItemTableViewExampleKey @"MenuItemTableViewExample"
+
 @interface MenuModel : BaseModel <UserManagerObserver>
 
 #pragma mark - Public -

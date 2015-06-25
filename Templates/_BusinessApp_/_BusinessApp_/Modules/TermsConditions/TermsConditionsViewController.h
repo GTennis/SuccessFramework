@@ -28,6 +28,8 @@
 #import "BaseWebViewController.h"
 #import "TermsConditionsModel.h"
 
+#define kTermsConditionsViewControllerTitleKey @"TermsConditionsTitle"
+
 @interface TermsConditionsViewController : BaseWebViewController
 
 #pragma mark - Public -

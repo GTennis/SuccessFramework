@@ -28,9 +28,6 @@
 #import "HomeViewController.h"
 #import "ImagesObject.h"
 
-#define kHomeViewControllerTitle @"Home"
-#define kHomeViewControllerDataLoadingProgressLabel @"HomeProgressLabel"
-
 @interface HomeViewController () {
     
 }
@@ -77,8 +74,8 @@
     [super prepareUI];
     
     // Set title
-    self.title = GMLocalizedString(kHomeViewControllerTitle);
-    _progressLabel.text = GMLocalizedString(kHomeViewControllerDataLoadingProgressLabel);
+    self.title = GMLocalizedString(kHomeViewControllerTitleKey);
+    _progressLabel.text = GMLocalizedString(kHomeViewControllerDataLoadingProgressLabelKey);
 }
 
 - (void)renderUI {

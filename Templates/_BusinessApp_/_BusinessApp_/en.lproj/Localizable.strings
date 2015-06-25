@@ -1,20 +1,37 @@
-/* No comment provided by engineer. */
-"Home" = "Home";
+//-------------- Menu -------------//
 
-/* No comment provided by engineer. */
+/* Menu list item titles */
+"MenuItemHome" = "Home";
+"MenuItemSettings" = "Settings";
+"MenuItemTermsConditions" = "Terms & conditions";
+"MenuItemLogin" = "Login";
+"MenuItemTableViewExample" = "TableView example";
+
+//-------------- Home -------------//
+
+/* Screen title */
+"HomeTitle" = "Home";
+
+/* Progress indicator label */
 "HomeProgressLabel" = "Data is loading...";
 
-/* No comment provided by engineer. */
-"Settings" = "Settings";
+//-------------- Settings -------------//
 
-/* No comment provided by engineer. */
-"TermsConditions" = "TermsConditions";
+/* Screen title */
+"SettingsTitle" = "Settings";
 
-/* No comment provided by engineer. */
-"ScrollViewExample" = "ScrollViewExample";
+//-------------- Terms and conditions -------------//
 
-/* No comment provided by engineer. */
-"TableViewExample" = "TableViewExample";
+/* Screen title */
+"TermsConditionsTitle" = "TermsConditions";
+
+//-------------- Common -------------//
 
 /* No comment provided by engineer. */
 "Ok" = "Ok";
+
+/* No comment provided by engineer. */
+"Done" = "Done";
+
+/* No comment provided by engineer. */
+"Edit" = "Edit";

@@ -27,6 +27,8 @@
 
 #import "BaseViewController.h"
 
+#define kSettingsViewControllerTitleKey @"SettingsTitle"
+
 @class SettingsModel;
 
 @interface SettingsViewController : BaseViewController

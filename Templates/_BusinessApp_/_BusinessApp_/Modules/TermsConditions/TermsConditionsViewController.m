@@ -27,8 +27,6 @@
 
 #import "TermsConditionsViewController.h"
 
-#define kTermsConditionsViewControllerTitle @"TermsConditions"
-
 @interface TermsConditionsViewController ()
 
 @end
@@ -62,7 +60,7 @@
     [super prepareUI];
     
     // This will set title for standard navigation bar title
-    self.title = GMLocalizedString(kTermsConditionsViewControllerTitle);
+    self.title = GMLocalizedString(kTermsConditionsViewControllerTitleKey);
 }
 
 - (void)renderUI {

@@ -29,13 +29,6 @@
 #import "ViewControllerFactory.h"
 #import "MenuItemObject.h"
 
-#define kMenuModelMenuItemHome @"Home"
-#define kMenuModelMenuItemSettings @"Settings"
-#define kMenuModelMenuItemTermsConditions @"TermsConditions"
-#define kMenuModelMenuItemLogin @"Login"
-#define kMenuModelMenuItemScrollViewExample @"ScrollViewExample"
-#define kMenuModelMenuItemTableViewExample @"TableViewExample"
-
 @implementation MenuModel
 
 - (void)dealloc {
@@ -63,32 +56,32 @@
     
     // Home
     MenuItemObject *item = [[MenuItemObject alloc] init];
-    item.menuTitle = GMLocalizedString(kMenuModelMenuItemHome);
+    item.menuTitle = GMLocalizedString(kMenuModelMenuItemMapKey);
     item.viewController = (BaseViewController *) [viewControllerFactory homeViewControllerWithContext:nil];
     [itemList addObject:item];
     
     // Settings
     item = [[MenuItemObject alloc] init];
-    item.menuTitle = GMLocalizedString(kMenuModelMenuItemSettings);
+    item.menuTitle = GMLocalizedString(kMenuModelMenuItemSettingsKey);
     item.viewController = (BaseViewController *) [viewControllerFactory settingsViewControllerWithContext:nil];
     [itemList addObject:item];
 
     // User login
     item = [[MenuItemObject alloc] init];
-    item.menuTitle = GMLocalizedString(kMenuModelMenuItemLogin);
+    item.menuTitle = GMLocalizedString(kMenuModelMenuItemLoginKey);
     item.viewController = (BaseViewController *) [viewControllerFactory userContainerViewControllerWithContext:nil];
     item.isPresentedModally = YES;
     [itemList addObject:item];
     
     // TermsConditions
     item = [[MenuItemObject alloc] init];
-    item.menuTitle = GMLocalizedString(kMenuModelMenuItemTermsConditions);
+    item.menuTitle = GMLocalizedString(kMenuModelMenuItemTermsConditionsKey);
     item.viewController = (BaseViewController *) [viewControllerFactory termsConditionsViewControllerWithContext:nil];
     [itemList addObject:item];
     
     // TableViewExample
     item = [[MenuItemObject alloc] init];
-    item.menuTitle = GMLocalizedString(kMenuModelMenuItemTableViewExample);
+    item.menuTitle = GMLocalizedString(kMenuModelMenuItemTableViewExampleKey);
     item.viewController = (BaseViewController *) [viewControllerFactory tableViewExampleViewControllerWithContext:nil];
     [itemList addObject:item];
     

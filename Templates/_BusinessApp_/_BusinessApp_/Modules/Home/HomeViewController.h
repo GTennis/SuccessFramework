@@ -31,6 +31,9 @@
 
 #define kHomeListItemCellReusableIdentifier @"HomeListItemCellIdentifier"
 
+#define kHomeViewControllerTitleKey @"HomeTitle"
+#define kHomeViewControllerDataLoadingProgressLabelKey @"HomeProgressLabel"
+
 @interface HomeViewController : BaseViewController <UICollectionViewDataSource, UICollectionViewDelegate, HomeListItemViewDelegate>
 
 #pragma mark - Public -

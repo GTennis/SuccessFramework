@@ -1,20 +1,37 @@
-/* No comment provided by engineer. */
-"Home" = "Home de";
+//-------------- Menu -------------//
+
+/* Menu list item titles */
+"MenuItemHome" = "Home (de)";
+"MenuItemSettings" = "Settings (de)";
+"MenuItemTermsConditions" = "Terms & conditions (de)";
+"MenuItemLogin" = "Login (de)";
+"MenuItemTableViewExample" = "TableView example (de)";
+
+//-------------- Home -------------//
+
+/* Screen title */
+"HomeTitle" = "Home (de)";
+
+/* Progress indicator label */
+"HomeProgressLabel" = "Data is loading... (de)";
+
+//-------------- Settings -------------//
+
+/* Screen title */
+"SettingsTitle" = "Settings (de)";
+
+//-------------- Terms and conditions -------------//
+
+/* Screen title */
+"TermsConditionsTitle" = "TermsConditions (de)";
+
+//-------------- Common -------------//
 
 /* No comment provided by engineer. */
-"HomeProgressLabel" = "Data is loading... de";
+"Ok" = "Ok (de)";
 
 /* No comment provided by engineer. */
-"Settings" = "Settings de";
+"Done" = "Done (de)";
 
 /* No comment provided by engineer. */
-"TermsConditions" = "TermsConditions de";
-
-/* No comment provided by engineer. */
-"ScrollViewExample" = "ScrollViewExample de";
-
-/* No comment provided by engineer. */
-"TableViewExample" = "TableViewExample de";
-
-/* No comment provided by engineer. */
-"Ok" = "Ok de";
+"Edit" = "Edit (de)";

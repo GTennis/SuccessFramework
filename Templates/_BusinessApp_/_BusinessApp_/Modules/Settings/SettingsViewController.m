@@ -53,7 +53,7 @@
 
 - (void)prepareUI {
     
-    self.title = GMLocalizedString(@"Settings");
+    self.title = GMLocalizedString(kSettingsViewControllerTitleKey);
 }
 
 #pragma mark Language change handing
