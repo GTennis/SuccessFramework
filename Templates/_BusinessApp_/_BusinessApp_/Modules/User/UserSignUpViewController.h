@@ -62,4 +62,9 @@
 
 - (void)clearTextFields;
 
+#pragma mark IBActions
+
+- (IBAction)countryPressed:(id)sender;
+- (IBAction)signUpPressed:(id)sender;
+
 @end

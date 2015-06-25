@@ -35,4 +35,9 @@
 
 @property (nonatomic, strong) ContactsModel *model;
 
+#pragma mark IBActions
+
+- (IBAction)emailPressed:(UIButton *)sender;
+- (IBAction)phoneCallPressed:(UIButton *)sender;
+
 @end

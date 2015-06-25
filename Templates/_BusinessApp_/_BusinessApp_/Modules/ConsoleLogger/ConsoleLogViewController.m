@@ -86,7 +86,9 @@
     // Dispose of any resources that can be recreated.
 }
 
-#pragma mark - IBActions -
+#pragma mark - Public -
+
+#pragma mark IBActions
 
 - (IBAction)closePressed:(id)sender {
     

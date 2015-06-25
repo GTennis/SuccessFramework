@@ -47,6 +47,11 @@
 - (void)showBackButton;
 - (void)showHoritontalSeparatorLineView;
 
+#pragma mark IBActions
+
+- (IBAction)backPressed:(id)sender;
+- (IBAction)cancelPressed:(id)sender;
+
 + (void)applyStyleForModalNavigationBar:(UINavigationBar *)navigationBar;
 
 @end

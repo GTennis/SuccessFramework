@@ -89,7 +89,7 @@
     //[[UINavigationBar appearance] setBarTintColor:kColorGrayLight1];
 }
 
-#pragma mark - IBActions -
+#pragma mark IBActions
 
 - (IBAction)backPressed:(id)sender {
     

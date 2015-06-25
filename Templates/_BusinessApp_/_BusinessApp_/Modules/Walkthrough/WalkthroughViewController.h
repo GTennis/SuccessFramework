@@ -42,4 +42,8 @@
 @property (nonatomic, weak) id<WalkthroughViewControllerDelegate> delegate;
 @property (nonatomic, strong) WalkthroughModel *model;
 
+#pragma mark IBActions
+
+- (IBAction)skipPressed:(id)sender;
+
 @end

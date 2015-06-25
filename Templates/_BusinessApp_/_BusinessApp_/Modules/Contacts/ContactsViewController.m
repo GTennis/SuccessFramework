@@ -83,7 +83,9 @@
     // ...
 }
 
-#pragma mark - IBActions -
+#pragma mark - Public -
+
+#pragma mark IBActions
 
 - (IBAction)emailPressed:(UIButton *)sender {
     

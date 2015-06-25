@@ -54,4 +54,10 @@
 
 - (void)clearTextFields;
 
+#pragma mark IBActions
+
+- (IBAction)loginPressed:(id)sender;
+- (IBAction)signUpPressed:(id)sender;
+- (IBAction)resetPasswordPressed:(id)sender;
+
 @end

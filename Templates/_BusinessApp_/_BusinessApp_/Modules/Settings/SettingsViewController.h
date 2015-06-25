@@ -35,6 +35,9 @@
 
 @property (nonatomic, strong) SettingsModel *model;
 
-@property (weak, nonatomic) IBOutlet UILabel *languageLabel;
+#pragma mark IBActions
+
+- (IBAction)englishPressed:(id)sender;
+- (IBAction)germanPressed:(id)sender;
 
 @end

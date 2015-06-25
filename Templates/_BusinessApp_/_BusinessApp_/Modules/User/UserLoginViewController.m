@@ -54,18 +54,6 @@
     [self.analyticsManager logScreen:kAnalyticsManagerScreenUserLogin];
 }
 
-#pragma mark - Public -
-
-- (void)clearTextFields {
-    
-    [_model clearData];
-    
-    _emailTextField.text = nil;
-    _passwordTextField.text = nil;
-    
-    [self.keyboardControls.activeField resignFirstResponder];
-}
-
 #pragma mark - Protected -
 
 - (void)commonInit {
@@ -113,7 +101,19 @@
     [self prepareUI];
 }
 
-#pragma mark - IBActions -
+#pragma mark - Public -
+
+- (void)clearTextFields {
+    
+    [_model clearData];
+    
+    _emailTextField.text = nil;
+    _passwordTextField.text = nil;
+    
+    [self.keyboardControls.activeField resignFirstResponder];
+}
+
+#pragma mark IBActions
 
 - (IBAction)loginPressed:(id)sender {
     

@@ -48,6 +48,12 @@
 - (void)showMenuButton;
 - (void)showBackButton;
 
+#pragma mark IBActions
+
+- (IBAction)contactsPressed:(id)sender;
+- (IBAction)backPressed:(id)sender;
+- (IBAction)menuPressed:(id)sender;
+
 + (void)applyStyleForNavigationBar:(UINavigationBar *)navigationBar;
 
 @end

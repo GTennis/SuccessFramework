@@ -64,7 +64,9 @@
     [self renderUI];
 }
 
-#pragma mark - IBActions -
+#pragma mark - Public -
+
+#pragma mark IBActions
 
 - (IBAction)englishPressed:(id)sender {
     

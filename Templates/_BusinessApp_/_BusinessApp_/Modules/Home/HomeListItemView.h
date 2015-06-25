@@ -46,4 +46,8 @@
 
 - (void)renderWithObject:(ImageObject *)image;
 
+#pragma mark IBActions
+
+- (IBAction)cellPressed:(id)sender;
+
 @end

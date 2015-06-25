@@ -37,4 +37,8 @@
 @property (nonatomic, strong) IBOutlet UIImageView *imageView;
 @property (nonatomic, strong) IBOutlet UIActivityIndicatorView *imageActivityIndicatorView;
 
+#pragma mark IBActions
+
+- (IBAction)addToFavoritesPressed:(id)sender;
+
 @end

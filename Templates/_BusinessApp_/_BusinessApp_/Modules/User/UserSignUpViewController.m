@@ -66,28 +66,6 @@
     [self.analyticsManager logScreen:kAnalyticsManagerScreenUserSignUp];
 }
 
-#pragma mark - Public -
-
-- (void)clearTextFields {
-    
-    [_model clearData];
-    
-    _salutationTextField.text = nil;
-    _firstNameTextField.text = nil;
-    _lastNameTextField.text = nil;
-    _addressTextField.text = nil;
-    _addressOptionalTextField.text = nil;
-    _zipCodeTextField.text = nil;
-    _countryCodeTextField.text = nil;
-    _stateCodeTextField.text = nil;
-    _cityTextField.text = nil;
-    _phoneTextField.text = nil;
-    _emailTextField.text = nil;
-    _passwordTextField.text = nil;
-    
-    [_salutationTextField becomeFirstResponder];
-}
-
 #pragma mark - Protected -
 
 - (void)commonInit {
@@ -147,7 +125,29 @@
     [self prepareUI];
 }
 
-#pragma mark - IBActions -
+#pragma mark - Public -
+
+- (void)clearTextFields {
+    
+    [_model clearData];
+    
+    _salutationTextField.text = nil;
+    _firstNameTextField.text = nil;
+    _lastNameTextField.text = nil;
+    _addressTextField.text = nil;
+    _addressOptionalTextField.text = nil;
+    _zipCodeTextField.text = nil;
+    _countryCodeTextField.text = nil;
+    _stateCodeTextField.text = nil;
+    _cityTextField.text = nil;
+    _phoneTextField.text = nil;
+    _emailTextField.text = nil;
+    _passwordTextField.text = nil;
+    
+    [_salutationTextField becomeFirstResponder];
+}
+
+#pragma mark IBActions
 
 - (IBAction)countryPressed:(id)sender {
     

@@ -107,7 +107,9 @@
     [self loadModel];
 }
 
-#pragma mark - IBActions -
+#pragma mark - Public -
+
+#pragma mark IBActions
 
 - (IBAction)addToFavoritesPressed:(id)sender {
     

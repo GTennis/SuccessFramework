@@ -38,15 +38,6 @@
 
 @implementation TableViewExampleViewController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
-    
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
-
 - (void)viewDidLoad {
     
     [super viewDidLoad];
@@ -66,12 +57,6 @@
     // Render UI
     self.title = GMLocalizedString(@"List screen");
     [_tableView reloadData];
-}
-
-- (void)didReceiveMemoryWarning {
-    
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 #pragma mark - Protected
@@ -104,7 +89,7 @@
     // ...
 }
 
-#pragma mark - UITableViewDataSource
+#pragma mark - UITableViewDataSource -
 
 // For hiding blank lines at the bottom of the table view
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
@@ -163,7 +148,7 @@
     return cell;
 }
 
-#pragma mark - UITableViewDelegate
+#pragma mark - UITableViewDelegate -
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
 

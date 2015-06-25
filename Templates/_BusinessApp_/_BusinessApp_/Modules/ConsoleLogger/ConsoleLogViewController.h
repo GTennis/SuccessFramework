@@ -37,4 +37,10 @@
 @property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 
+#pragma mark IBActions
+
+- (IBAction)closePressed:(id)sender;
+- (IBAction)clearLogPressed:(id)sender;
+- (IBAction)reportPressed:(id)sender;
+
 @end

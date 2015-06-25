@@ -76,7 +76,7 @@
     //[[UINavigationBar appearance] setBarTintColor:kColorGrayLight1];
 }
 
-#pragma mark - IBActions -
+#pragma mark IBActions
 
 - (IBAction)contactsPressed:(id)sender {
     

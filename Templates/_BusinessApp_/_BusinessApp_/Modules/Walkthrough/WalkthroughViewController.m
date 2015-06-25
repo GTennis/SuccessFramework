@@ -69,7 +69,9 @@
     }];
 }
 
-#pragma mark - IBActions -
+#pragma mark - Public -
+
+#pragma mark IBActions
 
 - (IBAction)skipPressed:(id)sender {
     
