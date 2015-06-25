@@ -46,18 +46,6 @@
 @synthesize analyticsManager = _analyticsManager;
 @synthesize context = _context;
 
-// Usualy unit tests instantiate model objects directly through init but we need commonInit to be called for setting initial values (if needed)
-- (instancetype)init {
-    
-    self = [super init];
-    if (self) {
-        
-        [self commonInit];
-    }
-    
-    return self;
-}
-
 - (void)dealloc {
     
     DLog(@"[%@]: dealloc", NSStringFromClass([self class]));

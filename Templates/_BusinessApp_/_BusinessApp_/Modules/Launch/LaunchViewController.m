@@ -33,27 +33,20 @@
 
 @implementation LaunchViewController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
-    
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
-
 - (void)viewDidLoad {
     
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    
+    [self prepareUI];
+    [self loadModel];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
     
     [super viewWillAppear:animated];
     
-    [self prepareUI];
-}
+    }
 
 - (void)didReceiveMemoryWarning {
     
@@ -77,9 +70,6 @@
     // Use and set the same launch image as screen background image
     NSString *launchImageName = [self launchImageNameForOrientation:self.interfaceOrientation];
     _backgroundImageView.image = [UIImage imageNamed:launchImageName];
-    
-    // Proceed to app after a couple of seconds
-    [self performSelector:@selector(close) withObject:nil afterDelay:1.0f];
 }
 
 - (void)renderUI {
@@ -93,7 +83,11 @@
     
     [super loadModel];
     
+    // In a real world scenario, we could delay a little bit and perform some preloading and other stuff upfront ASAP
     // ...
+    
+    [self renderUI];
+    [self performSelector:@selector(close) withObject:nil afterDelay:1.0f];
 }
 
 #pragma mark - Private -
