@@ -107,7 +107,7 @@
     NSString *viewOrientation = @"Portrait";
     
     // Adjust for landscape mode
-    if (UIDeviceOrientationIsLandscape(orientation)) {
+    if (UIInterfaceOrientationIsLandscape(orientation)) {
         
         // Remove later when iOS 7 is not needed.
         if (SYSTEM_VERSION_GREATER_THAN(@"8.0")) {

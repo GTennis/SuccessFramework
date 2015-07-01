@@ -41,6 +41,8 @@
 @property (nonatomic, strong) id<AnalyticsManagerProtocol> analyticsManager;
 @property (nonatomic, strong) id<SettingsManagerProtocol> settingsManager;
 
+- (void)commonInit;
+
 #pragma mark Common header handling
 
 - (void)setAuthorizationHeader;

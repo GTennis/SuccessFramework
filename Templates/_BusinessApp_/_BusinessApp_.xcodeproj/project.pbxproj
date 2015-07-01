@@ -208,6 +208,7 @@
 		31CB9EF01B175EE10012F1F4 /* TopModalNavigationBar_iphone.xib in Resources */ = {isa = PBXBuildFile; fileRef = 31CB9EEF1B175EE10012F1F4 /* TopModalNavigationBar_iphone.xib */; };
 		31CB9EF21B175F0E0012F1F4 /* TopModalNavigationBar_ipad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 31CB9EF11B175F0E0012F1F4 /* TopModalNavigationBar_ipad.xib */; };
 		31CB9EF51B175F210012F1F4 /* TopModalNavigationBar_ipad.m in Sources */ = {isa = PBXBuildFile; fileRef = 31CB9EF41B175F210012F1F4 /* TopModalNavigationBar_ipad.m */; };
+		31F24BA01B43E66000AA56A6 /* ParseAPIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 31F24B9F1B43E66000AA56A6 /* ParseAPIClient.m */; };
 		7E48B6A029D4462B99F94BBA /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4BE886A7686A4EC6BF56CDC8 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -615,6 +616,10 @@
 		31CB9EF11B175F0E0012F1F4 /* TopModalNavigationBar_ipad.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TopModalNavigationBar_ipad.xib; sourceTree = "<group>"; };
 		31CB9EF31B175F210012F1F4 /* TopModalNavigationBar_ipad.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TopModalNavigationBar_ipad.h; sourceTree = "<group>"; };
 		31CB9EF41B175F210012F1F4 /* TopModalNavigationBar_ipad.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TopModalNavigationBar_ipad.m; sourceTree = "<group>"; };
+		31F24B9B1B43E4F200AA56A6 /* ParseAPIConfig.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ParseAPIConfig.h; sourceTree = "<group>"; };
+		31F24B9C1B43E55B00AA56A6 /* ParseAPIClientProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ParseAPIClientProtocol.h; sourceTree = "<group>"; };
+		31F24B9E1B43E66000AA56A6 /* ParseAPIClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParseAPIClient.h; sourceTree = "<group>"; };
+		31F24B9F1B43E66000AA56A6 /* ParseAPIClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ParseAPIClient.m; sourceTree = "<group>"; };
 		4BE886A7686A4EC6BF56CDC8 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		6E0BD085B1D95E6D8A405F54 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -1122,6 +1127,7 @@
 				31CA639D1B347FE1002CC8D6 /* Common */,
 				31CA639B1B347FB8002CC8D6 /* RegistryAPI */,
 				31CA639C1B347FC0002CC8D6 /* BackendAPI */,
+				31F24B9A1B43E40000AA56A6 /* ParseAPI */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -2216,6 +2222,25 @@
 			name = BaseToolbar;
 			sourceTree = "<group>";
 		};
+		31F24B9A1B43E40000AA56A6 /* ParseAPI */ = {
+			isa = PBXGroup;
+			children = (
+				31F24B9B1B43E4F200AA56A6 /* ParseAPIConfig.h */,
+				31F24B9D1B43E64300AA56A6 /* Clients */,
+			);
+			name = ParseAPI;
+			sourceTree = "<group>";
+		};
+		31F24B9D1B43E64300AA56A6 /* Clients */ = {
+			isa = PBXGroup;
+			children = (
+				31F24B9C1B43E55B00AA56A6 /* ParseAPIClientProtocol.h */,
+				31F24B9E1B43E66000AA56A6 /* ParseAPIClient.h */,
+				31F24B9F1B43E66000AA56A6 /* ParseAPIClient.m */,
+			);
+			name = Clients;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -2425,6 +2450,7 @@
 				0FA4980A19DA164F0057D9F4 /* BaseDetailsViewController.m in Sources */,
 				0FA62C7A19CF6D17002D3DDC /* HomeModel.m in Sources */,
 				31CA63A21B34802C002CC8D6 /* ImageDownloader.m in Sources */,
+				31F24BA01B43E66000AA56A6 /* ParseAPIClient.m in Sources */,
 				0FE1CB031AF65E22006769FE /* ConsoleLogViewController.m in Sources */,
 				31CA63A51B348048002CC8D6 /* NetworkEnvironmentSwitch4Testing.m in Sources */,
 				0FA695F919BB9CCD0058A722 /* BaseViewController.m in Sources */,

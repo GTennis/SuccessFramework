@@ -66,6 +66,8 @@
 
             // For internal local https environment with self signed certificate
             //self.securityPolicy.allowInvalidCertificates = YES;
+            
+            [self commonInit];
         }
     }
     
@@ -100,6 +102,12 @@
 }
 
 #pragma mark - Protected -
+
+- (void)commonInit {
+    
+    // For overriding and creating custom objects in subclasses
+    // ...
+}
 
 #pragma mark Override
 

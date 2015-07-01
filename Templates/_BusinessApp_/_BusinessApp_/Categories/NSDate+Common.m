@@ -49,7 +49,7 @@ static NSDateFormatter *_dateFormatterForParsingDates = nil;
         
         // All the dates received from the backend are expected to be UTC/GMT
         // Therefore manually setting time zone to 0
-        _dateFormatterForParsingDates.TimeZone = [NSTimeZone timeZoneForSecondsFromGMT:0];
+        _dateFormatterForParsingDates.timeZone = [NSTimeZone timeZoneForSecondsFromGMT:0];
         
         // Need to set this workaround. Otherwise parsing date from string (dateFromString) will return nil if user has turned off 24-Hour time in Time and Date settings.
         // Solution used from: http://stackoverflow.com/questions/6613110/what-is-the-best-way-to-deal-with-the-nsdateformatter-locale-feature
@@ -61,7 +61,7 @@ static NSDateFormatter *_dateFormatterForParsingDates = nil;
         _dateFormatterForViewingDates = [[NSDateFormatter alloc] init];
         
         // This will set formatter to relative time zone to user's zone
-        _dateFormatterForViewingDates.TimeZone = [NSTimeZone systemTimeZone/*localTimeZone*/];
+        _dateFormatterForViewingDates.timeZone = [NSTimeZone systemTimeZone/*localTimeZone*/];
         
     }
 }
@@ -75,7 +75,7 @@ static NSDateFormatter *_dateFormatterForParsingDates = nil;
         
         // All the dates received from the backend are expected to be UTC/GMT
         // Therefore manually setting time zone to 0
-        _dateFormatterForParsingDates.TimeZone = [NSTimeZone timeZoneForSecondsFromGMT:0];
+        _dateFormatterForParsingDates.timeZone = [NSTimeZone timeZoneForSecondsFromGMT:0];
         
         // Need to set this workaround. Otherwise parsing date from string (dateFromString) will return nil if user has turned off 24-Hour time in Time and Date settings.
         // Solution used from: http://stackoverflow.com/questions/6613110/what-is-the-best-way-to-deal-with-the-nsdateformatter-locale-feature
@@ -87,7 +87,7 @@ static NSDateFormatter *_dateFormatterForParsingDates = nil;
         _dateFormatterForViewingDates = [[NSDateFormatter alloc] init];
         
         // This will set formatter to relative time zone to user's zone
-        _dateFormatterForViewingDates.TimeZone = [NSTimeZone systemTimeZone/*localTimeZone*/];
+        _dateFormatterForViewingDates.timeZone = [NSTimeZone systemTimeZone/*localTimeZone*/];
         
     }
 }
@@ -165,7 +165,7 @@ static NSDateFormatter *_dateFormatterForParsingDates = nil;
     NSString *dateString = nil;
     @synchronized(_dateFormatterForViewingDates)
     {
-        _dateFormatterForViewingDates.TimeZone = [NSTimeZone systemTimeZone/*localTimeZone*/];
+        _dateFormatterForViewingDates.timeZone = [NSTimeZone systemTimeZone/*localTimeZone*/];
         _dateFormatterForViewingDates.dateFormat = format;
         dateString = [_dateFormatterForViewingDates stringFromDate:date];
     }
@@ -178,7 +178,7 @@ static NSDateFormatter *_dateFormatterForParsingDates = nil;
     @synchronized(_dateFormatterForViewingDates)
     {
         _dateFormatterForViewingDates.dateStyle = kCFDateFormatterShortStyle;
-        _dateFormatterForViewingDates.TimeZone = [NSTimeZone systemTimeZone/*localTimeZone*/];
+        _dateFormatterForViewingDates.timeZone = [NSTimeZone systemTimeZone/*localTimeZone*/];
         dateString = [_dateFormatterForViewingDates stringFromDate:date];
         _dateFormatterForViewingDates.dateStyle = kCFDateFormatterNoStyle;
     }
@@ -191,7 +191,7 @@ static NSDateFormatter *_dateFormatterForParsingDates = nil;
     @synchronized(_dateFormatterForViewingDates)
     {
         _dateFormatterForViewingDates.timeStyle = kCFDateFormatterShortStyle;
-        _dateFormatterForViewingDates.TimeZone = [NSTimeZone systemTimeZone/*localTimeZone*/];
+        _dateFormatterForViewingDates.timeZone = [NSTimeZone systemTimeZone/*localTimeZone*/];
         timeString = [_dateFormatterForViewingDates stringFromDate:self];
         _dateFormatterForViewingDates.timeStyle = kCFDateFormatterNoStyle;
     }

@@ -97,20 +97,16 @@
     launchVC.delegate = self;
     self.window.rootViewController = launchVC;
     
-    /*// Handle push notifications:
-    // Register for push notifications
-    [application registerForRemoteNotificationTypes:(UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeAlert | UIRemoteNotificationTypeSound)];
-    
-    NSDictionary *remoteNotificationLaunchOptions = launchOptions[UIApplicationLaunchOptionsRemoteNotificationKey];
-    
-    // Check if application was opened through notification with passed data
-    id passedId = remoteNotificationLaunchOptions[@"passedId"];
-    if (remoteNotificationLaunchOptions && passedId) {
+    // Handle push notifications:
+    if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"8.0")) {
         
-        // Check and open related screen with
-        // [self openScreenWithId:passedId];
-        // ...
-    }*/
+        UIUserNotificationSettings *notificationSettings = [UIUserNotificationSettings settingsForTypes:UIUserNotificationTypeAlert | UIUserNotificationTypeBadge | UIUserNotificationTypeSound categories:nil];
+        [[UIApplication sharedApplication] registerUserNotificationSettings:notificationSettings];
+        
+    } else {
+        
+        [[UIApplication sharedApplication] registerForRemoteNotificationTypes:(UIRemoteNotificationTypeAlert | UIRemoteNotificationTypeSound|UIRemoteNotificationTypeBadge)];
+    }
     
     // Check if app needs force update
     [self checkForAppUpdate];
@@ -189,29 +185,52 @@
     }
 }
 
-/*#pragma mark - Push Notifications
+#pragma mark - Push Notifications
 
-// Handle received APN token
-- (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
+- (void)application:(UIApplication *)application didRegisterUserNotificationSettings:(UIUserNotificationSettings *)notificationSettings {
     
-    // Remove spaces and other symbols
-    NSString *deviceTokenString = [[[deviceToken.description stringByReplacingOccurrencesOfString:@"<" withString:@""]
-                                    stringByReplacingOccurrencesOfString:@" " withString:@""]
-                                   stringByReplacingOccurrencesOfString:@">" withString:@""];
+    DLog(@"didRegisterUserNotificationSettings: %@", notificationSettings);
     
-    // TODO:
-    
-    // 1) Send to backend
-    // 2) Store token localy: add set/get methods in SettingsManager
+    // Register to receive push notifications
+    [application registerForRemoteNotifications];
 }
 
-// Handle received push notification
+// For interactive notification only
+- (void)application:(UIApplication *)application handleActionWithIdentifier:(NSString *)identifier forRemoteNotification:(NSDictionary *)userInfo completionHandler:(void(^)())completionHandler {
+    
+    DLog(@"handleActionWithIdentifier:%@ forRemoteNotification:%@", identifier, userInfo);
+    
+    //handle the actions
+    if ([identifier isEqualToString:@"declineAction"]){
+      
+        // ...
+        
+    } else if ([identifier isEqualToString:@"answerAction"]){
+        
+        // ...
+    }
+}
+
+- (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
+    
+    DLog(@"didRegisterForRemoteNotificationsWithDeviceToken: %@", deviceToken);
+    
+    BackendAPIClient *backendAPIClient = [REGISTRY getObject:[BackendAPIClient class]];
+    [backendAPIClient registerPushNotificationToken:deviceToken];
+}
+
 - (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo{
     
-    NSString *someId = userInfo[@"someId"];
+    DLog(@"didReceiveRemoteNotification: %@", userInfo);
+    
+    BackendAPIClient *backendAPIClient = [REGISTRY getObject:[BackendAPIClient class]];
+    [backendAPIClient handleReceivedPushNotificationWithUserInfo:userInfo];
+    
+    // Custom handling
+    /*NSString *someId = userInfo[@"someId"];
     
     if (someId) {
-    
+        
         if (application.applicationState == UIApplicationStateActive) {
             
             // TODO:
@@ -222,8 +241,13 @@
             // TODO:
             // [self showMeSomeScreenWhenAppIsNotActive]
         }
-    }
-}*/
+    }*/
+}
+
+- (void)application:(UIApplication *)application didFailToRegisterForRemoteNotificationsWithError:(NSError *)error {
+    
+    DLog(@"didFailToRegisterForRemoteNotificationsWithError: %@", error.localizedDescription);
+}
 
 #pragma mark - LaunchViewControllerDelegate
 

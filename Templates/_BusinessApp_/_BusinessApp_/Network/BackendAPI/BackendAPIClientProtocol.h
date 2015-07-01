@@ -32,9 +32,14 @@
 - (void)getAppSettingsWithParam1:(id)param1 callback:(Callback)callback;
 - (void)getTopImagesWithTag:(id)tag callback:(Callback)callback;
 
+// User related
 - (void)loginUserWithData:(UserObject *)user callback:(Callback)callback;
 - (void)signUpUserWithData:(UserObject *)user callback:(Callback)callback;
 - (void)resetPasswordWithData:(UserObject *)user callback:(Callback)callback;
 - (void)getUserWithData:(UserObject *)user callback:(Callback)callback;
+
+// Push Notifications related
+- (void)registerPushNotificationToken:(NSData *)token;
+- (void)handleReceivedPushNotificationWithUserInfo:(NSDictionary *)userInfo;
 
 @end
