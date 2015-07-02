@@ -55,7 +55,7 @@
     [currentInstallation saveInBackground];
 }
 
-- (void)handlePushNotificationUsingReceivedUserInfo:(NSDictionary *)userInfo application:(UIApplication *)application {
+- (void)handlePushNotificationWithReceivedUserInfo:(NSDictionary *)userInfo application:(UIApplication *)application {
     
     if (application.applicationState == UIApplicationStateInactive || application.applicationState == UIApplicationStateBackground) {
         

@@ -152,7 +152,7 @@
 
 - (void)handleReceivedPushNotificationWithUserInfo:(NSDictionary *)userInfo application:(UIApplication *)application {
     
-    [_parseAPIClient handlePushNotificationUsingReceivedUserInfo:userInfo application:application];
+    [_parseAPIClient handlePushNotificationWithReceivedUserInfo:userInfo application:application];
 }
 
 @end

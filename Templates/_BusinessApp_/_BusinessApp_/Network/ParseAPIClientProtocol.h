@@ -29,7 +29,7 @@
 
 // Push notification related
 - (void)registerPushNotificationToken:(NSData *)token;
-- (void)handlePushNotificationUsingReceivedUserInfo:(NSDictionary *)userInfo application:(UIApplication *)application;
+- (void)handlePushNotificationWithReceivedUserInfo:(NSDictionary *)userInfo application:(UIApplication *)application;
 
 // User related
 - (void)loginUser:(UserObject *)userObject callback:(Callback)callback;
