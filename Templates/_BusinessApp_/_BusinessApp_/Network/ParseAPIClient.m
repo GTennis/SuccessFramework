@@ -60,8 +60,6 @@
 
 - (void)loginUser:(UserObject *)userObject callback:(Callback)callback{
     
-    PFInstallation *currentInstallation = [PFInstallation currentInstallation];
-    
     // Try to do login. If it fails the we will create new user. If sucesses then everything is ok.
     [PFUser logInWithUsernameInBackground:userObject.email password:userObject.password
                                     block:^(PFUser *user, NSError *error) {
@@ -69,6 +67,7 @@
                                         // If parseUser exists ...
                                         if (user) {
                                             
+                                            PFInstallation *currentInstallation = [PFInstallation currentInstallation];
                                             [self checkAndCreateRelationIfNeededBetweenUser:user andInstallation:currentInstallation callback:callback];
                                             
                                         // Othwerwise need to create new parseUser
@@ -86,7 +85,9 @@
                                                 // If sucess then add relation from device installation to this user
                                                 if (!error) {
                                                     
-                                                    [self checkAndCreateRelationIfNeededBetweenUser:user andInstallation:currentInstallation callback:callback];
+                                                    PFUser *newUser = [PFUser currentUser];
+                                                    PFInstallation *currentInstallation = [PFInstallation currentInstallation];
+                                                    [self checkAndCreateRelationIfNeededBetweenUser:newUser andInstallation:currentInstallation callback:callback];
                                                     
                                                 } else {
                                                     
