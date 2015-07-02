@@ -28,12 +28,12 @@
 #import "ParseAPIClientProtocol.h"
 
 // DeviceInstallation
-#define kParseManagerDeviceInstallationDataStorageName @"Installation"
+#define kParseAPIClientDeviceInstallationDataStorageName @"Installation"
 
 // RelDeviceInstallationUser
-#define kParseManagerRelDeviceInstallationUserDataStorageName @"RelDeviceInstallationUser"
-#define kParseManagerRelDeviceInstallationUserUserIdRefKey @"userObjectId"
-#define kParseManagerRelDeviceInstallationUserDeviceInstallationIdRefKey @"installationObjectId"
+#define kParseAPIClientRelDeviceInstallationUserDataStorageName @"RelDeviceInstallationUser"
+#define kParseAPIClientRelDeviceInstallationUserUserIdRefKey @"userObjectId"
+#define kParseAPIClientRelDeviceInstallationUserDeviceInstallationIdRefKey @"installationObjectId"
 
 @interface ParseAPIClient : NSObject <ParseAPIClientProtocol>
 

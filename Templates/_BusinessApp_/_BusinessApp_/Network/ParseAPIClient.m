@@ -148,9 +148,9 @@
 - (void)checkAndCreateRelationIfNeededBetweenUser:(PFUser *)user andInstallation:(PFInstallation *)installation callback:(Callback)callback {
     
     // Check if user was already logged in using this device
-    PFQuery *relDeviceInstallationUserQuery = [PFQuery queryWithClassName:kParseManagerRelDeviceInstallationUserDataStorageName];
-    [relDeviceInstallationUserQuery whereKey:kParseManagerRelDeviceInstallationUserUserIdRefKey equalTo:user.objectId];
-    [relDeviceInstallationUserQuery whereKey:kParseManagerRelDeviceInstallationUserDeviceInstallationIdRefKey equalTo:installation.objectId];
+    PFQuery *relDeviceInstallationUserQuery = [PFQuery queryWithClassName:kParseAPIClientRelDeviceInstallationUserDataStorageName];
+    [relDeviceInstallationUserQuery whereKey:kParseAPIClientRelDeviceInstallationUserUserIdRefKey equalTo:user.objectId];
+    [relDeviceInstallationUserQuery whereKey:kParseAPIClientRelDeviceInstallationUserDeviceInstallationIdRefKey equalTo:installation.objectId];
     
     [relDeviceInstallationUserQuery findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         
@@ -159,9 +159,9 @@
             if (!objects.count) {
                 
                 // Need to create this relation
-                PFObject *relDeviceInstallationUser = [PFObject objectWithClassName:kParseManagerRelDeviceInstallationUserDataStorageName];
-                relDeviceInstallationUser[kParseManagerRelDeviceInstallationUserUserIdRefKey] = user.objectId;
-                relDeviceInstallationUser[kParseManagerRelDeviceInstallationUserDeviceInstallationIdRefKey] = installation.objectId;
+                PFObject *relDeviceInstallationUser = [PFObject objectWithClassName:kParseAPIClientRelDeviceInstallationUserDataStorageName];
+                relDeviceInstallationUser[kParseAPIClientRelDeviceInstallationUserUserIdRefKey] = user.objectId;
+                relDeviceInstallationUser[kParseAPIClientRelDeviceInstallationUserDeviceInstallationIdRefKey] = installation.objectId;
                 [relDeviceInstallationUser saveInBackground];
             }
             
