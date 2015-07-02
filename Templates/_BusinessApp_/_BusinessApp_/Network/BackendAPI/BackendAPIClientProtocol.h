@@ -40,6 +40,6 @@
 
 // Push Notifications related
 - (void)registerPushNotificationToken:(NSData *)token;
-- (void)handleReceivedPushNotificationWithUserInfo:(NSDictionary *)userInfo;
+- (void)handleReceivedPushNotificationWithUserInfo:(NSDictionary *)userInfo application:(UIApplication *)application;
 
 @end

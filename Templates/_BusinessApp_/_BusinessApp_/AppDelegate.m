@@ -108,6 +108,14 @@
         [[UIApplication sharedApplication] registerForRemoteNotificationTypes:(UIRemoteNotificationTypeAlert | UIRemoteNotificationTypeSound|UIRemoteNotificationTypeBadge)];
     }
     
+    // Check if application was opened from push notification
+    NSDictionary *notificationDict = [launchOptions objectForKey:UIApplicationLaunchOptionsRemoteNotificationKey];
+    if (notificationDict) {
+        
+        // Forward push notification handling
+        [self application:application didReceiveRemoteNotification:notificationDict];
+    }
+    
     // Check if app needs force update
     [self checkForAppUpdate];
     
@@ -224,7 +232,7 @@
     DLog(@"didReceiveRemoteNotification: %@", userInfo);
     
     BackendAPIClient *backendAPIClient = [REGISTRY getObject:[BackendAPIClient class]];
-    [backendAPIClient handleReceivedPushNotificationWithUserInfo:userInfo];
+    [backendAPIClient handleReceivedPushNotificationWithUserInfo:userInfo application:application];
     
     // Custom handling
     /*NSString *someId = userInfo[@"someId"];

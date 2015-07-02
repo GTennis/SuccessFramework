@@ -46,6 +46,8 @@
 
 #pragma mark - ParseAPIClientProtocol -
 
+#pragma mark Push notification related
+
 - (void)registerPushNotificationToken:(NSData *)token {
     
     PFInstallation *currentInstallation = [PFInstallation currentInstallation];
@@ -53,10 +55,22 @@
     [currentInstallation saveInBackground];
 }
 
-- (void)handleReceivedPushNotificationWithUserInfo:(NSDictionary *)userInfo {
+- (void)handlePushNotificationUsingReceivedUserInfo:(NSDictionary *)userInfo application:(UIApplication *)application {
     
-    [PFPush handlePush:userInfo];
+    if (application.applicationState == UIApplicationStateInactive || application.applicationState == UIApplicationStateBackground) {
+        
+        // Looks like Parse SDK has an issue. Suppose the app is closed and we receive push notification. If user clicks on system displayed top alert then Parse won't track this opening even if the method is called. It needs some time to start the app. Everything works without delay when app is in background
+        
+        // Also, please note, push notification can be tracked double time:
+        // a) when user clicks on system displayed top alert and opens the app.
+        // b) the user can close the app, open notification center and click on the notification which will open the app again and will result in second track.
+        
+        [self performSelector:@selector(trackRemoteNotificationUsingUserInfo:) withObject:userInfo afterDelay:5.0f];
+        //[self logAppOpeningFromPushNotification];
+    }
 }
+
+#pragma mark User related
 
 - (void)loginUser:(UserObject *)userObject callback:(Callback)callback{
     
@@ -159,5 +173,38 @@
         }
     }];
 }
+
+- (void)trackRemoteNotificationUsingUserInfo:(NSDictionary *)userInfo {
+    
+    [PFAnalytics trackAppOpenedWithRemoteNotificationPayload:userInfo];
+}
+
+/*- (void)logAppOpeningFromPushNotification {
+    
+    NSString *className = @"AppOpeningsFromPushNotifications";
+    NSString *appOpeningEventCountName = @"count";
+    
+    PFQuery *appOpenings = [PFQuery queryWithClassName:className];
+    
+    [appOpenings findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        
+        PFObject *appOpeningEvent = nil;
+        NSInteger appOpeningEventCount = 0;
+        
+        if (objects.count) {
+            
+            appOpeningEvent = objects.firstObject;
+            appOpeningEventCount = [appOpeningEvent[appOpeningEventCountName] integerValue];
+            
+        } else {
+            
+            appOpeningEvent = [PFObject objectWithClassName:className];
+        }
+        
+        appOpeningEventCount++;
+        appOpeningEvent[appOpeningEventCountName] = @(appOpeningEventCount);
+        [appOpeningEvent saveInBackground];
+    }];
+}*/
 
 @end

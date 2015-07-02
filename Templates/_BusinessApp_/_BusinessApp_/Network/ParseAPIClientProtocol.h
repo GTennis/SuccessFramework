@@ -27,8 +27,11 @@
 
 @protocol ParseAPIClientProtocol <NSObject>
 
+// Push notification related
 - (void)registerPushNotificationToken:(NSData *)token;
-- (void)handleReceivedPushNotificationWithUserInfo:(NSDictionary *)userInfo;
+- (void)handlePushNotificationUsingReceivedUserInfo:(NSDictionary *)userInfo application:(UIApplication *)application;
+
+// User related
 - (void)loginUser:(UserObject *)userObject callback:(Callback)callback;
 - (void)logoutUserWithCallback:(Callback)callback;
 - (void)signUpUser:(UserObject *)userObject callback:(Callback)callback;

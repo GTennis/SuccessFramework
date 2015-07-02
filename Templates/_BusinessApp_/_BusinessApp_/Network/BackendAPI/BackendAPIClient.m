@@ -150,9 +150,9 @@
     [_parseAPIClient registerPushNotificationToken:token];
 }
 
-- (void)handleReceivedPushNotificationWithUserInfo:(NSDictionary *)userInfo {
+- (void)handleReceivedPushNotificationWithUserInfo:(NSDictionary *)userInfo application:(UIApplication *)application {
     
-    [_parseAPIClient handleReceivedPushNotificationWithUserInfo:userInfo];
+    [_parseAPIClient handlePushNotificationUsingReceivedUserInfo:userInfo application:application];
 }
 
 @end
