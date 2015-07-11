@@ -55,6 +55,11 @@
 - (void)prepareUI {
     
     [super prepareUI];
+    
+    // Fix menu screen size: make it full screen for all devices
+    CGRect rect = self.view.frame;
+    rect.size = [UIScreen mainScreen].bounds.size;
+    self.view.frame = rect;
 }
 
 - (void)renderUI {

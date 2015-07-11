@@ -77,13 +77,6 @@
 		0FABA6FB19CAFDC400CC7DD3 /* ContactsViewController_iphone.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FABA6F919CAFDC400CC7DD3 /* ContactsViewController_iphone.m */; };
 		0FABA6FC19CAFDC400CC7DD3 /* ContactsViewController_iphone.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0FABA6FA19CAFDC400CC7DD3 /* ContactsViewController_iphone.xib */; };
 		0FABA70D19CB07A600CC7DD3 /* UISynchedWebView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FABA70C19CB07A600CC7DD3 /* UISynchedWebView.m */; };
-		0FB3F48D19E52E3C0040E4D7 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0FB3F48A19E52E3C0040E4D7 /* Default-568h@2x.png */; };
-		0FB3F48E19E52E3C0040E4D7 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 0FB3F48B19E52E3C0040E4D7 /* Default.png */; };
-		0FB3F48F19E52E3C0040E4D7 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0FB3F48C19E52E3C0040E4D7 /* Default@2x.png */; };
-		0FB3F49C19E5387A0040E4D7 /* Default-Landscape.png in Resources */ = {isa = PBXBuildFile; fileRef = 0FB3F49E19E5387A0040E4D7 /* Default-Landscape.png */; };
-		0FB3F49F19E5387E0040E4D7 /* Default-Landscape@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0FB3F4A119E5387E0040E4D7 /* Default-Landscape@2x.png */; };
-		0FB3F4A219E538870040E4D7 /* Default-Portrait.png in Resources */ = {isa = PBXBuildFile; fileRef = 0FB3F4A419E538870040E4D7 /* Default-Portrait.png */; };
-		0FB3F4A519E5388A0040E4D7 /* Default-Portrait@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0FB3F4A719E5388A0040E4D7 /* Default-Portrait@2x.png */; };
 		0FBFDF5A1B12F87500FA4EFD /* LocalizationSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FBFDF581B12F87500FA4EFD /* LocalizationSystem.m */; };
 		0FBFDF5E1B13A84E00FA4EFD /* TableViewExampleViewController_iphone.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FBFDF5C1B13A84E00FA4EFD /* TableViewExampleViewController_iphone.m */; };
 		0FBFDF5F1B13A84E00FA4EFD /* TableViewExampleViewController_iphone.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0FBFDF5D1B13A84E00FA4EFD /* TableViewExampleViewController_iphone.xib */; };
@@ -342,17 +335,6 @@
 		0FABA6FA19CAFDC400CC7DD3 /* ContactsViewController_iphone.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ContactsViewController_iphone.xib; sourceTree = "<group>"; };
 		0FABA70B19CB07A600CC7DD3 /* UISynchedWebView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UISynchedWebView.h; sourceTree = "<group>"; };
 		0FABA70C19CB07A600CC7DD3 /* UISynchedWebView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UISynchedWebView.m; sourceTree = "<group>"; };
-		0FB3F48A19E52E3C0040E4D7 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
-		0FB3F48B19E52E3C0040E4D7 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
-		0FB3F48C19E52E3C0040E4D7 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
-		0FB3F49D19E5387A0040E4D7 /* en */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = en; path = "en.lproj/Default-Landscape.png"; sourceTree = "<group>"; };
-		0FB3F4A019E5387E0040E4D7 /* en */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = en; path = "en.lproj/Default-Landscape@2x.png"; sourceTree = "<group>"; };
-		0FB3F4A319E538870040E4D7 /* en */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = en; path = "en.lproj/Default-Portrait.png"; sourceTree = "<group>"; };
-		0FB3F4A619E5388A0040E4D7 /* en */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = en; path = "en.lproj/Default-Portrait@2x.png"; sourceTree = "<group>"; };
-		0FB3F4A819E538920040E4D7 /* de */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = de; path = "de.lproj/Default-Landscape.png"; sourceTree = "<group>"; };
-		0FB3F4A919E538940040E4D7 /* de */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = de; path = "de.lproj/Default-Landscape@2x.png"; sourceTree = "<group>"; };
-		0FB3F4AA19E538970040E4D7 /* de */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = de; path = "de.lproj/Default-Portrait.png"; sourceTree = "<group>"; };
-		0FB3F4AB19E538990040E4D7 /* de */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = de; path = "de.lproj/Default-Portrait@2x.png"; sourceTree = "<group>"; };
 		0FBFDF571B12F87500FA4EFD /* LocalizationSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocalizationSystem.h; sourceTree = "<group>"; };
 		0FBFDF581B12F87500FA4EFD /* LocalizationSystem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocalizationSystem.m; sourceTree = "<group>"; };
 		0FBFDF5B1B13A84E00FA4EFD /* TableViewExampleViewController_iphone.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableViewExampleViewController_iphone.h; sourceTree = "<group>"; };
@@ -801,7 +783,6 @@
 			isa = PBXGroup;
 			children = (
 				31C7F1D41B317073006D1571 /* LocalTestData */,
-				0FB3F47A19E52B0E0040E4D7 /* LocalizedImages */,
 				0FA62C5819CEFB52002D3DDC /* Fonts */,
 				0FA695B319BB9A720058A722 /* SystemImages.xcassets */,
 				0FA839D419BCD8470037B5F3 /* CustomImages.xcassets */,
@@ -1283,28 +1264,6 @@
 				0FABA70C19CB07A600CC7DD3 /* UISynchedWebView.m */,
 			);
 			path = WebView;
-			sourceTree = "<group>";
-		};
-		0FB3F47A19E52B0E0040E4D7 /* LocalizedImages */ = {
-			isa = PBXGroup;
-			children = (
-				0FB3F47B19E52B3E0040E4D7 /* Launch */,
-			);
-			path = LocalizedImages;
-			sourceTree = "<group>";
-		};
-		0FB3F47B19E52B3E0040E4D7 /* Launch */ = {
-			isa = PBXGroup;
-			children = (
-				0FB3F48A19E52E3C0040E4D7 /* Default-568h@2x.png */,
-				0FB3F48B19E52E3C0040E4D7 /* Default.png */,
-				0FB3F48C19E52E3C0040E4D7 /* Default@2x.png */,
-				0FB3F49E19E5387A0040E4D7 /* Default-Landscape.png */,
-				0FB3F4A119E5387E0040E4D7 /* Default-Landscape@2x.png */,
-				0FB3F4A419E538870040E4D7 /* Default-Portrait.png */,
-				0FB3F4A719E5388A0040E4D7 /* Default-Portrait@2x.png */,
-			);
-			name = Launch;
 			sourceTree = "<group>";
 		};
 		0FBFDF541B12F85600FA4EFD /* Localization */ = {
@@ -2321,15 +2280,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				0FC47F261B127A67007A7E8D /* glockenspiel.ttf in Resources */,
-				0FB3F4A519E5388A0040E4D7 /* Default-Portrait@2x.png in Resources */,
-				0FB3F49F19E5387E0040E4D7 /* Default-Landscape@2x.png in Resources */,
 				31CB85551B15BFCF00F827F7 /* WalkthroughViewController_iphone.xib in Resources */,
 				31CB85881B15F8EE00F827F7 /* UserForgotPasswordViewController_iphone.xib in Resources */,
 				0FC4D16D1AFBE11500CF4C24 /* MenuViewController_ipad.xib in Resources */,
 				0FBFDF5F1B13A84E00FA4EFD /* TableViewExampleViewController_iphone.xib in Resources */,
 				0F70DF331AFFC4D8004293F1 /* TopNavigationBar_iphone.xib in Resources */,
 				0F7A85411AFFF64B00A2F6C4 /* TermsConditionsViewController_iphone.xib in Resources */,
-				0FB3F48F19E52E3C0040E4D7 /* Default@2x.png in Resources */,
 				0FA695B419BB9A720058A722 /* SystemImages.xcassets in Resources */,
 				0FABA6FC19CAFDC400CC7DD3 /* ContactsViewController_iphone.xib in Resources */,
 				0FC4D1681AFBE0CA00CF4C24 /* MenuViewController_iphone.xib in Resources */,
@@ -2339,15 +2295,12 @@
 				31CB857B1B15F89F00F827F7 /* UserProfileViewController_iphone.xib in Resources */,
 				0FA3FA0419C77794001FC84F /* TableViewExampleViewController_ipad.xib in Resources */,
 				0FE1CB0D1AF65EEC006769FE /* ConsoleLogViewController_ipad.xib in Resources */,
-				0FB3F48E19E52E3C0040E4D7 /* Default.png in Resources */,
 				0FA8625119C425A1004D4A32 /* HomeViewController_iphone.xib in Resources */,
-				0FB3F49C19E5387A0040E4D7 /* Default-Landscape.png in Resources */,
 				0F7A85461AFFF65E00A2F6C4 /* TermsConditionsViewController_ipad.xib in Resources */,
 				0F70DF441AFFDF07004293F1 /* HomeListItemView_ipad.xib in Resources */,
 				31CB85681B15F0D400F827F7 /* UserContainerViewController_iphone.xib in Resources */,
 				0FA67F7819C4F6B600E00FDA /* SettingsViewController_ipad.xib in Resources */,
 				0FA201DF19C43528007ABAC4 /* HomeViewController_ipad.xib in Resources */,
-				0FB3F4A219E538870040E4D7 /* Default-Portrait.png in Resources */,
 				0FA3FA0A19C777FC001FC84F /* TableViewExampleCell_ipad.xib in Resources */,
 				0FABA6F719CAFD9C00CC7DD3 /* ContactsViewController_ipad.xib in Resources */,
 				31CB85921B15F99900F827F7 /* UserLoginViewController_iphone.xib in Resources */,
@@ -2360,7 +2313,6 @@
 				0FA839EE19BCF8E50037B5F3 /* Localizable.strings in Resources */,
 				0FC719BC1AF9253400912FF1 /* LaunchViewController_ipad.xib in Resources */,
 				31CB9EF01B175EE10012F1F4 /* TopModalNavigationBar_iphone.xib in Resources */,
-				0FB3F48D19E52E3C0040E4D7 /* Default-568h@2x.png in Resources */,
 				31CB85371B14B55600F827F7 /* CountryPickerViewController_ipad.xib in Resources */,
 				31CB856D1B15F11200F827F7 /* UserContainerViewController_ipad.xib in Resources */,
 				0FC719B71AF9251D00912FF1 /* LaunchViewController_iphone.xib in Resources */,
@@ -2612,42 +2564,6 @@
 			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
-		0FB3F49E19E5387A0040E4D7 /* Default-Landscape.png */ = {
-			isa = PBXVariantGroup;
-			children = (
-				0FB3F49D19E5387A0040E4D7 /* en */,
-				0FB3F4A819E538920040E4D7 /* de */,
-			);
-			name = "Default-Landscape.png";
-			sourceTree = "<group>";
-		};
-		0FB3F4A119E5387E0040E4D7 /* Default-Landscape@2x.png */ = {
-			isa = PBXVariantGroup;
-			children = (
-				0FB3F4A019E5387E0040E4D7 /* en */,
-				0FB3F4A919E538940040E4D7 /* de */,
-			);
-			name = "Default-Landscape@2x.png";
-			sourceTree = "<group>";
-		};
-		0FB3F4A419E538870040E4D7 /* Default-Portrait.png */ = {
-			isa = PBXVariantGroup;
-			children = (
-				0FB3F4A319E538870040E4D7 /* en */,
-				0FB3F4AA19E538970040E4D7 /* de */,
-			);
-			name = "Default-Portrait.png";
-			sourceTree = "<group>";
-		};
-		0FB3F4A719E5388A0040E4D7 /* Default-Portrait@2x.png */ = {
-			isa = PBXVariantGroup;
-			children = (
-				0FB3F4A619E5388A0040E4D7 /* en */,
-				0FB3F4AB19E538990040E4D7 /* de */,
-			);
-			name = "Default-Portrait@2x.png";
-			sourceTree = "<group>";
-		};
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
@@ -2728,6 +2644,7 @@
 			baseConfigurationReference = 28D92D4B24CACDF282AC3836 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "_BusinessApp_/_BusinessApp_-Prefix.pch";
 				INFOPLIST_FILE = "_BusinessApp_/_BusinessApp_-Info.plist";
@@ -2743,6 +2660,7 @@
 			baseConfigurationReference = 6E0BD085B1D95E6D8A405F54 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "_BusinessApp_/_BusinessApp_-Prefix.pch";
 				INFOPLIST_FILE = "_BusinessApp_/_BusinessApp_-Info.plist";

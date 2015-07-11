@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6751" systemVersion="13F1077" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6254" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ContactsViewController_iphone">
@@ -16,10 +16,9 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vga-dz-ZA2" customClass="NormalButton">
-                    <rect key="frame" x="60" y="116" width="200" height="30"/>
+                    <rect key="frame" x="8" y="486" width="304" height="30"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="30" id="GbE-7h-nuk"/>
-                        <constraint firstAttribute="width" constant="200" id="utE-wx-JV9"/>
                     </constraints>
                     <state key="normal" title="Call 123456789">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -29,10 +28,9 @@
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="axl-9F-n5D" customClass="NormalButton">
-                    <rect key="frame" x="60" y="160" width="200" height="30"/>
+                    <rect key="frame" x="8" y="530" width="304" height="30"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="30" id="Ssv-mV-de3"/>
-                        <constraint firstAttribute="width" constant="200" id="tau-R2-VCG"/>
                     </constraints>
                     <state key="normal" title="Send email us">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -44,10 +42,12 @@
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
+                <constraint firstItem="vga-dz-ZA2" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="8" id="4aU-rq-btH"/>
+                <constraint firstAttribute="trailing" secondItem="vga-dz-ZA2" secondAttribute="trailing" constant="8" id="D8I-by-23T"/>
                 <constraint firstItem="axl-9F-n5D" firstAttribute="top" secondItem="vga-dz-ZA2" secondAttribute="bottom" constant="14" id="Qrs-Gx-hnG"/>
-                <constraint firstAttribute="centerX" secondItem="axl-9F-n5D" secondAttribute="centerX" id="e0M-po-dYv"/>
-                <constraint firstItem="vga-dz-ZA2" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="116" id="kLe-m4-5hG"/>
-                <constraint firstAttribute="centerX" secondItem="vga-dz-ZA2" secondAttribute="centerX" id="rwJ-Mk-mB1"/>
+                <constraint firstAttribute="trailing" secondItem="axl-9F-n5D" secondAttribute="trailing" constant="8" id="cag-Nv-rbK"/>
+                <constraint firstItem="axl-9F-n5D" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="8" id="qSp-uI-bYq"/>
+                <constraint firstAttribute="bottom" secondItem="axl-9F-n5D" secondAttribute="bottom" constant="8" id="tR2-fi-2HT"/>
             </constraints>
             <nil key="simulatedTopBarMetrics"/>
         </view>

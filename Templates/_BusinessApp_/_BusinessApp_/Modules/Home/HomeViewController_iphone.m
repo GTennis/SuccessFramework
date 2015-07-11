@@ -28,6 +28,7 @@
 #import "HomeViewController_iphone.h"
 
 #define kHomeListCellSizeIphone CGSizeMake(286.0f, 464.0f)
+#define kHomeListCellMarginIphone 10.0f
 #define kHomeListCellNibNameIphone @"HomeListItemView_iphone"
 
 @implementation HomeViewController_iphone
@@ -45,7 +46,10 @@
 
 - (CGSize)collectionViewCellSize {
     
-    return kHomeListCellSizeIphone;
+    CGSize size = kHomeListCellSizeIphone;
+    size.width = [[UIScreen mainScreen] bounds].size.width - kHomeListCellMarginIphone * 2;
+    
+    return size;
 }
 
 @end

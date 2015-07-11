@@ -46,7 +46,10 @@
 
 - (CGSize)collectionViewCellSize {
     
-    return kHomeListCellSizeIpad;
+    CGSize size = kHomeListCellSizeIpad;
+    size.width = [[UIScreen mainScreen] bounds].size.width - kHomeListCellMarginIpad * 2;
+    
+    return size;
 }
 
 /*- (void)scrollViewWillEndDragging:(UIScrollView *)scrollView withVelocity:(CGPoint)velocity targetContentOffset:(inout CGPoint *)targetContentOffset

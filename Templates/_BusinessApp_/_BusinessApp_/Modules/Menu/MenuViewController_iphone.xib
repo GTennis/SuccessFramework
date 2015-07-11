@@ -32,7 +32,7 @@
                 <constraint firstItem="soj-TR-aAV" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="25" id="WCG-Wa-tCc"/>
                 <constraint firstAttribute="trailing" secondItem="soj-TR-aAV" secondAttribute="trailing" id="aWz-py-UoY"/>
             </constraints>
-            <point key="canvasLocation" x="234" y="325"/>
+            <point key="canvasLocation" x="223" y="279"/>
         </view>
     </objects>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
