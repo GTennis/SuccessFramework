@@ -25,7 +25,7 @@
 //  SOFTWARE. All rights reserved.
 //
 
-#if defined(ENTERPRISE_BUILD) || defined(DEBUG)
+#if defined(DEBUG)
     #import "NetworkEnvironmentSwitch4Testing.h"
     #import "ConsoleLogViewController.h"
 #endif
@@ -42,7 +42,7 @@
 
 @interface BaseViewController () <TopNavigationBarDelegate, TopModalNavigationBarDelegate, UIGestureRecognizerDelegate> {
     
-#if defined(ENTERPRISE_BUILD) || defined(DEBUG)
+#if defined(DEBUG)
     NetworkEnvironmentSwitch4Testing *_networkSwitch4Testing;
     UITapGestureRecognizer *_networkChangeGestureRecognizer;
     BOOL _isVisibleDebugNetworkEnvironmentSwich;
@@ -76,7 +76,7 @@
     }
     
     //Adding environment switch buttons for DEBUG only
-#if defined(ENTERPRISE_BUILD) || defined(DEBUG)
+#if defined(DEBUG)
     
     // Add network change switch
     _networkSwitch4Testing = [[NetworkEnvironmentSwitch4Testing alloc] init];
@@ -459,7 +459,7 @@
 
 #pragma mark - DEBUG: network switch and console logger -
 
-#if defined(ENTERPRISE_BUILD) || defined(DEBUG)
+#if defined(DEBUG)
 
 - (void)handleNetworkChangeSwitch {
     

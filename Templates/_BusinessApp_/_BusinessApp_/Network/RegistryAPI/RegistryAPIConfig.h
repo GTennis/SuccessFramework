@@ -49,14 +49,6 @@
 
 #else
 
-    #ifdef ENTERPRISE_BUILD
-
-        #define REGISTRY_BASE_URL REGISTRY_STAGE_BASE_URL // For testing release build
-
-    #else
-
-        #define REGISTRY_BASE_URL REGISTRY_PRODUCTION_BASE_URL // Don't change this. For app store.
-
-    #endif
+    #define REGISTRY_BASE_URL REGISTRY_PRODUCTION_BASE_URL // Don't change this. For app store.
 
 #endif

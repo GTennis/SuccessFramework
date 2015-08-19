@@ -71,16 +71,16 @@
     
     self = [super init];
     if (self) {
-        
-#ifndef DEBUG
-        
-        [Fabric with:@[CrashlyticsKit]];        
-#endif
-        
-#ifdef ENTERPRISE_BUILD
-        
+
+#ifdef DEBUG
+       
         // Mark the build is made for internal testing (Enterprise build)
-        [Crashlytics setIntValue:1 forKey:@"isEnterpriseBuild"];
+        [Crashlytics setIntValue:1 forKey:@"isDebugBuild"];
+        
+#else
+      
+        [Fabric with:@[CrashlyticsKit]];
+        
 #endif
         
         _actionsArray = [[NSMutableArray alloc] initWithCapacity:self.maxAllowedStoredActionsCount];

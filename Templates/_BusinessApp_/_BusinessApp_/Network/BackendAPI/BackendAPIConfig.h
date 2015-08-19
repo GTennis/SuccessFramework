@@ -49,14 +49,6 @@
 
 #else
 
-    #ifdef ENTERPRISE_BUILD
-
-        #define BACKEND_BASE_URL BACKEND_STAGE_BASE_URL // For testing release build
-
-    #else
-
-        #define BACKEND_BASE_URL BACKEND_PRODUCTION_BASE_URL // Don't change this. For app store.
-
-    #endif
+    #define BACKEND_BASE_URL BACKEND_PRODUCTION_BASE_URL // Don't change this. For app store.
 
 #endif

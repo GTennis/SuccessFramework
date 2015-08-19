@@ -58,7 +58,7 @@
         
         NSString *trackingId = nil;
         
-#if defined(ENTERPRISE_BUILD) || defined(DEBUG)
+#if defined(DEBUG)
         trackingId = kGoogleAnalyticsDevelopmentTrackerId;
 #else
         trackingId = kGoogleAnalyticsProductionTrackerId;

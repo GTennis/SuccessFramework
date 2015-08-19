@@ -27,7 +27,7 @@
 
 #import "BaseModel.h"
 
-#if defined(ENTERPRISE_BUILD) || defined(DEBUG)
+#if defined(DEBUG)
 
 #import "NetworkEnvironmentSwitch4Testing.h"
 #import "BackendAPIClient.h"
@@ -70,7 +70,7 @@
         
         [self commonInit];
         
-#if defined(ENTERPRISE_BUILD) || defined(DEBUG)
+#if defined(DEBUG)
         
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handleNetworkEnvironmentChange:) name:kNetworkEnvironmentChangeNotification object:nil];
 #endif
@@ -131,7 +131,7 @@
 
 #pragma mark - DEBUG: Network change handling
 
-#if defined(ENTERPRISE_BUILD) || defined(DEBUG)
+#if defined(DEBUG)
 
 - (void)handleNetworkEnvironmentChange:(NSNotification *)notification {
 
