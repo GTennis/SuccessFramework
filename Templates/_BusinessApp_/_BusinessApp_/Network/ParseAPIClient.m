@@ -72,17 +72,26 @@
 
 #pragma mark User related
 
-- (void)loginUser:(UserObject *)userObject callback:(Callback)callback{
+- (void)loginUser:(UserObject *)userObject callback:(Callback)callback {
     
-    // Try to do login. If it fails the we will create new user. If sucesses then everything is ok.
+    PFInstallation *currentInstallation = [PFInstallation currentInstallation];
+    __weak typeof (self) weakSelf = self;
+    
+    // Try to do login. If it fails then we will create new user. If sucesses then everything is ok.
     [PFUser logInWithUsernameInBackground:userObject.email password:userObject.password
                                     block:^(PFUser *user, NSError *error) {
+                                        
+                                        // Check the error
+                                        if (error) {
+                                            
+                                            callback(NO, nil, error);
+                                            return;
+                                        }
                                         
                                         // If parseUser exists ...
                                         if (user) {
                                             
-                                            PFInstallation *currentInstallation = [PFInstallation currentInstallation];
-                                            [self checkAndCreateRelationIfNeededBetweenUser:user andInstallation:currentInstallation callback:callback];
+                                            [weakSelf checkAndCreateRelationIfNeededBetweenUser:user andInstallation:currentInstallation callback:callback];
                                             
                                         // Othwerwise need to create new parseUser
                                         } else {
@@ -96,12 +105,22 @@
                                             // Create new parseUser
                                             [newUser signUpInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
                                                 
-                                                // If sucess then add relation from device installation to this user
-                                                if (!error) {
+                                                // If sucess then need to do login again in order to get parse userId
+                                                if (succeeded && !error) {
                                                     
-                                                    PFUser *newUser = [PFUser currentUser];
-                                                    PFInstallation *currentInstallation = [PFInstallation currentInstallation];
-                                                    [self checkAndCreateRelationIfNeededBetweenUser:newUser andInstallation:currentInstallation callback:callback];
+                                                    [PFUser logInWithUsernameInBackground:newUser.username password:newUser.password
+                                                                                    block:^(PFUser *user, NSError *error) {
+                                                                                        
+                                                                                        // Add relation from device installation to this user
+                                                                                        if (user && !error) {
+                                                                                            
+                                                                                            [weakSelf checkAndCreateRelationIfNeededBetweenUser:user andInstallation:currentInstallation callback:callback];
+                                                                                            
+                                                                                        } else {
+                                                                                            
+                                                                                            callback(NO, nil, error);
+                                                                                        }
+                                                                                    }];
                                                     
                                                 } else {
                                                     
@@ -121,6 +140,9 @@
 
 - (void)signUpUser:(UserObject *)userObject callback:(Callback)callback {
     
+    PFInstallation *installation = [PFInstallation currentInstallation];
+    __weak typeof (self) weakSelf = self;
+    
     // Prepare parseUser
     PFUser *newUser = [PFUser user];
     newUser.username = userObject.email;
@@ -129,12 +151,19 @@
     [newUser signUpInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
         
         // If success then add relation from device installation to this user
-        if (!error) {
+        if (succeeded && !error) {
             
-            PFUser *createdUser = [PFUser currentUser];
-            PFInstallation *currentInstallation = [PFInstallation currentInstallation];
-            
-            [self checkAndCreateRelationIfNeededBetweenUser:createdUser andInstallation:currentInstallation callback:callback];
+            [PFUser logInWithUsernameInBackground:newUser.username password:newUser.password
+                                            block:^(PFUser *user, NSError *error) {
+                                                
+                                                if (user && !error) {
+                                                    
+                                                    [weakSelf checkAndCreateRelationIfNeededBetweenUser:user andInstallation:installation callback:callback];
+                                                } else {
+                                                    
+                                                    callback(NO, nil, error);
+                                                }
+                                            }];
             
         } else {
             
@@ -154,22 +183,32 @@
     
     [relDeviceInstallationUserQuery findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         
-        if (!error) {
-            
-            if (!objects.count) {
-                
-                // Need to create this relation
-                PFObject *relDeviceInstallationUser = [PFObject objectWithClassName:kParseAPIClientRelDeviceInstallationUserDataStorageName];
-                relDeviceInstallationUser[kParseAPIClientRelDeviceInstallationUserUserIdRefKey] = user.objectId;
-                relDeviceInstallationUser[kParseAPIClientRelDeviceInstallationUserDeviceInstallationIdRefKey] = installation.objectId;
-                [relDeviceInstallationUser saveInBackground];
-            }
-            
-            callback(YES, nil, nil);
-            
-        } else {
+        if (error) {
             
             callback(NO, nil, error);
+            return;
+        }
+        
+        if (!objects.count) {
+            
+            // Need to create this relation
+            PFObject *relDeviceInstallationUser = [PFObject objectWithClassName:kParseAPIClientRelDeviceInstallationUserDataStorageName];
+            relDeviceInstallationUser[kParseAPIClientRelDeviceInstallationUserUserIdRefKey] = user.objectId;
+            relDeviceInstallationUser[kParseAPIClientRelDeviceInstallationUserDeviceInstallationIdRefKey] = installation.objectId;
+            [relDeviceInstallationUser saveInBackground];
+            
+            [relDeviceInstallationUser saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+                
+                if (succeeded) {
+                    
+                    callback(YES, nil, nil);
+                    
+                } else {
+                    
+                    callback(NO, nil, error);
+                }
+                
+            }];
         }
     }];
 }
