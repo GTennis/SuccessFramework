@@ -116,9 +116,6 @@
         [self application:application didReceiveRemoteNotification:notificationDict];
     }
     
-    // Check if app needs force update
-    [self checkForAppUpdate];
-    
     // Show the stuff :)
     [self.window makeKeyAndVisible];
     
@@ -145,7 +142,7 @@
     // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
     
     // Check if app needs force update
-    [self checkForAppUpdate];
+    [self checkForAppUpdateWithCallback:nil];
 }
 
 - (void)applicationDidBecomeActive:(UIApplication *)application {
@@ -261,19 +258,27 @@
 
 - (void)didFinishShowingCustomLaunch {
     
-    ViewControllerFactory *viewControllerFactory = [REGISTRY getObject:[ViewControllerFactory class]];
-    SettingsManager *settingsManager = [REGISTRY getObject:[SettingsManager class]];
-
-    if (settingsManager.isFirstTimeAppLaunch) {
+    __weak typeof(self) weakSelf = self;
+    
+    Callback callback = ^(BOOL success, id result, NSError *error){
         
-        WalkthroughViewController *walkthroughVC = [viewControllerFactory walkthroughViewControllerWithContext:nil];
-        walkthroughVC.delegate = self;
-        self.window.rootViewController = walkthroughVC;
+        ViewControllerFactory *viewControllerFactory = [REGISTRY getObject:[ViewControllerFactory class]];
+        SettingsManager *settingsManager = [REGISTRY getObject:[SettingsManager class]];
         
-    } else {
-
-        [self proceedToTheApp];
-    }
+        if (settingsManager.isFirstTimeAppLaunch) {
+            
+            WalkthroughViewController *walkthroughVC = [viewControllerFactory walkthroughViewControllerWithContext:nil];
+            walkthroughVC.delegate = weakSelf;
+            weakSelf.window.rootViewController = walkthroughVC;
+            
+        } else {
+            
+            [weakSelf proceedToTheApp];
+        }
+    };
+    
+    // Check if app needs force update
+    [self checkForAppUpdateWithCallback:callback];
 }
 
 #pragma mark - WalkthroughViewControllerDelegate
@@ -314,7 +319,7 @@
 //
 //  A good example of such force to update is Clash of clans game app.
 //
-- (void)checkForAppUpdate {
+- (void)checkForAppUpdateWithCallback:(Callback)callback {
     
     RegistryAppSettingsOperation *registryAppSettingsOperation = [[RegistryAppSettingsOperation alloc] init];
     
@@ -344,6 +349,13 @@
         } else {
             
             DLog(@"App is up to date.");
+            
+            // Proceed during app launch only
+            
+            if (callback) {
+                
+                callback(YES, nil, nil);
+            }
         }
     }];
 }
