@@ -1,8 +1,8 @@
 //
-//  ParseAPIClientProtocol.h
+//  ConfigNetworkOperation.m
 //  _BusinessApp_
 //
-//  Created by Gytenis Mikulenas on 01/07/15.
+//  Created by Gytenis Mikulenas on 26/08/15.
 //  Copyright (c) 2015 Gytenis Mikulėnas 
 //  https://github.com/GitTennis/SuccessFramework
 //
@@ -25,15 +25,34 @@
 //  SOFTWARE. All rights reserved.
 //
 
-@protocol ParseAPIClientProtocol <NSObject>
+#import "ConfigNetworkOperation.h"
+#import "AppConfigObject.h"
 
-// Push notification related
-- (void)registerPushNotificationToken:(NSData *)token;
-- (void)handlePushNotificationWithReceivedUserInfo:(NSDictionary *)userInfo application:(UIApplication *)application;
+@implementation ConfigNetworkOperation
 
-// User related
-- (void)loginUser:(UserObject *)userObject callback:(Callback)callback;
-- (void)logoutUserWithCallback:(Callback)callback;
-- (void)signUpUser:(UserObject *)userObject callback:(Callback)callback;
+#pragma mark - Protected -
+
+#pragma mark Override
+
+- (NSString *)requestUrlParams {
+    
+    NSString *appVersion = [NSBundle mainBundle].infoDictionary[@"CFBundleShortVersionString"];
+    NSString *action = [NSString stringWithFormat:@"?ios-%@", appVersion];
+    
+    return action;
+}
+
+- (void)handleReceivedDataWithSuccess:(BOOL)success result:(id)result error:(NSError *)error callback:(Callback)callback {
+    
+    if (success) {
+        
+        AppConfigObject *appConfig = [[AppConfigObject alloc] initWithDict:result];
+            callback(YES, appConfig, nil);
+        
+    } else {
+        
+        callback(NO, nil, error);
+    }
+}
 
 @end

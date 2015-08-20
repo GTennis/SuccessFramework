@@ -1,9 +1,9 @@
 //
-//  Registry.h
+//  APIErrorHandler.h
 //  _BusinessApp_
 //
-//  Created by Gytenis Mikulėnas on 2/6/14.
-//  Copyright (c) 2015 Gytenis Mikulėnas
+//  Created by Gytenis Mikulenas on 25/08/15.
+//  Copyright (c) 2015 Gytenis Mikulėnas 
 //  https://github.com/GitTennis/SuccessFramework
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -27,18 +27,12 @@
 
 #import <Foundation/Foundation.h>
 
-@interface Registry : NSObject
+@class GMAlertView;
 
-@property (nonatomic, strong) NSMutableDictionary *registeredObjects;
+@interface APIErrorHandler : NSObject
 
-// Singleton
-+ (Registry *)sharedRegistry;
+#warning TODO...
 
-#pragma mark - Public -
-
-// Shared object handling
-- (void)addObject:(id)object;
-- (void)removeObject:(id)object;
-- (id)getObject:(id)object;
++ (GMAlertView *)alertViewFromAPIErrorNotification:(NSNotification *)notification presentingViewController:(UIViewController *)viewController;
 
 @end

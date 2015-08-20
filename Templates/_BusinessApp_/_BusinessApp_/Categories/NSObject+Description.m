@@ -33,7 +33,7 @@
 
 #ifdef DEBUG
 
-/*- (NSString *)description
+- (NSString *)description
 {
     NSMutableString *description = [NSMutableString stringWithFormat:@"<%@: %p>", NSStringFromClass([self class]), self];
     
@@ -143,7 +143,7 @@
     }
     
     return description; 
-}*/
+}
 
 #endif
 

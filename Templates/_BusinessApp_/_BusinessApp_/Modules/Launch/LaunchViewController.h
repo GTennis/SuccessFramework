@@ -25,19 +25,12 @@
 //  SOFTWARE. All rights reserved.
 //
 
-#import "BaseViewController.h"
+#import "CoreViewController.h"
 
-@protocol LaunchViewControllerDelegate <NSObject>
-
-- (void)didFinishShowingCustomLaunch;
-
-@end
-
-@interface LaunchViewController : BaseViewController
+@interface LaunchViewController : CoreViewController
 
 #pragma mark - Public -
 
 @property (weak, nonatomic) IBOutlet UIImageView *backgroundImageView;
-@property (weak, nonatomic) id<LaunchViewControllerDelegate> delegate;
 
 @end

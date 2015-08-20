@@ -39,7 +39,7 @@
 
 @synthesize isLoaded = _isLoaded;
 @synthesize delegate = _delegate;
-@synthesize backendAPIClient = _backendAPIClient;
+@synthesize networkOperationFactory = _networkOperationFactory;
 @synthesize settingsManager = _settingsManager;
 @synthesize userManager = _userManager;
 @synthesize reachabilityManager = _reachabilityManager;
@@ -55,14 +55,14 @@
 
 #pragma mark - Public -
 
-- (instancetype)initWithUserManager:(id <UserManagerProtocol>)userManager backendAPIClient:(id <BackendAPIClientProtocol>)backendAPIClient settingsManager:(id <SettingsManagerProtocol>)settingsManager reachabilityManager:(id<ReachabilityManagerProtocol>)reachabilityManager analyticsManager:(id<AnalyticsManagerProtocol>)analyticsManager context:(id)context {
+- (instancetype)initWithUserManager:(id <UserManagerProtocol>)userManager networkOperationFactory:(id <NetworkOperationFactoryProtocol>)networkOperationFactory settingsManager:(id <SettingsManagerProtocol>)settingsManager reachabilityManager:(id<ReachabilityManagerProtocol>)reachabilityManager analyticsManager:(id<AnalyticsManagerProtocol>)analyticsManager context:(id)context {
     
     self = [self init];
     if (self) {
         
         _userManager = userManager;
         _settingsManager = settingsManager;
-        _backendAPIClient = backendAPIClient;
+        _networkOperationFactory = networkOperationFactory;
         _reachabilityManager = reachabilityManager;
         _analyticsManager = analyticsManager;
         
@@ -136,7 +136,8 @@
 - (void)handleNetworkEnvironmentChange:(NSNotification *)notification {
 
     // Replace dependencies with new dependencies
-    _backendAPIClient = [REGISTRY getObject:[BackendAPIClient class]];
+#warning PATAISYTI!!! nes dabar yra NetworkOperationFactory. Gal ten prideti property baseUrl...
+    //_backendAPIClient = [REGISTRY getObject:[BackendAPIClient class]];
 }
 
 #endif

@@ -39,66 +39,16 @@
     // Do any additional setup after loading the view from its nib.
     
     [self prepareUI];
-    [self loadModel];
-}
-
-- (void)viewWillAppear:(BOOL)animated {
-    
-    [super viewWillAppear:animated];
-    
-    }
-
-- (void)didReceiveMemoryWarning {
-    
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
-#pragma mark - Protected -
-
-- (void)commonInit {
-    
-    [super commonInit];
-    
-    // ...
 }
 
 - (void)prepareUI {
-    
-    [super prepareUI];
     
     // Use and set the same launch image as screen background image
     NSString *launchImageName = [self launchImageNameForOrientation:self.interfaceOrientation];
     _backgroundImageView.image = [UIImage imageNamed:launchImageName];
 }
 
-- (void)renderUI {
-    
-    [super renderUI];
-    
-    // ...
-}
-
-- (void)loadModel {
-    
-    [super loadModel];
-    
-    // In a real world scenario, we could delay a little bit and perform some preloading and other stuff upfront ASAP
-    // ...
-    
-    [self renderUI];
-    [self performSelector:@selector(close) withObject:nil afterDelay:1.0f];
-}
-
 #pragma mark - Private -
-
-- (void)close {
-    
-    if ([_delegate respondsToSelector:@selector(didFinishShowingCustomLaunch)]) {
-        
-        [_delegate didFinishShowingCustomLaunch];
-    }
-}
 
 // Used from: http://stackoverflow.com/a/27797958/597292
 - (NSString *)launchImageNameForOrientation:(UIInterfaceOrientation)orientation {

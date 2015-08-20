@@ -1,8 +1,8 @@
 //
-//  ParseAPIClient.h
+//  UserProfileNetworkOperation.m
 //  _BusinessApp_
 //
-//  Created by Gytenis Mikulenas on 01/07/15.
+//  Created by Gytenis Mikulenas on 26/08/15.
 //  Copyright (c) 2015 Gytenis Mikulėnas 
 //  https://github.com/GitTennis/SuccessFramework
 //
@@ -25,16 +25,8 @@
 //  SOFTWARE. All rights reserved.
 //
 
-#import "ParseAPIClientProtocol.h"
+#import "UserProfileNetworkOperation.h"
 
-// DeviceInstallation
-#define kParseAPIClientDeviceInstallationDataStorageName @"Installation"
-
-// RelDeviceInstallationUser
-#define kParseAPIClientRelDeviceInstallationUserDataStorageName @"RelDeviceInstallationUser"
-#define kParseAPIClientRelDeviceInstallationUserUserIdRefKey @"userObjectId"
-#define kParseAPIClientRelDeviceInstallationUserDeviceInstallationIdRefKey @"installationObjectId"
-
-@interface ParseAPIClient : NSObject <ParseAPIClientProtocol>
+@implementation UserProfileNetworkOperation
 
 @end

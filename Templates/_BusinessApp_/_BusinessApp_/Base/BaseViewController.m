@@ -34,7 +34,7 @@
 #import "TopNavigationBar.h"
 #import "TopModalNavigationBar.h"
 
-#import "APIClientErrorHandler.h"
+#import "APIErrorHandler.h"
 #import "ViewControllerFactoryProtocol.h"
 #import "MenuNavigator.h"
 

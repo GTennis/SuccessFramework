@@ -31,6 +31,8 @@
 
 @optional
 
+#pragma mark - Public -
+
 - (instancetype)initWithDict:(NSDictionary *)dict;
 - (NSDictionary *)toDict;
 

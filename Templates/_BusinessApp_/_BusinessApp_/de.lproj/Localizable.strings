@@ -35,3 +35,17 @@
 
 /* No comment provided by engineer. */
 "Edit" = "Edit (de)";
+
+/* No comment provided by engineer. */
+"Update" = "Update";
+
+/* No comment provided by engineer. */
+"Reload" = "Reload";
+
+//-------------- Force update -------------//
+
+/* No comment provided by engineer. */
+"AppNeedsUpdate" = "AppNeedsUpdate";
+
+/* No comment provided by engineer. */
+"AppNeedsReload" = "The app needs to reload itself because of the new settings. Please close and open app again. Sorry for the inconvenience.";

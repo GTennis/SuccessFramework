@@ -26,11 +26,11 @@
 //
 
 #import "NetworkEnvironmentSwitch4Testing.h"
-#import "BackendAPIConfig.h"
-#import "BackendAPIClient.h"
+#import "NetworkOperationFactory.h"
 #import "AnalyticsManager.h"
 #import "SettingsManager.h"
 #import "UserManager.h"
+#import "AppDelegate.h"
 
 // Used for testing only
 #define kDevButtonTag 201409181
@@ -121,37 +121,34 @@
     
     NSString *baseBackendUrlString = nil;
     
+    AppDelegate *delegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
+    
     switch (environment) {
             
         case kEnvironmentStaging:
-            
-            baseBackendUrlString = BACKEND_STAGE_BASE_URL;
+
+            [delegate.appConfig setCurrentRequestsWithBackendEnvironment:kBackendEnvironmentStage];
             break;
             
         case kEnvironmentDevelopment:
             
-            baseBackendUrlString = BACKEND_DEVELOPMENT_BASE_URL;
+            [delegate.appConfig setCurrentRequestsWithBackendEnvironment:kBackendEnvironmentDevelopment];
             break;
             
         case kEnvironmentProduction:
             
-            baseBackendUrlString = BACKEND_PRODUCTION_BASE_URL;
+            [delegate.appConfig setCurrentRequestsWithBackendEnvironment:kBackendEnvironmentProduction];
             break;
             
         default:
             break;
     }
     
-    [REGISTRY unRegisterObject:[BackendAPIClient class]];
+    [REGISTRY removeObject:[NetworkOperationFactory class]];
     
-    NSURL *backendBaseUrl = [NSURL URLWithString:baseBackendUrlString];
-    id<AnalyticsManagerProtocol> analyticsManager = [REGISTRY getObject:[AnalyticsManager class]];
-    id<SettingsManagerProtocol> settingsManager = [REGISTRY getObject:[SettingsManager class]];
-    id<UserManagerProtocol> userManager = [REGISTRY getObject:[UserManager class]];
-    
-    BackendAPIClient *backendAPIClient = [[BackendAPIClient alloc] initWithBaseURL:backendBaseUrl userManager:userManager settingsManager:settingsManager analyticsManager:analyticsManager];
-    
-    [REGISTRY registerObject:backendAPIClient];
+    // Creating and registering main factory for producing network operations
+    NetworkOperationFactory *networkOperationFactory = [[NetworkOperationFactory alloc] initWithAppConfig:delegate.appConfig];
+    [REGISTRY addObject:networkOperationFactory];
     
     // Notify observers
     [[NSNotificationCenter defaultCenter] postNotificationName:kNetworkEnvironmentChangeNotification object:nil];

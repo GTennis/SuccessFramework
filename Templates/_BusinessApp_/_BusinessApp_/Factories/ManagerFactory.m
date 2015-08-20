@@ -49,12 +49,12 @@
     MessageBarManager *messageBarManager = [[MessageBarManager alloc] init];
     
     // Register managers
-    [REGISTRY registerObject:backendAPIClient];
-    [REGISTRY registerObject:settingsManager];
-    [REGISTRY registerObject:userManager];
-    [REGISTRY registerObject:googleAnalyticsManager];
-    [REGISTRY registerObject:crashManager];
-    [REGISTRY registerObject:messageBarManager];*/
+    [REGISTRY addObject:backendAPIClient];
+    [REGISTRY addObject:settingsManager];
+    [REGISTRY addObject:userManager];
+    [REGISTRY addObject:googleAnalyticsManager];
+    [REGISTRY addObject:crashManager];
+    [REGISTRY addObject:messageBarManager];*/
 }
 
 @end

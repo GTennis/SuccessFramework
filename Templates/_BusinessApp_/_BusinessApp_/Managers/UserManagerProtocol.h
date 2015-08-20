@@ -27,7 +27,7 @@
 
 #import "UserManagerProtocol.h"
 #import "SettingsManagerProtocol.h"
-#import "BackendAPIClientProtocol.h"
+#import "NetworkOperationFactoryProtocol.h"
 #import "UserManagerObserver.h"
 #import "AnalyticsManagerProtocol.h"
 
@@ -37,14 +37,14 @@
 
 // Dependencies
 @property (nonatomic, strong) id<SettingsManagerProtocol> settingsManager;
-@property (nonatomic, strong) id<BackendAPIClientProtocol> backendAPIClient;
+@property (nonatomic, strong) id<NetworkOperationFactoryProtocol> networkOperationFactory;
 @property (nonatomic, strong) id<AnalyticsManagerProtocol> analyticsManager;
 
 // Data object
 @property (nonatomic, strong) UserObject *user;
 
 // User handling
-- (instancetype)initWithSettingsManager:(id <SettingsManagerProtocol>)settingsManager backendAPIClient:(id <BackendAPIClientProtocol>)backendAPIClient analyticsManager:(id<AnalyticsManagerProtocol>)analyticsManager;
+- (instancetype)initWithSettingsManager:(id <SettingsManagerProtocol>)settingsManager networkOperationFactory:(id <NetworkOperationFactoryProtocol>)networkOperationFactory analyticsManager:(id<AnalyticsManagerProtocol>)analyticsManager;
 
 - (NSError *)saveUser;
 - (NSError *)loadUser;

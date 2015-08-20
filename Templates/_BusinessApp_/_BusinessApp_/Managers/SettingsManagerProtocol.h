@@ -25,12 +25,12 @@
 //  SOFTWARE. All rights reserved.
 //
 
+#import "AppConfigObject.h"
+
 @protocol SettingsManagerProtocol
 
 // First time app launch
-
-- (BOOL)isFirstTimeAppLaunch;
-- (void)setIsFirstTimeAppLaunch:(BOOL)isFirstTimeLaunch;
+@property (nonatomic) BOOL isFirstTimeAppLaunch;
 
 // Languages
 

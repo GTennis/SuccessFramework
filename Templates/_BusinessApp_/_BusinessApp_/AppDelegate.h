@@ -30,6 +30,7 @@
 #import "AnalyticsManagerProtocol.h"
 #import "MessageBarManagerProtocol.h"
 #import "UserManagerProtocol.h"
+#import "ConstNetworkConfig.h"
 
 @class MenuNavigator;
 
@@ -42,10 +43,15 @@
 @property (strong, nonatomic) UINavigationController *navigationController;
 @property (strong, nonatomic) MenuNavigator *menuNavigator;
 
+// Configuration
+@property (nonatomic) BackendEnvironment backendEnvironment;
+@property (nonatomic, strong) AppConfigObject *appConfig;
+
 // Dependencies
 @property (strong, nonatomic) id<CrashManagerProtocol> crashManager;
 @property (strong, nonatomic) id<AnalyticsManagerProtocol> analyticsManager;
 @property (strong, nonatomic) id<UserManagerProtocol> userManager;
 @property (strong, nonatomic) id<MessageBarManagerProtocol> messageBarManager;
+@property (strong, nonatomic) id<SettingsManagerProtocol> settingsManager;
 
 @end

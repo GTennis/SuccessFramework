@@ -27,7 +27,7 @@
 
 #import "BaseAPIClient.h"
 #import "NSObject+Selectors.h"
-#import "GMAFJSONResponseSerializer.h"
+#import "CustomAFJSONResponseSerializer.h"
 #import "UserManager.h"
 #import "UserObject.h"
 #import "SettingsManager.h"
@@ -59,13 +59,15 @@
             _analyticsManager = analyticsManager;
             _settingsManager = settingsManager;
             
-            self.responseSerializer = [GMAFJSONResponseSerializer serializer];
+            self.responseSerializer = [CustomAFJSONResponseSerializer serializer];
             self.requestSerializer = [AFJSONRequestSerializer serializer];
             [self.requestSerializer setValue:@"application/json" forHTTPHeaderField:@"Accept"];
             [self.requestSerializer setHTTPShouldHandleCookies:NO];
 
+#ifdef DEBUG
             // For internal local https environment with self signed certificate
             //self.securityPolicy.allowInvalidCertificates = YES;
+#endif
             
             [self commonInit];
         }

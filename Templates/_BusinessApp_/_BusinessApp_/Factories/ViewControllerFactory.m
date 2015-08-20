@@ -26,6 +26,7 @@
 //
 
 #import "ViewControllerFactory.h"
+#import "NetworkOperationFactory.h"
 #import "SettingsManager.h"
 #import "UserManager.h"
 #import "CrashManager.h"
@@ -92,13 +93,6 @@
 #pragma mark - ViewControllerFactoryProtocol -
 
 #pragma mark Launch related
-
-- (LaunchViewController *)launchViewControllerWithContext:(id)context {
-
-    LaunchViewController *viewController = (LaunchViewController *)[self viewControllerWithClass:[LaunchViewController class] context:context];
-    
-    return viewController;
-}
 
 - (WalkthroughViewController *)walkthroughViewControllerWithContext:(id)context {
     
@@ -264,7 +258,7 @@
 // For creating models of view controllers with default dependencies
 - (BaseModel *)modelWithClass:(Class)class context:(id)context {
     
-    BaseModel *model = [[class alloc] initWithUserManager:[self userManager] backendAPIClient:[self backendAPIClient] settingsManager:[self settingsManager] reachabilityManager:[self reachabilityManager] analyticsManager:[self analyticsManager] context:context];
+    BaseModel *model = [[class alloc] initWithUserManager:[self userManager] networkOperationFactory:[self networkOperationFactory] settingsManager:[self settingsManager] reachabilityManager:[self reachabilityManager] analyticsManager:[self analyticsManager] context:context];
     
     return model;
 }
@@ -308,10 +302,10 @@
     return reachabilityManager;
 }
 
-- (BackendAPIClient *)backendAPIClient {
+- (NetworkOperationFactory *)networkOperationFactory {
     
-    BackendAPIClient *backendAPIClient = [REGISTRY getObject:[BackendAPIClient class]];
-    return backendAPIClient;
+    NetworkOperationFactory *networkOperationFactory = [REGISTRY getObject:[NetworkOperationFactory class]];
+    return networkOperationFactory;
 }
 
 @end

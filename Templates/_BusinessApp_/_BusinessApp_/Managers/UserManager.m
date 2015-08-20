@@ -46,7 +46,7 @@
 @implementation UserManager
 
 @synthesize user = _user;
-@synthesize backendAPIClient = _backendAPIClient;
+@synthesize networkOperationFactory = _networkOperationFactory;
 @synthesize settingsManager = _settingsManager;
 @synthesize analyticsManager = _analyticsManager;
 
@@ -67,13 +67,13 @@
 
 #pragma mark User handling
 
-- (instancetype)initWithSettingsManager:(id <SettingsManagerProtocol>)settingsManager backendAPIClient:(id <BackendAPIClientProtocol>)backendAPIClient analyticsManager:(id<AnalyticsManagerProtocol>)analyticsManager; {
+- (instancetype)initWithSettingsManager:(id <SettingsManagerProtocol>)settingsManager networkOperationFactory:(id <NetworkOperationFactoryProtocol>)networkOperationFactory analyticsManager:(id<AnalyticsManagerProtocol>)analyticsManager {
     
     self = [self init];
     if (self) {
         
         _settingsManager = settingsManager;
-        _backendAPIClient = backendAPIClient;
+        _networkOperationFactory = networkOperationFactory;
         _analyticsManager = analyticsManager;
     }
     return self;
@@ -171,7 +171,8 @@
         callback(success, result, error);
     };
     
-    [_backendAPIClient loginUserWithData:data callback:wrappedCallback];
+    id<NetworkOperationProtocol> userLoginOperation = [_networkOperationFactory userLoginNetworkOperation];
+    [userLoginOperation performWithParams:nil callback:wrappedCallback];
 }
 
 - (void)signUpUserWithData:(UserObject *)data callback:(Callback)callback {
@@ -201,7 +202,8 @@
         callback(success, result, error);
     };
     
-    [_backendAPIClient signUpUserWithData:data callback:wrappedCallback];
+    id<NetworkOperationProtocol> userSignUpOperation = [_networkOperationFactory userSignUpNetworkOperation];
+    [userSignUpOperation performWithParams:nil callback:wrappedCallback];
 }
 
 - (void)resetPassword:(UserObject *)data callback:(Callback)callback {
@@ -220,7 +222,8 @@
         callback(success, result, error);
     };
     
-    [_backendAPIClient resetPasswordWithData:data callback:wrappedCallback];
+    id<NetworkOperationProtocol> userResetPasswordOperation = [_networkOperationFactory userResetPasswordNetworkOperation];
+    [userResetPasswordOperation performWithParams:nil callback:wrappedCallback];
 }
 
 - (void)getUserProfileWithCallback:(Callback)callback {
@@ -237,7 +240,8 @@
         callback(success, result, error);
     };
     
-    [_backendAPIClient getUserWithData:_user callback:wrappedCallback];
+    id<NetworkOperationProtocol> userProfileOperation = [_networkOperationFactory userProfileNetworkOperation];
+    [userProfileOperation performWithParams:nil callback:wrappedCallback];
 }
 
 #pragma mark User state observer handling

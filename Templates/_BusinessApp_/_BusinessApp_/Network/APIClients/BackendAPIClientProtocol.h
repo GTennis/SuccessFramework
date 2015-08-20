@@ -1,8 +1,8 @@
 //
-//  Registry.h
+//  BackendAPIClientProtocol.h
 //  _BusinessApp_
 //
-//  Created by Gytenis Mikulėnas on 2/6/14.
+//  Created by Gytenis Mikulėnas on 5/2/14.
 //  Copyright (c) 2015 Gytenis Mikulėnas
 //  https://github.com/GitTennis/SuccessFramework
 //
@@ -25,20 +25,17 @@
 //  SOFTWARE. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+@class UserObject;
 
-@interface Registry : NSObject
+@protocol BackendAPIClientProtocol <NSObject>
 
-@property (nonatomic, strong) NSMutableDictionary *registeredObjects;
+- (void)getAppSettingsWithParam1:(id)param1 callback:(Callback)callback;
+- (void)getTopImagesWithTag:(id)tag callback:(Callback)callback;
 
-// Singleton
-+ (Registry *)sharedRegistry;
-
-#pragma mark - Public -
-
-// Shared object handling
-- (void)addObject:(id)object;
-- (void)removeObject:(id)object;
-- (id)getObject:(id)object;
+// User related
+- (void)loginUserWithData:(UserObject *)user callback:(Callback)callback;
+- (void)signUpUserWithData:(UserObject *)user callback:(Callback)callback;
+- (void)resetPasswordWithData:(UserObject *)user callback:(Callback)callback;
+- (void)getUserWithData:(UserObject *)user callback:(Callback)callback;
 
 @end

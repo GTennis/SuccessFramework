@@ -1,9 +1,9 @@
 //
-//  SettingObject.h
+//  UserProfileNetworkOperation.h
 //  _BusinessApp_
 //
-//  Created by Gytenis Mikulėnas on 4/27/14.
-//  Copyright (c) 2015 Gytenis Mikulėnas
+//  Created by Gytenis Mikulenas on 26/08/15.
+//  Copyright (c) 2015 Gytenis Mikulėnas 
 //  https://github.com/GitTennis/SuccessFramework
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -25,16 +25,8 @@
 //  SOFTWARE. All rights reserved.
 //
 
-#import "ParsableObject.h"
+#import "BaseNetworkOperation.h"
 
-#define kSettingIsAppNeedUpdateKey @"ForceUpdate"
-
-@protocol SettingObject <ParsableObject>
-
-@property (nonatomic) BOOL isAppNeedUpdate;
-
-@end
-
-@interface SettingObject : NSObject <SettingObject>
+@interface UserProfileNetworkOperation : BaseNetworkOperation
 
 @end

@@ -39,7 +39,7 @@
 - (void)willStartModelLoading:(Callback)callback {
     
     // Setting will be marked when the model will load for the first time
-    [self.settingsManager setIsFirstTimeAppLaunch:NO];
+    self.settingsManager.isFirstTimeAppLaunch = NO;
 }
 
 - (void)didFinishModelLoadingWithData:(id)data {

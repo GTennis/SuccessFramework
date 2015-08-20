@@ -38,7 +38,8 @@
 
 - (void)willStartModelLoading:(Callback)callback {
     
-    [self.backendAPIClient getTopImagesWithTag:nil callback:callback];
+    id<NetworkOperationProtocol> imageListOperation = [self.networkOperationFactory imageListNetworkOperation];
+    [imageListOperation performWithParams:nil callback:callback];
 }
 
 - (void)didFinishModelLoadingWithData:(id)data {

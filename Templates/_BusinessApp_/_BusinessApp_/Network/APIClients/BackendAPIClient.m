@@ -27,12 +27,10 @@
 
 #import "BackendAPIClient.h"
 #import "ImagesObject.h"
-#import "ParseAPIClient.h"
 
 @interface BackendAPIClient () {
     
     NSInteger _configFailCount;
-    ParseAPIClient *_parseAPIClient;
 }
 
 @end
@@ -43,7 +41,7 @@
 
 - (void)commonInit {
     
-    _parseAPIClient = [[ParseAPIClient alloc] init];
+    // ...
 }
 
 #pragma mark Override
@@ -125,12 +123,12 @@
 
 - (void)loginUserWithData:(UserObject *)user callback:(Callback)callback {
     
-    [_parseAPIClient loginUser:user callback:callback];
+    // ...
 }
 
 - (void)signUpUserWithData:(UserObject *)user callback:(Callback)callback {
 
-    [_parseAPIClient signUpUser:user callback:callback];
+    // ...
 }
 
 - (void)resetPasswordWithData:(UserObject *)user callback:(Callback)callback {
@@ -141,18 +139,6 @@
 - (void)getUserWithData:(UserObject *)user callback:(Callback)callback {
     
     callback(YES, nil, nil);
-}
-
-#pragma mark Push notifications
-
-- (void)registerPushNotificationToken:(NSData *)token {
-    
-    [_parseAPIClient registerPushNotificationToken:token];
-}
-
-- (void)handleReceivedPushNotificationWithUserInfo:(NSDictionary *)userInfo application:(UIApplication *)application {
-    
-    [_parseAPIClient handlePushNotificationWithReceivedUserInfo:userInfo application:application];
 }
 
 @end

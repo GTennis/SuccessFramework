@@ -27,21 +27,47 @@
 
 #import "BaseNetworkOperation.h"
 #import "NSString+Validator.h"
+#import "CustomAFJSONResponseSerializer.h"
 
 @implementation BaseNetworkOperation
 
+@synthesize networkRequestObject = _networkRequestObject;
+@synthesize params = _params;
+
 #pragma mark - Public -
 
+// Forbit use of init
 - (instancetype)init {
     
-    self = [self initWithUrlString:[self urlString]];
+    NSAssert(NO, @"-init is not a valid initializer for the class %@. Use initWithNetworkRequestObject instead", NSStringFromClass([self class]));
+    
+    return nil;
+}
+
+- (instancetype)initWithNetworkRequestObject:(NetworkRequestObject *)networkRequestObject {
+    
+    // Store request config
+    _networkRequestObject = networkRequestObject;
+    
+    // Create network request url string
+    NSString *urlString = [[self requestBaseUrl] stringByAppendingString:[self requestRelativeUrl]];
+    
+    // Add url params from the subclass if exist
+    NSString *urlParamsString = [self requestUrlParams];
+    if (urlParamsString.length > 0) {
+        
+        urlString = [urlString stringByAppendingString:[self requestUrlParams]];
+    }
+    
+    // Create url request and proceed
+    self = [self initWithUrlString:urlString networkRequestObject:networkRequestObject];
     if (self) {
         
     }
     return self;
 }
 
-- (id)initWithUrlString:(NSString *)urlString {
+- (id)initWithUrlString:(NSString *)urlString networkRequestObject:(NetworkRequestObject *)networkRequestObject  {
     
     if (![urlString isValidUrlString]) {
         
@@ -55,9 +81,25 @@
         return nil;
     }
     
+    // Create request
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:url];
     
-    [request setHTTPMethod:[self method]];
+    // Set method
+    [request setHTTPMethod:[self requestMethod]];
+    
+    // Add custom headers
+    [self setHTTPHeadersWithRequest:request];
+    
+    // Add body
+    [self setHTTPBodyWithRequest:request];
+    
+    // Add custom response serializer
+    self.responseSerializer = [CustomAFJSONResponseSerializer serializer];
+    
+//#ifdef DEBUG
+    // For internal local https environment with self signed certificate
+    //self.securityPolicy.allowInvalidCertificates = YES;
+//#endif
     
     self = [super initWithRequest:request];
     if (self) {
@@ -67,7 +109,10 @@
     return self;
 }
 
-- (void)getDataWithCallback:(Callback)callback {
+- (void)performWithParams:(id)params callback:(Callback)callback {
+    
+    // Store passed params
+    _params = params;
     
     void(^successCallback)(AFHTTPRequestOperation *operation, id responseObject) = [self successWrappedCallbackWithPassedCallback:callback];
     void(^failCallback)(AFHTTPRequestOperation *operation, NSError *error) = [self failWrappedCallbackWithPassedCallback:callback];
@@ -86,31 +131,65 @@
 
 #pragma mark - Protected -
 
-- (NSString *)baseUrl {
+- (NSString *)requestBaseUrl {
     
-    // Implement in child classes
-    NSAssert(NO, @"baseUrl is not implemented in class: %@", NSStringFromClass([self class]));
+    return _networkRequestObject.baseUrl;
+}
+
+- (NSString *)requestRelativeUrl {
+    
+    return _networkRequestObject.relativeUrl;
+}
+
+- (NSString *)requestMethod {
+    
+    return _networkRequestObject.method;
+}
+
+- (NSDictionary *)requestHeaders {
     
     return nil;
+}
+
+- (id)requestBodyParams {
+    
+    return nil;
+}
+
+- (NSString *)requestUrlParams {
+    
+    return nil;
+}
+
+- (void)setHTTPHeadersWithRequest:(NSMutableURLRequest *)urlRequest {
+ 
+    // Add common headers
+    [urlRequest setHTTPShouldHandleCookies:NO];
+    [urlRequest setValue:@"application/json" forHTTPHeaderField:@"Accept"];
+    
+    // Check for specific headers in subclass
+    NSDictionary *customHeaders = [self requestHeaders];
+    if (customHeaders) {
+        
+        for (NSString *header in [customHeaders allKeys]) {
+            
+            NSString *value = customHeaders[header];
+            [urlRequest setValue:value forHTTPHeaderField:header];
+        }
+    }
+}
+
+- (void)setHTTPBodyWithRequest:(NSMutableURLRequest *)urlRequest {
+
+    if (_params) {
+        
+        [urlRequest setHTTPBody:[NSJSONSerialization dataWithJSONObject:_params options:NSJSONWritingPrettyPrinted error:nil]];
+    }
 }
 
 - (void)handleReceivedDataWithSuccess:(BOOL)success result:(id)result error:(NSError *)error callback:(Callback)callback {
     
     NSAssert(NO, @"handleReceivedDataWithSuccess:result:error:callback is not implemented in class: %@", NSStringFromClass([self class]));
-}
-
-- (NSString *)method {
-    
-    NSAssert(NO, @"method is not implemented in class: %@", NSStringFromClass([self class]));
-    
-    return nil;
-}
-
-- (NSString *)urlString {
-    
-    NSAssert(NO, @"urlString is not implemented in class: %@", NSStringFromClass([self class]));
-    
-    return nil;
 }
 
 #pragma mark - Private -
@@ -121,7 +200,22 @@
     
     void (^successCallback)(AFHTTPRequestOperation *operation, id responseObject) = ^(AFHTTPRequestOperation *operation, id responseObject) {
         
-        [weakSelf handleReceivedDataWithSuccess:YES result:responseObject error:nil callback:callback];
+        DLog(@"[%@]: success", [self class]);
+
+        // Deserialized JSON
+        NSError *jsonDeserializationError = nil;
+        NSDictionary *responseDict = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingAllowFragments error:&jsonDeserializationError];
+        
+        if (responseObject && !jsonDeserializationError) {
+            
+            // Success to extract JSON
+            [weakSelf handleReceivedDataWithSuccess:YES result:responseDict error:nil callback:callback];
+            
+        } else {
+            
+            // Fail to extract JSON
+            [weakSelf handleReceivedDataWithSuccess:NO result:nil error:jsonDeserializationError callback:callback];
+        }
     };
     
     return successCallback;
@@ -132,6 +226,8 @@
     __weak __typeof(self)weakSelf = self;
     
     void (^failCallback)(AFHTTPRequestOperation *operation, NSError *error) = ^(AFHTTPRequestOperation *operation, NSError *error) {
+        
+        DLog(@"[%@]: failed with error: %@", [self class], error);
         
         [weakSelf handleReceivedDataWithSuccess:NO result:nil error:error callback:callback];
     };

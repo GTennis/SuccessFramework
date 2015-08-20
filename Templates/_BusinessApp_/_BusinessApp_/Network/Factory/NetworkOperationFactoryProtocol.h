@@ -1,9 +1,9 @@
 //
-//  Registry.h
+//  NetworkOperationFactoryProtocol.h
 //  _BusinessApp_
 //
-//  Created by Gytenis Mikulėnas on 2/6/14.
-//  Copyright (c) 2015 Gytenis Mikulėnas
+//  Created by Gytenis Mikulenas on 26/08/15.
+//  Copyright (c) 2015 Gytenis Mikulėnas 
 //  https://github.com/GitTennis/SuccessFramework
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -25,20 +25,29 @@
 //  SOFTWARE. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+#import "NetworkOperationProtocol.h"
 
-@interface Registry : NSObject
+@class AppConfigObject;
 
-@property (nonatomic, strong) NSMutableDictionary *registeredObjects;
-
-// Singleton
-+ (Registry *)sharedRegistry;
+@protocol NetworkOperationFactoryProtocol <NSObject>
 
 #pragma mark - Public -
 
-// Shared object handling
-- (void)addObject:(id)object;
-- (void)removeObject:(id)object;
-- (id)getObject:(id)object;
+#pragma mark Configuration
+
+@property (nonatomic, strong) AppConfigObject *appConfig;
+
+- (instancetype)initWithAppConfig:(AppConfigObject *)appConfig;
+
+#pragma mark Network operations
+
+// Image list
+- (id<NetworkOperationProtocol>)imageListNetworkOperation;
+
+// User related
+- (id<NetworkOperationProtocol>)userLoginNetworkOperation;
+- (id<NetworkOperationProtocol>)userSignUpNetworkOperation;
+- (id<NetworkOperationProtocol>)userProfileNetworkOperation;
+- (id<NetworkOperationProtocol>)userResetPasswordNetworkOperation;
 
 @end

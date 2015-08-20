@@ -1,9 +1,9 @@
 //
-//  SettingObject.m
+//  NetworkOperationFactory.h
 //  _BusinessApp_
 //
-//  Created by Gytenis Mikulėnas on 4/27/14.
-//  Copyright (c) 2015 Gytenis Mikulėnas
+//  Created by Gytenis Mikulenas on 26/08/15.
+//  Copyright (c) 2015 Gytenis Mikulėnas 
 //  https://github.com/GitTennis/SuccessFramework
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -25,33 +25,8 @@
 //  SOFTWARE. All rights reserved.
 //
 
-#import "SettingObject.h"
+#import "NetworkOperationFactoryProtocol.h"
 
-@implementation SettingObject
-
-@synthesize isAppNeedUpdate = _isAppNeedUpdate;
-
-#pragma mark - ParsableObject -
-
-- (instancetype)initWithDict:(NSDictionary *)dict {
-    
-    self = [self init];
-    if (self && dict) {
-        
-        NSNumber *appNeedsUpdate = dict[kSettingIsAppNeedUpdateKey];
-        
-        // Treat it as forceToUpdate when response doesn't contain kSettingIsAppNeedUpdateKey property
-        if (!appNeedsUpdate) {
-            
-            _isAppNeedUpdate = YES;
-            
-        } else {
-
-            _isAppNeedUpdate = [appNeedsUpdate boolValue];
-        }
-    }
-    
-    return self;
-}
+@interface NetworkOperationFactory : NSObject <NetworkOperationFactoryProtocol>
 
 @end

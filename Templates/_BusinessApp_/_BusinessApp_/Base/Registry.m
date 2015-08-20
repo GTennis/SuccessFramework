@@ -40,7 +40,7 @@
 
 #pragma mark - Public -
 
-- (void)registerObject:(id)object {
+- (void)addObject:(id)object {
     
     if (!_registeredObjects) {
         
@@ -52,7 +52,7 @@
     [_registeredObjects setObject:object forKey:key];
 }
 
-- (void)unRegisterObject:(id)object {
+- (void)removeObject:(id)object {
     
     NSString *key = NSStringFromClass([object class]);
     [_registeredObjects removeObjectForKey:key];

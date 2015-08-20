@@ -1,5 +1,5 @@
 //
-//  ConstNetworkConfig.h
+//  BackendAPIClient.h
 //  _BusinessApp_
 //
 //  Created by Gytenis Mikulėnas on 5/2/14.
@@ -25,30 +25,9 @@
 //  SOFTWARE. All rights reserved.
 //
 
-//-------- App authentification ids and codes -------//
+#import "BaseAPIClient.h"
+#import "BackendAPIClientProtocol.h"
 
-#define kBackendAPIClientDevelopmentAppId @"AAA"
-#define kBackendAPIClientDevelopmentAppCode @"BBB"
+@interface BackendAPIClient : BaseAPIClient <BackendAPIClientProtocol>
 
-#define kBackendAPIClientStageAppId @"stageAppId"
-#define kBackendAPIClientStageAppCode @"stageAppCode"
-
-#define kBackendAPIClientProductionAppId @"prodAppId"
-#define kBackendAPIClientProductionAppCode @"prodAppCode"
-
-//------- Backend base url configs -------//
-
-#define BACKEND_DEVELOPMENT_BASE_URL      @"http://dotheapp.com"
-#define BACKEND_STAGE_BASE_URL          @"http://dotheapp.com"
-#define BACKEND_PRODUCTION_BASE_URL       @"http://dotheapp.com"
-
-// Web root environment auto selection
-#ifdef DEBUG
-
-    #define BACKEND_BASE_URL BACKEND_DEVELOPMENT_BASE_URL // For internal testing
-
-#else
-
-    #define BACKEND_BASE_URL BACKEND_PRODUCTION_BASE_URL // Don't change this. For app store.
-
-#endif
+@end

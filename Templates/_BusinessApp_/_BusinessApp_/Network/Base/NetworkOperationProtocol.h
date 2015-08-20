@@ -1,9 +1,9 @@
 //
-//  BackendAPIClient.h
+//  NetworkOperationProtocol.h
 //  _BusinessApp_
 //
-//  Created by Gytenis Mikulėnas on 5/2/14.
-//  Copyright (c) 2015 Gytenis Mikulėnas
+//  Created by Gytenis Mikulenas on 25/08/15.
+//  Copyright (c) 2015 Gytenis Mikulėnas 
 //  https://github.com/GitTennis/SuccessFramework
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -25,8 +25,28 @@
 //  SOFTWARE. All rights reserved.
 //
 
-#import "BaseAPIClient.h"
+#import "NetworkRequestObject.h"
 
-@interface BackendAPIClient : BaseAPIClient <BackendAPIClientProtocol>
+@protocol NetworkOperationProtocol <NSObject>
+
+#pragma mark - Public -
+
+@property (nonatomic, strong) NetworkRequestObject *networkRequestObject;
+@property (nonatomic, strong) id params;
+
+- (instancetype)initWithNetworkRequestObject:(NetworkRequestObject *)networkRequestObject;
+
+// Params accepts any type of object. This means data objects could be passed for convenience. However, inside subclass we need to transform passed "params" data object and return NSDictionary. See protected "- (NSDictionary *)params;" method
+- (void)performWithParams:(id)params callback:(Callback)callback;
+
+#pragma mark - Protected -
+
+- (NSString *)requestBaseUrl;
+- (NSString *)requestRelativeUrl;
+- (NSString *)requestMethod;
+- (NSDictionary *)requestHeaders;
+- (NSDictionary *)requestBodyParams;
+- (NSString *)requestUrlParams;
+- (void)handleReceivedDataWithSuccess:(BOOL)success result:(id)result error:(NSError *)error callback:(Callback)callback;
 
 @end

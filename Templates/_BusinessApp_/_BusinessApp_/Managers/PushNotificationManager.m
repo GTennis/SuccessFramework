@@ -1,8 +1,8 @@
 //
-//  ParseAPIClient.m
+//  PushNotificationManager.m
 //  _BusinessApp_
 //
-//  Created by Gytenis Mikulenas on 01/07/15.
+//  Created by Gytenis Mikulenas on 26/08/15.
 //  Copyright (c) 2015 Gytenis Mikulėnas 
 //  https://github.com/GitTennis/SuccessFramework
 //
@@ -25,12 +25,20 @@
 //  SOFTWARE. All rights reserved.
 //
 
-#import "ParseAPIClient.h"
-#import "ParseAPIConfig.h"
+#import "PushNotificationManager.h"
+#import "ConstPushNotificationManager.h"
 #import <Parse/Parse.h>
 #import "UserObject.h"
 
-@implementation ParseAPIClient
+// DeviceInstallation
+#define kParseAPIClientDeviceInstallationDataStorageName @"Installation"
+
+// RelDeviceInstallationUser
+#define kParseAPIClientRelDeviceInstallationUserDataStorageName @"RelDeviceInstallationUser"
+#define kParseAPIClientRelDeviceInstallationUserUserIdRefKey @"userObjectId"
+#define kParseAPIClientRelDeviceInstallationUserDeviceInstallationIdRefKey @"installationObjectId"
+
+@implementation PushNotificationManager
 
 - (id)init {
     
@@ -44,7 +52,7 @@
     return self;
 }
 
-#pragma mark - ParseAPIClientProtocol -
+#pragma mark - PushNotificationManagerProtocol -
 
 #pragma mark Push notification related
 
@@ -55,7 +63,7 @@
     [currentInstallation saveInBackground];
 }
 
-- (void)handlePushNotificationWithReceivedUserInfo:(NSDictionary *)userInfo application:(UIApplication *)application {
+- (void)handleReceivedPushNotificationWithUserInfo:(NSDictionary *)userInfo application:(UIApplication *)application {
     
     if (application.applicationState == UIApplicationStateInactive || application.applicationState == UIApplicationStateBackground) {
         
@@ -93,7 +101,7 @@
                                             
                                             [weakSelf checkAndCreateRelationIfNeededBetweenUser:user andInstallation:currentInstallation callback:callback];
                                             
-                                        // Othwerwise need to create new parseUser
+                                            // Othwerwise need to create new parseUser
                                         } else {
                                             
                                             // Prepare new parseUser
@@ -219,31 +227,31 @@
 }
 
 /*- (void)logAppOpeningFromPushNotification {
-    
-    NSString *className = @"AppOpeningsFromPushNotifications";
-    NSString *appOpeningEventCountName = @"count";
-    
-    PFQuery *appOpenings = [PFQuery queryWithClassName:className];
-    
-    [appOpenings findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
-        
-        PFObject *appOpeningEvent = nil;
-        NSInteger appOpeningEventCount = 0;
-        
-        if (objects.count) {
-            
-            appOpeningEvent = objects.firstObject;
-            appOpeningEventCount = [appOpeningEvent[appOpeningEventCountName] integerValue];
-            
-        } else {
-            
-            appOpeningEvent = [PFObject objectWithClassName:className];
-        }
-        
-        appOpeningEventCount++;
-        appOpeningEvent[appOpeningEventCountName] = @(appOpeningEventCount);
-        [appOpeningEvent saveInBackground];
-    }];
-}*/
+ 
+ NSString *className = @"AppOpeningsFromPushNotifications";
+ NSString *appOpeningEventCountName = @"count";
+ 
+ PFQuery *appOpenings = [PFQuery queryWithClassName:className];
+ 
+ [appOpenings findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+ 
+ PFObject *appOpeningEvent = nil;
+ NSInteger appOpeningEventCount = 0;
+ 
+ if (objects.count) {
+ 
+ appOpeningEvent = objects.firstObject;
+ appOpeningEventCount = [appOpeningEvent[appOpeningEventCountName] integerValue];
+ 
+ } else {
+ 
+ appOpeningEvent = [PFObject objectWithClassName:className];
+ }
+ 
+ appOpeningEventCount++;
+ appOpeningEvent[appOpeningEventCountName] = @(appOpeningEventCount);
+ [appOpeningEvent saveInBackground];
+ }];
+ }*/
 
 @end

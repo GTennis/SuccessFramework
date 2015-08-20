@@ -27,7 +27,7 @@
 
 #import "ParsableObject.h"
 #import "UserManagerProtocol.h"
-#import "BackendAPIClientProtocol.h"
+#import "NetworkOperationFactoryProtocol.h"
 #import "SettingsManagerProtocol.h"
 #import "AnalyticsManagerProtocol.h"
 #import "ReachabilityManagerProtocol.h"
@@ -47,7 +47,7 @@
 // For passed parameters
 @property (nonatomic, strong) id context;
 
-- (instancetype)initWithUserManager:(id <UserManagerProtocol>)userManager backendAPIClient:(id <BackendAPIClientProtocol>)backendAPIClient settingsManager:(id <SettingsManagerProtocol>)settingsManager reachabilityManager:(id<ReachabilityManagerProtocol>)reachabilityManager analyticsManager:(id<AnalyticsManagerProtocol>)analyticsManager context:(id)context;
+- (instancetype)initWithUserManager:(id <UserManagerProtocol>)userManager networkOperationFactory:(id <NetworkOperationFactoryProtocol>)networkOperationFactory settingsManager:(id <SettingsManagerProtocol>)settingsManager reachabilityManager:(id<ReachabilityManagerProtocol>)reachabilityManager analyticsManager:(id<AnalyticsManagerProtocol>)analyticsManager context:(id)context;
 
 - (void)loadData:(Callback)callback;
 
@@ -56,7 +56,7 @@
 // Dependencies
 @property (nonatomic, strong) id<UserManagerProtocol> userManager;
 @property (nonatomic, strong) id<SettingsManagerProtocol> settingsManager;
-@property (nonatomic, strong) id<BackendAPIClientProtocol> backendAPIClient;
+@property (nonatomic, strong) id<NetworkOperationFactoryProtocol> networkOperationFactory;
 @property (nonatomic, strong) id<ReachabilityManagerProtocol> reachabilityManager;
 @property (nonatomic, strong) id<AnalyticsManagerProtocol> analyticsManager;
 

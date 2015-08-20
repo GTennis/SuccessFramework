@@ -1,9 +1,9 @@
 //
-//  Registry.h
+//  CustomAFJSONResponseSerializer.h
 //  _BusinessApp_
 //
-//  Created by Gytenis Mikulėnas on 2/6/14.
-//  Copyright (c) 2015 Gytenis Mikulėnas
+//  Created by Gytenis Mikulenas on 25/08/15.
+//  Copyright (c) 2015 Gytenis Mikulėnas 
 //  https://github.com/GitTennis/SuccessFramework
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -25,20 +25,8 @@
 //  SOFTWARE. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+#import "AFURLResponseSerialization.h"
 
-@interface Registry : NSObject
-
-@property (nonatomic, strong) NSMutableDictionary *registeredObjects;
-
-// Singleton
-+ (Registry *)sharedRegistry;
-
-#pragma mark - Public -
-
-// Shared object handling
-- (void)addObject:(id)object;
-- (void)removeObject:(id)object;
-- (id)getObject:(id)object;
+@interface CustomAFJSONResponseSerializer : AFJSONResponseSerializer
 
 @end

@@ -1,9 +1,9 @@
 //
-//  GMAFJSONResponseSerializer.m
+//  CustomAFJSONResponseSerializer.m
 //  _BusinessApp_
 //
-//  Created by Gytenis Mikulėnas on 5/2/14.
-//  Copyright (c) 2015 Gytenis Mikulėnas
+//  Created by Gytenis Mikulenas on 25/08/15.
+//  Copyright (c) 2015 Gytenis Mikulėnas 
 //  https://github.com/GitTennis/SuccessFramework
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -30,13 +30,13 @@
 //  Mostly is usefull for custom error handling,
 //  especially when errors are returned using other than HTTP status 2XX
 
-#import "GMAFJSONResponseSerializer.h"
+#import "CustomAFJSONResponseSerializer.h"
 #import "NSDictionary+JSON.h"
 #import "ErrorObject.h"
 
 #define kNetworkResponseSerializerErrorDomain @"CustomNetworkErrorDomain"
 
-@implementation GMAFJSONResponseSerializer
+@implementation CustomAFJSONResponseSerializer
 
 #pragma mark - Protected -
 
@@ -56,13 +56,13 @@
         
         // Handle response by first HTTP status digit
         switch (httpResponseStatusFirstDigit) {
-              
+                
             case 2:
                 
                 // Everything is ok.
                 break;
                 
-            // Override 5XX status with custom text
+                // Override 5XX status with custom text
             case 5: {
                 
                 NSDictionary *userInfoDict = @{NSLocalizedDescriptionKey:@"Server is too busy. Try again later"};
@@ -71,7 +71,7 @@
                 break;
             }
                 
-            // Override any other HTTP status code with custom text
+                // Override any other HTTP status code with custom text
             default: {
                 
                 NSString *errorString = [@"Unknown HTTP status code: " stringByAppendingString:httpResponseStatusString];
@@ -87,40 +87,40 @@
         // Suppose errors are returned via 400
         /*if (httpResponseStatus == 400) {
          
-            // Check if we received json responseObject
-            if (data) {
-                
-                NSError *errorDeserializationError = nil;
-                NSDictionary *errorsDic = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:&errorDeserializationError];
-                
-                // If unable to deserialized error responseObject
-                if (errorDeserializationError) {
-                    
-                    // Overwrite previous error
-                    NSString *errorString = [@"Unable to deserialize response: " stringByAppendingString:errorDeserializationError.localizedDescription];
-                    NSDictionary *userInfoDict = @{NSLocalizedDescriptionKey:errorString};
-                    (*error) = [NSError errorWithDomain:kNetworkResponseSerializerErrorDomain code:httpResponseStatus userInfo:userInfoDict];
-                    
-                } else {
-                    
-                    NSArray *errorsArray = errorsDic[kNetworkErrorsKey];
-                    
-                    // Extract first error from the list of errors
-                    if (errorsArray.count > 0) {
-                        
-                        NSDictionary *errorDic = errorsArray[0];
-                        (*error) = [NSError errorWithDomain:errorDic[kNetworkErrorCodeKey] code:httpResponseStatus userInfo:nil];
-                    }
-                }
-                
-            // If for any reason response body doesn't contain responseObject then just change error code and leave error domain as previous
-            } else {
-                
-                // Overwrite previous error
-                (*error) = [NSError errorWithDomain:(*error).domain code:httpResponseStatus userInfo:(*error).userInfo];
-            }
-            
-        }*/
+         // Check if we received json responseObject
+         if (data) {
+         
+         NSError *errorDeserializationError = nil;
+         NSDictionary *errorsDic = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:&errorDeserializationError];
+         
+         // If unable to deserialized error responseObject
+         if (errorDeserializationError) {
+         
+         // Overwrite previous error
+         NSString *errorString = [@"Unable to deserialize response: " stringByAppendingString:errorDeserializationError.localizedDescription];
+         NSDictionary *userInfoDict = @{NSLocalizedDescriptionKey:errorString};
+         (*error) = [NSError errorWithDomain:kNetworkResponseSerializerErrorDomain code:httpResponseStatus userInfo:userInfoDict];
+         
+         } else {
+         
+         NSArray *errorsArray = errorsDic[kNetworkErrorsKey];
+         
+         // Extract first error from the list of errors
+         if (errorsArray.count > 0) {
+         
+         NSDictionary *errorDic = errorsArray[0];
+         (*error) = [NSError errorWithDomain:errorDic[kNetworkErrorCodeKey] code:httpResponseStatus userInfo:nil];
+         }
+         }
+         
+         // If for any reason response body doesn't contain responseObject then just change error code and leave error domain as previous
+         } else {
+         
+         // Overwrite previous error
+         (*error) = [NSError errorWithDomain:(*error).domain code:httpResponseStatus userInfo:(*error).userInfo];
+         }
+         
+         }*/
         
         return (JSONObject);
         

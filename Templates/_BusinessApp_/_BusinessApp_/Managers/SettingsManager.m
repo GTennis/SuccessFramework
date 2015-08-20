@@ -43,6 +43,7 @@
     if (self) {
         
         [NSDate setLocaleForLanguage:self.language];
+        [self setDefaultLanguage];
     }
     
     return self;
@@ -126,6 +127,15 @@
     [userDefaults synchronize];
 }
 
+// Currently the app supports 2 languages only - "en" and "de". If user has selected other language than those two then "en" will be set as default
+- (void)setDefaultLanguage {
+    
+    if (![self.language isEqualToString:kLanguageEnglish] && ![self.language isEqualToString:kLanguageGerman]) {
+        
+        [self setLanguageEnglish];
+    }
+}
+
 #pragma mark First time app launch
 
 - (BOOL)isFirstTimeAppLaunch {
@@ -143,9 +153,9 @@
     }
 }
 
-- (void)setIsFirstTimeAppLaunch:(BOOL)isFirstTimeLaunch {
+- (void)setIsFirstTimeAppLaunch:(BOOL)isFirstTimeAppLaunch {
     
-    [self setValue:[NSNumber numberWithBool:isFirstTimeLaunch] forKey:kSettingsFirstTimeAppLaunch];
+    [self setValue:[NSNumber numberWithBool:isFirstTimeAppLaunch] forKey:kSettingsFirstTimeAppLaunch];
 }
 
 #pragma mark Languages

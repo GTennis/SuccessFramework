@@ -1,6 +1,6 @@
 //
 //  SettingsModelTests.m
-//  HereChallenge
+//  _BusinessApp_
 //
 //  Created by Gytenis Mikulenas on 23/06/15.
 //  Copyright (c) 2015 Gytenis Mikulėnas 

@@ -1,9 +1,9 @@
 //
-//  RegistryAPIConfig.h
-//  HereChallenge
+//  NetworkRequestObject.h
+//  _BusinessApp_
 //
-//  Created by Gytenis Mikulenas on 17/06/15.
-//  Copyright (c) 2015 Gytenis Mikulėnas
+//  Created by Gytenis Mikulenas on 26/08/15.
+//  Copyright (c) 2015 Gytenis Mikulėnas 
 //  https://github.com/GitTennis/SuccessFramework
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -25,30 +25,25 @@
 //  SOFTWARE. All rights reserved.
 //
 
-//-------- App authentification ids and codes -------//
+#import "ParsableObject.h"
+#import "ConstNetworkConfig.h"
 
-#define kRegistryAPIClientDevelopmentAppId @"AAA"
-#define kRegistryAPIClientDevelopmentAppCode @"BBB"
+#define kNetworkRequestBaseUrlKey @"baseUrl"
+#define kNetworkRequestRelativeUrlKey @"relativeUrl"
+#define kNetworkRequestMethodKey @"method"
+#define kNetworkRequestGroupKey @"group"
 
-#define kRegistryAPIClientStageAppId @"stageAppId"
-#define kRegistryAPIClientStageAppCode @"stageAppCode"
+@protocol NetworkRequestObject <ParsableObject>
 
-#define kRegistryAPIClientProductionAppId @"prodAppId"
-#define kRegistryAPIClientProductionAppCode @"prodAppCode"
+@property (nonatomic, copy) NSString *baseUrl;
+@property (nonatomic, copy) NSString *relativeUrl;
+@property (nonatomic, copy) NSString *method;
+@property (nonatomic, copy) NSString *group;
 
-//------- Backend base url configs -------//
+@end
 
-#define REGISTRY_DEVELOPMENT_BASE_URL      @"http://dotheapp.com"
-#define REGISTRY_STAGE_BASE_URL          @"http://dotheapp.com"
-#define REGISTRY_PRODUCTION_BASE_URL       @"http://dotheapp.com"
+@interface NetworkRequestObject : NSObject <NetworkRequestObject>
 
-// Web root environment auto selection
-#ifdef DEBUG
+- (instancetype)initWithBackendEnvironment:(BackendEnvironment)backendEnvironment;
 
-    #define REGISTRY_BASE_URL REGISTRY_DEVELOPMENT_BASE_URL // For internal testing
-
-#else
-
-    #define REGISTRY_BASE_URL REGISTRY_PRODUCTION_BASE_URL // Don't change this. For app store.
-
-#endif
+@end

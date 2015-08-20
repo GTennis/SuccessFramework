@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.iPad.XIB" version="3.0" toolsVersion="6751" systemVersion="13F1077" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.iPad.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
-        <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LaunchViewController_ipad">
@@ -19,19 +18,25 @@
                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="jaw-hg-bmp" userLabel="BackgroundImageView">
                     <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                 </imageView>
-                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You custom delayed splash screen" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rnn-0A-cwQ" customClass="NormalLabel">
-                    <rect key="frame" x="379" y="374" width="267" height="21"/>
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Loading app settings..." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rnn-0A-cwQ" customClass="NormalLabel">
+                    <rect key="frame" x="424" y="374" width="176" height="21"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="Ten-a0-orh">
+                    <rect key="frame" x="494" y="403" width="37" height="37"/>
+                    <color key="color" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                </activityIndicatorView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
+                <constraint firstItem="Ten-a0-orh" firstAttribute="top" secondItem="rnn-0A-cwQ" secondAttribute="bottom" constant="8" id="2gR-ql-AAq"/>
                 <constraint firstItem="jaw-hg-bmp" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="NCs-S7-ZAG"/>
                 <constraint firstAttribute="centerX" secondItem="rnn-0A-cwQ" secondAttribute="centerX" id="Qcq-Ry-fZz"/>
                 <constraint firstAttribute="trailing" secondItem="jaw-hg-bmp" secondAttribute="trailing" id="Wd3-17-eQm"/>
                 <constraint firstAttribute="bottom" secondItem="jaw-hg-bmp" secondAttribute="bottom" id="XHq-cS-kSh"/>
+                <constraint firstAttribute="centerX" secondItem="Ten-a0-orh" secondAttribute="centerX" id="eOf-sK-WCu"/>
                 <constraint firstItem="jaw-hg-bmp" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="m1W-j2-yRW"/>
                 <constraint firstAttribute="centerY" secondItem="rnn-0A-cwQ" secondAttribute="centerY" id="oXr-X4-fqU"/>
             </constraints>

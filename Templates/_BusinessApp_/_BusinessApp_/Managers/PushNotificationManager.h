@@ -1,8 +1,8 @@
 //
-//  RegistryAppSettingsOperation.h
-//  HereChallenge
+//  PushNotificationManager.h
+//  _BusinessApp_
 //
-//  Created by Gytenis Mikulenas on 17/06/15.
+//  Created by Gytenis Mikulenas on 26/08/15.
 //  Copyright (c) 2015 Gytenis Mikulėnas 
 //  https://github.com/GitTennis/SuccessFramework
 //
@@ -25,8 +25,8 @@
 //  SOFTWARE. All rights reserved.
 //
 
-#import "BaseNetworkOperation.h"
+#import "PushNotificationManagerProtocol.h"
 
-@interface RegistryAppSettingsOperation : BaseNetworkOperation
+@interface PushNotificationManager : NSObject <PushNotificationManagerProtocol>
 
 @end

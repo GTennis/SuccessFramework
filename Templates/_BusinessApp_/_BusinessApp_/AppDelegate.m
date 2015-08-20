@@ -44,20 +44,19 @@
 #import "MessageBarManager.h"
 #import "SettingsManager.h"
 #import "ReachabilityManager.h"
+#import "PushNotificationManager.h"
 
 // Network
-#import "BackendAPIClient.h"
-#import "RegistryAppSettingsOperation.h"
-#import "SettingObject.h"
-#import "BackendAPIConfig.h"
+#import "NetworkOperationFactory.h"
+#import "ConfigNetworkOperation.h"
+#import "AppConfigObject.h"
 
 // Other
 #import <iVersion.h>
 
-#warning Update the link before releasing to the app store!
-#define kAppItunesLink @"yourAppStoreLink"
+#define kAppConfigRetryDelayDuration 3.0f
 
-@interface AppDelegate () <LaunchViewControllerDelegate, WalkthroughViewControllerDelegate>
+@interface AppDelegate () <WalkthroughViewControllerDelegate>
 
 @end
 
@@ -73,48 +72,15 @@
     // Setting app new app version detection and alerting functionality
     [self setupIVersion];
     
-    // Initializing all the managers and registering them on Registry
-    [self initializeManagers];
-    
-    // Setting app new app version detection and alerting functionality
-    [self setupIVersion];
-    
-    // Injecting managers needed for AppDelegate later
-    _analyticsManager = [REGISTRY getObject:[AnalyticsManager class]];
-    _userManager = [REGISTRY getObject:[UserManager class]];
-    _crashManager = [REGISTRY getObject:[CrashManager class]];
-    _messageBarManager = [REGISTRY getObject:[MessageBarManager class]];
-    
-    // Set default language
-    [self setDefaultLanguage];
-    
-    // Creating and registering shared factory
-    ViewControllerFactory *viewControllerFactory = [[ViewControllerFactory alloc] init];
-    [REGISTRY registerObject:viewControllerFactory];
-    
-    // Show launch screen first.
-    LaunchViewController *launchVC = [viewControllerFactory launchViewControllerWithContext:nil];
-    launchVC.delegate = self;
+    // Show launch screen first
+    LaunchViewController *launchVC = [[LaunchViewController alloc] init];
     self.window.rootViewController = launchVC;
     
-    // Handle push notifications:
-    if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"8.0")) {
-        
-        UIUserNotificationSettings *notificationSettings = [UIUserNotificationSettings settingsForTypes:UIUserNotificationTypeAlert | UIUserNotificationTypeBadge | UIUserNotificationTypeSound categories:nil];
-        [[UIApplication sharedApplication] registerUserNotificationSettings:notificationSettings];
-        
-    } else {
-        
-        [[UIApplication sharedApplication] registerForRemoteNotificationTypes:(UIRemoteNotificationTypeAlert | UIRemoteNotificationTypeSound|UIRemoteNotificationTypeBadge)];
-    }
+    // Setup push notifications
+    [self initializePushNotificationsWithinApplication:application launchOptions:launchOptions];
     
-    // Check if application was opened from push notification
-    NSDictionary *notificationDict = [launchOptions objectForKey:UIApplicationLaunchOptionsRemoteNotificationKey];
-    if (notificationDict) {
-        
-        // Forward push notification handling
-        [self application:application didReceiveRemoteNotification:notificationDict];
-    }
+    // Get app configuration
+    [self getAppConfigIsAppLaunch:@(YES)];
     
     // Show the stuff :)
     [self.window makeKeyAndVisible];
@@ -141,8 +107,7 @@
     
     // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
     
-    // Check if app needs force update
-    [self checkForAppUpdateWithCallback:nil];
+    [self getAppConfigIsAppLaunch:@(NO)];
 }
 
 - (void)applicationDidBecomeActive:(UIApplication *)application {
@@ -220,33 +185,27 @@
     
     DLog(@"didRegisterForRemoteNotificationsWithDeviceToken: %@", deviceToken);
     
-    BackendAPIClient *backendAPIClient = [REGISTRY getObject:[BackendAPIClient class]];
-    [backendAPIClient registerPushNotificationToken:deviceToken];
+    PushNotificationManager *pushNotificationManager = [REGISTRY getObject:[PushNotificationManager class]];
+    [pushNotificationManager registerPushNotificationToken:deviceToken];
 }
 
 - (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo{
     
     DLog(@"didReceiveRemoteNotification: %@", userInfo);
     
-    BackendAPIClient *backendAPIClient = [REGISTRY getObject:[BackendAPIClient class]];
-    [backendAPIClient handleReceivedPushNotificationWithUserInfo:userInfo application:application];
+    PushNotificationManager *pushNotificationManager = [REGISTRY getObject:[PushNotificationManager class]];
+    [pushNotificationManager handleReceivedPushNotificationWithUserInfo:userInfo application:application];
     
-    // Custom handling
-    /*NSString *someId = userInfo[@"someId"];
+    // Check if force app reload notification was received
+    BOOL shouldAppReload = [userInfo[@"appShouldReload"] boolValue];
     
-    if (someId) {
+    if (shouldAppReload) {
         
         if (application.applicationState == UIApplicationStateActive) {
             
-            // TODO:
-            // [self showMeSomeScreenWhenAppIsActive]
-            
-        } else {
-            
-            // TODO:
-            // [self showMeSomeScreenWhenAppIsNotActive]
+            [self performForceReload];
         }
-    }*/
+    }
 }
 
 - (void)application:(UIApplication *)application didFailToRegisterForRemoteNotificationsWithError:(NSError *)error {
@@ -254,31 +213,34 @@
     DLog(@"didFailToRegisterForRemoteNotificationsWithError: %@", error.localizedDescription);
 }
 
-#pragma mark - LaunchViewControllerDelegate
-
-- (void)didFinishShowingCustomLaunch {
+- (void)initializePushNotificationsWithinApplication:(UIApplication *)application launchOptions:(NSDictionary *)launchOptions {
     
-    __weak typeof(self) weakSelf = self;
-    
-    Callback callback = ^(BOOL success, id result, NSError *error){
+    // Create push notification manager
+    PushNotificationManager *pushNotificationManager = [REGISTRY getObject:[PushNotificationManager class]];
+    if (!pushNotificationManager) {
         
-        ViewControllerFactory *viewControllerFactory = [REGISTRY getObject:[ViewControllerFactory class]];
-        SettingsManager *settingsManager = [REGISTRY getObject:[SettingsManager class]];
-        
-        if (settingsManager.isFirstTimeAppLaunch) {
-            
-            WalkthroughViewController *walkthroughVC = [viewControllerFactory walkthroughViewControllerWithContext:nil];
-            walkthroughVC.delegate = weakSelf;
-            weakSelf.window.rootViewController = walkthroughVC;
-            
-        } else {
-            
-            [weakSelf proceedToTheApp];
-        }
-    };
+        pushNotificationManager = [[PushNotificationManager alloc] init];
+        [REGISTRY addObject:pushNotificationManager];
+    }
     
-    // Check if app needs force update
-    [self checkForAppUpdateWithCallback:callback];
+    // Handle push notifications:
+    if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"8.0")) {
+        
+        UIUserNotificationSettings *notificationSettings = [UIUserNotificationSettings settingsForTypes:UIUserNotificationTypeAlert | UIUserNotificationTypeBadge | UIUserNotificationTypeSound categories:nil];
+        [[UIApplication sharedApplication] registerUserNotificationSettings:notificationSettings];
+        
+    } else {
+        
+        [[UIApplication sharedApplication] registerForRemoteNotificationTypes:(UIRemoteNotificationTypeAlert | UIRemoteNotificationTypeSound|UIRemoteNotificationTypeBadge)];
+    }
+    
+    // Check if application was opened from push notification
+    NSDictionary *notificationDict = [launchOptions objectForKey:UIApplicationLaunchOptionsRemoteNotificationKey];
+    if (notificationDict) {
+        
+        // Forward push notification handling
+        [self application:application didReceiveRemoteNotification:notificationDict];
+    }
 }
 
 #pragma mark - WalkthroughViewControllerDelegate
@@ -309,7 +271,16 @@
     return YES;
 }
 
-#pragma mark - Force to update
+- (void)setupIVersion {
+    
+    // More info on configuration: http://www.binpress.com/app/iversion-automatic-update-tracking-for-your-apps/615
+    
+    //Checking period is set to 1 day
+    [iVersion sharedInstance].checkPeriod = 1;
+    //[iVersion sharedInstance].displayAppUsingStorekitIfAvailable = NO;
+}
+
+#pragma mark - Force to update and reload
 
 // Method performs request to the backend and passes current app version. Backend returns bool indicating app should be updated or not. If yes then user is shown alert, navigated to app store for update and app is closed. Sometimes we need such functionality because of:
 //
@@ -319,44 +290,28 @@
 //
 //  A good example of such force to update is Clash of clans game app.
 //
-- (void)checkForAppUpdateWithCallback:(Callback)callback {
+- (void)getAppConfigWithCallback:(Callback)callback {
     
-    RegistryAppSettingsOperation *registryAppSettingsOperation = [[RegistryAppSettingsOperation alloc] init];
-    
-    [registryAppSettingsOperation getDataWithCallback:^(BOOL success, id result, NSError *error) {
+    // Read the setting from plist. Will be read only once during app launch
+    if (_backendEnvironment == kBackendEnvironmentNone) {
         
-        SettingObject *setting = result;
+        _backendEnvironment = [[[[NSBundle mainBundle] infoDictionary] valueForKey:kAppConfigBackendEnvironmentPlistKey] integerValue];
         
-        if (setting.isAppNeedUpdate) {
+        // Protection against plist bug - will auto pick production by default if no plist key value exist OR wrong provided
+        if (_backendEnvironment == kBackendEnvironmentNone) {
             
-            DLog(@"App needs update...");
-            
-            GMAlertView *alertView = [[GMAlertView alloc] initWithViewController:self.window.rootViewController title:nil message:GMLocalizedString(@"AppNeedsUpdate") cancelButtonTitle:GMLocalizedString(@"Update") otherButtonTitles:nil];
-            
-            alertView.completion = ^(BOOL firstButtonPressed, NSInteger buttonIndex) {
-                
-                if (firstButtonPressed) {
-                    
-                    NSString *iTunesLink = kAppItunesLink;
-                    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:iTunesLink]];
-                    
-                    [self closeTheApp];
-                }
-            };
-            
-            [alertView show];
-            
-        } else {
-            
-            DLog(@"App is up to date.");
-            
-            // Proceed during app launch only
-            
-            if (callback) {
-                
-                callback(YES, nil, nil);
-            }
+            _backendEnvironment = kBackendEnvironmentProduction;
         }
+    }
+
+    // Create config network operation
+    NetworkRequestObject *request = [[NetworkRequestObject alloc] initWithBackendEnvironment:_backendEnvironment];
+    ConfigNetworkOperation *configOperation = [[ConfigNetworkOperation alloc] initWithNetworkRequestObject:request];
+    
+    // Perform
+    [configOperation performWithParams:nil callback:^(BOOL success, id result, NSError *error) {
+        
+        callback(success, result, error);
     }];
 }
 
@@ -374,6 +329,101 @@
     exit(EXIT_SUCCESS);
 }
 
+- (void)performForceUpdate {
+    
+    DLog(@"App needs update...");
+    
+    GMAlertView *alertView = [[GMAlertView alloc] initWithViewController:self.window.rootViewController title:nil message:GMLocalizedString(@"AppNeedsUpdate") cancelButtonTitle:GMLocalizedString(@"Update") otherButtonTitles:nil];
+    
+    __weak typeof(self) weakSelf = self;
+    
+    alertView.completion = ^(BOOL firstButtonPressed, NSInteger buttonIndex) {
+        
+        if (firstButtonPressed) {
+            
+            NSString *iTunesLink = weakSelf.appConfig.appStoreUrlString;
+            [[UIApplication sharedApplication] openURL:[NSURL URLWithString:iTunesLink]];
+            
+            [self closeTheApp];
+        }
+    };
+    
+    [alertView show];
+}
+
+// It's a backdoor for critical cases. If app config request will return param indicating appConfigVersion has changed AND app is already running THEN app will close and therefore will reload itself (all the backend URLs)
+- (void)performForceReload {
+    
+    DLog(@"App needs reload...");
+    
+    GMAlertView *alertView = [[GMAlertView alloc] initWithViewController:self.window.rootViewController title:nil message:GMLocalizedString(@"AppNeedsReload") cancelButtonTitle:GMLocalizedString(@"Reload") otherButtonTitles:nil];
+    
+    alertView.completion = ^(BOOL firstButtonPressed, NSInteger buttonIndex) {
+        
+        if (firstButtonPressed) {
+            
+            [self closeTheApp];
+        }
+    };
+    
+    [alertView show];
+}
+
+#pragma mark - App config
+
+- (void)setAppConfig:(AppConfigObject *)appConfig {
+    
+    _appConfig = appConfig;
+    
+    // Set config to point to backend environment which is defined in main plist
+    [_appConfig setCurrentRequestsWithBackendEnvironment:_backendEnvironment];
+}
+
+- (void)getAppConfigIsAppLaunch:(NSNumber *)isAppLaunching {
+    
+    __weak typeof(self) weakSelf = self;
+    
+    // Check if app needs force update
+    [self getAppConfigWithCallback:^(BOOL success, id result, NSError *error) {
+       
+        AppConfigObject *newAppConfig = (AppConfigObject *)result;
+        
+        // If for any reason app config fails then retry (unlimited)
+        if (!success || !newAppConfig) {
+            
+            [weakSelf performSelector:@selector(getAppConfigIsAppLaunch:) withObject:isAppLaunching afterDelay:kAppConfigRetryDelayDuration];
+            
+        } else {
+            
+            if (newAppConfig.isAppNeedUpdate) {
+                
+                [weakSelf performForceUpdate];
+                
+            } else {
+                
+                // If app is already launched and we just received app config upon returning from background
+                if (![isAppLaunching boolValue]) {
+                    
+                    // Check if backend tells APIs has changed and app needs to reload
+                    if (weakSelf.appConfig.appConfigVersion < newAppConfig.appConfigVersion) {
+                        
+                        [weakSelf performForceReload];
+                    }
+                    
+                // Else continue launching app...
+                } else {
+                    
+                    // Store config
+                    weakSelf.appConfig = newAppConfig;
+
+                    // Continue
+                    [weakSelf continueLaunchTheApp];
+                }
+            }
+        }
+    }];
+}
+
 #pragma mark - Helpers
 
 - (UINavigationController *)navigationController {
@@ -381,15 +431,34 @@
     return _menuNavigator.centerViewController;
 }
 
-- (void)initializeManagers {
+- (void)initializeSharedComponentsWithAppConfig:(AppConfigObject *)appConfig {
+    
+    // Creating and registering shared factory
+    ViewControllerFactory *viewControllerFactory = [[ViewControllerFactory alloc] init];
+    [REGISTRY addObject:viewControllerFactory];
+    
+    // Creating and registering main factory for producing network operations
+    NetworkOperationFactory *networkOperationFactory = [[NetworkOperationFactory alloc] initWithAppConfig:appConfig];
+    [REGISTRY addObject:networkOperationFactory];
+    
+    // Initializing all the managers and registering them on Registry
+    [self initializeManagersWithAppConfig:appConfig networkOperationFactory:networkOperationFactory];
+    
+    // Injecting managers needed for AppDelegate later
+    _analyticsManager = [REGISTRY getObject:[AnalyticsManager class]];
+    _userManager = [REGISTRY getObject:[UserManager class]];
+    _crashManager = [REGISTRY getObject:[CrashManager class]];
+    _messageBarManager = [REGISTRY getObject:[MessageBarManager class]];
+    _settingsManager = [REGISTRY getObject:[SettingsManager class]];
+}
+
+- (void)initializeManagersWithAppConfig:(AppConfigObject *)appConfig networkOperationFactory:(id<NetworkOperationFactoryProtocol>)networkOperationFactory {
     
     // Create managers and other shared single objects
     AnalyticsManager *analyticsManager = [[AnalyticsManager alloc] init];
     SettingsManager *settingsManager = [[SettingsManager alloc] init];
     
-    BackendAPIClient *backendAPIClient = [[BackendAPIClient alloc] initWithBaseURL:[NSURL URLWithString:BACKEND_BASE_URL] userManager:nil settingsManager:settingsManager analyticsManager:analyticsManager];
-    UserManager *userManager = [[UserManager alloc] initWithSettingsManager:settingsManager backendAPIClient:backendAPIClient analyticsManager:analyticsManager];
-    backendAPIClient.userManager = userManager;
+    UserManager *userManager = [[UserManager alloc] initWithSettingsManager:settingsManager networkOperationFactory:networkOperationFactory analyticsManager:analyticsManager];
     MessageBarManager *messageBarManager = [[MessageBarManager alloc] init];
     ReachabilityManager *reachabilityManager = [[ReachabilityManager alloc] init];
     CrashManager *crashManager = [[CrashManager alloc] init];
@@ -398,15 +467,41 @@
     [crashManager setUserLanguage:settingsManager.language];
     
     // Register managers
-    [REGISTRY registerObject:settingsManager];
-    [REGISTRY registerObject:userManager];
-    [REGISTRY registerObject:analyticsManager];
-    [REGISTRY registerObject:messageBarManager];
-    [REGISTRY registerObject:reachabilityManager];
-    [REGISTRY registerObject:crashManager];
+    [REGISTRY addObject:settingsManager];
+    [REGISTRY addObject:userManager];
+    [REGISTRY addObject:analyticsManager];
+    [REGISTRY addObject:messageBarManager];
+    [REGISTRY addObject:reachabilityManager];
+    [REGISTRY addObject:crashManager];
     
     // Register API clients
-    [REGISTRY registerObject:backendAPIClient];
+    // ...
+}
+
+- (void)continueLaunchTheApp {
+    
+    // Create main app components
+    [self initializeSharedComponentsWithAppConfig:self.appConfig];
+    
+    // Check if app runs the very first time
+    if (self.settingsManager.isFirstTimeAppLaunch) {
+        
+        // Show tutorial
+        [self showWalkthrough];
+        
+    } else {
+        
+        // Or jump straight to the app
+        [self proceedToTheApp];
+    }
+}
+
+- (void)showWalkthrough {
+    
+    ViewControllerFactory *viewControllerFactory = [REGISTRY getObject:[ViewControllerFactory class]];
+    WalkthroughViewController *walkthroughVC = [viewControllerFactory walkthroughViewControllerWithContext:nil];
+    walkthroughVC.delegate = self;
+    self.window.rootViewController = walkthroughVC;
 }
 
 - (void)proceedToTheApp {
@@ -418,7 +513,7 @@
     
     // Create and configure side menu component (width, shadow, panning speed and etc.)
     _menuNavigator = [[MenuNavigator alloc] initWithMenuViewControler:menuVC contentViewController:navigationController];
-    [REGISTRY registerObject:_menuNavigator];
+    [REGISTRY addObject:_menuNavigator];
     
     // Assign side menu component as main app navigator
     self.window.rootViewController = _menuNavigator;
@@ -429,26 +524,6 @@
     
     // Apply common style
     [TopNavigationBar applyStyleForNavigationBar:self.navigationController.navigationBar];
-}
-
-// Currently the app supports 2 languages only - "en" and "de". If user has selected other language than those two then "en" will be set as default
-- (void)setDefaultLanguage {
-    
-    SettingsManager *settingsManager = [REGISTRY getObject:[SettingsManager class]];
-    
-    if (![settingsManager.language isEqualToString:kLanguageEnglish] && ![settingsManager.language isEqualToString:kLanguageGerman]) {
-        
-        [settingsManager setLanguageEnglish];
-    }
-}
-
-- (void)setupIVersion {
-    
-    // More info on configuration: http://www.binpress.com/app/iversion-automatic-update-tracking-for-your-apps/615
-    
-    //Checking period is set to 1 day
-    [iVersion sharedInstance].checkPeriod = 1;
-    //[iVersion sharedInstance].displayAppUsingStorekitIfAvailable = NO;
 }
 
 @end

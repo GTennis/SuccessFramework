@@ -1,8 +1,8 @@
 //
-//  ParseAPIConfig.h
+//  UserResetPasswordNetworkOperation.m
 //  _BusinessApp_
 //
-//  Created by Gytenis Mikulenas on 01/07/15.
+//  Created by Gytenis Mikulenas on 26/08/15.
 //  Copyright (c) 2015 Gytenis Mikulėnas 
 //  https://github.com/GitTennis/SuccessFramework
 //
@@ -25,23 +25,8 @@
 //  SOFTWARE. All rights reserved.
 //
 
-// Development
-#define kParseAPIClientDevelopmentAppId @"abcAppId"
-#define kParseAPIClientDevelopmentClientKey @"abcClientKey"
+#import "UserResetPasswordNetworkOperation.h"
 
-// Production
-#define kParseAPIClientProductionAppId @"abcProdAppId"
-#define kParseAPIClientProductionClientKey @"abcProdClientKey"
+@implementation UserResetPasswordNetworkOperation
 
-// Autoselect
-#if defined(DEBUG)
-
-    #define kParseAPIClientAppId kParseAPIClientDevelopmentAppId
-    #define kParseAPIClientClienKey kParseAPIClientDevelopmentClientKey
-
-#else
-
-    #define kParseAPIClientAppId kParseAPIClientProductionAppId
-    #define kParseAPIClientClienKey kParseAPIClientProductionClientKey
-
-#endif
+@end

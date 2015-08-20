@@ -1,8 +1,8 @@
 //
-//  RegistryAppSettingsOperation.m
-//  HereChallenge
+//  ImageListNetworkOperation.m
+//  _BusinessApp_
 //
-//  Created by Gytenis Mikulenas on 17/06/15.
+//  Created by Gytenis Mikulenas on 26/08/15.
 //  Copyright (c) 2015 Gytenis Mikulėnas 
 //  https://github.com/GitTennis/SuccessFramework
 //
@@ -25,50 +25,24 @@
 //  SOFTWARE. All rights reserved.
 //
 
-#import "RegistryAppSettingsOperation.h"
-#import "SettingObject.h"
-#import "RegistryAPIConfig.h"
+#import "ImageListNetworkOperation.h"
+#import "ImagesObject.h"
 
-@implementation RegistryAppSettingsOperation
+@implementation ImageListNetworkOperation
 
 #pragma mark - Protected -
 
 #pragma mark Override
 
-- (NSString *)baseUrl {
-    
-    return REGISTRY_BASE_URL;
-}
-
-- (NSString *)method {
-    
-    return @"GET";
-}
-
-- (NSString *)urlString {
-    
-    NSString *appVersion = [NSBundle mainBundle].infoDictionary[@"CFBundleShortVersionString"];
-    NSString *urlString = [NSString stringWithFormat:@"%@/v1/settings/ios-%@", [self baseUrl], appVersion];
-    
-    return urlString;
-}
-
 - (void)handleReceivedDataWithSuccess:(BOOL)success result:(id)result error:(NSError *)error callback:(Callback)callback {
     
     if (success) {
         
-        NSError *errorDeserializationError = nil;
-        NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:result options:NSJSONReadingAllowFragments error:&errorDeserializationError];
+        // Perform data parsing
+        ImagesObject *images = [[ImagesObject alloc] initWithDict:result];
         
-        if (errorDeserializationError) {
-            
-            callback(NO, nil, errorDeserializationError);
-            
-        } else {
-            
-            SettingObject *setting = [[SettingObject alloc] initWithDict:dict];
-            callback(YES, setting, nil);
-        }
+        // Callback
+        callback(YES, images, nil);
         
     } else {
         

@@ -26,19 +26,8 @@
 //
 
 #import "AFHTTPRequestOperation.h"
+#import "NetworkOperationProtocol.h"
 
-@interface BaseNetworkOperation : AFHTTPRequestOperation
-
-#pragma mark - Public -
-
-- (id)initWithUrlString:(NSString *)urlString;
-- (void)getDataWithCallback:(Callback)callback;
-
-#pragma mark - Protected -
-
-- (NSString *)baseUrl;
-- (NSString *)method;
-- (NSString *)urlString;
-- (void)handleReceivedDataWithSuccess:(BOOL)success result:(id)result error:(NSError *)error callback:(Callback)callback;
+@interface BaseNetworkOperation : AFHTTPRequestOperation <NetworkOperationProtocol>
 
 @end

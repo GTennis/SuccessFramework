@@ -1,9 +1,9 @@
 //
-//  APIClientErrorHandler.h
+//  UserLoginNetworkOperation.h
 //  _BusinessApp_
 //
-//  Created by Gytenis Mikulėnas on 5/2/14.
-//  Copyright (c) 2015 Gytenis Mikulėnas
+//  Created by Gytenis Mikulenas on 26/08/15.
+//  Copyright (c) 2015 Gytenis Mikulėnas 
 //  https://github.com/GitTennis/SuccessFramework
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -25,14 +25,8 @@
 //  SOFTWARE. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+#import "BaseNetworkOperation.h"
 
-@class GMAlertView;
-
-@interface APIClientErrorHandler : NSObject
-
-#warning TODO...
-
-+ (GMAlertView *)alertViewFromAPIErrorNotification:(NSNotification *)notification presentingViewController:(UIViewController *)viewController;
+@interface UserLoginNetworkOperation : BaseNetworkOperation
 
 @end
