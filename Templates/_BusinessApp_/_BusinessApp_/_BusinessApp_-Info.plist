@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>BackendAPIEnvironmentType</key>
-	<integer>3</integer>
+	<integer>1</integer>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
 	<key>CFBundleDisplayName</key>

@@ -2,7 +2,7 @@
     "appConfigVersion":1,
     "forceAppUpdate":{
         "shouldForceUpdate":false,
-        "appStoreUrl":"yourAppStoreLink"
+        "appStoreUrl":"https://www.youtube.com/watch?v=VQf88OnVJeA"
     },
     "logging":{
         "logLevel":1,

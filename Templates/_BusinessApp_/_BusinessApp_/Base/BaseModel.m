@@ -135,8 +135,9 @@
 
 - (void)handleNetworkEnvironmentChange:(NSNotification *)notification {
 
+    // Previously APIClients were used and injected to models. Currently there's a factory factory
+    // ...
     // Replace dependencies with new dependencies
-#warning PATAISYTI!!! nes dabar yra NetworkOperationFactory. Gal ten prideti property baseUrl...
     //_backendAPIClient = [REGISTRY getObject:[BackendAPIClient class]];
 }
 

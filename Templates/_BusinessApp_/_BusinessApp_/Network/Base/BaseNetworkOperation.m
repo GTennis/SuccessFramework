@@ -93,9 +93,6 @@
     // Add body
     [self setHTTPBodyWithRequest:request];
     
-    // Add custom response serializer
-    self.responseSerializer = [CustomAFJSONResponseSerializer serializer];
-    
 //#ifdef DEBUG
     // For internal local https environment with self signed certificate
     //self.securityPolicy.allowInvalidCertificates = YES;
@@ -103,6 +100,9 @@
     
     self = [super initWithRequest:request];
     if (self) {
+
+        // Add custom response serializer
+        self.responseSerializer = [CustomAFJSONResponseSerializer serializer];
         
         // Nothing more is needed
     }
@@ -202,20 +202,7 @@
         
         DLog(@"[%@]: success", [self class]);
 
-        // Deserialized JSON
-        NSError *jsonDeserializationError = nil;
-        NSDictionary *responseDict = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingAllowFragments error:&jsonDeserializationError];
-        
-        if (responseObject && !jsonDeserializationError) {
-            
-            // Success to extract JSON
-            [weakSelf handleReceivedDataWithSuccess:YES result:responseDict error:nil callback:callback];
-            
-        } else {
-            
-            // Fail to extract JSON
-            [weakSelf handleReceivedDataWithSuccess:NO result:nil error:jsonDeserializationError callback:callback];
-        }
+        [weakSelf handleReceivedDataWithSuccess:YES result:responseObject error:nil callback:callback];
     };
     
     return successCallback;

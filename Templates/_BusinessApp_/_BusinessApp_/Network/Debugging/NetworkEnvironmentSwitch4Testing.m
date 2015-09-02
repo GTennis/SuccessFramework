@@ -119,7 +119,7 @@
 
 - (void)changeNetworkEnvironment:(NetworkEnvironmentType)environment {
     
-    NSString *baseBackendUrlString = nil;
+    //NSString *baseBackendUrlString = nil;
     
     AppDelegate *delegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
     

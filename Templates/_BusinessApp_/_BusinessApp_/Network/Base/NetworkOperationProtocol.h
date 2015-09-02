@@ -31,6 +31,7 @@
 
 #pragma mark - Public -
 
+@property (readonly, nonatomic, strong) NSURLRequest *request;
 @property (nonatomic, strong) NetworkRequestObject *networkRequestObject;
 @property (nonatomic, strong) id params;
 

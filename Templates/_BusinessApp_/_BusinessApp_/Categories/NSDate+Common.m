@@ -322,7 +322,7 @@ static NSDateFormatter *_dateFormatterForParsingDates = nil;
 // Removes time from date (sets time to 00:00)
 - (NSDate *)dateWithMidnightTimeFromDate:(NSDate *)date {
     
-    unsigned int flags = NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit;
+    unsigned int flags = NSCalendarUnitYear | NSCalendarUnitMonth | NSCalendarUnitDay;
     NSCalendar *calendar = [NSCalendar currentCalendar];
     NSDateComponents *components = [calendar components:flags fromDate:date];
     NSDate *dateAtMidnight = [calendar dateFromComponents:components];
@@ -366,13 +366,12 @@ static NSDateFormatter *_dateFormatterForParsingDates = nil;
 + (NSInteger)daysWithinEraFromDate:(NSDate *) startDate toDate:(NSDate *) endDate
 {
     NSCalendar *calendar = [NSCalendar currentCalendar];
-    NSInteger startDay=[calendar ordinalityOfUnit:NSDayCalendarUnit
-                                           inUnit: NSEraCalendarUnit forDate:startDate];
-    NSInteger endDay=[calendar ordinalityOfUnit:NSDayCalendarUnit
-                                         inUnit: NSEraCalendarUnit forDate:endDate];
+    NSInteger startDay=[calendar ordinalityOfUnit:NSCalendarUnitDay
+                                           inUnit: NSCalendarUnitEra forDate:startDate];
+    NSInteger endDay=[calendar ordinalityOfUnit:NSCalendarUnitDay
+                                         inUnit: NSCalendarUnitEra forDate:endDate];
     return endDay-startDay;
 }
-
 
 + (BOOL)date:(NSDate *)date1 isLaterThanOrEqualTo:(NSDate *)date2 {
     
@@ -398,7 +397,7 @@ static NSDateFormatter *_dateFormatterForParsingDates = nil;
     
     NSCalendar *calendar = [NSCalendar currentCalendar];
     
-    unsigned unitFlags = NSYearCalendarUnit | NSMonthCalendarUnit |  NSDayCalendarUnit;
+    unsigned unitFlags = NSCalendarUnitYear | NSCalendarUnitMonth |  NSCalendarUnitDay;
     NSDateComponents *comp1 = [calendar components:unitFlags fromDate:date1];
     NSDateComponents *comp2 = [calendar components:unitFlags fromDate:date2];
     
@@ -413,7 +412,7 @@ static NSDateFormatter *_dateFormatterForParsingDates = nil;
     
     NSCalendar *calendar = [NSCalendar currentCalendar];
     
-    unsigned unitFlags = NSYearCalendarUnit | NSMonthCalendarUnit;
+    unsigned unitFlags = NSCalendarUnitYear | NSCalendarUnitMonth;
     NSDateComponents *comp1 = [calendar components:unitFlags fromDate:date1];
     NSDateComponents *comp2 = [calendar components:unitFlags fromDate:date2];
     
@@ -452,7 +451,7 @@ static NSDateFormatter *_dateFormatterForParsingDates = nil;
     if (date != nil)
     {
         // Calculate previous and next months:
-        NSCalendar *calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
+        NSCalendar *calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
         calendar.timeZone = [NSTimeZone timeZoneForSecondsFromGMT:0];
         NSDateComponents *dateComponents = [[NSDateComponents alloc] init];
         if (earlierDate != nil)
@@ -511,9 +510,9 @@ static NSDateFormatter *_dateFormatterForParsingDates = nil;
 + (NSInteger)hoursBetweenDate:(NSDate *)startDate andDate:(NSDate *)endDate {
     
     NSCalendar *gregorian = [[NSCalendar alloc]
-                             initWithCalendarIdentifier:NSGregorianCalendar];
+                             initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
     
-    NSUInteger unitFlags = NSHourCalendarUnit;
+    NSUInteger unitFlags = NSCalendarUnitHour;
     
     NSDateComponents *components = [gregorian components:unitFlags
                                                 fromDate:startDate
@@ -525,7 +524,7 @@ static NSDateFormatter *_dateFormatterForParsingDates = nil;
 + (NSInteger)minutesBetweenDate:(NSDate *)startDate andDate:(NSDate *)endDate {
     
     NSCalendar *gregorian = [[NSCalendar alloc]
-                             initWithCalendarIdentifier:NSGregorianCalendar];
+                             initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
     
     NSUInteger unitFlags = NSCalendarUnitMinute;
     
@@ -539,7 +538,7 @@ static NSDateFormatter *_dateFormatterForParsingDates = nil;
 + (NSInteger)secondsBetweenDate:(NSDate *)startDate andDate:(NSDate *)endDate {
     
     NSCalendar *gregorian = [[NSCalendar alloc]
-                             initWithCalendarIdentifier:NSGregorianCalendar];
+                             initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
     
     NSUInteger unitFlags = NSCalendarUnitSecond;
     

@@ -414,7 +414,7 @@
                 } else {
                     
                     // Store config
-                    weakSelf.appConfig = newAppConfig;
+                    [weakSelf setAppConfig:newAppConfig];
 
                     // Continue
                     [weakSelf continueLaunchTheApp];

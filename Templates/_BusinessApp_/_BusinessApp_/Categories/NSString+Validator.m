@@ -72,7 +72,7 @@
     NSURL *url = [NSURL URLWithString:self];
     NSURLRequest *request = [[NSURLRequest alloc] initWithURL:url];
     
-    return [NSURLConnection canHandleRequest:request];
+    return [NSURLConnection canHandleRequest:request] && url.scheme && url.host;
 }
 
 @end

@@ -27,6 +27,7 @@
 
 #import "AppConfigObject.h"
 #import "ConstNetworkConfig.h"
+#import "NSString+Validator.h"
 
 @implementation AppConfigObject
 
@@ -45,13 +46,22 @@
     self = [self init];
     if (self && dict) {
         
-#warning implement strong response checking. It's critical and all of the links should be valid
+        //----- Check app config version -----//
         
         NSNumber *appConfigVersionNumber = dict[kAppConfigVersionKey];
-        _appConfigVersion = [appConfigVersionNumber integerValue];
+        
+        if (!appConfigVersionNumber) {
+            
+            return nil;
+            
+        } else {
+            
+            _appConfigVersion = [appConfigVersionNumber integerValue];
+        }
+        
+        //----- Check app config version -----//
         
         NSNumber *appNeedsUpdate = dict[kAppConfigForceAppUpdateGroupKey][kAppConfigForceAppUpdateFlagKey];
-        _appStoreUrlString = dict[kAppConfigForceAppUpdateGroupKey][kAppConfigForceAppUpdateUrlKey];
         
         // Treat it as forceToUpdate when response doesn't contain kSettingIsAppNeedUpdateKey property
         if (!appNeedsUpdate) {
@@ -63,15 +73,43 @@
             _isAppNeedUpdate = [appNeedsUpdate boolValue];
         }
         
-        // Parse production backend urls
-        NSDictionary *productionNetworkRequestsDict = dict[kAppConfigBackendAPIsKey][kAppConfigBackendProductionGroupKey];
-        _productionNetworkRequests = [self networkRequestsWithDictionary:productionNetworkRequestsDict];
+        //----- Check app store url is valid -----//
         
-        // Parse stage backend urls
+        _appStoreUrlString = dict[kAppConfigForceAppUpdateGroupKey][kAppConfigForceAppUpdateUrlKey];
+        
+        if (!_appStoreUrlString || ![_appStoreUrlString isValidUrlString]) {
+            
+            return nil;
+        }
+        
+        //----- Parse and check production backend urls -----//
+        
+        NSDictionary *productionNetworkRequestsDict = dict[kAppConfigBackendAPIsKey][kAppConfigBackendProductionGroupKey];
+        
+        if (!productionNetworkRequestsDict) {
+            
+            return nil;
+            
+        } else {
+        
+            _productionNetworkRequests = [self networkRequestsWithDictionary:productionNetworkRequestsDict];
+            
+            if (!_productionNetworkRequests) {
+                
+                return nil;
+            }
+        }
+        
+        //----- Parse stage backend urls -----//
+        // No need to check because it's not important on production environment if they would become empty
+        
         NSDictionary *stageNetworkRequestsDict = dict[kAppConfigBackendAPIsKey][kAppConfigBackendStageGroupKey];
         _stageNetworkRequests = [self networkRequestsWithDictionary:stageNetworkRequestsDict];
+            
+       
+        //----- Parse and check stage backend urls -----//
+        // No need to check because it's not important on production environment if they would become empty
         
-        // Parse development backend urls
         NSDictionary *developmentNetworkRequestsDict = dict[kAppConfigBackendAPIsKey][kAppConfigBackendDevelopmentGroupKey];
         _developmentNetworkRequests = [self networkRequestsWithDictionary:developmentNetworkRequestsDict];
     }
