@@ -165,6 +165,7 @@
 		3119A3FC1B0DD544001CCA38 /* SeparatorHorizontalLineView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3119A3FB1B0DD544001CCA38 /* SeparatorHorizontalLineView.m */; };
 		3119A3FF1B0DD554001CCA38 /* SeparatorVerticalLineView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3119A3FE1B0DD554001CCA38 /* SeparatorVerticalLineView.m */; };
 		3119A4031B0DE3ED001CCA38 /* MenuItemObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 3119A4021B0DE3ED001CCA38 /* MenuItemObject.m */; };
+		317711D01B9751FF00D267DE /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 317711CF1B9751FF00D267DE /* LaunchScreen.xib */; settings = {ASSET_TAGS = (); }; };
 		318633D21B3C321A004CF62E /* SettingsViewControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 318633D11B3C321A004CF62E /* SettingsViewControllerTests.m */; };
 		318633D61B3C3818004CF62E /* SettingsModelTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 318633D51B3C3818004CF62E /* SettingsModelTests.m */; };
 		31912E9A1B0CC926007C0C89 /* PhoneCallCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = 31912E991B0CC926007C0C89 /* PhoneCallCommand.m */; };
@@ -535,6 +536,7 @@
 		3119A4001B0DDDC6001CCA38 /* glockenspiel.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = glockenspiel.ttf; sourceTree = "<group>"; };
 		3119A4011B0DE3ED001CCA38 /* MenuItemObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuItemObject.h; sourceTree = "<group>"; };
 		3119A4021B0DE3ED001CCA38 /* MenuItemObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuItemObject.m; sourceTree = "<group>"; };
+		317711CF1B9751FF00D267DE /* LaunchScreen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LaunchScreen.xib; sourceTree = "<group>"; };
 		318633D11B3C321A004CF62E /* SettingsViewControllerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewControllerTests.m; sourceTree = "<group>"; };
 		318633D51B3C3818004CF62E /* SettingsModelTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsModelTests.m; sourceTree = "<group>"; };
 		31912E911B0CC87F007C0C89 /* CommandProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CommandProtocol.h; sourceTree = "<group>"; };
@@ -976,6 +978,7 @@
 			children = (
 				0FA695A719BB9A720058A722 /* AppDelegate.h */,
 				0FA695A819BB9A720058A722 /* AppDelegate.m */,
+				317711CF1B9751FF00D267DE /* LaunchScreen.xib */,
 				0FE1CAC51AF64AC8006769FE /* Core */,
 				0FA695D119BB9AA80058A722 /* Base */,
 				0FE1CAB31AF641AD006769FE /* Factories */,
@@ -2343,6 +2346,7 @@
 				0FA67F7819C4F6B600E00FDA /* SettingsViewController_ipad.xib in Resources */,
 				0FA201DF19C43528007ABAC4 /* HomeViewController_ipad.xib in Resources */,
 				0FA3FA0A19C777FC001FC84F /* TableViewExampleCell_ipad.xib in Resources */,
+				317711D01B9751FF00D267DE /* LaunchScreen.xib in Resources */,
 				0FABA6F719CAFD9C00CC7DD3 /* ContactsViewController_ipad.xib in Resources */,
 				31CB85921B15F99900F827F7 /* UserLoginViewController_iphone.xib in Resources */,
 				0FBFDF651B13A89C00FA4EFD /* TableViewExampleCell_iphone.xib in Resources */,
