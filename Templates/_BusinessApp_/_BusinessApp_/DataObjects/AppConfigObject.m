@@ -34,6 +34,7 @@
 @synthesize isAppNeedUpdate = _isAppNeedUpdate;
 @synthesize appStoreUrlString = _appStoreUrlString;
 @synthesize appConfigVersion = _appConfigVersion;
+@synthesize logLevel = _logLevel;
 @synthesize currentNetworkRequests = _currentNetworkRequests;
 @synthesize productionNetworkRequests = _productionNetworkRequests;
 @synthesize stageNetworkRequests = _stageNetworkRequests;
@@ -58,6 +59,9 @@
             
             _appConfigVersion = [appConfigVersionNumber integerValue];
         }
+        
+        // Parse log level. Will be set to no logging in case it's missing
+        _logLevel = [dict[kAppConfigLoggingGroupKey][kAppConfigLogLevelKey] integerValue];
         
         //----- Check app config version -----//
         

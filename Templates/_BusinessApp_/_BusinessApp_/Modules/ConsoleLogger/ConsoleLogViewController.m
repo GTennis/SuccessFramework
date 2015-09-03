@@ -28,6 +28,8 @@
 #import "ConsoleLogViewController.h"
 #import "GMAlertView.h"
 #import "SendEmailCommand.h"
+//#import "GMConsoleLogger.h"
+#import "GMCustomLogger.h"
 
 #define kConsoleLogViewControllerDevEmail @"developer@dev.com"
 #define kConsoleLogViewControllerCannotSendEmptyLogAlertOkKey @"Ok"
@@ -56,22 +58,22 @@
     if (self) {
         
         _logString = [[NSMutableString alloc] init];
-        [GMConsoleLogger sharedInstance].delegate = self;
+        [GMCustomLogger sharedInstance].delegate = self;
     }
     return self;
 }
 
 - (void)dealloc {
     
-    [GMConsoleLogger sharedInstance].delegate = nil;
+    [GMCustomLogger sharedInstance].delegate = nil;
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    _textView.text = [GMConsoleLogger sharedInstance].log;
-    _logString = [GMConsoleLogger sharedInstance].log;
+    _textView.text = [GMCustomLogger sharedInstance].log;
+    _logString = [GMCustomLogger sharedInstance].log;
 }
 
 - (void)viewDidUnload {
@@ -100,7 +102,7 @@
     [_logString setString:@""];
     [_textView setText:_logString];
     
-    [[GMConsoleLogger sharedInstance] clearLog];
+    [[GMCustomLogger sharedInstance] clearLog];
 }
 
 - (IBAction)reportPressed:(id)sender {
@@ -132,7 +134,7 @@
 
 #pragma mark - ACLoggerObserver -
 
-- (void)logger:(GMConsoleLogger *)logger didReceiveLogMessage:(NSString *)logMessage {
+- (void)didReceiveLogMessage:(NSString *)logMessage {
     
     [self performSelectorOnMainThread:@selector(appendLogMessage:) withObject:logMessage waitUntilDone:NO];
 }
@@ -184,7 +186,7 @@
     //[_logString appendString:line];
     
     // Update text:
-    _textView.text = [GMConsoleLogger sharedInstance].log;
+    _textView.text = [GMCustomLogger sharedInstance].log;
     
     CGSize newSize = [_textView sizeThatFits:CGSizeMake(_textView.frame.size.width, MAXFLOAT)];
     

@@ -288,12 +288,12 @@
     
     [self.privacyAndTermsTextView addTapGestureWithSubstring:privacyString callback:^(BOOL success, id result, NSError *error) {
      
-        DLog(@"Privacy clicked");
+        DDLogDebug(@"Privacy clicked");
      }];
      
      [self.privacyAndTermsTextView addTapGestureWithSubstring:termsString callback:^(BOOL success, id result, NSError *error) {
      
-         DLog(@"Terms clicked");
+         DDLogDebug(@"Terms clicked");
      }];
 }
 

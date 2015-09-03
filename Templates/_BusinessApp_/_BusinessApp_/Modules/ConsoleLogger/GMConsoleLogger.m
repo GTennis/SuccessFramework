@@ -61,11 +61,11 @@ void customLogger(NSString *format, ...) {
     // Check whether there is something to notify:
     if (logger.delegate) {
         
-        SEL selector = @selector(logger:didReceiveLogMessage:);
+        SEL selector = @selector(didReceiveLogMessage:);
         if ([logger.delegate respondsToSelector:selector]) {
             
             SuppressPerformSelectorLeakWarning(
-                                               [logger.delegate performSelector:selector withObject:logger withObject:logMessage];
+                                               [logger.delegate performSelector:selector withObject:logMessage];
                                                );
         }
     }

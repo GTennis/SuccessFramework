@@ -68,7 +68,7 @@
     // Perform request
     [self GET:@"config.jsona" parameters:paramsDic success:^(NSURLSessionDataTask *task, id responseObject) {
         
-        DLog(@"[%@]: getConfig success", [self class]);
+        DDLogDebug(@"[%@]: getConfig success", [self class]);
         
         // Resetting
         _configFailCount = 0;
@@ -101,7 +101,7 @@
     // Perform request
     [self GET:@"/ws/v1/flickrImages.json" parameters:paramsDic success:^(NSURLSessionDataTask *task, id responseObject) {
         
-        DLog(@"[%@]: getTopImagesWithTag success", [self class]);
+        DDLogDebug(@"[%@]: getTopImagesWithTag success", [self class]);
         
         // Resetting
         _configFailCount = 0;

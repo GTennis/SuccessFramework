@@ -26,6 +26,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "ConsoleLoggerDelegate.h"
 
 // Device info object
 
@@ -43,20 +44,13 @@
 
 @class GMConsoleLogger;
 
-// Represents interface for logger observers
-@protocol GMConsoleLoggerDelegate <NSObject>
-
-- (void)logger:(GMConsoleLogger *)logger didReceiveLogMessage:(NSString *)logMessage;
-
-@end
-
 // Represents custom logger which grabs all NSLog traffic
 @interface GMConsoleLogger : NSObject
 
 #pragma mark - Public -
 
 @property (nonatomic, readonly) NSMutableString *log;
-@property (nonatomic, assign) id<GMConsoleLoggerDelegate> delegate;
+@property (nonatomic, assign) id<ConsoleLoggerDelegate> delegate;
 
 // Singleton:
 + (GMConsoleLogger *)sharedInstance;

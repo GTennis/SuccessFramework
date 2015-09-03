@@ -93,7 +93,7 @@
     if (error) {
         *savingError = error;
         _user.masterToken = @"";
-        DLog(@"%@", error.localizedDescription);
+        DDLogDebug(@"%@", error.localizedDescription);
         return false;
     }
     
@@ -114,7 +114,7 @@
     if (token) {
         
         _user.masterToken = token;
-        DLog(@"Loaded user token: %@", token);
+        DDLogDebug(@"Loaded user token: %@", token);
     }
     
     if (error) {
@@ -133,7 +133,7 @@
     [keychain removeItemForKey:kUserKeychainTokenKey error:&error];
     if (error) {
         
-        DLog(@"%@", error.localizedDescription);
+        DDLogError(@"%@", error.localizedDescription);
     }
     _user = nil;
     

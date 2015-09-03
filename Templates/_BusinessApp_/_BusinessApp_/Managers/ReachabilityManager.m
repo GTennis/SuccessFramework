@@ -63,12 +63,12 @@
             
             if (![weakSelf isInternetOn]) {
                 
-                DLog(@"Internet become off");
+                DDLogDebug(@"Internet become off");
                 [weakSelf notifyObserversWithInternetDidBecomeOff];
                 
             } else {
                 
-                DLog(@"Internet become on");
+                DDLogDebug(@"Internet become on");
                 if ([weakSelf isAppActive]) {
                     
                     [weakSelf notifyObserversWithInternetDidBecomeOn];
@@ -124,14 +124,14 @@
 
 - (void)applicationWillResignActive {
     
-    DLog(@"[%@]: ApplicationWillResignActive", NSStringFromClass([self class]));
+    DDLogDebug(@"[%@]: ApplicationWillResignActive", NSStringFromClass([self class]));
     
     [self notifyObserversWithApplicationDidBecomeInactive];
 }
 
 - (void)applicationDidBecomeActive {
     
-    DLog(@"[%@]: applicationDidBecomeActive", NSStringFromClass([self class]));
+    DDLogDebug(@"[%@]: applicationDidBecomeActive", NSStringFromClass([self class]));
     
     if ([self isInternetOn] && [self isAppActive]) {
         
@@ -148,7 +148,7 @@
     
     if (_observers.observers.count > 0) {
         
-        DLog(@"[%@]: will notify observers", NSStringFromClass([self class]));
+        DDLogDebug(@"[%@]: will notify observers", NSStringFromClass([self class]));
     }
     
     [_observers notifyObserversForSelector:@selector(applicationDidBecomeActive)];

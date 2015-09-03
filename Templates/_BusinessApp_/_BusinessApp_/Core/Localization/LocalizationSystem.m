@@ -68,7 +68,7 @@ static NSBundle *bundle = nil;
 // If the language does not exists y returns the default OS language.
 - (void) setLanguage:(NSString*) l
 {
-    DLog(@"[%@] setLanguage to %@", NSStringFromClass([self class]), l);
+    DDLogDebug(@"[%@] setLanguage to %@", NSStringFromClass([self class]), l);
 	
 	NSString *path = [[ NSBundle mainBundle ] pathForResource:l ofType:@"lproj" ];
 	

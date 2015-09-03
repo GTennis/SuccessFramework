@@ -265,7 +265,7 @@
     // Wrap passed failure block inside wraping block so we could attach notifications
     void (^failureWrapperBlock)(NSURLSessionDataTask *task, NSError *error) = ^(NSURLSessionDataTask *task, NSError *error) {
         
-        DLog(@"Request failed: %@", error.localizedDescription);
+        DDLogWarn(@"Request failed: %@", error.localizedDescription);
         
         NetworkRequestErrorType errorCase = kNetworkRequestNoError;
         
@@ -325,7 +325,7 @@
 // Core method for handling retries
 - (void)coreHandleFailWithError:(NSError *)error failCounter:(NSInteger *)failCounter callback:(Callback)callback retrySelector:(SEL)retrySelector param1:(id)param1 param2:(id)param2 {
     
-    DLog(@"[%@]: Failed %@. Error: %@", NSStringFromClass([self class]), NSStringFromSelector(retrySelector), error.localizedDescription);
+    DDLogWarn(@"[%@]: Failed %@. Error: %@", NSStringFromClass([self class]), NSStringFromSelector(retrySelector), error.localizedDescription);
     
     // Count number of fails
     (*failCounter)++;
@@ -333,7 +333,7 @@
     // Retry
     if ((*failCounter) <= kBaseAPIClientRetryCount && error.code != kNetworkRequestBadInputDataError) {
         
-        DLog(@"[%@]: Retrying %@ ...%ld", NSStringFromClass([self class]), NSStringFromSelector(retrySelector), (long)(*failCounter));
+        DDLogDebug(@"[%@]: Retrying %@ ...%ld", NSStringFromClass([self class]), NSStringFromSelector(retrySelector), (long)(*failCounter));
         
         // These pragma clang directives supresses a warning - "PerformSelector may cause a leak because its selector is unknown". Because by a convention, retrySelector will always call network based method with void return type. Therefore LLVM doesn't need to handle release of return objects because there's nothing to release
         
@@ -357,7 +357,7 @@
         
     } else {
         
-        DLog(@"[%@]: Max number of retries reached (%d) for %@", NSStringFromClass([self class]), kBaseAPIClientRetryCount, NSStringFromSelector(retrySelector));
+        DDLogWarn(@"[%@]: Max number of retries reached (%d) for %@", NSStringFromClass([self class]), kBaseAPIClientRetryCount, NSStringFromSelector(retrySelector));
         
         // Resetting
         (*failCounter) = 0;

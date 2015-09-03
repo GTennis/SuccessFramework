@@ -165,6 +165,7 @@
 		3119A3FC1B0DD544001CCA38 /* SeparatorHorizontalLineView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3119A3FB1B0DD544001CCA38 /* SeparatorHorizontalLineView.m */; };
 		3119A3FF1B0DD554001CCA38 /* SeparatorVerticalLineView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3119A3FE1B0DD554001CCA38 /* SeparatorVerticalLineView.m */; };
 		3119A4031B0DE3ED001CCA38 /* MenuItemObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 3119A4021B0DE3ED001CCA38 /* MenuItemObject.m */; };
+		313F0E821B98746500A3A739 /* GMCustomLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 313F0E811B98746500A3A739 /* GMCustomLogger.m */; settings = {ASSET_TAGS = (); }; };
 		317711D01B9751FF00D267DE /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 317711CF1B9751FF00D267DE /* LaunchScreen.xib */; settings = {ASSET_TAGS = (); }; };
 		318633D21B3C321A004CF62E /* SettingsViewControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 318633D11B3C321A004CF62E /* SettingsViewControllerTests.m */; };
 		318633D61B3C3818004CF62E /* SettingsModelTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 318633D51B3C3818004CF62E /* SettingsModelTests.m */; };
@@ -536,6 +537,9 @@
 		3119A4001B0DDDC6001CCA38 /* glockenspiel.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = glockenspiel.ttf; sourceTree = "<group>"; };
 		3119A4011B0DE3ED001CCA38 /* MenuItemObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuItemObject.h; sourceTree = "<group>"; };
 		3119A4021B0DE3ED001CCA38 /* MenuItemObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuItemObject.m; sourceTree = "<group>"; };
+		313F0E801B98746500A3A739 /* GMCustomLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GMCustomLogger.h; sourceTree = "<group>"; };
+		313F0E811B98746500A3A739 /* GMCustomLogger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GMCustomLogger.m; sourceTree = "<group>"; };
+		313F0E831B98750300A3A739 /* ConsoleLoggerDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ConsoleLoggerDelegate.h; sourceTree = "<group>"; };
 		317711CF1B9751FF00D267DE /* LaunchScreen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LaunchScreen.xib; sourceTree = "<group>"; };
 		318633D11B3C321A004CF62E /* SettingsViewControllerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewControllerTests.m; sourceTree = "<group>"; };
 		318633D51B3C3818004CF62E /* SettingsModelTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsModelTests.m; sourceTree = "<group>"; };
@@ -1694,8 +1698,11 @@
 		0FE1CAFD1AF65D4B006769FE /* Base */ = {
 			isa = PBXGroup;
 			children = (
+				313F0E831B98750300A3A739 /* ConsoleLoggerDelegate.h */,
 				0FE1CAFE1AF65D70006769FE /* GMConsoleLogger.h */,
 				0FE1CAFF1AF65D70006769FE /* GMConsoleLogger.m */,
+				313F0E801B98746500A3A739 /* GMCustomLogger.h */,
+				313F0E811B98746500A3A739 /* GMCustomLogger.m */,
 				0FE1CB011AF65E22006769FE /* ConsoleLogViewController.h */,
 				0FE1CB021AF65E22006769FE /* ConsoleLogViewController.m */,
 			);
@@ -2514,6 +2521,7 @@
 				31CB9EE81B175D2E0012F1F4 /* BaseNavigationBar.m in Sources */,
 				0F8D568E1AFFB510005681A7 /* KeyboardControlPrevNext.m in Sources */,
 				0FC719E31AF9335200912FF1 /* UserSignUpViewController.m in Sources */,
+				313F0E821B98746500A3A739 /* GMCustomLogger.m in Sources */,
 				0FE1CB3C1AF66DFD006769FE /* CoreViewController.m in Sources */,
 				0FC719E61AF9336300912FF1 /* UserSignUpModel.m in Sources */,
 				31CB857A1B15F89F00F827F7 /* UserProfileViewController_iphone.m in Sources */,

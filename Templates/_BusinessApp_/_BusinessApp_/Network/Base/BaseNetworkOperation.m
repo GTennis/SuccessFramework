@@ -200,7 +200,7 @@
     
     void (^successCallback)(AFHTTPRequestOperation *operation, id responseObject) = ^(AFHTTPRequestOperation *operation, id responseObject) {
         
-        DLog(@"[%@]: success", [self class]);
+        DDLogDebug(@"[%@]: success", [self class]);
 
         [weakSelf handleReceivedDataWithSuccess:YES result:responseObject error:nil callback:callback];
     };
@@ -214,7 +214,7 @@
     
     void (^failCallback)(AFHTTPRequestOperation *operation, NSError *error) = ^(AFHTTPRequestOperation *operation, NSError *error) {
         
-        DLog(@"[%@]: failed with error: %@", [self class], error);
+        DDLogWarn(@"[%@]: failed with error: %@", [self class], error);
         
         [weakSelf handleReceivedDataWithSuccess:NO result:nil error:error callback:callback];
     };

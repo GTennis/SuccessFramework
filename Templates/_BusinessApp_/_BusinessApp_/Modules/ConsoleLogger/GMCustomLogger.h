@@ -1,9 +1,9 @@
 //
-//  ConstEnums.h
+//  GMCustomLogger.h
 //  _BusinessApp_
 //
-//  Created by Gytenis Mikulėnas on 2/4/14.
-//  Copyright (c) 2015 Gytenis Mikulėnas
+//  Created by Gytenis Mikulenas on 03/09/15.
+//  Copyright © 2015 Gytenis Mikulėnas 
 //  https://github.com/GitTennis/SuccessFramework
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -25,24 +25,20 @@
 //  SOFTWARE. All rights reserved.
 //
 
-// Global enums
+#import <Foundation/Foundation.h>
+#import "DDLog.h"
 
-typedef NS_ENUM(NSInteger, NetworkRequestErrorType) {
-    
-    kNetworkRequestNoError,
-    kNetworkRequestTimeoutError,
-    kNetworkRequestIsOfflineError,
-    kNetworkRequestServerError,
-    kNetworkRequestBadInputDataError,
-    kNetworkRequestAppNeedsUpdateError
-};
+@interface GMCustomLogger : DDAbstractLogger <DDLogger>
 
-typedef NS_ENUM(NSInteger, LogLevelType) {
-    
-    kLogLevelNone = 0,
-    kLogLevelError = 1,
-    kLogLevelWarning = 2,
-    kLogLevelInfo = 3,
-    kLogLevelDebug = 4,
-    kLogLevelVerbose = 5
-};
+#pragma mark - Public -
+
+@property (nonatomic, readonly) NSMutableString *log;
+@property (nonatomic, assign) id<ConsoleLoggerDelegate> delegate;
+
+// Singleton:
++ (GMCustomLogger *)sharedInstance;
+
+// Clear log
+- (void)clearLog;
+
+@end

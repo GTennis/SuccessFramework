@@ -48,7 +48,7 @@
 
 - (void)dealloc {
     
-    DLog(@"[%@]: dealloc", NSStringFromClass([self class]));
+    DDLogDebug(@"[%@]: dealloc", NSStringFromClass([self class]));
     
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
@@ -88,7 +88,7 @@
             
             weakSelf.isLoaded = YES;
             
-            DLog(@"[%@]: didFinishModelLoadingWithData", NSStringFromClass([self class]));
+            DDLogDebug(@"[%@]: didFinishModelLoadingWithData", NSStringFromClass([self class]));
             
             [weakSelf didFinishModelLoadingWithData:result];
         }
@@ -100,7 +100,7 @@
         callback(success, result, error);
     };
     
-    DLog(@"[%@]: willStartModelLoading", NSStringFromClass([self class]));
+    DDLogDebug(@"[%@]: willStartModelLoading", NSStringFromClass([self class]));
     
     [self willStartModelLoading:wrappedCallback];
 }

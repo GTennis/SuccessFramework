@@ -94,7 +94,7 @@
                                   
                               } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error) {
                                   
-                                  DLog(@"Failed to download image: %@", request.URL);
+                                  DDLogWarn(@"Failed to download image: %@", request.URL);
                                   
                                   // Stop indicator
                                   [weakActivityIndicatorView stopAnimating];

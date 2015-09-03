@@ -160,7 +160,7 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
     
-    DLog(@"[%@]: didReceiveMemoryWarning", NSStringFromClass([self class]));
+    DDLogError(@"[%@]: didReceiveMemoryWarning", NSStringFromClass([self class]));
 }
 
 // Logs current screen name

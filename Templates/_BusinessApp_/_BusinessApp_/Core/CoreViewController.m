@@ -166,14 +166,14 @@
 - (void)prepareUI {
 
     // Implement in child classes
-    DLog(@"[%@]: prepareUI", NSStringFromClass([self class]));
+    DDLogDebug(@"[%@]: prepareUI", NSStringFromClass([self class]));
     
     //NSAssert(NO, @"prepareUI is not implemented in class: %@", NSStringFromClass([self class]));
 }
 
 - (void)renderUI {
     
-    DLog(@"[%@]: renderUI", NSStringFromClass([self class]));
+    DDLogDebug(@"[%@]: renderUI", NSStringFromClass([self class]));
     
     // Implement in child classes
     //NSAssert(NO, @"renderUI is not implemented in class: %@", NSStringFromClass([self class]));
@@ -181,7 +181,7 @@
 
 - (void)loadModel {
     
-    DLog(@"[%@]: loadModel", NSStringFromClass([self class]));
+    DDLogDebug(@"[%@]: loadModel", NSStringFromClass([self class]));
     
     // Implement in child classes
     //NSAssert(NO, @"loadModel is not implemented in class: %@", NSStringFromClass([self class]));

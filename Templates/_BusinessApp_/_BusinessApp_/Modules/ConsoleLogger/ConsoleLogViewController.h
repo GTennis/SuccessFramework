@@ -26,9 +26,9 @@
 //
 
 #import "BaseViewController.h"
-#import "GMConsoleLogger.h"
+#import "ConsoleLoggerDelegate.h"
 
-@interface ConsoleLogViewController : BaseViewController <GMConsoleLoggerDelegate>
+@interface ConsoleLogViewController : BaseViewController <ConsoleLoggerDelegate>
 
 #pragma mark - Public -
 

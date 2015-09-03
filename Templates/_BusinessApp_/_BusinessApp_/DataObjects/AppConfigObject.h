@@ -35,6 +35,9 @@
 
 #define kAppConfigVersionKey @"appConfigVersion"
 
+#define kAppConfigLoggingGroupKey @"logging"
+#define kAppConfigLogLevelKey @"logLevel"
+
 #define kAppConfigBackendAPIsKey @"backendAPIs"
 #define kAppConfigBackendProductionGroupKey @"production"
 #define kAppConfigBackendStageGroupKey @"stage"
@@ -48,6 +51,8 @@
 @property (nonatomic, copy) NSString *appStoreUrlString;
 
 @property (nonatomic) NSInteger appConfigVersion; // This property is received from backend during app launch and stored in memory during app run. Then app will requery app configs from the app everytime it will return from background. If current in-memory appConfigVersion is not equal to received appConfigVersion then app will reload itself (in order to update its backend API paths)
+
+@property (nonatomic) NSInteger logLevel;
 
 @property (nonatomic, strong) NSDictionary<NetworkRequestObject> *productionNetworkRequests;
 @property (nonatomic, strong) NSDictionary<NetworkRequestObject> *stageNetworkRequests;

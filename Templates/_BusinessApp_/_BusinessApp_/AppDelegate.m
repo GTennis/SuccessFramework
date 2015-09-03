@@ -51,8 +51,16 @@
 #import "ConfigNetworkOperation.h"
 #import "AppConfigObject.h"
 
+#import <CocoaLumberjack/CocoaLumberjack.h>
+
 // Other
 #import <iVersion.h>
+
+#ifdef DEBUG
+
+#import "GMCustomLogger.h"
+
+#endif
 
 #define kAppConfigRetryDelayDuration 3.0f
 
@@ -65,7 +73,10 @@
 #pragma mark - Main
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    
+
+    // Setup logging
+    [self initializeLoggers];
+
     // Override point for customization after application launch.
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     
@@ -159,7 +170,7 @@
 
 - (void)application:(UIApplication *)application didRegisterUserNotificationSettings:(UIUserNotificationSettings *)notificationSettings {
     
-    DLog(@"didRegisterUserNotificationSettings: %@", notificationSettings);
+    DDLogDebug(@"didRegisterUserNotificationSettings: %@", notificationSettings);
     
     // Register to receive push notifications
     [application registerForRemoteNotifications];
@@ -168,7 +179,7 @@
 // For interactive notification only
 - (void)application:(UIApplication *)application handleActionWithIdentifier:(NSString *)identifier forRemoteNotification:(NSDictionary *)userInfo completionHandler:(void(^)())completionHandler {
     
-    DLog(@"handleActionWithIdentifier:%@ forRemoteNotification:%@", identifier, userInfo);
+    DDLogDebug(@"handleActionWithIdentifier:%@ forRemoteNotification:%@", identifier, userInfo);
     
     //handle the actions
     if ([identifier isEqualToString:@"declineAction"]){
@@ -183,7 +194,7 @@
 
 - (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
     
-    DLog(@"didRegisterForRemoteNotificationsWithDeviceToken: %@", deviceToken);
+    DDLogDebug(@"didRegisterForRemoteNotificationsWithDeviceToken: %@", deviceToken);
     
     PushNotificationManager *pushNotificationManager = [REGISTRY getObject:[PushNotificationManager class]];
     [pushNotificationManager registerPushNotificationToken:deviceToken];
@@ -191,7 +202,7 @@
 
 - (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo{
     
-    DLog(@"didReceiveRemoteNotification: %@", userInfo);
+    DDLogDebug(@"didReceiveRemoteNotification: %@", userInfo);
     
     PushNotificationManager *pushNotificationManager = [REGISTRY getObject:[PushNotificationManager class]];
     [pushNotificationManager handleReceivedPushNotificationWithUserInfo:userInfo application:application];
@@ -210,7 +221,7 @@
 
 - (void)application:(UIApplication *)application didFailToRegisterForRemoteNotificationsWithError:(NSError *)error {
     
-    DLog(@"didFailToRegisterForRemoteNotificationsWithError: %@", error.localizedDescription);
+    DDLogDebug(@"didFailToRegisterForRemoteNotificationsWithError: %@", error.localizedDescription);
 }
 
 - (void)initializePushNotificationsWithinApplication:(UIApplication *)application launchOptions:(NSDictionary *)launchOptions {
@@ -331,7 +342,7 @@
 
 - (void)performForceUpdate {
     
-    DLog(@"App needs update...");
+    DDLogDebug(@"App needs update...");
     
     GMAlertView *alertView = [[GMAlertView alloc] initWithViewController:self.window.rootViewController title:nil message:GMLocalizedString(@"AppNeedsUpdate") cancelButtonTitle:GMLocalizedString(@"Update") otherButtonTitles:nil];
     
@@ -354,7 +365,7 @@
 // It's a backdoor for critical cases. If app config request will return param indicating appConfigVersion has changed AND app is already running THEN app will close and therefore will reload itself (all the backend URLs)
 - (void)performForceReload {
     
-    DLog(@"App needs reload...");
+    DDLogDebug(@"App needs reload...");
     
     GMAlertView *alertView = [[GMAlertView alloc] initWithViewController:self.window.rootViewController title:nil message:GMLocalizedString(@"AppNeedsReload") cancelButtonTitle:GMLocalizedString(@"Reload") otherButtonTitles:nil];
     
@@ -374,6 +385,8 @@
 - (void)setAppConfig:(AppConfigObject *)appConfig {
     
     _appConfig = appConfig;
+    
+    ddLogLevel = _appConfig.logLevel;
     
     // Set config to point to backend environment which is defined in main plist
     [_appConfig setCurrentRequestsWithBackendEnvironment:_backendEnvironment];
@@ -415,7 +428,7 @@
                     
                     // Store config
                     [weakSelf setAppConfig:newAppConfig];
-
+                    
                     // Continue
                     [weakSelf continueLaunchTheApp];
                 }
@@ -429,6 +442,32 @@
 - (UINavigationController *)navigationController {
     
     return _menuNavigator.centerViewController;
+}
+
+- (void)initializeLoggers {
+
+#if TARGET_IPHONE_SIMULATOR
+    // Sends log statements to Xcode console - if available
+    setenv("XcodeColors", "YES", 1);
+#endif
+    
+    // Add device logging
+    [DDLog addLogger:[DDASLLogger sharedInstance]];
+    
+#ifdef DEBUG
+    
+    // Add Xcode console logging
+    [DDLog addLogger:[DDTTYLogger sharedInstance]];
+    [DDLog addLogger:[GMCustomLogger sharedInstance]];
+    
+    // Enable Colors
+    [[DDTTYLogger sharedInstance] setColorsEnabled:YES];
+    [[DDTTYLogger sharedInstance] setForegroundColor:[UIColor redColor] backgroundColor:nil forFlag:DDLogFlagError];
+    [[DDTTYLogger sharedInstance] setForegroundColor:[UIColor orangeColor] backgroundColor:nil forFlag:DDLogFlagWarning];
+    [[DDTTYLogger sharedInstance] setForegroundColor:[UIColor magentaColor] backgroundColor:nil forFlag:DDLogFlagInfo];
+    [[DDTTYLogger sharedInstance] setForegroundColor:[UIColor blueColor] backgroundColor:nil forFlag:DDLogFlagDebug];
+    [[DDTTYLogger sharedInstance] setForegroundColor:[UIColor greenColor] backgroundColor:nil forFlag:DDLogFlagVerbose];
+#endif
 }
 
 - (void)initializeSharedComponentsWithAppConfig:(AppConfigObject *)appConfig {
