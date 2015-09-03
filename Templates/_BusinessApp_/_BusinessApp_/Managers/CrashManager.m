@@ -75,7 +75,7 @@
 #ifdef DEBUG
        
         // Mark the build is made for internal testing (Enterprise build)
-        [Crashlytics setIntValue:1 forKey:@"isDebugBuild"];
+        [[Crashlytics sharedInstance] setIntValue:1 forKey:@"isDebugBuild"];
         
 #else
       
@@ -114,22 +114,22 @@
     [_actionsArray addObject:action];
     
     // Store log
-    [Crashlytics setObjectValue:_actionsArray forKey:@"ControllerNavigationHistory"];
+    [[Crashlytics sharedInstance] setObjectValue:_actionsArray forKey:@"ControllerNavigationHistory"];
 }
 
 - (void)logCustomAction:(NSString *)actionString {
-    
-    [Crashlytics setObjectValue:actionString forKey:@"lastUsedItem"];
+
+    [[Crashlytics sharedInstance] setObjectValue:actionString forKey:@"lastUsedItem"];
 }
 
 - (void)setUserHasLoggedIn:(BOOL)isLoggedIn {
     
-    [Crashlytics setIntValue:isLoggedIn forKey:@"isLoggedIn"];
+    [[Crashlytics sharedInstance] setIntValue:isLoggedIn forKey:@"isLoggedIn"];
 }
 
 - (void)setUserLanguage:(NSString *)language {
-    
-    [Crashlytics setObjectValue:language forKey:@"userLanguage"];
+
+    [[Crashlytics sharedInstance] setObjectValue:language forKey:@"userLanguage"];
 }
 
 - (void)crash {

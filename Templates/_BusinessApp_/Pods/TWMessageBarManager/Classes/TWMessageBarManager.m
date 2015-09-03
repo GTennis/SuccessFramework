@@ -274,6 +274,7 @@ static UIColor *kTWDefaultMessageBarStyleSheetInfoStrokeColor = nil;
     self.messageVisible = NO;
     [self.messageBarQueue removeAllObjects];
     [NSObject cancelPreviousPerformRequestsWithTarget:self];
+    self.messageWindow = nil;
 }
 
 - (void)hideAll
@@ -535,15 +536,7 @@ static UIColor *kTWDefaultMessageBarStyleSheetInfoStrokeColor = nil;
         {
             if ([styleSheet respondsToSelector:@selector(iconImageForMessageType:)])
             {
-                // Original line
-                //[[styleSheet iconImageForMessageType:self.messageType] drawInRect:CGRectMake(xOffset, yOffset, kTWMessageViewIconSize, kTWMessageViewIconSize)];
-                
-                // Gytenis 07.05.15: icon's width and height will be adjusted according image
-                UIImage *image = [styleSheet iconImageForMessageType:self.messageType];
-                UIImageView *imageView = [[UIImageView alloc] initWithImage:image];
-                [imageView sizeToFit];
-                
-                [image drawInRect:CGRectMake(xOffset, yOffset, imageView.bounds.size.width, imageView.bounds.size.height)];
+                [[styleSheet iconImageForMessageType:self.messageType] drawInRect:CGRectMake(xOffset, yOffset, kTWMessageViewIconSize, kTWMessageViewIconSize)];
             }
         }
         CGContextRestoreGState(context);
@@ -671,8 +664,8 @@ static UIColor *kTWDefaultMessageBarStyleSheetInfoStrokeColor = nil;
 
 - (CGRect)statusBarFrame
 {
-    CGRect windowFrame = [self orientFrame:[UIApplication sharedApplication].keyWindow.frame];
-    CGRect statusFrame = [self orientFrame:[UIApplication sharedApplication].statusBarFrame];
+    CGRect windowFrame = NSFoundationVersionNumber <= NSFoundationVersionNumber_iOS_7_1 ? [self orientFrame:[UIApplication sharedApplication].keyWindow.frame] : [UIApplication sharedApplication].keyWindow.frame;
+    CGRect statusFrame = NSFoundationVersionNumber <= NSFoundationVersionNumber_iOS_7_1 ?  [self orientFrame:[UIApplication sharedApplication].statusBarFrame] : [UIApplication sharedApplication].statusBarFrame;
     return CGRectMake(windowFrame.origin.x, windowFrame.origin.y, windowFrame.size.width, statusFrame.size.height);
 }
 
@@ -730,28 +723,16 @@ static UIColor *kTWDefaultMessageBarStyleSheetInfoStrokeColor = nil;
 
 #pragma mark - Helpers
 
-// Original method
-/*- (CGRect)orientFrame:(CGRect)frame
+- (CGRect)orientFrame:(CGRect)frame
 {
-    if (UIDeviceOrientationIsLandscape([UIDevice currentDevice].orientation) || UIDeviceOrientationIsLandscape([UIApplication sharedApplication].statusBarOrientation))
-    {
-        frame = CGRectMake(frame.origin.x, frame.origin.y, frame.size.height, frame.size.width);
-    }
-    return frame;
-}*/
-
-// Using fix for iPad from here: https://github.com/terryworona/TWMessageBarManager/issues/59
-
-- (CGRect)orientFrame:(CGRect)frame {
-    
-    NSString *systemVersion = [UIDevice currentDevice].systemVersion;
-    NSUInteger systemInt = [systemVersion intValue];
-    
-    if ( (UIDeviceOrientationIsLandscape([UIDevice currentDevice].orientation) || UIDeviceOrientationIsLandscape([UIApplication sharedApplication].statusBarOrientation)) && systemInt < 8 )
-    {
-        frame = CGRectMake(frame.origin.x, frame.origin.y, frame.size.height, frame.size.width);
-    }
-    return frame;
+	NSString *systemVersion = [UIDevice currentDevice].systemVersion;
+	NSUInteger systemInt = [systemVersion intValue];
+	
+	if ( (UIDeviceOrientationIsLandscape([UIDevice currentDevice].orientation) || [UIApplication sharedApplication].statusBarOrientation == UIInterfaceOrientationLandscapeLeft || [UIApplication sharedApplication].statusBarOrientation == UIInterfaceOrientationLandscapeRight) && systemInt < 8 )
+	{
+		frame = CGRectMake(frame.origin.x, frame.origin.y, frame.size.height, frame.size.width);
+	}
+	return frame;
 }
 
 #pragma mark - Notifications
