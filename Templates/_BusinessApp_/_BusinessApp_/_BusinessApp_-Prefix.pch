@@ -100,10 +100,10 @@
 #import "NSString+Utils.h"
 #import "ViewControllerFactory.h"
 
+// App logging
 #import <CocoaLumberjack/CocoaLumberjack.h>
-
-// Default level until app config is received
-static NSInteger ddLogLevel = DDLogLevelVerbose;
+// Global Dynamic log levels http://www.egeek.me/2013/06/09/global-dynamic-log-level-in-cocoalumberjack/
+#import "GMLoggingConfig.h"
 
 // Alerts
 #import "GMAlertView.h"

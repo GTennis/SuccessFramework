@@ -54,4 +54,7 @@
 @property (strong, nonatomic) id<MessageBarManagerProtocol> messageBarManager;
 @property (strong, nonatomic) id<SettingsManagerProtocol> settingsManager;
 
+// Current log level
+@property (readonly) NSInteger logLevel;
+
 @end

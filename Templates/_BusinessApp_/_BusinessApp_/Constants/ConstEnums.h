@@ -44,5 +44,6 @@ typedef NS_ENUM(NSInteger, LogLevelType) {
     kLogLevelWarning = 2,
     kLogLevelInfo = 3,
     kLogLevelDebug = 4,
-    kLogLevelVerbose = 5
+    kLogLevelVerbose = 5,
+    kLogLevelAll = 999
 };

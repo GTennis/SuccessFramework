@@ -1,8 +1,8 @@
 //
-//  GMCustomLogger.h
+//  GMLoggingConfig.h
 //  _BusinessApp_
 //
-//  Created by Gytenis Mikulenas on 03/09/15.
+//  Created by Gytenis Mikulenas on 04/09/15.
 //  Copyright © 2015 Gytenis Mikulėnas 
 //  https://github.com/GitTennis/SuccessFramework
 //
@@ -25,20 +25,10 @@
 //  SOFTWARE. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
-#import "ConsoleLoggerDelegate.h"
+extern NSInteger ddLogLevel;
 
-@interface GMCustomLogger : DDAbstractLogger <DDLogger>
+@interface GMLoggingConfig : NSObject
 
-#pragma mark - Public -
-
-@property (nonatomic, readonly) NSMutableString *log;
-@property (nonatomic, assign) id<ConsoleLoggerDelegate> delegate;
-
-// Singleton:
-+ (GMCustomLogger *)sharedInstance;
-
-// Clear log
-- (void)clearLog;
++ (DDLogLevel)convertedLogLevel:(LogLevelType)logLevel;
 
 @end

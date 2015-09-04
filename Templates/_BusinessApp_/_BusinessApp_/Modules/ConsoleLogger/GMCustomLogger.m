@@ -46,6 +46,7 @@ static GMCustomLogger *_sharedInstance = nil;
 #pragma mark - DDLogger -
 
 - (void)logMessage:(DDLogMessage *)logMessage {
+    
     NSString *logMsg = logMessage.message;
     
     if (_logFormatter) {
@@ -53,10 +54,11 @@ static GMCustomLogger *_sharedInstance = nil;
         logMsg = [_logFormatter formatLogMessage:logMessage];
     }
     
-    if (logMsg && logMessage.message.length > 0) {
+    if (logMsg && // check if log is not empty
+        logMsg.length > 0) { // check if log contains message string
         
         // Prepare log message
-        NSString *logString = [logMessage.message stringByAppendingString:@"\n"];
+        NSString *logString = [logMsg stringByAppendingString:@"\n"];
         [_log appendString:logString];
 
         // Notify app debug console

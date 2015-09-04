@@ -386,7 +386,7 @@
     
     _appConfig = appConfig;
     
-    ddLogLevel = _appConfig.logLevel;
+    ddLogLevel = [GMLoggingConfig convertedLogLevel:_appConfig.logLevel];
     
     // Set config to point to backend environment which is defined in main plist
     [_appConfig setCurrentRequestsWithBackendEnvironment:_backendEnvironment];
@@ -421,6 +421,11 @@
                     if (weakSelf.appConfig.appConfigVersion < newAppConfig.appConfigVersion) {
                         
                         [weakSelf performForceReload];
+                        
+                    } else {
+                        
+                        // Update config
+                        [weakSelf setAppConfig:newAppConfig];
                     }
                     
                 // Else continue launching app...
