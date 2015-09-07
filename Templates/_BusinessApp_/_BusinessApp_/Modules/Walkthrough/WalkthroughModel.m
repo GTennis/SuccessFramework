@@ -40,6 +40,9 @@
     
     // Setting will be marked when the model will load for the first time
     self.settingsManager.isFirstTimeAppLaunch = NO;
+    
+    // Immediate callback
+    callback(YES, nil, nil);
 }
 
 - (void)didFinishModelLoadingWithData:(id)data {

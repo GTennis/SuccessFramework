@@ -28,7 +28,6 @@
 #import "ConsoleLogViewController.h"
 #import "GMAlertView.h"
 #import "SendEmailCommand.h"
-//#import "GMConsoleLogger.h"
 #import "GMCustomLogger.h"
 
 #define kConsoleLogViewControllerDevEmail @"developer@dev.com"

@@ -5,7 +5,7 @@
         "appStoreUrl":"https://www.youtube.com/watch?v=VQf88OnVJeA"
     },
     "logging":{
-        "logLevel":1,
+        "logLevel":"all",
         "percentageOfUsersToBeLogged":100
     },
     "backendAPIs":{

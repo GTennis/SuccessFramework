@@ -123,7 +123,6 @@
 		0FE1CAE71AF65593006769FE /* ErrorObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FE1CAE61AF65593006769FE /* ErrorObject.m */; };
 		0FE1CAED1AF6564B006769FE /* ImageObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FE1CAEA1AF6564B006769FE /* ImageObject.m */; };
 		0FE1CAEE1AF6564B006769FE /* ImagesObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FE1CAEC1AF6564B006769FE /* ImagesObject.m */; };
-		0FE1CB001AF65D70006769FE /* GMConsoleLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FE1CAFF1AF65D70006769FE /* GMConsoleLogger.m */; };
 		0FE1CB031AF65E22006769FE /* ConsoleLogViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FE1CB021AF65E22006769FE /* ConsoleLogViewController.m */; };
 		0FE1CB071AF65EC1006769FE /* ConsoleLogViewController_iphone.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FE1CB051AF65EC1006769FE /* ConsoleLogViewController_iphone.m */; };
 		0FE1CB081AF65EC1006769FE /* ConsoleLogViewController_iphone.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0FE1CB061AF65EC1006769FE /* ConsoleLogViewController_iphone.xib */; };
@@ -446,8 +445,6 @@
 		0FE1CAEC1AF6564B006769FE /* ImagesObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImagesObject.m; sourceTree = "<group>"; };
 		0FE1CAF41AF65782006769FE /* MessageBarManagerProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MessageBarManagerProtocol.h; sourceTree = "<group>"; };
 		0FE1CAF51AF657C4006769FE /* SettingsManagerProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SettingsManagerProtocol.h; sourceTree = "<group>"; };
-		0FE1CAFE1AF65D70006769FE /* GMConsoleLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GMConsoleLogger.h; sourceTree = "<group>"; };
-		0FE1CAFF1AF65D70006769FE /* GMConsoleLogger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GMConsoleLogger.m; sourceTree = "<group>"; };
 		0FE1CB011AF65E22006769FE /* ConsoleLogViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConsoleLogViewController.h; sourceTree = "<group>"; };
 		0FE1CB021AF65E22006769FE /* ConsoleLogViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConsoleLogViewController.m; sourceTree = "<group>"; };
 		0FE1CB041AF65EC1006769FE /* ConsoleLogViewController_iphone.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConsoleLogViewController_iphone.h; sourceTree = "<group>"; };
@@ -1704,8 +1701,6 @@
 				313F0E831B98750300A3A739 /* ConsoleLoggerDelegate.h */,
 				316974551B99BA8200F560BE /* GMLoggingConfig.h */,
 				316974561B99BA8200F560BE /* GMLoggingConfig.m */,
-				0FE1CAFE1AF65D70006769FE /* GMConsoleLogger.h */,
-				0FE1CAFF1AF65D70006769FE /* GMConsoleLogger.m */,
 				313F0E801B98746500A3A739 /* GMCustomLogger.h */,
 				313F0E811B98746500A3A739 /* GMCustomLogger.m */,
 				0FE1CB011AF65E22006769FE /* ConsoleLogViewController.h */,
@@ -2506,7 +2501,6 @@
 				0FC719F91AF9341600912FF1 /* UserProfileModel.m in Sources */,
 				31CB85A01B15F9EF00F827F7 /* UserSignUpViewController_ipad.m in Sources */,
 				31CB856C1B15F11200F827F7 /* UserContainerViewController_ipad.m in Sources */,
-				0FE1CB001AF65D70006769FE /* GMConsoleLogger.m in Sources */,
 				31CB9EEE1B175ED50012F1F4 /* TopModalNavigationBar_iphone.m in Sources */,
 				0F7A85451AFFF65E00A2F6C4 /* TermsConditionsViewController_ipad.m in Sources */,
 				0FC719F01AF933BA00912FF1 /* SettingsModel.m in Sources */,

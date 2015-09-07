@@ -25,10 +25,16 @@
 //  SOFTWARE. All rights reserved.
 //
 
+// This is global static variable which is used by CocoaLumberjack logging across the app
+// It's assigned to default value upon launching the app, and updated from AppConfig web service later
 extern NSInteger ddLogLevel;
 
 @interface GMLoggingConfig : NSObject
 
-+ (DDLogLevel)convertedLogLevel:(LogLevelType)logLevel;
+#pragma mark - Public -
+
++ (void)initializeLoggers;
++ (LogLevelType)logLevel;
++ (void)updateLogLevel:(LogLevelType)logLevel;
 
 @end

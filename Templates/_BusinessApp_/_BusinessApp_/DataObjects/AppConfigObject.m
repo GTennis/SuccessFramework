@@ -61,7 +61,10 @@
         }
         
         // Parse log level. Will be set to no logging in case it's missing
-        _logLevel = [dict[kAppConfigLoggingGroupKey][kAppConfigLogLevelKey] integerValue];
+        NSString *logLevelString = dict[kAppConfigLoggingGroupKey][kAppConfigLogLevelKey];
+        DDLogDebug(@"LogLevel is about to be set to %@", logLevelString);
+        
+        _logLevel = [self convertedLogLevel:logLevelString];
         
         //----- Check app config version -----//
         
@@ -171,6 +174,54 @@
     
     // Return
     return result;
+}
+
+- (LogLevelType)convertedLogLevel:(NSString *)logLevelString {
+    
+    // Basic type check
+    if (![logLevelString isKindOfClass:[NSString class]]) {
+        
+        return kLogLevelWarning;
+    }
+    
+    // Proceed
+    
+    LogLevelType logLevel;
+    
+    if ([logLevelString isEqualToString:@"none"]) {
+        
+        logLevel = kLogLevelNone;
+        
+    } else if ([logLevelString isEqualToString:@"error"]) {
+        
+        logLevel = kLogLevelError;
+        
+    } else if ([logLevelString isEqualToString:@"warning"]) {
+        
+        logLevel = kLogLevelWarning;
+        
+    } else if ([logLevelString isEqualToString:@"info"]) {
+        
+        logLevel = kLogLevelInfo;
+        
+    } else if ([logLevelString isEqualToString:@"debug"]) {
+        
+        logLevel = kLogLevelDebug;
+        
+    } else if ([logLevelString isEqualToString:@"verbose"]) {
+        
+        logLevel = kLogLevelVerbose;
+        
+    } else if ([logLevelString isEqualToString:@"all"] ) {
+        
+        logLevel = kLogLevelAll;
+        
+    } else {
+        
+        logLevel = kLogLevelWarning;
+    }
+    
+    return logLevel;
 }
 
 @end

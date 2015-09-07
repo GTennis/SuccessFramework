@@ -79,10 +79,14 @@
 
 - (void)startSession {
     
+    DDLogVerbose(@"GA: starting session...");
+    
     [_defaultTracker set:kGAISessionControl value:@"start"];
 }
 
 - (void)endSession {
+    
+    DDLogVerbose(@"GA: ending session...");
     
     [_defaultTracker set:kGAISessionControl value:@"end"];
 }
@@ -90,7 +94,7 @@
 - (void)logScreen:(NSString *)screeName {
     if (screeName.length){
         
-        GALog(@"%@", screeName);
+        DDLogVerbose(@"GA screen log: %@", screeName);
         
         [_defaultTracker set:kGAIScreenName value:screeName];
         [_defaultTracker send:[[GAIDictionaryBuilder createScreenView] build]];
@@ -106,7 +110,7 @@
  
  if (item && transactionId.length) {
  
- GALog(@"logPurchasedItem:%@", item.title);
+ DDLogVerbose(@"logPurchasedItem:%@", item.title);
  
  [_defaultTracker send:[[GAIDictionaryBuilder createItemWithTransactionId:transactionId
  name:item.title
@@ -121,7 +125,7 @@
  - (void)logPurchaseOrder:(OrderObject *)order transactionId:(NSString *)transactionId{
  if (order && transactionId.length) {
  
- GALog(@"logPurchaseOrder");
+ DDLogVerbose(@"logPurchaseOrder");
  
  // We can use Paypal | CreditCard | or other payment type value for affiliation param
  [_defaultTracker send:[[GAIDictionaryBuilder createTransactionWithId:transactionId
@@ -137,7 +141,7 @@
     
     if (category.length && action.length) {
         
-        GALog(@"%@:%@:%@:%@", category, action, title, value);
+        DDLogVerbose(@"GA action log: %@:%@:%@:%@", category, action, title, value);
         
         [_defaultTracker send:[[GAIDictionaryBuilder createEventWithCategory:category        // Event category (required)
                                                                       action:action          // Event action   (required)

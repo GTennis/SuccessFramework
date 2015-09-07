@@ -29,6 +29,8 @@
 
 #ifdef DEBUG
 
+#import "GMCustomLogger.h"
+
 // Default level until app config is received
 NSInteger ddLogLevel = DDLogLevelVerbose;
 
@@ -40,6 +42,48 @@ NSInteger ddLogLevel = DDLogLevelVerbose;
 #endif
 
 @implementation GMLoggingConfig
+
+#pragma mark - Public -
+
++ (void)initializeLoggers {
+    
+#if TARGET_IPHONE_SIMULATOR
+    // Sends log statements to Xcode console - if available
+    setenv("XcodeColors", "YES", 1);
+#endif
+    
+    // Add device logging
+    [DDLog addLogger:[DDASLLogger sharedInstance]];
+    
+#ifdef DEBUG
+    
+    // Add Xcode console logging
+    [DDLog addLogger:[DDTTYLogger sharedInstance]];
+    [DDLog addLogger:[GMCustomLogger sharedInstance]];
+    
+    // Enable Colors
+    [[DDTTYLogger sharedInstance] setColorsEnabled:YES];
+    [[DDTTYLogger sharedInstance] setForegroundColor:[UIColor redColor] backgroundColor:nil forFlag:DDLogFlagError];
+    [[DDTTYLogger sharedInstance] setForegroundColor:[UIColor orangeColor] backgroundColor:nil forFlag:DDLogFlagWarning];
+    [[DDTTYLogger sharedInstance] setForegroundColor:[UIColor magentaColor] backgroundColor:nil forFlag:DDLogFlagInfo];
+    [[DDTTYLogger sharedInstance] setForegroundColor:[UIColor blueColor] backgroundColor:nil forFlag:DDLogFlagDebug];
+    [[DDTTYLogger sharedInstance] setForegroundColor:[UIColor greenColor] backgroundColor:nil forFlag:DDLogFlagVerbose];
+#endif
+}
+
++ (LogLevelType)logLevel {
+    
+    return ddLogLevel;
+}
+
++ (void)updateLogLevel:(LogLevelType)logLevel {
+    
+    ddLogLevel = [self convertedLogLevel:logLevel];
+    
+    DDLogInfo(@"LogLevel set to %ld", (long)ddLogLevel);
+}
+
+#pragma mark - Private -
 
 + (DDLogLevel)convertedLogLevel:(LogLevelType)logLevel {
     

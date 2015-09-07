@@ -35,50 +35,6 @@
 
 #ifdef __OBJC__
 
-//#define GA_DEBUG
-//#define SHORT_DLOG
-
-//Assertions and Logging
-#ifdef DEBUG
-
-    /*#ifndef SHORT_DLOG
- 
-        #define DLog(...) NSLog(@"%s(%p) %@", __PRETTY_FUNCTION__, self, [NSString stringWithFormat:__VA_ARGS__])
-        #define DLog(FORMAT,...) printf("%s\n", [[NSString stringWithFormat:FORMAT, ##__VA_ARGS__] UTF8String]);
- 
-     #else
- 
-        // Used partialy from http://stackoverflow.com/questions/5588855/standard-alternative-to-gccs-va-args-trick
-        // Print only class name and first argument (mostly text)
-        #define FIRST_HELPER(first, ...) first
-        #define DLog(...) printf("%s[%p]: %s\n", [NSStringFromClass([self class]) UTF8String], NSStringFromClass([self class]), [[FIRST_HELPER(__VA_ARGS__) substringToIndex:NSMaxRange([FIRST_HELPER(__VA_ARGS__) rangeOfString:@"%"])-1] UTF8String])
-     #endif*/
-
-    #import "GMConsoleLogger.h"
-    #define DLog(...) customLogger([NSString stringWithFormat:__VA_ARGS__]);
-
-#else
-
-    #define DLog(...) do { } while (0)
-
-#endif
-
-// Statistics tracking logging for GA
-#ifdef DEBUG
-
-// GA logging
-#ifdef GA_DEBUG
-#define GALog(...) NSLog(@"GA log> %@", [NSString stringWithFormat:__VA_ARGS__])
-#else
-#define GALog(...) do { } while (0)
-#endif
-
-#else
-
-#define GALog(...) do { } while (0)
-
-#endif
-
 #define PRODUCTION_TARGET
 
 // Debugging

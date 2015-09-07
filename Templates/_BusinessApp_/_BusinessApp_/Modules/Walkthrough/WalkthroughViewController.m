@@ -38,7 +38,10 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
+    // Render static labels
     [self prepareUI];
+    
+    // Initialize model
     [self loadModel];
 }
 

@@ -53,14 +53,11 @@
 
 #import <CocoaLumberjack/CocoaLumberjack.h>
 
+// Logging
+#import "GMLoggingConfig.h"
+
 // Other
 #import <iVersion.h>
-
-#ifdef DEBUG
-
-#import "GMCustomLogger.h"
-
-#endif
 
 #define kAppConfigRetryDelayDuration 3.0f
 
@@ -75,7 +72,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
 
     // Setup logging
-    [self initializeLoggers];
+    [GMLoggingConfig initializeLoggers];
 
     // Override point for customization after application launch.
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
@@ -384,9 +381,11 @@
 
 - (void)setAppConfig:(AppConfigObject *)appConfig {
     
+    // Store app config
     _appConfig = appConfig;
-    
-    ddLogLevel = [GMLoggingConfig convertedLogLevel:_appConfig.logLevel];
+
+    // Update global log level
+    [GMLoggingConfig updateLogLevel:_appConfig.logLevel];
     
     // Set config to point to backend environment which is defined in main plist
     [_appConfig setCurrentRequestsWithBackendEnvironment:_backendEnvironment];
@@ -449,31 +448,7 @@
     return _menuNavigator.centerViewController;
 }
 
-- (void)initializeLoggers {
 
-#if TARGET_IPHONE_SIMULATOR
-    // Sends log statements to Xcode console - if available
-    setenv("XcodeColors", "YES", 1);
-#endif
-    
-    // Add device logging
-    [DDLog addLogger:[DDASLLogger sharedInstance]];
-    
-#ifdef DEBUG
-    
-    // Add Xcode console logging
-    [DDLog addLogger:[DDTTYLogger sharedInstance]];
-    [DDLog addLogger:[GMCustomLogger sharedInstance]];
-    
-    // Enable Colors
-    [[DDTTYLogger sharedInstance] setColorsEnabled:YES];
-    [[DDTTYLogger sharedInstance] setForegroundColor:[UIColor redColor] backgroundColor:nil forFlag:DDLogFlagError];
-    [[DDTTYLogger sharedInstance] setForegroundColor:[UIColor orangeColor] backgroundColor:nil forFlag:DDLogFlagWarning];
-    [[DDTTYLogger sharedInstance] setForegroundColor:[UIColor magentaColor] backgroundColor:nil forFlag:DDLogFlagInfo];
-    [[DDTTYLogger sharedInstance] setForegroundColor:[UIColor blueColor] backgroundColor:nil forFlag:DDLogFlagDebug];
-    [[DDTTYLogger sharedInstance] setForegroundColor:[UIColor greenColor] backgroundColor:nil forFlag:DDLogFlagVerbose];
-#endif
-}
 
 - (void)initializeSharedComponentsWithAppConfig:(AppConfigObject *)appConfig {
     

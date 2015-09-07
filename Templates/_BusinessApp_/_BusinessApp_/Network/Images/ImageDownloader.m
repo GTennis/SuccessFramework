@@ -62,8 +62,12 @@
     
     NSURLRequest *request = [ImageDownloader imageRequestWithUrlString:imageUrl size:imageView.bounds.size];
     
+    DDLogDebug(@"Will download image: %@", request.URL);
+    
     // Return if bad url
     if (!request) {
+        
+        DDLogWarn(@"Unable to download image: bad url");
         
         // Show failed placeholder image in case there's no image
         UIImage *image = [UIImage imageNamed:failedPlaceholder];
