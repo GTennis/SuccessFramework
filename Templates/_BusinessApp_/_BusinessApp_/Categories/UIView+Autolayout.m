@@ -196,28 +196,52 @@
     return constraint;
 }
 
-#pragma mark - Pin with next view
+#pragma mark - Pin to other view
 
-- (void)viewAddHorizontalSpace:(CGFloat)horizontalSpace toRightView:(UIView *)rightView containerView:(UIView *)containerView {
+- (void)viewAddLeftToView:(UIView *)view horizontalSpace:(CGFloat)horizontalSpace containerView:(UIView *)containerView {
     
     [self prepareViewForAutolayout];
     
-    NSDictionary *views = NSDictionaryOfVariableBindings(self, rightView);
+    NSDictionary *views = NSDictionaryOfVariableBindings(self, view);
     NSDictionary *metrics = @{@"horizontalSpace":@(horizontalSpace)};
     
-    NSArray *constraints = [NSLayoutConstraint constraintsWithVisualFormat:@"H:[self]-horizontalSpace-[rightView]" options:0 metrics:metrics views:views];
+    NSArray *constraints = [NSLayoutConstraint constraintsWithVisualFormat:@"H:[self]-horizontalSpace-[view]" options:0 metrics:metrics views:views];
     
     [containerView addConstraints:constraints];
 }
 
-- (void)viewAddVerticalSpace:(CGFloat)verticalSpace toBottomView:(UIView *)bottomView containerView:(UIView *)containerView {
+- (void)viewAddRightToView:(UIView *)view horizontalSpace:(CGFloat)horizontalSpace containerView:(UIView *)containerView {
     
     [self prepareViewForAutolayout];
     
-    NSDictionary *views = NSDictionaryOfVariableBindings(self, bottomView);
+    NSDictionary *views = NSDictionaryOfVariableBindings(self, view);
+    NSDictionary *metrics = @{@"horizontalSpace":@(horizontalSpace)};
+    
+    NSArray *constraints = [NSLayoutConstraint constraintsWithVisualFormat:@"H:[view]-horizontalSpace-[self]" options:0 metrics:metrics views:views];
+    
+    [containerView addConstraints:constraints];
+}
+
+- (void)viewAddBelowOfView:(UIView *)view verticalSpace:(CGFloat)verticalSpace containerView:(UIView *)containerView {
+    
+    [self prepareViewForAutolayout];
+    
+    NSDictionary *views = NSDictionaryOfVariableBindings(self, view);
     NSDictionary *metrics = @{@"verticalSpace":@(verticalSpace)};
     
-    NSArray *constraints = [NSLayoutConstraint constraintsWithVisualFormat:@"V:[self]-verticalSpace-[bottomView]" options:0 metrics:metrics views:views];
+    NSArray *constraints = [NSLayoutConstraint constraintsWithVisualFormat:@"V:[view]-verticalSpace-[self]" options:0 metrics:metrics views:views];
+    
+    [containerView addConstraints:constraints];
+}
+
+- (void)viewAddOnTopOfView:(UIView *)view verticalSpace:(CGFloat)verticalSpace containerView:(UIView *)containerView {
+    
+    [self prepareViewForAutolayout];
+    
+    NSDictionary *views = NSDictionaryOfVariableBindings(self, view);
+    NSDictionary *metrics = @{@"verticalSpace":@(verticalSpace)};
+    
+    NSArray *constraints = [NSLayoutConstraint constraintsWithVisualFormat:@"V:[self]-verticalSpace-[view]" options:0 metrics:metrics views:views];
     
     [containerView addConstraints:constraints];
 }

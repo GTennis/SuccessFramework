@@ -47,8 +47,10 @@
 - (NSLayoutConstraint *)viewAddTopSpace:(CGFloat)topSpace containerView:(UIView *)containerView;
 - (NSLayoutConstraint *)viewAddBottomSpace:(CGFloat)bottomSpace containerView:(UIView *)containerView;
 
-// Pin with next view
-- (void)viewAddHorizontalSpace:(CGFloat)horizontalSpace toRightView:(UIView *)rightView containerView:(UIView *)containerView;
-- (void)viewAddVerticalSpace:(CGFloat)verticalSpace toBottomView:(UIView *)bottomView containerView:(UIView *)containerView;
+// Pin to other view
+- (void)viewAddLeftToView:(UIView *)view horizontalSpace:(CGFloat)horizontalSpace containerView:(UIView *)containerView;
+- (void)viewAddRightToView:(UIView *)view horizontalSpace:(CGFloat)horizontalSpace containerView:(UIView *)containerView;
+- (void)viewAddBelowOfView:(UIView *)view verticalSpace:(CGFloat)verticalSpace containerView:(UIView *)containerView;
+- (void)viewAddOnTopOfView:(UIView *)view verticalSpace:(CGFloat)verticalSpace containerView:(UIView *)containerView;
 
 @end
