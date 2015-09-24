@@ -28,6 +28,6 @@
 @protocol ViewControllerModelProtocol <NSObject>
 
 - (void)willStartModelLoading:(Callback)callback;
-- (void)didFinishModelLoadingWithData:(id)data;
+- (void)didFinishModelLoadingWithData:(id)data error:(NSError *)error;
 
 @end

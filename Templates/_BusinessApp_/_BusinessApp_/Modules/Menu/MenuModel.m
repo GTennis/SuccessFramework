@@ -89,7 +89,7 @@
     callback(YES, itemList, nil);
 }
 
-- (void)didFinishModelLoadingWithData:(id)data {
+- (void)didFinishModelLoadingWithData:(id)data error:(NSError *)error {
     
     // Store menu items
     _menuItems = data;

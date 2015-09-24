@@ -45,7 +45,7 @@
     callback(YES, nil, nil);
 }
 
-- (void)didFinishModelLoadingWithData:(id)data {
+- (void)didFinishModelLoadingWithData:(id)data error:(NSError *)error {
     
     // ...
 }

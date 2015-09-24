@@ -42,7 +42,7 @@
     [imageListOperation performWithParams:nil callback:callback];
 }
 
-- (void)didFinishModelLoadingWithData:(id)data {
+- (void)didFinishModelLoadingWithData:(id)data error:(NSError *)error {
 
     // Store data
     _images = (ImagesObject *)data;

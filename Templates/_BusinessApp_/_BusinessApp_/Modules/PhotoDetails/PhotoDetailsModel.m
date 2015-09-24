@@ -42,7 +42,7 @@
     callback(YES, self.context, nil);
 }
 
-- (void)didFinishModelLoadingWithData:(id)data {
+- (void)didFinishModelLoadingWithData:(id)data error:(NSError *)error {
     
     // Store data
     _image = (ImageObject *)data;

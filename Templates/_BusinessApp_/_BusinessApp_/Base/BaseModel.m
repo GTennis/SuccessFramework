@@ -90,12 +90,12 @@
             
             DDLogDebug(@"[%@]: didFinishModelLoadingWithData", NSStringFromClass([self class]));
             
-            [weakSelf didFinishModelLoadingWithData:result];
-        }
-        else {
+        } else {
             
             weakSelf.isLoaded = NO;
         }
+        
+        [weakSelf didFinishModelLoadingWithData:result error:error];
         
         callback(success, result, error);
     };
@@ -116,10 +116,10 @@
 #pragma mark - ViewControllerModelProtocol -
 
 // Every subclass shoud override this method and perform data loading
-- (void)didFinishModelLoadingWithData:(id)data {
+- (void)didFinishModelLoadingWithData:(id)data error:(NSError *)error {
     
     // Implement in child classes
-    NSAssert(NO, @"didFinishModelLoadingWithData is not implemented in class: %@", NSStringFromClass([self class]));
+    NSAssert(NO, @"didFinishModelLoadingWithData:error: is not implemented in class: %@", NSStringFromClass([self class]));
 }
 
 // Every subclass shoud override this method and assign passed data to its internal property
