@@ -66,51 +66,6 @@
     return self;
 }
 
-/*
- Transparent solution for universal apps. Every module (screen) should have its primary (base) view controller, for example MyModuleViewController, but without xib. Then,  create a separate class with its xib for iPhone using format MyModuleViewController_iphone. And then, create the same using MyModuleViewController_ipad for iPad.
- 
- In the all app code FORGET about conditional creation of viewControllers, like:
- 
- ...
- if (device == iPad) {
- 
- viewController = [[MyModuleViewController_ipad alloc] init];
- 
- } else {
- 
- viewController = [[MyModuleViewController_iphone alloc] init];
- }
- 
- Just use [[MyModuleViewController alloc] init] and the method below will take care which subclass it should use for creating controller.
- */
-+ (id)alloc {
-    
-    NSString *viewControllerClassName = NSStringFromClass([self class]);
-    
-    // This method gets called two times during creation of viewController
-    
-    // The first time the method is called from MyModuleViewController class declaration. We need to override MyModuleViewController class name into device specific class name, so this first condition checks if class name doesn't contain appended suffix
-    
-    if ([viewControllerClassName rangeOfString:@"ipad"].location == NSNotFound && [viewControllerClassName rangeOfString:@"iphone"].location == NSNotFound) {
-        
-        if (isIpad) {
-            
-            viewControllerClassName = [NSString stringWithFormat:@"%@_ipad", viewControllerClassName];
-            
-        } else {
-            
-            viewControllerClassName = [NSString stringWithFormat:@"%@_iphone", viewControllerClassName];
-        }
-        
-        return [NSClassFromString(viewControllerClassName) alloc];
-        
-        // The second call will be made from within correct device specific  subclass, so we just need to pass execution flow to its regular place
-    } else {
-        
-        return [super alloc];
-    }
-}
-
 - (void)viewDidLoad {
     
     [super viewDidLoad];
