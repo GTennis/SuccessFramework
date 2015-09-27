@@ -25,18 +25,17 @@
 //  SOFTWARE. All rights reserved.
 //
 
-#import "BaseTableViewCell.h"
-
 #define kTableViewExampleCellIdentifier @"TableViewExampleCell"
 
 @class UserObject;
 
-@interface TableViewExampleCell : BaseTableViewCell
+@interface TableViewExampleCell : UITableViewCell
 
 #pragma mark - Public -
 
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
 
 - (void)renderCellWithUser:(UserObject *)user;
++ (CGFloat)heightForCell;
 
 @end

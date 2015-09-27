@@ -73,8 +73,9 @@
 
 #pragma mark ScrollView related
 
+// Looks like this is not needed anymore
 // Screens containing scrollView with content inside are mostly targeted for data input form screens. Therefore, need to calculate and set scrollView content height with respect to containing items.
-- (void)viewDidLayoutSubviews {
+/*- (void)viewDidLayoutSubviews {
     
     [super viewDidLayoutSubviews];
     
@@ -107,7 +108,7 @@
         // Set content height using most bottom view position
         self.contentScrollView.contentSize = CGSizeMake(contentWidth, contentHeight);
     }
-}
+}*/
 
 - (void)scrollToActiveField:(UIView *)textField {
     

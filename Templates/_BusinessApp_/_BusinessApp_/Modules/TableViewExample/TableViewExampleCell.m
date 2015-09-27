@@ -73,6 +73,11 @@
     _nameLabel.text = _user.firstName;
 }
 
++ (CGFloat)heightForCell {
+    
+    return 44.0f;
+}
+
 #pragma mark - Protected -
 
 - (NSString *)reuseIdentifier {

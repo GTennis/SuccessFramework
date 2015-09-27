@@ -105,11 +105,6 @@
     return view;
 }
 
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    
-    return [TableViewExampleCell heightForCell];
-}
-
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     
     return 1;

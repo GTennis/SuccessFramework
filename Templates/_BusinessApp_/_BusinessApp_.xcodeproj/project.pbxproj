@@ -37,12 +37,10 @@
 		0FA4980A19DA164F0057D9F4 /* BaseDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FA4980919DA164F0057D9F4 /* BaseDetailsViewController.m */; };
 		0FA4E8ED19CD5D950046CA90 /* TableViewExampleCell_ipad.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FA4E8EC19CD5D950046CA90 /* TableViewExampleCell_ipad.m */; };
 		0FA62C6A19CF0CF6002D3DDC /* UIView+Fonts.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FA62C6919CF0CF6002D3DDC /* UIView+Fonts.m */; };
-		0FA62C6D19CF2D70002D3DDC /* BaseTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FA62C6C19CF2D70002D3DDC /* BaseTableViewCell.m */; };
 		0FA62C7719CF5DE6002D3DDC /* NSObject+Selectors.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FA62C7619CF5DE6002D3DDC /* NSObject+Selectors.m */; };
 		0FA62C7A19CF6D17002D3DDC /* HomeModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FA62C7919CF6D17002D3DDC /* HomeModel.m */; };
 		0FA67F7719C4F6B500E00FDA /* SettingsViewController_ipad.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FA67F7519C4F6B500E00FDA /* SettingsViewController_ipad.m */; };
 		0FA67F7819C4F6B600E00FDA /* SettingsViewController_ipad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0FA67F7619C4F6B500E00FDA /* SettingsViewController_ipad.xib */; };
-		0FA67F7B19C4FF4F00E00FDA /* BasePartialView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FA67F7A19C4FF4F00E00FDA /* BasePartialView.m */; };
 		0FA67F7E19C61F8600E00FDA /* BaseWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FA67F7D19C61F8600E00FDA /* BaseWebViewController.m */; };
 		0FA6959919BB9A720058A722 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0FA6959819BB9A720058A722 /* Foundation.framework */; };
 		0FA6959B19BB9A720058A722 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0FA6959A19BB9A720058A722 /* CoreGraphics.framework */; };
@@ -278,8 +276,6 @@
 		0FA4E8EC19CD5D950046CA90 /* TableViewExampleCell_ipad.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableViewExampleCell_ipad.m; sourceTree = "<group>"; };
 		0FA62C6819CF0CF6002D3DDC /* UIView+Fonts.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Fonts.h"; sourceTree = "<group>"; };
 		0FA62C6919CF0CF6002D3DDC /* UIView+Fonts.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Fonts.m"; sourceTree = "<group>"; };
-		0FA62C6B19CF2D70002D3DDC /* BaseTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseTableViewCell.h; sourceTree = "<group>"; };
-		0FA62C6C19CF2D70002D3DDC /* BaseTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseTableViewCell.m; sourceTree = "<group>"; };
 		0FA62C7519CF5DE6002D3DDC /* NSObject+Selectors.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+Selectors.h"; sourceTree = "<group>"; };
 		0FA62C7619CF5DE6002D3DDC /* NSObject+Selectors.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+Selectors.m"; sourceTree = "<group>"; };
 		0FA62C7819CF6D17002D3DDC /* HomeModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeModel.h; sourceTree = "<group>"; };
@@ -287,8 +283,6 @@
 		0FA67F7419C4F6B500E00FDA /* SettingsViewController_ipad.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController_ipad.h; sourceTree = "<group>"; };
 		0FA67F7519C4F6B500E00FDA /* SettingsViewController_ipad.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController_ipad.m; sourceTree = "<group>"; };
 		0FA67F7619C4F6B500E00FDA /* SettingsViewController_ipad.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SettingsViewController_ipad.xib; sourceTree = "<group>"; };
-		0FA67F7919C4FF4F00E00FDA /* BasePartialView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BasePartialView.h; sourceTree = "<group>"; };
-		0FA67F7A19C4FF4F00E00FDA /* BasePartialView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BasePartialView.m; sourceTree = "<group>"; };
 		0FA67F7C19C61F8600E00FDA /* BaseWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseWebViewController.h; sourceTree = "<group>"; };
 		0FA67F7D19C61F8600E00FDA /* BaseWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseWebViewController.m; sourceTree = "<group>"; };
 		0FA6959519BB9A720058A722 /* _BusinessApp_.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = _BusinessApp_.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -1059,10 +1053,6 @@
 				0FA4980919DA164F0057D9F4 /* BaseDetailsViewController.m */,
 				0FA67F7C19C61F8600E00FDA /* BaseWebViewController.h */,
 				0FA67F7D19C61F8600E00FDA /* BaseWebViewController.m */,
-				0FA67F7919C4FF4F00E00FDA /* BasePartialView.h */,
-				0FA67F7A19C4FF4F00E00FDA /* BasePartialView.m */,
-				0FA62C6B19CF2D70002D3DDC /* BaseTableViewCell.h */,
-				0FA62C6C19CF2D70002D3DDC /* BaseTableViewCell.m */,
 				0FE1CA9F1AF63B77006769FE /* Registry.h */,
 				0FE1CAA01AF63B77006769FE /* Registry.m */,
 			);
@@ -2532,12 +2522,10 @@
 				0FA839FD19BD1E5A0037B5F3 /* UserManager.m in Sources */,
 				0FC719B61AF9251D00912FF1 /* LaunchViewController_iphone.m in Sources */,
 				0FC71A0D1AF93B9A00912FF1 /* UserContainerModel.m in Sources */,
-				0FA67F7B19C4FF4F00E00FDA /* BasePartialView.m in Sources */,
 				31C1B4C81B90890000D6E3B9 /* BackendAPIClient.m in Sources */,
 				0FABA6F219CAFD8400CC7DD3 /* ContactsViewController.m in Sources */,
 				0FA695A919BB9A720058A722 /* AppDelegate.m in Sources */,
 				311367A31B8DC4AD0013EB27 /* NetworkEnvironmentSwitch4Testing.m in Sources */,
-				0FA62C6D19CF2D70002D3DDC /* BaseTableViewCell.m in Sources */,
 				31CB9EEB1B175E8A0012F1F4 /* TopModalNavigationBar.m in Sources */,
 				0FA8625519C425E0004D4A32 /* SettingsViewController_iphone.m in Sources */,
 				0F70DF2E1AFFC47E004293F1 /* TopNavigationBar.m in Sources */,

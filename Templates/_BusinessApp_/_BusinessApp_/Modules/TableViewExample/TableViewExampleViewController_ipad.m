@@ -26,6 +26,7 @@
 //
 
 #import "TableViewExampleViewController_ipad.h"
+#import "TableViewExampleCell_ipad.h"
 
 @interface TableViewExampleViewController_ipad ()
 
@@ -52,6 +53,13 @@
     
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+#pragma mark - Override -
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    return [TableViewExampleCell_ipad heightForCell];
 }
 
 @end
