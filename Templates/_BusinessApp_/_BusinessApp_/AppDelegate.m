@@ -81,7 +81,7 @@
     [self setupIVersion];
     
     // Show launch screen first
-    LaunchViewController *launchVC = [[LaunchViewController alloc] init];
+    LaunchViewController *launchVC = [[[ViewControllerFactory alloc] init] launchViewControllerWithContext:nil];
     self.window.rootViewController = launchVC;
     
     // Setup push notifications

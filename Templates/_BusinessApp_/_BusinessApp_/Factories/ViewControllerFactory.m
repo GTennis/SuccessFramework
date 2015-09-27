@@ -94,6 +94,13 @@
 
 #pragma mark Launch related
 
+- (LaunchViewController *)launchViewControllerWithContext:(id)context {
+    
+    LaunchViewController *viewController = (LaunchViewController *)[self viewControllerWithClass:[LaunchViewController class] context:context];
+    
+    return viewController;
+}
+
 - (WalkthroughViewController *)walkthroughViewControllerWithContext:(id)context {
     
     WalkthroughModel *model = (WalkthroughModel *)[self modelWithClass:[WalkthroughModel class] context:context];
@@ -250,7 +257,23 @@
 // For creating view controllers with default dependencies
 - (BaseViewController *)viewControllerWithClass:(Class)class context:(id)context {
     
-    BaseViewController *viewController = [[class alloc] initWithCrashManager:[self crashManager] analyticsManager:[self analyticsManager] messageBarManager:[self messageBarManager] viewControllerFactory:self context:context];
+    // Autopick device class
+    
+    NSString *viewControllerClassName = NSStringFromClass(class);
+    
+    if (isIpad) {
+        
+        viewControllerClassName = [NSString stringWithFormat:@"%@_ipad", viewControllerClassName];
+        
+    } else {
+        
+        viewControllerClassName = [NSString stringWithFormat:@"%@_iphone", viewControllerClassName];
+    }
+    
+    Class deviceClass = NSClassFromString(viewControllerClassName);
+    
+    // Create view controller
+    BaseViewController *viewController = [[deviceClass alloc] initWithCrashManager:[self crashManager] analyticsManager:[self analyticsManager] messageBarManager:[self messageBarManager] viewControllerFactory:self context:context];
     
     return viewController;
 }

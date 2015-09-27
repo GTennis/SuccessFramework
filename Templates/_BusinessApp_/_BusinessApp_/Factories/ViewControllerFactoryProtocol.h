@@ -27,6 +27,7 @@
 
 #import "CountryPickerViewController.h"
 
+@class LaunchViewController;
 @class WalkthroughViewController;
 @class HomeViewController;
 @class UserContainerViewController;
@@ -45,6 +46,7 @@
 @protocol ViewControllerFactoryProtocol <NSObject>
 
 // Lauching related
+- (LaunchViewController *)launchViewControllerWithContext:(id)context;
 - (WalkthroughViewController *)walkthroughViewControllerWithContext:(id)context;
 
 // User related

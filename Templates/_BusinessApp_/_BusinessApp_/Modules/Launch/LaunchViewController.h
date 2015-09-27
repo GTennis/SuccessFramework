@@ -25,9 +25,9 @@
 //  SOFTWARE. All rights reserved.
 //
 
-#import "CoreViewController.h"
+#import "BaseViewController.h"
 
-@interface LaunchViewController : CoreViewController
+@interface LaunchViewController : BaseViewController
 
 #pragma mark - Public -
 
