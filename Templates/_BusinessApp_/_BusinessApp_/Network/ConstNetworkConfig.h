@@ -46,15 +46,15 @@ typedef NS_ENUM(NSInteger, BackendEnvironment) {
 
 // Production
 #define kProductionAppConfigBaseUrl @"http://www.dotheapp.com"
-#define kProductionAppConfigRelativeUrl @"/ws/AppConfig.json"
+#define kProductionAppConfigRelativeUrl @"/ws/config.json"
 #define kProductionAppConfigMethod @"GET"
 
 // Stage
 #define kStageAppConfigBaseUrl @"http://www.dotheapp.com"
-#define kStageAppConfigRelativeUrl @"/ws/AppConfig.json"
+#define kStageAppConfigRelativeUrl @"/ws/config.json"
 #define kStageAppConfigMethod @"GET"
 
 // Development
 #define kDevelopmentAppConfigBaseUrl @"http://www.dotheapp.com"
-#define kDevelopmentAppConfigRelativeUrl @"/ws/AppConfig.json"
+#define kDevelopmentAppConfigRelativeUrl @"/ws/config.json"
 #define kDevelopmentAppConfigMethod @"GET"

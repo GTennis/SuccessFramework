@@ -6,7 +6,7 @@
     },
     "logging":{
         "logLevel":"all",
-        "percentageOfUsersToBeLogged":100
+        "percentageOfUsersToBeLogged":5
     },
     "backendAPIs":{
         "production":{

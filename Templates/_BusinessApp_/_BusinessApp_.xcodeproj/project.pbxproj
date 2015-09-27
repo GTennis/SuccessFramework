@@ -160,7 +160,7 @@
 		311367D61B8DE2320013EB27 /* UserResetPasswordNetworkOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 311367D51B8DE2320013EB27 /* UserResetPasswordNetworkOperation.m */; };
 		311367DA1B8E04D40013EB27 /* NetworkRequestObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 311367D91B8E04D40013EB27 /* NetworkRequestObject.m */; };
 		311367DD1B8E04E30013EB27 /* AppConfigObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 311367DC1B8E04E30013EB27 /* AppConfigObject.m */; };
-		311367E21B8E19C10013EB27 /* AppConfig.json in Resources */ = {isa = PBXBuildFile; fileRef = 311367E11B8E19C10013EB27 /* AppConfig.json */; };
+		311367E21B8E19C10013EB27 /* config.json in Resources */ = {isa = PBXBuildFile; fileRef = 311367E11B8E19C10013EB27 /* config.json */; };
 		3119A3FC1B0DD544001CCA38 /* SeparatorHorizontalLineView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3119A3FB1B0DD544001CCA38 /* SeparatorHorizontalLineView.m */; };
 		3119A3FF1B0DD554001CCA38 /* SeparatorVerticalLineView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3119A3FE1B0DD554001CCA38 /* SeparatorVerticalLineView.m */; };
 		3119A4031B0DE3ED001CCA38 /* MenuItemObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 3119A4021B0DE3ED001CCA38 /* MenuItemObject.m */; };
@@ -527,7 +527,7 @@
 		311367DB1B8E04E30013EB27 /* AppConfigObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppConfigObject.h; sourceTree = "<group>"; };
 		311367DC1B8E04E30013EB27 /* AppConfigObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppConfigObject.m; sourceTree = "<group>"; };
 		311367E01B8E16280013EB27 /* ConstNetworkConfig.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ConstNetworkConfig.h; sourceTree = "<group>"; };
-		311367E11B8E19C10013EB27 /* AppConfig.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = AppConfig.json; sourceTree = "<group>"; };
+		311367E11B8E19C10013EB27 /* config.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = config.json; sourceTree = "<group>"; };
 		3119A3FA1B0DD544001CCA38 /* SeparatorHorizontalLineView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SeparatorHorizontalLineView.h; sourceTree = "<group>"; };
 		3119A3FB1B0DD544001CCA38 /* SeparatorHorizontalLineView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SeparatorHorizontalLineView.m; sourceTree = "<group>"; };
 		3119A3FD1B0DD554001CCA38 /* SeparatorVerticalLineView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SeparatorVerticalLineView.h; sourceTree = "<group>"; };
@@ -1954,7 +1954,7 @@
 		31C7F1DB1B3170DA006D1571 /* Json */ = {
 			isa = PBXGroup;
 			children = (
-				311367E11B8E19C10013EB27 /* AppConfig.json */,
+				311367E11B8E19C10013EB27 /* config.json */,
 				31C7F1E11B317D5F006D1571 /* flickrImages.json */,
 			);
 			path = Json;
@@ -2334,7 +2334,7 @@
 				31CB85881B15F8EE00F827F7 /* UserForgotPasswordViewController_iphone.xib in Resources */,
 				0FC4D16D1AFBE11500CF4C24 /* MenuViewController_ipad.xib in Resources */,
 				0FBFDF5F1B13A84E00FA4EFD /* TableViewExampleViewController_iphone.xib in Resources */,
-				311367E21B8E19C10013EB27 /* AppConfig.json in Resources */,
+				311367E21B8E19C10013EB27 /* config.json in Resources */,
 				0F70DF331AFFC4D8004293F1 /* TopNavigationBar_iphone.xib in Resources */,
 				0F7A85411AFFF64B00A2F6C4 /* TermsConditionsViewController_iphone.xib in Resources */,
 				0FA695B419BB9A720058A722 /* SystemImages.xcassets in Resources */,
