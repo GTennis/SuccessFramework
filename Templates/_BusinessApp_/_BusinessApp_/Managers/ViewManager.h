@@ -1,9 +1,9 @@
 //
-//  BaseWebViewController.m
+//  ViewManager.h
 //  _BusinessApp_
 //
-//  Created by Gytenis Mikulėnas on 2/6/14.
-//  Copyright (c) 2015 Gytenis Mikulėnas
+//  Created by Gytenis Mikulenas on 9/27/15.
+//  Copyright © 2015 Gytenis Mikulėnas 
 //  https://github.com/GitTennis/SuccessFramework
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -25,39 +25,8 @@
 //  SOFTWARE. All rights reserved.
 //
 
-#import "BaseWebViewController.h"
+#import "ViewManagerProtocol.h"
 
-@interface BaseWebViewController ()
-
-@end
-
-@implementation BaseWebViewController
-
-- (void)viewDidLoad {
-    
-    [super viewDidLoad];
-    
-    _webView.delegate = self;
-    _webView.scalesPageToFit = YES;
-}
-
-#pragma mark - UIWebViewDelegate -
-
-- (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType {
-    
-    [self.viewManager showScreenActivityIndicatorInView:self.view];
-    
-    return YES;
-}
-
-- (void)webViewDidFinishLoad:(UIWebView *)webView {
-    
-    [self.viewManager hideScreenActivityIndicatorFromView:self.view];
-}
-
-- (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error {
-    
-    [self.viewManager hideScreenActivityIndicatorFromView:self.view];
-}
+@interface ViewManager : NSObject <ViewManagerProtocol>
 
 @end

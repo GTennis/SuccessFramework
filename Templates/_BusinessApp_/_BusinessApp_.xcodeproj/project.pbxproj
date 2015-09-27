@@ -112,6 +112,7 @@
 		0FC719FF1AF9346500912FF1 /* ContactsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FC719FE1AF9346500912FF1 /* ContactsModel.m */; };
 		0FC71A031AF935CC00912FF1 /* UserContainerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FC71A021AF935CC00912FF1 /* UserContainerViewController.m */; };
 		0FC71A0D1AF93B9A00912FF1 /* UserContainerModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FC71A0C1AF93B9A00912FF1 /* UserContainerModel.m */; };
+		0FC76D231BB8586D00677874 /* ViewManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FC76D221BB8586D00677874 /* ViewManager.m */; settings = {ASSET_TAGS = (); }; };
 		0FE1CAA11AF63B77006769FE /* Registry.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FE1CAA01AF63B77006769FE /* Registry.m */; };
 		0FE1CAB81AF64246006769FE /* ViewControllerFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FE1CAB71AF64246006769FE /* ViewControllerFactory.m */; };
 		0FE1CABC1AF64471006769FE /* AnalyticsManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FE1CABB1AF64471006769FE /* AnalyticsManager.m */; };
@@ -139,7 +140,6 @@
 		0FE1CB331AF66BAD006769FE /* PasswordTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FE1CB321AF66BAD006769FE /* PasswordTextField.m */; };
 		0FE1CB361AF66C52006769FE /* NormalButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FE1CB351AF66C52006769FE /* NormalButton.m */; };
 		0FE1CB391AF66CD6006769FE /* NormalLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FE1CB381AF66CD6006769FE /* NormalLabel.m */; };
-		0FE1CB3C1AF66DFD006769FE /* CoreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FE1CB3B1AF66DFD006769FE /* CoreViewController.m */; };
 		0FE1CB451AF674CB006769FE /* MenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FE1CB441AF674CB006769FE /* MenuViewController.m */; };
 		0FE1CB501AF67C64006769FE /* BaseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FE1CB4F1AF67C64006769FE /* BaseModel.m */; };
 		0FE1CB541AF68FCF006769FE /* KeychainManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FE1CB531AF68FCF006769FE /* KeychainManager.m */; };
@@ -402,6 +402,9 @@
 		0FC71A021AF935CC00912FF1 /* UserContainerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserContainerViewController.m; sourceTree = "<group>"; };
 		0FC71A0B1AF93B9A00912FF1 /* UserContainerModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserContainerModel.h; sourceTree = "<group>"; };
 		0FC71A0C1AF93B9A00912FF1 /* UserContainerModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserContainerModel.m; sourceTree = "<group>"; };
+		0FC76D201BB8586200677874 /* ViewManagerProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewManagerProtocol.h; sourceTree = "<group>"; };
+		0FC76D211BB8586D00677874 /* ViewManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewManager.h; sourceTree = "<group>"; };
+		0FC76D221BB8586D00677874 /* ViewManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewManager.m; sourceTree = "<group>"; };
 		0FE1CA8E1AF63278006769FE /* Consts.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Consts.h; sourceTree = "<group>"; };
 		0FE1CA9F1AF63B77006769FE /* Registry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Registry.h; sourceTree = "<group>"; };
 		0FE1CAA01AF63B77006769FE /* Registry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Registry.m; sourceTree = "<group>"; };
@@ -473,8 +476,6 @@
 		0FE1CB351AF66C52006769FE /* NormalButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NormalButton.m; sourceTree = "<group>"; };
 		0FE1CB371AF66CD6006769FE /* NormalLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NormalLabel.h; sourceTree = "<group>"; };
 		0FE1CB381AF66CD6006769FE /* NormalLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NormalLabel.m; sourceTree = "<group>"; };
-		0FE1CB3A1AF66DFD006769FE /* CoreViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreViewController.h; sourceTree = "<group>"; };
-		0FE1CB3B1AF66DFD006769FE /* CoreViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreViewController.m; sourceTree = "<group>"; };
 		0FE1CB3D1AF66F72006769FE /* CrashManagerProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CrashManagerProtocol.h; sourceTree = "<group>"; };
 		0FE1CB401AF6731A006769FE /* UserManagerObserver.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UserManagerObserver.h; sourceTree = "<group>"; };
 		0FE1CB411AF6731A006769FE /* UserManagerProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UserManagerProtocol.h; sourceTree = "<group>"; };
@@ -1078,6 +1079,7 @@
 		0FA695D319BB9AC60058A722 /* Managers */ = {
 			isa = PBXGroup;
 			children = (
+				0FC76D1F1BB8584800677874 /* ViewManager */,
 				311367C11B8DDBFA0013EB27 /* PushNotifications */,
 				0FE1CB511AF68FB7006769FE /* Keychain */,
 				0FE1CAF31AF6576B006769FE /* MessageBar */,
@@ -1463,6 +1465,16 @@
 			path = CountryPicker;
 			sourceTree = "<group>";
 		};
+		0FC76D1F1BB8584800677874 /* ViewManager */ = {
+			isa = PBXGroup;
+			children = (
+				0FC76D201BB8586200677874 /* ViewManagerProtocol.h */,
+				0FC76D211BB8586D00677874 /* ViewManager.h */,
+				0FC76D221BB8586D00677874 /* ViewManager.m */,
+			);
+			name = ViewManager;
+			sourceTree = "<group>";
+		};
 		0FE1CA8F1AF63369006769FE /* User */ = {
 			isa = PBXGroup;
 			children = (
@@ -1534,8 +1546,6 @@
 			children = (
 				0FBFDF541B12F85600FA4EFD /* Localization */,
 				0FE1CAC61AF64AF2006769FE /* Observers */,
-				0FE1CB3A1AF66DFD006769FE /* CoreViewController.h */,
-				0FE1CB3B1AF66DFD006769FE /* CoreViewController.m */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -2512,7 +2522,6 @@
 				0F8D568E1AFFB510005681A7 /* KeyboardControlPrevNext.m in Sources */,
 				0FC719E31AF9335200912FF1 /* UserSignUpViewController.m in Sources */,
 				313F0E821B98746500A3A739 /* GMCustomLogger.m in Sources */,
-				0FE1CB3C1AF66DFD006769FE /* CoreViewController.m in Sources */,
 				0FC719E61AF9336300912FF1 /* UserSignUpModel.m in Sources */,
 				31CB857A1B15F89F00F827F7 /* UserProfileViewController_iphone.m in Sources */,
 				0FBFDF5A1B12F87500FA4EFD /* LocalizationSystem.m in Sources */,
@@ -2536,6 +2545,7 @@
 				0FA3FA0819C777DD001FC84F /* TableViewExampleCell.m in Sources */,
 				31CA638A1B343BF5002CC8D6 /* LanguageObject.m in Sources */,
 				0FC47F211B126EAD007A7E8D /* PhotoDetailsViewController_ipad.m in Sources */,
+				0FC76D231BB8586D00677874 /* ViewManager.m in Sources */,
 				0FA839BB19BC58C20037B5F3 /* HomeViewController.m in Sources */,
 				311367D01B8DE0010013EB27 /* UserSignUpNetworkOperation.m in Sources */,
 				0FABA6E919CAEC4B00CC7DD3 /* MessageBarManager.m in Sources */,

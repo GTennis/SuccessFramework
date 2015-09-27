@@ -31,8 +31,6 @@
 #endif
 
 #import "BaseViewController.h"
-#import "TopNavigationBar.h"
-#import "TopModalNavigationBar.h"
 
 #import "APIErrorHandler.h"
 #import "ViewControllerFactoryProtocol.h"
@@ -40,7 +38,7 @@
 
 #import "AppDelegate.h"
 
-@interface BaseViewController () <TopNavigationBarDelegate, TopModalNavigationBarDelegate, UIGestureRecognizerDelegate> {
+@interface BaseViewController () <UIGestureRecognizerDelegate> {
     
 #if defined(DEBUG)
     NetworkEnvironmentSwitch4Testing *_networkSwitch4Testing;
@@ -62,6 +60,30 @@
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
+    
+    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    
+    if (self) {
+        
+        // Custom initialization
+        [self commonInit];
+    }
+    
+    return self;
+}
+
+- (instancetype)init {
+    
+    self = [super init];
+    if (self) {
+        
+        // Custom initialization
+        [self commonInit];
+    }
+    return self;
+}
+
 - (void)viewDidLoad {
     
     [super viewDidLoad];
@@ -75,37 +97,18 @@
         [self addCustomNavigationBar];
     }
     
+    [self addAccessibilityIdentifiers];
+    
+    // Observe for changes
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(notificationLocalizationHasChanged)
+                                                 name:kNOTIFICATION_LOCALIZATION_HAS_CHANGED
+                                               object:nil];
+    
     //Adding environment switch buttons for DEBUG only
 #if defined(DEBUG)
     
-    // Add network change switch
-    _networkSwitch4Testing = [[NetworkEnvironmentSwitch4Testing alloc] init];
-    _networkSwitch4Testing.delegate = (id<NetworkEnvironmentSwitch4TestingDelegate>) self;
-    //_networkChangeGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleNetworkChangeSwitch)];
-    //_networkChangeGestureRecognizer.direction = UISwipeGestureRecognizerDirectionLeft;
-    //_networkChangeGestureRecognizer.numberOfTapsRequired = 3;
-    
-    //[self.navigationItem.titleView addGestureRecognizer:_networkChangeGestureRecognizer];
-    
-    UIButton *networkChangeButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    networkChangeButton.frame = CGRectMake(54, 5, 40, 30);
-    networkChangeButton.backgroundColor = [UIColor grayColor]; //[UIColor greenColor];
-    [networkChangeButton setTitle:@"Env" forState:UIControlStateNormal];
-    [networkChangeButton addTarget:self action:@selector(handleNetworkChangeSwitch) forControlEvents:UIControlEventTouchUpInside];
-    [self.navigationItem.titleView addSubview:networkChangeButton];
-    
-    // Add console log
-    //_consoleLoggerGestureRecognizer = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(handleConsoleLog:)];
-    //_consoleLoggerGestureRecognizer.minimumPressDuration = 0.5f;
-    //_consoleLoggerGestureRecognizer.direction = UISwipeGestureRecognizerDirectionDown;
-    //[self.navigationItem.titleView addGestureRecognizer:_consoleLoggerGestureRecognizer];
-    
-    UIButton *consoleLoggerButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    consoleLoggerButton.frame = CGRectMake(95, 5, 40, 30);
-    consoleLoggerButton.backgroundColor = [UIColor grayColor]; //[UIColor magentaColor];
-    [consoleLoggerButton setTitle:@"Log" forState:UIControlStateNormal];
-    [consoleLoggerButton addTarget:self action:@selector(handleConsoleLog:) forControlEvents:UIControlEventTouchUpInside];
-    [self.navigationItem.titleView addSubview:consoleLoggerButton];
+    [self addNetworkSwitches];
     
 #endif
 }
@@ -113,6 +116,9 @@
 - (void)viewWillAppear:(BOOL)animated {
     
     [super viewWillAppear:animated];
+    
+    // Enable user interaction
+    self.view.userInteractionEnabled = YES;
     
     // Log current screen
     [self logForCrashReports];
@@ -127,6 +133,9 @@
 - (void)viewWillDisappear:(BOOL)animated {
     
     [super viewWillDisappear:animated];
+    
+    // Disable user interaction
+    self.view.userInteractionEnabled = NO;
     
     // Stop listening for notifications
     [self unsubcribeFromGeneralNotifications];
@@ -173,11 +182,12 @@
 
 #pragma mark Custom initialization
 
-- (instancetype)initWithCrashManager:(id<CrashManagerProtocol>)crashManager analyticsManager:(id<AnalyticsManagerProtocol>)analyticsManager messageBarManager:(id<MessageBarManagerProtocol>)messageBarManager viewControllerFactory:(id<ViewControllerFactoryProtocol>)viewControllerFactory context:(id)context {
+- (instancetype)initWithViewManager:(id<ViewManagerProtocol>)viewManager crashManager:(id<CrashManagerProtocol>)crashManager analyticsManager:(id<AnalyticsManagerProtocol>)analyticsManager messageBarManager:(id<MessageBarManagerProtocol>)messageBarManager viewControllerFactory:(id<ViewControllerFactoryProtocol>)viewControllerFactory context:(id)context {
     
     self = [self init];
     if (self) {
         
+        _viewManager = viewManager;
         _crashManager = crashManager;
         _analyticsManager = analyticsManager;
         _messageBarManager = messageBarManager;
@@ -244,7 +254,7 @@
 
 - (void)commonInit {
     
-    [super commonInit];
+    // ...
     
     // iPad related setting
     _shouldModalNavigationBarAlwaysStickToModalContainerViewTopForIpad = YES;
@@ -252,12 +262,12 @@
 
 - (void)prepareUI {
     
-    [super prepareUI];
+    // ...
 }
 
 - (void)renderUI {
     
-    [super renderUI];
+    // ...
     
     // Implement in child classes
     //NSAssert(NO, @"renderUI is not implemented in class: %@", NSStringFromClass([self class]));
@@ -265,10 +275,29 @@
 
 - (void)loadModel {
     
-    [super loadModel];
+    // ...
     
     // Implement in child classes
     //NSAssert(NO, @"loadModel is not implemented in class: %@", NSStringFromClass([self class]));
+}
+
+#pragma mark Navigation handling
+
+- (void)showNavigationBar {
+    
+    self.navigationController.navigationBar.translucent = NO;
+    self.navigationController.navigationBarHidden = NO;
+}
+
+- (void)hideNavigationBar {
+    
+    self.navigationController.navigationBar.translucent = YES;
+    self.navigationController.navigationBarHidden = YES;
+}
+
+- (BOOL)hasNavigationBar {
+    
+    return !self.navigationController.navigationBarHidden;
 }
 
 #pragma mark Rotation handling
@@ -327,18 +356,24 @@
     }
 }
 
-#pragma mark Override: Error handling
+#pragma mark Error handling
 
 - (void)handleNetworkRequestError:(NSNotification *)notification {
-    
-    [super handleNetworkRequestError:notification];
     
     // ...
 }
 
 - (void)handleNetworkRequestSuccess:(NSNotification *)notification {
     
-    [super handleNetworkRequestSuccess:notification];
+    // ..
+}
+
+#pragma mark Language change handling
+
+- (void)notificationLocalizationHasChanged {
+    
+    [self prepareUI];
+    [self loadModel];
 }
 
 #pragma mark Override: Screen title
@@ -374,7 +409,7 @@
 
 - (void)didPressedBack {
     
-    [super didPressedBack];
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 - (void)didPressedMenu {
@@ -385,10 +420,21 @@
 
 #pragma mark - Private -
 
+- (void)addAccessibilityIdentifiers {
+    
+    // Add identifiers for functional tests
+    self.view.isAccessibilityElement = YES;
+    NSString *screenName = NSStringFromClass(self.class);
+    screenName = [screenName stringByReplacingOccurrencesOfString:@"_iphone" withString:@""];
+    screenName = [screenName stringByReplacingOccurrencesOfString:@"_ipad" withString:@""];
+    self.view.accessibilityLabel = screenName;
+    self.view.accessibilityIdentifier = screenName;
+}
+
 - (void)addCustomNavigationBar {
     
     // Creating and adding custom navigation bar
-    TopNavigationBar *navigationBar = (TopNavigationBar *)[self loadViewFromXibWithClass:[TopNavigationBar class]];
+    TopNavigationBar *navigationBar = (TopNavigationBar *)[self.viewManager loadViewFromXibWithClass:[TopNavigationBar class]];
     navigationBar.delegate = self;
     self.navigationItem.titleView = navigationBar;
     //this is a work around to get rid of ellipsis when navigating back
@@ -409,7 +455,7 @@
 - (void)addCustomModalNavigationBar {
     
     // Creating and adding custom navigation bar
-    _topModalNavigationBar = (TopModalNavigationBar *)[self loadViewFromXibWithClass:[TopModalNavigationBar class]];
+    _topModalNavigationBar = (TopModalNavigationBar *)[self.viewManager loadViewFromXibWithClass:[TopModalNavigationBar class]];
     _topModalNavigationBar.delegate = self;
     
     if (_shouldModalNavigationBarAlwaysStickToModalContainerViewTopForIpad && isIpad) {
@@ -461,6 +507,38 @@
 
 #if defined(DEBUG)
 
+- (void)addNetworkSwitches {
+    
+    // Add network change switch
+    _networkSwitch4Testing = [[NetworkEnvironmentSwitch4Testing alloc] init];
+    _networkSwitch4Testing.delegate = (id<NetworkEnvironmentSwitch4TestingDelegate>) self;
+    //_networkChangeGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleNetworkChangeSwitch)];
+    //_networkChangeGestureRecognizer.direction = UISwipeGestureRecognizerDirectionLeft;
+    //_networkChangeGestureRecognizer.numberOfTapsRequired = 3;
+    
+    //[self.navigationItem.titleView addGestureRecognizer:_networkChangeGestureRecognizer];
+    
+    UIButton *networkChangeButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    networkChangeButton.frame = CGRectMake(54, 5, 40, 30);
+    networkChangeButton.backgroundColor = [UIColor grayColor]; //[UIColor greenColor];
+    [networkChangeButton setTitle:@"Env" forState:UIControlStateNormal];
+    [networkChangeButton addTarget:self action:@selector(handleNetworkChangeSwitch) forControlEvents:UIControlEventTouchUpInside];
+    [self.navigationItem.titleView addSubview:networkChangeButton];
+    
+    // Add console log
+    //_consoleLoggerGestureRecognizer = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(handleConsoleLog:)];
+    //_consoleLoggerGestureRecognizer.minimumPressDuration = 0.5f;
+    //_consoleLoggerGestureRecognizer.direction = UISwipeGestureRecognizerDirectionDown;
+    //[self.navigationItem.titleView addGestureRecognizer:_consoleLoggerGestureRecognizer];
+    
+    UIButton *consoleLoggerButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    consoleLoggerButton.frame = CGRectMake(95, 5, 40, 30);
+    consoleLoggerButton.backgroundColor = [UIColor grayColor]; //[UIColor magentaColor];
+    [consoleLoggerButton setTitle:@"Log" forState:UIControlStateNormal];
+    [consoleLoggerButton addTarget:self action:@selector(handleConsoleLog:) forControlEvents:UIControlEventTouchUpInside];
+    [self.navigationItem.titleView addSubview:consoleLoggerButton];
+}
+
 - (void)handleNetworkChangeSwitch {
     
     if (!_isVisibleDebugNetworkEnvironmentSwich) {
@@ -491,7 +569,7 @@
     
     if (!_isVisibleConsoleLogger) {
         
-        _consoleLoggerVC = [[ConsoleLogViewController alloc] init];
+        _consoleLoggerVC = [self.viewControllerFactory consoleLogViewControllerWithContext:nil];
         _consoleLoggerVC.view.frame = self.view.bounds;
         
         [self.view addSubview:_consoleLoggerVC.view];

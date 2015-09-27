@@ -27,6 +27,7 @@
 
 #import "ViewControllerFactory.h"
 #import "NetworkOperationFactory.h"
+#import "ViewManager.h"
 #import "SettingsManager.h"
 #import "UserManager.h"
 #import "CrashManager.h"
@@ -87,6 +88,12 @@
 
 // Pickers
 #import "CountryPickerViewController.h"
+
+#ifdef DEBUG 
+
+#import "ConsoleLogViewController.h"
+
+#endif
 
 @implementation ViewControllerFactory
 
@@ -252,6 +259,19 @@
     return viewController;
 }
 
+#pragma mark Debug
+
+#ifdef DEBUG
+
+- (ConsoleLogViewController *)consoleLogViewControllerWithContext:(id)context {
+    
+    ConsoleLogViewController *viewController = (ConsoleLogViewController *)[self viewControllerWithClass:[ConsoleLogViewController class] context:context];
+    
+    return viewController;
+}
+
+#endif
+
 #pragma mark - Private -
 
 // For creating view controllers with default dependencies
@@ -273,7 +293,7 @@
     Class deviceClass = NSClassFromString(viewControllerClassName);
     
     // Create view controller
-    BaseViewController *viewController = [[deviceClass alloc] initWithCrashManager:[self crashManager] analyticsManager:[self analyticsManager] messageBarManager:[self messageBarManager] viewControllerFactory:self context:context];
+    BaseViewController *viewController = [[deviceClass alloc] initWithViewManager:[self viewManager] crashManager:[self crashManager] analyticsManager:[self analyticsManager] messageBarManager:[self messageBarManager] viewControllerFactory:self context:context];
     
     return viewController;
 }
@@ -287,6 +307,13 @@
 }
 
 #pragma mark Injectable
+
+// Every view controller should have its own viewManager because it will store references to the view controller and its views
+- (ViewManager *)viewManager {
+    
+    ViewManager *viewManager = [[ViewManager alloc] init];
+    return viewManager;
+}
 
 - (UserManager *)userManager {
     

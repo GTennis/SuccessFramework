@@ -448,8 +448,6 @@
     return _menuNavigator.centerViewController;
 }
 
-
-
 - (void)initializeSharedComponentsWithAppConfig:(AppConfigObject *)appConfig {
     
     // Creating and registering shared factory
@@ -473,8 +471,9 @@
 
 - (void)initializeManagersWithAppConfig:(AppConfigObject *)appConfig networkOperationFactory:(id<NetworkOperationFactoryProtocol>)networkOperationFactory {
     
-    // Create managers and other shared single objects
+    // Create shared managers and other shared single objects
     AnalyticsManager *analyticsManager = [[AnalyticsManager alloc] init];
+    
     SettingsManager *settingsManager = [[SettingsManager alloc] init];
     
     UserManager *userManager = [[UserManager alloc] initWithSettingsManager:settingsManager networkOperationFactory:networkOperationFactory analyticsManager:analyticsManager];

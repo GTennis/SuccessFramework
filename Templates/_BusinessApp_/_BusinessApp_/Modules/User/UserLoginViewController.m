@@ -135,12 +135,12 @@
         [self resetStyleForMissingRequiredFields];
         
         __weak typeof(self) weakSelf = self;
-        [weakSelf showScreenActivityIndicator];
+        [weakSelf.viewManager showScreenActivityIndicatorInView:weakSelf.view];
         
         // Do login
         [_model login:^(BOOL success, id result, NSError *error){
             
-            [weakSelf hideScreenActivityIndicator];
+            [weakSelf.viewManager hideScreenActivityIndicatorFromView:weakSelf.view];
             
             if (success) {
                 

@@ -43,6 +43,8 @@
 @class TableViewExampleViewController;
 @class PhotoDetailsViewController;
 
+@class ConsoleLogViewController;
+
 @protocol ViewControllerFactoryProtocol <NSObject>
 
 // Lauching related
@@ -80,5 +82,11 @@
 
 // Demo
 - (TableViewExampleViewController *)tableViewExampleViewControllerWithContext:(id)context;
+
+#ifdef DEBUG
+
+- (ConsoleLogViewController *)consoleLogViewControllerWithContext:(id)context;
+   
+#endif
 
 @end

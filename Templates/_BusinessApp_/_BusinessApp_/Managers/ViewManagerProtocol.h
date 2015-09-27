@@ -1,9 +1,9 @@
 //
-//  CoreViewController.h
+//  ViewManagerProtocol.h
 //  _BusinessApp_
 //
-//  Created by Gytenis Mikulėnas on 1/14/14.
-//  Copyright (c) 2015 Gytenis Mikulėnas
+//  Created by Gytenis Mikulenas on 9/27/15.
+//  Copyright © 2015 Gytenis Mikulėnas 
 //  https://github.com/GitTennis/SuccessFramework
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -25,50 +25,16 @@
 //  SOFTWARE. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
-#import "ConstStrings.h"
+@protocol ViewManagerProtocol <NSObject>
 
-@interface CoreViewController : UIViewController
-
-#pragma mark - Protected -
-
-#pragma mark Common
-
-- (void)commonInit;
-- (void)prepareUI;
-- (void)renderUI;
-- (void)loadModel;
-
-#pragma mark Xib loading
+#pragma mark - Xib loading
 
 - (UIView *)loadViewFromXib:(NSString *)name class:(Class)theClass;
 - (UIView *)loadViewFromXibWithClass:(Class)theClass;
 
-#pragma mark Navigation handling
+#pragma mark - Progress indicators
 
-- (void)showNavigationBar;
-- (void)hideNavigationBar;
-- (BOOL)hasNavigationBar;
-- (void)didPressedBack;
-
-/* #pragma mark Popup handling
- 
- - (void)showPartialViewController:(CoreViewController *)childViewController insideContainerView:(UIView *)containerView;
- - (void)hidePartialViewControllerFromContainerView:(UIView *)containerView;
- - (CGFloat)popupFadeDuration;*/
-
-#pragma mark Progress indicators
-
-- (void)showScreenActivityIndicator;
-- (void)hideScreenActivityIndicator;
-
-#pragma mark Error handling
-
-- (void)handleNetworkRequestError:(NSNotification *)notification;
-- (void)handleNetworkRequestSuccess:(NSNotification *)notification;
-
-#pragma mark Language change handling
-
-- (void)notificationLocalizationHasChanged;
+- (void)showScreenActivityIndicatorInView:(UIView *)view;
+- (void)hideScreenActivityIndicatorFromView:(UIView *)view;
 
 @end

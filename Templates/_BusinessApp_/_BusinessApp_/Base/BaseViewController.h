@@ -25,7 +25,7 @@
 //  SOFTWARE. All rights reserved.
 //
 
-#import "CoreViewController.h"
+#import "ViewManagerProtocol.h"
 #import "SettingsManagerProtocol.h"
 #import "CrashManagerProtocol.h"
 #import "AnalyticsManagerProtocol.h"
@@ -34,17 +34,20 @@
 #import "BaseModel.h"
 #import "ViewControllerModelDelegate.h"
 
+#import "TopNavigationBar.h"
+#import "TopModalNavigationBar.h"
+
 @class TopModalNavigationBar;
 
 @protocol ViewControllerFactoryProtocol;
 
-@interface BaseViewController : CoreViewController <ViewControllerModelDelegate>
+@interface BaseViewController : UIViewController <ViewControllerModelDelegate, TopNavigationBarDelegate, TopModalNavigationBarDelegate>
 
 #pragma mark - Public -
 
 #pragma mark Custom initialization
 
-- (instancetype)initWithCrashManager:(id<CrashManagerProtocol>)crashManager analyticsManager:(id<AnalyticsManagerProtocol>)analyticsManager messageBarManager:(id<MessageBarManagerProtocol>)messageBarManager viewControllerFactory:(id<ViewControllerFactoryProtocol>)viewControllerFactory context:(id)context;
+- (instancetype)initWithViewManager:(id<ViewManagerProtocol>)viewManager crashManager:(id<CrashManagerProtocol>)crashManager analyticsManager:(id<AnalyticsManagerProtocol>)analyticsManager messageBarManager:(id<MessageBarManagerProtocol>)messageBarManager viewControllerFactory:(id<ViewControllerFactoryProtocol>)viewControllerFactory context:(id)context;
 
 #pragma mark Modal screen handling
 
@@ -58,10 +61,18 @@
 
 #pragma mark - Protected -
 
+#pragma mark Common
+
+- (void)commonInit;
+- (void)prepareUI;
+- (void)renderUI;
+- (void)loadModel;
+
 // For passing parameters between view controlers
 @property (nonatomic, strong) id context;
 
 // Dependencies
+@property (nonatomic, strong) id<ViewManagerProtocol> viewManager;
 @property (nonatomic, strong) id<CrashManagerProtocol> crashManager;
 @property (nonatomic, strong) id<AnalyticsManagerProtocol> analyticsManager;
 @property (nonatomic, strong) id<MessageBarManagerProtocol> messageBarManager;
@@ -73,5 +84,20 @@
 
 // Override for custom screen name log
 - (void)logForCrashReports;
+
+#pragma mark Error handling
+
+- (void)handleNetworkRequestError:(NSNotification *)notification;
+- (void)handleNetworkRequestSuccess:(NSNotification *)notification;
+
+#pragma mark Language change handling
+
+- (void)notificationLocalizationHasChanged;
+
+#pragma mark Navigation handling
+
+- (void)showNavigationBar;
+- (void)hideNavigationBar;
+- (BOOL)hasNavigationBar;
 
 @end
