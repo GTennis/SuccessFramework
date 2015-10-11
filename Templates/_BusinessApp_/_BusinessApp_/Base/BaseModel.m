@@ -88,12 +88,12 @@
             
             weakSelf.isLoaded = YES;
             
-            DDLogDebug(@"[%@]: didFinishModelLoadingWithData", NSStringFromClass([self class]));
-            
         } else {
             
             weakSelf.isLoaded = NO;
         }
+        
+        DDLogDebug(@"[%@]: didFinishModelLoadingWithData:error:%@", NSStringFromClass([self class]), error);
         
         [weakSelf didFinishModelLoadingWithData:result error:error];
         
