@@ -35,6 +35,7 @@
 #import "SettingsViewController.h"
 #import "TermsConditionsViewController.h"
 #import "TableViewExampleViewController.h"
+#import "UIView+Autolayout.h"
 
 #import "TopNavigationBar.h"
 
@@ -60,6 +61,21 @@
     CGRect rect = self.view.frame;
     rect.size = [UIScreen mainScreen].bounds.size;
     self.view.frame = rect;
+    
+#ifdef DEBUG
+
+    NSString *versionNo = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"];
+    NSString *buildNo = [[[NSBundle mainBundle] infoDictionary] objectForKey:(NSString *)kCFBundleVersionKey];
+    
+    UILabel *versionLabel = [[UILabel alloc] init];
+    versionLabel.text = [NSString stringWithFormat:@" %@ [%@]", versionNo, buildNo];
+    [self.view addSubview:versionLabel];
+    [versionLabel viewAddLeadingSpace:0 containerView:self.view];
+    [versionLabel viewAddTrailingSpace:0 containerView:self.view];
+    [versionLabel viewAddBottomSpace:0 containerView:self.view];
+    [versionLabel viewAddHeight:40];
+    
+#endif
 }
 
 - (void)renderUI {
