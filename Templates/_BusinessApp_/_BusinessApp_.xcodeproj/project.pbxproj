@@ -15,6 +15,7 @@
 		0F70DF3C1AFFD1EC004293F1 /* HomeListItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F70DF3B1AFFD1EC004293F1 /* HomeListItemView.m */; };
 		0F70DF401AFFD2E4004293F1 /* HomeListItemView_ipad.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F70DF3F1AFFD2E4004293F1 /* HomeListItemView_ipad.m */; };
 		0F70DF441AFFDF07004293F1 /* HomeListItemView_ipad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0F70DF431AFFDF07004293F1 /* HomeListItemView_ipad.xib */; };
+		0F77785B1BCA489D000E6A40 /* NSString+Size.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F77785A1BCA489D000E6A40 /* NSString+Size.m */; settings = {ASSET_TAGS = (); }; };
 		0F7A85361AFFEDE500A2F6C4 /* HomeListItemView_iphone.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0F7A85351AFFEDE500A2F6C4 /* HomeListItemView_iphone.xib */; };
 		0F7A85391AFFEDF800A2F6C4 /* HomeListItemView_iphone.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F7A85381AFFEDF800A2F6C4 /* HomeListItemView_iphone.m */; };
 		0F7A85401AFFF64B00A2F6C4 /* TermsConditionsViewController_iphone.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F7A853E1AFFF64B00A2F6C4 /* TermsConditionsViewController_iphone.m */; };
@@ -237,6 +238,8 @@
 		0F70DF3E1AFFD2E4004293F1 /* HomeListItemView_ipad.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeListItemView_ipad.h; sourceTree = "<group>"; };
 		0F70DF3F1AFFD2E4004293F1 /* HomeListItemView_ipad.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeListItemView_ipad.m; sourceTree = "<group>"; };
 		0F70DF431AFFDF07004293F1 /* HomeListItemView_ipad.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomeListItemView_ipad.xib; sourceTree = "<group>"; };
+		0F7778591BCA489D000E6A40 /* NSString+Size.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Size.h"; sourceTree = "<group>"; };
+		0F77785A1BCA489D000E6A40 /* NSString+Size.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Size.m"; sourceTree = "<group>"; };
 		0F7A85351AFFEDE500A2F6C4 /* HomeListItemView_iphone.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomeListItemView_iphone.xib; sourceTree = "<group>"; };
 		0F7A85371AFFEDF800A2F6C4 /* HomeListItemView_iphone.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeListItemView_iphone.h; sourceTree = "<group>"; };
 		0F7A85381AFFEDF800A2F6C4 /* HomeListItemView_iphone.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeListItemView_iphone.m; sourceTree = "<group>"; };
@@ -1156,6 +1159,8 @@
 				0FA62C6919CF0CF6002D3DDC /* UIView+Fonts.m */,
 				31923AF41B1F61A000C70D3B /* UILabel+Styling.h */,
 				31923AF51B1F61A000C70D3B /* UILabel+Styling.m */,
+				0F7778591BCA489D000E6A40 /* NSString+Size.h */,
+				0F77785A1BCA489D000E6A40 /* NSString+Size.m */,
 				31923AF71B1F6CD200C70D3B /* UITextView+Styling.h */,
 				31923AF81B1F6CD200C70D3B /* UITextView+Styling.m */,
 				31923AFA1B1F749900C70D3B /* UITextFieldStylingIvars.h */,
@@ -2527,6 +2532,7 @@
 				0FBFDF5A1B12F87500FA4EFD /* LocalizationSystem.m in Sources */,
 				3119A4031B0DE3ED001CCA38 /* MenuItemObject.m in Sources */,
 				0FC71A031AF935CC00912FF1 /* UserContainerViewController.m in Sources */,
+				0F77785B1BCA489D000E6A40 /* NSString+Size.m in Sources */,
 				31CB857F1B15F8B700F827F7 /* UserProfileViewController_ipad.m in Sources */,
 				0FA839FD19BD1E5A0037B5F3 /* UserManager.m in Sources */,
 				0FC719B61AF9251D00912FF1 /* LaunchViewController_iphone.m in Sources */,
