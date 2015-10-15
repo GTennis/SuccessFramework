@@ -29,14 +29,14 @@
 
 @implementation NSString (Size)
 
-- (CGSize)sizeThatFitsTextIntoSingleLineWithFont:(NSFont *)font {
+- (CGSize)sizeThatFitsTextIntoSingleLineWithFont:(UIFont *)font {
     
     CGSize size = [self sizeWithAttributes:@{NSFontAttributeName:font}];
     
     return size;
 }
 
-- (CGSize)sizeThatFitsInsideWidth:(CGFloat)width font:(NSFont *)font {
+- (CGSize)sizeThatFitsInsideWidth:(CGFloat)width font:(UIFont *)font {
     
     NSDictionary *attributes = @{NSFontAttributeName:font};
     CGRect rect = [self boundingRectWithSize:CGSizeMake(width, CGFLOAT_MAX)

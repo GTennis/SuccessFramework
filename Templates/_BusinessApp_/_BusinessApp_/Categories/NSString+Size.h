@@ -27,7 +27,7 @@
 
 @interface NSString (Size)
 
-- (CGSize)sizeThatFitsTextIntoSingleLineWithFont:(NSFont *)font;
-- (CGSize)sizeThatFitsInsideWidth:(CGFloat)width font:(NSFont *)font;
+- (CGSize)sizeThatFitsTextIntoSingleLineWithFont:(UIFont *)font;
+- (CGSize)sizeThatFitsInsideWidth:(CGFloat)width font:(UIFont *)font;
 
 @end
