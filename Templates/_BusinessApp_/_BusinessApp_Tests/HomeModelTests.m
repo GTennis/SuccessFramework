@@ -48,7 +48,7 @@
     [super tearDown];
 }
 
-- (void)test_loadData_CallbackIsCalled {
+/*- (void)test_loadData_CallbackIsCalled {
     
     HomeModel *model = [[HomeModel alloc] init];
     
@@ -179,6 +179,6 @@
     
     // Verify
     [modelMock verify];
-}
+}*/
 
 @end

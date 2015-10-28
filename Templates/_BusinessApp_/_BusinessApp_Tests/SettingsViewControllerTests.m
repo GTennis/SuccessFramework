@@ -113,7 +113,7 @@
 
 - (void)createViewController {
     
-    _viewController = [[SettingsViewController alloc] initWithCrashManager:nil analyticsManager:nil messageBarManager:nil viewControllerFactory:nil context:nil];
+    _viewController = [[SettingsViewController alloc] initWithViewManager:nil crashManager:nil analyticsManager:nil messageBarManager:nil viewControllerFactory:nil context:nil];
     [UIApplication sharedApplication].keyWindow.rootViewController = _viewController;
 }
 

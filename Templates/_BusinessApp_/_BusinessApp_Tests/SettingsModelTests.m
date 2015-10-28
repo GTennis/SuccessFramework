@@ -83,7 +83,7 @@
 
 - (void)createModel {
     
-    _model = [[SettingsModel alloc] initWithUserManager:nil backendAPIClient:nil settingsManager:nil reachabilityManager:nil analyticsManager:nil context:nil];
+    _model = [[SettingsModel alloc] initWithUserManager:nil networkOperationFactory:nil settingsManager:nil reachabilityManager:nil analyticsManager:nil context:nil];    
 }
 
 @end

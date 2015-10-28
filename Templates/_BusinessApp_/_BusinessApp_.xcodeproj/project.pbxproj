@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0F0EF1271BE15D4900D01A7F /* AppDelegate4UnitTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F0EF1261BE15D4900D01A7F /* AppDelegate4UnitTests.m */; settings = {ASSET_TAGS = (); }; };
 		0F70DF2E1AFFC47E004293F1 /* TopNavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F70DF2D1AFFC47E004293F1 /* TopNavigationBar.m */; };
 		0F70DF311AFFC4C5004293F1 /* TopNavigationBar_iphone.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F70DF301AFFC4C5004293F1 /* TopNavigationBar_iphone.m */; };
 		0F70DF331AFFC4D8004293F1 /* TopNavigationBar_iphone.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0F70DF321AFFC4D8004293F1 /* TopNavigationBar_iphone.xib */; };
@@ -225,6 +226,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0F0EF1251BE15D4900D01A7F /* AppDelegate4UnitTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate4UnitTests.h; sourceTree = "<group>"; };
+		0F0EF1261BE15D4900D01A7F /* AppDelegate4UnitTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate4UnitTests.m; sourceTree = "<group>"; };
 		0F70DF2C1AFFC47E004293F1 /* TopNavigationBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TopNavigationBar.h; sourceTree = "<group>"; };
 		0F70DF2D1AFFC47E004293F1 /* TopNavigationBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TopNavigationBar.m; sourceTree = "<group>"; };
 		0F70DF2F1AFFC4C5004293F1 /* TopNavigationBar_iphone.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TopNavigationBar_iphone.h; sourceTree = "<group>"; };
@@ -659,6 +662,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0F0EF1241BE15D3200D01A7F /* 4UnitTests */ = {
+			isa = PBXGroup;
+			children = (
+				0F0EF1251BE15D4900D01A7F /* AppDelegate4UnitTests.h */,
+				0F0EF1261BE15D4900D01A7F /* AppDelegate4UnitTests.m */,
+			);
+			name = 4UnitTests;
+			sourceTree = "<group>";
+		};
 		0F70DF391AFFC54A004293F1 /* Base */ = {
 			isa = PBXGroup;
 			children = (
@@ -978,6 +990,7 @@
 		0FA6959E19BB9A720058A722 /* _BusinessApp_ */ = {
 			isa = PBXGroup;
 			children = (
+				0F0EF1241BE15D3200D01A7F /* 4UnitTests */,
 				0FA695A719BB9A720058A722 /* AppDelegate.h */,
 				0FA695A819BB9A720058A722 /* AppDelegate.m */,
 				317711CF1B9751FF00D267DE /* LaunchScreen.xib */,
@@ -2569,6 +2582,7 @@
 				0FC4D1701AFBEC3500CF4C24 /* MenuNavigator.m in Sources */,
 				0FE1CB161AF663E6006769FE /* NSString+Validator.m in Sources */,
 				311367B61B8DD65E0013EB27 /* NetworkOperationFactory.m in Sources */,
+				0F0EF1271BE15D4900D01A7F /* AppDelegate4UnitTests.m in Sources */,
 				0FBFDF631B13A88E00FA4EFD /* TableViewExampleCell_iphone.m in Sources */,
 				31CB85461B15B2A100F827F7 /* UserObject.m in Sources */,
 				311367C41B8DDC130013EB27 /* PushNotificationManager.m in Sources */,
@@ -2664,7 +2678,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -2697,7 +2711,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
@@ -2744,7 +2758,6 @@
 			buildSettings = {
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/_BusinessApp_.app/_BusinessApp_";
 				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
 					"$(DEVELOPER_FRAMEWORKS_DIR)",
 				);
@@ -2755,6 +2768,12 @@
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = "_BusinessApp_Tests/_BusinessApp_Tests-Info.plist";
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-framework\n",
+					"\"XCTest\"",
+					"-all_load",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.-MyCompanyName-.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
@@ -2768,13 +2787,18 @@
 			buildSettings = {
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/_BusinessApp_.app/_BusinessApp_";
 				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
 					"$(DEVELOPER_FRAMEWORKS_DIR)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "_BusinessApp_/_BusinessApp_-Prefix.pch";
 				INFOPLIST_FILE = "_BusinessApp_Tests/_BusinessApp_Tests-Info.plist";
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-framework\n",
+					"\"XCTest\"",
+					"-all_load",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.-MyCompanyName-.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
