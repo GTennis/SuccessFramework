@@ -32,6 +32,11 @@
 // First time app launch
 @property (nonatomic) BOOL isFirstTimeAppLaunch;
 
+// User
+
+- (NSDictionary *)loggedInUser;
+- (void)setLoggedInUser:(NSDictionary *)loggedInUser;
+
 // Languages
 
 - (NSString *)language;

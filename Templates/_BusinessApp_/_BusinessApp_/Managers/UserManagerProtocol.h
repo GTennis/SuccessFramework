@@ -30,6 +30,7 @@
 #import "NetworkOperationFactoryProtocol.h"
 #import "UserManagerObserver.h"
 #import "AnalyticsManagerProtocol.h"
+#import "KeychainManagerProtocol.h"
 
 @class UserObject;
 
@@ -39,15 +40,16 @@
 @property (nonatomic, strong) id<SettingsManagerProtocol> settingsManager;
 @property (nonatomic, strong) id<NetworkOperationFactoryProtocol> networkOperationFactory;
 @property (nonatomic, strong) id<AnalyticsManagerProtocol> analyticsManager;
+@property (nonatomic, strong) id<KeychainManagerProtocol> keychainManager;
 
 // Data object
 @property (nonatomic, strong) UserObject *user;
 
 // User handling
-- (instancetype)initWithSettingsManager:(id <SettingsManagerProtocol>)settingsManager networkOperationFactory:(id <NetworkOperationFactoryProtocol>)networkOperationFactory analyticsManager:(id<AnalyticsManagerProtocol>)analyticsManager;
+- (instancetype)initWithSettingsManager:(id <SettingsManagerProtocol>)settingsManager networkOperationFactory:(id <NetworkOperationFactoryProtocol>)networkOperationFactory analyticsManager:(id<AnalyticsManagerProtocol>)analyticsManager keychainManager:(id<KeychainManagerProtocol>)keychainManager;
 
 - (NSError *)saveUser;
-- (NSError *)loadUser;
+- (void)loadUser;
 - (BOOL)isUserLoggedIn;
 - (void)loginUserWithData:(UserObject *)data callback:(Callback)callback;
 - (void)signUpUserWithData:(UserObject *)data callback:(Callback)callback;

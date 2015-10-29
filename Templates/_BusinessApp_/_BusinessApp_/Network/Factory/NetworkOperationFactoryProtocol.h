@@ -42,12 +42,12 @@
 #pragma mark Network operations
 
 // Image list
-- (id<NetworkOperationProtocol>)imageListNetworkOperation;
+- (id<NetworkOperationProtocol>)imageListNetworkOperationWithParams:(id)params;
 
 // User related
-- (id<NetworkOperationProtocol>)userLoginNetworkOperation;
-- (id<NetworkOperationProtocol>)userSignUpNetworkOperation;
-- (id<NetworkOperationProtocol>)userProfileNetworkOperation;
-- (id<NetworkOperationProtocol>)userResetPasswordNetworkOperation;
+- (id<NetworkOperationProtocol>)userLoginNetworkOperationWithParams:(id)params;
+- (id<NetworkOperationProtocol>)userSignUpNetworkOperationWithParams:(id)params;
+- (id<NetworkOperationProtocol>)userProfileNetworkOperationWithParams:(id)params;
+- (id<NetworkOperationProtocol>)userResetPasswordNetworkOperationWithParams:(id)params;
 
 @end

@@ -44,7 +44,7 @@
     return nil;
 }
 
-- (instancetype)initWithNetworkRequestObject:(NetworkRequestObject *)networkRequestObject {
+- (instancetype)initWithNetworkRequestObject:(NetworkRequestObject *)networkRequestObject params:(id)params {
     
     // Store request config
     _networkRequestObject = networkRequestObject;
@@ -58,6 +58,9 @@
         
         urlString = [urlString stringByAppendingString:[self requestUrlParams]];
     }
+    
+    // Store params
+    _params = params;
     
     // Create url request and proceed
     self = [self initWithUrlString:urlString networkRequestObject:networkRequestObject];
@@ -109,10 +112,7 @@
     return self;
 }
 
-- (void)performWithParams:(id)params callback:(Callback)callback {
-    
-    // Store passed params
-    _params = params;
+- (void)performWithCallback:(Callback)callback {
     
     void(^successCallback)(AFHTTPRequestOperation *operation, id responseObject) = [self successWrappedCallbackWithPassedCallback:callback];
     void(^failCallback)(AFHTTPRequestOperation *operation, NSError *error) = [self failWrappedCallbackWithPassedCallback:callback];

@@ -26,19 +26,72 @@
 //
 
 #import "KeychainManager.h"
+#import "UICKeyChainStore.h"
+
+#define kKeychainManagerAuthentificationTokenKey @"authentificationToken"
+
+@interface KeychainManager () {
+    
+    UICKeyChainStore *_keychainStore;
+}
+
+@end
 
 @implementation KeychainManager
 
 #pragma mark - KeychainManagerProtocol -
 
-- (BOOL)setAuthentificationToken:(NSString *)token {
+- (instancetype)init {
     
-    return YES;
+    self = [super init];
+    if (self) {
+        
+        NSString *bundleIdentifier = [[NSBundle mainBundle] bundleIdentifier];
+        _keychainStore = [UICKeyChainStore keyChainStoreWithService:bundleIdentifier];
+    }
+    return self;
 }
 
-- (NSString *)authentificationToken:(NSString *)token {
+#pragma mark - KeychainManagerProtocol -
+
+- (NSError *)setAuthentificationToken:(NSString *)token {
     
-    return @"token";
+    NSError *error = nil;
+    
+    if (token.length > 0) {
+        
+        [_keychainStore setString:token forKey:kKeychainManagerAuthentificationTokenKey error:&error];
+        
+        if (error) {
+            
+            DDLogError(@"KeychainManager: unable to store token: %@", error.localizedDescription);
+        }
+        
+    } else {
+        
+        [_keychainStore removeItemForKey:kKeychainManagerAuthentificationTokenKey error:&error];
+        
+        if (error) {
+            
+            DDLogError(@"KeychainManager: unable to clear stored token: %@", error.localizedDescription);
+        }
+    }
+    
+    return error;
+}
+
+- (NSString *)authentificationToken {
+    
+    NSError *error = nil;
+    
+    NSString *token = [_keychainStore stringForKey:kKeychainManagerAuthentificationTokenKey error:&error];
+    
+    if (error) {
+        
+        DDLogError(@"KeychainManager: unable to retrieve stored token: %@", error.localizedDescription);
+    }
+    
+    return token;
 }
 
 @end

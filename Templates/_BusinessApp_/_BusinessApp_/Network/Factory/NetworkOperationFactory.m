@@ -57,44 +57,44 @@
 
 #pragma mark Content
 
-- (id<NetworkOperationProtocol>)imageListNetworkOperation {
+- (id<NetworkOperationProtocol>)imageListNetworkOperationWithParams:(id)params {
     
     NetworkRequestObject *request = _appConfig.currentNetworkRequests[kNetworkOperationImageListName];
-    ImageListNetworkOperation *operation = [[ImageListNetworkOperation alloc] initWithNetworkRequestObject:request];
+    ImageListNetworkOperation *operation = [[ImageListNetworkOperation alloc] initWithNetworkRequestObject:request params:params];
     
     return operation;
 }
 
 #pragma mark User
 
-- (id<NetworkOperationProtocol>)userLoginNetworkOperation {
+- (id<NetworkOperationProtocol>)userLoginNetworkOperationWithParams:(id)params {
     
     NetworkRequestObject *request = _appConfig.currentNetworkRequests[kNetworkOperationUserLoginName];
-    UserLoginNetworkOperation *operation = [[UserLoginNetworkOperation alloc] initWithNetworkRequestObject:request];
+    UserLoginNetworkOperation *operation = [[UserLoginNetworkOperation alloc] initWithNetworkRequestObject:request params:params];
     
     return operation;
 }
 
-- (id<NetworkOperationProtocol>)userSignUpNetworkOperation {
+- (id<NetworkOperationProtocol>)userSignUpNetworkOperationWithParams:(id)params {
     
     NetworkRequestObject *request = _appConfig.currentNetworkRequests[kNetworkOperationUserSignUpName];
-    UserSignUpNetworkOperation *operation = [[UserSignUpNetworkOperation alloc] initWithNetworkRequestObject:request];
+    UserSignUpNetworkOperation *operation = [[UserSignUpNetworkOperation alloc] initWithNetworkRequestObject:request params:params];
     
     return operation;
 }
 
-- (id<NetworkOperationProtocol>)userProfileNetworkOperation {
+- (id<NetworkOperationProtocol>)userProfileNetworkOperationWithParams:(id)params {
     
     NetworkRequestObject *request = _appConfig.currentNetworkRequests[kNetworkOperationUserProfileName];
-    UserProfileNetworkOperation *operation = [[UserProfileNetworkOperation alloc] initWithNetworkRequestObject:request];
+    UserProfileNetworkOperation *operation = [[UserProfileNetworkOperation alloc] initWithNetworkRequestObject:request params:params];
     
     return operation;
 }
 
-- (id<NetworkOperationProtocol>)userResetPasswordNetworkOperation {
+- (id<NetworkOperationProtocol>)userResetPasswordNetworkOperationWithParams:(id)params {
     
     NetworkRequestObject *request = _appConfig.currentNetworkRequests[kNetworkOperationUserResetPasswordName];
-    UserResetPasswordNetworkOperation *operation = [[UserResetPasswordNetworkOperation alloc] initWithNetworkRequestObject:request];
+    UserResetPasswordNetworkOperation *operation = [[UserResetPasswordNetworkOperation alloc] initWithNetworkRequestObject:request params:params];
     
     return operation;
 }

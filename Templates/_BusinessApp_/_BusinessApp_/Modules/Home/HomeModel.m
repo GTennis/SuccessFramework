@@ -38,8 +38,8 @@
 
 - (void)willStartModelLoading:(Callback)callback {
     
-    id<NetworkOperationProtocol> imageListOperation = [self.networkOperationFactory imageListNetworkOperation];
-    [imageListOperation performWithParams:nil callback:callback];
+    id<NetworkOperationProtocol> imageListOperation = [self.networkOperationFactory imageListNetworkOperationWithParams:nil];
+    [imageListOperation performWithCallback:callback];
 }
 
 - (void)didFinishModelLoadingWithData:(id)data error:(NSError *)error {

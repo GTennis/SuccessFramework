@@ -17,6 +17,7 @@ pod 'Crashlytics'
 #pod 'UICKeyChainStore', '~> 2.0'
 #pod 'CountryPicker', '~> 1.2'
 pod 'EMCCountryPickerController', '~> 1.3'
+pod 'UICKeyChainStore', '~> 2.1'
 pod 'MFSideMenu', '~> 0.5'
 pod 'Parse', '~> 1.8'
 

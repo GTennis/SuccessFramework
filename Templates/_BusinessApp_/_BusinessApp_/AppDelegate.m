@@ -45,6 +45,7 @@
 #import "SettingsManager.h"
 #import "ReachabilityManager.h"
 #import "PushNotificationManager.h"
+#import "KeychainManager.h"
 
 // Network
 #import "NetworkOperationFactory.h"
@@ -307,10 +308,10 @@
 
     // Create config network operation
     NetworkRequestObject *request = [[NetworkRequestObject alloc] initWithBackendEnvironment:_backendEnvironment];
-    ConfigNetworkOperation *configOperation = [[ConfigNetworkOperation alloc] initWithNetworkRequestObject:request];
+    ConfigNetworkOperation *configOperation = [[ConfigNetworkOperation alloc] initWithNetworkRequestObject:request params:nil];
     
     // Perform
-    [configOperation performWithParams:nil callback:^(BOOL success, id result, NSError *error) {
+    [configOperation performWithCallback:^(BOOL success, id result, NSError *error) {
         
         callback(success, result, error);
     }];
@@ -466,10 +467,10 @@
     
     // Create shared managers and other shared single objects
     AnalyticsManager *analyticsManager = [[AnalyticsManager alloc] init];
-    
     SettingsManager *settingsManager = [[SettingsManager alloc] init];
+    KeychainManager *keychainManager = [[KeychainManager alloc] init];
     
-    UserManager *userManager = [[UserManager alloc] initWithSettingsManager:settingsManager networkOperationFactory:networkOperationFactory analyticsManager:analyticsManager];
+    UserManager *userManager = [[UserManager alloc] initWithSettingsManager:settingsManager networkOperationFactory:networkOperationFactory analyticsManager:analyticsManager keychainManager:keychainManager];
     MessageBarManager *messageBarManager = [[MessageBarManager alloc] init];
     ReachabilityManager *reachabilityManager = [[ReachabilityManager alloc] init];
     CrashManager *crashManager = [[CrashManager alloc] init];

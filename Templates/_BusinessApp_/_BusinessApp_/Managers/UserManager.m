@@ -49,6 +49,7 @@
 @synthesize networkOperationFactory = _networkOperationFactory;
 @synthesize settingsManager = _settingsManager;
 @synthesize analyticsManager = _analyticsManager;
+@synthesize keychainManager = _keychainManager;
 
 #pragma mark - Public -
 
@@ -67,7 +68,7 @@
 
 #pragma mark User handling
 
-- (instancetype)initWithSettingsManager:(id <SettingsManagerProtocol>)settingsManager networkOperationFactory:(id <NetworkOperationFactoryProtocol>)networkOperationFactory analyticsManager:(id<AnalyticsManagerProtocol>)analyticsManager {
+- (instancetype)initWithSettingsManager:(id <SettingsManagerProtocol>)settingsManager networkOperationFactory:(id <NetworkOperationFactoryProtocol>)networkOperationFactory analyticsManager:(id<AnalyticsManagerProtocol>)analyticsManager keychainManager:(id<KeychainManagerProtocol>)keychainManager {
     
     self = [self init];
     if (self) {
@@ -75,6 +76,7 @@
         _settingsManager = settingsManager;
         _networkOperationFactory = networkOperationFactory;
         _analyticsManager = analyticsManager;
+        _keychainManager = keychainManager;
     }
     return self;
 }
@@ -86,58 +88,51 @@
 
 - (NSError *)saveUser {
     
-    /*(UICKeyChainStore *keychain = [KeychainManager keychainSharedStoreForApp];
-    NSError *error;
-    [keychain setString:_user.masterToken forKey:kUserKeychainTokenKey error:&error];
+    NSError *error = [_keychainManager setAuthentificationToken:_user.token];
     
-    if (error) {
-        *savingError = error;
-        _user.masterToken = @"";
-        DDLogDebug(@"%@", error.localizedDescription);
-        return false;
+    if (!error) {
+        
+        NSDictionary *dict = [_user toDict];
+        [_settingsManager setLoggedInUser:dict];
     }
     
-    NSDictionary *dict = [_user toDict];
-    [_settingsManager setValue:dict forKey:kUserLoggedInPersistenceKey];*/
-    
-    return nil;
+    return error;
 }
 
-- (NSError *)loadUser {
+- (void)loadUser {
     
-    /*NSDictionary *dict = [_settingsManager valueForKey:kUserLoggedInPersistenceKey defaultValueIfNotExists:nil];
-    _user = [[UserObject alloc] initWithDict:dict];
+    NSDictionary *dict = [_settingsManager loggedInUser];
     
-    UICKeyChainStore *keychain = [KeychainManager keychainSharedStoreForApp];
-    NSError *error;
-    NSString *token = [keychain stringForKey:kUserKeychainTokenKey error:&error];
-    if (token) {
+    if (!dict) {
         
-        _user.masterToken = token;
-        DDLogDebug(@"Loaded user token: %@", token);
+        _user = nil;
+        return;
     }
     
-    if (error) {
-        
-        *loadingError = error;
-    }*/
+    _user = [[UserObject alloc] initWithDict:dict];
     
-    return nil;
+    NSString *token = [_keychainManager authentificationToken];
+    
+    if (token) {
+        
+        _user.token = token;
+        
+    } else {
+        
+        // Clear user if token was not loaded
+        _user = nil;
+    }
 }
 
 
 - (void)logout {
     
-    /*UICKeyChainStore *keychain = [KeychainManager keychainSharedStoreForApp];
-    NSError *error;
-    [keychain removeItemForKey:kUserKeychainTokenKey error:&error];
-    if (error) {
-        
-        DDLogError(@"%@", error.localizedDescription);
-    }
-    _user = nil;
+    NSError *error = [_keychainManager setAuthentificationToken:nil];
     
-    [_settingsManager removeValueForKey:kUserLoggedInPersistenceKey];*/
+    if (!error) {
+        
+        [_settingsManager setLoggedInUser:nil];
+    }
     
     // There should be a webservice which does login and invalides token (if somebody sniffed and stole it). However there's no such webservice and we do logout locally only and so always consider logout as success immediatelly
     [self notifyObserversWithLogoutSuccess:nil];
@@ -171,8 +166,8 @@
         callback(success, result, error);
     };
     
-    id<NetworkOperationProtocol> userLoginOperation = [_networkOperationFactory userLoginNetworkOperation];
-    [userLoginOperation performWithParams:nil callback:wrappedCallback];
+    id<NetworkOperationProtocol> userLoginOperation = [_networkOperationFactory userLoginNetworkOperationWithParams:nil];
+    [userLoginOperation performWithCallback:wrappedCallback];
 }
 
 - (void)signUpUserWithData:(UserObject *)data callback:(Callback)callback {
@@ -202,8 +197,8 @@
         callback(success, result, error);
     };
     
-    id<NetworkOperationProtocol> userSignUpOperation = [_networkOperationFactory userSignUpNetworkOperation];
-    [userSignUpOperation performWithParams:nil callback:wrappedCallback];
+    id<NetworkOperationProtocol> userSignUpOperation = [_networkOperationFactory userSignUpNetworkOperationWithParams:nil];
+    [userSignUpOperation performWithCallback:wrappedCallback];
 }
 
 - (void)resetPassword:(UserObject *)data callback:(Callback)callback {
@@ -222,8 +217,8 @@
         callback(success, result, error);
     };
     
-    id<NetworkOperationProtocol> userResetPasswordOperation = [_networkOperationFactory userResetPasswordNetworkOperation];
-    [userResetPasswordOperation performWithParams:nil callback:wrappedCallback];
+    id<NetworkOperationProtocol> userResetPasswordOperation = [_networkOperationFactory userResetPasswordNetworkOperationWithParams:nil];
+    [userResetPasswordOperation performWithCallback:wrappedCallback];
 }
 
 - (void)getUserProfileWithCallback:(Callback)callback {
@@ -240,8 +235,8 @@
         callback(success, result, error);
     };
     
-    id<NetworkOperationProtocol> userProfileOperation = [_networkOperationFactory userProfileNetworkOperation];
-    [userProfileOperation performWithParams:nil callback:wrappedCallback];
+    id<NetworkOperationProtocol> userProfileOperation = [_networkOperationFactory userProfileNetworkOperationWithParams:nil];
+    [userProfileOperation performWithCallback:wrappedCallback];
 }
 
 #pragma mark User state observer handling

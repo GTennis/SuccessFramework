@@ -46,6 +46,7 @@ PODS:
   - Parse (1.8.2):
     - Bolts/Tasks (>= 1.2.1)
   - TWMessageBarManager (1.7.2)
+  - UICKeyChainStore (2.1.0)
 
 DEPENDENCIES:
   - AFNetworking (~> 2.4)
@@ -62,6 +63,7 @@ DEPENDENCIES:
   - OCMock (~> 3.1)
   - Parse (~> 1.8)
   - TWMessageBarManager (= 1.7.2)
+  - UICKeyChainStore (~> 2.1)
 
 SPEC CHECKSUMS:
   AFNetworking: 79f7eb1a0fcfa7beb409332b2ca49afe9ce53b05
@@ -79,5 +81,6 @@ SPEC CHECKSUMS:
   OCMock: 4c2925291f80407c3738dd1db14d21d0cc278864
   Parse: 188601c6cd91fae55906badd283b513104a3a8c9
   TWMessageBarManager: e7adc066ee425174f5dee79473fce913b1cd1662
+  UICKeyChainStore: f1cbd42216a113f0165de1e733e62905b8823432
 
-COCOAPODS: 0.39.0.beta.4
+COCOAPODS: 0.39.0

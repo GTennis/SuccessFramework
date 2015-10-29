@@ -35,10 +35,10 @@
 @property (nonatomic, strong) NetworkRequestObject *networkRequestObject;
 @property (nonatomic, strong) id params;
 
-- (instancetype)initWithNetworkRequestObject:(NetworkRequestObject *)networkRequestObject;
+- (instancetype)initWithNetworkRequestObject:(NetworkRequestObject *)networkRequestObject params:(id)params;
 
 // Params accepts any type of object. This means data objects could be passed for convenience. However, inside subclass we need to transform passed "params" data object and return NSDictionary. See protected "- (NSDictionary *)params;" method
-- (void)performWithParams:(id)params callback:(Callback)callback;
+- (void)performWithCallback:(Callback)callback;
 
 #pragma mark - Protected -
 

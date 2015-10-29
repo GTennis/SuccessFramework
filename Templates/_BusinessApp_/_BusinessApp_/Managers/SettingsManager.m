@@ -33,6 +33,9 @@
 // First time app launch
 #define kSettingsFirstTimeAppLaunch @"FirstTimeAppLaunch"
 
+// User
+#define kSettingsLoggedInUser @"LoggedInUser"
+
 @implementation SettingsManager
 
 #pragma mark - Public -
@@ -156,6 +159,20 @@
 - (void)setIsFirstTimeAppLaunch:(BOOL)isFirstTimeAppLaunch {
     
     [self setValue:[NSNumber numberWithBool:isFirstTimeAppLaunch] forKey:kSettingsFirstTimeAppLaunch];
+}
+
+#pragma mark User
+
+- (NSDictionary *)loggedInUser {
+    
+    NSDictionary *user = (NSDictionary *)[self valueForKey:kSettingsLoggedInUser defaultValueIfNotExists:nil];
+    
+    return user;
+}
+
+- (void)setLoggedInUser:(NSDictionary *)loggedInUser {
+    
+    [self setValue:loggedInUser forKey:kSettingsLoggedInUser];
 }
 
 #pragma mark Languages

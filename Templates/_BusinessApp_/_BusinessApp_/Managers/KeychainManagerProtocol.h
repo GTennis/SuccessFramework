@@ -27,7 +27,7 @@
 
 @protocol KeychainManagerProtocol <NSObject>
 
-- (BOOL)setAuthentificationToken:(NSString *)token;
-- (NSString *)authentificationToken:(NSString *)token;
+- (NSError *)setAuthentificationToken:(NSString *)token;
+- (NSString *)authentificationToken;
 
 @end
