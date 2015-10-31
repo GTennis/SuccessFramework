@@ -86,14 +86,19 @@
     return _user.token.length > 0;
 }
 
-- (NSError *)saveUser {
+- (NSError *)saveUser:(UserObject *)user {
     
-    NSError *error = [_keychainManager setAuthentificationToken:_user.token];
+    // Store token
+    NSError *error = [_keychainManager setAuthentificationToken:user.token];
     
     if (!error) {
         
-        NSDictionary *dict = [_user toDict];
+        // Serialize and store user in settings
+        NSDictionary *dict = [user toDict];
         [_settingsManager setLoggedInUser:dict];
+        
+        // Update in-memory user
+        _user = user;
     }
     
     return error;
@@ -146,9 +151,7 @@
         
         if (success) {
             
-            weakSelf.user = (UserObject *)result;
-            
-            NSError *err = [weakSelf saveUser];
+            NSError *err = [weakSelf saveUser:result];
             if (!err) {
                 
                 [self notifyObserversWithLoginSuccess:weakSelf.user];
@@ -178,8 +181,7 @@
         
         if (success) {
             
-            weakSelf.user = (UserObject *)result;
-            NSError *err = [weakSelf saveUser];
+            NSError *err = [weakSelf saveUser:result];
             if (!err) {
                 
                 [self notifyObserversWithSignUpSuccess:weakSelf.user];

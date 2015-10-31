@@ -48,7 +48,7 @@
 // User handling
 - (instancetype)initWithSettingsManager:(id <SettingsManagerProtocol>)settingsManager networkOperationFactory:(id <NetworkOperationFactoryProtocol>)networkOperationFactory analyticsManager:(id<AnalyticsManagerProtocol>)analyticsManager keychainManager:(id<KeychainManagerProtocol>)keychainManager;
 
-- (NSError *)saveUser;
+- (NSError *)saveUser:(UserObject *)user;
 - (void)loadUser;
 - (BOOL)isUserLoggedIn;
 - (void)loginUserWithData:(UserObject *)data callback:(Callback)callback;
