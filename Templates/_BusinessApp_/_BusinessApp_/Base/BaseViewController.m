@@ -216,29 +216,10 @@
     // Apply common style
     [TopNavigationBar applyStyleForNavigationBar:navController.navigationBar];
     
-    if (SYSTEM_VERSION_LESS_THAN(@"8")) {
-        
-        AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
-        
-        [self presentViewController:navController animated:animated completion:^{
+    navController.modalPresentationStyle = UIModalPresentationOverCurrentContext;
+    [self presentViewController:navController animated:animated completion:^{
             
-            // For backwards compatibility. This allows to use transparent background view and see previous screen view
-            [navController dismissViewControllerAnimated:NO completion:^{
-                
-                appDelegate.window.rootViewController.modalPresentationStyle = UIModalPresentationCurrentContext;
-                [self presentViewController:navController animated:NO completion:nil];
-                appDelegate.window.rootViewController.modalPresentationStyle = UIModalPresentationFullScreen;
-                
-            }];
-        }];
-        
-    } else {
-        
-        navController.modalPresentationStyle = UIModalPresentationOverCurrentContext;
-        [self presentViewController:navController animated:animated completion:^{
-            
-        }];
-    }
+    }];
 }
 
 - (void)dismissModalViewControllerAnimated:(BOOL)animated {

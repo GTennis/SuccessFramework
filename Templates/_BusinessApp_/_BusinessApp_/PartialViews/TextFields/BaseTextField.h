@@ -70,6 +70,6 @@
 
 #pragma mark - Protected -
 
-- (void)customize;
+- (void)commonInit;
 
 @end

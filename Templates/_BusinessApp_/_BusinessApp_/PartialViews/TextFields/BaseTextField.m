@@ -54,8 +54,7 @@
     
     if (self) {
         
-        [self customize];
-        [self observeStateChanges];
+        [self commonInit];
     }
     return self;
 }
@@ -200,8 +199,9 @@
 
 #pragma mark - Protected -
 
-- (void)customize {
+- (void)commonInit {
     
+    [self observeStateChanges];
     [self customizeFloatingLabel];
     [self setStyleNormal];
     

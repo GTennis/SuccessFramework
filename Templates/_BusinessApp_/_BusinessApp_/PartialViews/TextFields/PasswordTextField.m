@@ -77,9 +77,9 @@
 
 #pragma mark - Protected -
 
-- (void)customize {
+- (void)commonInit {
     
-    [super customize];
+    [super commonInit];
     [self addShowHidePasswordControl];
 }
 
