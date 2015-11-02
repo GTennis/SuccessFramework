@@ -71,10 +71,21 @@
 // For serializing object into dictionary for passing json data to backend
 - (NSDictionary *)toDict {
     
-    NSMutableDictionary * dict = [NSMutableDictionary dictionary];
-    /*[dict setValue:_email forKey:kUserEmailKey];
+    NSMutableDictionary *dict = [NSMutableDictionary dictionary];
+    
+    [dict setValue:_userId forKey:kUserUserIdKey];
+    [dict setValue:_salutation forKey:kUserSalutationKey];
+    [dict setValue:_firstName forKey:kUserFirstNameKey];
+    [dict setValue:_lastName forKey:kUserLastNameKey];
+    [dict setValue:_address forKey:kUserAddressKey];
+    [dict setValue:_addressOptional forKey:kUserAddressOptionalKey];
+    [dict setValue:_zipCode forKey:kUserZipCodeKey];
+    [dict setValue:_city forKey:kUserCityKey];
+    [dict setValue:_countryCode forKey:kUserCountryCodeKey];
+    [dict setValue:_stateCode forKey:kUserStateCodeKey];
+    [dict setValue:_phone forKey:kUserPhoneKey];
+    [dict setValue:_email forKey:kUserEmailKey];
     [dict setValue:_password forKey:kUserPasswordKey];
-    */
     
     return dict;
 }

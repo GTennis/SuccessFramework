@@ -1,16 +1,18 @@
 //-------------- Menu -------------//
 
 /* Menu list item titles */
-"MenuItemHome" = "Home (de)";
-"MenuItemSettings" = "Settings (de)";
-"MenuItemTermsConditions" = "Terms & conditions (de)";
-"MenuItemLogin" = "Login (de)";
+"MenuItemHome" = "zu Hause";
+"MenuItemSettings" = "Einstellungen";
+"MenuItemTermsConditions" = "Geschäftsbedingungen";
+"MenuItemLogin" = "Einloggen";
+"MenuItemLogout" = "Abmelden";
+"MenuItemLogoutConfirmationMessage" = "Sind Sie sicher, dass Sie sich ausloggen?";
 "MenuItemTableViewExample" = "TableView example (de)";
 
 //-------------- Home -------------//
 
 /* Screen title */
-"HomeTitle" = "Home (de)";
+"HomeTitle" = "zu Hause";
 
 /* Progress indicator label */
 "HomeProgressLabel" = "Data is loading... (de)";
@@ -18,29 +20,32 @@
 //-------------- Settings -------------//
 
 /* Screen title */
-"SettingsTitle" = "Settings (de)";
+"SettingsTitle" = "Einstellungen";
 
 //-------------- Terms and conditions -------------//
 
 /* Screen title */
-"TermsConditionsTitle" = "TermsConditions (de)";
+"TermsConditionsTitle" = "Geschäftsbedingungen";
 
 //-------------- Common -------------//
 
 /* No comment provided by engineer. */
-"Ok" = "Ok (de)";
+"Ok" = "Ok";
 
 /* No comment provided by engineer. */
-"Done" = "Done (de)";
+"Done" = "Fertig";
 
 /* No comment provided by engineer. */
-"Edit" = "Edit (de)";
+"Cancel" = "Abbrechen";
 
 /* No comment provided by engineer. */
-"Update" = "Update";
+"Edit" = "Redigieren";
 
 /* No comment provided by engineer. */
-"Reload" = "Reload";
+"Update" = "Aktualisieren";
+
+/* No comment provided by engineer. */
+"Reload" = "Nachladen";
 
 //-------------- Force update -------------//
 

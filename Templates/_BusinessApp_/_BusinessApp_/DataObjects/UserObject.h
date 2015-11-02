@@ -40,6 +40,7 @@
 #define kUserCityKey @"city"
 #define kUserEmailKey @"email"
 #define kUserPhoneKey @"phone"
+#define kUserPasswordKey @"password"
 
 @protocol UserObject <ParsableObject>
 

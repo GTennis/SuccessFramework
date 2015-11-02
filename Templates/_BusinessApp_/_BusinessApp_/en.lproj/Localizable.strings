@@ -5,6 +5,8 @@
 "MenuItemSettings" = "Settings";
 "MenuItemTermsConditions" = "Terms & conditions";
 "MenuItemLogin" = "Login";
+"MenuItemLogout" = "Logout";
+"MenuItemLogoutConfirmationMessage" = "Are you sure you want to logout?";
 "MenuItemTableViewExample" = "TableView example";
 
 //-------------- Home -------------//
@@ -32,6 +34,9 @@
 
 /* No comment provided by engineer. */
 "Done" = "Done";
+
+/* No comment provided by engineer. */
+"Cancel" = "Cancel";
 
 /* No comment provided by engineer. */
 "Edit" = "Edit";

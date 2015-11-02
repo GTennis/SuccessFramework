@@ -94,6 +94,15 @@
     [_model loadData:^(BOOL success, id result, NSError *error) {
         
         [weakSelf renderUI];
+        
+        if (weakSelf.model.isUserLoggedIn) {
+            
+            [weakSelf showLogoutButton];
+            
+        } else {
+            
+            [weakSelf hideLogoutButton];
+        }
     }];
 }
 
@@ -184,6 +193,42 @@
     result = menuItem.menuTitle;
     
     return result;
+}
+
+- (void)showLogoutButton {
+    
+    CGRect rect = self.view.bounds;
+    rect.size.height = 40.0f;
+    
+    NormalButton *logoutButton = [[NormalButton alloc] initWithFrame:rect];
+    [logoutButton setTitle:GMLocalizedString(kMenuModelMenuItemLogoutKey) forState:UIControlStateNormal];
+    [logoutButton addTarget:self action:@selector(logoutPressed) forControlEvents:UIControlEventTouchUpInside];
+    
+    _tableView.tableFooterView = logoutButton;
+}
+
+- (void)hideLogoutButton {
+    
+    _tableView.tableFooterView = nil;
+}
+
+#pragma mark IBActions
+
+- (void)logoutPressed {
+    
+    GMAlertView *alertView = [[GMAlertView alloc] initWithViewController:self title:nil message:GMLocalizedString(kMenuModelMenuItemLogoutConfirmationMessageKey) cancelButtonTitle:GMLocalizedString(kCancelKey)  otherButtonTitles:@[GMLocalizedString(kOkKey)]];
+    
+    __weak typeof(self) weakSelf = self;
+    
+    alertView.completion = ^(BOOL firstButtonPressed, NSInteger buttonIndex) {
+        
+        if (buttonIndex == 1) {
+            
+            [weakSelf.model logoutUser];
+        }
+    };
+    
+    [alertView show];
 }
 
 @end

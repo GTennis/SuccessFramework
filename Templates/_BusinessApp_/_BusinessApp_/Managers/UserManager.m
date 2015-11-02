@@ -129,7 +129,6 @@
     }
 }
 
-
 - (void)logout {
     
     NSError *error = [_keychainManager setAuthentificationToken:nil];
@@ -137,15 +136,23 @@
     if (!error) {
         
         [_settingsManager setLoggedInUser:nil];
+        
+        _user = nil;
+        
+        // There should be a webservice which does login and invalides token (if somebody sniffed and stole it). However there's no such webservice and we do logout locally only and so always consider logout as success immediatelly
+        [self notifyObserversWithLogoutSuccess:nil];
+        
+    } else {
+        
+        [self notifyObserversWithLogoutFail:@"Unable to clear keychain"];
     }
-    
-    // There should be a webservice which does login and invalides token (if somebody sniffed and stole it). However there's no such webservice and we do logout locally only and so always consider logout as success immediatelly
-    [self notifyObserversWithLogoutSuccess:nil];
 }
 
 - (void)loginUserWithData:(UserObject *)data callback:(Callback)callback {
     
-    __weak typeof(self) weakSelf = self;
+    // Uncomment and use this production ready code
+    
+    /*__weak typeof(self) weakSelf = self;
     
     Callback wrappedCallback = ^(BOOL success, id result, NSError *error) {
         
@@ -170,12 +177,22 @@
     };
     
     id<NetworkOperationProtocol> userLoginOperation = [_networkOperationFactory userLoginNetworkOperationWithParams:nil];
-    [userLoginOperation performWithCallback:wrappedCallback];
+    //[userLoginOperation performWithCallback:wrappedCallback];*/
+    
+    // TODO: demo code
+    UserObject *user = [[UserObject alloc] init];
+    user.email = @"gytenis@test.com";
+    user.token = @"123";
+    [self saveUser:user];
+    [self notifyObserversWithLoginSuccess:user];
+    callback(YES, user, nil);
 }
 
 - (void)signUpUserWithData:(UserObject *)data callback:(Callback)callback {
     
-    __weak typeof(self) weakSelf = self;
+    // Uncomment and use this production ready code
+    
+    /*__weak typeof(self) weakSelf = self;
     
     Callback wrappedCallback = ^(BOOL success, id result, NSError *error) {
         
@@ -200,7 +217,13 @@
     };
     
     id<NetworkOperationProtocol> userSignUpOperation = [_networkOperationFactory userSignUpNetworkOperationWithParams:nil];
-    [userSignUpOperation performWithCallback:wrappedCallback];
+    [userSignUpOperation performWithCallback:wrappedCallback];*/
+    
+    // TODO: demo code
+    data.token = @"123";
+    [self saveUser:data];
+    [self notifyObserversWithSignUpSuccess:data];
+    callback(YES, data, nil);
 }
 
 - (void)resetPassword:(UserObject *)data callback:(Callback)callback {

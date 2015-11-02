@@ -29,11 +29,32 @@
 #import "ViewControllerFactory.h"
 #import "MenuItemObject.h"
 
+@interface MenuModel () {
+    
+    NSArray *_menuItemsForNotLoggedInUserState;
+    NSArray *_menuItemsForLoggedInUserState;
+    Callback _loadModelCallback;
+}
+
+@end
+
 @implementation MenuModel
 
 - (void)dealloc {
     
     [self.userManager removeServiceObserver:self];
+}
+
+#pragma mark - Public -
+
+- (BOOL)isUserLoggedIn {
+    
+    return self.userManager.isUserLoggedIn;
+}
+
+- (void)logoutUser {
+    
+    [self.userManager logout];
 }
 
 #pragma mark - Protected -
@@ -42,11 +63,77 @@
     
     [super commonInit];
     
+    // Create menu items
+    _menuItemsForNotLoggedInUserState = [self menuItemsForNotLoggedInUserState];
+    _menuItemsForLoggedInUserState = [self menuItemsForLoggedInUserState];
+    
     // Add user state observing
     [self.userManager addServiceObserver:self];
 }
 
 - (void)willStartModelLoading:(Callback)callback {
+    
+    // Save for login/signup/logout callbacks later
+    _loadModelCallback = callback;
+    
+    NSArray *itemList = nil;
+    
+    if (self.userManager.isUserLoggedIn) {
+        
+        itemList = [NSArray arrayWithArray:_menuItemsForLoggedInUserState];
+        
+    } else {
+        
+        itemList = [NSArray arrayWithArray:_menuItemsForNotLoggedInUserState];
+    }
+    
+    // Done
+    callback(YES, itemList, nil);
+}
+
+- (void)didFinishModelLoadingWithData:(id)data error:(NSError *)error {
+    
+    // Store menu items
+    _menuItems = data;
+}
+
+#pragma mark - UserManagerObserver -
+
+- (void)didLoginUser:(UserObject *)userObject {
+    
+    _menuItems = [NSArray arrayWithArray:_menuItemsForLoggedInUserState];
+    
+    // Notify view controler
+    _loadModelCallback(YES, _menuItems, nil);
+}
+
+- (void)didSignUpUser:(UserObject *)userObject {
+    
+    _menuItems = [NSArray arrayWithArray:_menuItemsForLoggedInUserState];
+    
+    // Notify view controler
+    _loadModelCallback(YES, _menuItems, nil);
+}
+
+- (void)didLogoutUser:(UserObject *)userObject {
+    
+    _menuItems = [NSArray arrayWithArray:_menuItemsForNotLoggedInUserState];
+    
+    // Notify view controler
+    _loadModelCallback(YES, _menuItems, nil);
+}
+
+#pragma mark - Private -
+
+// For mocking in unit tests
+- (id<ViewControllerFactoryProtocol>)viewControllerFactory {
+    
+    ViewControllerFactory *factory = [REGISTRY getObject:[ViewControllerFactory class]];
+    
+    return factory;
+}
+
+- (NSMutableArray *)menuItemsForNotLoggedInUserState {
     
     // Create menu items
     NSMutableArray *itemList = [[NSMutableArray alloc] init];
@@ -65,7 +152,7 @@
     item.menuTitle = GMLocalizedString(kMenuModelMenuItemSettingsKey);
     item.viewController = (BaseViewController *) [viewControllerFactory settingsViewControllerWithContext:nil];
     [itemList addObject:item];
-
+    
     // User login
     item = [[MenuItemObject alloc] init];
     item.menuTitle = GMLocalizedString(kMenuModelMenuItemLoginKey);
@@ -85,28 +172,44 @@
     item.viewController = (BaseViewController *) [viewControllerFactory tableViewExampleViewControllerWithContext:nil];
     [itemList addObject:item];
     
-    // Done
-    callback(YES, itemList, nil);
+    // Return
+    return itemList;
 }
 
-- (void)didFinishModelLoadingWithData:(id)data error:(NSError *)error {
+- (NSMutableArray *)menuItemsForLoggedInUserState {
     
-    // Store menu items
-    _menuItems = data;
-}
-
-#pragma mark - UserManagerObserver -
-
-// ...
-
-#pragma mark - Private -
-
-// For mocking in unit tests
-- (id<ViewControllerFactoryProtocol>)viewControllerFactory {
+    // Create menu items
+    NSMutableArray *itemList = [[NSMutableArray alloc] init];
     
-    ViewControllerFactory *factory = [REGISTRY getObject:[ViewControllerFactory class]];
+    // Create menu items
+    id<ViewControllerFactoryProtocol> viewControllerFactory = [self viewControllerFactory];
     
-    return factory;
+    // Home
+    MenuItemObject *item = [[MenuItemObject alloc] init];
+    item.menuTitle = GMLocalizedString(kMenuModelMenuItemMapKey);
+    item.viewController = (BaseViewController *) [viewControllerFactory homeViewControllerWithContext:nil];
+    [itemList addObject:item];
+    
+    // Settings
+    item = [[MenuItemObject alloc] init];
+    item.menuTitle = GMLocalizedString(kMenuModelMenuItemSettingsKey);
+    item.viewController = (BaseViewController *) [viewControllerFactory settingsViewControllerWithContext:nil];
+    [itemList addObject:item];
+    
+    // TermsConditions
+    item = [[MenuItemObject alloc] init];
+    item.menuTitle = GMLocalizedString(kMenuModelMenuItemTermsConditionsKey);
+    item.viewController = (BaseViewController *) [viewControllerFactory termsConditionsViewControllerWithContext:nil];
+    [itemList addObject:item];
+    
+    // TableViewExample
+    item = [[MenuItemObject alloc] init];
+    item.menuTitle = GMLocalizedString(kMenuModelMenuItemTableViewExampleKey);
+    item.viewController = (BaseViewController *) [viewControllerFactory tableViewExampleViewControllerWithContext:nil];
+    [itemList addObject:item];
+    
+    // Return
+    return itemList;
 }
 
 @end

@@ -32,12 +32,17 @@
 #define kMenuModelMenuItemSettingsKey @"MenuItemSettings"
 #define kMenuModelMenuItemTermsConditionsKey @"MenuItemTermsConditions"
 #define kMenuModelMenuItemLoginKey @"MenuItemLogin"
+#define kMenuModelMenuItemLogoutKey @"MenuItemLogout"
+#define kMenuModelMenuItemLogoutConfirmationMessageKey @"MenuItemLogoutConfirmationMessage"
 #define kMenuModelMenuItemTableViewExampleKey @"MenuItemTableViewExample"
 
 @interface MenuModel : BaseModel <UserManagerObserver>
 
 #pragma mark - Public -
 
-@property (nonatomic, strong) NSMutableArray *menuItems;
+@property (nonatomic, strong) NSArray *menuItems;
+@property (readonly) BOOL isUserLoggedIn;
+
+- (void)logoutUser;
 
 @end

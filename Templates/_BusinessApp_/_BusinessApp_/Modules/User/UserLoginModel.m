@@ -64,9 +64,7 @@
 
 - (void)login:(Callback)callback {
     
-    // TODO...
-    
-    callback(YES, nil, nil);
+    [self.userManager loginUserWithData:_user callback:callback];
 }
 
 @end
