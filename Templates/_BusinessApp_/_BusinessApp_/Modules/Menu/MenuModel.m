@@ -31,8 +31,6 @@
 
 @interface MenuModel () {
     
-    NSArray *_menuItemsForNotLoggedInUserState;
-    NSArray *_menuItemsForLoggedInUserState;
     Callback _loadModelCallback;
 }
 
@@ -63,10 +61,6 @@
     
     [super commonInit];
     
-    // Create menu items
-    _menuItemsForNotLoggedInUserState = [self menuItemsForNotLoggedInUserState];
-    _menuItemsForLoggedInUserState = [self menuItemsForLoggedInUserState];
-    
     // Add user state observing
     [self.userManager addServiceObserver:self];
 }
@@ -80,11 +74,11 @@
     
     if (self.userManager.isUserLoggedIn) {
         
-        itemList = [NSArray arrayWithArray:_menuItemsForLoggedInUserState];
+        itemList = [self menuItemsForLoggedInUserState];
         
     } else {
         
-        itemList = [NSArray arrayWithArray:_menuItemsForNotLoggedInUserState];
+        itemList = [self menuItemsForNotLoggedInUserState];
     }
     
     // Done
@@ -101,7 +95,7 @@
 
 - (void)didLoginUser:(UserObject *)userObject {
     
-    _menuItems = [NSArray arrayWithArray:_menuItemsForLoggedInUserState];
+    _menuItems = [self menuItemsForLoggedInUserState];
     
     // Notify view controler
     _loadModelCallback(YES, _menuItems, nil);
@@ -109,7 +103,7 @@
 
 - (void)didSignUpUser:(UserObject *)userObject {
     
-    _menuItems = [NSArray arrayWithArray:_menuItemsForLoggedInUserState];
+    _menuItems = [self menuItemsForLoggedInUserState];
     
     // Notify view controler
     _loadModelCallback(YES, _menuItems, nil);
@@ -117,7 +111,7 @@
 
 - (void)didLogoutUser:(UserObject *)userObject {
     
-    _menuItems = [NSArray arrayWithArray:_menuItemsForNotLoggedInUserState];
+    _menuItems = [self menuItemsForNotLoggedInUserState];
     
     // Notify view controler
     _loadModelCallback(YES, _menuItems, nil);
