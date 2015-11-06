@@ -119,15 +119,16 @@
     
     [self updateModel];
     
-    if (![_model isValidData]) {
+    NSError *validationError = [_model validateData];
+    
+    if (validationError) {
         
         // Mark required but empty fields in red
         [self applyStyleForMissingRequiredFields];
         
-        GMAlertView *alertView = [[GMAlertView alloc] initWithViewController:self title:nil message:GMLocalizedString(kUserLoginViewControllerIncorrectDataKey) cancelButtonTitle:GMLocalizedString(kOkKey) otherButtonTitles:nil];
-        alertView.accessibilityLabel = [NSString stringWithFormat:@"%@WrongEmailOrPassword", [self class]];
-        alertView.accessibilityIdentifier = alertView.accessibilityLabel;
-        [alertView show];
+        DDLogDebug(@"SignUpPressedWithWrongData");
+        
+        [self.messageBarManager showMessageWithTitle:@"" description:validationError.localizedDescription type:MessageBarMessageTypeError duration:kMessageBarManagerMessageDuration];
         
     } else {
         
@@ -144,8 +145,14 @@
             
             if (success) {
                 
+                DDLogDebug(@"UserLoginSuccess");
+                
                 [weakSelf clearTextFields];
                 [_delegate didFinishLogin];
+            
+            } else {
+                
+                DDLogDebug(@"UserLoginFail: %@", error.localizedDescription);
             }
         }];
     }

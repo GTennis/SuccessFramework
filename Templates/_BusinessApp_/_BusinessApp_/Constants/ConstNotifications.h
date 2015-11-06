@@ -32,3 +32,5 @@
 // In case backend returns error, app broadcasts this error with via user info dictionary
 // These are the keys for retrieving error code and message in models or viewControllers
 #define kNetworkRequestErrorNotificationUserInfoKey @"NetworkError"
+
+#define kMessageBarManagerMessageDuration 3.0f

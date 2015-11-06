@@ -49,7 +49,7 @@
 - (instancetype)initWithSettingsManager:(id <SettingsManagerProtocol>)settingsManager networkOperationFactory:(id <NetworkOperationFactoryProtocol>)networkOperationFactory analyticsManager:(id<AnalyticsManagerProtocol>)analyticsManager keychainManager:(id<KeychainManagerProtocol>)keychainManager;
 
 - (NSError *)saveUser:(UserObject *)user;
-- (void)loadUser;
+//- (void)loadUser;
 - (BOOL)isUserLoggedIn;
 - (void)loginUserWithData:(UserObject *)data callback:(Callback)callback;
 - (void)signUpUserWithData:(UserObject *)data callback:(Callback)callback;

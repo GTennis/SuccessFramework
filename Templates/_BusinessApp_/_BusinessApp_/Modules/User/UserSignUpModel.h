@@ -28,13 +28,26 @@
 #import "BaseModel.h"
 #import "UserObject.h"
 
+#define kUserSignUpModelBadUsernameKey @""
+#define kUserSignUpModelBadPasswordKey @""
+#define kUserSignUpModelBadSalutationKey @""
+#define kUserSignUpModelBadFirstNameKey @""
+#define kUserSignUpModelBadLastNameKey @""
+#define kUserSignUpModelBadAddressKey @""
+#define kUserSignUpModelBadAddressOptionalKey @""
+#define kUserSignUpModelBadZipCodeKey @""
+#define kUserSignUpModelBadCountryCodeKey @""
+#define kUserSignUpModelBadStateCodeKey @""
+#define kUserSignUpModelBadCityKey @""
+#define kUserSignUpModelBadPhoneKey @""
+
 @interface UserSignUpModel : BaseModel
 
 #pragma mark - Public -
 
 @property (nonatomic, strong) UserObject *user;
 
-- (BOOL)isValidData;
+- (NSError *)validateData;
 - (void)clearData;
 - (void)updateModelWithData:(UserObject *)user;
 - (void)signUp:(Callback)callback;

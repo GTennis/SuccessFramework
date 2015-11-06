@@ -1,6 +1,6 @@
 //
 //  UserManager.m
-//  _BusinessApp_
+//  MyInsurrance
 //
 //  Created by Gytenis Mikulėnas on 4/19/14.
 //  Copyright (c) 2015 Gytenis Mikulėnas
@@ -53,6 +53,8 @@
 
 #pragma mark - Public -
 
+#pragma mark UserManagerProtocol
+
 - (instancetype)init {
     
     self = [super init];
@@ -63,8 +65,6 @@
     }
     return self;
 }
-
-#pragma mark - UserManagerProtocol -
 
 #pragma mark User handling
 
@@ -77,7 +77,10 @@
         _networkOperationFactory = networkOperationFactory;
         _analyticsManager = analyticsManager;
         _keychainManager = keychainManager;
+        
+        [self loadUser];
     }
+    
     return self;
 }
 
@@ -150,8 +153,6 @@
 
 - (void)loginUserWithData:(UserObject *)data callback:(Callback)callback {
     
-    // Uncomment and use this production ready code
-    
     /*__weak typeof(self) weakSelf = self;
     
     Callback wrappedCallback = ^(BOOL success, id result, NSError *error) {
@@ -176,10 +177,10 @@
         callback(success, result, error);
     };
     
-    id<NetworkOperationProtocol> userLoginOperation = [_networkOperationFactory userLoginNetworkOperationWithParams:nil];
-    //[userLoginOperation performWithCallback:wrappedCallback];*/
+    id<NetworkOperationProtocol> userLoginOperation = [_networkOperationFactory userLoginNetworkOperationWithParams:[data toDict]];
+    [userLoginOperation performWithCallback:wrappedCallback];*/
     
-    // TODO: demo code
+#warning demo code
     UserObject *user = [[UserObject alloc] init];
     user.email = @"gytenis@test.com";
     user.token = @"123";
@@ -189,8 +190,6 @@
 }
 
 - (void)signUpUserWithData:(UserObject *)data callback:(Callback)callback {
-    
-    // Uncomment and use this production ready code
     
     /*__weak typeof(self) weakSelf = self;
     
@@ -216,10 +215,10 @@
         callback(success, result, error);
     };
     
-    id<NetworkOperationProtocol> userSignUpOperation = [_networkOperationFactory userSignUpNetworkOperationWithParams:nil];
+    id<NetworkOperationProtocol> userSignUpOperation = [_networkOperationFactory userSignUpNetworkOperationWithParams:[data toDict]];
     [userSignUpOperation performWithCallback:wrappedCallback];*/
     
-    // TODO: demo code
+#warning demo code
     data.token = @"123";
     [self saveUser:data];
     [self notifyObserversWithSignUpSuccess:data];
@@ -242,7 +241,7 @@
         callback(success, result, error);
     };
     
-    id<NetworkOperationProtocol> userResetPasswordOperation = [_networkOperationFactory userResetPasswordNetworkOperationWithParams:nil];
+    id<NetworkOperationProtocol> userResetPasswordOperation = [_networkOperationFactory userResetPasswordNetworkOperationWithParams:[data toDict]];
     [userResetPasswordOperation performWithCallback:wrappedCallback];
 }
 

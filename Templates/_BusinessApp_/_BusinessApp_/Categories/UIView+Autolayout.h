@@ -40,6 +40,8 @@
 // Add center and fullsize alignment
 - (void)viewCenterInsideContainerView:(UIView *)containerView;
 - (void)viewMakeFullWidthAndHeightInsideContainerView:(UIView *)containerView;
+- (NSLayoutConstraint *)viewAddCenterVerticalInsideContainerView:(UIView *)containerView;
+- (NSLayoutConstraint *)viewAddCenterHorizontalInsideContainerView:(UIView *)containerView;
 
 // Add superView alignment
 - (NSLayoutConstraint *)viewAddLeadingSpace:(CGFloat)leadingSpace containerView:(UIView *)containerView;

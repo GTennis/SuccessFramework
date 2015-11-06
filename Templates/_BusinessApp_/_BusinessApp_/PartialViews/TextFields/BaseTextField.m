@@ -54,7 +54,7 @@
     
     if (self) {
         
-        [self commonInit];
+        [self customize];
     }
     return self;
 }
@@ -199,7 +199,7 @@
 
 #pragma mark - Protected -
 
-- (void)commonInit {
+- (void)customize {
     
     [self observeStateChanges];
     [self customizeFloatingLabel];

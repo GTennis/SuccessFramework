@@ -26,7 +26,28 @@
 //
 
 #import "UserLoginNetworkOperation.h"
+#import "UserObject.h"
 
 @implementation UserLoginNetworkOperation
+
+#pragma mark - Protected -
+
+#pragma mark Override
+
+- (void)handleReceivedDataWithSuccess:(BOOL)success result:(id)result error:(NSError *)error callback:(Callback)callback {
+    
+    if (success) {
+        
+        // Perform data parsing
+        UserObject *item = [[UserObject alloc] initWithDict:result];
+        
+        // Callback
+        callback(YES, item, nil);
+        
+    } else {
+        
+        callback(NO, nil, error);
+    }
+}
 
 @end

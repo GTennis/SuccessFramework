@@ -529,11 +529,7 @@
     
     // Assign side menu component as main app navigator
     self.window.rootViewController = _menuNavigator;
-    
-    // Load user if logged in before
-    UserManager *userManager = [REGISTRY getObject:[UserManager class]];
-    [userManager loadUser];
-    
+        
     // Apply common style
     [TopNavigationBar applyStyleForNavigationBar:self.navigationController.navigationBar];
 }

@@ -41,44 +41,60 @@
 
 #pragma mark - Public -
 
-- (BOOL)isValidData {
+- (NSError *)validateData {
     
-    BOOL isEmailValid = [_user.email isMailValid];
-    BOOL result = isEmailValid;
+    NSError *result = nil;
     
-    BOOL isPasswordValid = [_user.email isPasswordValid];
-    result &= isPasswordValid;
+    if (![_user.email isMailValid]) {
+        
+        result = [NSError errorWithDomain:kEmptyString code:1 userInfo:@{NSLocalizedDescriptionKey:GMLocalizedString(kUserSignUpModelBadUsernameKey)}];
+        
+    } else if (![_user.email isPasswordValid]) {
+        
+        result = [NSError errorWithDomain:kEmptyString code:1 userInfo:@{NSLocalizedDescriptionKey:GMLocalizedString(kUserSignUpModelBadPasswordKey)}];
+        
+    } else if (!_user.salutation) {
+        
+        result = [NSError errorWithDomain:kEmptyString code:1 userInfo:@{NSLocalizedDescriptionKey:GMLocalizedString(kUserSignUpModelBadSalutationKey)}];
+        
+    } else if (!_user.firstName) {
+        
+        result = [NSError errorWithDomain:kEmptyString code:1 userInfo:@{NSLocalizedDescriptionKey:GMLocalizedString(kUserSignUpModelBadFirstNameKey)}];
+        
+    } else if (!_user.lastName) {
+        
+        result = [NSError errorWithDomain:kEmptyString code:1 userInfo:@{NSLocalizedDescriptionKey:GMLocalizedString(kUserSignUpModelBadLastNameKey)}];
+        
+    } else if (!_user.address) {
+        
+        result = [NSError errorWithDomain:kEmptyString code:1 userInfo:@{NSLocalizedDescriptionKey:GMLocalizedString(kUserSignUpModelBadAddressKey)}];
+        
+    } else if (!_user.addressOptional) {
+        
+        result = [NSError errorWithDomain:kEmptyString code:1 userInfo:@{NSLocalizedDescriptionKey:GMLocalizedString(kUserSignUpModelBadAddressOptionalKey)}];
+        
+    } else if (!_user.zipCode) {
+        
+        result = [NSError errorWithDomain:kEmptyString code:1 userInfo:@{NSLocalizedDescriptionKey:GMLocalizedString(kUserSignUpModelBadZipCodeKey)}];
+        
+    } else if (!_user.countryCode) {
+        
+        result = [NSError errorWithDomain:kEmptyString code:1 userInfo:@{NSLocalizedDescriptionKey:GMLocalizedString(kUserSignUpModelBadCountryCodeKey)}];
+        
+    } else if (!_user.stateCode) {
+        
+        result = [NSError errorWithDomain:kEmptyString code:1 userInfo:@{NSLocalizedDescriptionKey:GMLocalizedString(kUserSignUpModelBadStateCodeKey)}];
+        
+    } else if (!_user.city) {
+        
+        result = [NSError errorWithDomain:kEmptyString code:1 userInfo:@{NSLocalizedDescriptionKey:GMLocalizedString(kUserSignUpModelBadCityKey)}];
+        
+    } else if (!_user.phone) {
+        
+        result = [NSError errorWithDomain:kEmptyString code:1 userInfo:@{NSLocalizedDescriptionKey:GMLocalizedString(kUserSignUpModelBadPhoneKey)}];
+        
+    }
     
-    BOOL isSalutationValid = _user.salutation ? YES : NO;
-    result &= isSalutationValid;
-    
-    BOOL isFirstNameValid = _user.firstName ? YES : NO;
-    result &= isFirstNameValid;
-    
-    BOOL isLastNameValid = _user.lastName ? YES : NO;
-    result &= isLastNameValid;
-    
-    BOOL isAddressValid = _user.address ? YES : NO;
-    result &= isAddressValid;
-    
-    BOOL isAddressOptionalValid = _user.addressOptional ? YES : NO;
-    result &= isAddressOptionalValid;
-    
-    BOOL isZipCodeValid = _user.zipCode ? YES : NO;
-    result &= isZipCodeValid;
-    
-    BOOL isCountryCodeValid = _user.countryCode ? YES : NO;
-    result &= isCountryCodeValid;
-    
-    BOOL isStateCodeValid = _user.stateCode ? YES : NO;
-    result &= isStateCodeValid;
-    
-    BOOL isCityValid = _user.city ? YES : NO;
-    result &= isCityValid;
-    
-    BOOL isPhoneValid = _user.phone ? YES : NO;
-    result &= isPhoneValid;
-
     return result;
 }
 

@@ -41,12 +41,18 @@
 
 #pragma mark - Public -
 
-- (BOOL)isValidData {
+- (NSError *)validateData {
     
-    BOOL isEmailValid = [_user.email isMailValid];
-    BOOL isPasswordValid = [_user.email isPasswordValid];
+    NSError *result = nil;
     
-    BOOL result = isEmailValid & isPasswordValid;
+    if (![_user.email isMailValid]) {
+        
+        result = [NSError errorWithDomain:kEmptyString code:1 userInfo:@{NSLocalizedDescriptionKey:GMLocalizedString(kUserLoginModelBadUsernameKey)}];
+        
+    } else if (![_user.password isPasswordValid]) {
+        
+        result = [NSError errorWithDomain:kEmptyString code:1 userInfo:@{NSLocalizedDescriptionKey:GMLocalizedString(kUserLoginModelBadPasswordKey)}];
+    }
     
     return result;
 }

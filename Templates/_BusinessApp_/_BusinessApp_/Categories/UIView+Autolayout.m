@@ -95,6 +95,38 @@
     [containerView addConstraints:@[centerConstraintX, centerConstraintY]];
 }
 
+- (NSLayoutConstraint *)viewAddCenterHorizontalInsideContainerView:(UIView *)containerView {
+    
+    [self prepareViewForAutolayout];
+    
+    NSLayoutConstraint *centerConstraintX =
+    [NSLayoutConstraint
+     constraintWithItem:self attribute:NSLayoutAttributeCenterX
+     relatedBy:NSLayoutRelationEqual
+     toItem:containerView attribute:NSLayoutAttributeCenterX
+     multiplier:1 constant:0];
+    
+    [containerView addConstraint:centerConstraintX];
+    
+    return centerConstraintX;
+}
+
+- (NSLayoutConstraint *)viewAddCenterVerticalInsideContainerView:(UIView *)containerView {
+    
+    [self prepareViewForAutolayout];
+    
+    NSLayoutConstraint *centerConstraintY =
+    [NSLayoutConstraint
+     constraintWithItem:self attribute:NSLayoutAttributeCenterY
+     relatedBy:NSLayoutRelationEqual
+     toItem:containerView attribute:NSLayoutAttributeCenterY
+     multiplier:1 constant:0];
+    
+    [containerView addConstraint:centerConstraintY];
+    
+    return centerConstraintY;
+}
+
 - (void)viewMakeFullWidthAndHeightInsideContainerView:(UIView *)containerView {
     
     [self prepareViewForAutolayout];

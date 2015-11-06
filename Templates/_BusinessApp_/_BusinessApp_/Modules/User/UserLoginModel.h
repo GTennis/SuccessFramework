@@ -28,13 +28,16 @@
 #import "BaseModel.h"
 #import "UserObject.h"
 
+#define kUserLoginModelBadUsernameKey @"BadUsername"
+#define kUserLoginModelBadPasswordKey @"BadPassword"
+
 @interface UserLoginModel : BaseModel
 
 #pragma mark - Public -
 
 @property (nonatomic, strong) UserObject *user;
 
-- (BOOL)isValidData;
+- (NSError *)validateData;
 - (void)clearData;
 - (void)updateModelWithData:(UserObject *)user;
 - (void)login:(Callback)callback;
