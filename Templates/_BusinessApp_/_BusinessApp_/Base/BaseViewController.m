@@ -37,6 +37,9 @@
 #import "MenuNavigator.h"
 
 #import "AppDelegate.h"
+#import "UserManager.h"
+
+#import "ConstNetworkErrorCodes.h"
 
 @interface BaseViewController () <UIGestureRecognizerDelegate> {
     
@@ -339,14 +342,30 @@
 
 #pragma mark Error handling
 
-- (void)handleNetworkRequestError:(NSNotification *)notification {
-    
-    // ...
-}
-
 - (void)handleNetworkRequestSuccess:(NSNotification *)notification {
     
     // ..
+}
+
+- (void)handleNetworkRequestError:(NSNotification *)notification {
+    
+    // ...
+    
+    NSError *error = notification.userInfo[kNetworkRequestErrorNotificationUserInfoKey];
+    
+    // Check for error and only handle once, inside last screen
+    if ([error isKindOfClass:[NSError class]] && self.navigationController.viewControllers.lastObject == self) {
+        
+        if (error.code == kNetworkRequestUnauthorizedCode) {
+            
+            // Go to start
+            [self logoutAndGoBackToAppStartWithError:error];
+            
+        } else {
+            
+            [self.messageBarManager showMessageWithTitle:@"" description:error.localizedDescription type:MessageBarMessageTypeError duration:kMessageBarManagerMessageDuration];
+        }
+    }
 }
 
 #pragma mark Language change handling
@@ -482,6 +501,16 @@
     
     [[NSNotificationCenter defaultCenter] removeObserver:self name:kNetworkRequestErrorNotification object:nil];
     [[NSNotificationCenter defaultCenter] removeObserver:self name:kNetworkRequestSuccessNotification object:nil];
+}
+
+- (void)logoutAndGoBackToAppStartWithError:(NSError *)error {
+    
+    AppDelegate *appDelegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
+    
+    UserManager *userManager = [REGISTRY getObject:[UserManager class]];
+    [userManager logout];
+    
+    [appDelegate showWalkthroughWithError:error];
 }
 
 #pragma mark - DEBUG: network switch and console logger -

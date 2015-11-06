@@ -216,6 +216,11 @@
         
         DDLogWarn(@"[%@]: failed with error: %@", [self class], error);
         
+        if (error.code != kNetworkRequestErrorCanceledCode) {
+            
+            [[NSNotificationCenter defaultCenter] postNotificationName:kNetworkRequestErrorNotification object:nil userInfo:@{kNetworkRequestErrorNotificationUserInfoKey:error}];
+        }
+        
         [weakSelf handleReceivedDataWithSuccess:NO result:nil error:error callback:callback];
     };
     

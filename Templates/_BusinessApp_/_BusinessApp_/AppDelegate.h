@@ -57,4 +57,6 @@
 // Current log level
 @property (readonly) NSInteger logLevel;
 
+- (void)showWalkthroughWithError:(NSError *)error;
+
 @end

@@ -499,7 +499,7 @@
     if (self.settingsManager.isFirstTimeAppLaunch) {
         
         // Show tutorial
-        [self showWalkthrough];
+        [self showWalkthroughWithError:nil];
         
     } else {
         
@@ -508,12 +508,21 @@
     }
 }
 
-- (void)showWalkthrough {
+- (void)showWalkthroughWithError:(NSError *)error {
     
-    ViewControllerFactory *viewControllerFactory = [REGISTRY getObject:[ViewControllerFactory class]];
-    WalkthroughViewController *walkthroughVC = [viewControllerFactory walkthroughViewControllerWithContext:nil];
-    walkthroughVC.delegate = self;
-    self.window.rootViewController = walkthroughVC;
+    // Protection: don't show twice
+    if (![self.window.rootViewController isKindOfClass:[WalkthroughViewController class]]) {
+        
+        ViewControllerFactory *viewControllerFactory = [REGISTRY getObject:[ViewControllerFactory class]];
+        WalkthroughViewController *walkthroughVC = [viewControllerFactory walkthroughViewControllerWithContext:nil];
+        walkthroughVC.delegate = self;
+        self.window.rootViewController = walkthroughVC;
+        
+        if (error) {
+            
+            [self.messageBarManager showMessageWithTitle:@"" description:error.localizedDescription type:MessageBarMessageTypeError duration:kMessageBarManagerMessageDuration];
+        }
+    }
 }
 
 - (void)proceedToTheApp {
