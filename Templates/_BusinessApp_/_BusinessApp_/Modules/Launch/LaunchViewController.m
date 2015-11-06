@@ -26,6 +26,8 @@
 //
 
 #import "LaunchViewController.h"
+#import "ConnectionStatusLabel.h"
+#import "UIView+Autolayout.h"
 
 @interface LaunchViewController ()
 
@@ -33,10 +35,18 @@
 
 @implementation LaunchViewController
 
+- (void)dealloc {
+    
+    [self.reachabilityManager removeServiceObserver:self];
+}
+
 - (void)viewDidLoad {
     
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    
+    self.reachabilityManager = [[ReachabilityManager alloc] init];
+    [self.reachabilityManager addServiceObserver:self];
     
     [self prepareUI];
 }
@@ -46,6 +56,33 @@
     // Use and set the same launch image as screen background image
     NSString *launchImageName = [self launchImageNameForOrientation:self.interfaceOrientation];
     _backgroundImageView.image = [UIImage imageNamed:launchImageName];
+}
+
+#pragma mark - Protected -
+
+#pragma mark ReachabilityManagerObserver
+
+- (void)internetDidBecomeOn {
+    
+    ConnectionStatusLabel *label = (ConnectionStatusLabel *)[self.view viewWithTag:kConnectionStatusLabelTag];
+    [label removeFromSuperview];
+}
+
+- (void)internetDidBecomeOff {
+    
+    ConnectionStatusLabel *label = (ConnectionStatusLabel *)[self.view viewWithTag:kConnectionStatusLabelTag];
+    
+    if (!label) {
+        
+        ConnectionStatusLabel *label = [[ConnectionStatusLabel alloc] init];
+        [self.view addSubview:label];
+        
+        CGFloat margin = self.view.bounds.size.width * 0.1f;
+        
+        [label viewAddLeadingSpace:margin containerView:self.view];
+        [label viewAddTrailingSpace:-margin containerView:self.view];
+        [label viewAddTopSpace:margin containerView:self.view];
+    }
 }
 
 #pragma mark - Private -

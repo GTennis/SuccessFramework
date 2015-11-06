@@ -26,8 +26,10 @@
 //
 
 #import "BaseViewController.h"
+#import "ReachabilityManager.h"
+#import "ReachabilityManagerObserver.h"
 
-@interface LaunchViewController : BaseViewController
+@interface LaunchViewController : BaseViewController <ReachabilityManagerObserver>
 
 #pragma mark - Public -
 

@@ -295,7 +295,7 @@
     Class deviceClass = NSClassFromString(viewControllerClassName);
     
     // Create view controller
-    BaseViewController *viewController = [[deviceClass alloc] initWithViewManager:[self viewManager] crashManager:[self crashManager] analyticsManager:[self analyticsManager] messageBarManager:[self messageBarManager] viewControllerFactory:self context:context];
+    BaseViewController *viewController = [[deviceClass alloc] initWithViewManager:[self viewManager] crashManager:[self crashManager] analyticsManager:[self analyticsManager] messageBarManager:[self messageBarManager] viewControllerFactory:self reachabilityManager:[self reachabilityManager] context:context];
     
     return viewController;
 }

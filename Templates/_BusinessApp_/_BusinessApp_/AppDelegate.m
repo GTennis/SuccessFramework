@@ -60,7 +60,7 @@
 // Other
 #import <iVersion.h>
 
-#define kAppConfigRetryDelayDuration 3.0f
+#define kAppConfigRetryDelayDuration 1.5f
 
 @interface AppDelegate () <WalkthroughViewControllerDelegate>
 

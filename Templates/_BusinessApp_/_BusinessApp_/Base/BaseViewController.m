@@ -39,6 +39,8 @@
 #import "AppDelegate.h"
 #import "UserManager.h"
 
+#import "ConnectionStatusLabel.h"
+
 #import "ConstNetworkErrorCodes.h"
 
 @interface BaseViewController () <UIGestureRecognizerDelegate> {
@@ -61,6 +63,8 @@
 - (void)dealloc {
     
     [[NSNotificationCenter defaultCenter] removeObserver:self];
+    
+    [self.reachabilityManager removeServiceObserver:self];
 }
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
@@ -90,6 +94,8 @@
 - (void)viewDidLoad {
     
     [super viewDidLoad];
+    
+    [self.reachabilityManager addServiceObserver:self];
     
     if (_isModallyPressented) {
 
@@ -185,7 +191,7 @@
 
 #pragma mark Custom initialization
 
-- (instancetype)initWithViewManager:(id<ViewManagerProtocol>)viewManager crashManager:(id<CrashManagerProtocol>)crashManager analyticsManager:(id<AnalyticsManagerProtocol>)analyticsManager messageBarManager:(id<MessageBarManagerProtocol>)messageBarManager viewControllerFactory:(id<ViewControllerFactoryProtocol>)viewControllerFactory context:(id)context {
+- (instancetype)initWithViewManager:(id <ViewManagerProtocol>)viewManager crashManager:(id<CrashManagerProtocol>)crashManager analyticsManager:(id<AnalyticsManagerProtocol>)analyticsManager messageBarManager:(id<MessageBarManagerProtocol>)messageBarManager viewControllerFactory:(id<ViewControllerFactoryProtocol>)viewControllerFactory reachabilityManager:(id<ReachabilityManagerProtocol>)reachabilityManager context:(id)context {
     
     self = [self init];
     if (self) {
@@ -195,6 +201,7 @@
         _analyticsManager = analyticsManager;
         _messageBarManager = messageBarManager;
         _viewControllerFactory = viewControllerFactory;
+        _reachabilityManager = reachabilityManager;
         
         _context = context;
         
@@ -387,7 +394,7 @@
     navigationBar.titleLabel.text = title;
 }
 
-#pragma mark - TopModalNavigationBarDelegate -
+#pragma mark TopModalNavigationBarDelegate
 
 - (void)didPressedCancelModal {
     
@@ -399,7 +406,7 @@
     [self.topModalNavigationBar showCancelButton];
 }
 
-#pragma mark - TopNavigationBarDelegate -
+#pragma mark TopNavigationBarDelegate
 
 - (void)didPressedContacts {
     
@@ -416,6 +423,31 @@
     
     MenuNavigator *menuNavigator = [REGISTRY getObject:[MenuNavigator class]];
     [menuNavigator toggleMenu];
+}
+
+#pragma mark ReachabilityManagerObserver
+
+- (void)internetDidBecomeOn {
+    
+    ConnectionStatusLabel *label = (ConnectionStatusLabel *)[self.view viewWithTag:kConnectionStatusLabelTag];
+    [label removeFromSuperview];
+}
+
+- (void)internetDidBecomeOff {
+    
+    ConnectionStatusLabel *label = (ConnectionStatusLabel *)[self.view viewWithTag:kConnectionStatusLabelTag];
+    
+    if (!label) {
+        
+        ConnectionStatusLabel *label = [[ConnectionStatusLabel alloc] init];
+        [self.view addSubview:label];
+        
+        CGFloat margin = self.view.bounds.size.width * 0.1f;
+        
+        [label viewAddLeadingSpace:margin containerView:self.view];
+        [label viewAddTrailingSpace:-margin containerView:self.view];
+        [label viewAddTopSpace:margin containerView:self.view];
+    }
 }
 
 #pragma mark - Private -

@@ -33,6 +33,8 @@
 #import "ViewControllerFactoryProtocol.h"
 #import "BaseModel.h"
 #import "ViewControllerModelDelegate.h"
+#import "ReachabilityManagerProtocol.h"
+#import "ReachabilityManagerObserver.h"
 
 #import "TopNavigationBar.h"
 #import "TopModalNavigationBar.h"
@@ -41,13 +43,13 @@
 
 @protocol ViewControllerFactoryProtocol;
 
-@interface BaseViewController : UIViewController <ViewControllerModelDelegate, TopNavigationBarDelegate, TopModalNavigationBarDelegate>
+@interface BaseViewController : UIViewController <ViewControllerModelDelegate, TopNavigationBarDelegate, TopModalNavigationBarDelegate, ReachabilityManagerObserver>
 
 #pragma mark - Public -
 
 #pragma mark Custom initialization
 
-- (instancetype)initWithViewManager:(id<ViewManagerProtocol>)viewManager crashManager:(id<CrashManagerProtocol>)crashManager analyticsManager:(id<AnalyticsManagerProtocol>)analyticsManager messageBarManager:(id<MessageBarManagerProtocol>)messageBarManager viewControllerFactory:(id<ViewControllerFactoryProtocol>)viewControllerFactory context:(id)context;
+- (instancetype)initWithViewManager:(id <ViewManagerProtocol>)viewManager crashManager:(id<CrashManagerProtocol>)crashManager analyticsManager:(id<AnalyticsManagerProtocol>)analyticsManager messageBarManager:(id<MessageBarManagerProtocol>)messageBarManager viewControllerFactory:(id<ViewControllerFactoryProtocol>)viewControllerFactory reachabilityManager:(id<ReachabilityManagerProtocol>)reachabilityManager context:(id)context;
 
 #pragma mark Modal screen handling
 
@@ -77,6 +79,7 @@
 @property (nonatomic, strong) id<AnalyticsManagerProtocol> analyticsManager;
 @property (nonatomic, strong) id<MessageBarManagerProtocol> messageBarManager;
 @property (nonatomic, strong) id<ViewControllerFactoryProtocol> viewControllerFactory;
+@property (nonatomic, strong) id<ReachabilityManagerProtocol> reachabilityManager;
 
 // Override for custom handling
 - (void)didPressedCancelModal;

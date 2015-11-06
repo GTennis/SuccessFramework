@@ -286,7 +286,7 @@
                 break;
                 
                 // Standard case when SERVER returns errors about bad data in request
-            case kNetworkRequestErrorBadInputDataErrorCode:
+            case kNetworkRequestBadDataErrorCode:
                 
                 
                 errorCase = kNetworkRequestBadInputDataError;

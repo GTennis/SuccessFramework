@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0F0EF1271BE15D4900D01A7F /* AppDelegate4UnitTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F0EF1261BE15D4900D01A7F /* AppDelegate4UnitTests.m */; settings = {ASSET_TAGS = (); }; };
+		0F57AE181BED398B0095D463 /* ConnectionStatusLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F57AE171BED398B0095D463 /* ConnectionStatusLabel.m */; settings = {ASSET_TAGS = (); }; };
 		0F70DF2E1AFFC47E004293F1 /* TopNavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F70DF2D1AFFC47E004293F1 /* TopNavigationBar.m */; };
 		0F70DF311AFFC4C5004293F1 /* TopNavigationBar_iphone.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F70DF301AFFC4C5004293F1 /* TopNavigationBar_iphone.m */; };
 		0F70DF331AFFC4D8004293F1 /* TopNavigationBar_iphone.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0F70DF321AFFC4D8004293F1 /* TopNavigationBar_iphone.xib */; };
@@ -229,6 +230,8 @@
 		0F0EF1251BE15D4900D01A7F /* AppDelegate4UnitTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate4UnitTests.h; sourceTree = "<group>"; };
 		0F0EF1261BE15D4900D01A7F /* AppDelegate4UnitTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate4UnitTests.m; sourceTree = "<group>"; };
 		0F57AE141BED37880095D463 /* ConstNetworkErrorCodes.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ConstNetworkErrorCodes.h; sourceTree = "<group>"; };
+		0F57AE161BED398B0095D463 /* ConnectionStatusLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConnectionStatusLabel.h; sourceTree = "<group>"; };
+		0F57AE171BED398B0095D463 /* ConnectionStatusLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConnectionStatusLabel.m; sourceTree = "<group>"; };
 		0F70DF2C1AFFC47E004293F1 /* TopNavigationBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TopNavigationBar.h; sourceTree = "<group>"; };
 		0F70DF2D1AFFC47E004293F1 /* TopNavigationBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TopNavigationBar.m; sourceTree = "<group>"; };
 		0F70DF2F1AFFC4C5004293F1 /* TopNavigationBar_iphone.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TopNavigationBar_iphone.h; sourceTree = "<group>"; };
@@ -672,6 +675,15 @@
 			name = 4UnitTests;
 			sourceTree = "<group>";
 		};
+		0F57AE151BED39680095D463 /* ConnectivityLabels */ = {
+			isa = PBXGroup;
+			children = (
+				0F57AE161BED398B0095D463 /* ConnectionStatusLabel.h */,
+				0F57AE171BED398B0095D463 /* ConnectionStatusLabel.m */,
+			);
+			path = ConnectivityLabels;
+			sourceTree = "<group>";
+		};
 		0F70DF391AFFC54A004293F1 /* Base */ = {
 			isa = PBXGroup;
 			children = (
@@ -1080,6 +1092,7 @@
 		0FA695D219BB9AAE0058A722 /* PartialViews */ = {
 			isa = PBXGroup;
 			children = (
+				0F57AE151BED39680095D463 /* ConnectivityLabels */,
 				0FE1CB461AF675FA006769FE /* Keyboard */,
 				0FE1CB291AF66A37006769FE /* TextFields */,
 				0FE1CB221AF6694F006769FE /* Buttons */,
@@ -2544,6 +2557,7 @@
 				0FC4D1671AFBE0CA00CF4C24 /* MenuViewController_iphone.m in Sources */,
 				311367B21B8DCC1E0013EB27 /* ConfigNetworkOperation.m in Sources */,
 				0FA67F7719C4F6B500E00FDA /* SettingsViewController_ipad.m in Sources */,
+				0F57AE181BED398B0095D463 /* ConnectionStatusLabel.m in Sources */,
 				0FE1CB5C1AF691FE006769FE /* TermsConditionsModel.m in Sources */,
 				0FE1CB2C1AF66A66006769FE /* BaseTextField.m in Sources */,
 				31CB85591B15BFEC00F827F7 /* WalkthroughViewController_ipad.m in Sources */,
