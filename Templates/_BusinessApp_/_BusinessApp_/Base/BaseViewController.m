@@ -272,6 +272,30 @@
     //NSAssert(NO, @"loadModel is not implemented in class: %@", NSStringFromClass([self class]));
 }
 
+#pragma mark Progress indicators
+
+- (void)showScreenActivityIndicator {
+    
+    [_viewManager showScreenActivityIndicatorInView:self.view];
+}
+
+- (void)hideScreenActivityIndicator {
+    
+    [_viewManager hideScreenActivityIndicatorFromView:self.view];
+}
+
+#pragma mark Xib loading
+
+- (UIView *)loadViewFromXib:(NSString *)name class:(Class)theClass {
+    
+    return [_viewManager loadViewFromXib:name class:theClass];
+}
+
+- (UIView *)loadViewFromXibWithClass:(Class)theClass {
+    
+    return [_viewManager loadViewFromXibWithClass:theClass];
+}
+
 #pragma mark Navigation handling
 
 - (void)showNavigationBar {
@@ -466,7 +490,7 @@
 - (void)addCustomNavigationBar {
     
     // Creating and adding custom navigation bar
-    TopNavigationBar *navigationBar = (TopNavigationBar *)[self.viewManager loadViewFromXibWithClass:[TopNavigationBar class]];
+    TopNavigationBar *navigationBar = (TopNavigationBar *)[self loadViewFromXibWithClass:[TopNavigationBar class]];
     navigationBar.delegate = self;
     self.navigationItem.titleView = navigationBar;
     //this is a work around to get rid of ellipsis when navigating back
@@ -487,7 +511,7 @@
 - (void)addCustomModalNavigationBar {
     
     // Creating and adding custom navigation bar
-    _topModalNavigationBar = (TopModalNavigationBar *)[self.viewManager loadViewFromXibWithClass:[TopModalNavigationBar class]];
+    _topModalNavigationBar = (TopModalNavigationBar *)[self loadViewFromXibWithClass:[TopModalNavigationBar class]];
     _topModalNavigationBar.delegate = self;
     
     if (_shouldModalNavigationBarAlwaysStickToModalContainerViewTopForIpad && isIpad) {

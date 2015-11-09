@@ -80,11 +80,11 @@
     
     __weak typeof(self) weakSelf = self;
     
-    [weakSelf.viewManager showScreenActivityIndicatorInView:weakSelf.view];
+    [weakSelf showScreenActivityIndicator];
     
     [_model loadData:^(BOOL success, id result, NSError *error) {
         
-        [weakSelf.viewManager hideScreenActivityIndicatorFromView:weakSelf.view];
+        [weakSelf hideScreenActivityIndicator];
         
         if (success) {
             

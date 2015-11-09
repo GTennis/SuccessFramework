@@ -123,7 +123,7 @@
 	
 	if (cell == nil)
 	{
-        cell = (TableViewExampleCell *)[self.viewManager loadViewFromXibWithClass:[TableViewExampleCell class]];
+        cell = (TableViewExampleCell *)[self loadViewFromXibWithClass:[TableViewExampleCell class]];
         //cell.noteDetailsView.noteDetailsViewDelegate = self;
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
 	}

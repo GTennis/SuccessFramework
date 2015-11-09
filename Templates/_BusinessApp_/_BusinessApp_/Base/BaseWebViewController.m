@@ -45,19 +45,19 @@
 
 - (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType {
     
-    [self.viewManager showScreenActivityIndicatorInView:self.view];
+    [self showScreenActivityIndicator];
     
     return YES;
 }
 
 - (void)webViewDidFinishLoad:(UIWebView *)webView {
     
-    [self.viewManager hideScreenActivityIndicatorFromView:self.view];
+    [self hideScreenActivityIndicator];
 }
 
 - (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error {
     
-    [self.viewManager hideScreenActivityIndicatorFromView:self.view];
+    [self hideScreenActivityIndicator];
 }
 
 @end

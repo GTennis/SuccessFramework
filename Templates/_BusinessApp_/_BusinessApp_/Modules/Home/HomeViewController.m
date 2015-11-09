@@ -104,12 +104,12 @@
     
     __weak typeof(self) weakSelf = self;
     
-    [weakSelf.viewManager showScreenActivityIndicatorInView:weakSelf.view];
+    [weakSelf showScreenActivityIndicator];
     _progressLabel.hidden = NO;
     
     [_model loadData:^(BOOL success, id result, NSError *error) {
         
-        [weakSelf.viewManager hideScreenActivityIndicatorFromView:weakSelf.view];
+        [weakSelf hideScreenActivityIndicator];
         weakSelf.progressLabel.hidden = YES;
         
         if (success) {

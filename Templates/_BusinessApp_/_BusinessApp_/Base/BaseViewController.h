@@ -103,4 +103,14 @@
 - (void)hideNavigationBar;
 - (BOOL)hasNavigationBar;
 
+#pragma mark Progress indicators
+
+- (void)showScreenActivityIndicator;
+- (void)hideScreenActivityIndicator;
+
+#pragma mark Xib loading
+
+- (UIView *)loadViewFromXib:(NSString *)name class:(Class)theClass;
+- (UIView *)loadViewFromXibWithClass:(Class)theClass;
+
 @end
