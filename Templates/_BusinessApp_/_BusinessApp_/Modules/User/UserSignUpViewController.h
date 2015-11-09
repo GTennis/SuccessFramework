@@ -28,6 +28,8 @@
 #import "BaseDetailsViewController.h"
 #import "KeyboardControl.h"
 
+#define kUserSignUpViewControllerTitle @"SignUpTitle"
+
 @class UserSignUpModel;
 
 @protocol UserSignUpViewControllerDelegate <NSObject>

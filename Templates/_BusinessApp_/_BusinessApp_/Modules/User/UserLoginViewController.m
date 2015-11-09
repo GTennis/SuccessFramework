@@ -29,10 +29,6 @@
 #import "UserLoginModel.h"
 #import "KeyboardControlProtocol.h"
 
-#define kUserLoginViewControllerEmailKey @"Email"
-#define kUserLoginViewControllerPasswordKey @"Password"
-#define kUserLoginViewControllerIncorrectDataKey @"WrongEmailOrPasswordWasProvided"
-
 @interface UserLoginViewController ()
 
 @end
@@ -66,6 +62,12 @@
 - (void)prepareUI {
     
     [super prepareUI];
+    
+    self.title = GMLocalizedString(kUserLoginViewControllerTitle);
+    _subTitleLabel.text = GMLocalizedString(kUserLoginViewControllerSubTitle);
+    _orLabel.text = GMLocalizedString(kUserLoginViewControllerLoginOrLabel);
+    [_loginButton setTitle:GMLocalizedString(kUserLoginViewControllerLoginButtonKey) forState:UIControlStateNormal];
+    [_signUpButton setTitle:GMLocalizedString(kUserLoginViewControllerLoginSignUpButtonKey) forState:UIControlStateNormal];
     
     [self configureScrollView];
     [self setupTextFields];
@@ -199,8 +201,8 @@
 - (void)setupTextFields {
     
     // Add placeholders
-    _emailTextField.placeholder = GMLocalizedString(kUserLoginViewControllerEmailKey);
-    _passwordTextField.placeholder = GMLocalizedString(kUserLoginViewControllerPasswordKey);
+    _emailTextField.placeholder = GMLocalizedString(kUserLoginViewControllerLoginUsernameKey);
+    _passwordTextField.placeholder = GMLocalizedString(kUserLoginViewControllerLoginPasswordKey);
     
     // Set required fields
     _emailTextField.isRequired = YES;

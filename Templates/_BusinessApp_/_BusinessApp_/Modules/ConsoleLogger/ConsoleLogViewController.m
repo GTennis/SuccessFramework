@@ -34,6 +34,8 @@
 #define kConsoleLogViewControllerCannotSendEmptyLogAlertOkKey @"Ok"
 #define kConsoleLogViewControllerCannotSendEmptyLogAlertMessage @"kConsoleLogViewControllerCannotSendEmptyLogAlertMessage"
 
+static ConsoleLogViewController *_sharedInstance = nil;
+
 @interface ConsoleLogViewController () {
     
     NSMutableString *_logString;
@@ -65,6 +67,30 @@
 - (void)dealloc {
     
     [GMCustomLogger sharedInstance].delegate = nil;
+}
+
+// Get the shared instance of data source factory
++ (ConsoleLogViewController *)sharedInstance {
+    
+    if (!_sharedInstance) {
+        
+        NSString *viewControllerClassName = @"ConsoleLogViewController";
+        
+        if (isIpad) {
+            
+            viewControllerClassName = [NSString stringWithFormat:@"%@_ipad", viewControllerClassName];
+            
+        } else {
+            
+            viewControllerClassName = [NSString stringWithFormat:@"%@_iphone", viewControllerClassName];
+        }
+        
+        Class deviceClass = NSClassFromString(viewControllerClassName);
+        
+        _sharedInstance = [[deviceClass alloc] init];
+    }
+    
+    return _sharedInstance;
 }
 
 - (void)viewDidLoad {

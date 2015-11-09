@@ -62,10 +62,27 @@
                 // Everything is ok.
                 break;
                 
+            case 4:
+                
+                // Unauthorized
+                if (httpResponseStatus == 401) {
+                    
+                    NSDictionary *userInfoDict = @{NSLocalizedDescriptionKey:GMLocalizedString(@"ReloginMessage")};
+                    (*error) = [NSError errorWithDomain:kNetworkResponseSerializerErrorDomain code:kNetworkRequestUnauthorizedCode userInfo:userInfoDict];
+                    break;
+                    
+                    // 4XX bad data was passed
+                } else {
+                    
+                    (*error) = [self errorFromDict:JSONObject httpResponseStatus:httpResponseStatus responseData:data];
+                    
+                    break;
+                }
+                
                 // Override 5XX status with custom text
             case 5: {
                 
-                NSDictionary *userInfoDict = @{NSLocalizedDescriptionKey:@"Server is too busy. Try again later"};
+                NSDictionary *userInfoDict = @{NSLocalizedDescriptionKey:GMLocalizedString(@"Server5xxErrorMessage")};
                 (*error) = [NSError errorWithDomain:kNetworkResponseSerializerErrorDomain code:httpResponseStatus userInfo:userInfoDict];
                 
                 break;
@@ -80,47 +97,7 @@
                 
                 break;
             }
-                
         }
-        
-        // Handle response by exact HTTP status
-        // Suppose errors are returned via 400
-        /*if (httpResponseStatus == 400) {
-         
-         // Check if we received json responseObject
-         if (data) {
-         
-         NSError *errorDeserializationError = nil;
-         NSDictionary *errorsDic = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:&errorDeserializationError];
-         
-         // If unable to deserialized error responseObject
-         if (errorDeserializationError) {
-         
-         // Overwrite previous error
-         NSString *errorString = [@"Unable to deserialize response: " stringByAppendingString:errorDeserializationError.localizedDescription];
-         NSDictionary *userInfoDict = @{NSLocalizedDescriptionKey:errorString};
-         (*error) = [NSError errorWithDomain:kNetworkResponseSerializerErrorDomain code:httpResponseStatus userInfo:userInfoDict];
-         
-         } else {
-         
-         NSArray *errorsArray = errorsDic[kNetworkErrorsKey];
-         
-         // Extract first error from the list of errors
-         if (errorsArray.count > 0) {
-         
-         NSDictionary *errorDic = errorsArray[0];
-         (*error) = [NSError errorWithDomain:errorDic[kNetworkErrorCodeKey] code:httpResponseStatus userInfo:nil];
-         }
-         }
-         
-         // If for any reason response body doesn't contain responseObject then just change error code and leave error domain as previous
-         } else {
-         
-         // Overwrite previous error
-         (*error) = [NSError errorWithDomain:(*error).domain code:httpResponseStatus userInfo:(*error).userInfo];
-         }
-         
-         }*/
         
         return (JSONObject);
         
@@ -128,6 +105,31 @@
         
         return [((NSDictionary *) JSONObject) dictionaryByRemovingAndReplacingNulls];
     }
+}
+
+#pragma mark - Private -
+
+- (NSError *)errorFromDict:(NSDictionary *)dict httpResponseStatus:(NSInteger)httpResponseStatus responseData:(NSData *)responseData {
+    
+    NSArray *errors = dict[@"errors"];
+    NSDictionary *firstErrorDict = errors.firstObject;
+    NSString *firstErrorMessage = firstErrorDict[@"message"];
+    
+    NSError *result = nil;
+    
+    if (firstErrorMessage.length > 0) {
+        
+        result = [NSError errorWithDomain:kEmptyString code:1 userInfo:@{NSLocalizedDescriptionKey: firstErrorMessage}];
+        
+    } else {
+        
+        NSString *responseString = [[NSString alloc] initWithData:responseData encoding:NSUTF8StringEncoding];
+        NSDictionary *userInfoDict = @{NSLocalizedDescriptionKey:responseString};
+        
+        result = [NSError errorWithDomain:kNetworkResponseSerializerErrorDomain code:httpResponseStatus userInfo:userInfoDict];
+    }
+    
+    return result;
 }
 
 @end

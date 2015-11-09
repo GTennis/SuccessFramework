@@ -43,4 +43,6 @@
 - (IBAction)clearLogPressed:(id)sender;
 - (IBAction)reportPressed:(id)sender;
 
++ (ConsoleLogViewController *)sharedInstance;
+
 @end

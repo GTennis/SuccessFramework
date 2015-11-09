@@ -1,24 +1,26 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6254" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="8191" systemVersion="15A284" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ConsoleLogViewController_iphone">
             <connections>
                 <outlet property="scrollView" destination="cGw-LO-BOn" id="tZd-tw-1xp"/>
                 <outlet property="textView" destination="nmF-w8-Pr4" id="FWa-k8-i6h"/>
+                <outlet property="textViewHeightConstraint" destination="VWo-hQ-RlA" id="cjO-bX-bWu"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view clearsContextBeforeDrawing="NO" alpha="0.69999999999999996" contentMode="scaleToFill" id="i5M-Pr-FkT">
-            <rect key="frame" x="0.0" y="64" width="320" height="568"/>
+            <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1AS-Y0-0wR">
                     <rect key="frame" x="0.0" y="-2" width="67" height="44"/>
+                    <animations/>
                     <constraints>
                         <constraint firstAttribute="height" constant="44" id="YxB-Q8-Ite"/>
                         <constraint firstAttribute="width" constant="67" id="mWV-Kd-DpR"/>
@@ -32,6 +34,7 @@
                 </button>
                 <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="WPv-VI-WGL">
                     <rect key="frame" x="69" y="0.0" width="112" height="44"/>
+                    <animations/>
                     <constraints>
                         <constraint firstAttribute="height" constant="44" id="YWd-g5-3h5"/>
                         <constraint firstAttribute="width" constant="112" id="iil-mP-fZp"/>
@@ -40,6 +43,7 @@
                 </searchBar>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ME2-o1-qe8">
                     <rect key="frame" x="181" y="0.0" width="73" height="42"/>
+                    <animations/>
                     <constraints>
                         <constraint firstAttribute="height" constant="42" id="4HR-RP-jX0"/>
                         <constraint firstAttribute="width" constant="73" id="Ju3-cL-bU0"/>
@@ -53,6 +57,7 @@
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6UT-Ep-3Kw">
                     <rect key="frame" x="256" y="0.0" width="64" height="44"/>
+                    <animations/>
                     <constraints>
                         <constraint firstAttribute="height" constant="44" id="vap-vq-sNA"/>
                     </constraints>
@@ -68,6 +73,7 @@
                     <subviews>
                         <textView userInteractionEnabled="NO" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" indicatorStyle="black" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nmF-w8-Pr4">
                             <rect key="frame" x="0.0" y="0.0" width="640" height="538"/>
+                            <animations/>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="538" id="VWo-hQ-RlA"/>
@@ -79,6 +85,7 @@
                             <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                         </textView>
                     </subviews>
+                    <animations/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstAttribute="bottom" secondItem="nmF-w8-Pr4" secondAttribute="bottom" id="HmD-ha-DUU"/>
@@ -88,6 +95,7 @@
                     </constraints>
                 </scrollView>
             </subviews>
+            <animations/>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstItem="1AS-Y0-0wR" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="1EW-aJ-Hof"/>
@@ -107,9 +115,4 @@
             <point key="canvasLocation" x="314" y="331"/>
         </view>
     </objects>
-    <simulatedMetricsContainer key="defaultSimulatedMetrics">
-        <simulatedStatusBarMetrics key="statusBar"/>
-        <simulatedOrientationMetrics key="orientation"/>
-        <simulatedScreenMetrics key="destination" type="retina4"/>
-    </simulatedMetricsContainer>
 </document>

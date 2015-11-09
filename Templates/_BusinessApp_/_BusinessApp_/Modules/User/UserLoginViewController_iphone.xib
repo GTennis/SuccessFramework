@@ -10,7 +10,11 @@
                 <outlet property="contentScrollView" destination="e6b-HK-uKx" id="JfI-3O-rfg"/>
                 <outlet property="emailTextField" destination="LWd-dm-Nba" id="INB-Zl-w5A"/>
                 <outlet property="emailTextFieldWidthConstraint" destination="Yh3-5j-BqN" id="4hg-b1-4Xm"/>
+                <outlet property="loginButton" destination="e1P-xQ-f5b" id="LrU-rJ-lpu"/>
+                <outlet property="orLabel" destination="XOh-6A-Py9" id="14V-pW-SQK"/>
                 <outlet property="passwordTextField" destination="u8d-Ki-3Zx" id="Ph4-Sr-Em7"/>
+                <outlet property="signUpButton" destination="tpD-Bm-Add" id="Z2f-9h-YkY"/>
+                <outlet property="subTitleLabel" destination="F4h-Xy-rRS" id="Zvi-ox-ENO"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>

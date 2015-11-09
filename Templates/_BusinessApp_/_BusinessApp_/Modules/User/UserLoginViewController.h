@@ -28,6 +28,14 @@
 #import "BaseDetailsViewController.h"
 #import "KeyboardControl.h"
 
+#define kUserLoginViewControllerTitle @"LoginTitle"
+#define kUserLoginViewControllerSubTitle @"LoginSubTitle"
+#define kUserLoginViewControllerLoginButtonKey @"LoginButton"
+#define kUserLoginViewControllerLoginSignUpButtonKey @"SignUpButton"
+#define kUserLoginViewControllerLoginUsernameKey @"Username"
+#define kUserLoginViewControllerLoginPasswordKey @"Password"
+#define kUserLoginViewControllerLoginOrLabel @"or"
+
 @class UserLoginModel;
 
 @protocol UserLoginViewControllerDelegate <NSObject>
@@ -47,8 +55,12 @@
 @property (nonatomic, strong) UserLoginModel *model;
 @property (nonatomic, weak) id<UserLoginViewControllerDelegate> delegate;
 
+@property (weak, nonatomic) IBOutlet NormalLabel *subTitleLabel;
 @property (weak, nonatomic) IBOutlet NormalTextField *emailTextField;
 @property (weak, nonatomic) IBOutlet PasswordTextField *passwordTextField;
+@property (weak, nonatomic) IBOutlet NormalLabel *orLabel;
+@property (weak, nonatomic) IBOutlet NormalButton *loginButton;
+@property (weak, nonatomic) IBOutlet NormalButton *signUpButton;
 
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *emailTextFieldWidthConstraint;
 

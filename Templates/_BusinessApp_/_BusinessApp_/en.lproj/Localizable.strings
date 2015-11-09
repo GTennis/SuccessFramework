@@ -27,6 +27,22 @@
 /* Screen title */
 "TermsConditionsTitle" = "TermsConditions";
 
+//-------------- Login -------------//
+"LoginTitle" = "Login";
+"LoginSubTitle" = "Enter your email and password";
+"LoginButton" = "Login";
+"SignUpButton" = "Sign up";
+"ReloginMessage" = "Ups, something happened with your token. Can you login again please?";
+"Username" = "Username";
+"Password" = "Password";
+"or" = "or";
+
+//-------------- SignUp -------------//
+
+"SignUpTitle" = "Sign up";
+"BadPassword" = "Please enter your password correctly";
+"BadUsername" = "Please enter your username correctly";
+
 //-------------- Common -------------//
 
 /* No comment provided by engineer. */
@@ -55,4 +71,5 @@
 /* No comment provided by engineer. */
 "AppNeedsReload" = "The app needs to reload itself because of the new settings. Please close and open app again. Sorry for the inconvenience.";
 
-
+//-------------- Errors -------------//
+"Server5xxErrorMessage" = "Server is too busy. Try again later";

@@ -79,6 +79,8 @@
     
     [super prepareUI];
     
+    self.title = GMLocalizedString(kUserSignUpViewControllerTitle);
+    
     [self configureScrollView];
     [self setupTextFields];
     [self setupTappablePrivacyAndTermsTextView];

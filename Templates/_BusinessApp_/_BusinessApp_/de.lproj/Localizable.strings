@@ -27,6 +27,23 @@
 /* Screen title */
 "TermsConditionsTitle" = "Geschäftsbedingungen";
 
+//-------------- Login -------------//
+
+"LoginTitle" = "Einloggen";
+"LoginSubTitle" = "Geben Sie einfach Ihre E-Mail und Passwort";
+"LoginButton" = "Einloggen";
+"SignUpButton" = "Anmeldung";
+"ReloginMessage" = "Ups, geschah etwas mit Ihrem Token. Können Sie sich neu anmelden bitte?";
+"Username" = "Benutzername";
+"Password" = "Passwort";
+"or" = "oder";
+
+//-------------- SignUp -------------//
+
+"SignUpTitle" = "Anmeldung";
+"BadPassword" = "Bitte geben Sie Ihr Passwort richtig";
+"BadUsername" = "Bitte geben Sie Ihre E-Mail richtig";
+
 //-------------- Common -------------//
 
 /* No comment provided by engineer. */
@@ -54,3 +71,6 @@
 
 /* No comment provided by engineer. */
 "AppNeedsReload" = "The app needs to reload itself because of the new settings. Please close and open app again. Sorry for the inconvenience.";
+
+//-------------- Errors -------------//
+"Server5xxErrorMessage" = "Server ist überlastet. Versuchen Sie es später noch einmal";

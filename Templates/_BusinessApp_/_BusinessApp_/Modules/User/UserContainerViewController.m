@@ -31,10 +31,6 @@
 #import "UserForgotPasswordViewController.h"
 #import "TopModalNavigationBar.h"
 
-#define kUserContainerViewControllerLoginTitle @"Login"
-#define kUserContainerViewControllerSignUpTitle @"SignUp"
-#define kUserContainerViewControllerForgotPasswordTitle @"Forgot password"
-
 @interface UserContainerViewController ()
 
 @end
@@ -55,7 +51,6 @@
 - (void)showLoginWithAnimation:(BOOL)animated {
 
     // Prepare UI
-    self.title = GMLocalizedString(kUserContainerViewControllerLoginTitle);
     [self.topModalNavigationBar showCancelButton];
     
     // Perform transition
@@ -65,7 +60,6 @@
 - (void)showSignUpWithAnimation:(BOOL)animated {
 
     // Prepare UI
-    self.title = GMLocalizedString(kUserContainerViewControllerSignUpTitle);
     [self.topModalNavigationBar showBackButton];
 
     // Perform transition
@@ -75,7 +69,6 @@
 - (void)showForgotPasswordWithAnimation:(BOOL)animated email:(NSString *)email {
     
     // Prepare UI
-    self.title = GMLocalizedString(kUserContainerViewControllerForgotPasswordTitle);
     //[_userForgotPasswordVC setEmail:email];
     [self.topModalNavigationBar showBackButton];
 
@@ -211,6 +204,8 @@
         [self removePreviousViewController:currentViewController];
         [self addNextViewController:nextViewController];
     }
+    
+    self.title = nextViewController.title;
 }
 
 - (void)removePreviousViewController:(UIViewController *)viewController {
