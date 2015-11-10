@@ -27,7 +27,8 @@
 
 #import "NetworkOperationProtocol.h"
 
-@class AppConfigObject;
+@protocol AppConfigObject;
+@protocol UserManagerProtocol;
 
 @protocol NetworkOperationFactoryProtocol <NSObject>
 
@@ -35,7 +36,8 @@
 
 #pragma mark Configuration
 
-@property (nonatomic, strong) AppConfigObject *appConfig;
+@property (nonatomic, strong) id <AppConfigObject> appConfig;
+@property (nonatomic, weak) id <UserManagerProtocol> userManager;
 
 - (instancetype)initWithAppConfig:(AppConfigObject *)appConfig;
 

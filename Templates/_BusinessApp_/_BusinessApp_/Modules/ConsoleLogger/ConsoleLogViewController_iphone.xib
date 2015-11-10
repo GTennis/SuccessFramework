@@ -68,7 +68,7 @@
                         <action selector="clearLogPressed:" destination="-1" eventType="touchUpInside" id="usV-nn-dTG"/>
                     </connections>
                 </button>
-                <scrollView autoresizesSubviews="NO" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cGw-LO-BOn">
+                <scrollView autoresizesSubviews="NO" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cGw-LO-BOn">
                     <rect key="frame" x="0.0" y="44" width="320" height="524"/>
                     <subviews>
                         <textView userInteractionEnabled="NO" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" indicatorStyle="black" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nmF-w8-Pr4">

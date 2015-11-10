@@ -27,6 +27,8 @@
 
 #import "NetworkRequestObject.h"
 
+@protocol UserManagerProtocol;
+
 @protocol NetworkOperationProtocol <NSObject>
 
 #pragma mark - Public -
@@ -35,7 +37,7 @@
 @property (nonatomic, strong) NetworkRequestObject *networkRequestObject;
 @property (nonatomic, strong) id params;
 
-- (instancetype)initWithNetworkRequestObject:(NetworkRequestObject *)networkRequestObject params:(id)params;
+- (instancetype)initWithNetworkRequestObject:(NetworkRequestObject *)networkRequestObject params:(id)params userManager:(id<UserManagerProtocol>)userManager;
 
 // Params accepts any type of object. This means data objects could be passed for convenience. However, inside subclass we need to transform passed "params" data object and return NSDictionary. See protected "- (NSDictionary *)params;" method
 - (void)performWithCallback:(Callback)callback;
@@ -49,5 +51,7 @@
 - (NSDictionary *)requestBodyParams;
 - (NSString *)requestUrlParams;
 - (void)handleReceivedDataWithSuccess:(BOOL)success result:(id)result error:(NSError *)error callback:(Callback)callback;
+
+@property (nonatomic, weak) id <UserManagerProtocol> userManager;
 
 @end

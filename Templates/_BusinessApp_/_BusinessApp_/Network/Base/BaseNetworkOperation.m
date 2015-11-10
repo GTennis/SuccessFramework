@@ -28,11 +28,13 @@
 #import "BaseNetworkOperation.h"
 #import "NSString+Validator.h"
 #import "CustomAFJSONResponseSerializer.h"
+#import "UserManager.h"
 
 @implementation BaseNetworkOperation
 
 @synthesize networkRequestObject = _networkRequestObject;
 @synthesize params = _params;
+@synthesize userManager = _userManager;
 
 #pragma mark - Public -
 
@@ -44,7 +46,9 @@
     return nil;
 }
 
-- (instancetype)initWithNetworkRequestObject:(NetworkRequestObject *)networkRequestObject params:(id)params {
+- (instancetype)initWithNetworkRequestObject:(NetworkRequestObject *)networkRequestObject params:(id)params userManager:(id<UserManagerProtocol>)userManager {
+    
+    _userManager = userManager;
     
     // Store request config
     _networkRequestObject = networkRequestObject;
@@ -148,7 +152,16 @@
 
 - (NSDictionary *)requestHeaders {
     
-    return nil;
+    NSString *token = _userManager.user.token;
+    
+    if (token.length > 0) {
+        
+        return @{@"Authorisation" : [@"Bearer " stringByAppendingString:token]};
+        
+    } else {
+        
+        return nil;
+    }
 }
 
 - (id)requestBodyParams {

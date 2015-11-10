@@ -58,14 +58,12 @@
 @property (nonatomic, strong) NSDictionary<NetworkRequestObject> *stageNetworkRequests;
 @property (nonatomic, strong) NSDictionary<NetworkRequestObject> *developmentNetworkRequests;
 
-@end
-
-@interface AppConfigObject : NSObject <AppConfigObject>
-
-#pragma mark - Public -
-
 @property (readonly) NSDictionary<NetworkRequestObject> *currentNetworkRequests; // will point to one of the three properties below
 
 - (void)setCurrentRequestsWithBackendEnvironment:(BackendEnvironment)backendEnvironment;
+
+@end
+
+@interface AppConfigObject : NSObject <AppConfigObject>
 
 @end

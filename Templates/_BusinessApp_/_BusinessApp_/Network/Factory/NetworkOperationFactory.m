@@ -33,6 +33,8 @@
 #import "UserProfileNetworkOperation.h"
 #import "UserResetPasswordNetworkOperation.h"
 
+#import "AppConfigObject.h"
+
 #define kNetworkOperationImageListName @"imageList"
 #define kNetworkOperationUserLoginName @"userLogin"
 #define kNetworkOperationUserSignUpName @"userSignUp"
@@ -42,6 +44,7 @@
 @implementation NetworkOperationFactory
 
 @synthesize appConfig = _appConfig;
+@synthesize userManager = _userManager;
 
 #pragma mark - NetworkOperationFactoryProtocol -
 
@@ -60,7 +63,7 @@
 - (id<NetworkOperationProtocol>)imageListNetworkOperationWithParams:(id)params {
     
     NetworkRequestObject *request = _appConfig.currentNetworkRequests[kNetworkOperationImageListName];
-    ImageListNetworkOperation *operation = [[ImageListNetworkOperation alloc] initWithNetworkRequestObject:request params:params];
+    ImageListNetworkOperation *operation = [[ImageListNetworkOperation alloc] initWithNetworkRequestObject:request params:params userManager:_userManager];
     
     return operation;
 }
@@ -70,7 +73,7 @@
 - (id<NetworkOperationProtocol>)userLoginNetworkOperationWithParams:(id)params {
     
     NetworkRequestObject *request = _appConfig.currentNetworkRequests[kNetworkOperationUserLoginName];
-    UserLoginNetworkOperation *operation = [[UserLoginNetworkOperation alloc] initWithNetworkRequestObject:request params:params];
+    UserLoginNetworkOperation *operation = [[UserLoginNetworkOperation alloc] initWithNetworkRequestObject:request params:params userManager:_userManager];
     
     return operation;
 }
@@ -78,7 +81,7 @@
 - (id<NetworkOperationProtocol>)userSignUpNetworkOperationWithParams:(id)params {
     
     NetworkRequestObject *request = _appConfig.currentNetworkRequests[kNetworkOperationUserSignUpName];
-    UserSignUpNetworkOperation *operation = [[UserSignUpNetworkOperation alloc] initWithNetworkRequestObject:request params:params];
+    UserSignUpNetworkOperation *operation = [[UserSignUpNetworkOperation alloc] initWithNetworkRequestObject:request params:params userManager:_userManager];
     
     return operation;
 }
@@ -86,7 +89,7 @@
 - (id<NetworkOperationProtocol>)userProfileNetworkOperationWithParams:(id)params {
     
     NetworkRequestObject *request = _appConfig.currentNetworkRequests[kNetworkOperationUserProfileName];
-    UserProfileNetworkOperation *operation = [[UserProfileNetworkOperation alloc] initWithNetworkRequestObject:request params:params];
+    UserProfileNetworkOperation *operation = [[UserProfileNetworkOperation alloc] initWithNetworkRequestObject:request params:params userManager:_userManager];
     
     return operation;
 }
@@ -94,7 +97,7 @@
 - (id<NetworkOperationProtocol>)userResetPasswordNetworkOperationWithParams:(id)params {
     
     NetworkRequestObject *request = _appConfig.currentNetworkRequests[kNetworkOperationUserResetPasswordName];
-    UserResetPasswordNetworkOperation *operation = [[UserResetPasswordNetworkOperation alloc] initWithNetworkRequestObject:request params:params];
+    UserResetPasswordNetworkOperation *operation = [[UserResetPasswordNetworkOperation alloc] initWithNetworkRequestObject:request params:params userManager:_userManager];
     
     return operation;
 }

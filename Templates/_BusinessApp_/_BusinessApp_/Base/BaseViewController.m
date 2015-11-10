@@ -67,6 +67,8 @@
     [self.reachabilityManager removeServiceObserver:self];
 }
 
+/*
+ // This causes commonInit to be called twice upon creation
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
     
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -78,8 +80,10 @@
     }
     
     return self;
-}
+}*/
 
+/*
+ // This causes commonInit to be called twice upon creation
 - (instancetype)init {
     
     self = [super init];
@@ -89,7 +93,7 @@
         [self commonInit];
     }
     return self;
-}
+}*/
 
 - (void)viewDidLoad {
     
@@ -245,7 +249,7 @@
 
 - (void)commonInit {
     
-    // ...
+    DDLogDebug(@"[%@]: commonInit", NSStringFromClass([self class]));
     
     // iPad related setting
     _shouldModalNavigationBarAlwaysStickToModalContainerViewTopForIpad = YES;
@@ -253,12 +257,12 @@
 
 - (void)prepareUI {
     
-    // ...
+    DDLogDebug(@"[%@]: prepareUI", NSStringFromClass([self class]));
 }
 
 - (void)renderUI {
     
-    // ...
+    DDLogDebug(@"[%@]: renderUI", NSStringFromClass([self class]));
     
     // Implement in child classes
     //NSAssert(NO, @"renderUI is not implemented in class: %@", NSStringFromClass([self class]));
@@ -266,7 +270,7 @@
 
 - (void)loadModel {
     
-    // ...
+    DDLogDebug(@"[%@]: loadModel", NSStringFromClass([self class]));
     
     // Implement in child classes
     //NSAssert(NO, @"loadModel is not implemented in class: %@", NSStringFromClass([self class]));

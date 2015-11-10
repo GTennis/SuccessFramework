@@ -308,7 +308,7 @@
 
     // Create config network operation
     NetworkRequestObject *request = [[NetworkRequestObject alloc] initWithBackendEnvironment:_backendEnvironment];
-    ConfigNetworkOperation *configOperation = [[ConfigNetworkOperation alloc] initWithNetworkRequestObject:request params:nil];
+    ConfigNetworkOperation *configOperation = [[ConfigNetworkOperation alloc] initWithNetworkRequestObject:request params:nil userManager:nil];
     
     // Perform
     [configOperation performWithCallback:^(BOOL success, id result, NSError *error) {
@@ -461,6 +461,8 @@
     _crashManager = [REGISTRY getObject:[CrashManager class]];
     _messageBarManager = [REGISTRY getObject:[MessageBarManager class]];
     _settingsManager = [REGISTRY getObject:[SettingsManager class]];
+    
+    networkOperationFactory.userManager = _userManager;
 }
 
 - (void)initializeManagersWithAppConfig:(AppConfigObject *)appConfig networkOperationFactory:(id<NetworkOperationFactoryProtocol>)networkOperationFactory {
