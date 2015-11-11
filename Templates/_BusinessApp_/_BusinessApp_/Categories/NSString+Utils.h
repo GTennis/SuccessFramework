@@ -30,5 +30,6 @@
 @interface NSString (Utils)
 
 - (NSNumber *)number;
+- (NSString *)sha1WithSal:(NSString *)salt;
 
 @end

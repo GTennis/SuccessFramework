@@ -26,6 +26,7 @@
 //
 
 #import "NSString+Utils.h"
+#import <CommonCrypto/CommonDigest.h>
 
 @implementation NSString (Utils)
 
@@ -36,6 +37,26 @@
     NSNumber *number = [format numberFromString:self];
     
     return number;
+}
+
+// Used from http://stackoverflow.com/a/7571583/597292
+- (NSString *)sha1WithSal:(NSString *)salt {
+    
+    NSString *string = (salt) ? [self stringByAppendingString:salt] : self;
+    
+    const char *cstr = [string cStringUsingEncoding:NSUTF8StringEncoding];
+    NSData *data = [NSData dataWithBytes:cstr length:string.length];
+    
+    uint8_t digest[CC_SHA1_DIGEST_LENGTH];
+    
+    CC_SHA1(data.bytes, (CC_LONG)data.length, digest);
+    
+    NSMutableString* output = [NSMutableString stringWithCapacity:CC_SHA1_DIGEST_LENGTH * 2];
+    
+    for(int i = 0; i < CC_SHA1_DIGEST_LENGTH; i++)
+        [output appendFormat:@"%02x", digest[i]];
+    
+    return output;
 }
 
 @end

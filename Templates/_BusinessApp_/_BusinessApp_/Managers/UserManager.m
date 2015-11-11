@@ -177,6 +177,8 @@
         callback(success, result, error);
     };
     
+    data.password = [data.password sha1WithSal:nil];
+     
     id<NetworkOperationProtocol> userLoginOperation = [_networkOperationFactory userLoginNetworkOperationWithParams:[data toDict]];
     [userLoginOperation performWithCallback:wrappedCallback];*/
     
@@ -214,6 +216,8 @@
         
         callback(success, result, error);
     };
+     
+    data.password = [data.password sha1WithSal:nil];
     
     id<NetworkOperationProtocol> userSignUpOperation = [_networkOperationFactory userSignUpNetworkOperationWithParams:[data toDict]];
     [userSignUpOperation performWithCallback:wrappedCallback];*/
