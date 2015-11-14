@@ -27,6 +27,7 @@
 
 #import "NSString+Utils.h"
 #import <CommonCrypto/CommonDigest.h>
+#import "NSDictionary+JSON.h"
 
 @implementation NSString (Utils)
 
@@ -57,6 +58,29 @@
         [output appendFormat:@"%02x", digest[i]];
     
     return output;
+}
+
+- (NSDictionary *)readJsonFile {
+    
+    NSString *extension = @"json";
+    
+    NSString *filePath = [[NSBundle mainBundle] pathForResource:self ofType:extension inDirectory:nil];
+    
+    if (!filePath) {
+        
+        NSString *errorMessage = [NSString stringWithFormat:@"Cannot read %@.%@ file", self, extension];
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:nil message:errorMessage delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        [alert show];
+        
+        return nil;
+    }
+    
+    NSData *jsonData = [NSData dataWithContentsOfFile:filePath];
+    
+    NSError *error = nil;
+    NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:jsonData options: NSJSONReadingMutableContainers error: &error];
+    
+    return [dict dictionaryByRemovingAndReplacingNulls];
 }
 
 @end

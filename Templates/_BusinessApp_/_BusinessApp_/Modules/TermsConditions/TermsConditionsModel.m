@@ -29,11 +29,22 @@
 
 @implementation TermsConditionsModel
 
-#pragma mark - Public -
+#pragma mark - Protected -
 
-- (NSURLRequest *)urlRequest {
+- (void)willStartModelLoading:(Callback)callback {
     
-    return [NSURLRequest requestWithURL:[NSURL URLWithString:@"https://help.github.com/articles/github-terms-of-service/"]];
+    id<NetworkOperationProtocol> operation = [self.networkOperationFactory termsConditionsNetworkOperationWithParams:nil];
+    
+    NSString *urlString = [operation.networkRequestObject.baseUrl stringByAppendingString:operation.networkRequestObject.relativeUrl];
+    _urlRequest = [NSURLRequest requestWithURL:[NSURL URLWithString:urlString]];
+    
+    callback(YES, _urlRequest, nil);
+}
+
+- (void)didFinishModelLoadingWithData:(id)data error:(NSError *)error {
+    
+    // Store data
+    // _data = data;
 }
 
 @end

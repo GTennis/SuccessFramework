@@ -29,19 +29,18 @@
     
     There is only one backend API url which is hardcoded within the app - app config request which is performed by ConfigNetworkOperation. App performs initial call upon launching and when returning from the background. This requests returns all backend app configs including all the backend API urls for all of the 3 environments (production, stage and development).
 
-    Backend environment is determined during runtime reading a value from definekAppConfigBackendEnvironmentPlistKey key from main plist file 
+    Backend environment is determined during runtime reading a value from BackendAPIEnvironmentType key from main plist file
 */
 
 // Plist key
 #define kAppConfigBackendEnvironmentPlistKey @"BackendAPIEnvironmentType"
 
-// Possible values for definekAppConfigBackendEnvironmentPlistKey key. By default should be set to development. Other values should be set via CI when creating particular builds for concrete environments
+// Possible values for BackendAPIEnvironmentType key. By default should be set to development. Other values should be set via CI when creating particular builds for concrete environments
 typedef NS_ENUM(NSInteger, BackendEnvironment) {
     
-    kBackendEnvironmentNone = 0,
-    kBackendEnvironmentProduction = 1,
-    kBackendEnvironmentStage = 2,
-    kBackendEnvironmentDevelopment = 3
+    kBackendEnvironmentProduction = 0,
+    kBackendEnvironmentStage = 1,
+    kBackendEnvironmentDevelopment = 2
 };
 
 // Production

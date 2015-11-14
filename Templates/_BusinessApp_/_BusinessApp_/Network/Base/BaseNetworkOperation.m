@@ -156,7 +156,7 @@
     
     if (token.length > 0) {
         
-        return @{@"Authorisation" : [@"Bearer " stringByAppendingString:token]};
+        return @{@"Authorization" : [@"Bearer " stringByAppendingString:token]};
         
     } else {
         

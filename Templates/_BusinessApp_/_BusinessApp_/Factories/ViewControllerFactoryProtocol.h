@@ -37,6 +37,7 @@
 
 @class SettingsViewController;
 @class TermsConditionsViewController;
+@class PrivacyPolicyViewController;
 @class MenuViewController;
 @class UserProfileViewController;
 @class ContactViewController;
@@ -71,8 +72,9 @@
 
 - (PhotoDetailsViewController *)photoDetailsViewControllerWithContext:(id)context;
 
-// Terms and Conditions
+// Legal
 - (TermsConditionsViewController *)termsConditionsViewControllerWithContext:(id)context;
+- (PrivacyPolicyViewController *)privacyPolicyViewControllerWithContext:(id)context;
 
 // Contact Us
 - (ContactViewController *)contactsViewControllerWithContext:(id)context;

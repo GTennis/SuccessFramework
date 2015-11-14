@@ -38,7 +38,6 @@
 - (NSString *)weekDayShortName:(NSDate *)date;
 - (NSString *)weekDayLongName:(NSDate *)date;
 - (NSInteger)weekDay:(NSDate *)date;
-- (NSString *)stringFromDate:(NSDate *)date format:(NSString *)format;
 - (NSString *)stringFromDate:(NSDate *)date;
 - (NSString *)timeFromDate;
 - (NSString *)localTimeFromDate;
@@ -73,4 +72,9 @@
 + (NSInteger)hoursBetweenDate:(NSDate *)startDate andDate:(NSDate *)endDate;
 + (NSInteger)minutesBetweenDate:(NSDate *)startDate andDate:(NSDate *)endDate;
 + (NSInteger)secondsBetweenDate:(NSDate *)startDate andDate:(NSDate *)endDate;
+
+#pragma mark - with custom date format -
+
+- (NSString *)stringFromDate:(NSDate *)date format:(NSString *)format;
+
 @end

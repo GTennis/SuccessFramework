@@ -32,14 +32,23 @@
 #import "UserSignUpNetworkOperation.h"
 #import "UserProfileNetworkOperation.h"
 #import "UserResetPasswordNetworkOperation.h"
+#import "TermsConditionsNetworkOperation.h"
+#import "PrivacyPolicyNetworkOperation.h"
 
 #import "AppConfigObject.h"
 
+// Images
 #define kNetworkOperationImageListName @"imageList"
+
+// User
 #define kNetworkOperationUserLoginName @"userLogin"
 #define kNetworkOperationUserSignUpName @"userSignUp"
 #define kNetworkOperationUserProfileName @"userProfile"
 #define kNetworkOperationUserResetPasswordName @"userResetPassword"
+
+// Legal
+#define kNetworkOperationTermsConditionsName @"termsConditions"
+#define kNetworkOperationPrivacyPolicyName @"privacyPolicy"
 
 @implementation NetworkOperationFactory
 
@@ -98,6 +107,24 @@
     
     NetworkRequestObject *request = _appConfig.currentNetworkRequests[kNetworkOperationUserResetPasswordName];
     UserResetPasswordNetworkOperation *operation = [[UserResetPasswordNetworkOperation alloc] initWithNetworkRequestObject:request params:params userManager:_userManager];
+    
+    return operation;
+}
+
+#pragma mark Legal
+
+- (id<NetworkOperationProtocol>)termsConditionsNetworkOperationWithParams:(id)params {
+    
+    NetworkRequestObject *request = _appConfig.currentNetworkRequests[kNetworkOperationTermsConditionsName];
+    TermsConditionsNetworkOperation *operation = [[TermsConditionsNetworkOperation alloc] initWithNetworkRequestObject:request params:params userManager:_userManager];
+    
+    return operation;
+}
+
+- (id<NetworkOperationProtocol>)privacyPolicyNetworkOperationWithParams:(id)params {
+    
+    NetworkRequestObject *request = _appConfig.currentNetworkRequests[kNetworkOperationPrivacyPolicyName];
+    PrivacyPolicyNetworkOperation *operation = [[PrivacyPolicyNetworkOperation alloc] initWithNetworkRequestObject:request params:params userManager:_userManager];
     
     return operation;
 }

@@ -295,17 +295,8 @@
 - (void)getAppConfigWithCallback:(Callback)callback {
     
     // Read the setting from plist. Will be read only once during app launch
-    if (_backendEnvironment == kBackendEnvironmentNone) {
-        
-        _backendEnvironment = [[[[NSBundle mainBundle] infoDictionary] valueForKey:kAppConfigBackendEnvironmentPlistKey] integerValue];
-        
-        // Protection against plist bug - will auto pick production by default if no plist key value exist OR wrong provided
-        if (_backendEnvironment == kBackendEnvironmentNone) {
-            
-            _backendEnvironment = kBackendEnvironmentProduction;
-        }
-    }
-
+    _backendEnvironment = [[[[NSBundle mainBundle] infoDictionary] valueForKey:kAppConfigBackendEnvironmentPlistKey] integerValue];
+    
     // Create config network operation
     NetworkRequestObject *request = [[NetworkRequestObject alloc] initWithBackendEnvironment:_backendEnvironment];
     ConfigNetworkOperation *configOperation = [[ConfigNetworkOperation alloc] initWithNetworkRequestObject:request params:nil userManager:nil];
@@ -331,19 +322,17 @@
     exit(EXIT_SUCCESS);
 }
 
-- (void)performForceUpdate {
+- (void)performForceUpdateWithAppConfig:(id<AppConfigObject>)appConfig {
     
     DDLogDebug(@"App needs update...");
     
     GMAlertView *alertView = [[GMAlertView alloc] initWithViewController:self.window.rootViewController title:nil message:GMLocalizedString(@"AppNeedsUpdate") cancelButtonTitle:GMLocalizedString(@"Update") otherButtonTitles:nil];
     
-    __weak typeof(self) weakSelf = self;
-    
     alertView.completion = ^(BOOL firstButtonPressed, NSInteger buttonIndex) {
         
         if (firstButtonPressed) {
             
-            NSString *iTunesLink = weakSelf.appConfig.appStoreUrlString;
+            NSString *iTunesLink = appConfig.appStoreUrlString;
             [[UIApplication sharedApplication] openURL:[NSURL URLWithString:iTunesLink]];
             
             [self closeTheApp];
@@ -377,12 +366,12 @@
     
     // Store app config
     _appConfig = appConfig;
-
-    // Update global log level
-    [GMLoggingConfig updateLogLevel:_appConfig.logLevel];
     
     // Set config to point to backend environment which is defined in main plist
     [_appConfig setCurrentRequestsWithBackendEnvironment:_backendEnvironment];
+    
+    // Update global log level
+    [GMLoggingConfig updateLogLevel:_appConfig.logLevel];
 }
 
 - (void)getAppConfigIsAppLaunch:(NSNumber *)isAppLaunching {
@@ -391,7 +380,7 @@
     
     // Check if app needs force update
     [self getAppConfigWithCallback:^(BOOL success, id result, NSError *error) {
-       
+        
         AppConfigObject *newAppConfig = (AppConfigObject *)result;
         
         // If for any reason app config fails then retry (unlimited)
@@ -403,7 +392,7 @@
             
             if (newAppConfig.isAppNeedUpdate) {
                 
-                [weakSelf performForceUpdate];
+                [weakSelf performForceUpdateWithAppConfig:newAppConfig];
                 
             } else {
                 
@@ -411,7 +400,7 @@
                 if (![isAppLaunching boolValue]) {
                     
                     // Check if backend tells APIs has changed and app needs to reload
-                    if (weakSelf.appConfig.appConfigVersion < newAppConfig.appConfigVersion) {
+                    if (weakSelf.appConfig.appConfigVersion < newAppConfig.appConfigVersion || !newAppConfig.isConfigForIosPlatform) {
                         
                         [weakSelf performForceReload];
                         
@@ -421,7 +410,7 @@
                         [weakSelf setAppConfig:newAppConfig];
                     }
                     
-                // Else continue launching app...
+                    // Else continue launching app...
                 } else {
                     
                     // Store config

@@ -1,9 +1,9 @@
 //
 //  AppConfigObject.m
-//  _BusinessApp_
+//  MyInsurrance
 //
 //  Created by Gytenis Mikulenas on 26/08/15.
-//  Copyright (c) 2015 Gytenis Mikulėnas 
+//  Copyright (c) 2015 Gytenis Mikulėnas
 //  https://github.com/GitTennis/SuccessFramework
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -27,25 +27,40 @@
 
 #import "AppConfigObject.h"
 #import "ConstNetworkConfig.h"
-#import "NSString+Validator.h"
+
+@interface AppConfigObject () {
+    
+    NSString *_platform;
+    NSMutableDictionary *_environmentLogLevels;
+    BackendEnvironment _currentNetworkEnvironment;
+}
+
+@end
 
 @implementation AppConfigObject
 
-@synthesize isAppNeedUpdate = _isAppNeedUpdate;
-@synthesize appStoreUrlString = _appStoreUrlString;
 @synthesize appConfigVersion = _appConfigVersion;
-@synthesize logLevel = _logLevel;
+@synthesize supportedAppVersions = _supportedAppVersions;
+@synthesize appStoreUrlString = _appStoreUrlString;
 @synthesize currentNetworkRequests = _currentNetworkRequests;
 @synthesize productionNetworkRequests = _productionNetworkRequests;
 @synthesize stageNetworkRequests = _stageNetworkRequests;
 @synthesize developmentNetworkRequests = _developmentNetworkRequests;
 
-#pragma mark - ParsableObject -
+#pragma mark - Public -
+
+#pragma mark ParsableObject
 
 - (instancetype)initWithDict:(NSDictionary *)dict {
     
     self = [self init];
     if (self && dict) {
+        
+        _platform = dict[kAppConfigPlatformKey];
+        NSDictionary *environmentsDict = dict[kAppConfigBackendAPIsKey][kAppConfigBackendEnvironmentsKey];
+        NSDictionary *productionEnvironmentsDict = environmentsDict[kAppConfigBackendProductionGroupKey];
+        NSDictionary *stageEnvironmentsDict = environmentsDict[kAppConfigBackendStageGroupKey];
+        NSDictionary *developmentEnvironmentsDict = environmentsDict[kAppConfigBackendDevelopmentGroupKey];
         
         //----- Check app config version -----//
         
@@ -60,46 +75,34 @@
             _appConfigVersion = [appConfigVersionNumber integerValue];
         }
         
-        // Parse log level. Will be set to no logging in case it's missing
-        NSString *logLevelString = dict[kAppConfigLoggingGroupKey][kAppConfigLogLevelKey];
-        DDLogDebug(@"LogLevel is about to be set to %@", logLevelString);
+        //----- Extract log levels -----//
         
-        _logLevel = [self convertedLogLevel:logLevelString];
+        _environmentLogLevels = [[NSMutableDictionary alloc] init];
         
-        //----- Check app config version -----//
+        // Add production log level
+        _environmentLogLevels[@(kBackendEnvironmentProduction)] = productionEnvironmentsDict[kAppConfigLoggingGroupKey][kAppConfigLogLevelKey];
+        // Add stage log level
+        _environmentLogLevels[@(kBackendEnvironmentStage)] = stageEnvironmentsDict[kAppConfigLoggingGroupKey][kAppConfigLogLevelKey];
+        // Add development log level
+        _environmentLogLevels[@(kBackendEnvironmentDevelopment)] = developmentEnvironmentsDict[kAppConfigLoggingGroupKey][kAppConfigLogLevelKey];
         
-        NSNumber *appNeedsUpdate = dict[kAppConfigForceAppUpdateGroupKey][kAppConfigForceAppUpdateFlagKey];
+        //----- Check for supported version -----//
         
-        // Treat it as forceToUpdate when response doesn't contain kSettingIsAppNeedUpdateKey property
-        if (!appNeedsUpdate) {
-            
-            _isAppNeedUpdate = YES;
-            
-        } else {
-            
-            _isAppNeedUpdate = [appNeedsUpdate boolValue];
-        }
-        
-        //----- Check app store url is valid -----//
-        
-        _appStoreUrlString = dict[kAppConfigForceAppUpdateGroupKey][kAppConfigForceAppUpdateUrlKey];
-        
-        if (!_appStoreUrlString || ![_appStoreUrlString isValidUrlString]) {
-            
-            return nil;
-        }
+        _supportedAppVersions = dict[kAppConfigSupportedAppVersionsKey][kAppConfigSupportedAppVersionListKey];
+        _appStoreUrlString = dict[kAppConfigSupportedAppVersionsKey][kAppConfigSupportedAppStoreUrlKey];
         
         //----- Parse and check production backend urls -----//
         
-        NSDictionary *productionNetworkRequestsDict = dict[kAppConfigBackendAPIsKey][kAppConfigBackendProductionGroupKey];
+        NSString *productionBaseUrl = productionEnvironmentsDict[kAppConfigBackendEnvironmentBaseUrlKey];
+        NSDictionary *productionNetworkRequestsDict = productionEnvironmentsDict[kAppConfigBackendEnvironmentActionsKey];
         
         if (!productionNetworkRequestsDict) {
             
             return nil;
             
         } else {
-        
-            _productionNetworkRequests = [self networkRequestsWithDictionary:productionNetworkRequestsDict];
+            
+            _productionNetworkRequests = [self networkRequestsWithDictionary:productionNetworkRequestsDict environmentBaseUrl:productionBaseUrl];
             
             if (!_productionNetworkRequests) {
                 
@@ -110,25 +113,46 @@
         //----- Parse stage backend urls -----//
         // No need to check because it's not important on production environment if they would become empty
         
-        NSDictionary *stageNetworkRequestsDict = dict[kAppConfigBackendAPIsKey][kAppConfigBackendStageGroupKey];
-        _stageNetworkRequests = [self networkRequestsWithDictionary:stageNetworkRequestsDict];
-            
-       
+        NSString *stageBaseUrl = stageEnvironmentsDict[kAppConfigBackendEnvironmentBaseUrlKey];
+        NSDictionary *stageNetworkRequestsDict = stageEnvironmentsDict[kAppConfigBackendEnvironmentActionsKey];
+        _stageNetworkRequests = [self networkRequestsWithDictionary:stageNetworkRequestsDict environmentBaseUrl:stageBaseUrl];
+        
         //----- Parse and check stage backend urls -----//
         // No need to check because it's not important on production environment if they would become empty
         
-        NSDictionary *developmentNetworkRequestsDict = dict[kAppConfigBackendAPIsKey][kAppConfigBackendDevelopmentGroupKey];
-        _developmentNetworkRequests = [self networkRequestsWithDictionary:developmentNetworkRequestsDict];
+        NSString *developmentBaseUrl = developmentEnvironmentsDict[kAppConfigBackendEnvironmentBaseUrlKey];
+        NSDictionary *developmentNetworkRequestsDict = developmentEnvironmentsDict[kAppConfigBackendEnvironmentActionsKey];
+        _developmentNetworkRequests = [self networkRequestsWithDictionary:developmentNetworkRequestsDict environmentBaseUrl:developmentBaseUrl];
     }
     
     return self;
 }
 
-#pragma mark - Public -
+- (BOOL)isAppNeedUpdate {
+    
+    NSString *version = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"];
+    BOOL isAppVersionSupported = [self containsAppVersion:version];
+    
+    return !isAppVersionSupported;
+}
+
+- (BOOL)isConfigForIosPlatform {
+    
+    return ([_platform isEqualToString:kAppConfigPlatformIOS]) ? YES : NO;
+}
+
+- (LogLevelType)logLevel {
+    
+    NSString *logLevelString = _environmentLogLevels[@(_currentNetworkEnvironment)];
+    
+    return [self convertedLogLevel:logLevelString];
+}
 
 - (void)setCurrentRequestsWithBackendEnvironment:(BackendEnvironment)backendEnvironment {
     
-    switch (backendEnvironment) {
+    _currentNetworkEnvironment = backendEnvironment;
+    
+    switch (_currentNetworkEnvironment) {
             
         case kBackendEnvironmentProduction:
             
@@ -136,7 +160,7 @@
             break;
             
         case kBackendEnvironmentStage:
-
+            
             _currentNetworkRequests = _stageNetworkRequests;
             break;
             
@@ -154,7 +178,7 @@
 
 #pragma mark - Private -
 
-- (NSDictionary <NetworkRequestObject>*)networkRequestsWithDictionary:(NSDictionary *)networkRequestsDict {
+- (NSDictionary <NetworkRequestObject>*)networkRequestsWithDictionary:(NSDictionary *)networkRequestsDict environmentBaseUrl:(NSString *)baseUrl {
     
     NSArray *networkRequestNames = [networkRequestsDict allKeys];
     
@@ -167,6 +191,11 @@
         // Extract object
         dict = networkRequestsDict[networkRequestName];
         networkRequest = [[NetworkRequestObject alloc] initWithDict:dict];
+        
+        if (!networkRequest.baseUrl.length) {
+            
+            networkRequest.baseUrl = baseUrl;
+        }
         
         // Add object
         result[networkRequestName] = networkRequest;
@@ -222,6 +251,15 @@
     }
     
     return logLevel;
+}
+
+- (BOOL)containsAppVersion:(NSString *)appVersion {
+    
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"SELF == %@", appVersion];
+    
+    NSArray *filteredList = [_supportedAppVersions filteredArrayUsingPredicate:predicate];
+    
+    return filteredList.count ? YES : NO;
 }
 
 @end

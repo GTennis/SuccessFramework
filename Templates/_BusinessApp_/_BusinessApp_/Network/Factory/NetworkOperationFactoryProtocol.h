@@ -52,4 +52,8 @@
 - (id<NetworkOperationProtocol>)userProfileNetworkOperationWithParams:(id)params;
 - (id<NetworkOperationProtocol>)userResetPasswordNetworkOperationWithParams:(id)params;
 
+// Legal
+- (id<NetworkOperationProtocol>)termsConditionsNetworkOperationWithParams:(id)params;
+- (id<NetworkOperationProtocol>)privacyPolicyNetworkOperationWithParams:(id)params;
+
 @end

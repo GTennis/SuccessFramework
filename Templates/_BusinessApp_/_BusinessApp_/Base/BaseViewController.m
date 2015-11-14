@@ -555,6 +555,12 @@
     // Subscribe for network requests status notifications
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handleNetworkRequestError:) name:kNetworkRequestErrorNotification object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handleNetworkRequestSuccess:) name:kNetworkRequestSuccessNotification object:nil];
+    
+    // Subscribe for language change notifications
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(notificationLocalizationHasChanged)
+                                                 name:kNOTIFICATION_LOCALIZATION_HAS_CHANGED
+                                               object:nil];
 }
 
 - (void)unsubcribeFromGeneralNotifications {

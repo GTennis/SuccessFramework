@@ -77,7 +77,12 @@
     
     [super loadModel];
     
-    [self renderUI];
+    __weak typeof(self) weakSelf = self;
+    
+    [_model loadData:^(BOOL success, id result, NSError *error) {
+        
+        [weakSelf renderUI];
+    }];
 }
 
 @end

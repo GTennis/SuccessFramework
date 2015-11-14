@@ -4,6 +4,7 @@
 "MenuItemHome" = "Home";
 "MenuItemSettings" = "Settings";
 "MenuItemTermsConditions" = "Terms & conditions";
+"MenuItemPrivacyPolicy" = "Privacy policy";
 "MenuItemLogin" = "Login";
 "MenuItemLogout" = "Logout";
 "MenuItemLogoutConfirmationMessage" = "Are you sure you want to logout?";
@@ -15,7 +16,7 @@
 "HomeTitle" = "Home";
 
 /* Progress indicator label */
-"HomeProgressLabel" = "Data is loading...";
+"HomeProgressLabel" = "Loading data...";
 
 //-------------- Settings -------------//
 
@@ -66,10 +67,10 @@
 //-------------- App update -------------//
 
 /* No comment provided by engineer. */
-"AppNeedsUpdate" = "AppNeedsUpdate";
+"AppNeedsUpdate" = "A new version is released. Please update.";
 
 /* No comment provided by engineer. */
-"AppNeedsReload" = "The app needs to reload itself because of the new settings. Please close and open app again. Sorry for the inconvenience.";
+"AppNeedsReload" = "The app needs to reload with new settings. Sorry for the inconvenience.";
 
 //-------------- Errors -------------//
 "Server5xxErrorMessage" = "Server is too busy. Try again later";

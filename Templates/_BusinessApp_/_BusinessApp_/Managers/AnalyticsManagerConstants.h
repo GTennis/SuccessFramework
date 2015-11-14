@@ -35,6 +35,7 @@
 #define kAnalyticsManagerScreenHome @"Home"
 #define kAnalyticsManagerScreenPhotoDetails @"PhotoDetails"
 #define kAnalyticsManagerScreenTermsConditions @"TermsConditions"
+#define kAnalyticsManagerScreenPrivacyPolicy @"PrivacyPolicy"
 #define kAnalyticsManagerScreenUserLogin @"UserLogin"
 #define kAnalyticsManagerScreenUserSignUp @"UserSignUp"
 #define kAnalyticsManagerScreenUserForgotPassword @"UserForgotPassword"

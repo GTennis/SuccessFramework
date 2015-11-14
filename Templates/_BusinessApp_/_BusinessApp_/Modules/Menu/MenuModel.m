@@ -160,6 +160,12 @@
     item.viewController = (BaseViewController *) [viewControllerFactory termsConditionsViewControllerWithContext:nil];
     [itemList addObject:item];
     
+    // Privacy policy
+    item = [[MenuItemObject alloc] init];
+    item.menuTitle = GMLocalizedString(kMenuModelMenuItemPrivacyPolicyKey);
+    item.viewController = (BaseViewController *) [viewControllerFactory privacyPolicyViewControllerWithContext:nil];
+    [itemList addObject:item];
+    
     // TableViewExample
     item = [[MenuItemObject alloc] init];
     item.menuTitle = GMLocalizedString(kMenuModelMenuItemTableViewExampleKey);
@@ -194,6 +200,12 @@
     item = [[MenuItemObject alloc] init];
     item.menuTitle = GMLocalizedString(kMenuModelMenuItemTermsConditionsKey);
     item.viewController = (BaseViewController *) [viewControllerFactory termsConditionsViewControllerWithContext:nil];
+    [itemList addObject:item];
+    
+    // Privacy policy
+    item = [[MenuItemObject alloc] init];
+    item.menuTitle = GMLocalizedString(kMenuModelMenuItemPrivacyPolicyKey);
+    item.viewController = (BaseViewController *) [viewControllerFactory privacyPolicyViewControllerWithContext:nil];
     [itemList addObject:item];
     
     // TableViewExample

@@ -79,9 +79,11 @@
 #import "ContactsViewController.h"
 #import "ContactsModel.h"
 
-// Terms and Conditions
+// Legal
 #import "TermsConditionsViewController.h"
 #import "TermsConditionsModel.h"
+#import "PrivacyPolicyViewController.h"
+#import "PrivacyPolicyModel.h"
 
 // Demo
 #import "TableViewExampleViewController.h"
@@ -217,7 +219,7 @@
     return viewController;
 }
 
-#pragma mark Terms and Conditions related
+#pragma mark Legal related
 
 - (TermsConditionsViewController *)termsConditionsViewControllerWithContext:(id)context {
 
@@ -226,6 +228,16 @@
     viewController.model = model;
     model.delegate = viewController;
 
+    return viewController;
+}
+
+- (PrivacyPolicyViewController *)privacyPolicyViewControllerWithContext:(id)context {
+    
+    PrivacyPolicyModel *model = (PrivacyPolicyModel *)[self modelWithClass:[PrivacyPolicyModel class] context:context];
+    PrivacyPolicyViewController *viewController = (PrivacyPolicyViewController *)[self viewControllerWithClass:[PrivacyPolicyViewController class] context:context];
+    viewController.model = model;
+    model.delegate = viewController;
+    
     return viewController;
 }
 

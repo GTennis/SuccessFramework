@@ -1,9 +1,9 @@
 //
 //  AppConfigObject.h
-//  _BusinessApp_
+//  MyInsurrance
 //
 //  Created by Gytenis Mikulenas on 26/08/15.
-//  Copyright (c) 2015 Gytenis Mikulėnas 
+//  Copyright (c) 2015 Gytenis Mikulėnas
 //  https://github.com/GitTennis/SuccessFramework
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -29,16 +29,24 @@
 #import "NetworkRequestObject.h"
 #import "ConstNetworkConfig.h"
 
-#define kAppConfigForceAppUpdateGroupKey @"forceAppUpdate"
-#define kAppConfigForceAppUpdateFlagKey @"shouldForceUpdate"
-#define kAppConfigForceAppUpdateUrlKey @"appStoreUrl"
+#define kAppConfigPlatformIOS @"ios"
 
-#define kAppConfigVersionKey @"appConfigVersion"
+#define kAppConfigSupportedAppVersionsKey @"supportedAppVersions"
+#define kAppConfigSupportedAppVersionListKey @"versions"
+#define kAppConfigSupportedAppStoreUrlKey @"appStoreUrl"
+
+#define kAppConfigVersionKey @"version"
+#define kAppConfigPlatformKey @"platform"
 
 #define kAppConfigLoggingGroupKey @"logging"
 #define kAppConfigLogLevelKey @"logLevel"
 
 #define kAppConfigBackendAPIsKey @"backendAPIs"
+#define kAppConfigBackendEnvironmentsKey @"environments"
+
+#define kAppConfigBackendEnvironmentActionsKey @"actions"
+#define kAppConfigBackendEnvironmentBaseUrlKey @"baseUrl"
+
 #define kAppConfigBackendProductionGroupKey @"production"
 #define kAppConfigBackendStageGroupKey @"stage"
 #define kAppConfigBackendDevelopmentGroupKey @"development"
@@ -47,12 +55,14 @@
 
 #pragma mark - Public -
 
-@property (nonatomic) BOOL isAppNeedUpdate;
+@property (readonly) BOOL isAppNeedUpdate;
+@property (readonly) BOOL isConfigForIosPlatform;
+@property (nonatomic, strong) NSMutableArray *supportedAppVersions;
 @property (nonatomic, copy) NSString *appStoreUrlString;
+@property (readonly) LogLevelType logLevel;
 
 @property (nonatomic) NSInteger appConfigVersion; // This property is received from backend during app launch and stored in memory during app run. Then app will requery app configs from the app everytime it will return from background. If current in-memory appConfigVersion is not equal to received appConfigVersion then app will reload itself (in order to update its backend API paths)
 
-@property (nonatomic) LogLevelType logLevel;
 
 @property (nonatomic, strong) NSDictionary<NetworkRequestObject> *productionNetworkRequests;
 @property (nonatomic, strong) NSDictionary<NetworkRequestObject> *stageNetworkRequests;

@@ -4,6 +4,7 @@
 "MenuItemHome" = "zu Hause";
 "MenuItemSettings" = "Einstellungen";
 "MenuItemTermsConditions" = "Geschäftsbedingungen";
+"MenuItemPrivacyPolicy" = "Datenschutzerklärung";
 "MenuItemLogin" = "Einloggen";
 "MenuItemLogout" = "Abmelden";
 "MenuItemLogoutConfirmationMessage" = "Sind Sie sicher, dass Sie sich ausloggen?";
@@ -15,7 +16,7 @@
 "HomeTitle" = "zu Hause";
 
 /* Progress indicator label */
-"HomeProgressLabel" = "Data is loading... (de)";
+"HomeProgressLabel" = "Daten werden geladen...";
 
 //-------------- Settings -------------//
 
@@ -67,10 +68,10 @@
 //-------------- Force update -------------//
 
 /* No comment provided by engineer. */
-"AppNeedsUpdate" = "AppNeedsUpdate";
+"AppNeedsUpdate" = "Eine neue Version freigegeben wird. Bitte aktualisieren.";
 
 /* No comment provided by engineer. */
-"AppNeedsReload" = "The app needs to reload itself because of the new settings. Please close and open app again. Sorry for the inconvenience.";
+"AppNeedsReload" = "Die App muss mit den neuen Einstellungen neu zu laden. Entschuldigung für die Unannehmlichkeiten.";
 
 //-------------- Errors -------------//
 "Server5xxErrorMessage" = "Server ist überlastet. Versuchen Sie es später noch einmal";

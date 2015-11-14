@@ -1,8 +1,8 @@
 //
-//  UIView+Colors.h
+//  PrivacyPolicyModel.h
 //  _BusinessApp_
 //
-//  Created by Gytenis Mikulėnas on 6/4/14.
+//  Created by Gytenis Mikulėnas on 5/16/14.
 //  Copyright (c) 2015 Gytenis Mikulėnas
 //  https://github.com/GitTennis/SuccessFramework
 //
@@ -25,12 +25,12 @@
 //  SOFTWARE. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "BaseModel.h"
 
-@interface NSString (Utils)
+@interface PrivacyPolicyModel : BaseModel
 
-- (NSNumber *)number;
-- (NSString *)sha1WithSal:(NSString *)salt;
-- (NSDictionary *)readJsonFile;
+#pragma mark - Public -
+
+@property (nonatomic, strong) NSURLRequest *urlRequest;
 
 @end

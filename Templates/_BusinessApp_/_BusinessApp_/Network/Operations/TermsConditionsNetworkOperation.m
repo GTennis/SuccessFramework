@@ -1,8 +1,8 @@
 //
-//  UIView+Colors.h
+//  TermsConditionsNetworkOperation.m
 //  _BusinessApp_
 //
-//  Created by Gytenis Mikulėnas on 6/4/14.
+//  Created by Gytenis Mikulenas on 26/08/15.
 //  Copyright (c) 2015 Gytenis Mikulėnas
 //  https://github.com/GitTennis/SuccessFramework
 //
@@ -25,12 +25,8 @@
 //  SOFTWARE. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "TermsConditionsNetworkOperation.h"
 
-@interface NSString (Utils)
-
-- (NSNumber *)number;
-- (NSString *)sha1WithSal:(NSString *)salt;
-- (NSDictionary *)readJsonFile;
+@implementation TermsConditionsNetworkOperation
 
 @end

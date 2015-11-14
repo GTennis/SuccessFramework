@@ -1,5 +1,5 @@
 //
-//  MenuModel.h
+//  PrivacyPolicyViewController.m
 //  _BusinessApp_
 //
 //  Created by Gytenis Mikulėnas on 5/16/14.
@@ -25,25 +25,72 @@
 //  SOFTWARE. All rights reserved.
 //
 
-#import "BaseModel.h"
-#import "UserManagerObserver.h"
+#import "PrivacyPolicyViewController.h"
 
-#define kMenuModelMenuItemMapKey @"MenuItemHome"
-#define kMenuModelMenuItemSettingsKey @"MenuItemSettings"
-#define kMenuModelMenuItemTermsConditionsKey @"MenuItemTermsConditions"
-#define kMenuModelMenuItemPrivacyPolicyKey @"MenuItemPrivacyPolicy"
-#define kMenuModelMenuItemLoginKey @"MenuItemLogin"
-#define kMenuModelMenuItemLogoutKey @"MenuItemLogout"
-#define kMenuModelMenuItemLogoutConfirmationMessageKey @"MenuItemLogoutConfirmationMessage"
-#define kMenuModelMenuItemTableViewExampleKey @"MenuItemTableViewExample"
+@interface PrivacyPolicyViewController ()
 
-@interface MenuModel : BaseModel <UserManagerObserver>
+@end
 
-#pragma mark - Public -
+@implementation PrivacyPolicyViewController
 
-@property (nonatomic, strong) NSArray *menuItems;
-@property (readonly) BOOL isUserLoggedIn;
+- (void)viewDidLoad {
+    
+    [super viewDidLoad];
+    // Do any additional setup after loading the view.
+    
+    // Render static labels
+    [self prepareUI];
+}
 
-- (void)logoutUser;
+- (void)viewWillAppear:(BOOL)animated {
+    
+    [super viewWillAppear:animated];
+    
+    // Log user behaviour
+    [self.analyticsManager logScreen:kAnalyticsManagerScreenPrivacyPolicy];
+    
+    // Load data
+    [self loadModel];
+}
+
+#pragma mark - Protected -
+
+- (void)prepareUI {
+    
+    [super prepareUI];
+    
+    // This will set title for standard navigation bar title
+    self.title = GMLocalizedString(kPrivacyPolicyViewControllerTitleKey);
+}
+
+- (void)renderUI {
+    
+    [super renderUI];
+    
+    //if (self.model.isLoaded) {
+    
+    [self.webView loadRequest:_model.urlRequest];
+    //}
+}
+
+- (void)loadModel {
+    
+    [super loadModel];
+    
+    __weak typeof(self) weakSelf = self;
+    
+    [_model loadData:^(BOOL success, id result, NSError *error) {
+        
+        [weakSelf renderUI];
+    }];
+}
+
+#pragma mark Language change handling
+
+- (void)notificationLocalizationHasChanged {
+    
+    [self prepareUI];
+    [self loadModel];
+}
 
 @end

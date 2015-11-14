@@ -1,8 +1,8 @@
 //
-//  UIView+Colors.h
+//  PrivacyPolicyModel.m
 //  _BusinessApp_
 //
-//  Created by Gytenis Mikulėnas on 6/4/14.
+//  Created by Gytenis Mikulėnas on 5/16/14.
 //  Copyright (c) 2015 Gytenis Mikulėnas
 //  https://github.com/GitTennis/SuccessFramework
 //
@@ -25,12 +25,24 @@
 //  SOFTWARE. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "PrivacyPolicyModel.h"
 
-@interface NSString (Utils)
+@implementation PrivacyPolicyModel
 
-- (NSNumber *)number;
-- (NSString *)sha1WithSal:(NSString *)salt;
-- (NSDictionary *)readJsonFile;
+- (void)willStartModelLoading:(Callback)callback {
+    
+    id<NetworkOperationProtocol> operation = [self.networkOperationFactory privacyPolicyNetworkOperationWithParams:nil];
+    
+    NSString *urlString = [operation.networkRequestObject.baseUrl stringByAppendingString:operation.networkRequestObject.relativeUrl];
+    _urlRequest = [NSURLRequest requestWithURL:[NSURL URLWithString:urlString]];
+    
+    callback(YES, _urlRequest, nil);
+}
+
+- (void)didFinishModelLoadingWithData:(id)data error:(NSError *)error {
+    
+    // Store data
+    // _data = data;
+}
 
 @end

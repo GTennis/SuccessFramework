@@ -27,6 +27,7 @@
 
 #import "ConfigNetworkOperation.h"
 #import "AppConfigObject.h"
+#import "NSString+Utils.h"
 
 @implementation ConfigNetworkOperation
 
@@ -54,5 +55,14 @@
         callback(NO, nil, error);
     }
 }
+
+// For local config testing
+/*- (void)performWithCallback:(Callback)callback {
+    
+    NSDictionary *dict = [@"config" readJsonFile];
+    AppConfigObject *config = [[AppConfigObject alloc] initWithDict:dict];
+    
+    callback(YES, config, nil);
+}*/
 
 @end
