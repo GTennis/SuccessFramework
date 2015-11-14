@@ -45,6 +45,10 @@
 "BadPassword" = "Bitte geben Sie Ihr Passwort richtig";
 "BadUsername" = "Bitte geben Sie Ihre E-Mail richtig";
 
+//-------------- No internet -------------//
+
+"NoIternetMessage" = "\nUPS. Sieht aus wie Ihre Internetverbindung ist ausgeschaltet. Bitte schalten Sie ihn ein \n\n Tippen Sie auf, uns anzurufen, wenn Sie dringend Hilfe benötigen\n";
+
 //-------------- Common -------------//
 
 /* No comment provided by engineer. */

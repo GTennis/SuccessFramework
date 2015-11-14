@@ -44,6 +44,10 @@
 "BadPassword" = "Please enter your password correctly";
 "BadUsername" = "Please enter your username correctly";
 
+//-------------- No internet -------------//
+
+"NoIternetMessage" = "\nUps. Looks like your internet connection is off. Please turn it on. \n\n Tap to call us if you need urgent help\n";
+
 //-------------- Common -------------//
 
 /* No comment provided by engineer. */
