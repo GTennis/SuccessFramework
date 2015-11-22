@@ -227,9 +227,6 @@
         navController.navigationBar.hidden = YES;
     }
     
-    // Apply common style
-    [TopNavigationBar applyStyleForNavigationBar:navController.navigationBar];
-    
     navController.modalPresentationStyle = UIModalPresentationOverCurrentContext;
     [self presentViewController:navController animated:animated completion:^{
             
@@ -493,12 +490,27 @@
 
 - (void)addCustomNavigationBar {
     
+    // No need to add navCtrl for screens without nagivation (for example menuVC)
+    if (!self.navigationController) {
+        
+        return;
+    }
+    
     // Creating and adding custom navigation bar
     TopNavigationBar *navigationBar = (TopNavigationBar *)[self loadViewFromXibWithClass:[TopNavigationBar class]];
     navigationBar.delegate = self;
+    
     self.navigationItem.titleView = navigationBar;
-    //this is a work around to get rid of ellipsis when navigating back
-    //taken from http://stackoverflow.com/questions/19151309/strange-ellipsis-appearing-in-uinavigationbar
+    
+    // Add navigation bar style
+    [TopNavigationBar applyStyleForNavigationBar:self.navigationController.navigationBar];
+    
+    // Hides default 1px gray bottom separator line
+    //[self.navigationController.navigationBar setBackgroundImage:[[UIImage alloc] init] forBarMetrics:UIBarMetricsDefault];
+    //self.navigationController.navigationBar.shadowImage = [[UIImage alloc] init];
+    
+    // This is a work around to get rid of ellipsis when navigating back
+    // Taken from http://stackoverflow.com/questions/19151309/strange-ellipsis-appearing-in-uinavigationbar
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:[[UIView alloc] init]];
     
     // Hide back button if it's root view controller
@@ -507,7 +519,7 @@
         [navigationBar showBackButton];
         
     } else {
-
+        
         [navigationBar showMenuButton];
     }
 }
@@ -518,8 +530,11 @@
     _topModalNavigationBar = (TopModalNavigationBar *)[self loadViewFromXibWithClass:[TopModalNavigationBar class]];
     _topModalNavigationBar.delegate = self;
     
+    // Add navigation bar style
+    [TopModalNavigationBar applyStyleForModalNavigationBar:self.navigationController.navigationBar];
+    
     if (_shouldModalNavigationBarAlwaysStickToModalContainerViewTopForIpad && isIpad) {
-
+        
         // Add separator line
         [_topModalNavigationBar showHoritontalSeparatorLineView];
         
@@ -530,7 +545,7 @@
         [_topModalNavigationBar viewAddTopSpace:0 containerView:_modalContainerView];
         
     } else {
-    
+        
         // This will add navigation bar onto navigation controller's bar
         self.navigationItem.titleView = _topModalNavigationBar;
         // this is a work around to get rid of ellipsis when navigating back

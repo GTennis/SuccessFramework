@@ -528,10 +528,7 @@
     [REGISTRY addObject:_menuNavigator];
     
     // Assign side menu component as main app navigator
-    self.window.rootViewController = _menuNavigator;
-        
-    // Apply common style
-    [TopNavigationBar applyStyleForNavigationBar:self.navigationController.navigationBar];
+    self.window.rootViewController = _menuNavigator;        
 }
 
 @end

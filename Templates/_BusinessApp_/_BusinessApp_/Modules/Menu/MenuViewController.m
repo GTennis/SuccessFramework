@@ -176,9 +176,6 @@
     } else {
         
         UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:menuItem.viewController];
-        
-        [TopNavigationBar applyStyleForNavigationBar:navigationController.navigationBar];
-        
         [menuNavigator setViewController:navigationController];
     }
 }

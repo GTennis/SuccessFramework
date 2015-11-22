@@ -14,6 +14,7 @@
 		0F184B141BF7C56B0024B367 /* PrivacyPolicyViewController_iphone.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0F184B121BF7C56B0024B367 /* PrivacyPolicyViewController_iphone.xib */; settings = {ASSET_TAGS = (); }; };
 		0F184B191BF7C5770024B367 /* PrivacyPolicyModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F184B161BF7C5770024B367 /* PrivacyPolicyModel.m */; settings = {ASSET_TAGS = (); }; };
 		0F184B1A1BF7C5770024B367 /* PrivacyPolicyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F184B181BF7C5770024B367 /* PrivacyPolicyViewController.m */; settings = {ASSET_TAGS = (); }; };
+		0F1CA5801C01F28700614076 /* NormalCheckbox.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F1CA57F1C01F28700614076 /* NormalCheckbox.m */; settings = {ASSET_TAGS = (); }; };
 		0F57AE181BED398B0095D463 /* ConnectionStatusLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F57AE171BED398B0095D463 /* ConnectionStatusLabel.m */; settings = {ASSET_TAGS = (); }; };
 		0F70DF2E1AFFC47E004293F1 /* TopNavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F70DF2D1AFFC47E004293F1 /* TopNavigationBar.m */; };
 		0F70DF311AFFC4C5004293F1 /* TopNavigationBar_iphone.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F70DF301AFFC4C5004293F1 /* TopNavigationBar_iphone.m */; };
@@ -246,6 +247,8 @@
 		0F184B161BF7C5770024B367 /* PrivacyPolicyModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PrivacyPolicyModel.m; sourceTree = "<group>"; };
 		0F184B171BF7C5770024B367 /* PrivacyPolicyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrivacyPolicyViewController.h; sourceTree = "<group>"; };
 		0F184B181BF7C5770024B367 /* PrivacyPolicyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PrivacyPolicyViewController.m; sourceTree = "<group>"; };
+		0F1CA57E1C01F28700614076 /* NormalCheckbox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NormalCheckbox.h; sourceTree = "<group>"; };
+		0F1CA57F1C01F28700614076 /* NormalCheckbox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NormalCheckbox.m; sourceTree = "<group>"; };
 		0F57AE141BED37880095D463 /* ConstNetworkErrorCodes.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ConstNetworkErrorCodes.h; sourceTree = "<group>"; };
 		0F57AE161BED398B0095D463 /* ConnectionStatusLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConnectionStatusLabel.h; sourceTree = "<group>"; };
 		0F57AE171BED398B0095D463 /* ConnectionStatusLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConnectionStatusLabel.m; sourceTree = "<group>"; };
@@ -741,6 +744,15 @@
 			name = Base;
 			sourceTree = "<group>";
 		};
+		0F1CA57D1C01F26C00614076 /* CheckBox */ = {
+			isa = PBXGroup;
+			children = (
+				0F1CA57E1C01F28700614076 /* NormalCheckbox.h */,
+				0F1CA57F1C01F28700614076 /* NormalCheckbox.m */,
+			);
+			name = CheckBox;
+			sourceTree = "<group>";
+		};
 		0F57AE151BED39680095D463 /* ConnectivityLabels */ = {
 			isa = PBXGroup;
 			children = (
@@ -1165,6 +1177,7 @@
 				0FE1CB211AF6694A006769FE /* Labels */,
 				0FA62C7119CF39CE002D3DDC /* Lines */,
 				0FABA70A19CB074300CC7DD3 /* WebView */,
+				0F1CA57D1C01F26C00614076 /* CheckBox */,
 				0F71AF6219BF69FE000FB1C7 /* ErrorViews */,
 				0FA648A419BF5F8200386388 /* AlertViews */,
 				0FA839C319BC7B6F0037B5F3 /* Navigation */,
@@ -2623,6 +2636,7 @@
 				31CB856C1B15F11200F827F7 /* UserContainerViewController_ipad.m in Sources */,
 				31CB9EEE1B175ED50012F1F4 /* TopModalNavigationBar_iphone.m in Sources */,
 				0F7A85451AFFF65E00A2F6C4 /* TermsConditionsViewController_ipad.m in Sources */,
+				0F1CA5801C01F28700614076 /* NormalCheckbox.m in Sources */,
 				0FC719F01AF933BA00912FF1 /* SettingsModel.m in Sources */,
 				3119A3FC1B0DD544001CCA38 /* SeparatorHorizontalLineView.m in Sources */,
 				0FC4D1671AFBE0CA00CF4C24 /* MenuViewController_iphone.m in Sources */,
