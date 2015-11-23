@@ -64,6 +64,8 @@
         _stateCode = dict[kUserStateCodeKey];
         _phone = dict[kUserPhoneKey];;
         _email = dict[kUserEmailKey];
+        
+        _token = dict[kUserTokenKey];
     }
     return self;
 }

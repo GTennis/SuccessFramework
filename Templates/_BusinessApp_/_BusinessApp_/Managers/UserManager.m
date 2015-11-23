@@ -153,7 +153,7 @@
 
 - (void)loginUserWithData:(UserObject *)data callback:(Callback)callback {
     
-    /*__weak typeof(self) weakSelf = self;
+    __weak typeof(self) weakSelf = self;
     
     Callback wrappedCallback = ^(BOOL success, id result, NSError *error) {
         
@@ -180,20 +180,12 @@
     data.password = [data.password sha1WithSal:nil];
      
     id<NetworkOperationProtocol> userLoginOperation = [_networkOperationFactory userLoginNetworkOperationWithParams:[data toDict]];
-    [userLoginOperation performWithCallback:wrappedCallback];*/
-    
-#warning demo code
-    UserObject *user = [[UserObject alloc] init];
-    user.email = @"gytenis@test.com";
-    user.token = @"123";
-    [self saveUser:user];
-    [self notifyObserversWithLoginSuccess:user];
-    callback(YES, user, nil);
+    [userLoginOperation performWithCallback:wrappedCallback];
 }
 
 - (void)signUpUserWithData:(UserObject *)data callback:(Callback)callback {
     
-    /*__weak typeof(self) weakSelf = self;
+    __weak typeof(self) weakSelf = self;
     
     Callback wrappedCallback = ^(BOOL success, id result, NSError *error) {
         
@@ -220,13 +212,7 @@
     data.password = [data.password sha1WithSal:nil];
     
     id<NetworkOperationProtocol> userSignUpOperation = [_networkOperationFactory userSignUpNetworkOperationWithParams:[data toDict]];
-    [userSignUpOperation performWithCallback:wrappedCallback];*/
-    
-#warning demo code
-    data.token = @"123";
-    [self saveUser:data];
-    [self notifyObserversWithSignUpSuccess:data];
-    callback(YES, data, nil);
+    [userSignUpOperation performWithCallback:wrappedCallback];
 }
 
 - (void)resetPassword:(UserObject *)data callback:(Callback)callback {

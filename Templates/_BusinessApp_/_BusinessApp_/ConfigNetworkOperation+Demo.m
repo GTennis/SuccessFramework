@@ -1,9 +1,9 @@
 //
-//  UserSignUpNetworkOperation.m
+//  ConfigNetworkOperation+Demo.m
 //  _BusinessApp_
 //
-//  Created by Gytenis Mikulenas on 26/08/15.
-//  Copyright (c) 2015 Gytenis Mikulėnas 
+//  Created by Gytenis Mikulenas on 11/23/15.
+//  Copyright © 2015 Gytenis Mikulėnas 
 //  https://github.com/GitTennis/SuccessFramework
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -25,29 +25,21 @@
 //  SOFTWARE. All rights reserved.
 //
 
-#import "UserSignUpNetworkOperation.h"
-#import "UserObject.h"
+#import "ConfigNetworkOperation+Demo.h"
+#import "DemoUtils.h"
+#import "AppConfigObject.h"
 
-@implementation UserSignUpNetworkOperation
+@implementation ConfigNetworkOperation (Demo)
 
-#pragma mark - Protected -
+#ifdef DEMO_MODE
 
-#pragma mark Override
-
-- (void)handleReceivedDataWithSuccess:(BOOL)success result:(id)result error:(NSError *)error callback:(Callback)callback {
+- (void)performWithCallback:(Callback)callback {
     
-    if (success) {
-        
-        // Perform data parsing
-        UserObject *item = [[UserObject alloc] initWithDict:result];
-        
-        // Callback
-        callback(YES, item, nil);
-        
-    } else {
-        
-        callback(NO, nil, error);
-    }
+    NSDictionary *dict = [DemoUtils readFile:@"config" extension:@"json"];
+    AppConfigObject *item = [[AppConfigObject alloc] initWithDict:dict];
+    callback(YES, item, nil);
 }
+
+#endif
 
 @end

@@ -1,9 +1,9 @@
 //
-//  UserSignUpNetworkOperation.m
+//  ImageListNetworkOperation+Demo.m
 //  _BusinessApp_
 //
-//  Created by Gytenis Mikulenas on 26/08/15.
-//  Copyright (c) 2015 Gytenis Mikulėnas 
+//  Created by Gytenis Mikulenas on 11/23/15.
+//  Copyright © 2015 Gytenis Mikulėnas 
 //  https://github.com/GitTennis/SuccessFramework
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -25,29 +25,21 @@
 //  SOFTWARE. All rights reserved.
 //
 
-#import "UserSignUpNetworkOperation.h"
-#import "UserObject.h"
+#import "ImageListNetworkOperation+Demo.h"
+#import "DemoUtils.h"
+#import "ImagesObject.h"
 
-@implementation UserSignUpNetworkOperation
+@implementation ImageListNetworkOperation (Demo)
 
-#pragma mark - Protected -
+#ifdef DEMO_MODE
 
-#pragma mark Override
-
-- (void)handleReceivedDataWithSuccess:(BOOL)success result:(id)result error:(NSError *)error callback:(Callback)callback {
+- (void)performWithCallback:(Callback)callback {
     
-    if (success) {
-        
-        // Perform data parsing
-        UserObject *item = [[UserObject alloc] initWithDict:result];
-        
-        // Callback
-        callback(YES, item, nil);
-        
-    } else {
-        
-        callback(NO, nil, error);
-    }
+    NSDictionary *dict = [DemoUtils readFile:@"imageList" extension:@"json"];
+    ImagesObject *item = [[ImagesObject alloc] initWithDict:dict];
+    callback(YES, item, nil);
 }
+
+#endif
 
 @end

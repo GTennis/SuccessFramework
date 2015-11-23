@@ -1,0 +1,15 @@
+{
+    "userId" : "123",
+    "token" : "asdasdadsdz12123",
+    "salutation" : "Mr.",
+    "firstName" : "Gytenis",
+    "lastName" : "Mikulenas",
+    "address" : "street 11",
+    "addressOptional" : null,
+    "zipCode" : "12345",
+    "countryCode" : "de",
+    "stateCode" : "be",
+    "city" : "Berlin",
+    "email" : "gytenis@email.com",
+    "phone" : "1234567890"
+}

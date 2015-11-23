@@ -1,9 +1,9 @@
 //
-//  UserSignUpNetworkOperation.m
+//  DemoUtils.m
 //  _BusinessApp_
 //
-//  Created by Gytenis Mikulenas on 26/08/15.
-//  Copyright (c) 2015 Gytenis Mikulėnas 
+//  Created by Gytenis Mikulenas on 11/23/15.
+//  Copyright © 2015 Gytenis Mikulėnas 
 //  https://github.com/GitTennis/SuccessFramework
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -25,29 +25,30 @@
 //  SOFTWARE. All rights reserved.
 //
 
-#import "UserSignUpNetworkOperation.h"
-#import "UserObject.h"
+#import "DemoUtils.h"
+#import "NSDictionary+JSON.h"
 
-@implementation UserSignUpNetworkOperation
+@implementation DemoUtils
 
-#pragma mark - Protected -
-
-#pragma mark Override
-
-- (void)handleReceivedDataWithSuccess:(BOOL)success result:(id)result error:(NSError *)error callback:(Callback)callback {
++ (NSDictionary *)readFile:(NSString *)fileName extension:(NSString *)extension {
     
-    if (success) {
+    NSString *filePath = [[NSBundle mainBundle] pathForResource:fileName ofType:extension inDirectory:nil];
+    
+    if (!filePath) {
         
-        // Perform data parsing
-        UserObject *item = [[UserObject alloc] initWithDict:result];
+        NSString *errorMessage = [NSString stringWithFormat:@"Cannot read %@.%@ file", fileName, extension];
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:nil message:errorMessage delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        [alert show];
         
-        // Callback
-        callback(YES, item, nil);
-        
-    } else {
-        
-        callback(NO, nil, error);
+        return nil;
     }
+    
+    NSData *jsonData = [NSData dataWithContentsOfFile:filePath];
+    
+    NSError *error = nil;
+    NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:jsonData options: NSJSONReadingMutableContainers error: &error];
+    
+    return [dict dictionaryByRemovingAndReplacingNulls];
 }
 
 @end

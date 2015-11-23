@@ -1,9 +1,9 @@
 //
-//  UserSignUpNetworkOperation.m
+//  DemoUtils.h
 //  _BusinessApp_
 //
-//  Created by Gytenis Mikulenas on 26/08/15.
-//  Copyright (c) 2015 Gytenis Mikulėnas 
+//  Created by Gytenis Mikulenas on 11/23/15.
+//  Copyright © 2015 Gytenis Mikulėnas 
 //  https://github.com/GitTennis/SuccessFramework
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -25,29 +25,8 @@
 //  SOFTWARE. All rights reserved.
 //
 
-#import "UserSignUpNetworkOperation.h"
-#import "UserObject.h"
+@interface DemoUtils : NSObject
 
-@implementation UserSignUpNetworkOperation
-
-#pragma mark - Protected -
-
-#pragma mark Override
-
-- (void)handleReceivedDataWithSuccess:(BOOL)success result:(id)result error:(NSError *)error callback:(Callback)callback {
-    
-    if (success) {
-        
-        // Perform data parsing
-        UserObject *item = [[UserObject alloc] initWithDict:result];
-        
-        // Callback
-        callback(YES, item, nil);
-        
-    } else {
-        
-        callback(NO, nil, error);
-    }
-}
++ (NSDictionary *)readFile:(NSString *)fileName extension:(NSString *)extension;
 
 @end
