@@ -787,7 +787,7 @@
 				0F1CAB1A1C03B5CE004D6EE0 /* UserSignUpNetworkOperation+Demo.h */,
 				0F1CAB1B1C03B5CE004D6EE0 /* UserSignUpNetworkOperation+Demo.m */,
 			);
-			name = Demo;
+			path = Demo;
 			sourceTree = "<group>";
 		};
 		0F57AE151BED39680095D463 /* ConnectivityLabels */ = {
