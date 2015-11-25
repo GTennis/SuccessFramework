@@ -29,4 +29,8 @@
 
 @interface ContactsModel : BaseModel
 
+#pragma mark - Public -
+
+@property (readonly) NSString *loggedInUserId;
+
 @end

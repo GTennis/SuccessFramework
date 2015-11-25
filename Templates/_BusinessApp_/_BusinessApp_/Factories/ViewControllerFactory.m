@@ -105,7 +105,7 @@
 
 - (LaunchViewController *)launchViewControllerWithContext:(id)context {
     
-    LaunchViewController *viewController = (LaunchViewController *)[self viewControllerWithClass:[LaunchViewController class] context:context];
+    LaunchViewController *viewController = (LaunchViewController *)[self viewControllerWithClass:[LaunchViewController class] context:context model:nil];
     
     return viewController;
 }
@@ -113,8 +113,7 @@
 - (WalkthroughViewController *)walkthroughViewControllerWithContext:(id)context {
     
     WalkthroughModel *model = (WalkthroughModel *)[self modelWithClass:[WalkthroughModel class] context:context];
-    WalkthroughViewController *viewController = (WalkthroughViewController *)[self viewControllerWithClass:[WalkthroughViewController class] context:context];
-    viewController.model = model;
+    WalkthroughViewController *viewController = (WalkthroughViewController *)[self viewControllerWithClass:[WalkthroughViewController class] context:context model:model];
     model.delegate = viewController;
     
     return viewController;
@@ -125,8 +124,7 @@
 - (HomeViewController *)homeViewControllerWithContext:(id)context {
     
     HomeModel *model = (HomeModel *)[self modelWithClass:[HomeModel class] context:context];
-    HomeViewController *viewController = (HomeViewController *)[self viewControllerWithClass:[HomeViewController class] context:context];
-    viewController.model = model;
+    HomeViewController *viewController = (HomeViewController *)[self viewControllerWithClass:[HomeViewController class] context:context model:model];
     model.delegate = viewController;
 
     return viewController;
@@ -135,8 +133,7 @@
 - (PhotoDetailsViewController *)photoDetailsViewControllerWithContext:(id)context {
     
     PhotoDetailsModel *model = (PhotoDetailsModel *)[self modelWithClass:[PhotoDetailsModel class] context:context];
-    PhotoDetailsViewController *viewController = (PhotoDetailsViewController *)[self viewControllerWithClass:[PhotoDetailsViewController class] context:context];
-    viewController.model = model;
+    PhotoDetailsViewController *viewController = (PhotoDetailsViewController *)[self viewControllerWithClass:[PhotoDetailsViewController class] context:context model:model];
     model.delegate = viewController;
     
     return viewController;
@@ -147,8 +144,7 @@
 - (UserContainerViewController *)userContainerViewControllerWithContext:(id)context {
     
     UserContainerModel *model = (UserContainerModel *)[self modelWithClass:[UserContainerModel class] context:context];
-    UserContainerViewController *viewController = (UserContainerViewController *)[self viewControllerWithClass:[UserContainerViewController class] context:context];
-    viewController.model = model;
+    UserContainerViewController *viewController = (UserContainerViewController *)[self viewControllerWithClass:[UserContainerViewController class] context:context model:model];
     model.delegate = viewController;
     
     return viewController;
@@ -157,8 +153,7 @@
 - (UserLoginViewController *)userLoginViewControllerWithContext:(id)context {
     
     UserLoginModel *model = (UserLoginModel *)[self modelWithClass:[UserLoginModel class] context:context];
-    UserLoginViewController *viewController = (UserLoginViewController *)[self viewControllerWithClass:[UserLoginViewController class] context:context];
-    viewController.model = model;
+    UserLoginViewController *viewController = (UserLoginViewController *)[self viewControllerWithClass:[UserLoginViewController class] context:context model:model];
     model.delegate = viewController;
     
     return viewController;
@@ -167,8 +162,7 @@
 - (UserSignUpViewController *)userSignUpViewControllerWithContext:(id)context {
     
     UserSignUpModel *model = (UserSignUpModel *)[self modelWithClass:[UserSignUpModel class] context:context];
-    UserSignUpViewController *viewController = (UserSignUpViewController *)[self viewControllerWithClass:[UserSignUpViewController class] context:context];
-    viewController.model = model;
+    UserSignUpViewController *viewController = (UserSignUpViewController *)[self viewControllerWithClass:[UserSignUpViewController class] context:context model:model];
     model.delegate = viewController;
     
     return viewController;
@@ -177,8 +171,7 @@
 - (UserForgotPasswordViewController *)userForgotPasswordViewControllerWithContext:(id)context {
     
     UserForgotPasswordModel *model = (UserForgotPasswordModel *)[self modelWithClass:[UserForgotPasswordModel class] context:context];
-    UserForgotPasswordViewController *viewController = (UserForgotPasswordViewController *)[self viewControllerWithClass:[UserForgotPasswordViewController class] context:context];
-    viewController.model = model;
+    UserForgotPasswordViewController *viewController = (UserForgotPasswordViewController *)[self viewControllerWithClass:[UserForgotPasswordViewController class] context:context model:model];
     model.delegate = viewController;
     
     return viewController;
@@ -187,8 +180,7 @@
 - (UserProfileViewController *)userProfileViewControllerWithContext:(id)context {
     
     UserProfileModel *model = (UserProfileModel *)[self modelWithClass:[UserProfileModel class] context:context];
-    UserProfileViewController *viewController = (UserProfileViewController *)[self viewControllerWithClass:[UserProfileViewController class] context:context];
-    viewController.model = model;
+    UserProfileViewController *viewController = (UserProfileViewController *)[self viewControllerWithClass:[UserProfileViewController class] context:context model:model];
     model.delegate = viewController;
     
     return viewController;
@@ -199,8 +191,7 @@
 - (SettingsViewController *)settingsViewControllerWithContext:(id)context {
     
     SettingsModel *model = (SettingsModel *)[self modelWithClass:[SettingsModel class] context:context];
-    SettingsViewController *viewController = (SettingsViewController *)[self viewControllerWithClass:[SettingsViewController class] context:context];
-    viewController.model = model;
+    SettingsViewController *viewController = (SettingsViewController *)[self viewControllerWithClass:[SettingsViewController class] context:context model:model];
     model.delegate = viewController;
     
     return viewController;
@@ -212,8 +203,7 @@
 
     MenuModel *model = (MenuModel *)[self modelWithClass:[MenuModel class] context:context];
     //[menuModel.userManager addServiceObserver:menuModel];
-    MenuViewController *viewController = (MenuViewController *)[self viewControllerWithClass:[MenuViewController class] context:context];
-    viewController.model = model;
+    MenuViewController *viewController = (MenuViewController *)[self viewControllerWithClass:[MenuViewController class] context:context model:model];
     model.delegate = viewController;
 
     return viewController;
@@ -224,8 +214,7 @@
 - (TermsConditionsViewController *)termsConditionsViewControllerWithContext:(id)context {
 
     TermsConditionsModel *model = (TermsConditionsModel *)[self modelWithClass:[TermsConditionsModel class] context:context];
-    TermsConditionsViewController *viewController = (TermsConditionsViewController *)[self viewControllerWithClass:[TermsConditionsViewController class] context:context];
-    viewController.model = model;
+    TermsConditionsViewController *viewController = (TermsConditionsViewController *)[self viewControllerWithClass:[TermsConditionsViewController class] context:context model:model];
     model.delegate = viewController;
 
     return viewController;
@@ -234,8 +223,7 @@
 - (PrivacyPolicyViewController *)privacyPolicyViewControllerWithContext:(id)context {
     
     PrivacyPolicyModel *model = (PrivacyPolicyModel *)[self modelWithClass:[PrivacyPolicyModel class] context:context];
-    PrivacyPolicyViewController *viewController = (PrivacyPolicyViewController *)[self viewControllerWithClass:[PrivacyPolicyViewController class] context:context];
-    viewController.model = model;
+    PrivacyPolicyViewController *viewController = (PrivacyPolicyViewController *)[self viewControllerWithClass:[PrivacyPolicyViewController class] context:context model:model];
     model.delegate = viewController;
     
     return viewController;
@@ -246,8 +234,7 @@
 - (ContactsViewController *)contactsViewControllerWithContext:(id)context {
 
     ContactsModel *model = (ContactsModel *)[self modelWithClass:[ContactsModel class] context:context];
-    ContactsViewController *viewController = (ContactsViewController *)[self viewControllerWithClass:[ContactsViewController class] context:context];
-    viewController.model = model;
+    ContactsViewController *viewController = (ContactsViewController *)[self viewControllerWithClass:[ContactsViewController class] context:context model:model];
     model.delegate = viewController;
 
     return viewController;
@@ -257,7 +244,7 @@
 
 - (TableViewExampleViewController *)tableViewExampleViewControllerWithContext:(id)context {
     
-    TableViewExampleViewController *viewController = (TableViewExampleViewController *)[self viewControllerWithClass:[TableViewExampleViewController class] context:context];
+    TableViewExampleViewController *viewController = (TableViewExampleViewController *)[self viewControllerWithClass:[TableViewExampleViewController class] context:context model:nil];
     
     return viewController;
 }
@@ -267,7 +254,7 @@
 // Country list
 - (CountryPickerViewController *)countryPickerViewControllerWithDelegate:(id<CountryPickerViewControllerDelegate>)delegate context:(id)context {
     
-    CountryPickerViewController *viewController = (CountryPickerViewController *) [self viewControllerWithClass:[CountryPickerViewController class] context:context];
+    CountryPickerViewController *viewController = (CountryPickerViewController *) [self viewControllerWithClass:[CountryPickerViewController class] context:context model:nil];
     viewController.delegate = delegate;
     
     return viewController;
@@ -279,7 +266,7 @@
 
 - (ConsoleLogViewController *)consoleLogViewControllerWithContext:(id)context {
     
-    ConsoleLogViewController *viewController = (ConsoleLogViewController *)[self viewControllerWithClass:[ConsoleLogViewController class] context:context];
+    ConsoleLogViewController *viewController = (ConsoleLogViewController *)[self viewControllerWithClass:[ConsoleLogViewController class] context:context model:nil];
     
     return viewController;
 }
@@ -289,7 +276,7 @@
 #pragma mark - Private -
 
 // For creating view controllers with default dependencies
-- (BaseViewController *)viewControllerWithClass:(Class)class context:(id)context {
+- (BaseViewController *)viewControllerWithClass:(Class)class context:(id)context model:(BaseModel *)model {
     
     // Autopick device class
     
@@ -307,7 +294,7 @@
     Class deviceClass = NSClassFromString(viewControllerClassName);
     
     // Create view controller
-    BaseViewController *viewController = [[deviceClass alloc] initWithViewManager:[self viewManager] crashManager:[self crashManager] analyticsManager:[self analyticsManager] messageBarManager:[self messageBarManager] viewControllerFactory:self reachabilityManager:[self reachabilityManager] context:context];
+    BaseViewController *viewController = [[deviceClass alloc] initWithViewManager:[self viewManager] crashManager:[self crashManager] analyticsManager:[self analyticsManager] messageBarManager:[self messageBarManager] viewControllerFactory:self reachabilityManager:[self reachabilityManager] context:context model:model];
     
     return viewController;
 }

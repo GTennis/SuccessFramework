@@ -26,7 +26,15 @@
 //
 
 #import "ContactsModel.h"
+#import "UserObject.h"
 
 @implementation ContactsModel
+
+#pragma mark - Public -
+
+- (NSString *)loggedInUserId {
+    
+    return self.userManager.user.userId;
+}
 
 @end

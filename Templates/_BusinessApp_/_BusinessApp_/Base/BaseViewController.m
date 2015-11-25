@@ -195,7 +195,7 @@
 
 #pragma mark Custom initialization
 
-- (instancetype)initWithViewManager:(id <ViewManagerProtocol>)viewManager crashManager:(id<CrashManagerProtocol>)crashManager analyticsManager:(id<AnalyticsManagerProtocol>)analyticsManager messageBarManager:(id<MessageBarManagerProtocol>)messageBarManager viewControllerFactory:(id<ViewControllerFactoryProtocol>)viewControllerFactory reachabilityManager:(id<ReachabilityManagerProtocol>)reachabilityManager context:(id)context {
+- (instancetype)initWithViewManager:(id <ViewManagerProtocol>)viewManager crashManager:(id<CrashManagerProtocol>)crashManager analyticsManager:(id<AnalyticsManagerProtocol>)analyticsManager messageBarManager:(id<MessageBarManagerProtocol>)messageBarManager viewControllerFactory:(id<ViewControllerFactoryProtocol>)viewControllerFactory reachabilityManager:(id<ReachabilityManagerProtocol>)reachabilityManager context:(id)context model:(BaseModel *)model {
     
     self = [self init];
     if (self) {
@@ -208,6 +208,14 @@
         _reachabilityManager = reachabilityManager;
         
         _context = context;
+
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wundeclared-selector"
+        if ([self respondsToSelector:@selector(setModel:)]) {
+            
+            [self performSelector:@selector(setModel:) withObject:model];
+        }
+#pragma clang diagnostic pop
         
         [self commonInit];
     }

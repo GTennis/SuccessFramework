@@ -26,6 +26,7 @@
 //
 
 #import "ContactsViewController.h"
+#import "ContactsModel.h"
 #import <MessageUI/MessageUI.h>
 #import "GMAlertView.h"
 #import "SendEmailCommand.h"
@@ -34,7 +35,7 @@
 // Send email settings
 #define kContactsViewControllerEmailSubject @"From Success Framework app"
 #define kContactsViewControllerEmailMessage @"Hello, I have a question!"
-#define kContactsViewControllerRecipients @[@"test@test.com"]
+#define kContactsViewControllerRecipient @"test+%userId%@test.com"
 
 // Phone call settings
 #define kContactsViewControllerPhoneNumber @"123456789"
@@ -65,7 +66,19 @@
     
     [super commonInit];
     
-    _sendEmailCommand = [[SendEmailCommand alloc] initWithViewController:self subject:kContactsViewControllerEmailSubject message:kContactsViewControllerEmailMessage recipients:kContactsViewControllerRecipients];
+    NSString *userId = _model.loggedInUserId;
+    NSString *email = nil;
+    
+    if (userId) {
+        
+        email = [kContactsViewControllerRecipient stringByReplacingOccurrencesOfString:@"%userId%" withString:userId];
+        
+    } else {
+        
+        email = [kContactsViewControllerRecipient stringByReplacingOccurrencesOfString:@"+%userId%" withString:@""];
+    }
+    
+    _sendEmailCommand = [[SendEmailCommand alloc] initWithViewController:self subject:kContactsViewControllerEmailSubject message:kContactsViewControllerEmailMessage recipients:@[email]];
     _phoneCallCommand = [[PhoneCallCommand alloc] initWithPhoneNumberString:kContactsViewControllerPhoneNumber];
 }
 
