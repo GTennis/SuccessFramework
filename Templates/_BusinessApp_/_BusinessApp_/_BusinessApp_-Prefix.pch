@@ -37,10 +37,10 @@
 
 #define PRODUCTION_TARGET
 
-#define DEMO_MODE
-
 // Debugging
 #ifdef DEBUG
+
+#define DEMO_MODE
 
 //#import "NSObject+Description.h"
 
