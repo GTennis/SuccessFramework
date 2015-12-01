@@ -164,7 +164,6 @@
 		0FE1CB5C1AF691FE006769FE /* TermsConditionsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FE1CB5B1AF691FE006769FE /* TermsConditionsModel.m */; };
 		0FE1CB801AF6A851006769FE /* ManagerFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FE1CB7F1AF6A851006769FE /* ManagerFactory.m */; };
 		311367A31B8DC4AD0013EB27 /* NetworkEnvironmentSwitch4Testing.m in Sources */ = {isa = PBXBuildFile; fileRef = 311367A21B8DC4AD0013EB27 /* NetworkEnvironmentSwitch4Testing.m */; };
-		311367A61B8DC4D50013EB27 /* APIErrorHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 311367A51B8DC4D50013EB27 /* APIErrorHandler.m */; };
 		311367AF1B8DCBFD0013EB27 /* ImageListNetworkOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 311367AE1B8DCBFD0013EB27 /* ImageListNetworkOperation.m */; };
 		311367B21B8DCC1E0013EB27 /* ConfigNetworkOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 311367B11B8DCC1E0013EB27 /* ConfigNetworkOperation.m */; };
 		311367B61B8DD65E0013EB27 /* NetworkOperationFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 311367B51B8DD65E0013EB27 /* NetworkOperationFactory.m */; };
@@ -543,8 +542,6 @@
 		3113679E1B8DC4810013EB27 /* ConstNetworkErrorCodes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConstNetworkErrorCodes.h; sourceTree = "<group>"; };
 		311367A11B8DC4AD0013EB27 /* NetworkEnvironmentSwitch4Testing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkEnvironmentSwitch4Testing.h; sourceTree = "<group>"; };
 		311367A21B8DC4AD0013EB27 /* NetworkEnvironmentSwitch4Testing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetworkEnvironmentSwitch4Testing.m; sourceTree = "<group>"; };
-		311367A41B8DC4D50013EB27 /* APIErrorHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APIErrorHandler.h; sourceTree = "<group>"; };
-		311367A51B8DC4D50013EB27 /* APIErrorHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APIErrorHandler.m; sourceTree = "<group>"; };
 		311367AD1B8DCBFD0013EB27 /* ImageListNetworkOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageListNetworkOperation.h; sourceTree = "<group>"; };
 		311367AE1B8DCBFD0013EB27 /* ImageListNetworkOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageListNetworkOperation.m; sourceTree = "<group>"; };
 		311367B01B8DCC1E0013EB27 /* ConfigNetworkOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConfigNetworkOperation.h; sourceTree = "<group>"; };
@@ -1969,8 +1966,6 @@
 		311367971B8DC3C50013EB27 /* ErrorHandling */ = {
 			isa = PBXGroup;
 			children = (
-				311367A41B8DC4D50013EB27 /* APIErrorHandler.h */,
-				311367A51B8DC4D50013EB27 /* APIErrorHandler.m */,
 				3113679E1B8DC4810013EB27 /* ConstNetworkErrorCodes.h */,
 			);
 			path = ErrorHandling;
@@ -2596,7 +2591,6 @@
 				0F70DF401AFFD2E4004293F1 /* HomeListItemView_ipad.m in Sources */,
 				31F4761D1B8CA503000399EB /* CustomAFJSONResponseSerializer.m in Sources */,
 				0FC4D16C1AFBE11500CF4C24 /* MenuViewController_ipad.m in Sources */,
-				311367A61B8DC4D50013EB27 /* APIErrorHandler.m in Sources */,
 				0FBFDF5E1B13A84E00FA4EFD /* TableViewExampleViewController_iphone.m in Sources */,
 				0FC47F251B126ED3007A7E8D /* PhotoDetailsModel.m in Sources */,
 				0FE1CB331AF66BAD006769FE /* PasswordTextField.m in Sources */,

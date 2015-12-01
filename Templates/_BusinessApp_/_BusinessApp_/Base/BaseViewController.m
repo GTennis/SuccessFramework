@@ -32,7 +32,6 @@
 
 #import "BaseViewController.h"
 
-#import "APIErrorHandler.h"
 #import "ViewControllerFactoryProtocol.h"
 #import "MenuNavigator.h"
 
