@@ -179,7 +179,7 @@
     
     data.password = [data.password sha1WithSal:nil];
      
-    id<NetworkOperationProtocol> userLoginOperation = [_networkOperationFactory userLoginNetworkOperationWithParams:[data toDict]];
+    id<NetworkOperationProtocol> userLoginOperation = [_networkOperationFactory userLoginNetworkOperationWithContext:[data toDict]];
     [userLoginOperation performWithCallback:wrappedCallback];
 }
 
@@ -211,7 +211,7 @@
      
     data.password = [data.password sha1WithSal:nil];
     
-    id<NetworkOperationProtocol> userSignUpOperation = [_networkOperationFactory userSignUpNetworkOperationWithParams:[data toDict]];
+    id<NetworkOperationProtocol> userSignUpOperation = [_networkOperationFactory userSignUpNetworkOperationWithContext:[data toDict]];
     [userSignUpOperation performWithCallback:wrappedCallback];
 }
 
@@ -231,7 +231,7 @@
         callback(success, result, error);
     };
     
-    id<NetworkOperationProtocol> userResetPasswordOperation = [_networkOperationFactory userResetPasswordNetworkOperationWithParams:[data toDict]];
+    id<NetworkOperationProtocol> userResetPasswordOperation = [_networkOperationFactory userResetPasswordNetworkOperationWithContext:[data toDict]];
     [userResetPasswordOperation performWithCallback:wrappedCallback];
 }
 
@@ -249,7 +249,7 @@
         callback(success, result, error);
     };
     
-    id<NetworkOperationProtocol> userProfileOperation = [_networkOperationFactory userProfileNetworkOperationWithParams:nil];
+    id<NetworkOperationProtocol> userProfileOperation = [_networkOperationFactory userProfileNetworkOperationWithContext:nil];
     [userProfileOperation performWithCallback:wrappedCallback];
 }
 

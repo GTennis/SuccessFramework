@@ -33,7 +33,7 @@
 
 - (void)willStartModelLoading:(Callback)callback {
     
-    id<NetworkOperationProtocol> operation = [self.networkOperationFactory termsConditionsNetworkOperationWithParams:nil];
+    id<NetworkOperationProtocol> operation = [self.networkOperationFactory termsConditionsNetworkOperationWithContext:nil];
     
     NSString *urlString = [operation.networkRequestObject.baseUrl stringByAppendingString:operation.networkRequestObject.relativeUrl];
     _urlRequest = [NSURLRequest requestWithURL:[NSURL URLWithString:urlString]];

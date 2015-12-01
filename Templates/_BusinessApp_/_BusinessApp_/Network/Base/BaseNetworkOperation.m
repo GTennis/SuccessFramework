@@ -1,6 +1,6 @@
 //
 //  BaseNetworkOperation.m
-//  _BusinessApp_
+//  MyInsurrance
 //
 //  Created by Gytenis Mikulėnas on 5/2/14.
 //  Copyright (c) 2015 Gytenis Mikulėnas
@@ -33,7 +33,7 @@
 @implementation BaseNetworkOperation
 
 @synthesize networkRequestObject = _networkRequestObject;
-@synthesize params = _params;
+@synthesize context = _context;
 @synthesize userManager = _userManager;
 
 #pragma mark - Public -
@@ -46,7 +46,7 @@
     return nil;
 }
 
-- (instancetype)initWithNetworkRequestObject:(NetworkRequestObject *)networkRequestObject params:(id)params userManager:(id<UserManagerProtocol>)userManager {
+- (instancetype)initWithNetworkRequestObject:(NetworkRequestObject *)networkRequestObject context:(id)context userManager:(id<UserManagerProtocol>)userManager {
     
     _userManager = userManager;
     
@@ -60,11 +60,10 @@
     NSString *urlParamsString = [self requestUrlParams];
     if (urlParamsString.length > 0) {
         
-        urlString = [urlString stringByAppendingString:[self requestUrlParams]];
+        urlString = [[urlString stringByAppendingString:@"?"] stringByAppendingString:urlParamsString];
     }
     
-    // Store params
-    _params = params;
+    _context = context;
     
     // Create url request and proceed
     self = [self initWithUrlString:urlString networkRequestObject:networkRequestObject];
@@ -78,14 +77,14 @@
     
     if (![urlString isValidUrlString]) {
         
-        return nil;
+        DDLogError(@"[%@]: Invalid url: %@", [self class], urlString);
     }
     
     NSURL *url = [NSURL URLWithString:urlString];
     
     if (!url) {
         
-        return nil;
+        DDLogError(@"[%@]: Unable to create url from: %@", [self class], urlString);
     }
     
     // Create request
@@ -100,14 +99,14 @@
     // Add body
     [self setHTTPBodyWithRequest:request];
     
-//#ifdef DEBUG
+    //#ifdef DEBUG
     // For internal local https environment with self signed certificate
     //self.securityPolicy.allowInvalidCertificates = YES;
-//#endif
+    //#endif
     
     self = [super initWithRequest:request];
     if (self) {
-
+        
         // Add custom response serializer
         self.responseSerializer = [CustomAFJSONResponseSerializer serializer];
         
@@ -164,7 +163,7 @@
     }
 }
 
-- (id)requestBodyParams {
+- (NSDictionary *)requestBodyParams {
     
     return nil;
 }
@@ -175,10 +174,11 @@
 }
 
 - (void)setHTTPHeadersWithRequest:(NSMutableURLRequest *)urlRequest {
- 
+    
     // Add common headers
     [urlRequest setHTTPShouldHandleCookies:NO];
     [urlRequest setValue:@"application/json" forHTTPHeaderField:@"Accept"];
+    [urlRequest setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
     
     // Check for specific headers in subclass
     NSDictionary *customHeaders = [self requestHeaders];
@@ -193,10 +193,12 @@
 }
 
 - (void)setHTTPBodyWithRequest:(NSMutableURLRequest *)urlRequest {
-
-    if (_params) {
+    
+    NSDictionary *bodyParams = [self requestBodyParams];
+    
+    if (bodyParams) {
         
-        [urlRequest setHTTPBody:[NSJSONSerialization dataWithJSONObject:_params options:NSJSONWritingPrettyPrinted error:nil]];
+        [urlRequest setHTTPBody:[NSJSONSerialization dataWithJSONObject:bodyParams options:NSJSONWritingPrettyPrinted error:nil]];
     }
 }
 
@@ -214,7 +216,7 @@
     void (^successCallback)(AFHTTPRequestOperation *operation, id responseObject) = ^(AFHTTPRequestOperation *operation, id responseObject) {
         
         DDLogDebug(@"[%@]: success", [self class]);
-
+        
         [weakSelf handleReceivedDataWithSuccess:YES result:responseObject error:nil callback:callback];
     };
     
@@ -239,5 +241,5 @@
     
     return failCallback;
 }
-     
+
 @end

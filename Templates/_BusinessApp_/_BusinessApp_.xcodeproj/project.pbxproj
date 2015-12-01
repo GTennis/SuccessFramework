@@ -14,6 +14,7 @@
 		0F184B141BF7C56B0024B367 /* PrivacyPolicyViewController_iphone.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0F184B121BF7C56B0024B367 /* PrivacyPolicyViewController_iphone.xib */; settings = {ASSET_TAGS = (); }; };
 		0F184B191BF7C5770024B367 /* PrivacyPolicyModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F184B161BF7C5770024B367 /* PrivacyPolicyModel.m */; settings = {ASSET_TAGS = (); }; };
 		0F184B1A1BF7C5770024B367 /* PrivacyPolicyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F184B181BF7C5770024B367 /* PrivacyPolicyViewController.m */; settings = {ASSET_TAGS = (); }; };
+		0F1B34401C0E27E7009B55D1 /* UIAlertController+Window.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F1B343F1C0E27E7009B55D1 /* UIAlertController+Window.m */; settings = {ASSET_TAGS = (); }; };
 		0F1CA5801C01F28700614076 /* NormalCheckbox.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F1CA57F1C01F28700614076 /* NormalCheckbox.m */; settings = {ASSET_TAGS = (); }; };
 		0F1CAAFF1C03AF55004D6EE0 /* imageList.json in Resources */ = {isa = PBXBuildFile; fileRef = 0F1CAAFE1C03AF55004D6EE0 /* imageList.json */; settings = {ASSET_TAGS = (); }; };
 		0F1CAB091C03B311004D6EE0 /* DemoUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F1CAB081C03B311004D6EE0 /* DemoUtils.m */; settings = {ASSET_TAGS = (); }; };
@@ -39,7 +40,6 @@
 		0F7A85411AFFF64B00A2F6C4 /* TermsConditionsViewController_iphone.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0F7A853F1AFFF64B00A2F6C4 /* TermsConditionsViewController_iphone.xib */; };
 		0F7A85451AFFF65E00A2F6C4 /* TermsConditionsViewController_ipad.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F7A85431AFFF65E00A2F6C4 /* TermsConditionsViewController_ipad.m */; };
 		0F7A85461AFFF65E00A2F6C4 /* TermsConditionsViewController_ipad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0F7A85441AFFF65E00A2F6C4 /* TermsConditionsViewController_ipad.xib */; };
-		0F8D56871AFFA8A1005681A7 /* GMAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F8D56861AFFA8A1005681A7 /* GMAlertView.m */; };
 		0F8D568D1AFFB510005681A7 /* KeyboardControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F8D56891AFFB510005681A7 /* KeyboardControl.m */; };
 		0F8D568E1AFFB510005681A7 /* KeyboardControlPrevNext.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F8D568B1AFFB510005681A7 /* KeyboardControlPrevNext.m */; };
 		0FA201DE19C43528007ABAC4 /* HomeViewController_ipad.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FA201DC19C43528007ABAC4 /* HomeViewController_ipad.m */; };
@@ -136,7 +136,6 @@
 		0FE1CABC1AF64471006769FE /* AnalyticsManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FE1CABB1AF64471006769FE /* AnalyticsManager.m */; };
 		0FE1CAC31AF6466D006769FE /* ReachabilityManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FE1CAC11AF6466D006769FE /* ReachabilityManager.m */; };
 		0FE1CAC91AF64B29006769FE /* GMObserverList.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FE1CAC81AF64B29006769FE /* GMObserverList.m */; };
-		0FE1CAD81AF6527C006769FE /* BaseAPIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FE1CAD71AF6527C006769FE /* BaseAPIClient.m */; };
 		0FE1CAE71AF65593006769FE /* ErrorObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FE1CAE61AF65593006769FE /* ErrorObject.m */; };
 		0FE1CAED1AF6564B006769FE /* ImageObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FE1CAEA1AF6564B006769FE /* ImageObject.m */; };
 		0FE1CAEE1AF6564B006769FE /* ImagesObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FE1CAEC1AF6564B006769FE /* ImagesObject.m */; };
@@ -190,7 +189,6 @@
 		31923AF61B1F61A000C70D3B /* UILabel+Styling.m in Sources */ = {isa = PBXBuildFile; fileRef = 31923AF51B1F61A000C70D3B /* UILabel+Styling.m */; };
 		31923AF91B1F6CD200C70D3B /* UITextView+Styling.m in Sources */ = {isa = PBXBuildFile; fileRef = 31923AF81B1F6CD200C70D3B /* UITextView+Styling.m */; };
 		31923AFC1B1F749900C70D3B /* UITextFieldStylingIvars.m in Sources */ = {isa = PBXBuildFile; fileRef = 31923AFB1B1F749900C70D3B /* UITextFieldStylingIvars.m */; };
-		31C1B4C81B90890000D6E3B9 /* BackendAPIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 31C1B4C61B90890000D6E3B9 /* BackendAPIClient.m */; };
 		31CA638A1B343BF5002CC8D6 /* LanguageObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 31CA63891B343BF5002CC8D6 /* LanguageObject.m */; };
 		31CA63A21B34802C002CC8D6 /* ImageDownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = 31CA63A11B34802C002CC8D6 /* ImageDownloader.m */; };
 		31CB852B1B14B50E00F827F7 /* CountryPickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 31CB852A1B14B50E00F827F7 /* CountryPickerViewController.m */; };
@@ -255,6 +253,8 @@
 		0F184B161BF7C5770024B367 /* PrivacyPolicyModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PrivacyPolicyModel.m; sourceTree = "<group>"; };
 		0F184B171BF7C5770024B367 /* PrivacyPolicyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrivacyPolicyViewController.h; sourceTree = "<group>"; };
 		0F184B181BF7C5770024B367 /* PrivacyPolicyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PrivacyPolicyViewController.m; sourceTree = "<group>"; };
+		0F1B343E1C0E27E7009B55D1 /* UIAlertController+Window.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIAlertController+Window.h"; sourceTree = "<group>"; };
+		0F1B343F1C0E27E7009B55D1 /* UIAlertController+Window.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIAlertController+Window.m"; sourceTree = "<group>"; };
 		0F1CA57E1C01F28700614076 /* NormalCheckbox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NormalCheckbox.h; sourceTree = "<group>"; };
 		0F1CA57F1C01F28700614076 /* NormalCheckbox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NormalCheckbox.m; sourceTree = "<group>"; };
 		0F1CAAFE1C03AF55004D6EE0 /* imageList.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = imageList.json; sourceTree = "<group>"; };
@@ -297,8 +297,6 @@
 		0F7A85421AFFF65E00A2F6C4 /* TermsConditionsViewController_ipad.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TermsConditionsViewController_ipad.h; sourceTree = "<group>"; };
 		0F7A85431AFFF65E00A2F6C4 /* TermsConditionsViewController_ipad.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TermsConditionsViewController_ipad.m; sourceTree = "<group>"; };
 		0F7A85441AFFF65E00A2F6C4 /* TermsConditionsViewController_ipad.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TermsConditionsViewController_ipad.xib; sourceTree = "<group>"; };
-		0F8D56851AFFA8A1005681A7 /* GMAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GMAlertView.h; sourceTree = "<group>"; };
-		0F8D56861AFFA8A1005681A7 /* GMAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GMAlertView.m; sourceTree = "<group>"; };
 		0F8D56881AFFB510005681A7 /* KeyboardControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KeyboardControl.h; sourceTree = "<group>"; };
 		0F8D56891AFFB510005681A7 /* KeyboardControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KeyboardControl.m; sourceTree = "<group>"; };
 		0F8D568A1AFFB510005681A7 /* KeyboardControlPrevNext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KeyboardControlPrevNext.h; sourceTree = "<group>"; };
@@ -482,8 +480,6 @@
 		0FE1CAC21AF6466D006769FE /* ReachabilityManagerProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReachabilityManagerProtocol.h; sourceTree = "<group>"; };
 		0FE1CAC71AF64B29006769FE /* GMObserverList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GMObserverList.h; sourceTree = "<group>"; };
 		0FE1CAC81AF64B29006769FE /* GMObserverList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GMObserverList.m; sourceTree = "<group>"; };
-		0FE1CAD61AF6527C006769FE /* BaseAPIClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseAPIClient.h; sourceTree = "<group>"; };
-		0FE1CAD71AF6527C006769FE /* BaseAPIClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseAPIClient.m; sourceTree = "<group>"; };
 		0FE1CADF1AF6551A006769FE /* ParsableObject.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ParsableObject.h; sourceTree = "<group>"; };
 		0FE1CAE51AF65593006769FE /* ErrorObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ErrorObject.h; sourceTree = "<group>"; };
 		0FE1CAE61AF65593006769FE /* ErrorObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ErrorObject.m; sourceTree = "<group>"; };
@@ -600,9 +596,6 @@
 		31923AF81B1F6CD200C70D3B /* UITextView+Styling.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITextView+Styling.m"; sourceTree = "<group>"; };
 		31923AFA1B1F749900C70D3B /* UITextFieldStylingIvars.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UITextFieldStylingIvars.h; sourceTree = "<group>"; };
 		31923AFB1B1F749900C70D3B /* UITextFieldStylingIvars.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UITextFieldStylingIvars.m; sourceTree = "<group>"; };
-		31C1B4C51B90890000D6E3B9 /* BackendAPIClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BackendAPIClient.h; sourceTree = "<group>"; };
-		31C1B4C61B90890000D6E3B9 /* BackendAPIClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BackendAPIClient.m; sourceTree = "<group>"; };
-		31C1B4C71B90890000D6E3B9 /* BackendAPIClientProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BackendAPIClientProtocol.h; sourceTree = "<group>"; };
 		31C7F1DC1B3170FA006D1571 /* 1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 1.jpg; sourceTree = "<group>"; };
 		31C7F1DD1B3170FA006D1571 /* 2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 2.jpg; sourceTree = "<group>"; };
 		31C7F1DE1B3170FA006D1571 /* 3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 3.jpg; sourceTree = "<group>"; };
@@ -617,7 +610,6 @@
 		31CA63991B347D08002CC8D6 /* ReachabilityManagerObserver.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ReachabilityManagerObserver.h; sourceTree = "<group>"; };
 		31CA63A01B34802C002CC8D6 /* ImageDownloader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageDownloader.h; sourceTree = "<group>"; };
 		31CA63A11B34802C002CC8D6 /* ImageDownloader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageDownloader.m; sourceTree = "<group>"; };
-		31CA63BB1B348732002CC8D6 /* APIClientProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = APIClientProtocol.h; sourceTree = "<group>"; };
 		31CB85291B14B50D00F827F7 /* CountryPickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CountryPickerViewController.h; sourceTree = "<group>"; };
 		31CB852A1B14B50E00F827F7 /* CountryPickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CountryPickerViewController.m; sourceTree = "<group>"; };
 		31CB852E1B14B53B00F827F7 /* CountryPickerViewController_iphone.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CountryPickerViewController_iphone.h; sourceTree = "<group>"; };
@@ -980,26 +972,8 @@
 		0FA648A419BF5F8200386388 /* AlertViews */ = {
 			isa = PBXGroup;
 			children = (
-				0FA67F4E19C4E08500E00FDA /* CustomAlertWithCallback */,
-				0FA67F4C19C4DEF600E00FDA /* AlertWithCallback */,
 			);
 			path = AlertViews;
-			sourceTree = "<group>";
-		};
-		0FA67F4C19C4DEF600E00FDA /* AlertWithCallback */ = {
-			isa = PBXGroup;
-			children = (
-				0F8D56851AFFA8A1005681A7 /* GMAlertView.h */,
-				0F8D56861AFFA8A1005681A7 /* GMAlertView.m */,
-			);
-			path = AlertWithCallback;
-			sourceTree = "<group>";
-		};
-		0FA67F4E19C4E08500E00FDA /* CustomAlertWithCallback */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = CustomAlertWithCallback;
 			sourceTree = "<group>";
 		};
 		0FA67F6819C4F40800E00FDA /* ipad */ = {
@@ -1281,7 +1255,6 @@
 				0FE1CAD51AF65269006769FE /* Base */,
 				31F476271B8CADCE000399EB /* Factory */,
 				311367941B8DC2E50013EB27 /* Operations */,
-				311367BE1B8DDACE0013EB27 /* APIClients */,
 				311367A01B8DC4920013EB27 /* Debugging */,
 				311367971B8DC3C50013EB27 /* ErrorHandling */,
 				31CA639D1B347FE1002CC8D6 /* Images */,
@@ -1319,6 +1292,8 @@
 				0FE1CB151AF663E6006769FE /* NSString+Validator.m */,
 				0FA62C7519CF5DE6002D3DDC /* NSObject+Selectors.h */,
 				0FA62C7619CF5DE6002D3DDC /* NSObject+Selectors.m */,
+				0F1B343E1C0E27E7009B55D1 /* UIAlertController+Window.h */,
+				0F1B343F1C0E27E7009B55D1 /* UIAlertController+Window.m */,
 			);
 			path = Categories;
 			sourceTree = "<group>";
@@ -1714,9 +1689,6 @@
 			isa = PBXGroup;
 			children = (
 				31F4762F1B8CBFB6000399EB /* NetworkOperationProtocol.h */,
-				31CA63BB1B348732002CC8D6 /* APIClientProtocol.h */,
-				0FE1CAD61AF6527C006769FE /* BaseAPIClient.h */,
-				0FE1CAD71AF6527C006769FE /* BaseAPIClient.m */,
 				0FC719C11AF92D2A00912FF1 /* BaseNetworkOperation.h */,
 				0FC719C21AF92D2A00912FF1 /* BaseNetworkOperation.m */,
 				31F4761B1B8CA503000399EB /* CustomAFJSONResponseSerializer.h */,
@@ -2022,14 +1994,6 @@
 			name = Config;
 			sourceTree = "<group>";
 		};
-		311367BE1B8DDACE0013EB27 /* APIClients */ = {
-			isa = PBXGroup;
-			children = (
-				31C1B4C01B90888500D6E3B9 /* demoAPI */,
-			);
-			path = APIClients;
-			sourceTree = "<group>";
-		};
 		311367C11B8DDBFA0013EB27 /* PushNotifications */ = {
 			isa = PBXGroup;
 			children = (
@@ -2070,16 +2034,6 @@
 				31912E9F1B0CC9B6007C0C89 /* SendEmailCommand.m */,
 			);
 			path = Commands;
-			sourceTree = "<group>";
-		};
-		31C1B4C01B90888500D6E3B9 /* demoAPI */ = {
-			isa = PBXGroup;
-			children = (
-				31C1B4C51B90890000D6E3B9 /* BackendAPIClient.h */,
-				31C1B4C61B90890000D6E3B9 /* BackendAPIClient.m */,
-				31C1B4C71B90890000D6E3B9 /* BackendAPIClientProtocol.h */,
-			);
-			name = demoAPI;
 			sourceTree = "<group>";
 		};
 		31C7F1D41B317073006D1571 /* LocalTestData */ = {
@@ -2635,6 +2589,7 @@
 				0FA695F919BB9CCD0058A722 /* BaseViewController.m in Sources */,
 				31CB85311B14B53B00F827F7 /* CountryPickerViewController_iphone.m in Sources */,
 				31CB85871B15F8EE00F827F7 /* UserForgotPasswordViewController_iphone.m in Sources */,
+				0F1B34401C0E27E7009B55D1 /* UIAlertController+Window.m in Sources */,
 				0FE1CB251AF669A0006769FE /* BaseButton.m in Sources */,
 				0FE1CAB81AF64246006769FE /* ViewControllerFactory.m in Sources */,
 				0F1CAB1C1C03B5CE004D6EE0 /* UserSignUpNetworkOperation+Demo.m in Sources */,
@@ -2659,7 +2614,6 @@
 				311367D61B8DE2320013EB27 /* UserResetPasswordNetworkOperation.m in Sources */,
 				0F8D568D1AFFB510005681A7 /* KeyboardControl.m in Sources */,
 				0FC719FF1AF9346500912FF1 /* ContactsModel.m in Sources */,
-				0F8D56871AFFA8A1005681A7 /* GMAlertView.m in Sources */,
 				0FE1CB131AF661C1006769FE /* UIView+Colors.m in Sources */,
 				0FA839C119BC5DF40037B5F3 /* SettingsViewController.m in Sources */,
 				31923AF61B1F61A000C70D3B /* UILabel+Styling.m in Sources */,
@@ -2716,7 +2670,6 @@
 				0FA839FD19BD1E5A0037B5F3 /* UserManager.m in Sources */,
 				0FC719B61AF9251D00912FF1 /* LaunchViewController_iphone.m in Sources */,
 				0FC71A0D1AF93B9A00912FF1 /* UserContainerModel.m in Sources */,
-				31C1B4C81B90890000D6E3B9 /* BackendAPIClient.m in Sources */,
 				0FABA6F219CAFD8400CC7DD3 /* ContactsViewController.m in Sources */,
 				0FA695A919BB9A720058A722 /* AppDelegate.m in Sources */,
 				311367A31B8DC4AD0013EB27 /* NetworkEnvironmentSwitch4Testing.m in Sources */,
@@ -2756,7 +2709,6 @@
 				311367C41B8DDC130013EB27 /* PushNotificationManager.m in Sources */,
 				0FA695A519BB9A720058A722 /* main.m in Sources */,
 				0FE1CB1C1AF664B7006769FE /* NSObject+Description.m in Sources */,
-				0FE1CAD81AF6527C006769FE /* BaseAPIClient.m in Sources */,
 				0FE1CB591AF691D2006769FE /* TermsConditionsViewController.m in Sources */,
 				31CB85541B15BFCF00F827F7 /* WalkthroughViewController_iphone.m in Sources */,
 				311367DA1B8E04D40013EB27 /* NetworkRequestObject.m in Sources */,

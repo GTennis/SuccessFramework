@@ -34,6 +34,47 @@
 
 #pragma mark Override
 
+- (NSString *)requestUrlParams {
+
+    // Example of adding url params:
+    // ...
+    // Retrieve passed context
+    // ...
+    //id<PassedObjectProtocol> passedObject = (id<PassedObjectProtocol>)self.context;
+    // ...
+    // Add url params:
+    // ...
+    //return [NSString stringWithFormat:@"param1=%@&param2=%@", passedObject.paramId1, passedObject.paramId2];
+    
+    return [super requestUrlParams];
+}
+
+- (NSString *)requestRelativeUrl {
+    
+    // Example of adding path to url:
+    // ...
+    // Retrieve passed context
+    // ...
+    //id<PassedObjectProtocol> passedObject = (id<PassedObjectProtocol>)self.context;
+    // ...
+    // Add path:
+    // ...
+    //return [NSString stringWithFormat:@"%@/%@", [super requestRelativeUrl], passedObject.paramId];
+    
+    return [super requestRelativeUrl];
+}
+
+- (NSDictionary *)requestBodyParams {
+    
+    // Example of adding body:
+    // ...
+    // In this example we already pass ready to use NSDictionary
+    // ...
+    //return self.context;
+    
+    return [super requestBodyParams];
+}
+
 - (void)handleReceivedDataWithSuccess:(BOOL)success result:(id)result error:(NSError *)error callback:(Callback)callback {
     
     if (success) {

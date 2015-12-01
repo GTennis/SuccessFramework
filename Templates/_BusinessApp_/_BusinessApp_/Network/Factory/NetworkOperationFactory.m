@@ -69,62 +69,62 @@
 
 #pragma mark Content
 
-- (id<NetworkOperationProtocol>)imageListNetworkOperationWithParams:(id)params {
+- (id<NetworkOperationProtocol>)imageListNetworkOperationWithContext:(id)context {
     
     NetworkRequestObject *request = _appConfig.currentNetworkRequests[kNetworkOperationImageListName];
-    ImageListNetworkOperation *operation = [[ImageListNetworkOperation alloc] initWithNetworkRequestObject:request params:params userManager:_userManager];
+    ImageListNetworkOperation *operation = [[ImageListNetworkOperation alloc] initWithNetworkRequestObject:request context:context userManager:_userManager];
     
     return operation;
 }
 
 #pragma mark User
 
-- (id<NetworkOperationProtocol>)userLoginNetworkOperationWithParams:(id)params {
+- (id<NetworkOperationProtocol>)userLoginNetworkOperationWithContext:(id)context {
     
     NetworkRequestObject *request = _appConfig.currentNetworkRequests[kNetworkOperationUserLoginName];
-    UserLoginNetworkOperation *operation = [[UserLoginNetworkOperation alloc] initWithNetworkRequestObject:request params:params userManager:_userManager];
+    UserLoginNetworkOperation *operation = [[UserLoginNetworkOperation alloc] initWithNetworkRequestObject:request context:context userManager:_userManager];
     
     return operation;
 }
 
-- (id<NetworkOperationProtocol>)userSignUpNetworkOperationWithParams:(id)params {
+- (id<NetworkOperationProtocol>)userSignUpNetworkOperationWithContext:(id)context {
     
     NetworkRequestObject *request = _appConfig.currentNetworkRequests[kNetworkOperationUserSignUpName];
-    UserSignUpNetworkOperation *operation = [[UserSignUpNetworkOperation alloc] initWithNetworkRequestObject:request params:params userManager:_userManager];
+    UserSignUpNetworkOperation *operation = [[UserSignUpNetworkOperation alloc] initWithNetworkRequestObject:request context:context userManager:_userManager];
     
     return operation;
 }
 
-- (id<NetworkOperationProtocol>)userProfileNetworkOperationWithParams:(id)params {
+- (id<NetworkOperationProtocol>)userProfileNetworkOperationWithContext:(id)context {
     
     NetworkRequestObject *request = _appConfig.currentNetworkRequests[kNetworkOperationUserProfileName];
-    UserProfileNetworkOperation *operation = [[UserProfileNetworkOperation alloc] initWithNetworkRequestObject:request params:params userManager:_userManager];
+    UserProfileNetworkOperation *operation = [[UserProfileNetworkOperation alloc] initWithNetworkRequestObject:request context:context userManager:_userManager];
     
     return operation;
 }
 
-- (id<NetworkOperationProtocol>)userResetPasswordNetworkOperationWithParams:(id)params {
+- (id<NetworkOperationProtocol>)userResetPasswordNetworkOperationWithContext:(id)context {
     
     NetworkRequestObject *request = _appConfig.currentNetworkRequests[kNetworkOperationUserResetPasswordName];
-    UserResetPasswordNetworkOperation *operation = [[UserResetPasswordNetworkOperation alloc] initWithNetworkRequestObject:request params:params userManager:_userManager];
+    UserResetPasswordNetworkOperation *operation = [[UserResetPasswordNetworkOperation alloc] initWithNetworkRequestObject:request context:context userManager:_userManager];
     
     return operation;
 }
 
 #pragma mark Legal
 
-- (id<NetworkOperationProtocol>)termsConditionsNetworkOperationWithParams:(id)params {
+- (id<NetworkOperationProtocol>)termsConditionsNetworkOperationWithContext:(id)context {
     
     NetworkRequestObject *request = _appConfig.currentNetworkRequests[kNetworkOperationTermsConditionsName];
-    TermsConditionsNetworkOperation *operation = [[TermsConditionsNetworkOperation alloc] initWithNetworkRequestObject:request params:params userManager:_userManager];
+    TermsConditionsNetworkOperation *operation = [[TermsConditionsNetworkOperation alloc] initWithNetworkRequestObject:request context:context userManager:_userManager];
     
     return operation;
 }
 
-- (id<NetworkOperationProtocol>)privacyPolicyNetworkOperationWithParams:(id)params {
+- (id<NetworkOperationProtocol>)privacyPolicyNetworkOperationWithContext:(id)context {
     
     NetworkRequestObject *request = _appConfig.currentNetworkRequests[kNetworkOperationPrivacyPolicyName];
-    PrivacyPolicyNetworkOperation *operation = [[PrivacyPolicyNetworkOperation alloc] initWithNetworkRequestObject:request params:params userManager:_userManager];
+    PrivacyPolicyNetworkOperation *operation = [[PrivacyPolicyNetworkOperation alloc] initWithNetworkRequestObject:request context:context userManager:_userManager];
     
     return operation;
 }

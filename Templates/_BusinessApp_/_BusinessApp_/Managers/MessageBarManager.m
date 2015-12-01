@@ -27,6 +27,7 @@
 
 #import "MessageBarManager.h"
 #import <TWMessageBarManager.h>
+#import "UIAlertController+Window.h"
 
 #define kMessageBarManagerDefaultDuration 3.0f
 
@@ -52,7 +53,7 @@
     return self;
 }
 
-#pragma mark - MessageBarManagerProtocol -
+#pragma mark MessageBarManagerProtocol
 
 // Add needed methods and wrap inside this class methods. Encapsulate and expose wrapped ones only.
 // https://github.com/terryworona/TWMessageBarManager
@@ -95,6 +96,65 @@
     
 }
 
+- (void)showAlertOkWithTitle:(NSString *)title description:(NSString *)description okTitle:(NSString *)okTitle okCallback:(void (^)())okCallback {
+    
+    UIAlertController *alertController = [UIAlertController
+                                          alertControllerWithTitle:title
+                                          message:description
+                                          preferredStyle:UIAlertControllerStyleAlert];
+    
+    UIAlertAction *okAction = [UIAlertAction
+                               actionWithTitle:okTitle
+                               style:UIAlertActionStyleDefault
+                               handler:^(UIAlertAction *action)
+                               {
+                                   if (okCallback) {
+                                       
+                                       okCallback();
+                                   }
+                               }];
+    
+    [alertController addAction:okAction];
+    
+    [alertController show];
+}
+
+- (void)showAlertConfirmationWithTitle:(NSString *)title description:(NSString *)description cancelTitle:(NSString *)cancelTitle okTitle:(NSString *)okTitle cancelCallback:(void (^)())cancelCallback okCallback:(void (^)())okCallback {
+    
+    UIAlertController *alertController = [UIAlertController
+                                          alertControllerWithTitle:title
+                                          message:description
+                                          preferredStyle:UIAlertControllerStyleAlert];
+    
+    UIAlertAction *cancelAction = [UIAlertAction
+                                   actionWithTitle:cancelTitle
+                                   style:UIAlertActionStyleCancel
+                                   handler:^(UIAlertAction *action)
+                                   {
+                                       
+                                       if (cancelCallback) {
+                                           
+                                           cancelCallback();
+                                       }
+                                   }];
+    
+    UIAlertAction *okAction = [UIAlertAction
+                               actionWithTitle:okTitle
+                               style:UIAlertActionStyleDefault
+                               handler:^(UIAlertAction *action)
+                               {
+                                   if (okCallback) {
+                                       
+                                       okCallback();
+                                   }
+                               }];
+    
+    [alertController addAction:cancelAction];
+    [alertController addAction:okAction];
+    
+    [alertController showWithAnimation:YES];
+}
+
 #pragma mark - Private -
 
 // Converts and maps public enum to private enum
@@ -128,7 +188,7 @@
     [_messageBarManager showMessageWithTitle:title description:description type:messageType duration:duration];
 }
 
-#pragma mark - TWMessageBarStyleSheet -
+#pragma mark TWMessageBarStyleSheet
 
 - (UIColor *)backgroundColorForMessageType:(TWMessageBarMessageType)type {
     

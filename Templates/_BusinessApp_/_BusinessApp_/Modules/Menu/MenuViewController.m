@@ -213,19 +213,12 @@
 
 - (void)logoutPressed {
     
-    GMAlertView *alertView = [[GMAlertView alloc] initWithViewController:self title:nil message:GMLocalizedString(kMenuModelMenuItemLogoutConfirmationMessageKey) cancelButtonTitle:GMLocalizedString(kCancelKey)  otherButtonTitles:@[GMLocalizedString(kOkKey)]];
-    
     __weak typeof(self) weakSelf = self;
     
-    alertView.completion = ^(BOOL firstButtonPressed, NSInteger buttonIndex) {
+    [self.messageBarManager showAlertConfirmationWithTitle:nil description:GMLocalizedString(kMenuModelMenuItemLogoutConfirmationMessageKey) cancelTitle:GMLocalizedString(kCancelKey) okTitle:GMLocalizedString(kOkKey) cancelCallback:nil okCallback:^{
         
-        if (buttonIndex == 1) {
-            
-            [weakSelf.model logoutUser];
-        }
-    };
-    
-    [alertView show];
+        [weakSelf.model logoutUser];
+    }];
 }
 
 @end

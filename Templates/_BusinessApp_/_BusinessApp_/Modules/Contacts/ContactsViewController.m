@@ -28,7 +28,6 @@
 #import "ContactsViewController.h"
 #import "ContactsModel.h"
 #import <MessageUI/MessageUI.h>
-#import "GMAlertView.h"
 #import "SendEmailCommand.h"
 #import "PhoneCallCommand.h"
 
@@ -111,8 +110,7 @@
         
     } else {
         
-        GMAlertView *alertView = [[GMAlertView alloc] initWithViewController:self title:nil message:error.localizedDescription cancelButtonTitle:GMLocalizedString(kContactsViewControllerOkKey) otherButtonTitles:nil];
-        [alertView show];
+        [self.messageBarManager showMessageWithTitle:@"" description:error.localizedDescription type:MessageBarMessageTypeError duration:kMessageBarManagerMessageDuration];
     }
 }
 
@@ -127,8 +125,7 @@
         
     } else {
         
-        GMAlertView *alertView = [[GMAlertView alloc] initWithViewController:self title:nil message:error.localizedDescription cancelButtonTitle:GMLocalizedString(kContactsViewControllerOkKey) otherButtonTitles:nil];
-        [alertView show];
+        [self.messageBarManager showMessageWithTitle:@"" description:error.localizedDescription type:MessageBarMessageTypeError duration:kMessageBarManagerMessageDuration];
     }
 }
 

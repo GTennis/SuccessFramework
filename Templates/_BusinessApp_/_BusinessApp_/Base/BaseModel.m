@@ -30,7 +30,6 @@
 #if defined(DEBUG)
 
 #import "NetworkEnvironmentSwitch4Testing.h"
-#import "BackendAPIClient.h"
 #import "UserManagerProtocol.h"
 
 #endif

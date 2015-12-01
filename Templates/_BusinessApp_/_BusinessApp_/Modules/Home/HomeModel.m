@@ -38,7 +38,7 @@
 
 - (void)willStartModelLoading:(Callback)callback {
     
-    id<NetworkOperationProtocol> imageListOperation = [self.networkOperationFactory imageListNetworkOperationWithParams:nil];
+    id<NetworkOperationProtocol> imageListOperation = [self.networkOperationFactory imageListNetworkOperationWithContext:nil];
     [imageListOperation performWithCallback:callback];
 }
 

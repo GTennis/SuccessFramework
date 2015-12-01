@@ -33,7 +33,6 @@
 #import "CrashManager.h"
 #import "AnalyticsManager.h"
 #import "ReachabilityManager.h"
-#import "BackendAPIClient.h"
 #import "MessageBarManager.h"
 
 // Launch related

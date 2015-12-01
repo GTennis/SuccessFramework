@@ -72,6 +72,9 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
 
+    // Need this manager for handling messages if anything happens before we get app settings
+    _messageBarManager = [[MessageBarManager alloc] init];
+    
     // Setup logging
     [GMLoggingConfig initializeLoggers];
 
@@ -299,7 +302,7 @@
     
     // Create config network operation
     NetworkRequestObject *request = [[NetworkRequestObject alloc] initWithBackendEnvironment:_backendEnvironment];
-    ConfigNetworkOperation *configOperation = [[ConfigNetworkOperation alloc] initWithNetworkRequestObject:request params:nil userManager:nil];
+    ConfigNetworkOperation *configOperation = [[ConfigNetworkOperation alloc] initWithNetworkRequestObject:request context:nil userManager:nil];
     
     // Perform
     [configOperation performWithCallback:^(BOOL success, id result, NSError *error) {
@@ -326,20 +329,15 @@
     
     DDLogDebug(@"App needs update...");
     
-    GMAlertView *alertView = [[GMAlertView alloc] initWithViewController:self.window.rootViewController title:nil message:GMLocalizedString(@"AppNeedsUpdate") cancelButtonTitle:GMLocalizedString(@"Update") otherButtonTitles:nil];
+    __weak typeof(self) weakSelf = self;
     
-    alertView.completion = ^(BOOL firstButtonPressed, NSInteger buttonIndex) {
+    [self.messageBarManager showAlertOkWithTitle:nil description:GMLocalizedString(@"AppNeedsUpdate") okTitle:GMLocalizedString(@"Update") okCallback:^{
         
-        if (firstButtonPressed) {
-            
-            NSString *iTunesLink = appConfig.appStoreUrlString;
-            [[UIApplication sharedApplication] openURL:[NSURL URLWithString:iTunesLink]];
-            
-            [self closeTheApp];
-        }
-    };
-    
-    [alertView show];
+        NSString *iTunesLink = appConfig.appStoreUrlString;
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:iTunesLink]];
+        
+        [weakSelf closeTheApp];
+    }];
 }
 
 // It's a backdoor for critical cases. If app config request will return param indicating appConfigVersion has changed AND app is already running THEN app will close and therefore will reload itself (all the backend URLs)
@@ -347,17 +345,12 @@
     
     DDLogDebug(@"App needs reload...");
     
-    GMAlertView *alertView = [[GMAlertView alloc] initWithViewController:self.window.rootViewController title:nil message:GMLocalizedString(@"AppNeedsReload") cancelButtonTitle:GMLocalizedString(@"Reload") otherButtonTitles:nil];
+    __weak typeof(self) weakSelf = self;
     
-    alertView.completion = ^(BOOL firstButtonPressed, NSInteger buttonIndex) {
+    [self.messageBarManager showAlertOkWithTitle:nil description:GMLocalizedString(@"AppNeedsReload") okTitle:GMLocalizedString(@"Reload") okCallback:^{
         
-        if (firstButtonPressed) {
-            
-            [self closeTheApp];
-        }
-    };
-    
-    [alertView show];
+        [weakSelf closeTheApp];
+    }];
 }
 
 #pragma mark - App config

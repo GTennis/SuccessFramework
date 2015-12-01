@@ -44,16 +44,16 @@
 #pragma mark Network operations
 
 // Image list
-- (id<NetworkOperationProtocol>)imageListNetworkOperationWithParams:(id)params;
+- (id<NetworkOperationProtocol>)imageListNetworkOperationWithContext:(id)context;
 
 // User related
-- (id<NetworkOperationProtocol>)userLoginNetworkOperationWithParams:(id)params;
-- (id<NetworkOperationProtocol>)userSignUpNetworkOperationWithParams:(id)params;
-- (id<NetworkOperationProtocol>)userProfileNetworkOperationWithParams:(id)params;
-- (id<NetworkOperationProtocol>)userResetPasswordNetworkOperationWithParams:(id)params;
+- (id<NetworkOperationProtocol>)userLoginNetworkOperationWithContext:(id)context;
+- (id<NetworkOperationProtocol>)userSignUpNetworkOperationWithContext:(id)context;
+- (id<NetworkOperationProtocol>)userProfileNetworkOperationWithContext:(id)context;
+- (id<NetworkOperationProtocol>)userResetPasswordNetworkOperationWithContext:(id)context;
 
 // Legal
-- (id<NetworkOperationProtocol>)termsConditionsNetworkOperationWithParams:(id)params;
-- (id<NetworkOperationProtocol>)privacyPolicyNetworkOperationWithParams:(id)params;
+- (id<NetworkOperationProtocol>)termsConditionsNetworkOperationWithContext:(id)context;
+- (id<NetworkOperationProtocol>)privacyPolicyNetworkOperationWithContext:(id)context;
 
 @end

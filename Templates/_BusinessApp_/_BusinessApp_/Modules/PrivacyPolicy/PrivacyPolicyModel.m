@@ -31,7 +31,7 @@
 
 - (void)willStartModelLoading:(Callback)callback {
     
-    id<NetworkOperationProtocol> operation = [self.networkOperationFactory privacyPolicyNetworkOperationWithParams:nil];
+    id<NetworkOperationProtocol> operation = [self.networkOperationFactory privacyPolicyNetworkOperationWithContext:nil];
     
     NSString *urlString = [operation.networkRequestObject.baseUrl stringByAppendingString:operation.networkRequestObject.relativeUrl];
     _urlRequest = [NSURLRequest requestWithURL:[NSURL URLWithString:urlString]];

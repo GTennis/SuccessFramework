@@ -26,7 +26,6 @@
 //
 
 #import "ConsoleLogViewController.h"
-#import "GMAlertView.h"
 #import "SendEmailCommand.h"
 #import "GMCustomLogger.h"
 
@@ -146,22 +145,13 @@ static ConsoleLogViewController *_sharedInstance = nil;
             
         } else {
             
-            GMAlertView *alertView = [[GMAlertView alloc] initWithViewController:self title:nil message:error.localizedDescription cancelButtonTitle:GMLocalizedString(kConsoleLogViewControllerCannotSendEmptyLogAlertOkKey) otherButtonTitles:nil];
-            [alertView show];
+            [self.messageBarManager showMessageWithTitle:@"" description:error.localizedDescription type:MessageBarMessageTypeError duration:kMessageBarManagerMessageDuration];
         }
         
     } else {
         
-        GMAlertView *alert = [[GMAlertView alloc] initWithViewController:self title:nil message:GMLocalizedString(kConsoleLogViewControllerCannotSendEmptyLogAlertMessage) cancelButtonTitle:GMLocalizedString(kConsoleLogViewControllerCannotSendEmptyLogAlertOkKey) otherButtonTitles:nil];
-        [alert show];
+        [self.messageBarManager showMessageWithTitle:@"" description:GMLocalizedString(kConsoleLogViewControllerCannotSendEmptyLogAlertMessage) type:MessageBarMessageTypeError duration:kMessageBarManagerMessageDuration];
     }
-}
-
-#pragma mark - ACLoggerObserver -
-
-- (void)didReceiveLogMessage:(NSString *)logMessage {
-    
-    [self performSelectorOnMainThread:@selector(appendLogMessage:) withObject:logMessage waitUntilDone:NO];
 }
 
 #pragma mark - Protected -
@@ -176,6 +166,13 @@ static ConsoleLogViewController *_sharedInstance = nil;
     
     //GMAlertView *alert = [[GMAlertView alloc] initWithViewController:self title:nil message:GMLocalizedString(@"Failed to post") cancelButtonTitle:GMLocalizedString(@"OK") otherButtonTitles:nil];
     //[alert show];
+}
+
+#pragma mark ACLoggerObserver
+
+- (void)didReceiveLogMessage:(NSString *)logMessage {
+    
+    [self performSelectorOnMainThread:@selector(appendLogMessage:) withObject:logMessage waitUntilDone:NO];
 }
 
 #pragma mark - Private -

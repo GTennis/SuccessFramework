@@ -1,9 +1,9 @@
 //
 //  NetworkOperationProtocol.h
-//  _BusinessApp_
+//  MyInsurrance
 //
 //  Created by Gytenis Mikulenas on 25/08/15.
-//  Copyright (c) 2015 Gytenis Mikulėnas 
+//  Copyright (c) 2015 Gytenis Mikulėnas
 //  https://github.com/GitTennis/SuccessFramework
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -35,9 +35,9 @@
 
 @property (readonly, nonatomic, strong) NSURLRequest *request;
 @property (nonatomic, strong) NetworkRequestObject *networkRequestObject;
-@property (nonatomic, strong) id params;
+@property (nonatomic, strong) id context;
 
-- (instancetype)initWithNetworkRequestObject:(NetworkRequestObject *)networkRequestObject params:(id)params userManager:(id<UserManagerProtocol>)userManager;
+- (instancetype)initWithNetworkRequestObject:(NetworkRequestObject *)networkRequestObject context:(id)context userManager:(id<UserManagerProtocol>)userManager;
 
 // Params accepts any type of object. This means data objects could be passed for convenience. However, inside subclass we need to transform passed "params" data object and return NSDictionary. See protected "- (NSDictionary *)params;" method
 - (void)performWithCallback:(Callback)callback;

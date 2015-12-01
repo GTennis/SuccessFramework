@@ -1,8 +1,8 @@
 //
-//  GMAlertView.h
-//  _BusinessApp_
+//  UIAlertController+Window.h
+//  MyInsurrance
 //
-//  Created by Gytenis Mikulėnas on 5/10/15.
+//  Created by Gytenis Mikulėnas on 6/4/15.
 //  Copyright (c) 2015 Gytenis Mikulėnas
 //  https://github.com/GitTennis/SuccessFramework
 //
@@ -25,12 +25,11 @@
 //  SOFTWARE. All rights reserved.
 //
 
-@interface GMAlertView : UIAlertView /*NSObject*/
+// Used from: http://stackoverflow.com/a/30941356/597292
 
-@property (copy, nonatomic) void (^completion)(BOOL, NSInteger);
+@interface UIAlertController (Window)
 
-#pragma mark - Public -
-
-- (id)initWithViewController:(UIViewController *)viewController title:(NSString *)title message:(NSString *)message cancelButtonTitle:(NSString *)cancelButtonTitle otherButtonTitles:(NSArray *)otherButtonTitles;
+- (void)show;
+- (void)showWithAnimation:(BOOL)animated;
 
 @end

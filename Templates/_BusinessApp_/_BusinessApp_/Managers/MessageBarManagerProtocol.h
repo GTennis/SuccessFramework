@@ -41,4 +41,7 @@ typedef enum {
 - (void)showMessageWithTitle:(NSString *)title description:(NSString *)description type:(MessageBarMessageType)messageType duration:(CGFloat)duration callback:(void (^)())callback;
 - (void)hideAllAnimated:(BOOL)animated;
 
+- (void)showAlertOkWithTitle:(NSString *)title description:(NSString *)description okTitle:(NSString *)okTitle okCallback:(void (^)())okCallback;
+- (void)showAlertConfirmationWithTitle:(NSString *)title description:(NSString *)description cancelTitle:(NSString *)cancelTitle okTitle:(NSString *)okTitle cancelCallback:(void (^)())cancelCallback okCallback:(void (^)())okCallback;
+
 @end
