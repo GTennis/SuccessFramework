@@ -48,6 +48,7 @@
 
 - (instancetype)initWithNetworkRequestObject:(NetworkRequestObject *)networkRequestObject context:(id)context userManager:(id<UserManagerProtocol>)userManager {
     
+    _context = context;
     _userManager = userManager;
     
     // Store request config
@@ -63,7 +64,8 @@
         urlString = [[urlString stringByAppendingString:@"?"] stringByAppendingString:urlParamsString];
     }
     
-    _context = context;
+    // Escape
+    urlString = [urlString stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
     
     // Create url request and proceed
     self = [self initWithUrlString:urlString networkRequestObject:networkRequestObject];

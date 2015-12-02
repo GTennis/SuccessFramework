@@ -117,13 +117,14 @@
         return;
     }
     
-    _user = [[UserObject alloc] initWithDict:dict];
-    
     NSString *token = [_keychainManager authentificationToken];
     
     if (token) {
         
-        _user.token = token;
+        NSMutableDictionary *dictWithToken = [NSMutableDictionary dictionaryWithDictionary:dict];
+        [dictWithToken setValue:token forKey:kUserTokenKey];
+        
+        _user = [[UserObject alloc] initWithDict:dictWithToken];
         
     } else {
         

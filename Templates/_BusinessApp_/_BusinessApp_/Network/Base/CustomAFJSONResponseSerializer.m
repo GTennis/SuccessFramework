@@ -113,7 +113,7 @@
     
     NSArray *errors = dict[@"errors"];
     NSDictionary *firstErrorDict = errors.firstObject;
-    NSString *firstErrorMessage = firstErrorDict[@"message"];
+    NSString *firstErrorMessage = [NSString stringWithFormat:@"%ld: %@", (long)httpResponseStatus, firstErrorDict[@"message"]];
     
     NSError *result = nil;
     
