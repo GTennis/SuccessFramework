@@ -35,9 +35,12 @@
     
     UIViewController *_viewContoller;
     MFMailComposeViewController *_mailComposerViewController;
-
+    
     NSString *_subject;
     NSArray *_recipients;
+    NSArray *_attachments;
+    
+    Callback _callback;
 }
 
 @end
@@ -46,7 +49,7 @@
 
 #pragma mark - Public -
 
-- (instancetype)initWithViewController:(UIViewController *)viewController subject:(NSString *)subject message:(NSString *)message recipients:(NSArray *)recipients {
+- (instancetype)initWithViewController:(UIViewController *)viewController subject:(NSString *)subject message:(NSString *)message recipients:(NSArray *)recipients attachments:(NSArray *)attachments {
     
     self = [super init];
     if (self) {
@@ -55,12 +58,15 @@
         _subject = subject;
         _message = message;
         _recipients = recipients;
+        _attachments = attachments;
     }
     
     return self;
 }
 
-#pragma mark - CommandProtocol -
+#pragma mark - Protected -
+
+#pragma mark CommandProtocol
 
 - (BOOL)canExecute:(NSError **)error {
     
@@ -77,7 +83,9 @@
     }
 }
 
-- (void)execute {
+- (void)executeWithCallback:(Callback)callback {
+    
+    _callback = callback;
     
     NSError *error = nil;
     
@@ -97,6 +105,9 @@
             [_mailComposerViewController setMessageBody:_message isHTML:NO];
         }
         
+        // Add images
+        [self addToMailComposer:_mailComposerViewController attachments:_attachments];
+        
         // Add recipients if passed
         if (_recipients.count > 0) {
             
@@ -111,11 +122,35 @@
     }
 }
 
-#pragma mark - MFMailComposeViewControllerDelegate -
+#pragma mark MFMailComposeViewControllerDelegate
 
 - (void)mailComposeController:(MFMailComposeViewController *)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError *)error {
     
     [_mailComposerViewController dismissViewControllerAnimated:YES completion:nil];
+    
+    _callback((result == MFMailComposeResultSent) ? YES : NO, nil, error);
+}
+
+#pragma mark - Private -
+
+- (void)addToMailComposer:(MFMailComposeViewController *)mailComposer attachments:(NSArray *)attachments {
+    
+    NSInteger i = 1;
+    
+    for (id attachment in attachments) {
+        
+        if ([attachment isKindOfClass:[UIImage class]]) {
+            
+            NSData *jpegData = UIImageJPEGRepresentation(attachment, 1.0);
+            
+            NSString *fileName = [NSString stringWithFormat:@"image%ld", (long)i];
+            fileName = [fileName stringByAppendingPathExtension:@"jpeg"];
+            
+            [mailComposer addAttachmentData:jpegData mimeType:@"image/jpeg" fileName:fileName];
+        }
+        
+        i++;
+    }
 }
 
 @end

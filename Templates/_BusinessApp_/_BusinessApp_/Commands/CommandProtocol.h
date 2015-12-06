@@ -28,6 +28,6 @@
 @protocol CommandProtocol <NSObject>
 
 - (BOOL)canExecute:(NSError **)error;
-- (void)execute;
+- (void)executeWithCallback:(Callback)callback;
 
 @end

@@ -77,7 +77,7 @@
         email = [kContactsViewControllerRecipient stringByReplacingOccurrencesOfString:@"+%userId%" withString:@""];
     }
     
-    _sendEmailCommand = [[SendEmailCommand alloc] initWithViewController:self subject:kContactsViewControllerEmailSubject message:kContactsViewControllerEmailMessage recipients:@[email]];
+    _sendEmailCommand = [[SendEmailCommand alloc] initWithViewController:self subject:kContactsViewControllerEmailSubject message:kContactsViewControllerEmailMessage recipients:@[email] attachments:nil];
     _phoneCallCommand = [[PhoneCallCommand alloc] initWithPhoneNumberString:kContactsViewControllerPhoneNumber];
 }
 
@@ -106,7 +106,7 @@
     
     if (canExecute) {
         
-        [_sendEmailCommand execute];
+        [_sendEmailCommand executeWithCallback:nil];
         
     } else {
         
@@ -121,7 +121,7 @@
     
     if (canExecute) {
         
-        [_phoneCallCommand execute];
+        [_phoneCallCommand executeWithCallback:nil];
         
     } else {
         

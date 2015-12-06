@@ -31,7 +31,7 @@
 
 #pragma mark - Public -
 
-- (instancetype)initWithViewController:(UIViewController *)viewController subject:(NSString *)subject message:(NSString *)message recipients:(NSArray *)recipients;
+- (instancetype)initWithViewController:(UIViewController *)viewController subject:(NSString *)subject message:(NSString *)message recipients:(NSArray *)recipients attachments:(NSArray *)attachments;
 
 // Use if message is created later than object itself
 @property (nonatomic, strong) NSString *message;

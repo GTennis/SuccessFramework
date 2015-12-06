@@ -54,7 +54,7 @@
 
 - (BOOL)isPasswordValid {
     
-    return self.length > 6;
+    return self.length >= 6;
 }
 
 // Converts national symbols into URL compatible symbols and codes. The method should for preparing all user entered texts when passing to the backend

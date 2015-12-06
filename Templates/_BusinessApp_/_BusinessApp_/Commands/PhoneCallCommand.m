@@ -55,7 +55,7 @@
 
 #pragma mark - CommandProtocol -
 
-- (void)execute {
+- (void)executeWithCallback:(Callback)callback {
     
     NSError *error = nil;
     

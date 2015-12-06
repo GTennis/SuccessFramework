@@ -33,9 +33,7 @@
 @property (nonatomic) BOOL isFirstTimeAppLaunch;
 
 // User
-
-- (NSDictionary *)loggedInUser;
-- (void)setLoggedInUser:(NSDictionary *)loggedInUser;
+@property (nonatomic, strong) NSDictionary *loggedInUser;
 
 // Languages
 

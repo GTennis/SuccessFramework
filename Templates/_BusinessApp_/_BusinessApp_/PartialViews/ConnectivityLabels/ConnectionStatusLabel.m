@@ -88,7 +88,7 @@
     
     if (canExecute) {
         
-        [_phoneCallCommand execute];
+        [_phoneCallCommand executeWithCallback:nil];
     }
 }
 

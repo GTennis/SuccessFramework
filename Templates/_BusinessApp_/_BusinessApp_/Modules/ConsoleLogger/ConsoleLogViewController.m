@@ -49,7 +49,7 @@ static ConsoleLogViewController *_sharedInstance = nil;
     
     [super commonInit];
     
-    _sendEmailCommand = [[SendEmailCommand alloc] initWithViewController:self subject:@"AppLogs" message:nil recipients:@[kConsoleLogViewControllerDevEmail]];
+    _sendEmailCommand = [[SendEmailCommand alloc] initWithViewController:self subject:@"AppLogs" message:nil recipients:@[kConsoleLogViewControllerDevEmail] attachments:nil];
 }
 
 - (instancetype)init {
@@ -141,7 +141,7 @@ static ConsoleLogViewController *_sharedInstance = nil;
         
         if (canExecute) {
             
-            [_sendEmailCommand execute];
+            [_sendEmailCommand executeWithCallback:nil];
             
         } else {
             

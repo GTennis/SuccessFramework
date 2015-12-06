@@ -514,14 +514,58 @@
     ViewControllerFactory *factory = [REGISTRY getObject:[ViewControllerFactory class]];
     
     MenuViewController *menuVC = [factory menuViewControllerWithContext:nil];
-    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:[factory homeViewControllerWithContext:nil]];
+    HomeViewController *homeVC = [factory homeViewControllerWithContext:nil];
+    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:homeVC];
     
     // Create and configure side menu component (width, shadow, panning speed and etc.)
     _menuNavigator = [[MenuNavigator alloc] initWithMenuViewControler:menuVC contentViewController:navigationController];
     [REGISTRY addObject:_menuNavigator];
     
-    // Assign side menu component as main app navigator
-    self.window.rootViewController = _menuNavigator;        
+    [self animateTransitioningWithNewView:homeVC.view newRootViewController:_menuNavigator  callback:nil];
+}
+
+- (void)animateTransitioningWithNewView:(UIView *)newView newRootViewController:(UIViewController *)newRootViewControler callback:(Callback)callback {
+    
+    // Override
+    UIViewAnimationOptions options = UIViewAnimationOptionTransitionCurlUp;//UIViewAnimationOptionTransitionFlipFromTop;//UIViewAnimationOptionTransitionCrossDissolve;
+    
+    newView.frame = [UIScreen mainScreen].bounds;
+    
+    UIView *oldView = nil;
+    
+    if ([self.window.rootViewController isKindOfClass:[UINavigationController class]]) {
+        
+        UINavigationController *oldNavCon = (UINavigationController *)self.window.rootViewController;
+        oldView = oldNavCon.topViewController.view;
+        
+    } else if ([self.window.rootViewController isKindOfClass:[UIViewController class]]) {
+        
+        oldView = self.window.rootViewController.view;
+        
+    } else if ([self.window.rootViewController isKindOfClass:[MenuNavigator class]]) {
+        
+        MenuNavigator *menuNavCon = (MenuNavigator *)self.window.rootViewController;
+        UIViewController *centerVC = (UIViewController *)menuNavCon.centerViewController;
+        oldView = centerVC.view;
+    }
+    
+    // Perform animation
+    
+    __weak typeof(self) weakSelf = self;
+    
+    [UIView transitionFromView:oldView
+                        toView:newView
+                      duration:0.65f
+                       options:options
+                    completion:^(BOOL finished) {
+                        
+                        weakSelf.window.rootViewController = newRootViewControler;
+                        
+                        if (callback) {
+                            
+                            callback(YES, nil, nil);
+                        }
+                    }];
 }
 
 @end
