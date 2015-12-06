@@ -89,7 +89,7 @@
     // ...
 }
 
-#pragma mark - UITableViewDataSource -
+#pragma mark UITableViewDataSource
 
 // For hiding blank lines at the bottom of the table view
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
@@ -143,7 +143,7 @@
     return cell;
 }
 
-#pragma mark - UITableViewDelegate -
+#pragma mark UITableViewDelegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
 

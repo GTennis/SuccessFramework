@@ -86,6 +86,8 @@
 
 // Demo
 #import "TableViewExampleViewController.h"
+#import "TableWithSearchViewController.h"
+#import "TableWithSearchModel.h"
 
 // Pickers
 #import "CountryPickerViewController.h"
@@ -244,6 +246,14 @@
 - (TableViewExampleViewController *)tableViewExampleViewControllerWithContext:(id)context {
     
     TableViewExampleViewController *viewController = (TableViewExampleViewController *)[self viewControllerWithClass:[TableViewExampleViewController class] context:context model:nil];
+    
+    return viewController;
+}
+
+- (TableWithSearchViewController *)tableWithSearchViewControllerWithContext:(id)context {
+    
+    TableWithSearchModel *model = (TableWithSearchModel *)[self modelWithClass:[TableWithSearchModel class] context:context];
+    TableWithSearchViewController *viewController = (TableWithSearchViewController *)[self viewControllerWithClass:[TableWithSearchViewController class] context:context model:model];
     
     return viewController;
 }

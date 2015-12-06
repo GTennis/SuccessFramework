@@ -1,9 +1,9 @@
 //
-//  MenuModel.h
+//  TableWithSearchViewController.h
 //  _BusinessApp_
 //
-//  Created by Gytenis Mikulėnas on 5/16/14.
-//  Copyright (c) 2015 Gytenis Mikulėnas
+//  Created by Gytenis Mikulenas on 12/6/15.
+//  Copyright © 2015 Gytenis Mikulėnas 
 //  https://github.com/GitTennis/SuccessFramework
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -25,26 +25,16 @@
 //  SOFTWARE. All rights reserved.
 //
 
-#import "BaseModel.h"
-#import "UserManagerObserver.h"
+#import "BaseViewController.h"
+#import "TableWithSearchModel.h"
+#import "MJNIndexView.h"
 
-#define kMenuModelMenuItemMapKey @"MenuItemHome"
-#define kMenuModelMenuItemSettingsKey @"MenuItemSettings"
-#define kMenuModelMenuItemTermsConditionsKey @"MenuItemTermsConditions"
-#define kMenuModelMenuItemPrivacyPolicyKey @"MenuItemPrivacyPolicy"
-#define kMenuModelMenuItemLoginKey @"MenuItemLogin"
-#define kMenuModelMenuItemLogoutKey @"MenuItemLogout"
-#define kMenuModelMenuItemLogoutConfirmationMessageKey @"MenuItemLogoutConfirmationMessage"
-#define kMenuModelMenuItemTableViewExampleKey @"MenuItemTableViewExample"
-#define kMenuModelMenuItemTableViewWithSearchKey @"MenuItemTableViewWithSearch"
+#define kTableWithSearchViewControllerCellIdentifier @"TableViewExampleCell"
 
-@interface MenuModel : BaseModel <UserManagerObserver>
+@interface TableWithSearchViewController : BaseViewController <UITableViewDataSource, UITableViewDelegate, MJNIndexViewDataSource>
 
-#pragma mark - Public -
-
-@property (nonatomic, strong) NSArray *menuItems;
-@property (readonly) BOOL isUserLoggedIn;
-
-- (void)logoutUser;
+@property (nonatomic, strong) TableWithSearchModel *model;
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (nonatomic, strong) MJNIndexView *indexView;
 
 @end

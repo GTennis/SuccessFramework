@@ -8,7 +8,8 @@
 "MenuItemLogin" = "Einloggen";
 "MenuItemLogout" = "Abmelden";
 "MenuItemLogoutConfirmationMessage" = "Sind Sie sicher, dass Sie sich ausloggen?";
-"MenuItemTableViewExample" = "TableView example (de)";
+"MenuItemTableViewExample" = "Tableview beispiels";
+"MenuItemTableViewWithSearch" = "TableView mit Suchfunktion";
 
 //-------------- Home -------------//
 

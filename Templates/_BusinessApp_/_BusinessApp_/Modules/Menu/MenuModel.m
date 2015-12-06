@@ -172,6 +172,12 @@
     item.viewController = (BaseViewController *) [viewControllerFactory tableViewExampleViewControllerWithContext:nil];
     [itemList addObject:item];
     
+    // TableView with search
+    item = [[MenuItemObject alloc] init];
+    item.menuTitle = GMLocalizedString(kMenuModelMenuItemTableViewWithSearchKey);
+    item.viewController = (BaseViewController *) [viewControllerFactory tableWithSearchViewControllerWithContext:nil];
+    [itemList addObject:item];
+    
     // Return
     return itemList;
 }
@@ -212,6 +218,12 @@
     item = [[MenuItemObject alloc] init];
     item.menuTitle = GMLocalizedString(kMenuModelMenuItemTableViewExampleKey);
     item.viewController = (BaseViewController *) [viewControllerFactory tableViewExampleViewControllerWithContext:nil];
+    [itemList addObject:item];
+    
+    // TableView with search
+    item = [[MenuItemObject alloc] init];
+    item.menuTitle = GMLocalizedString(kMenuModelMenuItemTableViewWithSearchKey);
+    item.viewController = (BaseViewController *) [viewControllerFactory tableWithSearchViewControllerWithContext:nil];
     [itemList addObject:item];
     
     // Return

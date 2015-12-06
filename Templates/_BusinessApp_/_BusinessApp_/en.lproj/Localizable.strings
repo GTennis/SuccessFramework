@@ -9,6 +9,7 @@
 "MenuItemLogout" = "Logout";
 "MenuItemLogoutConfirmationMessage" = "Are you sure you want to logout?";
 "MenuItemTableViewExample" = "TableView example";
+"MenuItemTableViewWithSearch" = "TableView with search";
 
 //-------------- Home -------------//
 

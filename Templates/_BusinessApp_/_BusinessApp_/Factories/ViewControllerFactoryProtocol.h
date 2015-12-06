@@ -42,6 +42,7 @@
 @class UserProfileViewController;
 @class ContactViewController;
 @class TableViewExampleViewController;
+@class TableWithSearchViewController;
 @class PhotoDetailsViewController;
 
 @class ConsoleLogViewController;
@@ -84,6 +85,7 @@
 
 // Demo
 - (TableViewExampleViewController *)tableViewExampleViewControllerWithContext:(id)context;
+- (TableWithSearchViewController *)tableWithSearchViewControllerWithContext:(id)context;
 
 #ifdef DEBUG
 

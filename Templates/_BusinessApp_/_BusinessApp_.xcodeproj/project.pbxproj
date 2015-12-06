@@ -131,6 +131,13 @@
 		0FC71A031AF935CC00912FF1 /* UserContainerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FC71A021AF935CC00912FF1 /* UserContainerViewController.m */; };
 		0FC71A0D1AF93B9A00912FF1 /* UserContainerModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FC71A0C1AF93B9A00912FF1 /* UserContainerModel.m */; };
 		0FC76D231BB8586D00677874 /* ViewManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FC76D221BB8586D00677874 /* ViewManager.m */; settings = {ASSET_TAGS = (); }; };
+		0FC9796B1C14D30400923810 /* TableWithSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FC9796A1C14D30400923810 /* TableWithSearchViewController.m */; settings = {ASSET_TAGS = (); }; };
+		0FC9796F1C14D31600923810 /* TableWithSearchViewController_iphone.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FC9796D1C14D31600923810 /* TableWithSearchViewController_iphone.m */; settings = {ASSET_TAGS = (); }; };
+		0FC979701C14D31600923810 /* TableWithSearchViewController_iphone.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0FC9796E1C14D31600923810 /* TableWithSearchViewController_iphone.xib */; settings = {ASSET_TAGS = (); }; };
+		0FC979741C14D32500923810 /* TableWithSearchViewController_ipad.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FC979721C14D32500923810 /* TableWithSearchViewController_ipad.m */; settings = {ASSET_TAGS = (); }; };
+		0FC979751C14D32500923810 /* TableWithSearchViewController_ipad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0FC979731C14D32500923810 /* TableWithSearchViewController_ipad.xib */; settings = {ASSET_TAGS = (); }; };
+		0FC979781C14D33900923810 /* TableWithSearchModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FC979771C14D33900923810 /* TableWithSearchModel.m */; settings = {ASSET_TAGS = (); }; };
+		0FC9797C1C14D7FF00923810 /* MJNIndexView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FC9797B1C14D7FF00923810 /* MJNIndexView.m */; settings = {ASSET_TAGS = (); }; };
 		0FE1CAA11AF63B77006769FE /* Registry.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FE1CAA01AF63B77006769FE /* Registry.m */; };
 		0FE1CAB81AF64246006769FE /* ViewControllerFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FE1CAB71AF64246006769FE /* ViewControllerFactory.m */; };
 		0FE1CABC1AF64471006769FE /* AnalyticsManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FE1CABB1AF64471006769FE /* AnalyticsManager.m */; };
@@ -453,6 +460,18 @@
 		0FC76D201BB8586200677874 /* ViewManagerProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewManagerProtocol.h; sourceTree = "<group>"; };
 		0FC76D211BB8586D00677874 /* ViewManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewManager.h; sourceTree = "<group>"; };
 		0FC76D221BB8586D00677874 /* ViewManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewManager.m; sourceTree = "<group>"; };
+		0FC979691C14D30400923810 /* TableWithSearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableWithSearchViewController.h; sourceTree = "<group>"; };
+		0FC9796A1C14D30400923810 /* TableWithSearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableWithSearchViewController.m; sourceTree = "<group>"; };
+		0FC9796C1C14D31600923810 /* TableWithSearchViewController_iphone.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableWithSearchViewController_iphone.h; sourceTree = "<group>"; };
+		0FC9796D1C14D31600923810 /* TableWithSearchViewController_iphone.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableWithSearchViewController_iphone.m; sourceTree = "<group>"; };
+		0FC9796E1C14D31600923810 /* TableWithSearchViewController_iphone.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TableWithSearchViewController_iphone.xib; sourceTree = "<group>"; };
+		0FC979711C14D32500923810 /* TableWithSearchViewController_ipad.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableWithSearchViewController_ipad.h; sourceTree = "<group>"; };
+		0FC979721C14D32500923810 /* TableWithSearchViewController_ipad.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableWithSearchViewController_ipad.m; sourceTree = "<group>"; };
+		0FC979731C14D32500923810 /* TableWithSearchViewController_ipad.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TableWithSearchViewController_ipad.xib; sourceTree = "<group>"; };
+		0FC979761C14D33900923810 /* TableWithSearchModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableWithSearchModel.h; sourceTree = "<group>"; };
+		0FC979771C14D33900923810 /* TableWithSearchModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableWithSearchModel.m; sourceTree = "<group>"; };
+		0FC9797A1C14D7FF00923810 /* MJNIndexView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJNIndexView.h; sourceTree = "<group>"; };
+		0FC9797B1C14D7FF00923810 /* MJNIndexView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJNIndexView.m; sourceTree = "<group>"; };
 		0FE1CA8E1AF63278006769FE /* Consts.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Consts.h; sourceTree = "<group>"; };
 		0FE1CA9F1AF63B77006769FE /* Registry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Registry.h; sourceTree = "<group>"; };
 		0FE1CAA01AF63B77006769FE /* Registry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Registry.m; sourceTree = "<group>"; };
@@ -1089,6 +1108,7 @@
 		0FA6959E19BB9A720058A722 /* _BusinessApp_ */ = {
 			isa = PBXGroup;
 			children = (
+				0FC979791C14D7E600923810 /* External */,
 				0F0EF1241BE15D3200D01A7F /* 4UnitTests */,
 				0FA695A719BB9A720058A722 /* AppDelegate.h */,
 				0FA695A819BB9A720058A722 /* AppDelegate.m */,
@@ -1237,6 +1257,7 @@
 				0FA67FB619C6380000E00FDA /* TermsConditions */,
 				0F184B0C1BF7C5360024B367 /* PrivacyPolicy */,
 				0FA3F9FA19C76BFD001FC84F /* TableViewExample */,
+				0FC979651C14D2B800923810 /* TableViewWithSearch */,
 				0FABA6ED19CAFD4600CC7DD3 /* Contacts */,
 				0FC71A071AF93A6100912FF1 /* CountryPicker */,
 				0FE1CAFA1AF65CFD006769FE /* ConsoleLogger */,
@@ -1596,6 +1617,57 @@
 				0FC76D221BB8586D00677874 /* ViewManager.m */,
 			);
 			name = ViewManager;
+			sourceTree = "<group>";
+		};
+		0FC979651C14D2B800923810 /* TableViewWithSearch */ = {
+			isa = PBXGroup;
+			children = (
+				0FC979681C14D2D900923810 /* Base */,
+				0FC979671C14D2D500923810 /* iphone */,
+				0FC979661C14D2D000923810 /* ipad */,
+			);
+			path = TableViewWithSearch;
+			sourceTree = "<group>";
+		};
+		0FC979661C14D2D000923810 /* ipad */ = {
+			isa = PBXGroup;
+			children = (
+				0FC979711C14D32500923810 /* TableWithSearchViewController_ipad.h */,
+				0FC979721C14D32500923810 /* TableWithSearchViewController_ipad.m */,
+				0FC979731C14D32500923810 /* TableWithSearchViewController_ipad.xib */,
+			);
+			name = ipad;
+			sourceTree = "<group>";
+		};
+		0FC979671C14D2D500923810 /* iphone */ = {
+			isa = PBXGroup;
+			children = (
+				0FC9796C1C14D31600923810 /* TableWithSearchViewController_iphone.h */,
+				0FC9796D1C14D31600923810 /* TableWithSearchViewController_iphone.m */,
+				0FC9796E1C14D31600923810 /* TableWithSearchViewController_iphone.xib */,
+			);
+			name = iphone;
+			sourceTree = "<group>";
+		};
+		0FC979681C14D2D900923810 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				0FC979761C14D33900923810 /* TableWithSearchModel.h */,
+				0FC979771C14D33900923810 /* TableWithSearchModel.m */,
+				0FC979691C14D30400923810 /* TableWithSearchViewController.h */,
+				0FC9796A1C14D30400923810 /* TableWithSearchViewController.m */,
+			);
+			name = Base;
+			sourceTree = "<group>";
+		};
+		0FC979791C14D7E600923810 /* External */ = {
+			isa = PBXGroup;
+			children = (
+				0FC9797A1C14D7FF00923810 /* MJNIndexView.h */,
+				0FC9797B1C14D7FF00923810 /* MJNIndexView.m */,
+			);
+			name = External;
+			path = ../External;
 			sourceTree = "<group>";
 		};
 		0FE1CA8F1AF63369006769FE /* User */ = {
@@ -2437,6 +2509,7 @@
 				31CB85551B15BFCF00F827F7 /* WalkthroughViewController_iphone.xib in Resources */,
 				31CB85881B15F8EE00F827F7 /* UserForgotPasswordViewController_iphone.xib in Resources */,
 				0FC4D16D1AFBE11500CF4C24 /* MenuViewController_ipad.xib in Resources */,
+				0FC979701C14D31600923810 /* TableWithSearchViewController_iphone.xib in Resources */,
 				0FBFDF5F1B13A84E00FA4EFD /* TableViewExampleViewController_iphone.xib in Resources */,
 				311367E21B8E19C10013EB27 /* config.json in Resources */,
 				0F70DF331AFFC4D8004293F1 /* TopNavigationBar_iphone.xib in Resources */,
@@ -2455,6 +2528,7 @@
 				0FE1CB0D1AF65EEC006769FE /* ConsoleLogViewController_ipad.xib in Resources */,
 				0FA8625119C425A1004D4A32 /* HomeViewController_iphone.xib in Resources */,
 				0F7A85461AFFF65E00A2F6C4 /* TermsConditionsViewController_ipad.xib in Resources */,
+				0FC979751C14D32500923810 /* TableWithSearchViewController_ipad.xib in Resources */,
 				0F70DF441AFFDF07004293F1 /* HomeListItemView_ipad.xib in Resources */,
 				31CB85681B15F0D400F827F7 /* UserContainerViewController_iphone.xib in Resources */,
 				0FA67F7819C4F6B600E00FDA /* SettingsViewController_ipad.xib in Resources */,
@@ -2583,6 +2657,7 @@
 				0FE1CB031AF65E22006769FE /* ConsoleLogViewController.m in Sources */,
 				0FA695F919BB9CCD0058A722 /* BaseViewController.m in Sources */,
 				31CB85311B14B53B00F827F7 /* CountryPickerViewController_iphone.m in Sources */,
+				0FC9797C1C14D7FF00923810 /* MJNIndexView.m in Sources */,
 				31CB85871B15F8EE00F827F7 /* UserForgotPasswordViewController_iphone.m in Sources */,
 				0F1B34401C0E27E7009B55D1 /* UIAlertController+Window.m in Sources */,
 				0FE1CB251AF669A0006769FE /* BaseButton.m in Sources */,
@@ -2631,6 +2706,7 @@
 				31CB9EEE1B175ED50012F1F4 /* TopModalNavigationBar_iphone.m in Sources */,
 				0F7A85451AFFF65E00A2F6C4 /* TermsConditionsViewController_ipad.m in Sources */,
 				0F1CA5801C01F28700614076 /* NormalCheckbox.m in Sources */,
+				0FC979741C14D32500923810 /* TableWithSearchViewController_ipad.m in Sources */,
 				0FC719F01AF933BA00912FF1 /* SettingsModel.m in Sources */,
 				3119A3FC1B0DD544001CCA38 /* SeparatorHorizontalLineView.m in Sources */,
 				0FC4D1671AFBE0CA00CF4C24 /* MenuViewController_iphone.m in Sources */,
@@ -2642,6 +2718,7 @@
 				31CB85591B15BFEC00F827F7 /* WalkthroughViewController_ipad.m in Sources */,
 				311367DD1B8E04E30013EB27 /* AppConfigObject.m in Sources */,
 				31CB9EF51B175F210012F1F4 /* TopModalNavigationBar_ipad.m in Sources */,
+				0FC9796F1C14D31600923810 /* TableWithSearchViewController_iphone.m in Sources */,
 				31912EA01B0CC9B6007C0C89 /* SendEmailCommand.m in Sources */,
 				0F184B0B1BF7C4780024B367 /* TermsConditionsNetworkOperation.m in Sources */,
 				311367CD1B8DDFEE0013EB27 /* UserLoginNetworkOperation.m in Sources */,
@@ -2667,6 +2744,7 @@
 				0FABA6F219CAFD8400CC7DD3 /* ContactsViewController.m in Sources */,
 				0FA695A919BB9A720058A722 /* AppDelegate.m in Sources */,
 				311367A31B8DC4AD0013EB27 /* NetworkEnvironmentSwitch4Testing.m in Sources */,
+				0FC9796B1C14D30400923810 /* TableWithSearchViewController.m in Sources */,
 				31CB9EEB1B175E8A0012F1F4 /* TopModalNavigationBar.m in Sources */,
 				0F1CAB091C03B311004D6EE0 /* DemoUtils.m in Sources */,
 				0FA8625519C425E0004D4A32 /* SettingsViewController_iphone.m in Sources */,
@@ -2695,6 +2773,7 @@
 				0FC719EA1AF9338D00912FF1 /* UserForgotPasswordViewController.m in Sources */,
 				0FE1CB071AF65EC1006769FE /* ConsoleLogViewController_iphone.m in Sources */,
 				0FC4D1701AFBEC3500CF4C24 /* MenuNavigator.m in Sources */,
+				0FC979781C14D33900923810 /* TableWithSearchModel.m in Sources */,
 				0FE1CB161AF663E6006769FE /* NSString+Validator.m in Sources */,
 				311367B61B8DD65E0013EB27 /* NetworkOperationFactory.m in Sources */,
 				0F0EF1271BE15D4900D01A7F /* AppDelegate4UnitTests.m in Sources */,
