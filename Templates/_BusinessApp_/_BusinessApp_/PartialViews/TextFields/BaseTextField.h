@@ -38,6 +38,7 @@
 #define kTextFieldBorderColor [kColorGrayLight1 CGColor]
 
 // Text
+#define kTextFieldBackgroundColor [UIColor clearColor]
 #define kTextFieldTextColor kColorGrayDark
 #define kTextFieldTextFont kFontNormal
 #define kTextFieldTextSize 15.0f
@@ -71,5 +72,13 @@
 #pragma mark - Protected -
 
 - (void)customize;
+- (void)addBottomSeparatorLine;
+
+@property (nonatomic) BOOL separatorsAlreadyAdded;
+@property (nonatomic) BOOL hasTopSeparatorLine;
+@property (nonatomic) BOOL hasMiddleSeparatorLine;
+@property (nonatomic) BOOL hasBottomSeparatorLine;
+
+@property (nonatomic) CGFloat fontSize;
 
 @end

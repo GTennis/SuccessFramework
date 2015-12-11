@@ -29,13 +29,7 @@
 #import "SeparatorHorizontalLineView.h"
 #import <QuartzCore/QuartzCore.h>
 
-@interface BaseTextField () {
-    
-    BOOL _separatorsAlreadyAdded;
-    BOOL _hasTopSeparatorLine;
-    BOOL _hasMiddleSeparatorLine;
-    BOOL _hasBottomSeparatorLine;
-}
+@interface BaseTextField ()
 
 @end
 
@@ -197,11 +191,20 @@
     }
 }
 
+
+- (void)setPlaceholder:(NSString *)placeholder {
+    
+    [super setPlaceholder:placeholder];
+    
+    // Re'apply placeholder style
+    [self setCommonStyle];
+}
+
 #pragma mark - Protected -
 
 - (void)customize {
     
-    [self observeStateChanges];
+    [self setCommonStyle];
     [self customizeFloatingLabel];
     [self setStyleNormal];
     
@@ -218,9 +221,32 @@
         self.layer.borderColor = nil;//kTextFieldBorderColor;
         self.layer.borderWidth = kTextFieldBorderWidth;
     }
+    
+    [self observeStateChanges];
+}
+
+- (CGFloat)fontSize {
+    
+    return kTextFieldTextSize;
 }
 
 #pragma mark - Private -
+
+- (void)setCommonStyle {
+    
+    self.backgroundColor = kTextFieldBackgroundColor;
+    
+    // Check if empty
+    if (!self.placeholder) {
+        
+        // Placeholder might not be set yet, but we need some not nil value in order to apply color
+        self.placeholder = @" ";
+    }
+    
+    self.attributedPlaceholder = [[NSAttributedString alloc] initWithString:self.placeholder attributes:@{NSForegroundColorAttributeName:kTextFieldFloatingPlaceholderColor}];
+    
+    self.textColor = kTextFieldTextColor;
+}
 
 - (void)customizeFloatingLabel {
     
@@ -236,28 +262,28 @@
     self.tintColor = kTextFieldCursorColor;
 }
 
-- (void)addTopSeparatorLine{
+- (void)addTopSeparatorLine {
     
     // Add separator line
     SeparatorHorizontalLineView *lineView = [SeparatorHorizontalLineView autolayoutView];
-    [lineView fitIntoContainerView:self color:nil alignTop:YES leftOffset:0 rightOffset:0];
-    [self addSubview:lineView];
+     [lineView fitIntoContainerView:self color:nil alignTop:YES leftOffset:0 rightOffset:0];
+     [self addSubview:lineView];
 }
 
-- (void)addMiddleSeparatorLine{
+- (void)addMiddleSeparatorLine {
     
     // Add separator line
     SeparatorHorizontalLineView *lineView = [SeparatorHorizontalLineView autolayoutView];
-    [lineView fitIntoContainerView:self color:nil alignTop:YES leftOffset:kTextFieldSeparatorLeftOffset rightOffset:0];
-    [self addSubview:lineView];
+     [lineView fitIntoContainerView:self color:nil alignTop:YES leftOffset:kTextFieldSeparatorLeftOffset rightOffset:0];
+     [self addSubview:lineView];
 }
 
-- (void)addBottomSeparatorLine{
+- (void)addBottomSeparatorLine {
     
     // Add separator line
     SeparatorHorizontalLineView *lineView = [SeparatorHorizontalLineView autolayoutView];
-    [lineView fitIntoContainerView:self color:nil alignTop:NO leftOffset:0 rightOffset:0];
-    [self addSubview:lineView];
+     [lineView fitIntoContainerView:self color:nil alignTop:NO leftOffset:0 rightOffset:0];
+     [self addSubview:lineView];
 }
 
 - (void)observeStateChanges {
@@ -273,13 +299,13 @@
         
         self.textColor = kTextFieldTextColor;
         
-        UIFont *font = [UIFont fontWithName:kTextFieldTextFont size:kTextFieldTextSize];
+        UIFont *font = [UIFont fontWithName:kTextFieldTextFont size:self.fontSize];
         self.font = font;
         
         // Apply color for placeholder if its not nil
         if (self.placeholder) {
             
-            self.attributedPlaceholder = [[NSAttributedString alloc] initWithString:self.placeholder attributes:@{NSForegroundColorAttributeName:[UIColor lightGrayColor], NSFontAttributeName:font}];
+            self.attributedPlaceholder = [[NSAttributedString alloc] initWithString:self.placeholder attributes:@{NSForegroundColorAttributeName:kTextFieldPlaceholderColor, NSFontAttributeName:font}];
         }
     }
 }
@@ -293,7 +319,7 @@
         
         if (self.placeholder) {
             
-            UIFont *font = [UIFont fontWithName:kTextFieldTextFont size:kTextFieldTextSize];
+            UIFont *font = [UIFont fontWithName:kTextFieldTextFont size:self.fontSize];
             
             self.attributedPlaceholder = [[NSAttributedString alloc] initWithString:self.placeholder attributes:@{NSForegroundColorAttributeName:kColorRed, NSFontAttributeName:font}];
         }
