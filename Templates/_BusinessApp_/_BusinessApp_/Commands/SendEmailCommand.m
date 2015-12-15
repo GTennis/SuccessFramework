@@ -128,7 +128,10 @@
     
     [_mailComposerViewController dismissViewControllerAnimated:YES completion:nil];
     
-    _callback((result == MFMailComposeResultSent) ? YES : NO, nil, error);
+    if (_callback) {
+        
+        _callback((result == MFMailComposeResultSent) ? YES : NO, nil, error);
+    }
 }
 
 #pragma mark - Private -
