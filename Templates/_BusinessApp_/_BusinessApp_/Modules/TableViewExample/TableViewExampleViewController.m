@@ -26,7 +26,6 @@
 //
 
 #import "TableViewExampleViewController.h"
-#import "TableViewExampleCell.h"
 #import "UserObject.h"
 
 @interface TableViewExampleViewController () {
@@ -43,20 +42,8 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    // Prepare data
-    UserObject *user1 = [UserObject new];
-    UserObject *user2 = [UserObject new];
-    UserObject *user3 = [UserObject new];
-    
-    user1.firstName = @"First user";
-    user2.firstName = @"Second user";
-    user3.firstName = @"Third user";
-    
-    _userArray = @[user1, user2, user3];
-    
-    // Render UI
-    self.title = GMLocalizedString(@"List screen");
-    [_tableView reloadData];
+    [self prepareUI];
+    [self loadModel];
 }
 
 #pragma mark - Protected
@@ -72,7 +59,7 @@
     
     [super prepareUI];
     
-    // ...
+    self.title = GMLocalizedString(@"List screen");
 }
 
 - (void)renderUI {
@@ -86,7 +73,18 @@
     
     [super loadModel];
     
-    // ...
+    // Prepare data
+    UserObject *user1 = [UserObject new];
+    UserObject *user2 = [UserObject new];
+    UserObject *user3 = [UserObject new];
+    
+    user1.firstName = @"First user";
+    user2.firstName = @"Second user";
+    user3.firstName = @"Third user";
+    
+    _userArray = @[user1, user2, user3];
+    
+    [_tableView reloadData];
 }
 
 #pragma mark UITableViewDataSource
@@ -120,13 +118,6 @@
     static NSString* strCellIdentifier = kTableViewExampleCellIdentifier;
     
 	TableViewExampleCell *cell = [tableView dequeueReusableCellWithIdentifier:strCellIdentifier];
-	
-	if (cell == nil)
-	{
-        cell = (TableViewExampleCell *)[self loadViewFromXibWithClass:[TableViewExampleCell class]];
-        //cell.noteDetailsView.noteDetailsViewDelegate = self;
-        cell.selectionStyle = UITableViewCellSelectionStyleNone;
-	}
     
     UserObject *user = [_userArray objectAtIndex:indexPath.row];
     

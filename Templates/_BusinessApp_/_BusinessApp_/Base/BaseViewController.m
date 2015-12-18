@@ -38,8 +38,6 @@
 #import "AppDelegate.h"
 #import "UserManager.h"
 
-#import "ConnectionStatusLabel.h"
-
 #import "ConstNetworkErrorCodes.h"
 
 @interface BaseViewController () <UIGestureRecognizerDelegate> {
@@ -109,7 +107,7 @@
         [self addCustomNavigationBar];
     }
     
-    [self addAccessibilityIdentifiers];
+    [_viewManager prepareAccesibilityInViewController:self];
     
     // Observe for changes
     [[NSNotificationCenter defaultCenter] addObserver:self
@@ -461,39 +459,15 @@
 
 - (void)internetDidBecomeOn {
     
-    ConnectionStatusLabel *label = (ConnectionStatusLabel *)[self.view viewWithTag:kConnectionStatusLabelTag];
-    [label removeFromSuperview];
+    [_viewManager hideNoInternetConnectionLabelInView:self.view];
 }
 
 - (void)internetDidBecomeOff {
     
-    ConnectionStatusLabel *label = (ConnectionStatusLabel *)[self.view viewWithTag:kConnectionStatusLabelTag];
-    
-    if (!label) {
-        
-        ConnectionStatusLabel *label = [[ConnectionStatusLabel alloc] init];
-        [self.view addSubview:label];
-        
-        CGFloat margin = self.view.bounds.size.width * 0.1f;
-        
-        [label viewAddLeadingSpace:margin containerView:self.view];
-        [label viewAddTrailingSpace:-margin containerView:self.view];
-        [label viewAddTopSpace:margin containerView:self.view];
-    }
+    [_viewManager showNoInternetConnectionLabelInView:self.view];
 }
 
 #pragma mark - Private -
-
-- (void)addAccessibilityIdentifiers {
-    
-    // Add identifiers for functional tests
-    self.view.isAccessibilityElement = YES;
-    NSString *screenName = NSStringFromClass(self.class);
-    screenName = [screenName stringByReplacingOccurrencesOfString:@"_iphone" withString:@""];
-    screenName = [screenName stringByReplacingOccurrencesOfString:@"_ipad" withString:@""];
-    self.view.accessibilityLabel = screenName;
-    self.view.accessibilityIdentifier = screenName;
-}
 
 - (void)addCustomNavigationBar {
     

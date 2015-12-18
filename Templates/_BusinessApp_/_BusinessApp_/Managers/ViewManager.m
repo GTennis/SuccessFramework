@@ -27,6 +27,7 @@
 
 #import "ViewManager.h"
 #import "MBProgressHUD.h"
+#import "ConnectionStatusLabel.h"
 
 // Activity indicator tag
 #define kScreenActivityIndicatorTag 20131217
@@ -104,6 +105,44 @@
     }
     
     view.userInteractionEnabled = YES;
+}
+
+#pragma mark - Internet connection status labels
+
+- (void)showNoInternetConnectionLabelInView:(UIView *)containerView {
+    
+    ConnectionStatusLabel *label = (ConnectionStatusLabel *)[containerView viewWithTag:kConnectionStatusLabelTag];
+    
+    if (!label) {
+        
+        ConnectionStatusLabel *label = [[ConnectionStatusLabel alloc] init];
+        [containerView addSubview:label];
+        
+        CGFloat margin = containerView.bounds.size.width * 0.1f;
+        
+        [label viewAddLeadingSpace:margin containerView:containerView];
+        [label viewAddTrailingSpace:-margin containerView:containerView];
+        [label viewAddTopSpace:margin containerView:containerView];
+    }
+}
+
+- (void)hideNoInternetConnectionLabelInView:(UIView *)containerView {
+    
+    ConnectionStatusLabel *label = (ConnectionStatusLabel *)[containerView viewWithTag:kConnectionStatusLabelTag];
+    [label removeFromSuperview];
+}
+
+#pragma mark - For functional testing
+
+- (void)prepareAccesibilityInViewController:(UIViewController *)viewController {
+    
+    // Add identifiers for functional tests
+    viewController.view.isAccessibilityElement = YES;
+    NSString *screenName = NSStringFromClass(viewController.class);
+    screenName = [screenName stringByReplacingOccurrencesOfString:@"_iphone" withString:@""];
+    screenName = [screenName stringByReplacingOccurrencesOfString:@"_ipad" withString:@""];
+    viewController.view.accessibilityLabel = screenName;
+    viewController.view.accessibilityIdentifier = screenName;
 }
 
 @end

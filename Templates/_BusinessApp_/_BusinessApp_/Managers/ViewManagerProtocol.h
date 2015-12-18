@@ -37,4 +37,13 @@
 - (void)showScreenActivityIndicatorInView:(UIView *)view;
 - (void)hideScreenActivityIndicatorFromView:(UIView *)view;
 
+#pragma mark - Internet connection status labels
+
+- (void)showNoInternetConnectionLabelInView:(UIView *)containerView;
+- (void)hideNoInternetConnectionLabelInView:(UIView *)containerView;
+
+#pragma mark - For functional testing
+
+- (void)prepareAccesibilityInViewController:(UIViewController *)viewController;
+
 @end

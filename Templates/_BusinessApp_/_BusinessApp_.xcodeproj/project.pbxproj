@@ -7,24 +7,24 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0F0EF1271BE15D4900D01A7F /* AppDelegate4UnitTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F0EF1261BE15D4900D01A7F /* AppDelegate4UnitTests.m */; settings = {ASSET_TAGS = (); }; };
-		0F184B0A1BF7C4780024B367 /* PrivacyPolicyNetworkOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F184B071BF7C4780024B367 /* PrivacyPolicyNetworkOperation.m */; settings = {ASSET_TAGS = (); }; };
-		0F184B0B1BF7C4780024B367 /* TermsConditionsNetworkOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F184B091BF7C4780024B367 /* TermsConditionsNetworkOperation.m */; settings = {ASSET_TAGS = (); }; };
-		0F184B131BF7C56B0024B367 /* PrivacyPolicyViewController_iphone.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F184B111BF7C56B0024B367 /* PrivacyPolicyViewController_iphone.m */; settings = {ASSET_TAGS = (); }; };
-		0F184B141BF7C56B0024B367 /* PrivacyPolicyViewController_iphone.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0F184B121BF7C56B0024B367 /* PrivacyPolicyViewController_iphone.xib */; settings = {ASSET_TAGS = (); }; };
-		0F184B191BF7C5770024B367 /* PrivacyPolicyModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F184B161BF7C5770024B367 /* PrivacyPolicyModel.m */; settings = {ASSET_TAGS = (); }; };
-		0F184B1A1BF7C5770024B367 /* PrivacyPolicyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F184B181BF7C5770024B367 /* PrivacyPolicyViewController.m */; settings = {ASSET_TAGS = (); }; };
-		0F1B34401C0E27E7009B55D1 /* UIAlertController+Window.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F1B343F1C0E27E7009B55D1 /* UIAlertController+Window.m */; settings = {ASSET_TAGS = (); }; };
-		0F1CA5801C01F28700614076 /* NormalCheckbox.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F1CA57F1C01F28700614076 /* NormalCheckbox.m */; settings = {ASSET_TAGS = (); }; };
-		0F1CAAFF1C03AF55004D6EE0 /* imageList.json in Resources */ = {isa = PBXBuildFile; fileRef = 0F1CAAFE1C03AF55004D6EE0 /* imageList.json */; settings = {ASSET_TAGS = (); }; };
-		0F1CAB091C03B311004D6EE0 /* DemoUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F1CAB081C03B311004D6EE0 /* DemoUtils.m */; settings = {ASSET_TAGS = (); }; };
-		0F1CAB0F1C03B36D004D6EE0 /* ConfigNetworkOperation+Demo.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F1CAB0E1C03B36D004D6EE0 /* ConfigNetworkOperation+Demo.m */; settings = {ASSET_TAGS = (); }; };
-		0F1CAB121C03B3D5004D6EE0 /* ImageListNetworkOperation+Demo.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F1CAB111C03B3D5004D6EE0 /* ImageListNetworkOperation+Demo.m */; settings = {ASSET_TAGS = (); }; };
-		0F1CAB151C03B4C3004D6EE0 /* userLogin.json in Resources */ = {isa = PBXBuildFile; fileRef = 0F1CAB131C03B4C3004D6EE0 /* userLogin.json */; settings = {ASSET_TAGS = (); }; };
-		0F1CAB161C03B4C3004D6EE0 /* userSignUp.json in Resources */ = {isa = PBXBuildFile; fileRef = 0F1CAB141C03B4C3004D6EE0 /* userSignUp.json */; settings = {ASSET_TAGS = (); }; };
-		0F1CAB191C03B598004D6EE0 /* UserLoginNetworkOperation+Demo.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F1CAB181C03B598004D6EE0 /* UserLoginNetworkOperation+Demo.m */; settings = {ASSET_TAGS = (); }; };
-		0F1CAB1C1C03B5CE004D6EE0 /* UserSignUpNetworkOperation+Demo.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F1CAB1B1C03B5CE004D6EE0 /* UserSignUpNetworkOperation+Demo.m */; settings = {ASSET_TAGS = (); }; };
-		0F57AE181BED398B0095D463 /* ConnectionStatusLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F57AE171BED398B0095D463 /* ConnectionStatusLabel.m */; settings = {ASSET_TAGS = (); }; };
+		0F0EF1271BE15D4900D01A7F /* AppDelegate4UnitTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F0EF1261BE15D4900D01A7F /* AppDelegate4UnitTests.m */; };
+		0F184B0A1BF7C4780024B367 /* PrivacyPolicyNetworkOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F184B071BF7C4780024B367 /* PrivacyPolicyNetworkOperation.m */; };
+		0F184B0B1BF7C4780024B367 /* TermsConditionsNetworkOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F184B091BF7C4780024B367 /* TermsConditionsNetworkOperation.m */; };
+		0F184B131BF7C56B0024B367 /* PrivacyPolicyViewController_iphone.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F184B111BF7C56B0024B367 /* PrivacyPolicyViewController_iphone.m */; };
+		0F184B141BF7C56B0024B367 /* PrivacyPolicyViewController_iphone.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0F184B121BF7C56B0024B367 /* PrivacyPolicyViewController_iphone.xib */; };
+		0F184B191BF7C5770024B367 /* PrivacyPolicyModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F184B161BF7C5770024B367 /* PrivacyPolicyModel.m */; };
+		0F184B1A1BF7C5770024B367 /* PrivacyPolicyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F184B181BF7C5770024B367 /* PrivacyPolicyViewController.m */; };
+		0F1B34401C0E27E7009B55D1 /* UIAlertController+Window.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F1B343F1C0E27E7009B55D1 /* UIAlertController+Window.m */; };
+		0F1CA5801C01F28700614076 /* NormalCheckbox.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F1CA57F1C01F28700614076 /* NormalCheckbox.m */; };
+		0F1CAAFF1C03AF55004D6EE0 /* imageList.json in Resources */ = {isa = PBXBuildFile; fileRef = 0F1CAAFE1C03AF55004D6EE0 /* imageList.json */; };
+		0F1CAB091C03B311004D6EE0 /* DemoUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F1CAB081C03B311004D6EE0 /* DemoUtils.m */; };
+		0F1CAB0F1C03B36D004D6EE0 /* ConfigNetworkOperation+Demo.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F1CAB0E1C03B36D004D6EE0 /* ConfigNetworkOperation+Demo.m */; };
+		0F1CAB121C03B3D5004D6EE0 /* ImageListNetworkOperation+Demo.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F1CAB111C03B3D5004D6EE0 /* ImageListNetworkOperation+Demo.m */; };
+		0F1CAB151C03B4C3004D6EE0 /* userLogin.json in Resources */ = {isa = PBXBuildFile; fileRef = 0F1CAB131C03B4C3004D6EE0 /* userLogin.json */; };
+		0F1CAB161C03B4C3004D6EE0 /* userSignUp.json in Resources */ = {isa = PBXBuildFile; fileRef = 0F1CAB141C03B4C3004D6EE0 /* userSignUp.json */; };
+		0F1CAB191C03B598004D6EE0 /* UserLoginNetworkOperation+Demo.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F1CAB181C03B598004D6EE0 /* UserLoginNetworkOperation+Demo.m */; };
+		0F1CAB1C1C03B5CE004D6EE0 /* UserSignUpNetworkOperation+Demo.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F1CAB1B1C03B5CE004D6EE0 /* UserSignUpNetworkOperation+Demo.m */; };
+		0F57AE181BED398B0095D463 /* ConnectionStatusLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F57AE171BED398B0095D463 /* ConnectionStatusLabel.m */; };
 		0F70DF2E1AFFC47E004293F1 /* TopNavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F70DF2D1AFFC47E004293F1 /* TopNavigationBar.m */; };
 		0F70DF311AFFC4C5004293F1 /* TopNavigationBar_iphone.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F70DF301AFFC4C5004293F1 /* TopNavigationBar_iphone.m */; };
 		0F70DF331AFFC4D8004293F1 /* TopNavigationBar_iphone.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0F70DF321AFFC4D8004293F1 /* TopNavigationBar_iphone.xib */; };
@@ -33,7 +33,7 @@
 		0F70DF3C1AFFD1EC004293F1 /* HomeListItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F70DF3B1AFFD1EC004293F1 /* HomeListItemView.m */; };
 		0F70DF401AFFD2E4004293F1 /* HomeListItemView_ipad.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F70DF3F1AFFD2E4004293F1 /* HomeListItemView_ipad.m */; };
 		0F70DF441AFFDF07004293F1 /* HomeListItemView_ipad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0F70DF431AFFDF07004293F1 /* HomeListItemView_ipad.xib */; };
-		0F77785B1BCA489D000E6A40 /* NSString+Size.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F77785A1BCA489D000E6A40 /* NSString+Size.m */; settings = {ASSET_TAGS = (); }; };
+		0F77785B1BCA489D000E6A40 /* NSString+Size.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F77785A1BCA489D000E6A40 /* NSString+Size.m */; };
 		0F7A85361AFFEDE500A2F6C4 /* HomeListItemView_iphone.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0F7A85351AFFEDE500A2F6C4 /* HomeListItemView_iphone.xib */; };
 		0F7A85391AFFEDF800A2F6C4 /* HomeListItemView_iphone.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F7A85381AFFEDF800A2F6C4 /* HomeListItemView_iphone.m */; };
 		0F7A85401AFFF64B00A2F6C4 /* TermsConditionsViewController_iphone.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F7A853E1AFFF64B00A2F6C4 /* TermsConditionsViewController_iphone.m */; };
@@ -130,14 +130,14 @@
 		0FC719FF1AF9346500912FF1 /* ContactsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FC719FE1AF9346500912FF1 /* ContactsModel.m */; };
 		0FC71A031AF935CC00912FF1 /* UserContainerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FC71A021AF935CC00912FF1 /* UserContainerViewController.m */; };
 		0FC71A0D1AF93B9A00912FF1 /* UserContainerModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FC71A0C1AF93B9A00912FF1 /* UserContainerModel.m */; };
-		0FC76D231BB8586D00677874 /* ViewManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FC76D221BB8586D00677874 /* ViewManager.m */; settings = {ASSET_TAGS = (); }; };
-		0FC9796B1C14D30400923810 /* TableWithSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FC9796A1C14D30400923810 /* TableWithSearchViewController.m */; settings = {ASSET_TAGS = (); }; };
-		0FC9796F1C14D31600923810 /* TableWithSearchViewController_iphone.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FC9796D1C14D31600923810 /* TableWithSearchViewController_iphone.m */; settings = {ASSET_TAGS = (); }; };
-		0FC979701C14D31600923810 /* TableWithSearchViewController_iphone.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0FC9796E1C14D31600923810 /* TableWithSearchViewController_iphone.xib */; settings = {ASSET_TAGS = (); }; };
-		0FC979741C14D32500923810 /* TableWithSearchViewController_ipad.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FC979721C14D32500923810 /* TableWithSearchViewController_ipad.m */; settings = {ASSET_TAGS = (); }; };
-		0FC979751C14D32500923810 /* TableWithSearchViewController_ipad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0FC979731C14D32500923810 /* TableWithSearchViewController_ipad.xib */; settings = {ASSET_TAGS = (); }; };
-		0FC979781C14D33900923810 /* TableWithSearchModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FC979771C14D33900923810 /* TableWithSearchModel.m */; settings = {ASSET_TAGS = (); }; };
-		0FC9797C1C14D7FF00923810 /* MJNIndexView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FC9797B1C14D7FF00923810 /* MJNIndexView.m */; settings = {ASSET_TAGS = (); }; };
+		0FC76D231BB8586D00677874 /* ViewManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FC76D221BB8586D00677874 /* ViewManager.m */; };
+		0FC9796B1C14D30400923810 /* TableWithSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FC9796A1C14D30400923810 /* TableWithSearchViewController.m */; };
+		0FC9796F1C14D31600923810 /* TableWithSearchViewController_iphone.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FC9796D1C14D31600923810 /* TableWithSearchViewController_iphone.m */; };
+		0FC979701C14D31600923810 /* TableWithSearchViewController_iphone.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0FC9796E1C14D31600923810 /* TableWithSearchViewController_iphone.xib */; };
+		0FC979741C14D32500923810 /* TableWithSearchViewController_ipad.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FC979721C14D32500923810 /* TableWithSearchViewController_ipad.m */; };
+		0FC979751C14D32500923810 /* TableWithSearchViewController_ipad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0FC979731C14D32500923810 /* TableWithSearchViewController_ipad.xib */; };
+		0FC979781C14D33900923810 /* TableWithSearchModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FC979771C14D33900923810 /* TableWithSearchModel.m */; };
+		0FC9797C1C14D7FF00923810 /* MJNIndexView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FC9797B1C14D7FF00923810 /* MJNIndexView.m */; };
 		0FE1CAA11AF63B77006769FE /* Registry.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FE1CAA01AF63B77006769FE /* Registry.m */; };
 		0FE1CAB81AF64246006769FE /* ViewControllerFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FE1CAB71AF64246006769FE /* ViewControllerFactory.m */; };
 		0FE1CABC1AF64471006769FE /* AnalyticsManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FE1CABB1AF64471006769FE /* AnalyticsManager.m */; };
@@ -185,9 +185,9 @@
 		3119A3FC1B0DD544001CCA38 /* SeparatorHorizontalLineView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3119A3FB1B0DD544001CCA38 /* SeparatorHorizontalLineView.m */; };
 		3119A3FF1B0DD554001CCA38 /* SeparatorVerticalLineView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3119A3FE1B0DD554001CCA38 /* SeparatorVerticalLineView.m */; };
 		3119A4031B0DE3ED001CCA38 /* MenuItemObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 3119A4021B0DE3ED001CCA38 /* MenuItemObject.m */; };
-		313F0E821B98746500A3A739 /* GMCustomLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 313F0E811B98746500A3A739 /* GMCustomLogger.m */; settings = {ASSET_TAGS = (); }; };
-		316974571B99BA8200F560BE /* GMLoggingConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 316974561B99BA8200F560BE /* GMLoggingConfig.m */; settings = {ASSET_TAGS = (); }; };
-		317711D01B9751FF00D267DE /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 317711CF1B9751FF00D267DE /* LaunchScreen.xib */; settings = {ASSET_TAGS = (); }; };
+		313F0E821B98746500A3A739 /* GMCustomLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 313F0E811B98746500A3A739 /* GMCustomLogger.m */; };
+		316974571B99BA8200F560BE /* GMLoggingConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 316974561B99BA8200F560BE /* GMLoggingConfig.m */; };
+		317711D01B9751FF00D267DE /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 317711CF1B9751FF00D267DE /* LaunchScreen.xib */; };
 		318633D21B3C321A004CF62E /* SettingsViewControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 318633D11B3C321A004CF62E /* SettingsViewControllerTests.m */; };
 		318633D61B3C3818004CF62E /* SettingsModelTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 318633D51B3C3818004CF62E /* SettingsModelTests.m */; };
 		31912E9A1B0CC926007C0C89 /* PhoneCallCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = 31912E991B0CC926007C0C89 /* PhoneCallCommand.m */; };
@@ -2475,6 +2475,9 @@
 				LastUpgradeCheck = 0700;
 				ORGANIZATIONNAME = "Gytenis Mikulėnas \n//  https://github.com/GitTennis/SuccessFramework\n//\n//  Permission is hereby granted, free of charge, to any person obtaining a copy\n//  of this software and associated documentation files (the \"Software\"), to deal\n//  in the Software without restriction, including without limitation the rights\n//  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell\n//  copies of the Software, and to permit persons to whom the Software is\n//  furnished to do so, subject to the following conditions:\n//\n//  The above copyright notice and this permission notice shall be included in all\n//  copies or substantial portions of the Software.\n//\n//  THE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR\n//  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,\n//  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE\n//  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER\n//  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,\n//  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE\n//  SOFTWARE.";
 				TargetAttributes = {
+					0FA6959419BB9A720058A722 = {
+						DevelopmentTeam = HTLJ6M7K28;
+					};
 					0FA695B819BB9A720058A722 = {
 						TestTargetID = 0FA6959419BB9A720058A722;
 					};
@@ -2917,11 +2920,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				ENABLE_BITCODE = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "_BusinessApp_/_BusinessApp_-Prefix.pch";
 				INFOPLIST_FILE = "_BusinessApp_/_BusinessApp_-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.-MyCompanyName-.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_BUNDLE_IDENTIFIER = com.auctionata.dev;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
@@ -2934,11 +2939,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Idesk International AG";
+				ENABLE_BITCODE = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "_BusinessApp_/_BusinessApp_-Prefix.pch";
 				INFOPLIST_FILE = "_BusinessApp_/_BusinessApp_-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.-MyCompanyName-.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_BUNDLE_IDENTIFIER = com.auctionata.dev;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;

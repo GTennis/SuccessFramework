@@ -26,6 +26,7 @@
 //
 
 #import "BaseViewController.h"
+#import "TableViewExampleCell.h"
 
 @interface TableViewExampleViewController : BaseViewController <UITableViewDataSource, UITableViewDelegate>
 

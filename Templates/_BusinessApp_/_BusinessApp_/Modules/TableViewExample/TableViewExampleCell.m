@@ -49,10 +49,9 @@
 
 - (void)awakeFromNib {
     
-    // Initialization code
-    // ...
+    [super awakeFromNib];
     
-    // Do static customization
+    self.selectionStyle = UITableViewCellSelectionStyleNone;
 }
 
 #pragma mark - Public -
@@ -60,8 +59,19 @@
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     
     [super setSelected:selected animated:animated];
-
+    
     // Configure the view for the selected state
+    
+    if (selected) {
+        
+        //_titleLabel.textColor = kColorWhite;
+        self.backgroundColor = kColorBlue;
+        
+    } else {
+        
+        //_titleLabel.textColor = kColorGray;
+        self.backgroundColor = [UIColor clearColor];
+    }
 }
 
 - (void)renderCellWithUser:(UserObject *)user {
@@ -71,18 +81,6 @@
     
     // Render
     _nameLabel.text = _user.firstName;
-}
-
-+ (CGFloat)heightForCell {
-    
-    return 44.0f;
-}
-
-#pragma mark - Protected -
-
-- (NSString *)reuseIdentifier {
-    
-    return kTableViewExampleCellIdentifier;
 }
 
 @end

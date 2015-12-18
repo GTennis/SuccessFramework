@@ -44,7 +44,19 @@
     // Dispose of any resources that can be recreated.
 }
 
-#pragma mark - Override -
+#pragma mark - Protected -
+
+#pragma mark Override
+
+- (void)prepareUI {
+    
+    [super prepareUI];
+    
+    NSString *cellClassName = NSStringFromClass([TableViewExampleCell class]);
+    cellClassName = [cellClassName stringByAppendingString:@"_iphone"];
+    
+    [self.tableView registerNib:[UINib nibWithNibName:cellClassName bundle:nil] forCellReuseIdentifier:kTableViewExampleCellIdentifier];
+}
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     
