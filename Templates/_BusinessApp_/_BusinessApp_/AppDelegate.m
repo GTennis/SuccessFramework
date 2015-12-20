@@ -365,6 +365,9 @@
     
     // Update global log level
     [GMLoggingConfig updateLogLevel:_appConfig.logLevel];
+    
+    // Create main app components
+    [self initializeSharedComponentsWithAppConfig:_appConfig];
 }
 
 - (void)getAppConfigIsAppLaunch:(NSNumber *)isAppLaunching {
@@ -475,9 +478,6 @@
 }
 
 - (void)continueLaunchTheApp {
-    
-    // Create main app components
-    [self initializeSharedComponentsWithAppConfig:self.appConfig];
     
     // Check if app runs the very first time
     if (self.settingsManager.isFirstTimeAppLaunch) {
