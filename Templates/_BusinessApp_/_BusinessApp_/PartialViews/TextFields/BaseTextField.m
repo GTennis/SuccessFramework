@@ -208,6 +208,8 @@
     [self customizeFloatingLabel];
     [self setStyleNormal];
     
+    self.clearButtonMode = UITextFieldViewModeWhileEditing;
+    
     // Add corner radius if defined
     if (kTextFieldBorderCornerRadius) {
         
