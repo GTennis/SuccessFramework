@@ -402,8 +402,9 @@
                         
                     } else {
                         
+                        // TODO: Disabling config update when app returns from bg. It causes to create new UserManager object while UserContainer and LoginVC will hold reference to previous UserManager object which will perform login and store token. However, new VC will use new UserManager from Registry, which is empty and doesn't have a token
                         // Update config
-                        [weakSelf setAppConfig:newAppConfig];
+                        //[weakSelf setAppConfig:newAppConfig];
                     }
                     
                     // Else continue launching app...
