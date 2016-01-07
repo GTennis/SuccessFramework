@@ -58,9 +58,9 @@
     [self.tableView registerNib:[UINib nibWithNibName:cellClassName bundle:nil] forCellReuseIdentifier:kTableViewExampleCellIdentifier];
 }
 
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+- (CGFloat)tableViewCellHeight {
     
-    return [TableViewExampleCell_iphone heightForCell];
+    return 95.0f;
 }
 
 @end

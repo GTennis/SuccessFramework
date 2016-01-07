@@ -29,10 +29,4 @@
 
 @implementation TableViewExampleCell_iphone
 
-// Overrides base method
-+ (CGFloat)heightForCell {
-    
-    return 95.0f;
-}
-
 @end

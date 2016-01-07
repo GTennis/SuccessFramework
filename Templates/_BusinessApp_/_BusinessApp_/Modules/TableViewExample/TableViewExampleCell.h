@@ -36,6 +36,5 @@
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
 
 - (void)renderCellWithUser:(UserObject *)user;
-+ (CGFloat)heightForCell;
 
 @end

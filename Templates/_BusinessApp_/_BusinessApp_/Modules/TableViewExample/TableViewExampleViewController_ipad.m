@@ -57,9 +57,19 @@
 
 #pragma mark - Override -
 
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+- (void)prepareUI {
     
-    return [TableViewExampleCell_ipad heightForCell];
+    [super prepareUI];
+    
+    NSString *cellClassName = NSStringFromClass([TableViewExampleCell class]);
+    cellClassName = [cellClassName stringByAppendingString:@"_ipad"];
+    
+    [self.tableView registerNib:[UINib nibWithNibName:cellClassName bundle:nil] forCellReuseIdentifier:kTableViewExampleCellIdentifier];
+}
+
+- (CGFloat)tableViewCellHeight {
+    
+    return 95.0f;
 }
 
 @end

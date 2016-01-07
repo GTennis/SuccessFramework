@@ -60,6 +60,8 @@
     [super prepareUI];
     
     self.title = GMLocalizedString(@"List screen");
+    
+    _tableView.rowHeight = self.tableViewCellHeight;
 }
 
 - (void)renderUI {
@@ -88,6 +90,12 @@
 }
 
 #pragma mark UITableViewDataSource
+
+- (CGFloat)tableViewCellHeight {
+    
+    //override in child classes
+    return 0.0f;
+}
 
 // For hiding blank lines at the bottom of the table view
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
