@@ -227,12 +227,10 @@
 
 - (void)initializePushNotificationsWithinApplication:(UIApplication *)application launchOptions:(NSDictionary *)launchOptions {
     
-    // Create push notification manager
-    PushNotificationManager *pushNotificationManager = [REGISTRY getObject:[PushNotificationManager class]];
-    if (!pushNotificationManager) {
+    if (!_pushNotificationManager) {
         
-        pushNotificationManager = [[PushNotificationManager alloc] init];
-        [REGISTRY addObject:pushNotificationManager];
+        _pushNotificationManager = [[PushNotificationManager alloc] init];
+        [REGISTRY addObject:_pushNotificationManager];
     }
     
     // Handle push notifications:
@@ -458,7 +456,7 @@
     SettingsManager *settingsManager = [[SettingsManager alloc] init];
     KeychainManager *keychainManager = [[KeychainManager alloc] init];
     
-    UserManager *userManager = [[UserManager alloc] initWithSettingsManager:settingsManager networkOperationFactory:networkOperationFactory analyticsManager:analyticsManager keychainManager:keychainManager];
+    UserManager *userManager = [[UserManager alloc] initWithSettingsManager:settingsManager networkOperationFactory:networkOperationFactory analyticsManager:analyticsManager keychainManager:keychainManager pushNotificationManager:_pushNotificationManager];
     MessageBarManager *messageBarManager = [[MessageBarManager alloc] init];
     ReachabilityManager *reachabilityManager = [[ReachabilityManager alloc] init];
     CrashManager *crashManager = [[CrashManager alloc] init];

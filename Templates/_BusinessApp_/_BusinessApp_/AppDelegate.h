@@ -29,6 +29,7 @@
 #import "CrashManagerProtocol.h"
 #import "AnalyticsManagerProtocol.h"
 #import "MessageBarManagerProtocol.h"
+#import "PushNotificationManagerProtocol.h"
 #import "UserManagerProtocol.h"
 #import "ConstNetworkConfig.h"
 
@@ -53,6 +54,7 @@
 @property (strong, nonatomic) id<UserManagerProtocol> userManager;
 @property (strong, nonatomic) id<MessageBarManagerProtocol> messageBarManager;
 @property (strong, nonatomic) id<SettingsManagerProtocol> settingsManager;
+@property (strong, nonatomic) id<PushNotificationManagerProtocol> pushNotificationManager;
 
 // Current log level
 @property (readonly) NSInteger logLevel;

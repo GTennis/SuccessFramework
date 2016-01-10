@@ -31,6 +31,7 @@
 #import "UserManagerObserver.h"
 #import "AnalyticsManagerProtocol.h"
 #import "KeychainManagerProtocol.h"
+#import "PushNotificationManagerProtocol.h"
 
 @class UserObject;
 
@@ -41,12 +42,13 @@
 @property (nonatomic, strong) id<NetworkOperationFactoryProtocol> networkOperationFactory;
 @property (nonatomic, strong) id<AnalyticsManagerProtocol> analyticsManager;
 @property (nonatomic, strong) id<KeychainManagerProtocol> keychainManager;
+@property (nonatomic, strong) id<PushNotificationManagerProtocol> pushNotificationManager;
 
 // Data object
 @property (nonatomic, strong) UserObject *user;
 
 // User handling
-- (instancetype)initWithSettingsManager:(id <SettingsManagerProtocol>)settingsManager networkOperationFactory:(id <NetworkOperationFactoryProtocol>)networkOperationFactory analyticsManager:(id<AnalyticsManagerProtocol>)analyticsManager keychainManager:(id<KeychainManagerProtocol>)keychainManager;
+- (instancetype)initWithSettingsManager:(id <SettingsManagerProtocol>)settingsManager networkOperationFactory:(id <NetworkOperationFactoryProtocol>)networkOperationFactory analyticsManager:(id<AnalyticsManagerProtocol>)analyticsManager keychainManager:(id<KeychainManagerProtocol>)keychainManager pushNotificationManager:(id<PushNotificationManagerProtocol>)pushNotificationManager;
 
 - (NSError *)saveUser:(UserObject *)user;
 //- (void)loadUser;

@@ -50,6 +50,7 @@
 @synthesize settingsManager = _settingsManager;
 @synthesize analyticsManager = _analyticsManager;
 @synthesize keychainManager = _keychainManager;
+@synthesize pushNotificationManager = _pushNotificationManager;
 
 #pragma mark - Public -
 
@@ -68,7 +69,7 @@
 
 #pragma mark User handling
 
-- (instancetype)initWithSettingsManager:(id <SettingsManagerProtocol>)settingsManager networkOperationFactory:(id <NetworkOperationFactoryProtocol>)networkOperationFactory analyticsManager:(id<AnalyticsManagerProtocol>)analyticsManager keychainManager:(id<KeychainManagerProtocol>)keychainManager {
+- (instancetype)initWithSettingsManager:(id <SettingsManagerProtocol>)settingsManager networkOperationFactory:(id <NetworkOperationFactoryProtocol>)networkOperationFactory analyticsManager:(id<AnalyticsManagerProtocol>)analyticsManager keychainManager:(id<KeychainManagerProtocol>)keychainManager pushNotificationManager:(id<PushNotificationManagerProtocol>)pushNotificationManager {
     
     self = [self init];
     if (self) {
@@ -77,6 +78,7 @@
         _networkOperationFactory = networkOperationFactory;
         _analyticsManager = analyticsManager;
         _keychainManager = keychainManager;
+        _pushNotificationManager = pushNotificationManager;
         
         [self loadUser];
     }
@@ -139,6 +141,10 @@
     
     if (!error) {
         
+        [self.pushNotificationManager logoutUserWithCallback:^(BOOL success, id result, NSError *error) {
+            // ...
+        }];
+        
         [_settingsManager setLoggedInUser:nil];
         
         _user = nil;
@@ -163,6 +169,10 @@
             NSError *err = [weakSelf saveUser:result];
             if (!err) {
                 
+                [weakSelf.pushNotificationManager loginUser:data callback:^(BOOL success, id result, NSError *error) {
+                    // ...
+                }];
+
                 [self notifyObserversWithLoginSuccess:weakSelf.user];
                 
             } else {
@@ -195,6 +205,10 @@
             NSError *err = [weakSelf saveUser:result];
             if (!err) {
                 
+                [weakSelf.pushNotificationManager signUpUser:data callback:^(BOOL success, id result, NSError *error) {
+                    // ...
+                }];
+
                 [self notifyObserversWithSignUpSuccess:weakSelf.user];
                 
             } else {
