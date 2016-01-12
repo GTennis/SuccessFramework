@@ -41,7 +41,7 @@
 }
 
 // Used from http://stackoverflow.com/a/7571583/597292
-- (NSString *)sha1WithSal:(NSString *)salt {
+- (NSString *)sha1WithSalt:(NSString *)salt {
     
     NSString *string = (salt) ? [self stringByAppendingString:salt] : self;
     
@@ -56,6 +56,24 @@
     
     for(int i = 0; i < CC_SHA1_DIGEST_LENGTH; i++)
         [output appendFormat:@"%02x", digest[i]];
+    
+    return output;
+}
+
+// http://stackoverflow.com/a/8165292
+- (NSString *)sha512WithSalt:(NSString *)salt {
+    
+    NSString *string = (salt) ? [self stringByAppendingString:salt] : self;
+    
+    const char *cstr = [string cStringUsingEncoding:NSUTF8StringEncoding];
+    NSData *data = [NSData dataWithBytes:cstr length:string.length];
+    uint8_t digest[CC_SHA512_DIGEST_LENGTH];
+    CC_SHA512(data.bytes, (CC_LONG)data.length, digest);
+    NSMutableString* output = [NSMutableString  stringWithCapacity:CC_SHA512_DIGEST_LENGTH * 2];
+    
+    for(int i = 0; i < CC_SHA512_DIGEST_LENGTH; i++)
+        [output appendFormat:@"%02x", digest[i]];
+    return output;
     
     return output;
 }

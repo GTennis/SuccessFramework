@@ -25,11 +25,13 @@
 //  SOFTWARE. All rights reserved.
 //
 
+@class BaseViewController;
+
 @protocol PushNotificationManagerProtocol <NSObject>
 
 // Push notification related
 - (void)registerPushNotificationToken:(NSData *)token;
-- (void)handleReceivedPushNotificationWithUserInfo:(NSDictionary *)userInfo application:(UIApplication *)application;
+- (void)handleReceivedPushNotificationWithUserInfo:(NSDictionary *)userInfo application:(UIApplication *)application topViewController:(BaseViewController *)topViewController;
 
 // User related
 - (void)loginUser:(UserObject *)userObject callback:(Callback)callback;

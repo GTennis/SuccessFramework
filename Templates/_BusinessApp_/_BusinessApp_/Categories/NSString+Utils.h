@@ -30,7 +30,8 @@
 @interface NSString (Utils)
 
 - (NSNumber *)number;
-- (NSString *)sha1WithSal:(NSString *)salt;
+- (NSString *)sha1WithSalt:(NSString *)salt;
+- (NSString *)sha512WithSalt:(NSString *)salt;
 - (NSDictionary *)readJsonFile;
 
 @end

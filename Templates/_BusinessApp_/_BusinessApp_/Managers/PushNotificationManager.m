@@ -63,7 +63,7 @@
     [currentInstallation saveInBackground];
 }
 
-- (void)handleReceivedPushNotificationWithUserInfo:(NSDictionary *)userInfo application:(UIApplication *)application {
+- (void)handleReceivedPushNotificationWithUserInfo:(NSDictionary *)userInfo application:(UIApplication *)application topViewController:(BaseViewController *)topViewController {
     
     if (application.applicationState == UIApplicationStateInactive || application.applicationState == UIApplicationStateBackground) {
         
@@ -75,6 +75,11 @@
         
         [self performSelector:@selector(trackRemoteNotificationUsingUserInfo:) withObject:userInfo afterDelay:5.0f];
         //[self logAppOpeningFromPushNotification];
+        
+    } else {
+        
+        // Show message from received notification
+        [topViewController.messageBarManager showAlertOkWithTitle:nil description:userInfo[@"data"][@"alert"] okTitle:GMLocalizedString(kOkKey) okCallback:nil];
     }
 }
 

@@ -205,8 +205,11 @@
     
     DDLogDebug(@"didReceiveRemoteNotification: %@", userInfo);
     
+    UINavigationController *navCtrl = _menuNavigator.centerViewController;
+    BaseViewController *topVC = (BaseViewController *)navCtrl.topViewController;
+    
     PushNotificationManager *pushNotificationManager = [REGISTRY getObject:[PushNotificationManager class]];
-    [pushNotificationManager handleReceivedPushNotificationWithUserInfo:userInfo application:application];
+    [pushNotificationManager handleReceivedPushNotificationWithUserInfo:userInfo application:application topViewController:topVC];
     
     // Check if force app reload notification was received
     BOOL shouldAppReload = [userInfo[@"appShouldReload"] boolValue];
