@@ -198,11 +198,24 @@ static NSDateFormatter *_dateFormatterForParsingDates = nil;
     return timeString;
 }
 
-- (NSString *)localTimeFromDate {
+- (NSString *)localTime {
     
-    NSString *timeString = [NSDateFormatter localizedStringFromDate:self dateStyle:NSDateFormatterNoStyle timeStyle:NSDateFormatterShortStyle];
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateStyle:NSDateFormatterNoStyle];
+    [dateFormatter setTimeStyle:NSDateFormatterMediumStyle];
+    NSString *timeString = [dateFormatter stringFromDate:self];
     
     return timeString;
+}
+
+- (NSString *)localDate {
+    
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateStyle:NSDateFormatterMediumStyle];
+    [dateFormatter setTimeStyle:NSDateFormatterNoStyle];
+    NSString *dateString = [dateFormatter stringFromDate:self];
+    
+    return dateString;
 }
 
 - (NSString *)stringWithoutDayFromDate:(NSDate *)date {

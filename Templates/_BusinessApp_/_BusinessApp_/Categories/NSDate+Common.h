@@ -54,7 +54,8 @@
 - (NSDate *)dateWithMidnightTimeFromDate:(NSDate *)date;
 - (NSDate *)monthFirstDayDate:(NSDate *)date;
 - (NSDate *)monthLastDayDate:(NSDate *)date;
-- (NSDate *)dateWithLocalTime;
+- (NSString *)localDate;
+- (NSString *)localTime;
 + (NSInteger)daysWithinEraFromDate:(NSDate *) startDate toDate:(NSDate *) endDate;
 + (BOOL)date:(NSDate *)date1 isLaterThanOrEqualTo:(NSDate *)date2;
 + (BOOL)date:(NSDate *)date1 isEarlierThanOrEqualTo:(NSDate*)date2;
