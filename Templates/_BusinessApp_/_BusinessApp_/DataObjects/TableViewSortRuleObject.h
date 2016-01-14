@@ -1,8 +1,8 @@
 //
-//  UIAlertController+Window.h
+//  TableViewSortRuleObject.h
 //  _BusinessApp_
 //
-//  Created by Gytenis Mikulėnas on 6/4/15.
+//  Created by Gytenis Mikulėnas on 1/14/16.
 //  Copyright (c) 2015 Gytenis Mikulėnas
 //  https://github.com/GitTennis/SuccessFramework
 //
@@ -25,11 +25,13 @@
 //  SOFTWARE. All rights reserved.
 //
 
-// Used from: http://stackoverflow.com/a/30941356/597292
+@protocol TableViewSortRuleObject <NSObject>
 
-@interface UIAlertController (Window)
+@property (nonatomic, copy) NSString *propertyName;
+@property (nonatomic) BOOL isAscending;
 
-- (void)show;
-- (void)showWithAnimation:(BOOL)animated;
+@end
+
+@interface TableViewSortRuleObject : NSObject <TableViewSortRuleObject>
 
 @end

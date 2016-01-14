@@ -1,8 +1,8 @@
 //
-//  UIAlertController+Window.h
+//  TableViewSectionObject.h
 //  _BusinessApp_
 //
-//  Created by Gytenis Mikulėnas on 6/4/15.
+//  Created by Gytenis Mikulėnas on 1/14/16.
 //  Copyright (c) 2015 Gytenis Mikulėnas
 //  https://github.com/GitTennis/SuccessFramework
 //
@@ -25,11 +25,15 @@
 //  SOFTWARE. All rights reserved.
 //
 
-// Used from: http://stackoverflow.com/a/30941356/597292
+#define kTableViewSectionSectionTitleProperty @"sectionTitle"
 
-@interface UIAlertController (Window)
+@protocol TableViewSectionObject <NSObject>
 
-- (void)show;
-- (void)showWithAnimation:(BOOL)animated;
+@property (nonatomic, copy) NSString *sectionTitle;
+@property (nonatomic, copy) NSArray *sectionRows;
+
+@end
+
+@interface TableViewSectionObject : NSObject <TableViewSectionObject>
 
 @end

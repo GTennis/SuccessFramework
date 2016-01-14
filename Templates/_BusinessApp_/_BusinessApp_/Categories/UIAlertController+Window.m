@@ -1,6 +1,6 @@
 //
 //  UIAlertController+Window.m
-//  MyInsurrance
+//  _BusinessApp_
 //
 //  Created by Gytenis Mikulėnas on 6/4/15.
 //  Copyright (c) 2015 Gytenis Mikulėnas

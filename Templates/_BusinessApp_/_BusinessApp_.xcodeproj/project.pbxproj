@@ -24,6 +24,9 @@
 		0F1CAB161C03B4C3004D6EE0 /* userSignUp.json in Resources */ = {isa = PBXBuildFile; fileRef = 0F1CAB141C03B4C3004D6EE0 /* userSignUp.json */; };
 		0F1CAB191C03B598004D6EE0 /* UserLoginNetworkOperation+Demo.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F1CAB181C03B598004D6EE0 /* UserLoginNetworkOperation+Demo.m */; };
 		0F1CAB1C1C03B5CE004D6EE0 /* UserSignUpNetworkOperation+Demo.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F1CAB1B1C03B5CE004D6EE0 /* UserSignUpNetworkOperation+Demo.m */; };
+		0F51DD6F1C4830BA00F4A542 /* TableViewSectionObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F51DD6A1C4830BA00F4A542 /* TableViewSectionObject.m */; };
+		0F51DD701C4830BA00F4A542 /* TableViewSectionsObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F51DD6C1C4830BA00F4A542 /* TableViewSectionsObject.m */; };
+		0F51DD711C4830BA00F4A542 /* TableViewSortRuleObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F51DD6E1C4830BA00F4A542 /* TableViewSortRuleObject.m */; };
 		0F57AE181BED398B0095D463 /* ConnectionStatusLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F57AE171BED398B0095D463 /* ConnectionStatusLabel.m */; };
 		0F70DF2E1AFFC47E004293F1 /* TopNavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F70DF2D1AFFC47E004293F1 /* TopNavigationBar.m */; };
 		0F70DF311AFFC4C5004293F1 /* TopNavigationBar_iphone.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F70DF301AFFC4C5004293F1 /* TopNavigationBar_iphone.m */; };
@@ -276,6 +279,12 @@
 		0F1CAB181C03B598004D6EE0 /* UserLoginNetworkOperation+Demo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UserLoginNetworkOperation+Demo.m"; sourceTree = "<group>"; };
 		0F1CAB1A1C03B5CE004D6EE0 /* UserSignUpNetworkOperation+Demo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UserSignUpNetworkOperation+Demo.h"; sourceTree = "<group>"; };
 		0F1CAB1B1C03B5CE004D6EE0 /* UserSignUpNetworkOperation+Demo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UserSignUpNetworkOperation+Demo.m"; sourceTree = "<group>"; };
+		0F51DD691C4830BA00F4A542 /* TableViewSectionObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableViewSectionObject.h; sourceTree = "<group>"; };
+		0F51DD6A1C4830BA00F4A542 /* TableViewSectionObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableViewSectionObject.m; sourceTree = "<group>"; };
+		0F51DD6B1C4830BA00F4A542 /* TableViewSectionsObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableViewSectionsObject.h; sourceTree = "<group>"; };
+		0F51DD6C1C4830BA00F4A542 /* TableViewSectionsObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableViewSectionsObject.m; sourceTree = "<group>"; };
+		0F51DD6D1C4830BA00F4A542 /* TableViewSortRuleObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableViewSortRuleObject.h; sourceTree = "<group>"; };
+		0F51DD6E1C4830BA00F4A542 /* TableViewSortRuleObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableViewSortRuleObject.m; sourceTree = "<group>"; };
 		0F57AE141BED37880095D463 /* ConstNetworkErrorCodes.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ConstNetworkErrorCodes.h; sourceTree = "<group>"; };
 		0F57AE161BED398B0095D463 /* ConnectionStatusLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConnectionStatusLabel.h; sourceTree = "<group>"; };
 		0F57AE171BED398B0095D463 /* ConnectionStatusLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConnectionStatusLabel.m; sourceTree = "<group>"; };
@@ -798,6 +807,19 @@
 			path = Demo;
 			sourceTree = "<group>";
 		};
+		0F51DD681C4830AA00F4A542 /* TableViewSections */ = {
+			isa = PBXGroup;
+			children = (
+				0F51DD691C4830BA00F4A542 /* TableViewSectionObject.h */,
+				0F51DD6A1C4830BA00F4A542 /* TableViewSectionObject.m */,
+				0F51DD6B1C4830BA00F4A542 /* TableViewSectionsObject.h */,
+				0F51DD6C1C4830BA00F4A542 /* TableViewSectionsObject.m */,
+				0F51DD6D1C4830BA00F4A542 /* TableViewSortRuleObject.h */,
+				0F51DD6E1C4830BA00F4A542 /* TableViewSortRuleObject.m */,
+			);
+			name = TableViewSections;
+			sourceTree = "<group>";
+		};
 		0F57AE151BED39680095D463 /* ConnectivityLabels */ = {
 			isa = PBXGroup;
 			children = (
@@ -1235,6 +1257,7 @@
 			isa = PBXGroup;
 			children = (
 				0FE1CADF1AF6551A006769FE /* ParsableObject.h */,
+				0F51DD681C4830AA00F4A542 /* TableViewSections */,
 				0FE1CAF61AF65983006769FE /* Users */,
 				0FE1CAE81AF655C8006769FE /* Images */,
 				0FE1CAE41AF65584006769FE /* Errors */,
@@ -2686,6 +2709,7 @@
 				311367D61B8DE2320013EB27 /* UserResetPasswordNetworkOperation.m in Sources */,
 				0F8D568D1AFFB510005681A7 /* KeyboardControl.m in Sources */,
 				0FC719FF1AF9346500912FF1 /* ContactsModel.m in Sources */,
+				0F51DD6F1C4830BA00F4A542 /* TableViewSectionObject.m in Sources */,
 				0FE1CB131AF661C1006769FE /* UIView+Colors.m in Sources */,
 				0FA839C119BC5DF40037B5F3 /* SettingsViewController.m in Sources */,
 				31923AF61B1F61A000C70D3B /* UILabel+Styling.m in Sources */,
@@ -2756,6 +2780,8 @@
 				0F70DF381AFFC524004293F1 /* TopNavigationBar_ipad.m in Sources */,
 				0FA3F9FF19C77777001FC84F /* TableViewExampleViewController.m in Sources */,
 				0FE1CB191AF664A1006769FE /* NSDictionary+JSON.m in Sources */,
+				0F51DD701C4830BA00F4A542 /* TableViewSectionsObject.m in Sources */,
+				0F51DD711C4830BA00F4A542 /* TableViewSortRuleObject.m in Sources */,
 				0FA3FA0819C777DD001FC84F /* TableViewExampleCell.m in Sources */,
 				31CA638A1B343BF5002CC8D6 /* LanguageObject.m in Sources */,
 				0FC47F211B126EAD007A7E8D /* PhotoDetailsViewController_ipad.m in Sources */,

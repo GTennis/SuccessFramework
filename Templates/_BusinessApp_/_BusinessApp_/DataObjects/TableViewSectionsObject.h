@@ -1,8 +1,8 @@
 //
-//  UIAlertController+Window.h
+//  TableViewSectionsObject.h
 //  _BusinessApp_
 //
-//  Created by Gytenis Mikulėnas on 6/4/15.
+//  Created by Gytenis Mikulėnas on 1/14/16.
 //  Copyright (c) 2015 Gytenis Mikulėnas
 //  https://github.com/GitTennis/SuccessFramework
 //
@@ -25,11 +25,17 @@
 //  SOFTWARE. All rights reserved.
 //
 
-// Used from: http://stackoverflow.com/a/30941356/597292
+#import "TableViewSectionObject.h"
+#import "TableViewSortRuleObject.h"
 
-@interface UIAlertController (Window)
+@protocol TableViewSectionsObject <NSObject>
 
-- (void)show;
-- (void)showWithAnimation:(BOOL)animated;
+@property (nonatomic, strong) NSArray <TableViewSectionObject> *list;
+
+- (instancetype)initWithList:(NSArray *)list sortByProperties:(NSArray <TableViewSortRuleObject> *)sortByProperties groupByPropertyName:(NSString *)groupPropertyName shouldGroupByFirstLetter:(BOOL)shouldGroupByFirstLetter;
+
+@end
+
+@interface TableViewSectionsObject : NSObject <TableViewSectionsObject>
 
 @end
