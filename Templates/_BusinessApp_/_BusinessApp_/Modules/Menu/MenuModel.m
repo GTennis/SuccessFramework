@@ -138,7 +138,7 @@
     // Home
     MenuItemObject *item = [[MenuItemObject alloc] init];
     item.menuTitle = GMLocalizedString(kMenuModelMenuItemMapKey);
-    item.viewController = (BaseViewController *) [viewControllerFactory homeViewControllerWithContext:nil];
+    item.viewController = self.context;
     [itemList addObject:item];
     
     // Settings
@@ -193,7 +193,7 @@
     // Home
     MenuItemObject *item = [[MenuItemObject alloc] init];
     item.menuTitle = GMLocalizedString(kMenuModelMenuItemMapKey);
-    item.viewController = (BaseViewController *) [viewControllerFactory homeViewControllerWithContext:nil];
+    item.viewController = self.context;
     [itemList addObject:item];
     
     // Settings

@@ -32,7 +32,6 @@
 #import "TopNavigationBar.h"
 
 // ViewControllers
-#import "HomeViewController.h"
 #import "MenuViewController.h"
 #import "LaunchViewController.h"
 #import "WalkthroughViewController.h"
@@ -515,8 +514,8 @@
     
     ViewControllerFactory *factory = [REGISTRY getObject:[ViewControllerFactory class]];
     
-    MenuViewController *menuVC = [factory menuViewControllerWithContext:nil];
-    HomeViewController *homeVC = [factory homeViewControllerWithContext:nil];
+    BaseViewController *homeVC = (BaseViewController *)[factory homeViewControllerWithContext:nil];
+    MenuViewController *menuVC = [factory menuViewControllerWithContext:homeVC];
     UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:homeVC];
     
     // Create and configure side menu component (width, shadow, panning speed and etc.)
