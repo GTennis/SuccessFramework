@@ -47,6 +47,7 @@
 - (NSString *)monthFullName:(NSDate *)date;
 - (NSString *)day:(NSDate *)date;
 + (NSDate *)dateFromString:(NSString *)dateString;
++ (NSDate *)dateFromString:(NSString *)dateString format:(NSString *)formatString;
 - (NSString *)dateShortStringFromDate:(NSDate *)date;
 - (NSDate *)dateFromYear:(NSString *)year month:(NSString *)month day:(NSString *)day;
 - (NSDate *)dateFromYear:(NSString *)year month:(NSString *)month day:(NSString *)day hour:(NSString *)hour minute:(NSString *)minute;

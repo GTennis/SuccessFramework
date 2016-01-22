@@ -282,6 +282,19 @@ static NSDateFormatter *_dateFormatterForParsingDates = nil;
     return result;
 }
 
++ (NSDate *)dateFromString:(NSString *)dateString format:(NSString *)formatString {
+    
+    NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
+    [dateFormat setDateFormat:formatString];
+    // Don’t need to set local time zone, because it will be local by default anyway
+    // Setting it causes bug: for example, if received date string is "11.02.1982" then next line will make 11.02.1982+0001 one hour to be added to the date if in +1 time zone. And then dateFromString will try to convert it back to GMT and that will case date "1982-02-10 23:00:00 +0000" to be created
+    //[dateFormat setTimeZone:[NSTimeZone localTimeZone]];
+    
+    NSDate *result = [dateFormat dateFromString:dateString];
+    
+    return result;
+}
+
 - (NSString *)dateShortStringFromDate:(NSDate *)date {
     
     NSString *formattedDateString = nil;
@@ -388,12 +401,12 @@ static NSDateFormatter *_dateFormatterForParsingDates = nil;
 
 + (BOOL)date:(NSDate *)date1 isLaterThanOrEqualTo:(NSDate *)date2 {
     
-    return !([date1 compare:date2] == NSOrderedAscending);
+    return !([date1 compare:date2] == NSOrderedAscending || [date1 compare:date2] == NSOrderedSame);
 }
 
 + (BOOL)date:(NSDate *)date1 isEarlierThanOrEqualTo:(NSDate*)date2 {
     
-    return !([date1 compare:date2] == NSOrderedDescending);
+    return !([date1 compare:date2] == NSOrderedDescending || [date1 compare:date2] == NSOrderedSame);
 }
 
 + (BOOL)date:(NSDate *)date1 isLaterThan:(NSDate*)date2 {
