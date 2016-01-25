@@ -29,6 +29,7 @@
 
 @protocol ReachabilityManagerProtocol <NSObject>
 
+- (BOOL)isInternetOn;
 - (BOOL)isAppActive;
 - (void)addServiceObserver:(id<ReachabilityManagerObserver>)observer;
 - (void)removeServiceObserver:(id<ReachabilityManagerObserver>)observer;
