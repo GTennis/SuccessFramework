@@ -29,6 +29,7 @@
 
 @protocol AppConfigObject;
 @protocol UserManagerProtocol;
+@protocol SettingsManagerProtocol;
 
 @protocol NetworkOperationFactoryProtocol <NSObject>
 
@@ -38,6 +39,7 @@
 
 @property (nonatomic, strong) id <AppConfigObject> appConfig;
 @property (nonatomic, weak) id <UserManagerProtocol> userManager;
+@property (nonatomic, weak) id<SettingsManagerProtocol> settingsManager;
 
 - (instancetype)initWithAppConfig:(AppConfigObject *)appConfig;
 

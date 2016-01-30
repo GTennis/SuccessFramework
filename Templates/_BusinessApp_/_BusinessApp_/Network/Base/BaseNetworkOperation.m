@@ -35,6 +35,8 @@
 @synthesize networkRequestObject = _networkRequestObject;
 @synthesize context = _context;
 @synthesize userManager = _userManager;
+@synthesize settingManager = _settingManager;
+@synthesize isSilent = _isSilent;
 
 #pragma mark - Public -
 
@@ -46,10 +48,11 @@
     return nil;
 }
 
-- (instancetype)initWithNetworkRequestObject:(NetworkRequestObject *)networkRequestObject context:(id)context userManager:(id<UserManagerProtocol>)userManager {
+- (instancetype)initWithNetworkRequestObject:(NetworkRequestObject *)networkRequestObject context:(id)context userManager:(id<UserManagerProtocol>)userManager settingsManager:(id<SettingsManagerProtocol>)settingsManager {
     
     _context = context;
     _userManager = userManager;
+    _settingManager = settingsManager;
     
     // Store request config
     _networkRequestObject = networkRequestObject;
@@ -182,6 +185,14 @@
     [urlRequest setValue:@"application/json" forHTTPHeaderField:@"Accept"];
     [urlRequest setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
     
+    NSString *language = _settingManager.language;
+    NSString *locale = [NSLocale currentLocale].localeIdentifier;
+    NSArray *localeComponents = [locale componentsSeparatedByString:@"_"];
+    NSString *region = localeComponents.lastObject;
+    NSString *acceptLanguage = [NSString stringWithFormat:@"%@_%@", language, region];
+    
+    [urlRequest setValue:acceptLanguage forHTTPHeaderField:@"Accept-Language"];
+    
     // Check for specific headers in subclass
     NSDictionary *customHeaders = [self requestHeaders];
     if (customHeaders) {
@@ -233,7 +244,7 @@
         
         DDLogWarn(@"[%@]: failed with error: %@", [self class], error);
         
-        if (error.code != kNetworkRequestErrorCanceledCode) {
+        if (error.code != kNetworkRequestErrorCanceledCode && !weakSelf.isSilent) {
             
             [[NSNotificationCenter defaultCenter] postNotificationName:kNetworkRequestErrorNotification object:nil userInfo:@{kNetworkRequestErrorNotificationUserInfoKey:error}];
         }

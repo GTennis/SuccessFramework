@@ -132,6 +132,13 @@
     [[Crashlytics sharedInstance] setObjectValue:language forKey:@"userLanguage"];
 }
 
+- (void)logNonFatalErrorWithErrorMessage:(NSString *)errorMessage {
+    
+    NSDictionary *userInfo = (errorMessage.length > 0) ? @{NSLocalizedDescriptionKey:errorMessage} : nil;
+    NSError *error = [NSError errorWithDomain:@"NonFatalErrorCannotProceedBecauseOfBadData" code:1 userInfo:userInfo];
+    [[Crashlytics sharedInstance] recordError:error];
+}
+
 - (void)crash {
     
     [[Crashlytics sharedInstance] crash];
