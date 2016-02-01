@@ -76,6 +76,11 @@
     // Set title
     self.title = GMLocalizedString(kHomeViewControllerTitleKey);
     _progressLabel.text = GMLocalizedString(kHomeViewControllerDataLoadingProgressLabelKey);
+    
+    _refreshControl = [[UIRefreshControl alloc] init];
+    [_refreshControl addTarget:self action:@selector(loadModel)
+              forControlEvents:UIControlEventValueChanged];
+    [_collectionView addSubview:_refreshControl];
 }
 
 - (void)renderUI {
@@ -85,16 +90,16 @@
     // Hide/unhide empty data list label
     if (_model.images.list.count > 0) {
         
-        //_refreshButtonWhenListIsEmpty.hidden = YES;
-        _collectionView.hidden = NO;
+        [self removeEmptyListLabelIfWasAddedBeforeOnView:_collectionView];
+        //_collectionView.hidden = NO;
         
         // Reload
         [self.collectionView reloadData];
         
     } else {
         
-        //_refreshButtonWhenListIsEmpty.hidden = NO;
-        _collectionView.hidden = YES;
+        [self addEmptyListLabelOnView:_collectionView message:GMLocalizedString(kEmptyListMessageKey) refreshSelector:@selector(loadModel)];
+        //_collectionView.hidden = YES;
     }
 }
 
@@ -111,6 +116,7 @@
         
         [weakSelf hideScreenActivityIndicator];
         weakSelf.progressLabel.hidden = YES;
+        [weakSelf.refreshControl endRefreshing];
         
         if (success) {
             

@@ -467,6 +467,19 @@
     [_viewManager showNoInternetConnectionLabelInView:self.view];
 }
 
+#pragma mark Empty list label
+
+- (UIButton *)addEmptyListLabelOnView:(UIView *)containerView message:(NSString *)message refreshSelector:(SEL)refreshSelector {
+    
+    UIButton *result = [self.viewManager addEmptyListLabelOnView:containerView message:message refreshSelector:refreshSelector refreshTarget:self];
+    return result;
+}
+
+- (void)removeEmptyListLabelIfWasAddedBeforeOnView:(UIView *)containerView {
+    
+    [self.viewManager removeEmptyListLabelIfWasAddedBeforeOnView:containerView];
+}
+
 #pragma mark - Private -
 
 - (void)addCustomNavigationBar {

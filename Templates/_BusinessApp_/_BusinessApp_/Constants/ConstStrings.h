@@ -34,3 +34,4 @@
 #define kOkKey @"Ok"
 #define kDoneKey @"Done"
 #define kBackKey @"Back"
+#define kEmptyListMessageKey @"EmptyListMessage"

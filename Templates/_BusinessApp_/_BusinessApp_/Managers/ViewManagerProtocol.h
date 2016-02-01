@@ -25,24 +25,33 @@
 //  SOFTWARE. All rights reserved.
 //
 
+@class NormalLabel;
+
 @protocol ViewManagerProtocol <NSObject>
 
-#pragma mark - Xib loading
+#pragma mark - Public -
+
+#pragma mark Xib loading
 
 - (UIView *)loadViewFromXib:(NSString *)name class:(Class)theClass;
 - (UIView *)loadViewFromXibWithClass:(Class)theClass;
 
-#pragma mark - Progress indicators
+#pragma mark Progress indicators
 
 - (void)showScreenActivityIndicatorInView:(UIView *)view;
 - (void)hideScreenActivityIndicatorFromView:(UIView *)view;
 
-#pragma mark - Internet connection status labels
+#pragma mark Internet connection status labels
 
 - (void)showNoInternetConnectionLabelInView:(UIView *)containerView;
 - (void)hideNoInternetConnectionLabelInView:(UIView *)containerView;
 
-#pragma mark - For functional testing
+#pragma mark Empty list label
+
+- (UIButton *)addEmptyListLabelOnView:(UIView *)containerView message:(NSString *)message refreshSelector:(SEL)refreshSelector refreshTarget:(id)refreshTarget;
+- (void)removeEmptyListLabelIfWasAddedBeforeOnView:(UIView *)containerView;
+
+#pragma mark For functional testing
 
 - (void)prepareAccesibilityInViewController:(UIViewController *)viewController;
 

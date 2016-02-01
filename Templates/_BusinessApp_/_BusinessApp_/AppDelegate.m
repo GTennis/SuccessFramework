@@ -414,6 +414,8 @@
                     // Store config
                     [weakSelf setAppConfig:newAppConfig];
                     
+                    [weakSelf checkAndOverrideGeneralSettingsLanguageIfNotSupported];
+                    
                     // Continue
                     [weakSelf continueLaunchTheApp];
                 }
@@ -569,6 +571,16 @@
                             callback(YES, nil, nil);
                         }
                     }];
+}
+
+- (void)checkAndOverrideGeneralSettingsLanguageIfNotSupported {
+    
+    SettingsManager *settingsManager = [REGISTRY getObject:[SettingsManager class]];
+    
+    if (![settingsManager.language isEqualToString:kLanguageEnglish] && ![settingsManager.language isEqualToString:kLanguageGerman]) {
+        
+        [settingsManager setLanguageGerman];
+    }
 }
 
 @end

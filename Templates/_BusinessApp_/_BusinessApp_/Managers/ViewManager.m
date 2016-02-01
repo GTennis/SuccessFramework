@@ -31,6 +31,7 @@
 
 // Activity indicator tag
 #define kScreenActivityIndicatorTag 20131217
+#define kViewManagerEmptyListLabelTag 20160201
 
 @implementation ViewManager
 
@@ -130,6 +131,48 @@
     
     ConnectionStatusLabel *label = (ConnectionStatusLabel *)[containerView viewWithTag:kConnectionStatusLabelTag];
     [label removeFromSuperview];
+}
+
+#pragma mark Empty list label
+
+- (UIButton *)addEmptyListLabelOnView:(UIView *)containerView message:(NSString *)message refreshSelector:(SEL)refreshSelector refreshTarget:(id)refreshTarget {
+    
+    [self removeEmptyListLabelIfWasAddedBeforeOnView:containerView];
+    
+    UIButton *emptyListLabelButton = [[UIButton alloc] init];
+    [emptyListLabelButton setTitleColor:kColorWhite forState:UIControlStateNormal];
+    emptyListLabelButton.tag = kViewManagerEmptyListLabelTag;
+    emptyListLabelButton.titleLabel.textAlignment = NSTextAlignmentCenter;
+    emptyListLabelButton.titleLabel.numberOfLines = 0;
+    emptyListLabelButton.titleLabel.lineBreakMode = NSLineBreakByWordWrapping;
+    [emptyListLabelButton setTitle:message forState:UIControlStateNormal];
+    
+    // Add label
+    [containerView addSubview:emptyListLabelButton];
+    
+    // Add constraints
+    
+    CGFloat containerViewTopMargin = 20.0f;
+    CGSize screenSize = [[UIScreen mainScreen] bounds].size;
+    
+    [emptyListLabelButton viewAddLeadingSpace:0 containerView:containerView];
+    [emptyListLabelButton viewAddTrailingSpace:0 containerView:containerView];
+    
+    [emptyListLabelButton viewAddWidth:screenSize.width];
+    [emptyListLabelButton viewAddTopSpace:containerViewTopMargin containerView:containerView];
+    
+    if (refreshSelector) {
+        
+        [emptyListLabelButton addTarget:refreshTarget action:refreshSelector forControlEvents:UIControlEventTouchUpInside];
+    }
+    
+    return emptyListLabelButton;
+}
+
+- (void)removeEmptyListLabelIfWasAddedBeforeOnView:(UIView *)containerView {
+    
+    UIView *view = [containerView viewWithTag:kViewManagerEmptyListLabelTag];
+    [view removeFromSuperview];
 }
 
 #pragma mark - For functional testing

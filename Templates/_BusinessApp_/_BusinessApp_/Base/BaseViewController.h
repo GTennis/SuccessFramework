@@ -88,6 +88,11 @@
 // Override for custom screen name log
 - (void)logForCrashReports;
 
+#pragma mark Empty list label
+
+- (UIButton *)addEmptyListLabelOnView:(UIView *)containerView message:(NSString *)message refreshSelector:(SEL)refreshSelector;
+- (void)removeEmptyListLabelIfWasAddedBeforeOnView:(UIView *)containerView;
+
 #pragma mark Error handling
 
 - (void)handleNetworkRequestError:(NSNotification *)notification;
