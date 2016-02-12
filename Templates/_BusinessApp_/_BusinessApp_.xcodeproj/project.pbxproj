@@ -2952,7 +2952,7 @@
 				GCC_PREFIX_HEADER = "_BusinessApp_/_BusinessApp_-Prefix.pch";
 				INFOPLIST_FILE = "_BusinessApp_/_BusinessApp_-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.auctionata.dev;
+				PRODUCT_BUNDLE_IDENTIFIER = com.app.dev;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
@@ -2971,7 +2971,7 @@
 				GCC_PREFIX_HEADER = "_BusinessApp_/_BusinessApp_-Prefix.pch";
 				INFOPLIST_FILE = "_BusinessApp_/_BusinessApp_-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.auctionata.dev;
+				PRODUCT_BUNDLE_IDENTIFIER = com.app.dev;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
