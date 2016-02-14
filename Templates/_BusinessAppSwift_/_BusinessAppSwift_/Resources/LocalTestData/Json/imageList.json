@@ -1,0 +1,19 @@
+{"title":"Image list",
+    "images": [
+               {"title":"Cruisin Rotterdam",
+               "author":"Albert Dros",
+               "url":"http://www.dotheapp.com/images/1.jpg"},
+               {"title":"Magic Forest",
+               "author":"Albert Dros",
+               "url":"http://www.dotheapp.com/images/2.jpg"},
+               {"title":"The Horse of Marken",
+               "author":"Albert Dros",
+               "url":"http://www.dotheapp.com/images/3.jpg"},
+               {"title":"Amersfoort Blue Hour",
+               "author":"Albert Dros",
+               "url":"http://www.dotheapp.com/images/4.jpg"},
+               {"title":"Amersfoort Blue Hour",
+               "author":"Albert Dros",
+               "url":"http://www.dotheapp.com/images/5.jpg"}
+               ]
+}

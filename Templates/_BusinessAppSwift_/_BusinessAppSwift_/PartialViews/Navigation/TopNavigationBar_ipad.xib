@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.iPad.XIB" version="3.0" toolsVersion="11201" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES" colorMatched="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="u3b-Mm-TH1" customClass="TopNavigationBar_ipad" customModule="_BusinessAppSwift_" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="1024" height="44"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Swv-tE-rNf" userLabel="Back">
+                    <constraints>
+                        <constraint firstAttribute="width" constant="46" id="8b9-rO-OIJ"/>
+                        <constraint firstAttribute="height" constant="44" id="UeZ-tG-KAo"/>
+                    </constraints>
+                    <state key="normal" image="iconBack">
+                        <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </state>
+                    <connections>
+                        <action selector="backPressedWithSender:" destination="u3b-Mm-TH1" eventType="touchUpInside" id="hht-pq-Wt3"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="P2u-mr-nOU" userLabel="Menu">
+                    <constraints>
+                        <constraint firstAttribute="width" constant="46" id="ZF9-Hh-dKE"/>
+                    </constraints>
+                    <state key="normal" image="iconMenu">
+                        <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </state>
+                </button>
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ixF-UA-37h" customClass="NormalLabel" customModule="_BusinessAppSwift_" customModuleProvider="target">
+                    <constraints>
+                        <constraint firstAttribute="height" constant="21" id="RoH-9N-zWJ"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="infoLight" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="efx-ct-Zjw" userLabel="Contact">
+                    <constraints>
+                        <constraint firstAttribute="width" constant="22" id="tN7-lu-GdT"/>
+                    </constraints>
+                    <state key="normal">
+                        <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </state>
+                    <connections>
+                        <action selector="contactPressedWithSender:" destination="u3b-Mm-TH1" eventType="touchUpInside" id="Yaj-O5-ajx"/>
+                    </connections>
+                </button>
+            </subviews>
+            <constraints>
+                <constraint firstItem="Swv-tE-rNf" firstAttribute="top" secondItem="u3b-Mm-TH1" secondAttribute="top" id="11D-VP-HaM"/>
+                <constraint firstItem="Swv-tE-rNf" firstAttribute="leading" secondItem="u3b-Mm-TH1" secondAttribute="leading" id="9bm-yE-L5k"/>
+                <constraint firstItem="P2u-mr-nOU" firstAttribute="leading" secondItem="u3b-Mm-TH1" secondAttribute="leading" id="9zN-Ao-wFS"/>
+                <constraint firstItem="efx-ct-Zjw" firstAttribute="leading" secondItem="ixF-UA-37h" secondAttribute="trailing" constant="8" id="Aen-ay-I8K"/>
+                <constraint firstAttribute="trailing" secondItem="efx-ct-Zjw" secondAttribute="trailing" constant="6" id="AmG-R7-z2f"/>
+                <constraint firstAttribute="centerY" secondItem="efx-ct-Zjw" secondAttribute="centerY" id="BDd-Hi-bpL"/>
+                <constraint firstItem="P2u-mr-nOU" firstAttribute="top" secondItem="u3b-Mm-TH1" secondAttribute="top" id="NOP-vM-V6t"/>
+                <constraint firstItem="ixF-UA-37h" firstAttribute="leading" secondItem="Swv-tE-rNf" secondAttribute="trailing" constant="2" id="UIB-1I-6qy"/>
+                <constraint firstAttribute="centerY" secondItem="ixF-UA-37h" secondAttribute="centerY" id="dBR-3B-MQU"/>
+                <constraint firstAttribute="bottom" secondItem="P2u-mr-nOU" secondAttribute="bottom" id="guA-jK-0Ir"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="backButton" destination="Swv-tE-rNf" id="r9Y-rj-DrT"/>
+                <outlet property="contactButton" destination="efx-ct-Zjw" id="m1e-Lc-hHY"/>
+                <outlet property="titleLabel" destination="ixF-UA-37h" id="JwK-jK-HgN"/>
+            </connections>
+            <point key="canvasLocation" x="143" y="340"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="iconBack" width="11" height="20"/>
+        <image name="iconMenu" width="11" height="20"/>
+    </resources>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination"/>
+    </simulatedMetricsContainer>
+</document>

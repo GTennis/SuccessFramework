@@ -1,0 +1,6 @@
+framework module Pods__BusinessAppSwift_Tests {
+  umbrella header "Pods-_BusinessAppSwift_Tests-umbrella.h"
+
+  export *
+  module * { export * }
+}
