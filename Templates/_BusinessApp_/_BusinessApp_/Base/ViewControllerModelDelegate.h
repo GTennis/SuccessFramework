@@ -29,7 +29,7 @@
 
 @optional
 
-- (void)modelHasChangedWithData:(id)data;
-- (void)modelHasFailedToChangeDataWithError:(NSError *)error;
+- (void)modelHasChangedWithData:(id)data context:(id)context;
+- (void)modelHasFailedToChangeDataWithError:(NSError *)error context:(id)context;
 
 @end
