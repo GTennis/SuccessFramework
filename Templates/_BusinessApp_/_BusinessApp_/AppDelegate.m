@@ -555,7 +555,6 @@
     }
     
     // Perform animation
-    
     __weak typeof(self) weakSelf = self;
     
     [UIView transitionFromView:oldView
