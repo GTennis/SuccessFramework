@@ -69,17 +69,27 @@
         self.layer.borderColor = [self.borderColor CGColor];
     }
     
+    UIView *helperView = [[UIView alloc] init];
+    CGFloat bgAlphaDefault = 1.0f;
+    CGFloat bgAlphaHighlighted = 0.3f;
+    CGFloat bgAlpha = bgAlphaDefault;
+    
     // Set style for normal
     [self setTitleColor:self.textNormalColor forState:UIControlStateNormal];
-    [self setBackgroundImage:[self imageWithColor:self.backgroundNormalColor] forState:UIControlStateNormal];
+    bgAlpha = ([helperView color:self.backgroundNormalColor isEqualToColor:[UIColor clearColor]]) ? bgAlphaDefault : bgAlphaHighlighted;
+    [self setBackgroundImage:[self imageWithColor:self.backgroundNormalColor alpha:1.0f] forState:UIControlStateNormal];
     
+    // Use Custom NOT SYSTEM button in IB in order to work UIControlStateHighlighted correctly!!! More info:
+    // http://stackoverflow.com/a/22696409/597292
     // Set style for highlighted
     [self setTitleColor:self.textHighlightedColor forState:UIControlStateHighlighted];
-    [self setBackgroundImage:[self imageWithColor:self.backgroundHighlightedColor] forState:UIControlStateHighlighted];
+    bgAlpha = ([helperView color:self.backgroundHighlightedColor isEqualToColor:[UIColor clearColor]]) ? bgAlphaDefault : bgAlphaHighlighted;
+    [self setBackgroundImage:[self imageWithColor:self.backgroundHighlightedColor alpha:bgAlpha] forState:UIControlStateHighlighted];
     
     // Set style for disabled
     [self setTitleColor:self.textDisabledColor forState:UIControlStateDisabled];
-    [self setBackgroundImage:[self imageWithColor:self.backgroundDisabledColor] forState:UIControlStateDisabled];
+    bgAlpha = ([helperView color:self.backgroundDisabledColor isEqualToColor:[UIColor clearColor]]) ? bgAlphaDefault : bgAlphaHighlighted;
+    [self setBackgroundImage:[self imageWithColor:self.backgroundDisabledColor alpha:1.0f] forState:UIControlStateDisabled];
     
     UIFont *font = [UIFont fontWithName:self.fontName size:self.fontSize];
     [self.titleLabel setFont:font];
@@ -90,6 +100,63 @@
     [super awakeFromNib];
     
     [self commonInit];
+}
+
+#pragma mark Default style
+
+- (CGFloat)borderSize {
+    
+    return 1.0f;
+}
+
+- (UIColor *)borderColor {
+    
+    return kColorBlack;
+}
+
+- (CGFloat)cornerRadius {
+    
+    return 0;
+}
+
+- (UIColor *)backgroundNormalColor {
+    
+    return [UIColor greenColor];
+}
+
+- (UIColor *)textNormalColor {
+    
+    return kColorBlack;
+}
+
+- (UIColor *)backgroundHighlightedColor {
+    
+    return [UIColor clearColor];
+}
+
+- (UIColor *)textHighlightedColor {
+    
+    return kColorBlack;
+}
+
+- (UIColor *)backgroundDisabledColor {
+    
+    return [UIColor clearColor];
+}
+
+- (UIColor *)textDisabledColor {
+    
+    return kColorGrayLight;
+}
+
+- (NSString *)fontName {
+    
+    return kFontNormal;
+}
+
+- (CGFloat)fontSize {
+    
+    return 20.0f;
 }
 
 @end

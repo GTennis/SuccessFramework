@@ -25,15 +25,11 @@
 //  SOFTWARE. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
 #import "ConstColors.h"
+#import "UIView+Fonts.h"
+#import "CustomLabel.h"
 
-#define kLabelColor kColorGrayDark
-#define kLabelFont kFontNormal
-#define kLabelFontSize 15.0f
-#define kLabelTextLeftOffset 20.0f
-
-@interface BaseLabel : UILabel
+@interface BaseLabel : UILabel <CustomLabel>
 
 #pragma mark - Protected -
 

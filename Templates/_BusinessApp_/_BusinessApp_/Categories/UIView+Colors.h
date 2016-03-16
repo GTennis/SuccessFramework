@@ -31,7 +31,7 @@
 
 // Common
 - (BOOL)color:(UIColor *)color isEqualToColor:(UIColor *)otherColor;
-- (UIImage *)imageWithColor:(UIColor *)color;
+- (UIImage *)imageWithColor:(UIColor *)color alpha:(CGFloat)alpha;
 
 // For setting style on UI views via user runtime attributes in interface builder
 @property (nonatomic, strong) NSString *backgroundColorName;

@@ -288,6 +288,8 @@
 		0F57AE141BED37880095D463 /* ConstNetworkErrorCodes.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ConstNetworkErrorCodes.h; sourceTree = "<group>"; };
 		0F57AE161BED398B0095D463 /* ConnectionStatusLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConnectionStatusLabel.h; sourceTree = "<group>"; };
 		0F57AE171BED398B0095D463 /* ConnectionStatusLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConnectionStatusLabel.m; sourceTree = "<group>"; };
+		0F661BDA1C99F1AB000FFF4D /* CustomLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomLabel.h; sourceTree = "<group>"; };
+		0F661BDB1C99F4A4000FFF4D /* CustomButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomButton.h; sourceTree = "<group>"; };
 		0F70DF2C1AFFC47E004293F1 /* TopNavigationBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TopNavigationBar.h; sourceTree = "<group>"; };
 		0F70DF2D1AFFC47E004293F1 /* TopNavigationBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TopNavigationBar.m; sourceTree = "<group>"; };
 		0F70DF2F1AFFC4C5004293F1 /* TopNavigationBar_iphone.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TopNavigationBar_iphone.h; sourceTree = "<group>"; };
@@ -1938,6 +1940,7 @@
 		0FE1CB211AF6694A006769FE /* Labels */ = {
 			isa = PBXGroup;
 			children = (
+				0F661BDA1C99F1AB000FFF4D /* CustomLabel.h */,
 				0FE1CB261AF669BC006769FE /* BaseLabel.h */,
 				0FE1CB271AF669BC006769FE /* BaseLabel.m */,
 				0FE1CB371AF66CD6006769FE /* NormalLabel.h */,
@@ -1949,6 +1952,7 @@
 		0FE1CB221AF6694F006769FE /* Buttons */ = {
 			isa = PBXGroup;
 			children = (
+				0F661BDB1C99F4A4000FFF4D /* CustomButton.h */,
 				0FE1CB231AF669A0006769FE /* BaseButton.h */,
 				0FE1CB241AF669A0006769FE /* BaseButton.m */,
 				0FE1CB341AF66C52006769FE /* NormalButton.h */,

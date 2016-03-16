@@ -1,9 +1,9 @@
 //
-//  NormalButton.m
+//  CustomButton.h
 //  _BusinessApp_
 //
-//  Created by Gytenis Mikulėnas on 3/20/14.
-//  Copyright (c) 2015 Gytenis Mikulėnas
+//  Created by Gytenis Mikulenas on 16/03/16.
+//  Copyright © 2016 Gytenis Mikulėnas 
 //  https://github.com/GitTennis/SuccessFramework
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -25,35 +25,29 @@
 //  SOFTWARE. All rights reserved.
 //
 
-#import "NormalButton.h"
+@protocol CustomButton <NSObject>
 
-@implementation NormalButton
+// Borders
+@property (readonly) CGFloat borderSize;
+@property (readonly) UIColor *borderColor;
 
-#pragma mark - Override
+// Corners
+@property (readonly) CGFloat cornerRadius;
 
-- (UIColor *)borderColor {
-    
-    return kColorGreen;
-}
+// Normal state
+@property (readonly) UIColor *backgroundNormalColor;
+@property (readonly) UIColor *textNormalColor;
 
-- (UIColor *)backgroundNormalColor {
-    
-    return [UIColor clearColor];
-}
+// Highlighted state
+@property (readonly) UIColor *backgroundHighlightedColor;
+@property (readonly) UIColor *textHighlightedColor;
 
-- (UIColor *)textNormalColor {
-    
-    return kColorGreen;
-}
+// Disabled state
+@property (readonly) UIColor *backgroundDisabledColor;
+@property (readonly) UIColor *textDisabledColor;
 
-- (UIColor *)textHighlightedColor {
-    
-    return kColorGreen;
-}
-
-- (UIColor *)backgroundHighlightedColor {
-    
-    return kColorGreen;
-}
+// Font
+@property (readonly) NSString *fontName;
+@property (readonly) CGFloat fontSize;
 
 @end

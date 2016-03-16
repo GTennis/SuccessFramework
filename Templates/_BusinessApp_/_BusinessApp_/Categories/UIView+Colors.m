@@ -170,13 +170,24 @@
     return [selfColor isEqual:otherColor];
 }
 
-- (UIImage *)imageWithColor:(UIColor *)color {
+- (UIImage *)imageWithColor:(UIColor *)color alpha:(CGFloat)alpha {
     
     CGRect rect = CGRectMake(0.0f, 0.0f, 1.0f, 1.0f);
     UIGraphicsBeginImageContext(rect.size);
     CGContextRef context = UIGraphicsGetCurrentContext();
     
-    CGContextSetFillColorWithColor(context, [color CGColor]);
+    if (alpha < 1) {
+        
+        CGColorRef aColorRef = CGColorRetain([[color colorWithAlphaComponent:alpha] CGColor]);
+        CGContextSetFillColorWithColor(context, aColorRef);
+        
+        CGColorRelease(aColorRef);
+        
+    } else {
+        
+        CGContextSetFillColorWithColor(context, [color CGColor]);
+    }
+    
     CGContextFillRect(context, rect);
     
     UIImage *image = UIGraphicsGetImageFromCurrentImageContext();

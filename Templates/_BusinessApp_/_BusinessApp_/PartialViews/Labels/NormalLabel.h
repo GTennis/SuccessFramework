@@ -26,7 +26,8 @@
 //
 
 #import "BaseLabel.h"
+#import "CustomLabel.h"
 
-@interface NormalLabel : BaseLabel
+@interface NormalLabel : BaseLabel <CustomLabel>
 
 @end

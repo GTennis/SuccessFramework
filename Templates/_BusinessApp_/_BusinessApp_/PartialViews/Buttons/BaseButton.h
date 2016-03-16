@@ -25,34 +25,9 @@
 //  SOFTWARE. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "CustomButton.h"
 
-@interface BaseButton : UIButton
-
-#pragma mark - Public -
-
-// Borders
-@property (nonatomic) CGFloat borderSize;
-@property (nonatomic, strong) UIColor *borderColor;
-
-// Corners
-@property (nonatomic) CGFloat cornerRadius;
-
-// Normal state
-@property (nonatomic, strong) UIColor *backgroundNormalColor;
-@property (nonatomic, strong) UIColor *textNormalColor;
-
-// Highlighted state
-@property (nonatomic, strong) UIColor *backgroundHighlightedColor;
-@property (nonatomic, strong) UIColor *textHighlightedColor;
-
-// Disabled state
-@property (nonatomic, strong) UIColor *backgroundDisabledColor;
-@property (nonatomic, strong) UIColor *textDisabledColor;
-
-// Font
-@property (nonatomic, copy) NSString *fontName;
-@property (nonatomic) CGFloat fontSize;
+@interface BaseButton : UIButton <CustomButton>
 
 #pragma mark - Protected -
 

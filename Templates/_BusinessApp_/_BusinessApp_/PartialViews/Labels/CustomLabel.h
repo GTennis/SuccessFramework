@@ -1,9 +1,9 @@
 //
-//  NormalButton.m
+//  CustomLabel.h
 //  _BusinessApp_
 //
-//  Created by Gytenis Mikulėnas on 3/20/14.
-//  Copyright (c) 2015 Gytenis Mikulėnas
+//  Created by Gytenis Mikulenas on 16/03/16.
+//  Copyright © 2016 Gytenis Mikulėnas 
 //  https://github.com/GitTennis/SuccessFramework
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -25,35 +25,16 @@
 //  SOFTWARE. All rights reserved.
 //
 
-#import "NormalButton.h"
+#import <Foundation/Foundation.h>
 
-@implementation NormalButton
+@protocol CustomLabel <NSObject>
 
-#pragma mark - Override
+@optional
 
-- (UIColor *)borderColor {
-    
-    return kColorGreen;
-}
-
-- (UIColor *)backgroundNormalColor {
-    
-    return [UIColor clearColor];
-}
-
-- (UIColor *)textNormalColor {
-    
-    return kColorGreen;
-}
-
-- (UIColor *)textHighlightedColor {
-    
-    return kColorGreen;
-}
-
-- (UIColor *)backgroundHighlightedColor {
-    
-    return kColorGreen;
-}
+@property (readonly) UIEdgeInsets insets;
+@property (readonly) NSString *labelTextFontType;
+@property (readonly) CGFloat labelTextSize;
+@property (readonly) UIColor *labelTextColor;
+@property (readonly) CGFloat lineSpacing;
 
 @end

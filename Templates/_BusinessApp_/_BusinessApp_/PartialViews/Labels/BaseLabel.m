@@ -29,18 +29,130 @@
 
 @implementation BaseLabel
 
+#pragma mark - Public -
+
+- (instancetype)initWithFrame:(CGRect)frame {
+    
+    self = [super initWithFrame:frame];
+    if (self) {
+        
+        [self commonInit];
+    }
+    return self;
+}
+
+- (instancetype)initWithCoder:(NSCoder *)coder {
+    
+    self = [super initWithCoder:coder];
+    if (self) {
+        
+        [self commonInit];
+    }
+    return self;
+}
+
+- (instancetype)init {
+    
+    self = [super init];
+    if (self) {
+        
+        [self commonInit];
+    }
+    return self;
+}
+
+- (void)awakeFromNib {
+    
+    [super awakeFromNib];
+    
+    [self commonInit];
+}
+
 #pragma mark - Protected -
 
 - (void)commonInit {
     
-    // ...
+    self.font = [UIFont fontWithName:self.font.fontName size:self.labelTextSize];
+    self.textColor = self.labelTextColor;
+    
+    self.fontType = self.labelTextFontType;
+}
+
+- (void)setText:(NSString *)text {
+    
+    [super setText:text];
+    
+    if (!self.lineSpacing) {
+        
+        return;
+    }
+    
+    // Apply line size if needed
+    NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];
+    paragraphStyle.lineSpacing = self.lineSpacing;
+    paragraphStyle.alignment = self.textAlignment;
+    NSDictionary *attributes = @{NSParagraphStyleAttributeName: paragraphStyle};
+    NSAttributedString *attributedText = [[NSAttributedString alloc] initWithString:text attributes:attributes];
+    self.attributedText = attributedText;
 }
 
 /*- (void)drawTextInRect:(CGRect)rect {
  
- UIEdgeInsets insets = {0, kLabelTextLeftOffset, 0, 0};
+    UIEdgeInsets insets = {40.0f, kLabelTextLeftOffset, 0, 40.0f};
  
- return [super drawTextInRect:UIEdgeInsetsInsetRect(rect, insets)];
- }*/
+    return [super drawTextInRect:UIEdgeInsetsInsetRect(rect, insets)];
+}*/
+
+- (CGRect)textRectForBounds:(CGRect)bounds limitedToNumberOfLines:(NSInteger)numberOfLines {
+    
+    UIEdgeInsets insets = self.insets;
+    CGRect rect = [super textRectForBounds:UIEdgeInsetsInsetRect(bounds, insets)
+                    limitedToNumberOfLines:numberOfLines];
+    
+    rect.origin.x    -= insets.left;
+    rect.origin.y    -= insets.top;
+    rect.size.width  += (insets.left + insets.right);
+    rect.size.height += (insets.top + insets.bottom);
+    
+    return rect;
+}
+
+- (void)drawTextInRect:(CGRect)rect {
+    
+    [super drawTextInRect:UIEdgeInsetsInsetRect(rect, self.insets)];
+}
+
+#pragma mark CustomizableLabel
+
+// Default style for labels
+
+- (UIEdgeInsets)insets {
+    
+    CGFloat marginSize = 8.0f;
+    
+    UIEdgeInsets insets = {marginSize, marginSize, marginSize, marginSize};
+    
+    return insets;
+}
+
+- (NSString *)labelTextFontType {
+    
+    return kFontNormalType;
+}
+
+- (CGFloat)labelTextSize {
+    
+    return 15.0f;
+}
+
+- (UIColor *)labelTextColor {
+    
+    return kColorBlack;
+}
+
+- (CGFloat)lineSpacing {
+    
+    return 0;
+}
 
 @end

@@ -30,52 +30,16 @@
 
 @implementation NormalLabel
 
-#pragma mark - Public
+#pragma mark CustomizableLabel
 
-- (instancetype)initWithFrame:(CGRect)frame {
+- (UIColor *)labelTextColor {
     
-    self = [super initWithFrame:frame];
-    if (self) {
-        
-        [self commonInit];
-    }
-    return self;
+    return kColorGrayDark;
 }
 
-- (instancetype)initWithCoder:(NSCoder *)coder {
+- (CGFloat)lineSpacing {
     
-    self = [super initWithCoder:coder];
-    if (self) {
-        
-        [self commonInit];
-    }
-    return self;
-}
-
-- (instancetype)init {
-    
-    self = [super init];
-    if (self) {
-        
-        [self commonInit];
-    }
-    return self;
-}
-
-#pragma mark - Protected -
-
-- (void)commonInit {
-    
-    [super commonInit];
-    
-    self.fontType = kFontNormalType;
-}
-
-- (void)awakeFromNib {
-    
-    [super awakeFromNib];
-    
-    [self commonInit];
+    return 10.0f;
 }
 
 @end
