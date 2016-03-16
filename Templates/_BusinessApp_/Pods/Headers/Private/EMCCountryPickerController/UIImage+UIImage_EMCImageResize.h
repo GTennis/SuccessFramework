@@ -1,1 +1,1 @@
-../../../EMCCountryPickerController/Classes/UIImage+UIImage_EMCImageResize.h
+../../../EMCCountryPickerController/EMCCountryPickerController/UIImage+UIImage_EMCImageResize.h
