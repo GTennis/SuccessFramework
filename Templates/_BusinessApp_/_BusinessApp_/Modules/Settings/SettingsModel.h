@@ -31,7 +31,9 @@
 
 #pragma mark - Public -
 
-- (void)setLanguageEnglish;
-- (void)setLanguageGerman;
+- (NSInteger)languageCount;
+- (NSString *)languageAtRow:(NSInteger)row;
+- (BOOL)isLanguageCurrentAtRow:(NSInteger)row;
+- (void)setLanguageWithRow:(NSInteger)row;
 
 @end

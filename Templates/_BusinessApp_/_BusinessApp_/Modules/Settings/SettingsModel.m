@@ -27,18 +27,65 @@
 
 #import "SettingsModel.h"
 
+#define kSettingsEnglishValue @"English"
+#define kSettingsGermanValue @"Deutsch"
+
 @implementation SettingsModel
 
 #pragma mark - Public -
 
-- (void)setLanguageEnglish {
+- (NSInteger)languageCount {
     
-    [self.settingsManager setLanguageEnglish];
+    return 2;
 }
 
-- (void)setLanguageGerman {
+- (NSString *)languageAtRow:(NSInteger)row {
     
-    [self.settingsManager setLanguageGerman];
+    NSString *lang = nil;
+    
+    switch (row) {
+            
+        case 0:
+            
+            lang = kSettingsGermanValue;
+            break;
+            
+        case 1:
+            
+            lang = kSettingsEnglishValue;
+            break;
+    }
+    
+    return lang;
+}
+
+- (BOOL)isLanguageCurrentAtRow:(NSInteger)row {
+    
+    NSString *langAtRow = [self languageAtRow:row];
+    
+    if ([langAtRow isEqualToString:[self.settingsManager languageFullName]]) {
+        
+        return YES;
+        
+    } else {
+        
+        return NO;
+    }
+}
+
+- (void)setLanguageWithRow:(NSInteger)row {
+    
+    switch (row) {
+            
+        case 0:
+            
+            [self.settingsManager setLanguageGerman];
+            break;
+            
+        case 1:
+            
+            [self.settingsManager setLanguageEnglish];
+    }
 }
 
 @end

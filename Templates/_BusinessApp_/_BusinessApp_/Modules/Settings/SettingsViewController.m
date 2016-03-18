@@ -41,6 +41,8 @@
     
     // Update UI
     [self prepareUI];
+    
+    [self loadModel];
 }
 
 - (void)didReceiveMemoryWarning
@@ -53,7 +55,27 @@
 
 - (void)prepareUI {
     
+    [super prepareUI];
+    
     self.title = GMLocalizedString(kSettingsViewControllerTitleKey);
+    
+    NSString *versionNo = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"];
+    NSString *buildNo = [[[NSBundle mainBundle] infoDictionary] objectForKey:(NSString *)kCFBundleVersionKey];
+    _versionLabel.text = [NSString stringWithFormat:@"version: %@ (%@)", versionNo, buildNo];
+}
+
+- (void)renderUI {
+    
+    [super renderUI];
+    
+    [_tableView reloadData];
+}
+
+- (void)loadModel {
+    
+    [super loadModel];
+    
+    [self renderUI];
 }
 
 #pragma mark Language change handing
@@ -64,18 +86,58 @@
     [self renderUI];
 }
 
-#pragma mark - Public -
+#pragma mark UITableViewDelegate
 
-#pragma mark IBActions
-
-- (IBAction)englishPressed:(id)sender {
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    [_model setLanguageEnglish];
+    [_model setLanguageWithRow:indexPath.row];
 }
 
-- (IBAction)germanPressed:(id)sender {
+#pragma mark UITableViewDataSource
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     
-    [_model setLanguageGerman];
+    return [_model languageCount];
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    static NSString *simpleTableIdentifier = @"LanguageTableViewCell";
+    
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier];
+    
+    if (cell == nil) {
+        
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:simpleTableIdentifier];
+        cell.textLabel.textColor = kColorBlue;
+        UIImageView *checkBoxView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 24, 24)];
+        checkBoxView.image = [UIImage imageNamed:@"iconCheckboxOff"];
+        checkBoxView.contentMode = UIViewContentModeScaleAspectFit;
+        cell.accessoryView = checkBoxView;
+    }
+    
+    cell.textLabel.text = [_model languageAtRow:indexPath.row];
+    
+    UIImageView *checkBoxView = (UIImageView *)cell.accessoryView;
+    if ([_model isLanguageCurrentAtRow:indexPath.row]) {
+        
+        checkBoxView.image = [UIImage imageNamed:@"iconCheckboxOn"];
+        
+    } else {
+        
+        checkBoxView.image = [UIImage imageNamed:@"iconCheckboxOff"];
+    }
+    
+    return cell;
+}
+
+// Hide empty rows
+- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
+    
+    if (section == tableView.numberOfSections - 1) {
+        return 1;
+    }
+    return 0;
 }
 
 @end

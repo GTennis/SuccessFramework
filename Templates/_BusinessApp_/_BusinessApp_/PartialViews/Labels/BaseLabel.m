@@ -82,14 +82,14 @@
     
     [super setText:text];
     
-    if (!self.lineSpacing) {
+    if (!self.lineSpace) {
         
         return;
     }
     
     // Apply line size if needed
     NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];
-    paragraphStyle.lineSpacing = self.lineSpacing;
+    paragraphStyle.lineSpacing = self.lineSpace;
     paragraphStyle.alignment = self.textAlignment;
     NSDictionary *attributes = @{NSParagraphStyleAttributeName: paragraphStyle};
     NSAttributedString *attributedText = [[NSAttributedString alloc] initWithString:text attributes:attributes];
@@ -150,7 +150,7 @@
     return kColorBlack;
 }
 
-- (CGFloat)lineSpacing {
+- (CGFloat)lineSpace {
     
     return 0;
 }

@@ -31,7 +31,7 @@
 
 @class SettingsModel;
 
-@interface SettingsViewController : BaseViewController
+@interface SettingsViewController : BaseViewController <UITableViewDataSource, UITableViewDelegate>
 
 #pragma mark - Public -
 
@@ -39,7 +39,7 @@
 
 #pragma mark IBActions
 
-- (IBAction)englishPressed:(id)sender;
-- (IBAction)germanPressed:(id)sender;
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (weak, nonatomic) IBOutlet UILabel *versionLabel;
 
 @end

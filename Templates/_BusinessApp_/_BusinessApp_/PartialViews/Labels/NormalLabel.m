@@ -37,9 +37,9 @@
     return kColorGrayDark;
 }
 
-- (CGFloat)lineSpacing {
+/*- (CGFloat)lineSpace {
     
-    return 10.0f;
-}
+    return 20.0f;
+}*/
 
 @end

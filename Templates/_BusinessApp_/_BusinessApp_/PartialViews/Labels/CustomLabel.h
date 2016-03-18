@@ -35,6 +35,6 @@
 @property (readonly) NSString *labelTextFontType;
 @property (readonly) CGFloat labelTextSize;
 @property (readonly) UIColor *labelTextColor;
-@property (readonly) CGFloat lineSpacing;
+@property (readonly) CGFloat lineSpace;
 
 @end
