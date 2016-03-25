@@ -27,9 +27,6 @@
 
 #import "PasswordTextField.h"
 
-#define kTogglePasswordButtonWidth 50.0f
-#define kTogglePasswordButtonHeight 30.0f
-
 #define kTogglePasswordButtonToggleButtonTitleKey @"Toggle"
 #define kTogglePasswordButtonToggleButtonTitleFontSize 12.0f
 #define kTogglePasswordButtonToggleButtonTitleColor kColorGrayDark
@@ -83,24 +80,11 @@
     [self addShowHidePasswordControl];
 }
 
-- (CGRect)textRectForBounds:(CGRect)bounds {
-    
-    CGRect editedBounds = bounds;
-    editedBounds.origin.x += kTextFieldDefaultOffset.x;
-    editedBounds.origin.y += kTextFieldDefaultOffset.y;
-    editedBounds.size.width -= (kTextFieldDefaultEditingMargins + kTogglePasswordButtonWidth);
-    
-    return editedBounds;
-}
+#pragma mark Text offsets
 
-- (CGRect)editingRectForBounds:(CGRect)bounds {
+- (CGSize)textClearButtonSizeWhileEditing {
     
-    CGRect editedBounds = bounds;
-    editedBounds.origin.x += kTextFieldDefaultEditingOffset.x;
-    editedBounds.origin.y += kTextFieldDefaultEditingOffset.y;
-    editedBounds.size.width -= (kTextFieldDefaultEditingMargins + kTogglePasswordButtonWidth);
-    
-    return editedBounds;
+    return CGSizeMake(50.0f, 30.0f);
 }
 
 #pragma mark - Private -
@@ -108,8 +92,8 @@
 - (void)addShowHidePasswordControl {
     
     // Button size
-    CGFloat togglePasswordButtonWidth = kTogglePasswordButtonWidth;
-    CGFloat togglePasswordButtonHeight = kTogglePasswordButtonHeight;
+    CGFloat togglePasswordButtonWidth = self.textClearButtonSizeWhileEditing.width;
+    CGFloat togglePasswordButtonHeight = self.textClearButtonSizeWhileEditing.height;;
     
     // Right separator size
     CGFloat rightSpaceSeparatorViewWidth = 10;

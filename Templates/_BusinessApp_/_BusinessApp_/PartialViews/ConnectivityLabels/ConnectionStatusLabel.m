@@ -57,7 +57,7 @@
     }
     
     // Add border if defined
-    if (kTextFieldBorderWidth) {
+    if (kConnectionStatusLabelBorderWidth) {
         
         self.layer.borderColor = kConnectionStatusLabelBorderColor;
         self.layer.borderWidth = kConnectionStatusLabelBorderWidth;

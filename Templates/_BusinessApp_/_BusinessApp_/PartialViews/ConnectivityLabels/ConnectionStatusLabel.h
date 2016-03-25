@@ -27,10 +27,8 @@
 
 #define kConnectionStatusLabelTag 20141206
 
-// Corners
-#define kConnectionStatusLabelBorderCornerRadius 4.0f
-
 // Border
+#define kConnectionStatusLabelBorderCornerRadius 4.0f
 #define kConnectionStatusLabelBorderWidth 1.0f
 #define kConnectionStatusLabelBorderColor [kColorGrayDark CGColor]
 

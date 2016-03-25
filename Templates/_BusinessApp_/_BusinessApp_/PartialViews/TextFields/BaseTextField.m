@@ -142,9 +142,9 @@
 
 - (CGRect)placeholderRectForBounds:(CGRect)bounds {
     
-    // Placeholder is a little bit too high, so need to move it down
-    CGFloat placeholderOriginYFix = kTextFieldDefaultOffset.y;
-    CGFloat placeholderOriginXFix = kTextFieldDefaultOffset.x;
+    // You can control how much to move placeholder down and right if it's too high/left
+    CGFloat placeholderOriginXFix = self.textOffset.x;
+    CGFloat placeholderOriginYFix = self.textOffset.y;
     
     CGRect placeholderBounds = bounds;
     placeholderBounds.origin.y = self.frame.size.height / 2 - placeholderBounds.size.height / 2 + placeholderOriginYFix;
@@ -156,8 +156,8 @@
 - (CGRect)textRectForBounds:(CGRect)bounds {
     
     CGRect editedBounds = bounds;
-    editedBounds.origin.x += kTextFieldDefaultOffset.x;
-    editedBounds.origin.y += kTextFieldDefaultOffset.y;
+    editedBounds.origin.x += self.textOffset.x;
+    editedBounds.origin.y += self.textOffset.y;
     
     return editedBounds;
 }
@@ -165,9 +165,14 @@
 - (CGRect)editingRectForBounds:(CGRect)bounds {
     
     CGRect editedBounds = bounds;
-    editedBounds.origin.x += kTextFieldDefaultEditingOffset.x;
-    editedBounds.origin.y += kTextFieldDefaultEditingOffset.y;
-    editedBounds.size.width -= kTextFieldDefaultEditingMargins;
+    editedBounds.origin.x += self.textOffsetWhileEditing.x;
+    editedBounds.origin.y += self.textOffsetWhileEditing.y;
+    
+    // Reduce width of text field editable area if clear button is shown, in order to overlap text with clear button
+    if (self.clearButtonMode != UITextFieldViewModeNever) {
+        
+        editedBounds.size.width -= (self.textOffsetWhileEditing.x + self.textClearButtonSizeWhileEditing.width);
+    }
     
     return editedBounds;
 }
@@ -208,35 +213,129 @@
     [self customizeFloatingLabel];
     [self setStyleNormal];
     
+    self.tintColor = self.textCursorColor;
     self.clearButtonMode = UITextFieldViewModeWhileEditing;
     
     // Add corner radius if defined
-    if (kTextFieldBorderCornerRadius) {
+    if (self.borderCornerRadius) {
         
-        self.layer.cornerRadius = kTextFieldBorderCornerRadius;
+        self.layer.cornerRadius = self.borderCornerRadius;
         self.layer.masksToBounds = YES;
     }
     
     // Add border if defined
-    if (kTextFieldBorderWidth) {
+    if (self.borderWidth) {
         
         self.layer.borderColor = nil;//kTextFieldBorderColor;
-        self.layer.borderWidth = kTextFieldBorderWidth;
+        self.layer.borderWidth = self.borderWidth;
     }
     
     [self observeStateChanges];
 }
 
-- (CGFloat)fontSize {
+#pragma mark Corners
+
+- (CGFloat)borderCornerRadius {
     
-    return kTextFieldTextSize;
+    return 0.0f;
+}
+
+- (CGFloat)borderWidth {
+    
+    return 0.0f;
+}
+
+- (UIColor *)borderColor {
+    
+    return kColorGrayLight1;
+}
+
+#pragma mark Text
+
+- (UIColor *)textBackgroundColor {
+    
+    return [UIColor clearColor];
+}
+
+- (UIColor *)textColor_ {
+    
+    return kColorGrayDark;
+}
+
+- (NSString *)textFont {
+    
+    return kFontNormal;
+}
+
+- (CGFloat)textSize {
+    
+    return 15.0f;
+}
+
+- (UIColor *)textCursorColor {
+    
+    return kColorGrayDark;
+}
+
+#pragma mark Text offsets
+
+- (CGPoint)textOffset {
+    
+    return CGPointMake(12.0f, 5.0f);
+}
+
+- (CGPoint)textOffsetWhileEditing {
+    
+    return CGPointMake(12.0f, 5.0f);
+}
+
+- (CGSize)textClearButtonSizeWhileEditing {
+    
+    return CGSizeMake(20.0f, self.frame.size.height) ;
+}
+
+#pragma mark Placeholder
+
+- (UIColor *)placeholderBackgroundColor {
+    
+    return [UIColor clearColor];
+}
+
+- (UIColor *)placeholderTextColor {
+    
+    return kColorGrayLight1;
+}
+
+- (UIColor *)placeholderTextColorWhileEditing {
+    
+    return kColorGreen;
+}
+
+- (NSString *)placeholderTextFont {
+    
+    return kFontNormal;
+}
+
+- (CGFloat)placeholderTextSize {
+    
+    return 12.0f;
+}
+
+- (CGFloat)placeholderTextOffsetY {
+    
+    return 5.0f;
+}
+
+- (CGFloat)separatorLineOffsetY {
+    
+    return 12.0f;
 }
 
 #pragma mark - Private -
 
 - (void)setCommonStyle {
     
-    self.backgroundColor = kTextFieldBackgroundColor;
+    self.backgroundColor = self.textBackgroundColor;
     
     // Check if empty
     if (!self.placeholder) {
@@ -245,23 +344,18 @@
         self.placeholder = @" ";
     }
     
-    self.attributedPlaceholder = [[NSAttributedString alloc] initWithString:self.placeholder attributes:@{NSForegroundColorAttributeName:kTextFieldFloatingPlaceholderColor}];
+    self.attributedPlaceholder = [[NSAttributedString alloc] initWithString:self.placeholder attributes:@{NSForegroundColorAttributeName:self.placeholderTextColor}];
     
-    self.textColor = kTextFieldTextColor;
+    self.textColor = self.textColor_;
 }
 
 - (void)customizeFloatingLabel {
     
-    // Set custom font
-    //self.floatingLabel.font = [UIFont fontWithName:kBookFontName size:10.0f];
-    
-    self.floatingLabel.backgroundColor = kTextFieldPlaceholderBackgroundColor;
-    self.floatingLabelActiveTextColor = kTextFieldFloatingPlaceholderColorWhileEditing;
-    self.floatingLabelTextColor = kTextFieldFloatingPlaceholderColor;
-    self.floatingLabelFont = kTextFieldFloatingLabelFont;
-    self.floatingLabelYPadding = kTextFieldFloatingLabelPaddingY;
-    
-    self.tintColor = kTextFieldCursorColor;
+    self.floatingLabel.backgroundColor = self.placeholderBackgroundColor;
+    self.floatingLabelActiveTextColor = self.placeholderTextColorWhileEditing;
+    self.floatingLabelTextColor = self.placeholderTextColor;
+    self.floatingLabelFont = [UIFont fontWithName:self.placeholderTextFont size:self.textSize]; 
+    self.floatingLabelYPadding = self.placeholderTextOffsetY;
 }
 
 - (void)addTopSeparatorLine {
@@ -276,7 +370,7 @@
     
     // Add separator line
     SeparatorHorizontalLineView *lineView = [SeparatorHorizontalLineView autolayoutView];
-     [lineView fitIntoContainerView:self color:nil alignTop:YES leftOffset:kTextFieldSeparatorLeftOffset rightOffset:0];
+     [lineView fitIntoContainerView:self color:nil alignTop:YES leftOffset:self.separatorLineOffsetY rightOffset:0];
      [self addSubview:lineView];
 }
 
@@ -299,15 +393,15 @@
     
     if (self.enabled) {
         
-        self.textColor = kTextFieldTextColor;
+        self.textColor = self.textColor_;
         
-        UIFont *font = [UIFont fontWithName:kTextFieldTextFont size:self.fontSize];
+        UIFont *font = [UIFont fontWithName:self.textFont size:self.textSize];
         self.font = font;
         
         // Apply color for placeholder if its not nil
         if (self.placeholder) {
             
-            self.attributedPlaceholder = [[NSAttributedString alloc] initWithString:self.placeholder attributes:@{NSForegroundColorAttributeName:kTextFieldPlaceholderColor, NSFontAttributeName:font}];
+            self.attributedPlaceholder = [[NSAttributedString alloc] initWithString:self.placeholder attributes:@{NSForegroundColorAttributeName:self.placeholderTextColor, NSFontAttributeName:font}];
         }
     }
 }
@@ -321,7 +415,7 @@
         
         if (self.placeholder) {
             
-            UIFont *font = [UIFont fontWithName:kTextFieldTextFont size:self.fontSize];
+            UIFont *font = [UIFont fontWithName:self.textFont size:self.textSize];
             
             self.attributedPlaceholder = [[NSAttributedString alloc] initWithString:self.placeholder attributes:@{NSForegroundColorAttributeName:kColorRed, NSFontAttributeName:font}];
         }

@@ -30,38 +30,6 @@
 #import "ConstColors.h"
 #import "ConstFonts.h"
 
-// Corners
-#define kTextFieldBorderCornerRadius 0.0f // 4.0f
-
-// Border
-#define kTextFieldBorderWidth 0.0f //1.0f
-#define kTextFieldBorderColor [kColorGrayLight1 CGColor]
-
-// Text
-#define kTextFieldBackgroundColor [UIColor clearColor]
-#define kTextFieldTextColor kColorGrayDark
-#define kTextFieldTextFont kFontNormal
-#define kTextFieldTextSize 15.0f
-
-// Text offsets
-#define kTextFieldDefaultOffset CGPointMake(12.0f, 5.0f)
-#define kTextFieldDefaultEditingOffset CGPointMake(12.0f, 5.0f)
-#define kTextFieldDefaultEditingMargins 32.0f
-
-// Placeholder
-#define kTextFieldPlaceholderBackgroundColor [UIColor clearColor]
-#define kTextFieldFloatingPlaceholderColorWhileEditing kColorGreen
-#define kTextFieldFloatingPlaceholderColor kColorGreen
-#define kTextFieldPlaceholderColor kColorGreen
-#define kTextFieldCursorColor kColorGrayDark
-
-// Floating label
-#define kTextFieldFloatingLabelFont kFontNormalWithSize(12)
-#define kTextFieldFloatingLabelPaddingY 5.0f
-
-// Separator line left offset
-#define kTextFieldSeparatorLeftOffset 12.0f
-
 @interface BaseTextField : JVFloatLabeledTextField <DataInputFormTextFieldProtocol>
 
 #pragma mark - Public -
@@ -79,6 +47,32 @@
 @property (nonatomic) BOOL hasMiddleSeparatorLine;
 @property (nonatomic) BOOL hasBottomSeparatorLine;
 
-@property (nonatomic) CGFloat fontSize;
+// Border
+@property (readonly) CGFloat borderCornerRadius;
+@property (readonly) CGFloat borderWidth;
+@property (readonly) UIColor *borderColor;
+
+// Text
+@property (readonly) UIColor *textBackgroundColor;
+@property (readonly) UIColor *textColor_;
+@property (readonly) NSString *textFont;
+@property (readonly) CGFloat textSize;
+
+// Text offsets
+@property (readonly) CGPoint textOffset;
+@property (readonly) UIColor *textCursorColor;
+@property (readonly) CGPoint textOffsetWhileEditing;
+@property (readonly) CGSize textClearButtonSizeWhileEditing;
+
+// Placeholder
+@property (readonly) UIColor *placeholderBackgroundColor;
+@property (readonly) UIColor *placeholderTextColor;
+@property (readonly) UIColor *placeholderTextColorWhileEditing;
+@property (readonly) NSString *placeholderTextFont;
+@property (readonly) CGFloat placeholderTextSize;
+@property (readonly) CGFloat placeholderTextOffsetY;
+
+// Separator line
+@property (readonly) CGFloat separatorLineOffsetY;
 
 @end
