@@ -44,7 +44,7 @@
 
 - (void)didPressSignUp;
 - (void)didPressForgotPasswordWithEmail:(NSString *)email;
-- (CGSize)containerViewSizeForLogin;
+//- (CGSize)containerViewSizeForLogin;
 
 @end
 
@@ -61,8 +61,6 @@
 @property (weak, nonatomic) IBOutlet NormalLabel *orLabel;
 @property (weak, nonatomic) IBOutlet NormalButton *loginButton;
 @property (weak, nonatomic) IBOutlet NormalButton *signUpButton;
-
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *emailTextFieldWidthConstraint;
 
 - (void)clearTextFields;
 

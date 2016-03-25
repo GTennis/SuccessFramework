@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="8191" systemVersion="15A284" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="UserLoginViewController_iphone">
             <connections>
                 <outlet property="contentScrollView" destination="e6b-HK-uKx" id="JfI-3O-rfg"/>
                 <outlet property="emailTextField" destination="LWd-dm-Nba" id="INB-Zl-w5A"/>
-                <outlet property="emailTextFieldWidthConstraint" destination="Yh3-5j-BqN" id="4hg-b1-4Xm"/>
                 <outlet property="loginButton" destination="e1P-xQ-f5b" id="LrU-rJ-lpu"/>
                 <outlet property="orLabel" destination="XOh-6A-Py9" id="14V-pW-SQK"/>
                 <outlet property="passwordTextField" destination="u8d-Ki-3Zx" id="Ph4-Sr-Em7"/>
+                <outlet property="scrollViewWidthConstraint" destination="t6b-Xn-bJe" id="9Og-iK-qjy"/>
                 <outlet property="signUpButton" destination="tpD-Bm-Add" id="Z2f-9h-YkY"/>
                 <outlet property="subTitleLabel" destination="F4h-Xy-rRS" id="Zvi-ox-ENO"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -26,18 +26,23 @@
                 <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e6b-HK-uKx">
                     <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                     <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8Y4-gv-kDl" userLabel="ScrollWidthView">
+                            <rect key="frame" x="0.0" y="0.0" width="320" height="1"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="1" id="KUh-nS-nWb"/>
+                                <constraint firstAttribute="width" constant="320" id="t6b-Xn-bJe" userLabel="width = 320"/>
+                            </constraints>
+                        </view>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter your email and password" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F4h-Xy-rRS" customClass="NormalLabel">
                             <rect key="frame" x="42.5" y="50" width="234.5" height="20.5"/>
-                            <animations/>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="LWd-dm-Nba" userLabel="Email Text Field" customClass="NormalTextField">
                             <rect key="frame" x="0.0" y="90" width="320" height="44"/>
-                            <animations/>
                             <constraints>
-                                <constraint firstAttribute="width" constant="320" id="Yh3-5j-BqN"/>
                                 <constraint firstAttribute="height" constant="44" id="dbE-mi-ar8"/>
                             </constraints>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -45,7 +50,6 @@
                         </textField>
                         <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="u8d-Ki-3Zx" customClass="PasswordTextField">
                             <rect key="frame" x="0.0" y="134" width="320" height="44"/>
-                            <animations/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="44" id="k6j-BB-KHq"/>
                             </constraints>
@@ -54,7 +58,6 @@
                         </textField>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e1P-xQ-f5b" customClass="NormalButton">
                             <rect key="frame" x="8" y="196" width="304" height="44"/>
-                            <animations/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="44" id="9FT-sV-CjW"/>
                             </constraints>
@@ -67,14 +70,12 @@
                         </button>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="or" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XOh-6A-Py9" customClass="NormalLabel">
                             <rect key="frame" x="152" y="248" width="16" height="20.5"/>
-                            <animations/>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tpD-Bm-Add" customClass="NormalButton">
                             <rect key="frame" x="8" y="277" width="304" height="44"/>
-                            <animations/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="44" id="BG1-Q3-O7G"/>
                             </constraints>
@@ -86,13 +87,14 @@
                             </connections>
                         </button>
                     </subviews>
-                    <animations/>
                     <constraints>
                         <constraint firstAttribute="trailing" secondItem="e1P-xQ-f5b" secondAttribute="trailing" constant="8" id="0KG-fn-0Lc"/>
                         <constraint firstAttribute="bottom" secondItem="tpD-Bm-Add" secondAttribute="bottom" id="0Se-tu-cvu"/>
                         <constraint firstAttribute="centerX" secondItem="XOh-6A-Py9" secondAttribute="centerX" id="1F9-Dr-O2p"/>
+                        <constraint firstAttribute="trailing" secondItem="8Y4-gv-kDl" secondAttribute="trailing" id="3dm-U5-Iux"/>
                         <constraint firstAttribute="trailing" secondItem="LWd-dm-Nba" secondAttribute="trailing" id="7Je-B2-5Fw"/>
                         <constraint firstItem="e1P-xQ-f5b" firstAttribute="leading" secondItem="e6b-HK-uKx" secondAttribute="leading" constant="8" id="7MM-BW-dqy"/>
+                        <constraint firstItem="8Y4-gv-kDl" firstAttribute="leading" secondItem="e6b-HK-uKx" secondAttribute="leading" id="CFg-Ir-NHI"/>
                         <constraint firstAttribute="trailing" secondItem="u8d-Ki-3Zx" secondAttribute="trailing" id="EOt-eT-Mq0"/>
                         <constraint firstItem="u8d-Ki-3Zx" firstAttribute="leading" secondItem="e6b-HK-uKx" secondAttribute="leading" id="JBo-Ix-Dex"/>
                         <constraint firstItem="F4h-Xy-rRS" firstAttribute="top" secondItem="e6b-HK-uKx" secondAttribute="top" constant="50" id="Lab-Be-H94"/>
@@ -101,6 +103,7 @@
                         <constraint firstItem="e1P-xQ-f5b" firstAttribute="top" secondItem="u8d-Ki-3Zx" secondAttribute="bottom" constant="18" id="SLb-70-VZf"/>
                         <constraint firstAttribute="centerX" secondItem="F4h-Xy-rRS" secondAttribute="centerX" id="VWj-Hi-IZC"/>
                         <constraint firstItem="LWd-dm-Nba" firstAttribute="leading" secondItem="e6b-HK-uKx" secondAttribute="leading" id="WBT-of-2To"/>
+                        <constraint firstItem="8Y4-gv-kDl" firstAttribute="top" secondItem="e6b-HK-uKx" secondAttribute="top" id="bZx-pG-OXw"/>
                         <constraint firstItem="tpD-Bm-Add" firstAttribute="leading" secondItem="e6b-HK-uKx" secondAttribute="leading" constant="8" id="jND-iS-fig"/>
                         <constraint firstItem="tpD-Bm-Add" firstAttribute="top" secondItem="XOh-6A-Py9" secondAttribute="bottom" constant="8" id="nwa-4q-cRj"/>
                         <constraint firstItem="XOh-6A-Py9" firstAttribute="top" secondItem="e1P-xQ-f5b" secondAttribute="bottom" constant="8" id="quR-Hp-z2G"/>
@@ -108,7 +111,6 @@
                     </constraints>
                 </scrollView>
             </subviews>
-            <animations/>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstAttribute="trailing" secondItem="e6b-HK-uKx" secondAttribute="trailing" id="AAN-cq-6cG"/>

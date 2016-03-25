@@ -260,6 +260,11 @@
 - (void)prepareUI {
     
     DDLogDebug(@"[%@]: prepareUI", NSStringFromClass([self class]));
+    
+    // Removes blank header space when using tableViews and scrollViews
+    // http://stackoverflow.com/a/19648625
+    // TODO: causes login to show weirdly when opened for the second time
+    //self.automaticallyAdjustsScrollViewInsets = NO;
 }
 
 - (void)renderUI {

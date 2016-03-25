@@ -69,7 +69,7 @@
     [_loginButton setTitle:GMLocalizedString(kUserLoginViewControllerLoginButtonKey) forState:UIControlStateNormal];
     [_signUpButton setTitle:GMLocalizedString(kUserLoginViewControllerLoginSignUpButtonKey) forState:UIControlStateNormal];
     
-    [self configureScrollView];
+    [self adjustScrollVieWidthToFitScreen];
     [self setupTextFields];
 }
 
@@ -185,17 +185,6 @@
 }
 
 #pragma mark - Private -
-
-- (void)configureScrollView {
-    
-    //self.contentScrollView.scrollEnabled = NO;
-    //self.shouldReturnToZeroScrollOffset = YES;
-    
-    self.keyboardScrollViewContentEdgeInsets = UIEdgeInsetsMake(0, 0, 8.0f, 0);
-    
-    // Adjust scrollView width
-    _emailTextFieldWidthConstraint.constant = [_delegate containerViewSizeForLogin].width;
-}
 
 // Add toolbar with previous and next buttons for navigating between input fields
 - (void)setupTextFields {

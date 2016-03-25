@@ -1,9 +1,9 @@
 //
-//  UserContainerViewController_iphone.m
+//  ButtonWithIconOnTop.h
 //  _BusinessApp_
 //
-//  Created by Gytenis Mikulenas on 27/05/15.
-//  Copyright (c) 2015 Gytenis Mikulėnas 
+//  Created by Gytenis Mikulėnas on 3/20/14.
+//  Copyright (c) 2015 Gytenis Mikulėnas
 //  https://github.com/GitTennis/SuccessFramework
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -25,36 +25,8 @@
 //  SOFTWARE. All rights reserved.
 //
 
-#import "UserContainerViewController_iphone.h"
+#import <UIKit/UIKit.h>
 
-@interface UserContainerViewController_iphone ()
-
-@end
-
-@implementation UserContainerViewController_iphone
-
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
-}
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
-#pragma mark - Protected
-
-#pragma mark Override
-
-/*- (CGSize)containerViewSizeForLogin {
-    
-    return [UIScreen mainScreen].bounds.size;
-}
-
-- (CGSize)containerViewSizeForSignUp {
-    
-    return [UIScreen mainScreen].bounds.size;
-}*/
+@interface ButtonWithIconOnTop : UIButton
 
 @end

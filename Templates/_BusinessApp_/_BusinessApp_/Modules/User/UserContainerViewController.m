@@ -156,17 +156,17 @@
     
 }
 
-- (CGSize)containerViewSizeForLogin {
+/*- (CGSize)containerViewSizeForLogin {
     
     return CGSizeZero;
-}
+}*/
 
 #pragma mark - UserSignUpViewControllerDelegate -
 
-- (CGSize)containerViewSizeForSignUp {
+/*- (CGSize)containerViewSizeForSignUp {
     
     return CGSizeZero;
-}
+}*/
 
 #pragma mark - UserForgotPasswordViewControllerDelegate -
 

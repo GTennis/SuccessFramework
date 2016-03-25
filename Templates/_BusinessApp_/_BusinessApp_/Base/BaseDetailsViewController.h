@@ -68,4 +68,9 @@
 - (void)applyStyleForMissingRequiredFields;
 - (void)resetStyleForMissingRequiredFields;
 
+#pragma mark ScrollView
+
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *scrollViewWidthConstraint;
+- (void)adjustScrollVieWidthToFitScreen;
+
 @end

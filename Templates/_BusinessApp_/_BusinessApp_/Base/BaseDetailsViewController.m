@@ -129,6 +129,18 @@
     [self.contentScrollView scrollRectToVisible:rect animated:YES];
 }
 
+- (void)adjustScrollVieWidthToFitScreen {
+    
+    //self.contentScrollView.scrollEnabled = NO;
+    //self.shouldReturnToZeroScrollOffset = YES;
+    
+    CGFloat edgeMarginSize = 8.0;
+    _keyboardScrollViewContentEdgeInsets = UIEdgeInsetsMake(0, 0, edgeMarginSize, 0);
+    
+    // Adjust scrollView width
+    _scrollViewWidthConstraint.constant = [UIScreen mainScreen].bounds.size.width; // - edgeMarginSize * 2;
+}
+
 #pragma mark Keyboard control handling
 
 - (void)setTextFieldsForKeyboard:(NSArray *)fields {
