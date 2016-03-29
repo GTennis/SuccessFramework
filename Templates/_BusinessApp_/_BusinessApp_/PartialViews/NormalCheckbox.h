@@ -29,16 +29,17 @@
 
 @protocol NormalCheckboxProtocol <NSObject>
 
-- (void)normalCheckbox:(NormalCheckbox *)normalCheckbox didSelectWithContext:(id)context;
+- (void)normalCheckbox:(NormalCheckbox *)normalCheckbox didSelectValue:(id)value;
 
 @end
 
 @interface NormalCheckbox : UIButton
 
 @property (nonatomic) BOOL isOn;
-@property (nonatomic, strong) id context;
 @property (nonatomic, weak) id<NormalCheckboxProtocol> delegate;
 
-- (instancetype)initWithTitle:(NSString *)title titleColor:(UIColor *)titleColor selectedTitleColor:(UIColor *)selectedTitleColor context:(id)context;
+@property (readonly) BOOL isIconOnLeftSide;
+@property (readonly) UIColor *titleColor;
+@property (readonly) UIColor *selectedTitleColor;
 
 @end

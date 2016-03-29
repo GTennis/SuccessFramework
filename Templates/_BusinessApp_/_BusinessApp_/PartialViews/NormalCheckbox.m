@@ -29,28 +29,17 @@
 
 @interface NormalCheckbox () {
     
-    NSString *_title;
-    UIColor *_titleColor;
-    UIColor *_selectedTitleColor;
 }
 
 @end
 
 @implementation NormalCheckbox
 
-- (instancetype)initWithTitle:(NSString *)title titleColor:(UIColor *)titleColor selectedTitleColor:(UIColor *)selectedTitleColor context:(id)context {
+- (void)awakeFromNib {
     
-    self = [super init];
-    if (self) {
-        
-        _context = context;
-        _title = title;
-        _titleColor = titleColor;
-        _selectedTitleColor = selectedTitleColor;
-        
-        [self commonInit];
-    }
-    return self;
+    [super awakeFromNib];
+    
+    [self commonInit];
 }
 
 - (void)setIsOn:(BOOL)isOn {
@@ -60,25 +49,48 @@
     [self setIconWithState:isOn];
 }
 
+- (void)setIsIconOnLeftSide:(BOOL)isIconOnLeftSide {
+    
+    if (!isIconOnLeftSide) {
+        
+        [self moveImageToRightSide];
+    }
+}
+
 #pragma mark - Protected -
 
 - (void)commonInit {
     
+    //self.titleLabel.textAlignment = NSTextAlignmentLeft;
+    self.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
+    
     [self setIconWithState:_isOn];
+    
+    [self setIsIconOnLeftSide:self.isIconOnLeftSide];
     
     [self addTarget:self action:@selector(buttonPressed) forControlEvents:UIControlEventTouchUpInside];
     
-    if (_title) {
-        
-        [self setTitle:_title forState:UIControlStateNormal];
-        
-        self.titleEdgeInsets = UIEdgeInsetsMake(0, 10.0f, 0, 0);
-    }
+    [self setTitleColor:self.titleColor forState:UIControlStateNormal];
+}
+
+- (BOOL)isIconOnLeftSide {
     
-    if (_titleColor) {
-        
-        [self setTitleColor:_titleColor forState:UIControlStateNormal];
-    }
+    return NO;
+}
+
+- (UIColor *)titleColor {
+    
+    return kColorBlue;
+}
+
+- (UIColor *)selectedTitleColor {
+    
+    return kColorGreen;
+}
+
+- (UIEdgeInsets)titleEdgeInsets {
+    
+    return UIEdgeInsetsMake(3.0f, 5.0f, 0, 0);
 }
 
 #pragma mark - Private -
@@ -89,41 +101,31 @@
     
     if (isOn) {
         
-        image = [UIImage imageNamed:@"iconCheckboxSelected"];
+        image = [UIImage imageNamed:@"iconCheckboxOn"];
         
-        if (_selectedTitleColor) {
-            
-            [self setTitleColor:_selectedTitleColor forState:UIControlStateNormal];
-        }
+        [self setTitleColor:self.selectedTitleColor forState:UIControlStateNormal];
         
     } else {
         
-        image = [UIImage imageNamed:@"iconCheckboxNotSelected"];
+        image = [UIImage imageNamed:@"iconCheckboxOff"];
         
-        if (_titleColor) {
-            
-            [self setTitleColor:_titleColor forState:UIControlStateNormal];
-        }
+        [self setTitleColor:self.titleColor forState:UIControlStateNormal];
     }
     
     [self setImage:image forState:UIControlStateNormal];
+    //[self setBackgroundImage:image forState:UIControlStateNormal];
 }
 
 - (void)buttonPressed {
     
     self.isOn = !self.isOn;
     
-    [_delegate normalCheckbox:self didSelectWithContext:_context];
+    [_delegate normalCheckbox:self didSelectValue:@(_isOn)];
 }
 
-// http://stackoverflow.com/a/17806333/597292
-- (CGSize)intrinsicContentSize {
+- (void)moveImageToRightSide {
     
-    CGSize s = [super intrinsicContentSize];
-    
-    return CGSizeMake(s.width + self.titleEdgeInsets.left + self.titleEdgeInsets.right,
-                      s.height + self.titleEdgeInsets.top + self.titleEdgeInsets.bottom);
-    
+    // TODO...
 }
 
 @end
