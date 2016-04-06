@@ -29,4 +29,6 @@
 
 @interface ButtonWithIconOnRight : UIButton
 
+@property (nonatomic) BOOL isSelectionDisabled;
+
 @end

@@ -29,6 +29,8 @@
 
 @implementation ButtonWithIconOnRight
 
+#pragma mark - Protected -
+
 - (void)awakeFromNib {
     
     [super awakeFromNib];
@@ -36,13 +38,15 @@
     self.titleLabel.font = [UIFont fontWithName:self.titleLabel.font.fontName size:18.0f];
     [self setTitleColor:kColorBlue forState:UIControlStateNormal];
     self.fontType = kFontNormalType;
-
+    
     // Used from: http://stackoverflow.com/a/22621613/597292
-    [self moveImageToRightSide];
+    //[self moveImageToRightSide];
     
     [self setEnabled:self.isEnabled];
     
     self.titleLabel.lineBreakMode = NSLineBreakByWordWrapping;
+    
+    [self addTarget:self action:@selector(buttonTapped:) forControlEvents:UIControlEventTouchUpInside];
 }
 
 - (void)setEnabled:(BOOL)enabled {
@@ -57,6 +61,14 @@
         
         [self setTitleColor:kColorGray forState:UIControlStateNormal];
     }
+}
+
+- (void)setTitle:(NSString *)title forState:(UIControlState)state {
+    
+    [super setTitle:title forState:state];
+    
+    // Used from: http://stackoverflow.com/a/22621613/597292
+    [self moveImageToRightSide];
 }
 
 // http://stackoverflow.com/a/25277016/597292
@@ -78,4 +90,29 @@
                                             -titleWidth + self.imageEdgeInsets.right - gapWidth);
 }
 
+- (void)setSelected:(BOOL)selected {
+    
+    [super setSelected:selected];
+    
+    if (_isSelectionDisabled) {
+        
+        return;
+    }
+    
+    if (selected) {
+        
+        self.backgroundColor = kColorGrayLight2;
+        
+    } else {
+        
+        self.backgroundColor = [UIColor clearColor];
+    }
+}
+
+- (void)buttonTapped:(id)sender {
+    
+    [self setSelected:YES];
+}
+
 @end
+
