@@ -28,6 +28,7 @@
 		0F51DD701C4830BA00F4A542 /* TableViewSectionsObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F51DD6C1C4830BA00F4A542 /* TableViewSectionsObject.m */; };
 		0F51DD711C4830BA00F4A542 /* TableViewSortRuleObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F51DD6E1C4830BA00F4A542 /* TableViewSortRuleObject.m */; };
 		0F57AE181BED398B0095D463 /* ConnectionStatusLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F57AE171BED398B0095D463 /* ConnectionStatusLabel.m */; };
+		0F67B68F1CC035AB0083DEEE /* SFSearchBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F67B68E1CC035AB0083DEEE /* SFSearchBar.m */; };
 		0F70DF2E1AFFC47E004293F1 /* TopNavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F70DF2D1AFFC47E004293F1 /* TopNavigationBar.m */; };
 		0F70DF311AFFC4C5004293F1 /* TopNavigationBar_iphone.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F70DF301AFFC4C5004293F1 /* TopNavigationBar_iphone.m */; };
 		0F70DF331AFFC4D8004293F1 /* TopNavigationBar_iphone.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0F70DF321AFFC4D8004293F1 /* TopNavigationBar_iphone.xib */; };
@@ -292,6 +293,8 @@
 		0F57AE171BED398B0095D463 /* ConnectionStatusLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConnectionStatusLabel.m; sourceTree = "<group>"; };
 		0F661BDA1C99F1AB000FFF4D /* CustomLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomLabel.h; sourceTree = "<group>"; };
 		0F661BDB1C99F4A4000FFF4D /* CustomButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomButton.h; sourceTree = "<group>"; };
+		0F67B68D1CC035AB0083DEEE /* SFSearchBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SFSearchBar.h; sourceTree = "<group>"; };
+		0F67B68E1CC035AB0083DEEE /* SFSearchBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SFSearchBar.m; sourceTree = "<group>"; };
 		0F70DF2C1AFFC47E004293F1 /* TopNavigationBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TopNavigationBar.h; sourceTree = "<group>"; };
 		0F70DF2D1AFFC47E004293F1 /* TopNavigationBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TopNavigationBar.m; sourceTree = "<group>"; };
 		0F70DF2F1AFFC4C5004293F1 /* TopNavigationBar_iphone.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TopNavigationBar_iphone.h; sourceTree = "<group>"; };
@@ -837,6 +840,15 @@
 			path = ConnectivityLabels;
 			sourceTree = "<group>";
 		};
+		0F67B68C1CC035680083DEEE /* SearchBar */ = {
+			isa = PBXGroup;
+			children = (
+				0F67B68D1CC035AB0083DEEE /* SFSearchBar.h */,
+				0F67B68E1CC035AB0083DEEE /* SFSearchBar.m */,
+			);
+			path = SearchBar;
+			sourceTree = "<group>";
+		};
 		0F70DF391AFFC54A004293F1 /* Base */ = {
 			isa = PBXGroup;
 			children = (
@@ -1229,6 +1241,7 @@
 		0FA695D219BB9AAE0058A722 /* PartialViews */ = {
 			isa = PBXGroup;
 			children = (
+				0F67B68C1CC035680083DEEE /* SearchBar */,
 				0F57AE151BED39680095D463 /* ConnectivityLabels */,
 				0FE1CB461AF675FA006769FE /* Keyboard */,
 				0FE1CB291AF66A37006769FE /* TextFields */,
@@ -2708,6 +2721,7 @@
 				0FC4D16C1AFBE11500CF4C24 /* MenuViewController_ipad.m in Sources */,
 				0FBFDF5E1B13A84E00FA4EFD /* TableViewExampleViewController_iphone.m in Sources */,
 				0FC47F251B126ED3007A7E8D /* PhotoDetailsModel.m in Sources */,
+				0F67B68F1CC035AB0083DEEE /* SFSearchBar.m in Sources */,
 				0FE1CB331AF66BAD006769FE /* PasswordTextField.m in Sources */,
 				0FE1CB281AF669BC006769FE /* BaseLabel.m in Sources */,
 				0FC719DF1AF9331A00912FF1 /* UserLoginModel.m in Sources */,
