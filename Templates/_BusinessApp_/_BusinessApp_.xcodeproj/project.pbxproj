@@ -80,6 +80,11 @@
 		0FA695E919BB9BF10058A722 /* CALayer+Border.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FA695E819BB9BF10058A722 /* CALayer+Border.m */; };
 		0FA695EC19BB9C040058A722 /* UIView+Autolayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FA695EB19BB9C040058A722 /* UIView+Autolayout.m */; };
 		0FA695F919BB9CCD0058A722 /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FA695F819BB9CCD0058A722 /* BaseViewController.m */; };
+		0FA786631CC55BC200DEFF1D /* MapsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FA786621CC55BC200DEFF1D /* MapsViewController.m */; };
+		0FA786671CC55BD600DEFF1D /* MapsViewController_iphone.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FA786651CC55BD600DEFF1D /* MapsViewController_iphone.m */; };
+		0FA786681CC55BD600DEFF1D /* MapsViewController_iphone.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0FA786661CC55BD600DEFF1D /* MapsViewController_iphone.xib */; };
+		0FA7866D1CC55C8E00DEFF1D /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0FA7866C1CC55C8E00DEFF1D /* CoreLocation.framework */; };
+		0FA786711CC55FFD00DEFF1D /* MapsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FA786701CC55FFD00DEFF1D /* MapsModel.m */; };
 		0FA839BB19BC58C20037B5F3 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FA839B919BC58C20037B5F3 /* HomeViewController.m */; };
 		0FA839C119BC5DF40037B5F3 /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FA839BF19BC5DF40037B5F3 /* SettingsViewController.m */; };
 		0FA839D519BCD8470037B5F3 /* CustomImages.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0FA839D419BCD8470037B5F3 /* CustomImages.xcassets */; };
@@ -381,6 +386,15 @@
 		0FA695EB19BB9C040058A722 /* UIView+Autolayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Autolayout.m"; sourceTree = "<group>"; };
 		0FA695F719BB9CCD0058A722 /* BaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseViewController.h; sourceTree = "<group>"; };
 		0FA695F819BB9CCD0058A722 /* BaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseViewController.m; sourceTree = "<group>"; };
+		0FA786611CC55BC200DEFF1D /* MapsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapsViewController.h; sourceTree = "<group>"; };
+		0FA786621CC55BC200DEFF1D /* MapsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapsViewController.m; sourceTree = "<group>"; };
+		0FA786641CC55BD600DEFF1D /* MapsViewController_iphone.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapsViewController_iphone.h; sourceTree = "<group>"; };
+		0FA786651CC55BD600DEFF1D /* MapsViewController_iphone.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapsViewController_iphone.m; sourceTree = "<group>"; };
+		0FA786661CC55BD600DEFF1D /* MapsViewController_iphone.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MapsViewController_iphone.xib; sourceTree = "<group>"; };
+		0FA7866C1CC55C8E00DEFF1D /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		0FA7866E1CC55CDB00DEFF1D /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		0FA7866F1CC55FFD00DEFF1D /* MapsModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapsModel.h; sourceTree = "<group>"; };
+		0FA786701CC55FFD00DEFF1D /* MapsModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapsModel.m; sourceTree = "<group>"; };
 		0FA839B819BC58C20037B5F3 /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
 		0FA839B919BC58C20037B5F3 /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
 		0FA839BE19BC5DF40037B5F3 /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
@@ -714,6 +728,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0FA7866D1CC55C8E00DEFF1D /* CoreLocation.framework in Frameworks */,
 				0FA6959B19BB9A720058A722 /* CoreGraphics.framework in Frameworks */,
 				0FA6959D19BB9A720058A722 /* UIKit.framework in Frameworks */,
 				0FA6959919BB9A720058A722 /* Foundation.framework in Frameworks */,
@@ -1138,6 +1153,7 @@
 		0FA6959719BB9A720058A722 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				0FA7866C1CC55C8E00DEFF1D /* CoreLocation.framework */,
 				0FA6959819BB9A720058A722 /* Foundation.framework */,
 				0FA6959A19BB9A720058A722 /* CoreGraphics.framework */,
 				0FA6959C19BB9A720058A722 /* UIKit.framework */,
@@ -1291,6 +1307,7 @@
 		0FA695D919BB9B0F0058A722 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				0FA7865D1CC55B2600DEFF1D /* Maps */,
 				0FC719BD1AF925D600912FF1 /* Walkthrough */,
 				0FE1CB421AF674A1006769FE /* Menu */,
 				0FE1CA8F1AF63369006769FE /* User */,
@@ -1358,6 +1375,44 @@
 				0F1B343F1C0E27E7009B55D1 /* UIAlertController+Window.m */,
 			);
 			path = Categories;
+			sourceTree = "<group>";
+		};
+		0FA7865D1CC55B2600DEFF1D /* Maps */ = {
+			isa = PBXGroup;
+			children = (
+				0FA786601CC55B4000DEFF1D /* Base */,
+				0FA7865F1CC55B3900DEFF1D /* iphone */,
+				0FA7865E1CC55B3500DEFF1D /* ipad */,
+			);
+			path = Maps;
+			sourceTree = "<group>";
+		};
+		0FA7865E1CC55B3500DEFF1D /* ipad */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = ipad;
+			sourceTree = "<group>";
+		};
+		0FA7865F1CC55B3900DEFF1D /* iphone */ = {
+			isa = PBXGroup;
+			children = (
+				0FA786641CC55BD600DEFF1D /* MapsViewController_iphone.h */,
+				0FA786651CC55BD600DEFF1D /* MapsViewController_iphone.m */,
+				0FA786661CC55BD600DEFF1D /* MapsViewController_iphone.xib */,
+			);
+			name = iphone;
+			sourceTree = "<group>";
+		};
+		0FA786601CC55B4000DEFF1D /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				0FA7866F1CC55FFD00DEFF1D /* MapsModel.h */,
+				0FA786701CC55FFD00DEFF1D /* MapsModel.m */,
+				0FA786611CC55BC200DEFF1D /* MapsViewController.h */,
+				0FA786621CC55BC200DEFF1D /* MapsViewController.m */,
+			);
+			name = Base;
 			sourceTree = "<group>";
 		};
 		0FA839B719BC58AB0037B5F3 /* Home */ = {
@@ -2568,6 +2623,7 @@
 				0F70DF331AFFC4D8004293F1 /* TopNavigationBar_iphone.xib in Resources */,
 				0F7A85411AFFF64B00A2F6C4 /* TermsConditionsViewController_iphone.xib in Resources */,
 				0FA695B419BB9A720058A722 /* SystemImages.xcassets in Resources */,
+				0FA786681CC55BD600DEFF1D /* MapsViewController_iphone.xib in Resources */,
 				0FABA6FC19CAFDC400CC7DD3 /* ContactsViewController_iphone.xib in Resources */,
 				0F184B141BF7C56B0024B367 /* PrivacyPolicyViewController_iphone.xib in Resources */,
 				0FC4D1681AFBE0CA00CF4C24 /* MenuViewController_iphone.xib in Resources */,
@@ -2681,8 +2737,10 @@
 				0F7A85391AFFEDF800A2F6C4 /* HomeListItemView_iphone.m in Sources */,
 				31CB859B1B15F9D900F827F7 /* UserSignUpViewController_iphone.m in Sources */,
 				31CB85501B15BFB800F827F7 /* WalkthroughViewController.m in Sources */,
+				0FA786711CC55FFD00DEFF1D /* MapsModel.m in Sources */,
 				311367AF1B8DCBFD0013EB27 /* ImageListNetworkOperation.m in Sources */,
 				0FA62C6A19CF0CF6002D3DDC /* UIView+Fonts.m in Sources */,
+				0FA786631CC55BC200DEFF1D /* MapsViewController.m in Sources */,
 				0F7A85401AFFF64B00A2F6C4 /* TermsConditionsViewController_iphone.m in Sources */,
 				0FE1CB451AF674CB006769FE /* MenuViewController.m in Sources */,
 				31CB85361B14B55600F827F7 /* CountryPickerViewController_ipad.m in Sources */,
@@ -2750,6 +2808,7 @@
 				31CB852B1B14B50E00F827F7 /* CountryPickerViewController.m in Sources */,
 				0FABA70D19CB07A600CC7DD3 /* UISynchedWebView.m in Sources */,
 				0FA3FA0319C77794001FC84F /* TableViewExampleViewController_ipad.m in Sources */,
+				0FA786671CC55BD600DEFF1D /* MapsViewController_iphone.m in Sources */,
 				0FED43561CA4D96B008FAD90 /* ButtonWithIconOnRight.m in Sources */,
 				0F1CAB191C03B598004D6EE0 /* UserLoginNetworkOperation+Demo.m in Sources */,
 				0FC47F1C1B126E95007A7E8D /* PhotoDetailsViewController_iphone.m in Sources */,
@@ -2873,6 +2932,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				0FA695A219BB9A720058A722 /* en */,
+				0FA7866E1CC55CDB00DEFF1D /* de */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";

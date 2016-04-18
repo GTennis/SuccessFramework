@@ -29,4 +29,8 @@
 
 @interface SFSearchBar : UISearchBar
 
+#pragma mark - Public -
+
+@property (nonatomic) BOOL isCancelShown;
+
 @end

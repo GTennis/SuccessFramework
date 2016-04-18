@@ -27,6 +27,14 @@
 
 #import "ButtonWithIconOnRight.h"
 
+@interface ButtonWithIconOnRight () {
+    
+    UIEdgeInsets _initialTitleEdgeInsets;
+    UIEdgeInsets _initialImageEdgeInsets;
+}
+
+@end
+
 @implementation ButtonWithIconOnRight
 
 #pragma mark - Protected -
@@ -47,6 +55,9 @@
     self.titleLabel.lineBreakMode = NSLineBreakByWordWrapping;
     
     [self addTarget:self action:@selector(buttonTapped:) forControlEvents:UIControlEventTouchUpInside];
+    
+    _initialTitleEdgeInsets = self.titleEdgeInsets;
+    _initialImageEdgeInsets = self.imageEdgeInsets;
 }
 
 - (void)setEnabled:(BOOL)enabled {
@@ -74,6 +85,11 @@
 // http://stackoverflow.com/a/25277016/597292
 - (void)moveImageToRightSide {
     
+    // Reset
+    self.titleEdgeInsets = _initialTitleEdgeInsets;
+    self.imageEdgeInsets = _initialImageEdgeInsets;
+    
+    // Do the stuff
     [self sizeToFit];
     
     CGFloat titleWidth = self.titleLabel.frame.size.width;

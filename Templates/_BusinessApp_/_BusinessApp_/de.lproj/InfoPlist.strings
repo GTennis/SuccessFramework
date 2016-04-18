@@ -1,2 +1,1 @@
-/* Localized versions of Info.plist keys */
-
+"NSLocationWhenInUseUsageDescription" = "Wenn Sie Ihren Standort-Dienst aktivieren, werden Sie Ihren aktuellen Standort leichter";

@@ -1,2 +1,1 @@
-/* Localized versions of Info.plist keys */
-
+"NSLocationWhenInUseUsageDescription" = "If you enable your location service, you will see your current location more easily";

@@ -78,6 +78,10 @@
 #import "ContactsViewController.h"
 #import "ContactsModel.h"
 
+// Maps
+#import "MapsViewController.h"
+#import "MapsModel.h"
+
 // Legal
 #import "TermsConditionsViewController.h"
 #import "TermsConditionsModel.h"
@@ -238,6 +242,17 @@
     ContactsViewController *viewController = (ContactsViewController *)[self viewControllerWithClass:[ContactsViewController class] context:context model:model];
     model.delegate = viewController;
 
+    return viewController;
+}
+
+#pragma mark Maps
+
+- (MapsViewController *)mapsViewControllerWithContext:(id)context {
+    
+    MapsModel *model = (MapsModel *)[self modelWithClass:[MapsModel class] context:context];
+    MapsViewController *viewController = (MapsViewController *)[self viewControllerWithClass:[MapsViewController class] context:context model:model];
+    model.delegate = viewController;
+    
     return viewController;
 }
 

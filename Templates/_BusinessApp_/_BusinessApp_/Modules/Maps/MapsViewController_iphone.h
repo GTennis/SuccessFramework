@@ -1,9 +1,9 @@
 //
-//  MenuModel.h
+//  MapsViewController_iphone.h
 //  _BusinessApp_
 //
-//  Created by Gytenis Mikulėnas on 5/16/14.
-//  Copyright (c) 2015 Gytenis Mikulėnas
+//  Created by Gytenis Mikulenas on 18/04/16.
+//  Copyright © 2016 Gytenis Mikulėnas 
 //  https://github.com/GitTennis/SuccessFramework
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -25,27 +25,8 @@
 //  SOFTWARE. All rights reserved.
 //
 
-#import "BaseModel.h"
-#import "UserManagerObserver.h"
+#import "MapsViewController.h"
 
-#define kMenuModelMenuItemMapKey @"MenuItemHome"
-#define kMenuModelMenuItemSettingsKey @"MenuItemSettings"
-#define kMenuModelMenuItemTermsConditionsKey @"MenuItemTermsConditions"
-#define kMenuModelMenuItemPrivacyPolicyKey @"MenuItemPrivacyPolicy"
-#define kMenuModelMenuItemLoginKey @"MenuItemLogin"
-#define kMenuModelMenuItemLogoutKey @"MenuItemLogout"
-#define kMenuModelMenuItemLogoutConfirmationMessageKey @"MenuItemLogoutConfirmationMessage"
-#define kMenuModelMenuItemTableViewExampleKey @"MenuItemTableViewExample"
-#define kMenuModelMenuItemTableViewWithSearchKey @"MenuItemTableViewWithSearch"
-#define kMenuModelMenuItemMapWithSearchKey @"MenuItemMapWithSearch"
-
-@interface MenuModel : BaseModel <UserManagerObserver>
-
-#pragma mark - Public -
-
-@property (nonatomic, strong) NSArray *menuItems;
-@property (readonly) BOOL isUserLoggedIn;
-
-- (void)logoutUser;
+@interface MapsViewController_iphone : MapsViewController
 
 @end

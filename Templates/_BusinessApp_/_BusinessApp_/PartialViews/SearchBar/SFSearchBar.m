@@ -69,6 +69,13 @@
     }
 }
 
+- (void)setText:(NSString *)text {
+    
+    [super setText:text];
+    
+    [self setIsShownCustomSearchIcon:NO];
+}
+
 #pragma mark - Protected -
 
 #pragma mark Override
@@ -82,7 +89,7 @@
     self.backgroundImage = [[UIImage alloc] init];
     
     // Customize cancel color
-    [[UIBarButtonItem appearanceWhenContainedIn:[UISearchBar class], nil] setTintColor:kColorBlue];
+    [[UIBarButtonItem appearanceWhenContainedIn:[UISearchBar class], nil] setTintColor:kColorGreen];
     
     UIImage *searchBarIconImage = [UIImage imageNamed:@"iconSearchBar"];
     _customSearchIconImageView = [[UIImageView alloc] initWithImage:searchBarIconImage];
@@ -105,8 +112,8 @@
     // Change search bar icon
     //[_searchBar setImage:customSearcBarIconImage forSearchBarIcon:UISearchBarIconSearch state:UIControlStateNormal];
     
-    [[UITextField appearanceWhenContainedIn:[self class], nil] setTextColor:kColorBlue];
-    [[UITextField appearanceWhenContainedIn:[self class], nil] setBackgroundColor:kColorGrayLight];
+    [[UITextField appearanceWhenContainedIn:[self class], nil] setTextColor:kColorGreen];
+    [[UITextField appearanceWhenContainedIn:[self class], nil] setBackgroundColor:kColorGrayLight2];
 }
 
 #pragma mark - Private -
@@ -128,7 +135,11 @@
 - (void)searchBarTextDidBeginEditing:(UISearchBar *)searchBar {
     
     [self setIsShownCustomSearchIcon:NO];
-    [self setShowsCancelButton:YES animated:YES];
+    
+    if (_isCancelShown) {
+        
+        [self setShowsCancelButton:YES animated:YES];
+    }
     
     if ([_externalDelegate respondsToSelector:@selector(searchBarTextDidBeginEditing:)]) {
         
@@ -158,8 +169,6 @@
     }
     
     [self setShowsCancelButton:NO animated:YES];
-    
-    [self endEditing:YES];
     
     if ([_externalDelegate respondsToSelector:@selector(searchBarTextDidEndEditing:)]) {
         

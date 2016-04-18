@@ -1,9 +1,9 @@
 //
-//  MenuModel.h
+//  MapsViewController.h
 //  _BusinessApp_
 //
-//  Created by Gytenis Mikulėnas on 5/16/14.
-//  Copyright (c) 2015 Gytenis Mikulėnas
+//  Created by Gytenis Mikulenas on 18/04/16.
+//  Copyright © 2016 Gytenis Mikulėnas 
 //  https://github.com/GitTennis/SuccessFramework
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -25,27 +25,24 @@
 //  SOFTWARE. All rights reserved.
 //
 
-#import "BaseModel.h"
-#import "UserManagerObserver.h"
+#import "BaseViewController.h"
+#import "MapsModel.h"
+#import "SFSearchBar.h"
+#import <MapKit/MapKit.h>
+#import <CoreLocation/CoreLocation.h>
 
-#define kMenuModelMenuItemMapKey @"MenuItemHome"
-#define kMenuModelMenuItemSettingsKey @"MenuItemSettings"
-#define kMenuModelMenuItemTermsConditionsKey @"MenuItemTermsConditions"
-#define kMenuModelMenuItemPrivacyPolicyKey @"MenuItemPrivacyPolicy"
-#define kMenuModelMenuItemLoginKey @"MenuItemLogin"
-#define kMenuModelMenuItemLogoutKey @"MenuItemLogout"
-#define kMenuModelMenuItemLogoutConfirmationMessageKey @"MenuItemLogoutConfirmationMessage"
-#define kMenuModelMenuItemTableViewExampleKey @"MenuItemTableViewExample"
-#define kMenuModelMenuItemTableViewWithSearchKey @"MenuItemTableViewWithSearch"
-#define kMenuModelMenuItemMapWithSearchKey @"MenuItemMapWithSearch"
+#define kMapViewControllerLocationServicesDisabledMessage @"Error_Message_LocationServicesDisabled"
 
-@interface MenuModel : BaseModel <UserManagerObserver>
+@interface MapsViewController : BaseViewController <UISearchBarDelegate, UITableViewDataSource, UITableViewDelegate, MKMapViewDelegate, CLLocationManagerDelegate>
 
 #pragma mark - Public -
 
-@property (nonatomic, strong) NSArray *menuItems;
-@property (readonly) BOOL isUserLoggedIn;
+@property (nonatomic, strong) MapsModel *model;
 
-- (void)logoutUser;
+@property (weak, nonatomic) IBOutlet MKMapView *mapView;
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (weak, nonatomic) IBOutlet SFSearchBar *searchBar;
+
+@property (strong, nonatomic) CLGeocoder *geocoder;
 
 @end

@@ -41,6 +41,7 @@
 #define kAnalyticsManagerScreenUserForgotPassword @"UserForgotPassword"
 #define kAnalyticsManagerScreenUserProfile @"UserProfile"
 #define kAnalyticsManagerScreenSettings @"Settings"
+#define kAnalyticsManagerScreenMap @"Map"
 
 // Define events and other custom things here ...
 // ...

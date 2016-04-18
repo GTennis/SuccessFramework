@@ -45,6 +45,7 @@
 @class TableWithSearchViewController;
 @class PhotoDetailsViewController;
 
+@class MapsViewController;
 @class ConsoleLogViewController;
 
 @protocol ViewControllerFactoryProtocol <NSObject>
@@ -82,6 +83,9 @@
 
 // Country picker
 - (CountryPickerViewController *)countryPickerViewControllerWithDelegate:(id<CountryPickerViewControllerDelegate>)delegate context:(id)context;
+
+// Maps
+- (MapsViewController *)mapsViewControllerWithContext:(id)context;
 
 // Demo
 - (TableViewExampleViewController *)tableViewExampleViewControllerWithContext:(id)context;

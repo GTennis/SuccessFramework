@@ -10,6 +10,7 @@
 "MenuItemLogoutConfirmationMessage" = "Sind Sie sicher, dass Sie sich ausloggen?";
 "MenuItemTableViewExample" = "Tableview beispiels";
 "MenuItemTableViewWithSearch" = "TableView mit Suchfunktion";
+"MenuItemMapWithSearch" = "Karte mit Suchfunktion";
 
 //-------------- Home -------------//
 
@@ -83,3 +84,5 @@
 
 //-------------- Errors -------------//
 "Server5xxErrorMessage" = "Server ist überlastet. Versuchen Sie es später noch einmal";
+"AppHasBadData" = "Oh, das war unerwartet... Bei Deiner letzten Aktion haben wir beschädigte Daten erhalten. Wir würden das Problem wirklich gern so schnell wie möglich für Dich und alle anderen Nutzer beheben. Bitte senden Sie uns eine E-Mail!";
+"Error_Message_LocationServicesDisabled" = "Deine Standortfunktion scheint für diese App deaktiviert zu sein. Bitte geh in die Einstellungen und aktiviere diese Funktion, um Deinen Standort in der App anzuzeigen";

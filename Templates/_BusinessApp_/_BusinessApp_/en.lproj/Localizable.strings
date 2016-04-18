@@ -10,6 +10,7 @@
 "MenuItemLogoutConfirmationMessage" = "Are you sure you want to logout?";
 "MenuItemTableViewExample" = "TableView example";
 "MenuItemTableViewWithSearch" = "TableView with search";
+"MenuItemMapWithSearch" = "Map with search";
 
 //-------------- Home -------------//
 
@@ -82,3 +83,5 @@
 
 //-------------- Errors -------------//
 "Server5xxErrorMessage" = "Server is too busy. Try again later";
+"AppHasBadData" = "Oh, that was unexpected... We have received some corrupted data with your last interaction and would really like to fix this problem for you and anyone else as soon as possible. Please send us an email!";
+"Error_Message_LocationServicesDisabled" = "Your location services seem to be disabled for this app. Please go to your settings and enable this function to see your location on the map";

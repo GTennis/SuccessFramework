@@ -1,9 +1,9 @@
 //
-//  MenuModel.h
+//  MapsViewController_iphone.m
 //  _BusinessApp_
 //
-//  Created by Gytenis Mikulėnas on 5/16/14.
-//  Copyright (c) 2015 Gytenis Mikulėnas
+//  Created by Gytenis Mikulenas on 18/04/16.
+//  Copyright © 2016 Gytenis Mikulėnas 
 //  https://github.com/GitTennis/SuccessFramework
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -25,27 +25,32 @@
 //  SOFTWARE. All rights reserved.
 //
 
-#import "BaseModel.h"
-#import "UserManagerObserver.h"
+#import "MapsViewController_iphone.h"
 
-#define kMenuModelMenuItemMapKey @"MenuItemHome"
-#define kMenuModelMenuItemSettingsKey @"MenuItemSettings"
-#define kMenuModelMenuItemTermsConditionsKey @"MenuItemTermsConditions"
-#define kMenuModelMenuItemPrivacyPolicyKey @"MenuItemPrivacyPolicy"
-#define kMenuModelMenuItemLoginKey @"MenuItemLogin"
-#define kMenuModelMenuItemLogoutKey @"MenuItemLogout"
-#define kMenuModelMenuItemLogoutConfirmationMessageKey @"MenuItemLogoutConfirmationMessage"
-#define kMenuModelMenuItemTableViewExampleKey @"MenuItemTableViewExample"
-#define kMenuModelMenuItemTableViewWithSearchKey @"MenuItemTableViewWithSearch"
-#define kMenuModelMenuItemMapWithSearchKey @"MenuItemMapWithSearch"
+@interface MapsViewController_iphone ()
 
-@interface MenuModel : BaseModel <UserManagerObserver>
+@end
 
-#pragma mark - Public -
+@implementation MapsViewController_iphone
 
-@property (nonatomic, strong) NSArray *menuItems;
-@property (readonly) BOOL isUserLoggedIn;
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    // Do any additional setup after loading the view from its nib.
+}
 
-- (void)logoutUser;
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
+
+/*
+#pragma mark - Navigation
+
+// In a storyboard-based application, you will often want to do a little preparation before navigation
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    // Get the new view controller using [segue destinationViewController].
+    // Pass the selected object to the new view controller.
+}
+*/
 
 @end
