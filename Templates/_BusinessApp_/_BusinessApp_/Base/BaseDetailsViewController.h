@@ -36,6 +36,7 @@
 
 // Use this property in form / text field based screens
 @property (nonatomic, weak) IBOutlet UIScrollView *contentScrollView;
+@property (nonatomic, weak) IBOutlet UITableView *contentTableView;
 
 #pragma mark - Protected -
 

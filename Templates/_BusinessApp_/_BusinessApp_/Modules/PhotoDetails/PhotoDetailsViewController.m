@@ -71,7 +71,7 @@
     [super renderUI];
     
     // Download image
-    [ImageDownloader downloadImageWithUrl:_model.image.imageUrl forImageView:_imageView loadingPlaceholder:kContentPlaceholderImage failedPlaceholder:kContentPlaceholderImage activityIndicatorView:_imageActivityIndicatorView];
+    [ImageDownloader downloadImageWithUrl:_model.image.urlString forImageView:_imageView loadingPlaceholder:kContentPlaceholderImage failedPlaceholder:kContentPlaceholderImage activityIndicatorView:_imageActivityIndicatorView];
 }
 
 - (void)loadModel {

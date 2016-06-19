@@ -58,6 +58,7 @@
 		0FA3FA1E19C78840001FC84F /* SocialManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FA3FA1D19C78840001FC84F /* SocialManager.m */; };
 		0FA4980A19DA164F0057D9F4 /* BaseDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FA4980919DA164F0057D9F4 /* BaseDetailsViewController.m */; };
 		0FA4E8ED19CD5D950046CA90 /* TableViewExampleCell_ipad.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FA4E8EC19CD5D950046CA90 /* TableViewExampleCell_ipad.m */; };
+		0FA5DF951D16AA3900F8CE97 /* ImageUploadNetworkOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FA5DF941D16AA3900F8CE97 /* ImageUploadNetworkOperation.m */; };
 		0FA62C6A19CF0CF6002D3DDC /* UIView+Fonts.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FA62C6919CF0CF6002D3DDC /* UIView+Fonts.m */; };
 		0FA62C7719CF5DE6002D3DDC /* NSObject+Selectors.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FA62C7619CF5DE6002D3DDC /* NSObject+Selectors.m */; };
 		0FA62C7A19CF6D17002D3DDC /* HomeModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FA62C7919CF6D17002D3DDC /* HomeModel.m */; };
@@ -350,6 +351,8 @@
 		0FA4980919DA164F0057D9F4 /* BaseDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseDetailsViewController.m; sourceTree = "<group>"; };
 		0FA4E8EB19CD5D950046CA90 /* TableViewExampleCell_ipad.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableViewExampleCell_ipad.h; sourceTree = "<group>"; };
 		0FA4E8EC19CD5D950046CA90 /* TableViewExampleCell_ipad.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableViewExampleCell_ipad.m; sourceTree = "<group>"; };
+		0FA5DF931D16AA3900F8CE97 /* ImageUploadNetworkOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageUploadNetworkOperation.h; sourceTree = "<group>"; };
+		0FA5DF941D16AA3900F8CE97 /* ImageUploadNetworkOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageUploadNetworkOperation.m; sourceTree = "<group>"; };
 		0FA62C6819CF0CF6002D3DDC /* UIView+Fonts.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Fonts.h"; sourceTree = "<group>"; };
 		0FA62C6919CF0CF6002D3DDC /* UIView+Fonts.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Fonts.m"; sourceTree = "<group>"; };
 		0FA62C7519CF5DE6002D3DDC /* NSObject+Selectors.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+Selectors.h"; sourceTree = "<group>"; };
@@ -2256,6 +2259,8 @@
 			children = (
 				31CA63A01B34802C002CC8D6 /* ImageDownloader.h */,
 				31CA63A11B34802C002CC8D6 /* ImageDownloader.m */,
+				0FA5DF931D16AA3900F8CE97 /* ImageUploadNetworkOperation.h */,
+				0FA5DF941D16AA3900F8CE97 /* ImageUploadNetworkOperation.m */,
 			);
 			path = Images;
 			sourceTree = "<group>";
@@ -2820,6 +2825,7 @@
 				31CB856C1B15F11200F827F7 /* UserContainerViewController_ipad.m in Sources */,
 				31CB9EEE1B175ED50012F1F4 /* TopModalNavigationBar_iphone.m in Sources */,
 				0F7A85451AFFF65E00A2F6C4 /* TermsConditionsViewController_ipad.m in Sources */,
+				0FA5DF951D16AA3900F8CE97 /* ImageUploadNetworkOperation.m in Sources */,
 				0F1CA5801C01F28700614076 /* NormalCheckbox.m in Sources */,
 				0FC979741C14D32500923810 /* TableWithSearchViewController_ipad.m in Sources */,
 				0FC719F01AF933BA00912FF1 /* SettingsModel.m in Sources */,

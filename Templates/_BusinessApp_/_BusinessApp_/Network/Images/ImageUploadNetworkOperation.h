@@ -1,8 +1,8 @@
 //
-//  HomeListItemView.m
+//  ImageUploadNetworkOperation.h
 //  _BusinessApp_
 //
-//  Created by Gytenis Mikulenas on 5/10/15.
+//  Created by Gytenis Mikulėnas on 4/27/14.
 //  Copyright (c) 2015 Gytenis Mikulėnas
 //  https://github.com/GitTennis/SuccessFramework
 //
@@ -25,44 +25,24 @@
 //  SOFTWARE. All rights reserved.
 //
 
-#import "HomeListItemView.h"
-#import "ImageObject.h"
+@protocol ImageObject;
 
-@interface HomeListItemView () {
+typedef NS_ENUM(NSInteger, ImageUploadStatus) {
     
-    ImageObject *_image;
-}
+    kImageUploadStatusInitial,
+    kImageUploadStatusInProgress,
+    kImageUploadStatusFinished,
+    kImageUploadStatusFailed
+};
 
-@end
+@interface ImageUploadNetworkOperation : NSObject
 
-@implementation HomeListItemView
+@property (nonatomic) ImageUploadStatus status;
+@property (nonatomic, strong) id<ImageObject> image;
+@property (nonatomic, strong) NSError *error;
 
-#pragma mark - Public -
-
-- (void)renderWithObject:(ImageObject *)image {
-    
-    // Store object
-    _image = image;
-    
-    // Render UI
-    _titleLabel.text = image.filename;
-    _authorLabel.text = image.author;
-    
-    // Clear previous image before downloading a new
-    _imageView.image = nil;
-    
-    // Download image
-    [ImageDownloader downloadImageWithUrl:image.urlString forImageView:_imageView loadingPlaceholder:kContentPlaceholderImage failedPlaceholder:kContentPlaceholderImage activityIndicatorView:_activityIndicatorView];
-}
-
-#pragma mark IBActions
-
-- (IBAction)cellPressed:(id)sender {
-    
-    if ([_delegate respondsToSelector:@selector(didPressedWithImage:)]) {
-        
-        [_delegate didPressedWithImage:_image];
-    }
-}
+- (instancetype)initWithImage:(id<ImageObject>)image uploadUrlString:(NSString *)uploadUrlString loadingPlaceholder:(NSString *)loadingPlaceholder failedPlaceholder:(NSString *)failedPlaceholder progressBar:(UIActivityIndicatorView *)progressBar;
+- (void)performWithCallback:(Callback)callback;
+- (void)cancel;
 
 @end

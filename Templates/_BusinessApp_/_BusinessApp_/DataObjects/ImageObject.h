@@ -27,15 +27,17 @@
 
 #import "ParsableObject.h"
 
-#define kImageTitleKey @"title"
+#define kImageFilenameKey @"title"
 #define kImageAuthorKey @"author"
 #define kImageUrlKey @"url"
 
 @protocol ImageObject <ParsableObject>
 
-@property (nonatomic, copy) NSString *title;
+@property (nonatomic, copy) NSString *filename;
 @property (nonatomic, copy) NSString *author;
-@property (nonatomic, copy) NSString *imageUrl;
+@property (nonatomic, copy) NSString *urlString;
+@property (nonatomic, copy) NSString *fileId;
+@property (nonatomic, strong) UIImage *image;
 
 @end
 

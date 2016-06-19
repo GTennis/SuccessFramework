@@ -199,54 +199,64 @@
     }
 }
 
-- (void)keyboardWillAppear:(NSNotification *)notification {
+- (void)keyboardWillAppear:(NSNotification *)aNotification {
+    
+    if (self.contentTableView) {
+        
+        [self handleKeyBoardWillAppearNotification:aNotification withScrollView:self.contentTableView];
+        
+    } else if (self.contentScrollView) {
+        
+        [self handleKeyBoardWillAppearNotification:aNotification withScrollView:self.contentScrollView];
+    }
+}
+
+- (void)keyboardWillDisappear:(NSNotification *)aNotification {
+    
+    if (self.contentTableView) {
+        
+        [self handleKeyboardWillDisappearNotification:aNotification withScrollView:self.contentTableView];
+        
+    } else if (self.contentScrollView) {
+        
+        [self handleKeyboardWillDisappearNotification:aNotification withScrollView:self.contentScrollView];
+    }
+}
+
+// Called when the UIKeyboardDidShowNotification is sent.
+// Used from: https://developer.apple.com/library/ios/documentation/StringsTextFonts/Conceptual/TextAndWebiPhoneOS/KeyboardManagement/KeyboardManagement.html
+- (void)handleKeyBoardWillAppearNotification:(NSNotification *)aNotification withScrollView:(UIScrollView *)scrollView {
     
     if (!_isKeyboardActive) {
         
         _isKeyboardActive = YES;
-        
-        // Used from http://stackoverflow.com/a/13163543/597292
-        
-        NSDictionary* info = [notification userInfo];
-        /*CGSize kbSize = [[info objectForKey:UIKeyboardFrameBeginUserInfoKey] CGRectValue].size;
-         kbSize = CGSizeMake(kbSize.height, kbSize.width);*/
-        CGRect kbRect = [[info objectForKey:UIKeyboardFrameBeginUserInfoKey] CGRectValue];
-        CGSize kbSize = [self.view convertRect:kbRect fromView:nil].size;
-        UIEdgeInsets contentInsets = UIEdgeInsetsMake(0.0f, 0.0f, kbSize.height, 0.0f);
-        self.contentScrollView.contentInset = contentInsets;
-        self.contentScrollView.scrollIndicatorInsets = contentInsets;
-        
-        // If active text field is hidden by keyboard, scroll it so it's visible
-        CGRect aRect = self.view.frame;
-        aRect.size.height -= kbSize.height;
-        
-        //
-        /*if (!CGRectContainsPoint(aRect, _keyboardControls.activeField.frame.origin)) {
-         
-         CGPoint scrollPoint = CGPointMake(0.0f, _keyboardControls.activeField.frame.origin.y - kbSize.height);
-         [self.scrContainer setContentOffset:scrollPoint animated:NO];
-         }*/
-        
-        [self.view addGestureRecognizer:_tapGestureRecognizer];
     }
+    
+    NSDictionary* info = [aNotification userInfo];
+    CGSize kbSize = [[info objectForKey:UIKeyboardFrameBeginUserInfoKey] CGRectValue].size;
+    
+    UIEdgeInsets contentInsets = UIEdgeInsetsMake(0.0, 0.0, kbSize.height, 0.0);
+    scrollView.contentInset = contentInsets;
+    scrollView.scrollIndicatorInsets = contentInsets;
+    
+    // If active text field is hidden by keyboard, scroll it so it's visible
+    // Your app might not need or want this behavior.
+    CGRect aRect = self.view.frame;
+    aRect.size.height -= kbSize.height;
+    if (!CGRectContainsPoint(aRect, self.keyboardControls.activeField.frame.origin) ) {
+        [scrollView scrollRectToVisible:self.keyboardControls.activeField.frame animated:YES];
+    }
+    
+    [self.view addGestureRecognizer:_tapGestureRecognizer];
 }
 
-- (void)keyboardWillDisappear:(NSNotification *)notification {
+- (void)handleKeyboardWillDisappearNotification:(NSNotification *)aNotification withScrollView:(UIScrollView *)scrollView {
     
-    // Used from http://stackoverflow.com/a/13163543/597292
-    
-    // Reset to zero if flag was set
-    if (_shouldReturnToZeroScrollOffset) {
-        
-        _keyboardScrollViewContentEdgeInsets = UIEdgeInsetsZero;
-    }
-    
-    self.contentScrollView.contentInset = _keyboardScrollViewContentEdgeInsets;
-    self.contentScrollView.scrollIndicatorInsets = _keyboardScrollViewContentEdgeInsets;
+    UIEdgeInsets contentInsets = UIEdgeInsetsZero;
+    scrollView.contentInset = contentInsets;
+    scrollView.scrollIndicatorInsets = contentInsets;
     
     [self.view removeGestureRecognizer:_tapGestureRecognizer];
-    
-    _isKeyboardActive = NO;
 }
 
 - (void)hideKeyboardWithNotification:(NSNotification *)notification {

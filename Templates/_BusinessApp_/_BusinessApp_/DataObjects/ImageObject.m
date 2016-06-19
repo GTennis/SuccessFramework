@@ -29,9 +29,11 @@
 
 @implementation ImageObject
 
-@synthesize title = _title;
+@synthesize filename = _filename;
 @synthesize author = _author;
-@synthesize imageUrl = _imageUrl;
+@synthesize urlString = _urlString;
+@synthesize fileId = _fileId;
+@synthesize image = _image;
 
 #pragma mark - ParsableObject -
 
@@ -40,9 +42,11 @@
     self = [self init];
     if (self && dict) {
         
-        _title = dict[kImageTitleKey];
+        _filename = dict[kImageFilenameKey];
         _author = dict[kImageAuthorKey];
-        _imageUrl = dict[kImageUrlKey];
+        _urlString = dict[kImageUrlKey];
+        //_fileId = nil;
+        //_image = nil;
     }
     return self;
 }
