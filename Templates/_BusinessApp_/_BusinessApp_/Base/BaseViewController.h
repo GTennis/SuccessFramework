@@ -88,6 +88,11 @@
 // Override for custom screen name log
 - (void)logForCrashReports;
 
+#pragma mark Refresh control
+
+@property (nonatomic, strong) UIRefreshControl *refreshControl;
+- (void)addRefreshControlForView:(UIView *)view selector:(SEL)selector;
+
 #pragma mark Empty list label
 
 - (UIButton *)addEmptyListLabelOnView:(UIView *)containerView message:(NSString *)message refreshSelector:(SEL)refreshSelector;

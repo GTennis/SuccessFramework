@@ -98,12 +98,12 @@
     
     [self.reachabilityManager addServiceObserver:self];
     
-    if (_isModallyPressented) {
-
+    if (self.isModallyPressented) {
+        
         [self addCustomModalNavigationBar];
         
     } else {
-    
+        
         [self addCustomNavigationBar];
     }
     
@@ -225,7 +225,16 @@
     
     viewController.isModallyPressented = YES;
     
-    UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:viewController];
+    UINavigationController *navController = nil;
+    
+    if ([viewController isKindOfClass:[UINavigationController class]]) {
+        
+        navController = (UINavigationController *)viewController;
+        
+    } else {
+        
+        navController = [[UINavigationController alloc] initWithRootViewController:viewController];
+    }
     
     if (isIpad && _shouldModalNavigationBarAlwaysStickToModalContainerViewTopForIpad) {
         
@@ -233,9 +242,26 @@
     }
     
     navController.modalPresentationStyle = UIModalPresentationOverCurrentContext;
-    [self presentViewController:navController animated:animated completion:^{
+    // Changing from side menu to tabs.
+    /*[self presentViewController:navController animated:animated completion:^{
+     
+     }];*/
+    // This will make modal appear on top (and not behind) of tabs
+    
+    if (self.isModallyPressented) {
+        
+        [self presentViewController:navController animated:animated completion:^{
             
-    }];
+        }];
+        
+    } else {
+        
+        // For TabBar application
+        AppDelegate *delegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
+        [delegate.window.rootViewController presentViewController:navController animated:animated completion:^{
+            
+       }];
+    }
 }
 
 - (void)dismissModalViewControllerAnimated:(BOOL)animated {
@@ -471,6 +497,19 @@
 - (void)internetDidBecomeOff {
     
     [_viewManager showNoInternetConnectionLabelInView:self.view];
+}
+
+#pragma mark Refresh control
+
+- (void)addRefreshControlForView:(UIView *)view selector:(SEL)selector {
+    
+    if (!_refreshControl) {
+        
+        _refreshControl = [[UIRefreshControl alloc] init];
+        [_refreshControl addTarget:self action:selector
+                  forControlEvents:UIControlEventValueChanged];
+        [view addSubview:_refreshControl];
+    }
 }
 
 #pragma mark Empty list label

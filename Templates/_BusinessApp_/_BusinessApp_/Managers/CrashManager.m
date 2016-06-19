@@ -71,17 +71,17 @@
     
     self = [super init];
     if (self) {
-
-#ifdef DEBUG
-       
-        // Mark the build is made for internal testing (Enterprise build)
-        [[Crashlytics sharedInstance] setIntValue:1 forKey:@"isDebugBuild"];
         
-#else
-      
-        [Fabric with:@[CrashlyticsKit]];
+        /*#ifdef DEBUG
+         
+         // Mark the build is made for internal testing (Enterprise build)
+         [[Crashlytics sharedInstance] setIntValue:1 forKey:@"isDebugBuild"];
+         
+         #else*/
         
-#endif
+        [Fabric with:@[[Crashlytics class]]];
+        
+        //#endif
         
         _actionsArray = [[NSMutableArray alloc] initWithCapacity:self.maxAllowedStoredActionsCount];
     }
@@ -118,7 +118,7 @@
 }
 
 - (void)logCustomAction:(NSString *)actionString {
-
+    
     [[Crashlytics sharedInstance] setObjectValue:actionString forKey:@"lastUsedItem"];
 }
 
@@ -128,11 +128,11 @@
 }
 
 - (void)setUserLanguage:(NSString *)language {
-
+    
     [[Crashlytics sharedInstance] setObjectValue:language forKey:@"userLanguage"];
 }
 
-- (void)logNonFatalErrorWithErrorMessage:(NSString *)errorMessage {
+- (void)sendNonFatalErrorWithErrorMessage:(NSString *)errorMessage {
     
     NSDictionary *userInfo = (errorMessage.length > 0) ? @{NSLocalizedDescriptionKey:errorMessage} : nil;
     NSError *error = [NSError errorWithDomain:@"NonFatalErrorCannotProceedBecauseOfBadData" code:1 userInfo:userInfo];

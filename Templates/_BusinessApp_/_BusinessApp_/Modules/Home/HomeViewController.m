@@ -77,10 +77,7 @@
     self.title = GMLocalizedString(kHomeViewControllerTitleKey);
     _progressLabel.text = GMLocalizedString(kHomeViewControllerDataLoadingProgressLabelKey);
     
-    _refreshControl = [[UIRefreshControl alloc] init];
-    [_refreshControl addTarget:self action:@selector(loadModel)
-              forControlEvents:UIControlEventValueChanged];
-    [_collectionView addSubview:_refreshControl];
+    [self addRefreshControlForView:_collectionView selector:@selector(loadModel)];    
 }
 
 - (void)renderUI {

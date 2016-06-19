@@ -42,6 +42,16 @@
     [self commonInit];
 }
 
+- (instancetype)initWithCoder:(NSCoder *)coder {
+    
+    self = [super initWithCoder:coder];
+    if (self) {
+        
+        [self commonInit];
+    }
+    return self;
+}
+
 - (void)setIsOn:(BOOL)isOn {
     
     _isOn = isOn;
@@ -64,6 +74,10 @@
     //self.titleLabel.textAlignment = NSTextAlignmentLeft;
     self.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
     
+    // Label multiline
+    self.titleLabel.numberOfLines = 0;
+    self.titleLabel.lineBreakMode = NSLineBreakByWordWrapping;
+    
     [self setIconWithState:_isOn];
     
     [self setIsIconOnLeftSide:self.isIconOnLeftSide];
@@ -80,17 +94,17 @@
 
 - (UIColor *)titleColor {
     
-    return kColorBlue;
+    return [UIColor blackColor]; // kColorBlue;
 }
 
 - (UIColor *)selectedTitleColor {
     
-    return kColorGreen;
+    return [UIColor blackColor]; //kColorBlueDark;
 }
 
 - (UIEdgeInsets)titleEdgeInsets {
     
-    return UIEdgeInsetsMake(3.0f, 5.0f, 0, 0);
+    return UIEdgeInsetsMake(10.0f, 5.0f, 10, 0);
 }
 
 #pragma mark - Private -
@@ -123,9 +137,42 @@
     [_delegate normalCheckbox:self didSelectValue:@(_isOn)];
 }
 
+// http://stackoverflow.com/a/17806333/597292
+- (CGSize)intrinsicContentSize {
+    
+    CGSize buttonSize = [super intrinsicContentSize];
+    
+    CGSize labelSize = [self.titleLabel sizeThatFits:CGSizeMake(self.titleLabel.preferredMaxLayoutWidth, CGFLOAT_MAX)];
+    
+    CGSize resultSize = CGSizeMake(buttonSize.width + self.titleEdgeInsets.left + self.titleEdgeInsets.right,
+                                   labelSize.height + self.titleEdgeInsets.top + self.titleEdgeInsets.bottom);
+    
+    return resultSize;
+}
+
+- (void)layoutSubviews {
+    
+    [super layoutSubviews];
+    self.titleLabel.preferredMaxLayoutWidth = self.titleLabel.frame.size.width;
+}
+
+// http://stackoverflow.com/a/25277016/597292
 - (void)moveImageToRightSide {
     
-    // TODO...
+    /*[self sizeToFit];
+     
+     CGFloat titleWidth = self.titleLabel.frame.size.width;
+     CGFloat imageWidth = self.imageView.frame.size.width;
+     CGFloat gapWidth = self.frame.size.width - titleWidth - imageWidth;
+     self.titleEdgeInsets = UIEdgeInsetsMake(self.titleEdgeInsets.top,
+     -imageWidth + self.titleEdgeInsets.left,
+     self.titleEdgeInsets.bottom,
+     imageWidth - self.titleEdgeInsets.right);
+     
+     self.imageEdgeInsets = UIEdgeInsetsMake(self.imageEdgeInsets.top,
+     titleWidth + self.imageEdgeInsets.left + gapWidth,
+     self.imageEdgeInsets.bottom,
+     -titleWidth + self.imageEdgeInsets.right - gapWidth);*/
 }
 
 @end

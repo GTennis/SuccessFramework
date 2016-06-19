@@ -34,7 +34,7 @@
 - (void)logCustomAction:(NSString *)actionString;
 - (void)setUserHasLoggedIn:(BOOL)isLoggedIn;
 - (void)setUserLanguage:(NSString *)language;
-- (void)logNonFatalErrorWithErrorMessage:(NSString *)errorMessage;
+- (void)sendNonFatalErrorWithErrorMessage:(NSString *)errorMessage;
 - (void)crash;
 
 @end

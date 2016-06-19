@@ -66,5 +66,19 @@
 	</array>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>&lt;Check InfoPlist.strings for localized strings&gt;</string>
+	<key>Fabric</key>
+	<dict>
+		<key>APIKey</key>
+		<string>&lt;YourKey&gt;</string>
+		<key>Kits</key>
+		<array>
+			<dict>
+				<key>KitInfo</key>
+				<dict/>
+				<key>KitName</key>
+				<string>Crashlytics</string>
+			</dict>
+		</array>
+	</dict>
 </dict>
 </plist>

@@ -27,7 +27,7 @@
 
 @class NormalCheckbox;
 
-@protocol NormalCheckboxProtocol <NSObject>
+@protocol NormalCheckboxDelegate <NSObject>
 
 - (void)normalCheckbox:(NormalCheckbox *)normalCheckbox didSelectValue:(id)value;
 
@@ -36,7 +36,7 @@
 @interface NormalCheckbox : UIButton
 
 @property (nonatomic) BOOL isOn;
-@property (nonatomic, weak) id<NormalCheckboxProtocol> delegate;
+@property (nonatomic, weak) id<NormalCheckboxDelegate> delegate;
 
 @property (readonly) BOOL isIconOnLeftSide;
 @property (readonly) UIColor *titleColor;
