@@ -177,6 +177,18 @@
     return editedBounds;
 }
 
+- (UIEdgeInsets)outsidePadding {
+    
+    return UIEdgeInsetsMake(5, 0, 5, 0);
+}
+
+- (UIEdgeInsets)insidePadding {
+    
+    CGFloat extraSizeToCompensateTooSmallHeight = 2;
+    
+    return UIEdgeInsetsMake(6 + extraSizeToCompensateTooSmallHeight, 0, 6 + extraSizeToCompensateTooSmallHeight, 0);
+}
+
 #pragma mark Other
 
 - (void)setEnabled:(BOOL)enabled {
@@ -206,6 +218,17 @@
 }
 
 #pragma mark - Protected -
+
+- (CGSize)intrinsicContentSize {
+    
+    // Height doesnt' matter because TextField is single line control
+    CGSize size = [@"Text" sizeWithAttributes:@{NSFontAttributeName:self.font}];
+    
+    CGSize resultSize = CGSizeMake(size.width + self.insidePadding.left + self.insidePadding.right + self.outsidePadding.left + self.outsidePadding.right,
+                                   size.height + self.insidePadding.top + self.insidePadding.bottom + self.outsidePadding.top + self.outsidePadding.bottom);
+    
+    return resultSize;
+}
 
 - (void)customize {
     

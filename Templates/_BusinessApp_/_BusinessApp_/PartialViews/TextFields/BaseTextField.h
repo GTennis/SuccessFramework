@@ -42,6 +42,9 @@
 - (void)customize;
 - (void)addBottomSeparatorLine;
 
+@property (readonly) UIEdgeInsets insidePadding; // inside background color full rectangle
+@property (readonly) UIEdgeInsets outsidePadding; // outside background color full rectangle
+
 @property (nonatomic) BOOL separatorsAlreadyAdded;
 @property (nonatomic) BOOL hasTopSeparatorLine;
 @property (nonatomic) BOOL hasMiddleSeparatorLine;

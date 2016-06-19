@@ -98,7 +98,11 @@
     _menuItems = [self menuItemsForLoggedInUserState];
     
     // Notify view controler
-    _loadModelCallback(YES, _menuItems, nil);
+    // Adding protection because was crashing upon opening app with 401
+    if (_loadModelCallback) {
+        
+        _loadModelCallback(YES, _menuItems, nil);
+    }
 }
 
 - (void)didSignUpUser:(UserObject *)userObject {
@@ -106,7 +110,11 @@
     _menuItems = [self menuItemsForLoggedInUserState];
     
     // Notify view controler
-    _loadModelCallback(YES, _menuItems, nil);
+    // Adding protection because was crashing upon opening app with 401
+    if (_loadModelCallback) {
+        
+        _loadModelCallback(YES, _menuItems, nil);
+    }
 }
 
 - (void)didLogoutUser:(UserObject *)userObject {
@@ -114,7 +122,11 @@
     _menuItems = [self menuItemsForNotLoggedInUserState];
     
     // Notify view controler
-    _loadModelCallback(YES, _menuItems, nil);
+    // Adding protection because was crashing upon opening app with 401
+    if (_loadModelCallback) {
+        
+        _loadModelCallback(YES, _menuItems, nil);
+    }
 }
 
 #pragma mark - Private -

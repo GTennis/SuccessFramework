@@ -102,6 +102,17 @@
     [self commonInit];
 }
 
+// http://stackoverflow.com/a/17806333/597292
+- (CGSize)intrinsicContentSize {
+    
+    CGSize s = [super intrinsicContentSize];
+    s.height = 50.0f;
+    
+    return CGSizeMake(s.width + self.titleEdgeInsets.left + self.titleEdgeInsets.right,
+                      s.height + self.titleEdgeInsets.top + self.titleEdgeInsets.bottom);
+    
+}
+
 #pragma mark Default style
 
 - (CGFloat)borderSize {

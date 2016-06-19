@@ -422,7 +422,8 @@
 
 - (void)setTitle:(NSString *)title {
     
-    [super setTitle:title];
+    //[super setTitle:upperCaseTitle];
+    self.navigationItem.title = title;
     
     // Setting title for top main or modal navigation bar
     BaseNavigationBar *navigationBar = (BaseNavigationBar *)self.navigationItem.titleView;

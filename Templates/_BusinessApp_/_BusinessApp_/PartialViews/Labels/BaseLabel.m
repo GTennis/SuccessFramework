@@ -122,6 +122,19 @@
     [super drawTextInRect:UIEdgeInsetsInsetRect(rect, self.insets)];
 }
 
+// http://stackoverflow.com/a/17806333/597292
+- (CGSize)intrinsicContentSize {
+    
+    CGSize size = [super intrinsicContentSize];
+    
+    if (!self.text) {
+        
+        size = CGSizeZero;
+    }
+    
+    return size;
+}
+
 #pragma mark CustomizableLabel
 
 // Default style for labels
