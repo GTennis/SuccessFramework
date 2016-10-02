@@ -1,6 +1,6 @@
 //
 //  KeyboardControl.m
-//  _BusinessApp_
+//  MyHappyGrowth
 //
 //  Created by Gytenis Mikulėnas on 3/5/14.
 //  Copyright (c) 2015 Gytenis Mikulėnas
@@ -111,7 +111,8 @@
                 
             } else if ([field isKindOfClass:[UITextView class]]) {
                 
-                [(UITextView *)field setInputAccessoryView:_keyboardToolBar];
+                //[(UITextView *)field setInputAccessoryView:_keyboardToolBar];
+                [(UITextView *)field setInputAccessoryView:[self toolBarForTextView]];
                 
                 if (i < fields.count - 1) {
                     
@@ -119,7 +120,8 @@
                     
                 } else {
                     
-                    [self setGoForField:(UITextField *)field];
+                    [(UITextView *)field setReturnKeyType:UIReturnKeyDefault];
+                    // UITextViews always use returnKey for enter, so there's no point to use different style. It's not possible to get callback from the press of returnKey
                 }
             }
             
@@ -155,11 +157,28 @@
 
 - (void)toolbarActionPressed {
     
+    for (id field in _fields) {
+        
+        [field resignFirstResponder];
+    }
+    
     if ([_delegate respondsToSelector:@selector(didPressToolbarAction)]) {
         
         [_delegate didPressToolbarAction];
     }
 }
 
-@end
+- (UIToolbar *)toolBarForTextView {
+    
+    // Add done to textView
+    UIToolbar *toolBar = [[UIToolbar alloc]initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, 50)];
+    toolBar.items = [NSArray arrayWithObjects:
+                     [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel target:self action:@selector(toolbarCancelPressed)],
+                     [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil],
+                     [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemSave target:self action:@selector(toolbarActionPressed)],
+                     nil];
+    
+    return toolBar;
+}
 
+@end
