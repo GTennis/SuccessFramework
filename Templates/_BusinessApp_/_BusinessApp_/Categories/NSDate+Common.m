@@ -248,9 +248,9 @@ static NSDateFormatter *_dateFormatterForParsingDates = nil;
     return day;
 }
 
-- (NSInteger)weekDay:(NSDate *)date {
+- (NSInteger)weekDay {
     
-    NSString *weekDay = [self stringFromDate:date format:@"e"];
+    NSString *weekDay = [self stringFromDate:self format:@"e"];
     return [weekDay integerValue];
 }
 
