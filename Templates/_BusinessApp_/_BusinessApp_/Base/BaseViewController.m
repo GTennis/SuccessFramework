@@ -223,7 +223,7 @@
 
 - (void)presentModalViewController:(BaseViewController *)viewController animated:(BOOL)animated {
     
-    viewController.isModallyPressented = YES;
+    //viewController.isModallyPressented = YES;
     
     UINavigationController *navController = nil;
     
@@ -267,6 +267,13 @@
 - (void)dismissModalViewControllerAnimated:(BOOL)animated {
     
     [self.presentingViewController dismissViewControllerAnimated:animated completion:nil];
+}
+
+- (BOOL)isModallyPressented {
+    
+    return self.presentingViewController.presentedViewController == self
+    || (self.navigationController != nil && self.navigationController.presentingViewController.presentedViewController == self.navigationController)
+    || [self.tabBarController.presentingViewController isKindOfClass:[UITabBarController class]];
 }
 
 #pragma mark - Protected -

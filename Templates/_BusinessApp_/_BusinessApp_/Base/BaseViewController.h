@@ -53,7 +53,7 @@
 
 #pragma mark Modal screen handling
 
-@property (nonatomic) BOOL isModallyPressented;
+@property (readonly) BOOL isModallyPressented;
 @property (nonatomic, strong) IBOutlet UIView *modalContainerView;
 @property (nonatomic, strong) IBOutlet TopModalNavigationBar *topModalNavigationBar;
 @property (nonatomic) BOOL shouldModalNavigationBarAlwaysStickToModalContainerViewTopForIpad; // iPad related setting
