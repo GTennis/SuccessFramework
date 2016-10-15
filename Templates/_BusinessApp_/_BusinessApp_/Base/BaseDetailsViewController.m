@@ -31,7 +31,7 @@
 #import "KeyboardControl.h"
 
 //@interface BaseDetailsViewController () <UITextFieldDelegate, KeyboardControlPrevNextDelegate>
-@interface BaseDetailsViewController () <UITextFieldDelegate, KeyboardControlDelegate> {
+@interface BaseDetailsViewController () <KeyboardControlDelegate> {
  
     // Keyboard height
     CGFloat _keyboardHeight;
@@ -365,6 +365,26 @@
 - (void)lastFieldReturnPressed {
     
     [self didPressGo];
+}
+
+#pragma mark - UITextViewDelegate -
+
+// Cannot use textViewDidBeginEditing: because it's too late: handle keyboard is called first then and activeField is empty
+- (BOOL)textViewShouldBeginEditing:(UITextView *)textView {
+    
+    if (_keyboardControls && textView) {
+        
+        [_keyboardControls setActiveField:textView];
+    }
+    
+    return YES;
+}
+
+- (BOOL)textViewShouldEndEditing:(UITextView *)textView {
+    
+    BOOL result = [self textFieldShouldReturn:(UITextField *)textView];
+    
+    return result;
 }
 
 #pragma mark - KeyboardControlDelegate -

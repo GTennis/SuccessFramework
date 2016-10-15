@@ -30,7 +30,7 @@
 #import "BaseViewController.h"
 #import "KeyboardControlProtocol.h"
 
-@interface BaseDetailsViewController : BaseViewController
+@interface BaseDetailsViewController : BaseViewController <UITextFieldDelegate, UITextViewDelegate>
 
 #pragma mark - Public -
 
