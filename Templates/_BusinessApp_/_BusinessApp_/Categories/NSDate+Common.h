@@ -62,7 +62,7 @@
 + (BOOL)date:(NSDate *)date1 isEarlierThanOrEqualTo:(NSDate*)date2;
 + (BOOL)date:(NSDate *)date1 isLaterThan:(NSDate*)date2;
 + (BOOL)date:(NSDate *)date1 isEarlierThan:(NSDate*)date2;
-+ (BOOL)isSameDayWithDate1:(NSDate*)date1 date2:(NSDate*)date2;
+- (BOOL)isSameDayWithDate:(NSDate*)date;
 + (BOOL)isSameMonthWithDate1:(NSDate*)date1 date2:(NSDate*)date2;
 - (NSDate *)dateFromDate:(NSDate *)date byAddingNumberOfDays:(NSInteger)dayNum;
 - (NSInteger)timeZoneOffsetFromUTC;

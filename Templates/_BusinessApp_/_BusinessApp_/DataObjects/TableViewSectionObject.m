@@ -31,5 +31,6 @@
 
 @synthesize sectionTitle = _sectionTitle;
 @synthesize sectionRows = _sectionRows;
+@synthesize context = _context;
 
 @end

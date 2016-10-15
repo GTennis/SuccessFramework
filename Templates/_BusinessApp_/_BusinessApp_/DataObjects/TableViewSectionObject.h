@@ -31,6 +31,7 @@
 
 @property (nonatomic, copy) NSString *sectionTitle;
 @property (nonatomic, copy) NSArray *sectionRows;
+@property (nonatomic, strong) id context; // For custom things
 
 @end
 

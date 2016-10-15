@@ -419,13 +419,13 @@ static NSDateFormatter *_dateFormatterForParsingDates = nil;
     return ([date1 compare:date2] == NSOrderedAscending);
 }
 
-+ (BOOL)isSameDayWithDate1:(NSDate*)date1 date2:(NSDate*)date2 {
+- (BOOL)isSameDayWithDate:(NSDate*)date {
     
     NSCalendar *calendar = [NSCalendar currentCalendar];
     
     unsigned unitFlags = NSCalendarUnitYear | NSCalendarUnitMonth |  NSCalendarUnitDay;
-    NSDateComponents *comp1 = [calendar components:unitFlags fromDate:date1];
-    NSDateComponents *comp2 = [calendar components:unitFlags fromDate:date2];
+    NSDateComponents *comp1 = [calendar components:unitFlags fromDate:self];
+    NSDateComponents *comp2 = [calendar components:unitFlags fromDate:date];
     
     BOOL result = [comp1 day] == [comp2 day] &&
     [comp1 month] == [comp2 month] &&
