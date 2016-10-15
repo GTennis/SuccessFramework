@@ -35,8 +35,8 @@
 - (NSInteger)previousMonthTotalDays:(NSDate *)date;
 - (NSString *)previousMonth:(NSDate *)date;
 - (NSString *)nextMonth:(NSDate *)date;
-- (NSString *)weekDayShortName:(NSDate *)date;
-- (NSString *)weekDayLongName:(NSDate *)date;
+- (NSString *)weekDayShortName;
+- (NSString *)weekDayLongName;
 - (NSInteger)weekDay;
 - (NSString *)stringFromDate:(NSDate *)date;
 - (NSString *)timeFromDate;

@@ -254,15 +254,15 @@ static NSDateFormatter *_dateFormatterForParsingDates = nil;
     return [weekDay integerValue];
 }
 
-- (NSString *)weekDayShortName:(NSDate *)date {
+- (NSString *)weekDayShortName {
     
-    NSString *weekDay = [self stringFromDate:date format:@"EEE"];
+    NSString *weekDay = [self stringFromDate:self format:@"EEE"];
     return weekDay;
 }
 
-- (NSString *)weekDayLongName:(NSDate *)date {
+- (NSString *)weekDayLongName {
     
-    NSString *weekDay = [self stringFromDate:date format:@"EEEE"];
+    NSString *weekDay = [self stringFromDate:self format:@"EEEE"];
     return weekDay;
 }
 
