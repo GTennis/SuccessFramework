@@ -69,7 +69,7 @@
 - (NSString *)currentTimeZone;
 - (void)calculateSiblingMonthsForDate:(NSDate *)date siblingLength:(NSInteger)months earlierDate:(NSDate **)earlierDate laterDate:(NSDate **)laterDate;
 - (NSDate *)dateWithoutTime:(NSDate *)date;
-- (NSString *)dateStringFromDate:(NSDate *)date;
+- (NSString *)dateString;
 - (NSString *)gmtDateTimeString:(NSDate *)date;
 + (NSInteger)hoursBetweenDate:(NSDate *)startDate andDate:(NSDate *)endDate;
 + (NSInteger)minutesBetweenDate:(NSDate *)startDate andDate:(NSDate *)endDate;

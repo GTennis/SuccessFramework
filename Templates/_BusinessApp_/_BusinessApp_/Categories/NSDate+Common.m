@@ -506,7 +506,7 @@ static NSDateFormatter *_dateFormatterForParsingDates = nil;
     return dateWithoutTime;
 }
 
-- (NSString *)dateStringFromDate:(NSDate *)date {
+- (NSString *)dateString {
     
     
     NSString *newDateString = nil;
@@ -514,7 +514,7 @@ static NSDateFormatter *_dateFormatterForParsingDates = nil;
     @synchronized(_dateFormatterForViewingDates)
     {
         _dateFormatterForViewingDates.dateFormat = @"yyyy-MM-dd";
-        newDateString = [_dateFormatterForViewingDates stringFromDate:date];
+        newDateString = [_dateFormatterForViewingDates stringFromDate:self];
     }
     
     return newDateString;
