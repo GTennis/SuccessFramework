@@ -37,6 +37,7 @@
 - (NSString *)nextMonth:(NSDate *)date;
 - (NSString *)weekDayShortName;
 - (NSString *)weekDayLongName;
++ (NSDate *)startDateOfTheWeek;
 - (NSInteger)weekDay;
 - (NSString *)stringFromDate:(NSDate *)date;
 - (NSString *)timeFromDate;

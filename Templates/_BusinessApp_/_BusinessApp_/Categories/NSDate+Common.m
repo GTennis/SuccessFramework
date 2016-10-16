@@ -266,6 +266,26 @@ static NSDateFormatter *_dateFormatterForParsingDates = nil;
     return weekDay;
 }
 
+// http://stackoverflow.com/a/16993178/597292
++ (NSDate *)startDateOfTheWeek {
+    
+    NSCalendar *cal = [NSCalendar currentCalendar];
+    NSDate *now = [NSDate date];
+    NSDate *startOfTheWeek;
+    //NSDate *endOfWeek;
+    NSTimeInterval interval;
+    [cal rangeOfUnit:NSCalendarUnitWeekOfYear
+           startDate:&startOfTheWeek
+            interval:&interval
+             forDate:now];
+    //startOfWeek holds now the first day of the week, according to locale (monday vs. sunday)
+    
+    //endOfWeek = [startOfTheWeek dateByAddingTimeInterval:interval-1];
+    // holds 23:59:59 of last day in week.
+    
+    return startOfTheWeek;
+}
+
 - (NSDate *)dateWithAddedNumberOfDays:(NSInteger)days {
     
     NSDate *newDate = [self dateByAddingTimeInterval:60*60*24*days];
