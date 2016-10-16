@@ -266,6 +266,13 @@ static NSDateFormatter *_dateFormatterForParsingDates = nil;
     return weekDay;
 }
 
+- (NSDate *)dateWithAddedNumberOfDays:(NSInteger)days {
+    
+    NSDate *newDate = [self dateByAddingTimeInterval:60*60*24*days];
+    
+    return newDate;
+}
+
 + (NSDate *)dateFromString:(NSString *)dateString {
     
     /* NSLog and debugger always shows NSDate objects in 0 GMT.
