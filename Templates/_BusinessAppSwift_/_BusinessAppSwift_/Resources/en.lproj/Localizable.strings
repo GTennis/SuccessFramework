@@ -1,0 +1,127 @@
+/*
+ Localizable.strings
+ _BusinessAppSwift_
+ 
+ Created by Gytenis Mikulenas on 25/10/2016.
+ Copyright © 2016 Gytenis Mikulėnas
+ //  https://github.com/GitTennis/SuccessFramework
+ //
+ //  Permission is hereby granted, free of charge, to any person obtaining a copy
+ //  of this software and associated documentation files (the "Software"), to deal
+ //  in the Software without restriction, including without limitation the rights
+ //  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ //  copies of the Software, and to permit persons to whom the Software is
+ //  furnished to do so, subject to the following conditions:
+ //
+ //  The above copyright notice and this permission notice shall be included in all
+ //  copies or substantial portions of the Software.
+ //
+ //  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ //  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ //  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ //  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ //  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ //  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+ //  SOFTWARE. All rights reserved.
+ */
+
+//-------------- Menu -------------//
+
+/* Menu list item titles */
+"MenuItemHome" = "Home";
+"MenuItemSettings" = "Settings";
+"MenuItemTermsConditions" = "Terms & conditions";
+"MenuItemPrivacyPolicy" = "Privacy policy";
+"MenuItemLogin" = "Login";
+"MenuItemLogout" = "Logout";
+"MenuItemLogoutConfirmationMessage" = "Are you sure you want to logout?";
+"MenuItemTableViewExample" = "TableView example";
+"MenuItemTableViewWithSearch" = "TableView with search";
+"MenuItemMapWithSearch" = "Map with search";
+
+//-------------- Home -------------//
+
+/* Screen title */
+"HomeTitle" = "Home";
+
+/* Progress indicator label */
+"HomeProgressLabel" = "Loading data...";
+
+//-------------- Settings -------------//
+
+/* Screen title */
+"SettingsTitle" = "Settings";
+
+//-------------- Terms and conditions -------------//
+
+/* Screen title */
+"TermsConditionsTitle" = "TermsConditions";
+
+//-------------- Login -------------//
+"LoginTitle" = "Login";
+"LoginSubTitle" = "Enter your email and password";
+"LoginButton" = "Login";
+"SignUpButton" = "Sign up";
+"ReloginMessage" = "Ups, something happened with your token. Can you login again please?";
+"Username" = "Username";
+"Password" = "Password";
+"or" = "or";
+
+//-------------- SignUp -------------//
+
+"SignUpTitle" = "Sign up";
+"BadPassword" = "Please enter your password correctly";
+"BadUsername" = "Please enter your username correctly";
+
+//-------------- No internet -------------//
+
+"NoIternetMessage" = "\nUps. Looks like your internet connection is off. Please turn it on. \n\n Tap to call us if you need urgent help\n";
+
+//-------------- ContactUs -------------//
+
+"PhoneCallCommandNotSupportedOnDeviceAlertTextKey" = "Sorry, it looks like your device doesn’t support phone calls.";
+"SendEmailCommandNotConfiguredAlertTextKey" = "Sorry, it looks like your email program is not configured to send emails. Please configure it first.";
+
+//-------------- Common -------------//
+
+/* No comment provided by engineer. */
+"Ok" = "Ok";
+
+/* No comment provided by engineer. */
+"Done" = "Done";
+
+/* No comment provided by engineer. */
+"Cancel" = "Cancel";
+
+/* No comment provided by engineer. */
+"Edit" = "Edit";
+
+/* No comment provided by engineer. */
+"Update" = "Update";
+
+/* No comment provided by engineer. */
+"Reload" = "Reload";
+
+/* No comment provided by engineer. */
+"EmptyListMessage" = "It looks like there isn't anything here yet.";
+
+//-------------- App update -------------//
+
+/* No comment provided by engineer. */
+"AppNeedsUpdate" = "A new app version has been released. Please download it now!";
+
+/* No comment provided by engineer. */
+"AppNeedsReload" = "The app needs to reload with new settings. Sorry for the inconvenience.";
+
+//-------------- Errors -------------//
+"Server5xxErrorMessage" = "Server is too busy. Try again later";
+"AppHasBadData" = "Oh, that was unexpected... We have received some corrupted data with your last interaction and would really like to fix this problem for you and anyone else as soon as possible. Please send us an email!";
+"Error_Message_LocationServicesDisabled" = "Your location services seem to be disabled for this app. Please go to your settings and enable this function to see your location on the map";
+
+//------- Errors: NetworkRequestError struct -------------//
+
+"NetworkRequestBadUserDataError" = "Looks like you entered wrong input and server rejected it. Please try again";
+"NetworkRequestUnauthorizeError" = "You are not logged in. Please login.";
+"NetworkRequestCanceledError" = "Request was canceled while in the middle";
+"NetworkRequestTimeoutError" = "Hm...the server is not responding and timeouted. Please try again.";
+"NetworkRequestIsOfflineError" = "Looks like there's no internet. Check your internet connectivity";

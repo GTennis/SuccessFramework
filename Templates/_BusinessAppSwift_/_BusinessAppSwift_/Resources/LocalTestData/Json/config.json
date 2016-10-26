@@ -1,0 +1,131 @@
+{
+    "version": 1,
+    "platform": "ios",
+    "supportedAppVersions": {
+        "versions": [
+                     "1.0.0"
+                     ],
+        "appStoreUrl": "https://www.youtube.com/watch?v=VQf88OnVJeA"
+    },
+    "backendAPIs": {
+        "environments": {
+            "production": {
+                "baseUrl": "http://www.dotheapp.com",
+                "logging": {
+                    "logLevel": "all"
+                },
+                "actions": {
+                    "userLogin": {
+                        "relativeUrl": "/user/login",
+                        "method": "POST"
+                    },
+                    "userSignUp": {
+                        "relativeUrl": "/user/register",
+                        "method": "POST"
+                    },
+                    "userProfile": {
+                        "relativeUrl": "/user/profile",
+                        "method": "GET"
+                    },
+                    "userResetPassword": {
+                        "relativeUrl": "/user/resetPassword",
+                        "method": "POST"
+                    },
+                    "imageList": {
+                        "baseUrl": "http://www.dotheapp.com",
+                        "relativeUrl": "/ws/v1/flickrImages.json",
+                        "method": "GET"
+                    },
+                    "termsConditions": {
+                        "baseUrl": "https://help.github.com",
+                        "relativeUrl": "/articles/github-terms-of-service/",
+                        "method": "GET"
+                    },
+                    "privacyPolicy": {
+                        "baseUrl": "https://help.github.com",
+                        "relativeUrl": "/articles/github-privacy-policy/",
+                        "method": "GET"
+                    }
+                }
+            },
+            "production": {
+                "baseUrl": "http://www.dotheapp.com",
+                "logging": {
+                    "logLevel": "all"
+                },
+                "actions": {
+                    "userLogin": {
+                        "relativeUrl": "/user/login",
+                        "method": "POST"
+                    },
+                    "userSignUp": {
+                        "relativeUrl": "/user/register",
+                        "method": "POST"
+                    },
+                    "userProfile": {
+                        "relativeUrl": "/user/profile",
+                        "method": "GET"
+                    },
+                    "userResetPassword": {
+                        "relativeUrl": "/user/resetPassword",
+                        "method": "POST"
+                    },
+                    "imageList": {
+                        "baseUrl": "http://www.dotheapp.com",
+                        "relativeUrl": "/ws/v1/flickrImages.json",
+                        "method": "GET"
+                    },
+                    "termsConditions": {
+                        "baseUrl": "https://help.github.com",
+                        "relativeUrl": "/articles/github-terms-of-service/",
+                        "method": "GET"
+                    },
+                    "privacyPolicy": {
+                        "baseUrl": "https://help.github.com",
+                        "relativeUrl": "/articles/github-privacy-policy/",
+                        "method": "GET"
+                    }
+                }
+            },
+            "production": {
+                "baseUrl": "http://www.dotheapp.com",
+                "logging": {
+                    "logLevel": "all"
+                },
+                "actions": {
+                    "userLogin": {
+                        "relativeUrl": "/user/login",
+                        "method": "POST"
+                    },
+                    "userSignUp": {
+                        "relativeUrl": "/user/register",
+                        "method": "POST"
+                    },
+                    "userProfile": {
+                        "relativeUrl": "/user/profile",
+                        "method": "GET"
+                    },
+                    "userResetPassword": {
+                        "relativeUrl": "/user/resetPassword",
+                        "method": "POST"
+                    },
+                    "imageList": {
+                        "baseUrl": "http://www.dotheapp.com",
+                        "relativeUrl": "/ws/v1/flickrImages.json",
+                        "method": "GET"
+                    },
+                    "termsConditions": {
+                        "baseUrl": "https://help.github.com",
+                        "relativeUrl": "/articles/github-terms-of-service/",
+                        "method": "GET"
+                    },
+                    "privacyPolicy": {
+                        "baseUrl": "https://help.github.com",
+                        "relativeUrl": "/articles/github-privacy-policy/",
+                        "method": "GET"
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.iPad.XIB" version="3.0" toolsVersion="11201" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES" colorMatched="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="Fyy-7w-6xW" customClass="TopNavigationBarModal_ipad" customModule="_BusinessAppSwift_" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="1024" height="44"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ULz-ca-Q9w" userLabel="Back">
+                    <constraints>
+                        <constraint firstAttribute="width" constant="46" id="hoa-ql-OAf"/>
+                        <constraint firstAttribute="height" constant="44" id="r2i-3e-qib"/>
+                    </constraints>
+                    <state key="normal" image="iconBack">
+                        <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </state>
+                    <connections>
+                        <action selector="backPressedWithSender:" destination="Fyy-7w-6xW" eventType="touchUpInside" id="PXD-8G-H5L"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OR2-JG-52J">
+                    <constraints>
+                        <constraint firstAttribute="width" constant="65" id="kdp-E2-teB"/>
+                    </constraints>
+                    <state key="normal" title="Cancel">
+                        <color key="titleColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </state>
+                    <connections>
+                        <action selector="cancelPressedWithSender:" destination="Fyy-7w-6xW" eventType="touchUpInside" id="cu6-Xv-L6w"/>
+                    </connections>
+                </button>
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uH3-m4-hNy" customClass="NormalLabel" customModule="_BusinessAppSwift_" customModuleProvider="target">
+                    <constraints>
+                        <constraint firstAttribute="height" constant="21" id="tD1-lu-3KF"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="OR2-JG-52J" secondAttribute="bottom" id="1s0-iO-1aS"/>
+                <constraint firstItem="OR2-JG-52J" firstAttribute="leading" secondItem="Fyy-7w-6xW" secondAttribute="leading" id="Ald-yk-B6w"/>
+                <constraint firstItem="uH3-m4-hNy" firstAttribute="leading" secondItem="ULz-ca-Q9w" secondAttribute="trailing" constant="19" id="QE5-lO-A91"/>
+                <constraint firstAttribute="trailing" secondItem="uH3-m4-hNy" secondAttribute="trailing" constant="36" id="Zrw-Oz-FiW"/>
+                <constraint firstAttribute="centerY" secondItem="uH3-m4-hNy" secondAttribute="centerY" id="m9D-Qr-tQO"/>
+                <constraint firstItem="ULz-ca-Q9w" firstAttribute="top" secondItem="Fyy-7w-6xW" secondAttribute="top" id="uaZ-5Z-sZh"/>
+                <constraint firstItem="OR2-JG-52J" firstAttribute="top" secondItem="Fyy-7w-6xW" secondAttribute="top" id="vXM-iY-K1K"/>
+                <constraint firstItem="ULz-ca-Q9w" firstAttribute="leading" secondItem="Fyy-7w-6xW" secondAttribute="leading" id="zJP-2t-FSJ"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="backButton" destination="ULz-ca-Q9w" id="cHY-vY-JEr"/>
+                <outlet property="cancelButton" destination="OR2-JG-52J" id="0ux-bw-ekL"/>
+                <outlet property="titleLabel" destination="uH3-m4-hNy" id="0yV-wP-HkF"/>
+            </connections>
+            <point key="canvasLocation" x="143" y="340"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="iconBack" width="11" height="20"/>
+    </resources>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination"/>
+    </simulatedMetricsContainer>
+</document>

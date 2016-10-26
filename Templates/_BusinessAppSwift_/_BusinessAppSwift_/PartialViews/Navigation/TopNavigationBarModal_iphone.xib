@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11201" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" colorMatched="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="8im-w4-d6i" customClass="TopNavigationBarModal_iphone" customModule="_BusinessAppSwift_" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JXl-aW-VyJ" userLabel="Back">
+                    <constraints>
+                        <constraint firstAttribute="width" constant="46" id="aba-1H-ZgJ"/>
+                        <constraint firstAttribute="height" constant="44" id="nVs-fI-bQ9"/>
+                    </constraints>
+                    <inset key="contentEdgeInsets" minX="-10" minY="0.0" maxX="0.0" maxY="0.0"/>
+                    <state key="normal" image="iconBack">
+                        <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </state>
+                    <connections>
+                        <action selector="backPressed:" destination="8im-w4-d6i" eventType="touchUpInside" id="foJ-Da-iUX"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0db-yh-iF2" userLabel="Cancel">
+                    <rect key="contentStretch" x="1" y="0.0" width="1" height="1"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="65" id="dru-c2-o1L"/>
+                    </constraints>
+                    <state key="normal" title="Cancel">
+                        <color key="titleColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </state>
+                    <connections>
+                        <action selector="cancelPressed:" destination="8im-w4-d6i" eventType="touchUpInside" id="S5r-ZX-H5d"/>
+                    </connections>
+                </button>
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MAX-dP-846">
+                    <constraints>
+                        <constraint firstAttribute="height" constant="21" id="Out-j7-LLN"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <constraints>
+                <constraint firstItem="MAX-dP-846" firstAttribute="leading" secondItem="8im-w4-d6i" secondAttribute="leading" constant="65" id="1tI-lT-0Ff"/>
+                <constraint firstAttribute="centerY" secondItem="MAX-dP-846" secondAttribute="centerY" id="2I0-Ob-3I0"/>
+                <constraint firstItem="0db-yh-iF2" firstAttribute="top" secondItem="8im-w4-d6i" secondAttribute="top" id="EHP-St-mn8"/>
+                <constraint firstItem="JXl-aW-VyJ" firstAttribute="top" secondItem="8im-w4-d6i" secondAttribute="top" id="JBs-ZK-PbN"/>
+                <constraint firstAttribute="bottom" secondItem="0db-yh-iF2" secondAttribute="bottom" id="dFk-w9-7Ht"/>
+                <constraint firstItem="JXl-aW-VyJ" firstAttribute="leading" secondItem="8im-w4-d6i" secondAttribute="leading" id="jH1-73-Zem"/>
+                <constraint firstItem="0db-yh-iF2" firstAttribute="leading" secondItem="8im-w4-d6i" secondAttribute="leading" id="sbc-AO-C2p"/>
+                <constraint firstAttribute="trailing" secondItem="MAX-dP-846" secondAttribute="trailing" constant="37" id="vXW-yS-qoP"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="backButton" destination="JXl-aW-VyJ" id="LxU-xo-iuf"/>
+                <outlet property="cancelButton" destination="0db-yh-iF2" id="hXs-uX-3IQ"/>
+            </connections>
+            <point key="canvasLocation" x="58" y="70"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="iconBack" width="11" height="20"/>
+    </resources>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination" type="retina4_7.fullscreen"/>
+    </simulatedMetricsContainer>
+</document>

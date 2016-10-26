@@ -1,0 +1,69 @@
+PODS:
+  - Alamofire (4.0.1)
+  - AlamofireObjectMapper (4.0.0):
+    - Alamofire (~> 4.0)
+    - ObjectMapper (~> 2.0)
+  - BSKeyboardControls (2.2)
+  - CocoaLumberjack/Core (3.0.0)
+  - CocoaLumberjack/Default (3.0.0):
+    - CocoaLumberjack/Core
+  - CocoaLumberjack/Extensions (3.0.0):
+    - CocoaLumberjack/Default
+  - CocoaLumberjack/Swift (3.0.0):
+    - CocoaLumberjack/Extensions
+  - Crashlytics (3.8.3):
+    - Fabric (~> 1.6.3)
+  - EMCCountryPickerController (1.3.3)
+  - Fabric (1.6.10)
+  - FLEX (2.4.0)
+  - GoogleAnalytics (3.17.0)
+  - iVersion (1.11.4)
+  - JVFloatLabeledTextField (1.1.1)
+  - KeychainAccess (3.0.1)
+  - MBProgressHUD (1.0.0)
+  - ObjectMapper (2.2.0)
+  - SCLAlertView (0.7.0)
+  - SwiftyJSON (3.1.1)
+  - TWMessageBarManager (1.8.1)
+
+DEPENDENCIES:
+  - Alamofire (~> 4.0)
+  - AlamofireObjectMapper (~> 4.0)
+  - BSKeyboardControls (~> 2.2)
+  - CocoaLumberjack/Swift (~> 3.0)
+  - Crashlytics
+  - EMCCountryPickerController (~> 1.3)
+  - Fabric
+  - FLEX (~> 2.4)
+  - GoogleAnalytics (~> 3.17)
+  - iVersion (~> 1.11)
+  - JVFloatLabeledTextField (~> 1.1)
+  - KeychainAccess (~> 3.0)
+  - MBProgressHUD (~> 1.0)
+  - ObjectMapper (~> 2.0)
+  - SCLAlertView (~> 0.7)
+  - SwiftyJSON (~> 3.1)
+  - TWMessageBarManager (~> 1.8)
+
+SPEC CHECKSUMS:
+  Alamofire: 7682d43245de14874acd142ec137b144aa1dd335
+  AlamofireObjectMapper: 9faa3ce5a240efda1b209009a2d6e1e949227abc
+  BSKeyboardControls: b701935e789961102e3f20063bba7185800a2d3f
+  CocoaLumberjack: c823149bccc5519a9447aeb433be7b1212a7d6a5
+  Crashlytics: 2b6dbe138a42395577cfa73dfa1aa7248cadf39e
+  EMCCountryPickerController: ff6836b71d605ba8cfe5f087d2ceec51d89f3e46
+  Fabric: c73f371ee543e3f0b80608f2674750e4910d1669
+  FLEX: bd1a39e55b56bb413b6f1b34b3c10a0dc44ef079
+  GoogleAnalytics: f42cc53a87a51fe94334821868d9c8481ff47a7b
+  iVersion: 2b6ffe708672cb494ba3cab150a94800c2892e81
+  JVFloatLabeledTextField: 0e5524b097f102036214dd8279edc8ecf08b5e18
+  KeychainAccess: 017ea25e313a49eda10bb19b0bb0760fb1edfe1a
+  MBProgressHUD: 4890f671c94e8a0f3cf959aa731e9de2f036d71a
+  ObjectMapper: 4060d739febae11ab0c6af8d786f98667c82e1bd
+  SCLAlertView: 8a14ffc40590c619e183eed2298b854385f30be1
+  SwiftyJSON: f0be2e604f83e8405a624e9f891898bf6ed4e019
+  TWMessageBarManager: fd84e7948ba7968a2b5d9454859135761214ec56
+
+PODFILE CHECKSUM: 1b1a152ae530839cc1a999e6e24ef3fedd12cd9f
+
+COCOAPODS: 1.0.1
