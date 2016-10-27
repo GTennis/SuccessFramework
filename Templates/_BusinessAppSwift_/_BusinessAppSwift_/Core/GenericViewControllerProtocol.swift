@@ -27,42 +27,40 @@
 
 import UIKit
 
-protocol Injectable {
+protocol GenericViewControllerProtocol: class, ReachabilityManagerObserver, LocalizationManagerObserver, TopNavigationBarModalDelegate, TopNavigationBarDelegate, ViewControllerModelDelegate /*: UIGestureRecognizerDelegate <- for network switch */ {
     
-    associatedtype T
-    func inject(_: T)
-}
-
-protocol GenericViewControllerProtocol {
+    // MARK: Dependencies
     
-    // MARK: UIViewController
-    var view: UIView! {get}
-    var title: String? {get set}
-    var presentingViewController: UIViewController? {get}
-    var navigationController: UINavigationController? {get}
-    var navigationItem: UINavigationItem {get}
-    var tabBarController: UITabBarController? {get}
-    func present(_ viewControllerToPresent: UIViewController, animated flag: Bool, completion: (() -> Swift.Void)?)
-    func dismiss(animated flag: Bool, completion: (() -> Swift.Void)?)
+    var context: Any? {get set}
+    var viewLoader: ViewLoaderProtocol? {get set}
+    var crashManager: CrashManagerProtocol? {get set}
+    var analyticsManager: AnalyticsManagerProtocol? {get set}
+    var messageBarManager: MessageBarManagerProtocol? {get set}
+    var viewControllerFactory: ViewControllerFactoryProtocol? {get set}
+    var reachabilityManager: ReachabilityManagerProtocol? {get set}
+    var localizationManager: LocalizationManagerProtocol? {get set}
+    var userManager: UserManagerProtocol? {get set}
+    var refreshControl: GMRefreshControl? {get set}
     
-    // MARK
-    
-    var genericViewController: GenericViewController? {get set}
-    // Did get it working. Compiler expects this property implemented with exact type
-    //var _model: BaseModelProtocol? {get set}
-    
-    // Ipad 
+    // Ipad
     weak var modalContainerView4Ipad: UIView? {get set}
     
+    // Did get it working. Compiler expects this property implemented with exact type
+    //var _model: BaseModelProtocol? {get set}
+        
     func className()->String
     func isModal() -> Bool
     
     // MARK: Common functionality
     
-    //func commonInit()
     func prepareUI()
     func renderUI()
     func loadModel()
+    
+    func commonViewDidLoad()
+    func commonViewWillAppear(_ animated: Bool)
+    func commonViewWillDisappear(_ animated: Bool)
+    func commonDidReceiveMemoryWarning()
     
     // MARK: Progress indicators
     
@@ -78,4 +76,13 @@ protocol GenericViewControllerProtocol {
     func showNavigationBar()
     func hideNavigationBar()
     func hasNavigationBar() -> Bool
+    
+    // MARK: Logout
+    func logoutAndGoBackToAppStart(error: ErrorEntity)
+    
+    // MARK: Observing
+    func removeFromAllFromObserving()
+    
+    // MARK: Refresh control
+    func addRefreshControl(containerView: UIView)
 }

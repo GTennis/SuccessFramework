@@ -88,7 +88,7 @@ class BaseModel: BaseModelProtocol, ViewControllerModelProtocol {
         notificationCenter.removeObserver(self)
     }
     
-    init() {
+    required init() {
         
         #if DEBUG
         
@@ -107,7 +107,7 @@ class BaseModel: BaseModelProtocol, ViewControllerModelProtocol {
     
     // MARK: ViewControllerModelProtocol
     
-    func willStartModelLoading(callback: Callback) {
+    func willStartModelLoading(callback: @escaping Callback) {
         
         fatalError("willStartModelLoading is not implemented in class: " + className(object: self))
     }

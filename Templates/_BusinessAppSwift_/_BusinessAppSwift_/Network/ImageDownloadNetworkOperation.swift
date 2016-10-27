@@ -27,7 +27,16 @@
 
 import UIKit
 
+
 class ImageDownloadNetworkOperation: BaseNetworkOperation {
 
-
+    // MARK: NetworkOperationProtocol
+    
+    override func perform(callBack: @escaping Callback) {
+        
+        
+        
+    }
+    
+    
 }

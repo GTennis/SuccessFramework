@@ -29,13 +29,22 @@ import UIKit
 
 class LaunchViewController: UIViewController, GenericViewControllerProtocol, UITableViewDelegate {
 
-    var genericViewController: GenericViewController?
-    var model: LaunchModel?
+    var context: Any?
+    var viewLoader: ViewLoaderProtocol?
+    var crashManager: CrashManagerProtocol?
+    var analyticsManager: AnalyticsManagerProtocol?
+    var messageBarManager: MessageBarManagerProtocol?
+    var viewControllerFactory: ViewControllerFactoryProtocol?
+    var reachabilityManager: ReachabilityManagerProtocol?
+    var localizationManager: LocalizationManagerProtocol?
+    var userManager: UserManagerProtocol?
     @IBOutlet weak var modalContainerView4Ipad: UIView?
+    
+    var model: LaunchModel?
     
     deinit {
         
-        // ...
+        self.removeFromAllFromObserving()
     }
     
     /*required init() {
@@ -51,7 +60,7 @@ class LaunchViewController: UIViewController, GenericViewControllerProtocol, UIT
     override func viewDidLoad() {
         
         super.viewDidLoad();
-        self.genericViewController?.viewDidLoad()
+        self.commonViewDidLoad()
         
         self.prepareUI()
         self.loadModel()
@@ -60,20 +69,20 @@ class LaunchViewController: UIViewController, GenericViewControllerProtocol, UIT
     override func viewWillAppear(_ animated: Bool) {
         
         super.viewWillAppear(animated)
-        self.genericViewController?.viewWillAppear(true)
+        self.commonViewWillAppear(animated)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         
         super.viewWillDisappear(animated)
-        self.genericViewController?.viewWillDisappear(true)
+        self.commonViewWillDisappear(animated)
         
     }
 
     override func didReceiveMemoryWarning() {
         
         super.didReceiveMemoryWarning()
-        self.genericViewController?.didReceiveMemoryWarning()
+        self.commonDidReceiveMemoryWarning()
     }
     
     // MARK: GenericViewControllerProtocol

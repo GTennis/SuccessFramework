@@ -27,15 +27,29 @@
 
 import UIKit
 
-class HomeViewController: UIViewController, GenericViewControllerProtocol {
+let kHomeViewControllerTitleKey = "HomeTitle"
+let kHomeViewControllerDataLoadingProgressLabelKey = "HomeProgressLabel"
 
-    var genericViewController: GenericViewController?
-    var model: HomeModel?
+class HomeViewController: UIViewController, GenericViewControllerProtocol, UICollectionViewDataSource, UICollectionViewDelegate, HomeListItemViewDelegate {
+
+    var context: Any?
+    var viewLoader: ViewLoaderProtocol?
+    var crashManager: CrashManagerProtocol?
+    var analyticsManager: AnalyticsManagerProtocol?
+    var messageBarManager: MessageBarManagerProtocol?
+    var viewControllerFactory: ViewControllerFactoryProtocol?
+    var reachabilityManager: ReachabilityManagerProtocol?
+    var localizationManager: LocalizationManagerProtocol?
+    var userManager: UserManagerProtocol?
     @IBOutlet weak var modalContainerView4Ipad: UIView?
+    
+    var model: HomeModel?
+    
+    @IBOutlet weak var collectionView: UICollectionView!
     
     deinit {
         
-        // ...
+        self.removeFromAllFromObserving()
     }
     
     /*required init() {
@@ -51,29 +65,32 @@ class HomeViewController: UIViewController, GenericViewControllerProtocol {
     override func viewDidLoad() {
         
         super.viewDidLoad();
-        self.genericViewController?.viewDidLoad()
+        self.commonViewDidLoad()
         
         self.prepareUI()
-        self.loadModel()
+        self.loadModel()        
     }
     
     override func viewWillAppear(_ animated: Bool) {
         
         super.viewWillAppear(animated)
-        self.genericViewController?.viewWillAppear(true)
+        self.commonViewWillAppear(animated)
+        
+        // Log user behaviour
+        self.analyticsManager?.log(screenName: kAnalyticsManagerScreenHome)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         
         super.viewWillDisappear(animated)
-        self.genericViewController?.viewWillDisappear(true)
+        self.commonViewWillDisappear(animated)
         
     }
     
     override func didReceiveMemoryWarning() {
         
         super.didReceiveMemoryWarning()
-        self.genericViewController?.didReceiveMemoryWarning()
+        self.commonDidReceiveMemoryWarning()
     }
     
     // MARK: GenericViewControllerProtocol
@@ -81,15 +98,92 @@ class HomeViewController: UIViewController, GenericViewControllerProtocol {
     func prepareUI() {
         
         // ...
+        //self.collectionView.register(HomeListItemView.self, forCellWithReuseIdentifier: HomeListItemView.ReuseIdentifier)
+        
+        // Set title
+        self.title = localizedString(key: kHomeViewControllerTitleKey)
     }
     
     func renderUI() {
         
-        // ...
+        // Reload
+        self.collectionView.reloadData()
     }
     
     func loadModel() {
         
         self.renderUI()
+        
+        
+        self.showScreenActivityIndicator()
+        
+        
+        self.model?.loadData(callback: {[weak self] (success, result, context, error) in
+           
+            self?.hideScreenActivityIndicator()
+            
+            if (success) {
+                
+                // Render UI
+                self?.renderUI()
+                
+            } else {
+                
+                // Show refresh button when error happens
+                // ...
+            }
+        })
     }
+    
+    // MARK: UICollectionViewDataSource
+    
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        
+        return 1
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        
+        if let images = self.model?.images {
+        
+            return images.list.count
+            
+        } else {
+            
+            return 0
+        }
+    }
+
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        
+        let cell = collectionView.dequeueReusableCell(
+            withReuseIdentifier: HomeListItemView.ReuseIdentifier,
+            for: indexPath
+            ) as! HomeListItemView
+        cell.delegate = self
+        
+        let image = self.model?.images?.list[(indexPath as NSIndexPath).row]
+        cell.render(object: image!)
+        
+        return cell
+    }
+    
+    /*- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
+    
+        return self.collectionViewCellSize;
+    }*/
+    
+    /*- (CGSize)collectionViewCellSize {
+    
+        // Override in child classes
+        return CGSizeZero;
+    }*/
+    
+    // MARK: HomeListItemViewDelegate
+    
+    func didPressedWithImage(image: ImageEntityProtocol) {
+        
+        /*UIViewController *viewController = (UIViewController *)[self.viewControllerFactory photoDetailsViewControllerWithContext:image];
+        [self.navigationController pushViewController:viewController animated:YES];*/
+    }    
 }

@@ -44,32 +44,32 @@ import CocoaLumberjack
 
 func DDLogVerbose(log: String) {
     
-    let appDelegate: AppDelegate = UIApplication.shared.delegate as! AppDelegate
-    appDelegate.logManager.verbose(log: log)
+    let managerFactory: ManagerFactoryProtocol = ManagerFactory.shared()
+    managerFactory.logManager.verbose(log: log)
 }
 
 func DDLogDebug(log: String) {
     
-    let appDelegate: AppDelegate = UIApplication.shared.delegate as! AppDelegate
-    appDelegate.logManager.debug(log: log)
+    let managerFactory: ManagerFactoryProtocol = ManagerFactory.shared()
+    managerFactory.logManager.debug(log: log)
 }
 
 func DDLogInfo(log: String) {
     
-    let appDelegate: AppDelegate = UIApplication.shared.delegate as! AppDelegate
-    appDelegate.logManager.info(log: log)
+    let managerFactory: ManagerFactoryProtocol = ManagerFactory.shared()
+    managerFactory.logManager.info(log: log)
 }
 
 func DDLogWarn(log: String) {
     
-    let appDelegate: AppDelegate = UIApplication.shared.delegate as! AppDelegate
-    appDelegate.logManager.warn(log: log)
+    let managerFactory: ManagerFactoryProtocol = ManagerFactory.shared()
+    managerFactory.logManager.warn(log: log)
 }
 
 func DDLogError(log: String) {
     
-    let appDelegate: AppDelegate = UIApplication.shared.delegate as! AppDelegate
-    appDelegate.logManager.error(log: log)
+    let managerFactory: ManagerFactoryProtocol = ManagerFactory.shared()
+    managerFactory.logManager.error(log: log)
 }
 
 // TODO:

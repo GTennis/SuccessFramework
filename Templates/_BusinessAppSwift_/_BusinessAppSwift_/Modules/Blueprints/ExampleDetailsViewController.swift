@@ -27,28 +27,87 @@
 
 import UIKit
 
-class ExampleDetailsViewController: UIViewController {
+class ExampleDetailsViewController: UIViewController, GenericViewControllerProtocol, GenericDetailsViewControllerProtocol, KeyboardControlDelegate {
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    var context: Any?
+    var viewLoader: ViewLoaderProtocol?
+    var crashManager: CrashManagerProtocol?
+    var analyticsManager: AnalyticsManagerProtocol?
+    var messageBarManager: MessageBarManagerProtocol?
+    var viewControllerFactory: ViewControllerFactoryProtocol?
+    var reachabilityManager: ReachabilityManagerProtocol?
+    var localizationManager: LocalizationManagerProtocol?
+    var userManager: UserManagerProtocol?
+    var keyboardControls: KeyboardControlProtocol?
+    @IBOutlet weak var modalContainerView4Ipad: UIView?
+    
+    var model: ExampleModel?
+    
+    deinit {
+        
+        self.removeFromAllFromObserving()
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    /*required init() {
+     
+     super.init(nibName: nil, bundle: nil);
+     }
+     
+     required init(coder aDecoder: NSCoder) {
+     
+     super.init(coder: aDecoder)!
+     }*/
+    
+    override func viewDidLoad() {
+        
+        super.viewDidLoad();
+        self.commonViewDidLoad()
+        
+        self.prepareUI()
+        self.loadModel()
     }
-    */
-
+    
+    override func viewWillAppear(_ animated: Bool) {
+        
+        super.viewWillAppear(animated)
+        self.commonViewWillAppear(animated)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        
+        super.viewWillDisappear(animated)
+        self.commonViewWillDisappear(animated)
+        
+    }
+    
+    override func didReceiveMemoryWarning() {
+        
+        super.didReceiveMemoryWarning()
+        self.commonDidReceiveMemoryWarning()
+    }
+    
+    // MARK: GenericViewControllerProtocol
+    
+    func prepareUI() {
+        
+        // ...
+    }
+    
+    func renderUI() {
+        
+        // ...
+    }
+    
+    func loadModel() {
+        
+        self.renderUI()
+    }
+    
+    
+    // MARK: KeyboardControlDelegate
+    
+    func didPressGo() {
+        
+        
+    }
 }

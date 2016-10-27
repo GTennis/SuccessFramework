@@ -29,66 +29,74 @@ import UIKit
 
 class ViewControllerFactory: ViewControllerFactoryProtocol {
 
+    // MARK: ViewControllerFactoryProtocol
+    
+    required init(managerFactory: ManagerFactoryProtocol) {
+        
+        _managerFactory = managerFactory
+    }
+    
     func launchViewController(context: Any?)->LaunchViewController {
         
-        let vc = viewController(classType: LaunchViewController.self, context: context) as! LaunchViewController
-        vc.model = LaunchModel()
-        vc.model?.userManager = self.userManager()
-        vc.model?.settingsManager = self.settingsManager()
-        vc.model?.networkOperationFactory = self.networkOperationFactory()
-        vc.model?.reachabilityManager = self.reachabilityManager()
-        vc.model?.analyticsManager = self.analyticsManager()
-        vc.model?.context = context
+        let vc = viewControllerFromXib(classType: LaunchViewController.self, context: context) as! LaunchViewController
+        vc.model = self.model(classType: LaunchModel.self as AnyClass, context: context) as? LaunchModel
         
         return vc
     }
     
-    /*func walkthroughViewController(context: Any?)->WalkthroughViewController {
+    /*func homeViewController(context: Any?)->HomeViewController {
         
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let vc = storyboard.instantiateViewController(withIdentifier: "WalkthroughViewController") as! WalkthroughViewController
+        let vc = viewController(classType: HomeViewController.self, context: context) as! HomeViewController
+        vc.model = self.model(classType: HomeModel.self as AnyClass, context: context) as? HomeModel
         
-        return vc;
+        return vc
     }*/
     
     func homeViewController(context: Any?)->HomeViewController {
         
-        let vc = viewController(classType: HomeViewController.self, context: context) as! HomeViewController
-        vc.model = HomeModel()
-        vc.model?.userManager = self.userManager()
-        vc.model?.settingsManager = self.settingsManager()
-        vc.model?.networkOperationFactory = self.networkOperationFactory()
-        vc.model?.reachabilityManager = self.reachabilityManager()
-        vc.model?.analyticsManager = self.analyticsManager()
-        vc.model?.context = context
+        let vc = viewControllerFromSb(classType: HomeViewController.self, context: context) as! HomeViewController
+        vc.model = self.model(classType: HomeModel.self as AnyClass, context: context) as? HomeModel
         
-        return vc
-    }
+        return vc;
+    }    
     
     func contactViewController(context: Any?)->ContactViewController {
         
-        let vc = viewController(classType: LaunchViewController.self, context: context) as! ContactViewController
-        vc.model = ContactModel()
-        vc.model?.userManager = self.userManager()
-        vc.model?.settingsManager = self.settingsManager()
-        vc.model?.networkOperationFactory = self.networkOperationFactory()
-        vc.model?.reachabilityManager = self.reachabilityManager()
-        vc.model?.analyticsManager = self.analyticsManager()
-        vc.model?.context = context
+        let vc = viewControllerFromXib(classType: LaunchViewController.self, context: context) as! ContactViewController
+        vc.model = self.model(classType: ContactModel.self as AnyClass, context: context) as? ContactModel
         
         return vc
     }
     
     func walkthroughViewController(context: Any?)->WalkthroughViewController {
         
-        let vc = viewController(classType: WalkthroughViewController.self, context: context) as! WalkthroughViewController
-        vc.model = WalkthroughModel()
-        vc.model?.userManager = self.userManager()
-        vc.model?.settingsManager = self.settingsManager()
-        vc.model?.networkOperationFactory = self.networkOperationFactory()
-        vc.model?.reachabilityManager = self.reachabilityManager()
-        vc.model?.analyticsManager = self.analyticsManager()
-        vc.model?.context = context
+        let vc = viewControllerFromXib(classType: WalkthroughViewController.self, context: context) as! WalkthroughViewController
+        vc.model = self.model(classType: WalkthroughModel.self as AnyClass, context: context) as? WalkthroughModel
+        
+        return vc
+    }
+    
+    /*func walkthroughViewController(context: Any?)->WalkthroughViewController {
+     
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let vc = storyboard.instantiateViewController(withIdentifier: "WalkthroughViewController") as! WalkthroughViewController
+        vc.model = self.model(classType: WalkthroughModel.self as AnyClass, context: context) as? WalkthroughModel
+        
+        return vc;
+     }*/
+    
+    func countryPickerViewController(context: Any?)->CountryPickerViewController {
+        
+        // TODO:
+        return CountryPickerViewController()
+    }
+    
+    // MARK: User
+    
+    func userSignUpViewController(context: Any?)->UserSignUpViewController {
+        
+        let vc = viewControllerFromSb(classType: UserSignUpViewController.self, context: context) as! UserSignUpViewController
+        vc.model = self.model(classType: SignUpModel.self as AnyClass, context: context) as? SignUpModel
         
         return vc
     }
@@ -96,35 +104,85 @@ class ViewControllerFactory: ViewControllerFactoryProtocol {
     // MARK:
     // MARK: Internal
     // MARK:
-    internal
     
-    func viewController(classType: AnyClass, context: Any?)->UIViewController {
+    internal var _managerFactory: ManagerFactoryProtocol
+    
+    // Returns true if viewController had property and it was injected with the value
+    // The approach used from: https://thatthinginswift.com/dependency-injection-storyboards-swift/
+    // Using Mirror for reflection and KVO for injecting
+    internal func needsDependency(viewController: UIViewController, propertyName: String)->Bool {
         
-        var viewControllerClassName: String = NSStringFromClass(classType);
+        var result: Bool = false
         
-        // Autopick device class
+        // Check base class first
+        if let baseViewController = Mirror(reflecting: viewController).superclassMirror {
+            
+            let properties = baseViewController.children.filter {
+                ($0.label ?? "").isEqual(propertyName)}
+            
+            if properties.first != nil {
+                
+                //viewController.setValue(value, forKey: propertyName)
+                result = true
+                
+            } else {
+                
+                // Check current class
+                let vcProperties = Mirror(reflecting: viewController).children.filter { ($0.label ?? "").isEqual(propertyName) }
+                
+                if vcProperties.first != nil {
+                    
+                    //viewController.setValue(value, forKey: propertyName)
+                    result = true
+                }
+            }
+        }
         
+        return result
+    }
+    
+    internal func name(viewControllerClassType: AnyClass)->String {
+        
+        var viewControllerClassName: String = NSStringFromClass(viewControllerClassType)
+        
+        // Autopick depending on platform
         if isIpad {
             
-            viewControllerClassName = viewControllerClassName + "_ipad";
+            viewControllerClassName = viewControllerClassName + "_ipad"
             
         } else if isIphone {
             
-            viewControllerClassName = viewControllerClassName + "_iphone";
+            viewControllerClassName = viewControllerClassName + "_iphone"
         }
+        
+        return viewControllerClassName
+    }
+    
+    internal func viewControllerFromSb(classType: AnyClass, context: Any?)->UIViewController {
+     
+        var viewControllerClassName: String = self.name(viewControllerClassType: classType)
+        viewControllerClassName = viewControllerClassName.components(separatedBy: ".").last!
+        
+        let storyboard = UIStoryboard(name: viewControllerClassName, bundle: nil)
+        let vc = storyboard.instantiateViewController(withIdentifier: viewControllerClassName)
+        
+        injectDependencies(viewController: vc, context: context)
+                
+        return vc
+    }
+    
+    internal func viewControllerFromXib(classType: AnyClass, context: Any?)->UIViewController {
+        
+        let viewControllerClassName: String = self.name(viewControllerClassType: classType)
         
         //let deviceClass: AnyClass? = NSClassFromString(viewControllerClassName);
         let deviceClass = NSClassFromString(viewControllerClassName) as! UIViewController.Type
 
-        let viewController: UIViewController = deviceClass.init()
-        var genericViewController = viewController as! GenericViewControllerProtocol
+        let vc: UIViewController = deviceClass.init()
         
-        genericViewController.genericViewController = GenericViewController.init(viewController: genericViewController as! UIViewController, viewControllerProtocol: genericViewController, context: context, crashManager: self.crashManager(), analyticsManager: self.analyticsManager(), messageBarManager: self.messageBarManager(), viewControllerFactory: self, viewLoader: self.viewLoader(), reachabilityManager: self.reachabilityManager(), localizationManager: self.localizationManager(), userManager: self.userManager())
+        injectDependencies(viewController: vc, context: context)
         
-        // Injecting all dependencies
-        //self.injectDependencies(viewController: &genericViewController);
-        
-        return viewController
+        return vc
     }
     
     /*override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -137,75 +195,126 @@ class ViewControllerFactory: ViewControllerFactoryProtocol {
         //}
     }*/
     
-    /*func injectDependencies(viewController: inout GenericViewControllerProtocol){
+    func injectDependencies(viewController: UIViewController, context: Any?) {
         
-        viewController.genericViewController?.userManager = self.userManager()
-        viewController.genericViewController?.viewManager = self.viewManager()
-        viewController.genericViewController?.crashManager = self.crashManager()
-        viewController.genericViewController?.analyticsManager = self.analyticsManager()
-        viewController.genericViewController?.messageBarManager = self.messageBarManager()
-        viewController.genericViewController?.reachabilityManager = self.reachabilityManager()
-    }*/
+        if self.needsDependency(viewController: viewController, propertyName: "context") {
+        
+            (viewController as! GenericViewControllerProtocol).context = context
+        }
+        
+        if self.needsDependency(viewController: viewController, propertyName: "viewLoader") {
+            
+            (viewController as! GenericViewControllerProtocol).viewLoader = self.viewLoader()
+        }
+        
+        if self.needsDependency(viewController: viewController, propertyName: "crashManager") {
+            
+            (viewController as! GenericViewControllerProtocol).crashManager = self._managerFactory.crashManager
+        }
+        
+        if self.needsDependency(viewController: viewController, propertyName: "analyticsManager") {
+            
+            (viewController as! GenericViewControllerProtocol).analyticsManager = self._managerFactory.analyticsManager
+        }
+        
+        if self.needsDependency(viewController: viewController, propertyName: "messageBarManager") {
+            
+            (viewController as! GenericViewControllerProtocol).messageBarManager = self._managerFactory.messageBarManager
+        }
+        
+        if self.needsDependency(viewController: viewController, propertyName: "viewControllerFactory") {
+            
+            (viewController as! GenericViewControllerProtocol).viewControllerFactory = self
+        }
+        
+        if self.needsDependency(viewController: viewController, propertyName: "localizationManager") {
+            
+            (viewController as! GenericViewControllerProtocol).localizationManager = self._managerFactory.localizationManager
+        }
+        
+        if self.needsDependency(viewController: viewController, propertyName: "userManager") {
+            
+            (viewController as! GenericViewControllerProtocol).userManager = self._managerFactory.userManager
+        }
+        
+        if self.needsDependency(viewController: viewController, propertyName: "reachabilityManager") {
+            
+            (viewController as! GenericViewControllerProtocol).reachabilityManager = self._managerFactory.reachabilityManager
+            self.addNetworkStatusObserving(viewController: viewController as! GenericViewControllerProtocol)
+        }
+    }
     
-    // Every view controller should have its own viewManager because it will store references to the view controller and its views (Except ViewManager)
+    func addNetworkStatusObserving(viewController: GenericViewControllerProtocol) {
+        
+        weak var weakGenericViewController = viewController
+        weak var weakViewController = (viewController as! UIViewController)
+        
+        // TODO: not calling after second on/off switch
+        self._managerFactory.reachabilityManager.addServiceObserver(observer: weakViewController as! ReachabilityManagerObserver, notificationType: ReachabilityManagerNotificationType.internetDidBecomeOn, callback: { /*[weak self]*/ (success, result, context, error) in
+            
+            let lastVc = weakViewController?.navigationController?.viewControllers.last
+            
+            // Check for error and only handle once, inside last screen
+            if (lastVc == weakViewController) {
+                
+                weakGenericViewController?.viewLoader?.hideNoInternetConnectionLabel(containerView: (weakViewController?.view)!)
+            }
+        }, context: nil)
+        
+        self._managerFactory.reachabilityManager.addServiceObserver(observer: weakViewController as! ReachabilityManagerObserver
+            , notificationType: ReachabilityManagerNotificationType.internetDidBecomeOff, callback: { /*[weak self]*/ (success, result, context, error) in
+                
+                weakGenericViewController?.viewLoader?.showNoInternetConnectionLabel(containerView: (weakViewController?.view)!)
+                
+            }, context: nil)
+        
+        // Subscribe and handle network errors
+        let notificationCenter: NotificationCenter = NotificationCenter.default
+        notificationCenter.addObserver(forName: NetworkRequestError.notification, object: self, queue: nil) { [weak self] (notification) in
+            
+            if let info = notification.userInfo as? Dictionary<String,Error> {
+                
+                let error: ErrorEntity? = info[NetworkRequestError.notificationUserInfoErrorKey] as? ErrorEntity
+                
+                if let error = error {
+                    
+                    // Check for error and only handle once, inside last screen
+                    if (weakViewController?.navigationController?.viewControllers.last == weakViewController) {
+                        
+                        if (error.code == NetworkRequestError.unauthorized.code) {
+                            
+                            // Go to start
+                            weakGenericViewController?.logoutAndGoBackToAppStart(error: error)
+                            
+                        } else {
+                            
+                            self?._managerFactory.messageBarManager.showMessage(title: " ", description: error.message, type: MessageBarMessageType.error)
+                        }
+                    }
+                }
+            }
+        }
+    }
     
-    func viewLoader()->ViewLoader {
+    internal func model(classType: AnyClass, context: Any?) -> BaseModel {
+        
+        let className: String = NSStringFromClass(classType)
+        let deviceClass = NSClassFromString(className) as! BaseModel.Type
+        
+        let model: BaseModel = deviceClass.init()
+        model.userManager = _managerFactory.userManager
+        model.settingsManager = _managerFactory.settingsManager
+        model.networkOperationFactory = _managerFactory.networkOperationFactory
+        model.reachabilityManager = _managerFactory.reachabilityManager
+        model.analyticsManager = _managerFactory.analyticsManager
+        model.context = context
+        
+        return model
+    }
+    
+    internal func viewLoader()->ViewLoader {
         
         let loader: ViewLoader = ViewLoader()
         return loader
-    }
-    
-    func userManager()->UserManager {
-    
-        let appDelegate: AppDelegate = UIApplication.shared.delegate as! AppDelegate
-        return appDelegate.userManager as! UserManager
-    }
-    
-    func keychainManager()->KeychainManager {
-        
-        let appDelegate: AppDelegate = UIApplication.shared.delegate as! AppDelegate
-        return appDelegate.keychainManager as! KeychainManager
-    }
-    
-    func settingsManager()->SettingsManager {
-        
-        let appDelegate: AppDelegate = UIApplication.shared.delegate as! AppDelegate
-        return appDelegate.settingsManager as! SettingsManager
-    }
-    
-    func crashManager()->CrashManager {
-        
-        let appDelegate: AppDelegate = UIApplication.shared.delegate as! AppDelegate
-        return appDelegate.crashManager as! CrashManager
-    }
-    
-    func analyticsManager()->AnalyticsManager {
-        
-        let appDelegate: AppDelegate = UIApplication.shared.delegate as! AppDelegate
-        return appDelegate.analyticsManager as! AnalyticsManager
-    }
-    
-    func messageBarManager()->MessageBarManager {
-        
-        let appDelegate: AppDelegate = UIApplication.shared.delegate as! AppDelegate
-        return appDelegate.messageBarManager as! MessageBarManager
-    }
-    
-    func reachabilityManager()->ReachabilityManager {
-        
-        let appDelegate: AppDelegate = UIApplication.shared.delegate as! AppDelegate
-        return appDelegate.reachabilityManager as! ReachabilityManager
-    }
-    
-    func networkOperationFactory()->NetworkOperationFactory {
-        
-        let appDelegate: AppDelegate = UIApplication.shared.delegate as! AppDelegate
-        return appDelegate.networkOperationFactory as! NetworkOperationFactory
-    }
-    
-    func localizationManager()->LocalizationManager {
-        
-        let appDelegate: AppDelegate = UIApplication.shared.delegate as! AppDelegate
-        return appDelegate.localizationManager as! LocalizationManager
     }
 }

@@ -34,18 +34,18 @@ enum MessageBarMessageType {
     case info
 }
 
+let kMessageBarManagerMessageDuration: Int = 3
+
 protocol MessageBarManagerProtocol {
 
-    func showMessage(title: String, description: String, type: MessageBarMessageType)
-    func showMessage(title: String, description: String, type: MessageBarMessageType, callback:Callback)
+    func showMessage(title: String?, description: String?, type: MessageBarMessageType)
+    func showMessage(title: String?, description: String?, type: MessageBarMessageType, callback: SimpleCallback?)
     
-    func showMessage(title: String, description: String, type: MessageBarMessageType, duration: Int)
-    func showMessage(title: String, description: String, type: MessageBarMessageType, duration: Int, callback:Callback)
+    func showMessage(title: String?, description: String?, type: MessageBarMessageType, duration: Double)
+    func showMessage(title: String?, description: String?, type: MessageBarMessageType, duration: Double, callback: SimpleCallback?)
 
-    func hideAll(animated:Bool)
-    func showAlertOkWithTitle(title: String, description: String, okTitle: String, okCallback: Callback)
-    func showAlertOkWithTitle(title: String, description: String, okTitle: String, okCallback: Callback, cancelTitle: String, cancelCallback: Callback)
+    func dismissAll(animated:Bool)
+    func showAlertOkWithTitle(title: String?, description: String?, okTitle: String, okCallback:  SimpleCallback?)
+    func showAlertOkWithTitle(title: String?, description: String?, okTitle: String, okCallback: SimpleCallback?, cancelTitle: String, cancelCallback: SimpleCallback?)
 }
-
-let kMessageBarManagerMessageDuration: Int = 3
 

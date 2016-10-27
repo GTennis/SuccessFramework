@@ -88,7 +88,7 @@ class SettingsManager: SettingsManagerProtocol {
         
         get {
             
-            return nil;
+            return self._localizationManager.getLanguage()
         }
     }
     var languageFullName: String? {

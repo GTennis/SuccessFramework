@@ -29,14 +29,16 @@ import UIKit
 
 class HomeModel: BaseModel {
 
-    override func willStartModelLoading(callback: Callback) {
+    var images: ImageListEntity?
+    
+    override func willStartModelLoading(callback: @escaping Callback) {
         
-        // Immediate callback
-        callback(true, nil, nil, nil)
+        let operation: NetworkOperationProtocol = self.networkOperationFactory.imageListNetworkOperation(context: nil);
+        operation.perform(callBack: callback)
     }
     
     override func didFinishModelLoading(data: Any?, error: ErrorEntity?) {
         
-        // ...
+        self.images = data as? ImageListEntity
     }
 }

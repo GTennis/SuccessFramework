@@ -29,7 +29,7 @@ import UIKit
 
 class ExampleModel: BaseModel {
 
-    override func willStartModelLoading(callback: Callback) {
+    override func willStartModelLoading(callback: @escaping Callback) {
         
         // Immediate callback
         callback(true, nil, nil, nil)

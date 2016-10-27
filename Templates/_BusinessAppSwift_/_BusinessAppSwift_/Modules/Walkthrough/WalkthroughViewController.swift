@@ -34,16 +34,25 @@ protocol WalkthroughViewControllerDelegate {
 
 class WalkthroughViewController: UIViewController, GenericViewControllerProtocol {
 
-    var genericViewController: GenericViewController?
-    var model: WalkthroughModel?
+    var context: Any?
+    var viewLoader: ViewLoaderProtocol?
+    var crashManager: CrashManagerProtocol?
+    var analyticsManager: AnalyticsManagerProtocol?
+    var messageBarManager: MessageBarManagerProtocol?
+    var viewControllerFactory: ViewControllerFactoryProtocol?
+    var reachabilityManager: ReachabilityManagerProtocol?
+    var localizationManager: LocalizationManagerProtocol?
+    var userManager: UserManagerProtocol?
     @IBOutlet weak var modalContainerView4Ipad: UIView?
-    @IBOutlet weak var descriptionLabel: NormalLabel!
     
+    var model: WalkthroughModel?
     var delegate: WalkthroughViewControllerDelegate?
+    
+    @IBOutlet weak var descriptionLabel: NormalLabel!
     
     deinit {
         
-        // ...
+        self.removeFromAllFromObserving()
     }
     
     /*required init() {
@@ -59,31 +68,31 @@ class WalkthroughViewController: UIViewController, GenericViewControllerProtocol
     override func viewDidLoad() {
         
         super.viewDidLoad();
-        self.genericViewController?.viewDidLoad()
+        self.commonViewDidLoad()
         
         self.prepareUI()
         self.loadModel()
         
-        self.descriptionLabel.text = localizedString(key: "AppNeedsUpdate")
+        //self.descriptionLabel.text = localizedString(key: "AppNeedsUpdate")
     }
     
     override func viewWillAppear(_ animated: Bool) {
         
         super.viewWillAppear(animated)
-        self.genericViewController?.viewWillAppear(true)
+        self.commonViewWillAppear(animated)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         
         super.viewWillDisappear(animated)
-        self.genericViewController?.viewWillDisappear(true)
+        self.commonViewWillDisappear(animated)
         
     }
     
     override func didReceiveMemoryWarning() {
         
         super.didReceiveMemoryWarning()
-        self.genericViewController?.didReceiveMemoryWarning()
+        self.commonDidReceiveMemoryWarning()
     }
     
     // MARK: GenericViewControllerProtocol
@@ -112,5 +121,4 @@ class WalkthroughViewController: UIViewController, GenericViewControllerProtocol
         
         delegate?.didFinishShowingWalkthrough()
     }
-    
 }

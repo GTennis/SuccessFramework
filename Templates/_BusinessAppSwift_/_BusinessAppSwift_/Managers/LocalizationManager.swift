@@ -31,8 +31,9 @@ import UIKit
 
 func localizedString(key: String)->String {
     
-    let appDelegate: AppDelegate = UIApplication.shared.delegate as! AppDelegate
-    return appDelegate.localizationManager.localizedString(key: key)
+    let managerFactory: ManagerFactoryProtocol = ManagerFactory.shared()
+    
+    return managerFactory.localizationManager.localizedString(key: key)
 }
 
 class LocalizationManager: /*NSObject,*/ LocalizationManagerProtocol {

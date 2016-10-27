@@ -31,4 +31,4 @@ import UIKit
 // ...
 
 // #define kPlaceholderLoadingImageName @"someImageWhichWillBeShownWhenLoadingOriginalOne"
-let kContentPlaceholderImage = "contentPlaceholder"
+let kContentPlaceholderImage = "imagePlaceholder"

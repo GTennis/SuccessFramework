@@ -43,45 +43,31 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     var appConfig: AppConfigEntity!
     
     // Dependencies
-    lazy var reachabilityManager: ReachabilityManagerProtocol = ReachabilityManager()
-    lazy var crashManager: CrashManagerProtocol = CrashManager()
-    lazy var analyticsManager: AnalyticsManagerProtocol = AnalyticsManager()
-    lazy var messageBarManager: MessageBarManagerProtocol = MessageBarManager()
-    lazy var viewControllerFactory: ViewControllerFactoryProtocol = ViewControllerFactory()
-    lazy var keychainManager: KeychainManagerProtocol = KeychainManager()
-    lazy var pushNotificationManager: PushNotificationManagerProtocol = PushNotificationManager()
-    lazy var logManager: LogManagerProtocol = LogManager()
-    lazy var userManager: UserManagerProtocol = {
     
-        self.networkOperationFactory = NetworkOperationFactory.init(appConfig: nil, settingsManager: self.settingsManager)
-        let userManager: UserManagerProtocol = UserManager.init(settingsManager: self.settingsManager, networkOperationFactory: self.networkOperationFactory!, analyticsManager: self.analyticsManager, keychainManager: self.keychainManager)
-        self.networkOperationFactory.userManager = userManager
+    lazy var viewControllerFactory: ViewControllerFactoryProtocol = {
         
-        return userManager
+        return ViewControllerFactory.init(managerFactory: self.managerFactory)
     }()
-    lazy var settingsManager: SettingsManagerProtocol = {
-        
-        let settingsManager = SettingsManager.init(localizationManager: self.localizationManager)
-        
-        return settingsManager
-    }()
-    var networkOperationFactory: NetworkOperationFactoryProtocol!
-    lazy var localizationManager: LocalizationManagerProtocol = {
-        
-        return LocalizationManager()
-    }()
+
+    var managerFactory: ManagerFactoryProtocol = ManagerFactory.shared()
+    var userManager: UserManagerProtocol = ManagerFactory.shared().userManager
+    var keychainManager: KeychainManagerProtocol = ManagerFactory.shared().keychainManager
+    var settingsManager: SettingsManagerProtocol = ManagerFactory.shared().settingsManager
+    var crashManager: CrashManagerProtocol = ManagerFactory.shared().crashManager
+    var analyticsManager: AnalyticsManagerProtocol = ManagerFactory.shared().analyticsManager
+    var messageBarManager: MessageBarManagerProtocol = ManagerFactory.shared().messageBarManager
+    var reachabilityManager: ReachabilityManagerProtocol = ManagerFactory.shared().reachabilityManager
+    var networkOperationFactory: NetworkOperationFactoryProtocol = ManagerFactory.shared().networkOperationFactory
+    var localizationManager: LocalizationManagerProtocol = ManagerFactory.shared().localizationManager
+    var logManager: LogManagerProtocol = ManagerFactory.shared().logManager
+    var pushNotificationManager: PushNotificationManagerProtocol = ManagerFactory.shared().pushNotificationManager
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-
-        // Need this manager for handling messages if anything happens before we get app settings
-        messageBarManager = MessageBarManager()
-        
-        let viewControllerFactory = ViewControllerFactory();
-        
+ 
         window = UIWindow(frame: UIScreen.main.bounds)
         
-        window?.rootViewController = viewControllerFactory.launchViewController(context: nil);
+        window?.rootViewController = self.viewControllerFactory.launchViewController(context: nil);
         
         // Setting app new app version detection and alerting functionality
         self.setupIVersion()
@@ -277,7 +263,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     
     func iVersionDidDetect(newVersion: String, details: String) {
                 
-        messageBarManager.showMessage(title: localizedString(key:"New app version is available"), description: localizedString(key:"New app version is available"), type: MessageBarMessageType.info, duration: 5) { (success, result, context, error) in
+        messageBarManager.showMessage(title: localizedString(key:"New app version is available"), description: localizedString(key:"New app version is available"), type: MessageBarMessageType.info, duration: 5) { () in
             
             iVersion.sharedInstance().lastChecked = Date()
             iVersion.sharedInstance().lastReminded = Date()
@@ -345,7 +331,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         
         DDLogDebug(log: "App needs update...")
         
-        self.messageBarManager.showAlertOkWithTitle(title: "", description: localizedString(key:"AppNeedsUpdate"), okTitle: "Update") { [weak self] (success, result, context, error) in
+        self.messageBarManager.showAlertOkWithTitle(title: "", description: localizedString(key:"AppNeedsUpdate"), okTitle: "Update") { [weak self] () in
             
             let iTunesLink: String = appConfig.appStoreUrlString
             UIApplication.shared.open(NSURL(string:iTunesLink) as! URL, options: [:], completionHandler: nil)
@@ -359,7 +345,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     
         DDLogDebug(log: "App needs reload...")
         
-        self.messageBarManager.showAlertOkWithTitle(title: "", description: "AppNeedsReload", okTitle: "Reload") { [weak self] (success, result, context, error) in
+        self.messageBarManager.showAlertOkWithTitle(title: "", description: "AppNeedsReload", okTitle: "Reload") { [weak self] () in
             
             self?.closeTheApp()
         }
@@ -466,17 +452,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     
             if let error = error {
                 
-                self.messageBarManager .showMessage(title: "", description: error.message, type: MessageBarMessageType.error, duration: kMessageBarManagerMessageDuration)
+                self.messageBarManager .showMessage(title: "", description: error.message, type: MessageBarMessageType.error)
             }
         }
     }
     
     func proceedToTheApp() {
         
-        let homeVC: HomeViewController = viewControllerFactory.homeViewController(context: nil)
-        self.navigationController = UINavigationController.init(rootViewController: homeVC)
+        //let vc: HomeViewController = viewControllerFactory.homeViewController(context: nil)
+        let vc: UserSignUpViewController = viewControllerFactory.userSignUpViewController(context: nil)
+        self.navigationController = UINavigationController.init(rootViewController: vc)
     
-        self.animateTransitioning(newView: homeVC.view, newRootViewController: self.navigationController!, callback: nil)
+        self.animateTransitioning(newView: vc.view, newRootViewController: self.navigationController!, callback: nil)
         
         //[self animateTransitioningWithNewView:homeVC.view newRootViewController:_menuNavigator  callback:nil];
     }

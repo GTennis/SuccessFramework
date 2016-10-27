@@ -118,7 +118,7 @@
     [_model addToFavoritesWithCallback:^(BOOL success, id result, NSError *error) {
         
         [weakSelf.messageBarManager showMessageWithTitle:GMLocalizedString(@"Added") description:GMLocalizedString(@"This photo was added to favorites")
-                                                    type:MessageBarMessageTypeInfo
+                                                    type:MessageBarMessageTypeError
                                                 duration:1.5f
                                                 callback:^{
                                                     

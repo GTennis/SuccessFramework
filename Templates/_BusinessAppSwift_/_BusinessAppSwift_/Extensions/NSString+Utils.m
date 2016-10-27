@@ -87,6 +87,7 @@
     if (!filePath) {
         
         NSString *errorMessage = [NSString stringWithFormat:@"Cannot read %@.%@ file", self, extension];
+        
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:nil message:errorMessage delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
         [alert show];
         

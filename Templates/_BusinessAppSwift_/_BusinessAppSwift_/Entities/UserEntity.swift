@@ -79,6 +79,11 @@ class UserEntity: UserEntityProtocol {
     var email: String!
     var password: String!
     
+    required init (){
+        
+        // ...
+    }
+    
     required init(dict: Dictionary <String, AnyObject>) {
         
         userId = dict[kUserUserIdKey] as! String!

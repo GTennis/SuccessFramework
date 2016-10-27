@@ -26,3 +26,4 @@
 //
 
 typealias Callback = (_ success: Bool, _ result: Any?, _ context: Any?, _ error: ErrorEntity?) -> Void
+typealias SimpleCallback = () -> Void

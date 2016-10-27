@@ -29,6 +29,6 @@ import UIKit
 
 protocol ViewControllerModelProtocol {
 
-    func willStartModelLoading(callback: Callback)
+    func willStartModelLoading(callback: @escaping Callback)    
     func didFinishModelLoading(data: Any?, error: ErrorEntity?)
 }

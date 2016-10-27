@@ -150,3 +150,10 @@ catch let error {
 
 // Supress unused value warning
 // _ = _observers?.removeValue(forKey: key)
+
+// Disable Xcode8 system logs:
+// From Xcode menu open: Product > Scheme > Edit Scheme
+// On your Environment Variables set OS_ACTIVITY_MODE = disable
+
+// Double to NSNumber conversion
+//NSNumber(value:doubleValue)

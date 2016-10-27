@@ -30,7 +30,7 @@ import UIKit
 class SecondViewController: UIViewController {
 
     var managerInjector: ManagerInjectorProtocol = ManagerInjector();
-    var viewControllerFactory: ViewControllerFactoryProtocol = ViewControllerFactory();
+    //var viewControllerFactory: ViewControllerFactoryProtocol = ViewControllerFactory();
     
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -29,8 +29,14 @@ import Foundation
 
 protocol ViewControllerFactoryProtocol {
     
-    func launchViewController(context: Any?)->LaunchViewController;
-    func homeViewController(context: Any?)->HomeViewController;
-    func contactViewController(context: Any?)->ContactViewController;
-    func walkthroughViewController(context: Any?)->WalkthroughViewController;
+    init(managerFactory: ManagerFactoryProtocol)
+    
+    func launchViewController(context: Any?)->LaunchViewController
+    func homeViewController(context: Any?)->HomeViewController
+    func contactViewController(context: Any?)->ContactViewController
+    func walkthroughViewController(context: Any?)->WalkthroughViewController
+    func countryPickerViewController(context: Any?)->CountryPickerViewController
+    
+    // User
+    func userSignUpViewController(context: Any?)->UserSignUpViewController
 }

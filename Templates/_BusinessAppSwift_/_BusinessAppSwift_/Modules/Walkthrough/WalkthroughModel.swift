@@ -29,7 +29,7 @@ import UIKit
 
 class WalkthroughModel: BaseModel {
 
-    override func willStartModelLoading(callback: Callback) {
+    override func willStartModelLoading(callback: @escaping Callback) {
         
         // Setting will be marked when the model will load for the first time
         self.settingsManager.isFirstTimeAppLaunch = false

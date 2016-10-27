@@ -1,0 +1,80 @@
+//
+//  UIAlertController+Window.swift
+//  _BusinessAppSwift_
+//
+//  Created by Gytenis Mikulenas on 27/10/2016.
+//  Copyright © 2016 Gytenis Mikulėnas 
+//  https://github.com/GitTennis/SuccessFramework
+//
+//  Permission is hereby granted, free of charge, to any person obtaining a copy
+//  of this software and associated documentation files (the "Software"), to deal
+//  in the Software without restriction, including without limitation the rights
+//  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+//  copies of the Software, and to permit persons to whom the Software is
+//  furnished to do so, subject to the following conditions:
+//
+//  The above copyright notice and this permission notice shall be included in all
+//  copies or substantial portions of the Software.
+//
+//  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+//  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+//  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+//  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+//  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+//  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+//  SOFTWARE. All rights reserved.
+//
+
+import UIKit
+
+// http://stackoverflow.com/a/26735981/597292
+extension UIAlertController {
+
+    internal func show() {
+        
+        self._show(animated: true, callback: nil)
+    }
+    
+    internal func show(animated: Bool) {
+        
+        self._show(animated: animated, callback: nil)
+    }
+    
+    internal func show(animated: Bool, callback: @escaping Callback) {
+        
+        self._show(animated: animated, callback: callback)
+    }
+    
+    // MARK: 
+    // MARK: Internal
+    // MARK:
+    
+    internal func _show(animated: Bool, callback: Callback?) {
+        
+        var rootViewController = UIApplication.shared.keyWindow?.rootViewController
+        
+        if let navigationController = rootViewController as? UINavigationController {
+            
+            rootViewController = navigationController.viewControllers.last
+            
+        } else {
+            
+            if let tabBarController = rootViewController as? UITabBarController {
+                
+                rootViewController = tabBarController.selectedViewController
+                
+            } else {
+                
+                if let viewController = rootViewController {
+                    
+                    rootViewController = viewController
+                }
+            }
+        }
+        
+        rootViewController?.present(self, animated: animated, completion: {
+            
+            callback?(true, nil, nil, nil)
+        })
+    }
+}
