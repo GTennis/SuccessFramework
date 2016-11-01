@@ -64,9 +64,10 @@ class AppConfigEntity: AppConfigEntityProtocol {
     
     // MARK: AppConfigEntityProtocol
     
-    var supportedAppVersions: Array <String>;
-    var appStoreUrlString: String;
-    var appConfigVersion: Int;
+    var supportedAppVersions: Array <String>
+    var appStoreUrlString: String
+    var appConfigVersion: Int
+    var currentNetworkRequests: Dictionary <String, NetworkRequestEntity>! // will point to one of the three properties above
     
     var isAppNeedUpdate: Bool {
         
@@ -79,25 +80,25 @@ class AppConfigEntity: AppConfigEntityProtocol {
     var logLevel: LogLevelType {
         
         let intValue: Int = _currentNetworkEnvironment.rawValue
-        let logLevelString: String = _environmentLogLevels[intValue]!;
+        let logLevelString: String = _environmentLogLevels[intValue]!
         
         return self._convertedLogLevel(logLevelString: logLevelString)
     }
     
     func setCurrentRequests(backendEnvironment: BackendEnvironmentType) {
     
-        _currentNetworkEnvironment = backendEnvironment;
+        _currentNetworkEnvironment = backendEnvironment
         
         switch backendEnvironment {
             
             case .production:
-                _currentNetworkRequests = _productionNetworkRequests
+                currentNetworkRequests = _productionNetworkRequests
             
             case .staging:
-                _currentNetworkRequests = _stageNetworkRequests
+                currentNetworkRequests = _stageNetworkRequests
             
             case .development:
-                _currentNetworkRequests = _developmentNetworkRequests
+                currentNetworkRequests = _developmentNetworkRequests
             
             //default:
         }
@@ -187,7 +188,6 @@ class AppConfigEntity: AppConfigEntityProtocol {
     var _productionNetworkRequests: Dictionary <String, NetworkRequestEntity>!
     var _stageNetworkRequests: Dictionary <String, NetworkRequestEntity>!
     var _developmentNetworkRequests: Dictionary <String, NetworkRequestEntity>!
-    var _currentNetworkRequests: Dictionary <String, NetworkRequestEntity>!; // will point to one of the three properties above
     
     var _platform: String
     var _environmentLogLevels: Dictionary <Int, String>

@@ -309,7 +309,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
             let configOperation = networkOperationFactory.configNetworkOperation(context: request as Any)
             
             // Perform
-            configOperation.perform(callBack: callback)
+            configOperation.perform(callback: callback)
         }
     }
     

@@ -1,9 +1,9 @@
 //
-//  FirstViewController.swift
+//  GenericWebViewControllerProtocol+Core.swift
 //  _BusinessAppSwift_
 //
-//  Created by Gytenis Mikulenas on 06/09/16.
-//  Copyright © 2016 Gytenis Mikulėnas
+//  Created by Gytenis Mikulenas on 02/11/16.
+//  Copyright © 2016 Gytenis Mikulėnas 
 //  https://github.com/GitTennis/SuccessFramework
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -27,35 +27,22 @@
 
 import UIKit
 
-class FirstViewController: UIViewController {
+extension GenericWebViewControllerProtocol {
 
-    var authentificationToken: String? {
+    func webView(_ webView: UIWebView, shouldStartLoadWith request: URLRequest, navigationType: UIWebViewNavigationType) -> Bool {
         
-        get {
-            
-            return self._authentificationToken
-        }
+        self.viewLoader?.showScreenActivityIndicator(containerView: webView)
         
-        set {
-            
-            self._authentificationToken = newValue
-        }
+        return true
+    }
+
+    func webViewDidFinishLoad(_ webView: UIWebView) {
+        
+        self.viewLoader?.hideScreenActivityIndicator(containerView: webView)
     }
     
-    // MARK: Internal
-    internal
-    var _authentificationToken: String?
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+    func webView(_ webView: UIWebView, didFailLoadWithError error: Error) {
+        
+        self.viewLoader?.hideScreenActivityIndicator(containerView: webView)
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
-
 }
-

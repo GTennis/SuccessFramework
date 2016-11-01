@@ -14,6 +14,7 @@
 #import "UILabel+Styling.h"
 #import "UITextView+Styling.h"
 #import "UITextFieldStylingIvars.h"
+#import "NSString+Validator.h"
 
 // And then create object using it's designated initializer:
 // GMObserverList.init(observedSubject: <#T##Any!#>)

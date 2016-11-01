@@ -29,8 +29,15 @@ import UIKit
 
 protocol NetworkOperationProtocol {
 
-    // Params accepts any type of object. This means data objects could be passed for convenience. However, inside subclass we need to transform passed "params" data object and return NSDictionary. See protected "- (NSDictionary *)params;" method
-    func perform(callBack: @escaping Callback)
+    var networkRequest: NetworkRequestEntityProtocol {get set}
+    var context: Any? {get set}
+    var isSilent: Bool {get set}
+    
+    init(networkRequest: NetworkRequestEntityProtocol, context: Any?, userManager: UserManagerProtocol, settingsManager: SettingsManagerProtocol)
+    func handleResponse(success: Bool, result: Any?, error: ErrorEntity?, callback: Callback)
+    
+    // Params accepts any type of object. This means data objects could be passed for convenience. However, inside a subclass we need to transform passed "params" data object and return Dictionary. See protected params method
+    func perform(callback: @escaping Callback)
     
     // NSOperation Operation Alamofire
     // http://stackoverflow.com/questions/27021896/nsurlsession-concurrent-requests-with-alamofire

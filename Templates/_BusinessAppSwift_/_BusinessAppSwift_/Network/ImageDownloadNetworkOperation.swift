@@ -32,7 +32,7 @@ class ImageDownloadNetworkOperation: BaseNetworkOperation {
 
     // MARK: NetworkOperationProtocol
     
-    override func perform(callBack: @escaping Callback) {
+    override func perform(callback callBack: @escaping Callback) {
         
         
         

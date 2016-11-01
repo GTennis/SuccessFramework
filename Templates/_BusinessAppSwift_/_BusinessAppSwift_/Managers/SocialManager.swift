@@ -29,7 +29,6 @@ import UIKit
 
 class SocialManager: SocialManagerProtocol {
 
-    // TODO: Temporary
     init() {
         
     }

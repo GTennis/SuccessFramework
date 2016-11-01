@@ -1,9 +1,9 @@
 //
-//  UserSignUpNetworkOperation.swift
-//  _BusinessAppSwift_
+//  UIView+Colors.h
+//  _BusinessApp_
 //
-//  Created by Gytenis Mikulenas on 20/10/2016.
-//  Copyright © 2016 Gytenis Mikulėnas 
+//  Created by Gytenis Mikulėnas on 6/4/14.
+//  Copyright (c) 2015 Gytenis Mikulėnas
 //  https://github.com/GitTennis/SuccessFramework
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -25,20 +25,17 @@
 //  SOFTWARE. All rights reserved.
 //
 
-import UIKit
+#import <UIKit/UIKit.h>
 
-class UserSignUpNetworkOperation: BaseNetworkOperation {
-    
-    override func handleResponse(success: Bool, result: Any?, error: ErrorEntity?, callback: Callback) {
-        
-        if (success) {
-            
-            let item: UserEntityProtocol = UserEntity.init(dict: result as! Dictionary<String, AnyObject>)
-            callback(success, item, nil, nil)
-            
-        } else {
-            
-            callback(success, nil, nil, error);
-        }
-    }
-}
+@interface UIView (Colors)
+
+// Common
+/*- (BOOL)color:(UIColor *)color isEqualToColor:(UIColor *)otherColor;
+- (UIImage *)imageWithColor:(UIColor *)color alpha:(CGFloat)alpha;
+
+// For setting style on UI views via user runtime attributes in interface builder
+@property (nonatomic, strong) NSString *backgroundColorName;
+@property (nonatomic, strong) NSString *labelTitleColorName;
+@property (nonatomic, strong) NSString *buttonTitleColorName;*/
+
+@end

@@ -1,8 +1,8 @@
 //
-//  ManagerInjector.swift
+//  GenericWebViewControllerProtocol.swift
 //  _BusinessAppSwift_
 //
-//  Created by Gytenis Mikulenas on 06/09/16.
+//  Created by Gytenis Mikulenas on 02/11/16.
 //  Copyright © 2016 Gytenis Mikulėnas 
 //  https://github.com/GitTennis/SuccessFramework
 //
@@ -27,20 +27,7 @@
 
 import UIKit
 
-class ManagerInjector: ManagerInjectorProtocol {
+protocol GenericWebViewControllerProtocol: UIWebViewDelegate, GenericViewControllerProtocol {
 
-    func inject(model: inout BaseModelProtocol) {
-        
-        //model.userManager = userManager();
-    }
-    
-    // MARK: Helpers
-    //internal
-    
-    /*func userManager()->UserManagerProtocol {
-        
-        let userManager = UserManager.init(settingsManager: SettingsManager() as SettingsManagerProtocol, networkOperationFactory: NetworkOperationFactory() as NetworkOperationFactoryProtocol, analyticsManager: AnalyticsManager() as AnalyticsManagerProtocol, keychainManager: KeychainManager() as KeychainManagerProtocol)
-        
-        return userManager;
-    }*/
+    weak var webView: UIWebView? {get set}
 }

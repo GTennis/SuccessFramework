@@ -54,6 +54,11 @@ func isEmpty<T>(dict: Dictionary <String, T>)->Bool {
     return dict.isEmpty
 }
 
+func equalColors(color1: UIColor, color2: UIColor)->Bool {
+    
+    return color1.isEqual(color2)
+}
+
 func stringify<T>(object: T) -> String {
     
     var result: String = ""

@@ -1,8 +1,8 @@
 //
-//  ThirdViewController.swift
+//  UIImage+Utils.swift
 //  _BusinessAppSwift_
 //
-//  Created by Gytenis Mikulenas on 06/09/16.
+//  Created by Gytenis Mikulenas on 02/11/16.
 //  Copyright © 2016 Gytenis Mikulėnas 
 //  https://github.com/GitTennis/SuccessFramework
 //
@@ -27,28 +27,24 @@
 
 import UIKit
 
-class ThirdViewController: UIViewController {
+extension UIImage {
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+    // http://stackoverflow.com/a/33675160/597292
+    public convenience init?(color: UIColor, alpha: CGFloat) {
+        
+        let size: CGSize = CGSize(width: 1, height: 1)
+        
+        let rect = CGRect(origin: .zero, size: size)
+        UIGraphicsBeginImageContextWithOptions(rect.size, false, 0.0)
+        color.setFill()
+        
+        //draw(at: CGPoint.zero, blendMode: .normal, alpha: alpha)
+        
+        UIRectFill(rect)
+        let image = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        
+        guard let cgImage = image?.cgImage else { return nil }
+        self.init(cgImage: cgImage)
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

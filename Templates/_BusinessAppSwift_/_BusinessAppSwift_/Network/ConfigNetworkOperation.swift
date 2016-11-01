@@ -30,38 +30,24 @@ import Alamofire
 
 class ConfigNetworkOperation: BaseNetworkOperation {
 
-    // MARK: NetworkOperationProtocol
-    
-    override func perform(callBack: @escaping Callback) {
+    override func requestUrlParams() -> String? {
         
-        // Unit tests with examples: https://github.com/Alamofire/Alamofire/tree/master/Tests
+        let appVersion: String = Bundle.plistValue(key: "CFBundleShortVersionString") as! String
+        let result: String = "ios-" + appVersion
         
-        let urlString = "http://dotheapp.com/ws/config.json"
-        //let headers = ["Method": "123456"]
-        //let parameters = ["foo": "bar"]
-        
-        
-        Alamofire.request(urlString, method: .get, parameters: nil, encoding: URLEncoding.default, headers: nil).responseJSON { response in
-            
-            //print(response.request)  // original URL request
-            //print(response.response) // URL response
-            //print(response.data)     // server data
-            //print(response.result)   // result of response serialization
-            
-            // Explicitly make it clear about the content in response.result.value: it's dictionary
-            let dictOptional: Dictionary <String, AnyObject>? = response.result.value as! Dictionary<String, AnyObject>?
-            
-            if let dict = dictOptional {
-                
-                let appConfigEntity: AppConfigEntity = AppConfigEntity.init(dict: dict);
-                
-                // TODO: check values
-                callBack(true, appConfigEntity, nil, nil)
-            } else {
-                
-                // TODO: ...
-                callBack(false, nil, nil, nil)
-            }
-        }
+        return result
     }
+    
+    override func handleResponse(success: Bool, result: Any?, error: ErrorEntity?, callback: Callback) {
+        
+        if (success) {
+            
+            let item: AppConfigEntityProtocol = AppConfigEntity.init(dict: result as! Dictionary<String, AnyObject>)
+            callback(success, item, nil, nil)
+            
+        } else {
+            
+            callback(success, nil, nil, error);
+        }
+    }    
 }

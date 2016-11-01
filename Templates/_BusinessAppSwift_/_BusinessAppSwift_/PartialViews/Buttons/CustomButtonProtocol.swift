@@ -1,9 +1,9 @@
 //
-//  SecondViewController.swift
+//  CustomButtonProtocol.swift
 //  _BusinessAppSwift_
 //
-//  Created by Gytenis Mikulenas on 06/09/16.
-//  Copyright © 2016 Gytenis Mikulėnas
+//  Created by Gytenis Mikulenas on 02/11/16.
+//  Copyright © 2016 Gytenis Mikulėnas 
 //  https://github.com/GitTennis/SuccessFramework
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -27,37 +27,28 @@
 
 import UIKit
 
-class SecondViewController: UIViewController {
+protocol CustomButtonProtocol {
 
-    var managerInjector: ManagerInjectorProtocol = ManagerInjector();
-    //var viewControllerFactory: ViewControllerFactoryProtocol = ViewControllerFactory();
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-    }
+    // Borders
+    var borderSize: CGFloat {get}
+    var borderColor: UIColor {get}
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
+    // Corners
+    var cornerRadius: CGFloat {get}
 
-    // MARK: - IBActions
+    // Normal state
+    var backgroundNormalColor: UIColor {get}
+    var textNormalColor: UIColor {get}
     
-    @IBAction func buttonPressed(_ sender: AnyObject) {
-        
-        let storyboard : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-        let vc : ThirdViewController = storyboard.instantiateViewController(withIdentifier: "ThirdViewController") as! ThirdViewController;
-        
-        self.navigationController?.pushViewController(vc, animated: true);
-    }
+    // Highlighted state
+    var backgroundHighlightedColor: UIColor {get}
+    var textHighlightedColor: UIColor {get}
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
-        //if (segue.identifier == "Load View") {
-        // pass data to next view
-        //}
-        
-    }
+    // Disabled state
+    var backgroundDisabledColor: UIColor {get}
+    var textDisabledColor: UIColor {get}
+    
+    // Font
+    var fontName: String {get}
+    var fontSize: CGFloat {get}
 }
-

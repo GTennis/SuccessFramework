@@ -60,11 +60,7 @@
 // Converts national symbols into URL compatible symbols and codes. The method should for preparing all user entered texts when passing to the backend
 - (NSString *)UTF8EncodedString {
     
-    return (__bridge_transfer NSString *)CFURLCreateStringByAddingPercentEscapes(NULL,
-                                                                                 (__bridge CFStringRef)self,
-                                                                                 NULL,
-                                                                                 (CFStringRef)@"!*'\"();:@&=+$,/?%#[]% ",
-                                                                                 kCFStringEncodingUTF8);
+    return [self stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]];
 }
 
 - (BOOL)isValidUrlString {

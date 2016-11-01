@@ -30,28 +30,16 @@ import Alamofire
 
 class ImageListNetworkOperation: BaseNetworkOperation {
     
-    // MARK: NetworkOperationProtocol
-    
-    override func perform(callBack: @escaping Callback) {
+    override func handleResponse(success: Bool, result: Any?, error: ErrorEntity?, callback: Callback) {
         
-        let urlString = "http://dotheapp.com/ws/v1/flickrImages.json"        
-        
-        Alamofire.request(urlString, method: .get, parameters: nil, encoding: URLEncoding.default, headers: nil).responseJSON { response in
+        if (success) {
             
-            // Explicitly make it clear about the content in response.result.value: it's dictionary
-            let dictOptional: Dictionary <String, AnyObject>? = response.result.value as! Dictionary<String, AnyObject>?
+            let item: ImageListEntityProtocol = ImageListEntity.init(dict: result as! Dictionary<String, AnyObject>)
+            callback(success, item, nil, nil)
             
-            if let dict = dictOptional {
-                
-                let item: ImageListEntity = ImageListEntity.init(dict: dict);
-                
-                // TODO: check values
-                callBack(true, item, nil, nil)
-            } else {
-                
-                // TODO: ...
-                callBack(false, nil, nil, nil)
-            }
+        } else {
+            
+            callback(success, nil, nil, error);
         }
     }
 }

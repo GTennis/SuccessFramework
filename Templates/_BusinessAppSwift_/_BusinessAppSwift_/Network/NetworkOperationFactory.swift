@@ -27,9 +27,24 @@
 
 import UIKit
 
+// Images
+let kNetworkOperationImageListName = "imageList"
+let kNetworkOperationImageUploadName = "imageUpload"
+
+// User
+let kNetworkOperationUserLoginName = "userLogin"
+let kNetworkOperationUserSignUpName = "userSignUp"
+let kNetworkOperationUserProfileName = "userProfile"
+let kNetworkOperationUserResetPasswordName = "userResetPassword"
+
+// Legal
+let kNetworkOperationPrivacyPolicyName = "privacyPolicy"
+let kNetworkOperationTermsConditionsName = "termsConditions"
+
 class NetworkOperationFactory: NetworkOperationFactoryProtocol {
 
     // NetworkOperationFactoryProtocol
+    
     var userManager: UserManagerProtocol?
     
     required init(appConfig: AppConfigEntity?, settingsManager: SettingsManagerProtocol) {
@@ -39,34 +54,29 @@ class NetworkOperationFactory: NetworkOperationFactoryProtocol {
     }
     
     // MARK: Config
+    
     func configNetworkOperation(context: Any?) -> NetworkOperationProtocol{
         
-        // GRAB from context
-        //let request: NetworkRequestEntity = context as! NetworkRequestEntity
-        
-        let operation: NetworkOperationProtocol = ConfigNetworkOperation()
+        let request = context as! NetworkRequestEntity
+        let operation: NetworkOperationProtocol = ConfigNetworkOperation(networkRequest: request, context: context, userManager: userManager!, settingsManager: _settingsManager)
         
         return operation
     }
     
     // MARK: Images
-    func imageDownloadNetworkOperation(context: Any?) -> NetworkOperationProtocol {
-        
-        let operation: NetworkOperationProtocol = ImageDownloadNetworkOperation()
-        
-        return operation
-    }
     
     func imageUploadNetworkOperation(context: Any?) -> NetworkOperationProtocol {
      
-        let operation: NetworkOperationProtocol = ImageUploadNetworkOperation()
+        let request = _appConfig!.currentNetworkRequests[kNetworkOperationImageListName]
+        let operation: NetworkOperationProtocol = ImageUploadNetworkOperation(networkRequest: request!, context: context, userManager: userManager!, settingsManager: _settingsManager)
         
         return operation
     }
     
     func imageListNetworkOperation(context: Any?) -> NetworkOperationProtocol {
      
-        let operation: NetworkOperationProtocol = ImageListNetworkOperation()
+        let request = _appConfig!.currentNetworkRequests[kNetworkOperationImageListName]
+        let operation: NetworkOperationProtocol = ImageListNetworkOperation(networkRequest: request!, context: context, userManager: userManager!, settingsManager: _settingsManager)
         
         return operation
     }
@@ -75,28 +85,32 @@ class NetworkOperationFactory: NetworkOperationFactoryProtocol {
     
     func userLoginNetworkOperation(context: Any?) -> NetworkOperationProtocol {
         
-        let operation: NetworkOperationProtocol = UserLoginNetworkOperation()
+        let request = _appConfig!.currentNetworkRequests[kNetworkOperationUserLoginName]
+        let operation: NetworkOperationProtocol = UserLoginNetworkOperation(networkRequest: request!, context: context, userManager: userManager!, settingsManager: _settingsManager)
         
         return operation
     }
     
     func userSignUpNetworkOperation(context: Any?) -> NetworkOperationProtocol {
         
-        let operation: NetworkOperationProtocol = UserLoginNetworkOperation()
+        let request = _appConfig!.currentNetworkRequests[kNetworkOperationUserSignUpName]
+        let operation: NetworkOperationProtocol = UserSignUpNetworkOperation(networkRequest: request!, context: context, userManager: userManager!, settingsManager: _settingsManager)
         
         return operation
     }
     
     func userProfileNetworkOperation(context: Any?) -> NetworkOperationProtocol {
         
-        let operation: NetworkOperationProtocol = UserProfileNetworkOperation()
+        let request = _appConfig!.currentNetworkRequests[kNetworkOperationUserProfileName]
+        let operation: NetworkOperationProtocol = UserProfileNetworkOperation(networkRequest: request!, context: context, userManager: userManager!, settingsManager: _settingsManager)
         
         return operation
     }
     
     func userResetPasswordNetworkOperation(context: Any?) -> NetworkOperationProtocol {
         
-        let operation: NetworkOperationProtocol = UserResetPasswordNetworkOperation()
+        let request = _appConfig!.currentNetworkRequests[kNetworkOperationUserResetPasswordName]
+        let operation: NetworkOperationProtocol = UserResetPasswordNetworkOperation(networkRequest: request!, context: context, userManager: userManager!, settingsManager: _settingsManager)
         
         return operation
     }
@@ -105,14 +119,16 @@ class NetworkOperationFactory: NetworkOperationFactoryProtocol {
     
     func privacyPolicyNetworkOperation(context: Any?) -> NetworkOperationProtocol {
         
-        let operation: NetworkOperationProtocol = PrivacyPolicyNetworkOperation()
+        let request = _appConfig!.currentNetworkRequests[kNetworkOperationPrivacyPolicyName]
+        let operation: NetworkOperationProtocol = PrivacyPolicyNetworkOperation(networkRequest: request!, context: context, userManager: userManager!, settingsManager: _settingsManager)
         
         return operation
     }
     
     func termsConditionsNetworkOperation(context: Any?) -> NetworkOperationProtocol {
         
-        let operation: NetworkOperationProtocol = TermsConditionsNetworkOperation()
+        let request = _appConfig!.currentNetworkRequests[kNetworkOperationTermsConditionsName]
+        let operation: NetworkOperationProtocol = TermsConditionsNetworkOperation(networkRequest: request!, context: context, userManager: userManager!, settingsManager: _settingsManager)
         
         return operation
     }

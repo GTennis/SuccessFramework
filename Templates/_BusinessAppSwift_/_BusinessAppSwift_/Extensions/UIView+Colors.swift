@@ -1,8 +1,8 @@
 //
-//  ManagerInjectorProtocol.swift
+//  UIView+Colors.swift
 //  _BusinessAppSwift_
 //
-//  Created by Gytenis Mikulenas on 06/09/16.
+//  Created by Gytenis Mikulenas on 02/11/16.
 //  Copyright © 2016 Gytenis Mikulėnas 
 //  https://github.com/GitTennis/SuccessFramework
 //
@@ -25,9 +25,9 @@
 //  SOFTWARE. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
-protocol ManagerInjectorProtocol {
-    
-    func inject(model: inout BaseModelProtocol);
+extension UIView {
+
+    // ...
 }

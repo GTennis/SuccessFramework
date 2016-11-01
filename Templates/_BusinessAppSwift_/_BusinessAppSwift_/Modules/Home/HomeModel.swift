@@ -34,7 +34,7 @@ class HomeModel: BaseModel {
     override func willStartModelLoading(callback: @escaping Callback) {
         
         let operation: NetworkOperationProtocol = self.networkOperationFactory.imageListNetworkOperation(context: nil);
-        operation.perform(callBack: callback)
+        operation.perform(callback: callback)
     }
     
     override func didFinishModelLoading(data: Any?, error: ErrorEntity?) {

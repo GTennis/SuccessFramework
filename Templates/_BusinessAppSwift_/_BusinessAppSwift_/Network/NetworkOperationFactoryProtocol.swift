@@ -37,7 +37,6 @@ protocol NetworkOperationFactoryProtocol {
     func configNetworkOperation(context: Any?) -> NetworkOperationProtocol
     
     // MARK: Images
-    func imageDownloadNetworkOperation(context: Any?) -> NetworkOperationProtocol
     func imageUploadNetworkOperation(context: Any?) -> NetworkOperationProtocol
     func imageListNetworkOperation(context: Any?) -> NetworkOperationProtocol
     

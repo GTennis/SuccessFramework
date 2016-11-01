@@ -27,14 +27,46 @@
 
 import UIKit
 
-class NormalButton: UIButton {
+class NormalButton: BaseButton {
 
-    /*
-    // Only override draw() if you perform custom drawing.
-    // An empty implementation adversely affects performance during animation.
-    override func draw(_ rect: CGRect) {
-        // Drawing code
+    override var borderColor: UIColor {
+        
+        get {
+    
+            return kColorGreen
+        }
     }
-    */
-
+    
+    override var backgroundNormalColor: UIColor {
+        
+        get {
+            
+            return UIColor.clear
+        }
+    }
+    
+    override var textNormalColor: UIColor {
+        
+        get {
+            
+            return kColorGreen
+        }
+    }
+    
+    
+    override var textHighlightedColor: UIColor {
+        
+        get {
+            
+            return kColorGreen
+        }
+    }
+    
+    override var backgroundHighlightedColor: UIColor {
+        
+        get {
+            
+            return kColorGreen
+        }
+    }
 }

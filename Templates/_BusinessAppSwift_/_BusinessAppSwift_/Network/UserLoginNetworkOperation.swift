@@ -25,10 +25,18 @@
 //  SOFTWARE. All rights reserved.
 //
 
-import Alamofire
-
-
 class UserLoginNetworkOperation: BaseNetworkOperation {
 
-
+    override func handleResponse(success: Bool, result: Any?, error: ErrorEntity?, callback: Callback) {
+        
+        if (success) {
+            
+            let item: UserEntityProtocol = UserEntity.init(dict: result as! Dictionary<String, AnyObject>)
+            callback(success, item, nil, nil)
+            
+        } else {
+            
+            callback(success, nil, nil, error);
+        }
+    }
 }

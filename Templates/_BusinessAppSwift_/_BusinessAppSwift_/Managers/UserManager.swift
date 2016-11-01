@@ -135,7 +135,7 @@ class UserManager : UserManagerProtocol {
         user.password = hashedPwd
         
         let userLoginOperation: NetworkOperationProtocol = networkOperationFactory.userLoginNetworkOperation(context: user.serializedDict())
-        userLoginOperation.perform(callBack: wrappedCallback)
+        userLoginOperation.perform(callback: wrappedCallback)
     }
     
     func signUp(user: UserEntity, callback: @escaping Callback) {
@@ -171,7 +171,7 @@ class UserManager : UserManagerProtocol {
         user.password = hashedPwd
         
         let userSignUpOperation: NetworkOperationProtocol = networkOperationFactory.userSignUpNetworkOperation(context: user.serializedDict())
-        userSignUpOperation.perform(callBack: wrappedCallback)
+        userSignUpOperation.perform(callback: wrappedCallback)
     }
     
     func resetPassword(user: UserEntity, callback: @escaping Callback) {
@@ -191,7 +191,7 @@ class UserManager : UserManagerProtocol {
         }
         
         let userResetPasswordOperation: NetworkOperationProtocol = networkOperationFactory.userResetPasswordNetworkOperation(context: user.serializedDict())
-        userResetPasswordOperation.perform(callBack: wrappedCallback)
+        userResetPasswordOperation.perform(callback: wrappedCallback)
     }
     
     func getUserProfile(user: UserEntity, callback: @escaping Callback) {
@@ -211,7 +211,7 @@ class UserManager : UserManagerProtocol {
         }
         
         let userProfileOperation: NetworkOperationProtocol = networkOperationFactory.userProfileNetworkOperation(context: user.serializedDict())
-        userProfileOperation.perform(callBack: wrappedCallback)
+        userProfileOperation.perform(callback: wrappedCallback)
     }
     
     func logout(callback: @escaping Callback) {

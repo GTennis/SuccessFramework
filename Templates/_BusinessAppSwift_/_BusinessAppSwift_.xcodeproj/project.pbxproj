@@ -59,10 +59,14 @@
 		0F6C15B21DBD5A9500169C13 /* ConstFonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F6C15B11DBD5A9500169C13 /* ConstFonts.swift */; };
 		0F6C15B51DBD5C6100169C13 /* ConnectionStatusButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F6C15B41DBD5C6100169C13 /* ConnectionStatusButton.swift */; };
 		0F98B1531D7EBA2D002F8259 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0F98B1521D7EBA2D002F8259 /* LaunchScreen.xib */; };
+		0FAFF2DF1DCA84A00039E685 /* GenericWebViewControllerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FAFF2DE1DCA84A00039E685 /* GenericWebViewControllerProtocol.swift */; };
+		0FAFF2E11DCA84B00039E685 /* GenericWebViewControllerProtocol+Core.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FAFF2E01DCA84B00039E685 /* GenericWebViewControllerProtocol+Core.swift */; };
+		0FAFF2E31DCA87F90039E685 /* CustomButtonProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FAFF2E21DCA87F90039E685 /* CustomButtonProtocol.swift */; };
+		0FAFF2E51DCA88AB0039E685 /* BaseButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FAFF2E41DCA88AB0039E685 /* BaseButton.swift */; };
+		0FAFF2E81DCA8C810039E685 /* UIView+Colors.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FAFF2E71DCA8C810039E685 /* UIView+Colors.m */; };
+		0FAFF2EA1DCA8CD50039E685 /* UIView+Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FAFF2E91DCA8CD50039E685 /* UIView+Colors.swift */; };
+		0FAFF2EC1DCA90680039E685 /* UIImage+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FAFF2EB1DCA90680039E685 /* UIImage+Utils.swift */; };
 		0FB039441D7EB82400B67C40 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FB039431D7EB82400B67C40 /* AppDelegate.swift */; };
-		0FB039461D7EB82400B67C40 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FB039451D7EB82400B67C40 /* FirstViewController.swift */; };
-		0FB039481D7EB82400B67C40 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FB039471D7EB82400B67C40 /* SecondViewController.swift */; };
-		0FB0394B1D7EB82400B67C40 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0FB039491D7EB82400B67C40 /* Main.storyboard */; };
 		0FB0394D1D7EB82400B67C40 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0FB0394C1D7EB82400B67C40 /* Assets.xcassets */; };
 		0FB0395B1D7EB82500B67C40 /* _BusinessAppSwift_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FB0395A1D7EB82500B67C40 /* _BusinessAppSwift_Tests.swift */; };
 		0FB039661D7EB82500B67C40 /* _BusinessAppSwift_UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FB039651D7EB82500B67C40 /* _BusinessAppSwift_UITests.swift */; };
@@ -75,14 +79,11 @@
 		0FF09BC11D7EBDC200DBBF46 /* imageList.json in Resources */ = {isa = PBXBuildFile; fileRef = 0FF09BBD1D7EBDC200DBBF46 /* imageList.json */; };
 		0FF09BC21D7EBDC200DBBF46 /* userLogin.json in Resources */ = {isa = PBXBuildFile; fileRef = 0FF09BBE1D7EBDC200DBBF46 /* userLogin.json */; };
 		0FF09BC31D7EBDC200DBBF46 /* userSignUp.json in Resources */ = {isa = PBXBuildFile; fileRef = 0FF09BBF1D7EBDC200DBBF46 /* userSignUp.json */; };
-		0FF09BCD1D7ED42900DBBF46 /* ThirdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF09BCC1D7ED42900DBBF46 /* ThirdViewController.swift */; };
-		0FF09BCF1D7ED76000DBBF46 /* ManagerInjector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF09BCE1D7ED76000DBBF46 /* ManagerInjector.swift */; };
 		0FF09BD51D7EDC7000DBBF46 /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF09BD41D7EDC7000DBBF46 /* UserManager.swift */; };
 		0FF09BD81D7EDCDB00DBBF46 /* UserManagerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF09BD71D7EDCDB00DBBF46 /* UserManagerProtocol.swift */; };
 		0FF09BDF1D7EE44300DBBF46 /* LaunchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF09BDD1D7EE44300DBBF46 /* LaunchViewController.swift */; };
 		0FF09BE31D7EE55700DBBF46 /* ViewControllerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF09BE21D7EE55700DBBF46 /* ViewControllerFactory.swift */; };
 		0FF09BE51D7EE56F00DBBF46 /* ViewControllerFactoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF09BE41D7EE56F00DBBF46 /* ViewControllerFactoryProtocol.swift */; };
-		0FF09BE71D7EE58200DBBF46 /* ManagerInjectorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF09BE61D7EE58200DBBF46 /* ManagerInjectorProtocol.swift */; };
 		0FF09BEB1D7EF6CD00DBBF46 /* WalkthroughViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF09BE91D7EF6CD00DBBF46 /* WalkthroughViewController.swift */; };
 		0FF09BF51D7EF7BC00DBBF46 /* LaunchViewController_iphone.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF09BF31D7EF7BC00DBBF46 /* LaunchViewController_iphone.swift */; };
 		0FF09BF61D7EF7BC00DBBF46 /* LaunchViewController_iphone.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0FF09BF41D7EF7BC00DBBF46 /* LaunchViewController_iphone.xib */; };
@@ -250,11 +251,16 @@
 		0F6C15B11DBD5A9500169C13 /* ConstFonts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConstFonts.swift; sourceTree = "<group>"; };
 		0F6C15B41DBD5C6100169C13 /* ConnectionStatusButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConnectionStatusButton.swift; sourceTree = "<group>"; };
 		0F98B1521D7EBA2D002F8259 /* LaunchScreen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LaunchScreen.xib; sourceTree = "<group>"; };
+		0FAFF2DE1DCA84A00039E685 /* GenericWebViewControllerProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GenericWebViewControllerProtocol.swift; sourceTree = "<group>"; };
+		0FAFF2E01DCA84B00039E685 /* GenericWebViewControllerProtocol+Core.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "GenericWebViewControllerProtocol+Core.swift"; sourceTree = "<group>"; };
+		0FAFF2E21DCA87F90039E685 /* CustomButtonProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomButtonProtocol.swift; sourceTree = "<group>"; };
+		0FAFF2E41DCA88AB0039E685 /* BaseButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseButton.swift; sourceTree = "<group>"; };
+		0FAFF2E61DCA8C810039E685 /* UIView+Colors.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Colors.h"; sourceTree = "<group>"; };
+		0FAFF2E71DCA8C810039E685 /* UIView+Colors.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Colors.m"; sourceTree = "<group>"; };
+		0FAFF2E91DCA8CD50039E685 /* UIView+Colors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Colors.swift"; sourceTree = "<group>"; };
+		0FAFF2EB1DCA90680039E685 /* UIImage+Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Utils.swift"; sourceTree = "<group>"; };
 		0FB039401D7EB82400B67C40 /* _BusinessAppSwift_.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = _BusinessAppSwift_.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0FB039431D7EB82400B67C40 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		0FB039451D7EB82400B67C40 /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
-		0FB039471D7EB82400B67C40 /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
-		0FB0394A1D7EB82400B67C40 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		0FB0394C1D7EB82400B67C40 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0FB039511D7EB82400B67C40 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0FB039561D7EB82500B67C40 /* _BusinessAppSwift_Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = _BusinessAppSwift_Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -273,14 +279,11 @@
 		0FF09BBE1D7EBDC200DBBF46 /* userLogin.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = userLogin.json; sourceTree = "<group>"; };
 		0FF09BBF1D7EBDC200DBBF46 /* userSignUp.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = userSignUp.json; sourceTree = "<group>"; };
 		0FF09BC41D7EBDD300DBBF46 /* glockenspiel.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = glockenspiel.ttf; sourceTree = "<group>"; };
-		0FF09BCC1D7ED42900DBBF46 /* ThirdViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThirdViewController.swift; sourceTree = "<group>"; };
-		0FF09BCE1D7ED76000DBBF46 /* ManagerInjector.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManagerInjector.swift; sourceTree = "<group>"; };
 		0FF09BD41D7EDC7000DBBF46 /* UserManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserManager.swift; sourceTree = "<group>"; };
 		0FF09BD71D7EDCDB00DBBF46 /* UserManagerProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserManagerProtocol.swift; sourceTree = "<group>"; };
 		0FF09BDD1D7EE44300DBBF46 /* LaunchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LaunchViewController.swift; sourceTree = "<group>"; };
 		0FF09BE21D7EE55700DBBF46 /* ViewControllerFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerFactory.swift; sourceTree = "<group>"; };
 		0FF09BE41D7EE56F00DBBF46 /* ViewControllerFactoryProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerFactoryProtocol.swift; sourceTree = "<group>"; };
-		0FF09BE61D7EE58200DBBF46 /* ManagerInjectorProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManagerInjectorProtocol.swift; sourceTree = "<group>"; };
 		0FF09BE91D7EF6CD00DBBF46 /* WalkthroughViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WalkthroughViewController.swift; sourceTree = "<group>"; };
 		0FF09BF31D7EF7BC00DBBF46 /* LaunchViewController_iphone.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LaunchViewController_iphone.swift; sourceTree = "<group>"; };
 		0FF09BF41D7EF7BC00DBBF46 /* LaunchViewController_iphone.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LaunchViewController_iphone.xib; sourceTree = "<group>"; };
@@ -374,7 +377,6 @@
 		39ACE07D1DC118CF009D70F9 /* SettingsManagerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsManagerTests.swift; sourceTree = "<group>"; };
 		39D5D3461DBF9087004D5E41 /* _BusinessAppSwift_.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = _BusinessAppSwift_.entitlements; sourceTree = "<group>"; };
 		39D5D34B1DBF9AC9004D5E41 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
-		39D5D34D1DBF9ADE004D5E41 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Main.strings; sourceTree = "<group>"; };
 		39D5D34E1DBF9ADE004D5E41 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
 		39D5D3521DBFA670004D5E41 /* LanguageEntity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LanguageEntity.swift; sourceTree = "<group>"; };
 		39D856891DB9FF160062041F /* ConfigNetworkOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfigNetworkOperation.swift; sourceTree = "<group>"; };
@@ -448,6 +450,7 @@
 			isa = PBXGroup;
 			children = (
 				399AB9051DB8EDF3004467F2 /* Base */,
+				0F5B70F81DC5F6850094DA0F /* Utils */,
 				395D58EF1DB8EB1400D74DBC /* Operations */,
 				397378D71DB661DE00B817BC /* Factory */,
 				0F0C888F1D82F53F000688AB /* ConstNetworkConfig.swift */,
@@ -644,6 +647,8 @@
 			isa = PBXGroup;
 			children = (
 				0F6C15B41DBD5C6100169C13 /* ConnectionStatusButton.swift */,
+				0FAFF2E21DCA87F90039E685 /* CustomButtonProtocol.swift */,
+				0FAFF2E41DCA88AB0039E685 /* BaseButton.swift */,
 				39A0B14A1DBE6AA500DD1EB7 /* NormalButton.swift */,
 			);
 			path = Buttons;
@@ -782,7 +787,6 @@
 				0FB039431D7EB82400B67C40 /* AppDelegate.swift */,
 				0F98B1521D7EBA2D002F8259 /* LaunchScreen.xib */,
 				39A0B1401DBE659800DD1EB7 /* Core */,
-				0FF09BD11D7ED9C300DBBF46 /* Protocols */,
 				0FF09BE11D7EE53500DBBF46 /* Factories */,
 				0FF09BFE1D7F047300DBBF46 /* Constants */,
 				397378F61DB6828500B817BC /* Extensions */,
@@ -793,10 +797,6 @@
 				0F0C888E1D82F50E000688AB /* Network */,
 				0FF09BD91D7EE32C00DBBF46 /* Modules */,
 				0FF09BAD1D7EBCEA00DBBF46 /* Resources */,
-				0FB039491D7EB82400B67C40 /* Main.storyboard */,
-				0FB039451D7EB82400B67C40 /* FirstViewController.swift */,
-				0FB039471D7EB82400B67C40 /* SecondViewController.swift */,
-				0FF09BCC1D7ED42900DBBF46 /* ThirdViewController.swift */,
 				0FB039511D7EB82400B67C40 /* Info.plist */,
 			);
 			path = _BusinessAppSwift_;
@@ -896,17 +896,8 @@
 				397378CA1DB660D900B817BC /* Reachability */,
 				397378D41DB6617700B817BC /* Analytics */,
 				0FB9711F1D89662500E95608 /* Navigation */,
-				0FF09BE61D7EE58200DBBF46 /* ManagerInjectorProtocol.swift */,
-				0FF09BCE1D7ED76000DBBF46 /* ManagerInjector.swift */,
 			);
 			path = Managers;
-			sourceTree = "<group>";
-		};
-		0FF09BD11D7ED9C300DBBF46 /* Protocols */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Protocols;
 			sourceTree = "<group>";
 		};
 		0FF09BD61D7EDCA600DBBF46 /* UserManager */ = {
@@ -1077,6 +1068,8 @@
 				394203A61DC0D5F2000D58EE /* GenericViewControllerProtocol.swift */,
 				394203A41DC0D5E9000D58EE /* GenericViewControllerProtocol+Core.swift */,
 				0F5B711E1DC65E550094DA0F /* GenericDetailsViewControllerProtocol.swift */,
+				0FAFF2DE1DCA84A00039E685 /* GenericWebViewControllerProtocol.swift */,
+				0FAFF2E01DCA84B00039E685 /* GenericWebViewControllerProtocol+Core.swift */,
 			);
 			name = GenericViewController;
 			sourceTree = "<group>";
@@ -1128,6 +1121,8 @@
 				394203BD1DC10220000D58EE /* NSString+Size.m */,
 				394203BF1DC102D5000D58EE /* UILabel+Styling.h */,
 				394203C01DC102D5000D58EE /* UILabel+Styling.m */,
+				0FAFF2E61DCA8C810039E685 /* UIView+Colors.h */,
+				0FAFF2E71DCA8C810039E685 /* UIView+Colors.m */,
 				394203C21DC10301000D58EE /* UITextView+Styling.h */,
 				394203C31DC10301000D58EE /* UITextView+Styling.m */,
 				394203C51DC103CB000D58EE /* UITextFieldStylingIvars.h */,
@@ -1152,7 +1147,6 @@
 		395D58EF1DB8EB1400D74DBC /* Operations */ = {
 			isa = PBXGroup;
 			children = (
-				0F5B70F81DC5F6850094DA0F /* Utils */,
 				39D8568E1DB9FFC80062041F /* Legal */,
 				39D8568B1DB9FF830062041F /* Image */,
 				39D856881DB9FF0A0062041F /* Config */,
@@ -1277,6 +1271,8 @@
 				395D58E01DB8B6EE00D74DBC /* Dictionary+Extension.swift */,
 				390317041DBF7600001660C1 /* Bundle+Utils.swift */,
 				394203D31DC1089D000D58EE /* Date+Common.swift */,
+				0FAFF2E91DCA8CD50039E685 /* UIView+Colors.swift */,
+				0FAFF2EB1DCA90680039E685 /* UIImage+Utils.swift */,
 				397E9E121DC25C590021E5FB /* UIAlertController+Window.swift */,
 			);
 			path = Extensions;
@@ -1555,7 +1551,6 @@
 				0FF09BB91D7EBDAE00DBBF46 /* 3.jpg in Resources */,
 				0F6C15A81DBD2E8E00169C13 /* TopNavigationBar_ipad.xib in Resources */,
 				0FB0394D1D7EB82400B67C40 /* Assets.xcassets in Resources */,
-				0FB0394B1D7EB82400B67C40 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1769,14 +1764,12 @@
 				39A0B14B1DBE6AA500DD1EB7 /* NormalButton.swift in Sources */,
 				39D8568A1DB9FF160062041F /* ConfigNetworkOperation.swift in Sources */,
 				394203CE1DC10483000D58EE /* ConstLists.swift in Sources */,
-				0FF09BE71D7EE58200DBBF46 /* ManagerInjectorProtocol.swift in Sources */,
 				0F5B70F71DC5F0B60094DA0F /* HomeListItemView.swift in Sources */,
 				0FF09C001D7F049600DBBF46 /* ConstAliases.swift in Sources */,
 				397378EB1DB672F100B817BC /* ReachabilityManager.swift in Sources */,
 				0F6C157E1DBCB0E900169C13 /* UIView+Autolayout.m in Sources */,
 				0FF09BF51D7EF7BC00DBBF46 /* LaunchViewController_iphone.swift in Sources */,
 				397378C91DB660A800B817BC /* KeychainManagerProtocol.swift in Sources */,
-				0FB039481D7EB82400B67C40 /* SecondViewController.swift in Sources */,
 				39D856961DBA071D0062041F /* ImageDownloadNetworkOperation.swift in Sources */,
 				0F6C15AC1DBD2EDF00169C13 /* TopNavigationBarModal_ipad.swift in Sources */,
 				0F0C88941D82F8CC000688AB /* AppConfigEntity.swift in Sources */,
@@ -1791,6 +1784,7 @@
 				0F5CEC711DC298BF00F41761 /* ConstTrackables.swift in Sources */,
 				39D856941DBA006C0062041F /* ImageUploadNetworkOperation.swift in Sources */,
 				0F5B71141DC657980094DA0F /* SignUpModel.swift in Sources */,
+				0FAFF2E81DCA8C810039E685 /* UIView+Colors.m in Sources */,
 				0F6C15871DBCBB3800169C13 /* ContactViewController_iphone.swift in Sources */,
 				0F0C888D1D82F4BA000688AB /* ParsableEntityProtocol.swift in Sources */,
 				39A0B1511DBE6B3200DD1EB7 /* HomeModel.swift in Sources */,
@@ -1802,6 +1796,7 @@
 				39A0B1431DBE65EF00DD1EB7 /* ViewControllerModelProtocol.swift in Sources */,
 				0F129D011DBC13DE0068F292 /* BaseNetworkOperation.swift in Sources */,
 				397378BD1DB65BBC00B817BC /* ImageListEntity.swift in Sources */,
+				0FAFF2E11DCA84B00039E685 /* GenericWebViewControllerProtocol+Core.swift in Sources */,
 				0F6C159C1DBD2C6000169C13 /* TopNavigationBar.swift in Sources */,
 				397378F11DB6732300B817BC /* CrashManager.swift in Sources */,
 				397378BB1DB65BAC00B817BC /* ImageEntity.swift in Sources */,
@@ -1818,14 +1813,17 @@
 				394203D01DC1050A000D58EE /* ConstResources.swift in Sources */,
 				399AB90D1DB8F07C004467F2 /* UserResetPasswordNetworkOperation.swift in Sources */,
 				0F5B71121DC654B50094DA0F /* BaseTextField.swift in Sources */,
+				0FAFF2E31DCA87F90039E685 /* CustomButtonProtocol.swift in Sources */,
 				397378C01DB6601000B817BC /* SettingsManagerProtocol.swift in Sources */,
 				394203C11DC102D5000D58EE /* UILabel+Styling.m in Sources */,
 				0F6C15B21DBD5A9500169C13 /* ConstFonts.swift in Sources */,
 				0F5B71231DC663490094DA0F /* KeyboardControl.swift in Sources */,
 				0FF09BFC1D7EFCA400DBBF46 /* LaunchModel.swift in Sources */,
+				0FAFF2E51DCA88AB0039E685 /* BaseButton.swift in Sources */,
 				397378C31DB6603600B817BC /* CrashManagerProtocol.swift in Sources */,
 				397378E91DB672E000B817BC /* SocialManager.swift in Sources */,
 				0F6C15A41DBD2D5D00169C13 /* TopNavigationBarModal_iphone.swift in Sources */,
+				0FAFF2EA1DCA8CD50039E685 /* UIView+Colors.swift in Sources */,
 				397378B81DB6561F00B817BC /* ErrorEntity.swift in Sources */,
 				39A0B1561DBE6B5000DD1EB7 /* HomeViewController_iphone.swift in Sources */,
 				394203B31DC0D823000D58EE /* LogEntity.swift in Sources */,
@@ -1833,9 +1831,9 @@
 				0FF09BD51D7EDC7000DBBF46 /* UserManager.swift in Sources */,
 				0F4CC2EE1DC7E9D300309442 /* GMRefreshControl.swift in Sources */,
 				0FB039441D7EB82400B67C40 /* AppDelegate.swift in Sources */,
+				0FAFF2DF1DCA84A00039E685 /* GenericWebViewControllerProtocol.swift in Sources */,
 				394203CA1DC1042C000D58EE /* NSString+Validator.m in Sources */,
 				0F6C159E1DBD2C9700169C13 /* TopNavigationBar_iphone.swift in Sources */,
-				0FF09BCF1D7ED76000DBBF46 /* ManagerInjector.swift in Sources */,
 				0F5B710E1DC654990094DA0F /* NormalTextField.swift in Sources */,
 				0F6C15A21DBD2D1B00169C13 /* TopNavigationBarModal.swift in Sources */,
 				395D58E11DB8B6EE00D74DBC /* Dictionary+Extension.swift in Sources */,
@@ -1851,8 +1849,8 @@
 				397378E71DB672CC00B817BC /* AnalyticsManager.swift in Sources */,
 				390317101DBF7EB7001660C1 /* PushNotificationManager.swift in Sources */,
 				394203AC1DC0D65F000D58EE /* UITabBarController+Rotation.swift in Sources */,
+				0FAFF2EC1DCA90680039E685 /* UIImage+Utils.swift in Sources */,
 				0F6C15B01DBD45DA00169C13 /* ConstColors.swift in Sources */,
-				0FF09BCD1D7ED42900DBBF46 /* ThirdViewController.swift in Sources */,
 				0F6C15AA1DBD2E9C00169C13 /* TopNavigationBar_ipad.swift in Sources */,
 				39A0B1471DBE662300DD1EB7 /* BaseModel.swift in Sources */,
 				394203AB1DC0D65F000D58EE /* UINavigationController+Rotation.swift in Sources */,
@@ -1868,7 +1866,6 @@
 				399AB90B1DB8F06F004467F2 /* UserProfileNetworkOperation.swift in Sources */,
 				0F0C88901D82F53F000688AB /* ConstNetworkConfig.swift in Sources */,
 				0F6C15961DBCCA3900169C13 /* CommandProtocol.swift in Sources */,
-				0FB039461D7EB82400B67C40 /* FirstViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1909,15 +1906,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		0FB039491D7EB82400B67C40 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				0FB0394A1D7EB82400B67C40 /* Base */,
-				39D5D34D1DBF9ADE004D5E41 /* de */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		39D5D34C1DBF9AC9004D5E41 /* Localizable.strings */ = {
 			isa = PBXVariantGroup;
 			children = (

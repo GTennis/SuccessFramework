@@ -128,12 +128,6 @@ class KeyboardControl: NSObject, KeyboardControlProtocol {
             
             nextTextField.becomeFirstResponder()
             
-            // TODO: cleanup, not needed
-            // Scroll to show textField if needed. Actually not clear why but need to add _keyboardHeight to field's frame origin, in order to do correct scrolling
-            //CGRect rect = _keyboardControls.activeField.frame;
-            //rect.origin.y += _keyboardHeight;
-            //[self.contentScrollView scrollRectToVisible:rect animated:YES];
-            
         } else {
             
             self.lastFieldReturnPressed()

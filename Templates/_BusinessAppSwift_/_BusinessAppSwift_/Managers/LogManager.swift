@@ -28,17 +28,7 @@
 import UIKit
 import CocoaLumberjack
 
-// MARK: TODO
 // Check: https://github.com/CocoaLumberjack/CocoaLumberjack/issues/794
-
-/*DDLog.add(<#T##logger: DDLogger!##DDLogger!#>)
- DDLog.addLogger(DDTTYLogger.sharedInstance()) // TTY = Xcode console
- DDLog.addLogger(DDASLLogger.sharedInstance()) // ASL = Apple System Logs
- 
- let fileLogger: DDFileLogger = DDFileLogger() // File Logger
- fileLogger.rollingFrequency = 60*60*24  // 24 hours
- fileLogger.logFileManager.maximumNumberOfLogFiles = 7
- DDLog.addLogger(fileLogger)*/
 
 // MARK: Convenience functions
 
@@ -72,29 +62,19 @@ func DDLogError(log: String) {
     managerFactory.logManager.error(log: log)
 }
 
-// TODO:
 class LogManager: LogManagerProtocol {
 
     init() {
         
         // Default setup
-        // Color support for Xcode7. Not working for Xcode 8 because Apple refactoring plugins to be available via extensions
+        // Regarding color support for Xcode7: It's not working for Xcode 8 because Apple is refactoring plugins to be available via extensions
         /*
         #if TARGET_IPHONE_SIMULATOR
             // Sends log statements to Xcode console - if available
             setenv("XcodeColors", "YES", 1);
         #endif*/
         
-        let logLevel = self.convertedLogLevel(logLevel: self.logLevel)
-        
-        // Add device logging
-        DDLog.add(DDASLLogger.sharedInstance(), with: logLevel)
-        
         #if DEBUG
-        
-            // Add Xcode console logging
-            DDLog.add(DDTTYLogger.sharedInstance(), with: logLevel)
-            //[DDLog addLogger:[GMCustomLogger sharedInstance]];
             
             // Enable Colors
             DDTTYLogger.sharedInstance().colorsEnabled = true
