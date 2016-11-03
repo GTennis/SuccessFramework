@@ -30,13 +30,35 @@ import Foundation
 protocol ViewControllerFactoryProtocol {
     
     init(managerFactory: ManagerFactoryProtocol)
-    
+
+    // Intro
     func launchViewController(context: Any?)->LaunchViewController
-    func homeViewController(context: Any?)->HomeViewController
-    func contactViewController(context: Any?)->ContactViewController
     func walkthroughViewController(context: Any?)->WalkthroughViewController
-    func countryPickerViewController(context: Any?)->CountryPickerViewController
+    
+    // Content
+    func homeViewController(context: Any?)->HomeViewController
+    func photoDetailsViewController(context: Any?)->PhotoDetailsViewController
     
     // User
+    func userContainerViewController(context: Any?)->UserContainerViewController
+    func userLoginViewController(context: Any?)->UserLoginViewController
     func userSignUpViewController(context: Any?)->UserSignUpViewController
+    func userResetPasswordViewController(context: Any?)->UserResetPasswordViewController
+    func userProfileViewController(context: Any?)->UserProfileViewController
+    
+    // Legal
+    func termsConditionsViewController(context: Any?)->TermsConditionsViewController
+    func privacyPolicyViewController(context: Any?)->PrivacyPolicyViewController
+    
+    // Maps
+    func mapsViewController(context: Any?)->MapsViewController
+    
+    // Reusable
+    func countryPickerViewController(context: Any?)->CountryPickerViewController
+    func contactViewController(context: Any?)->ContactViewController
+    func settingsViewController(context: Any?)->SettingsViewController
+    
+    // Demo
+    func tableViewExampleViewController(context: Any?)->TableViewExampleViewController
+    func tableWithSearchViewController(context: Any?)->TableWithSearchViewController
 }

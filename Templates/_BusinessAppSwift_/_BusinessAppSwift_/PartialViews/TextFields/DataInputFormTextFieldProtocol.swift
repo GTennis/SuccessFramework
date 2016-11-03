@@ -43,11 +43,10 @@ enum TextFieldPosition {
 
 protocol DataInputFormTextFieldProtocol {
 
-    var isRequired: Bool! {get set}
-    var position: TextFieldPosition! {get set}
-    var fieldState: TextFieldStateType! {get set}
+    var isRequired: Bool {get set}
+    var position: TextFieldPosition {get set}
+    var fieldState: TextFieldStateType {get set}
     
-    func setFieldState(state: TextFieldStateType)
     func validateValue()
     func resetValidatedValues()
 }

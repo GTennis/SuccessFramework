@@ -1,8 +1,8 @@
 //
-//  NormalTextField.swift
+//  CustomLabelProtocol.swift
 //  _BusinessAppSwift_
 //
-//  Created by Gytenis Mikulenas on 30/10/16.
+//  Created by Gytenis Mikulenas on 03/11/16.
 //  Copyright © 2016 Gytenis Mikulėnas 
 //  https://github.com/GitTennis/SuccessFramework
 //
@@ -25,8 +25,12 @@
 //  SOFTWARE. All rights reserved.
 //
 
-import UIKit
 
-class NormalTextField: BaseTextField {
+protocol CustomLabelProtocol {
 
+    var insets: UIEdgeInsets {get}
+    var labelTextFontType: String {get}
+    var labelTextSize: CGFloat {get}
+    var labelTextColor: UIColor {get}
+    var lineSpace: CGFloat {get}
 }

@@ -1,8 +1,8 @@
 //
-//  NormalTextField.swift
+//  ButtonWithIconOnTop.swift
 //  _BusinessAppSwift_
 //
-//  Created by Gytenis Mikulenas on 30/10/16.
+//  Created by Gytenis Mikulenas on 03/11/16.
 //  Copyright © 2016 Gytenis Mikulėnas 
 //  https://github.com/GitTennis/SuccessFramework
 //
@@ -27,6 +27,14 @@
 
 import UIKit
 
-class NormalTextField: BaseTextField {
+class ButtonWithIconOnTop: UIButton {
+
+    /*
+    // Only override draw() if you perform custom drawing.
+    // An empty implementation adversely affects performance during animation.
+    override func draw(_ rect: CGRect) {
+        // Drawing code
+    }
+    */
 
 }

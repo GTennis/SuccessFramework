@@ -203,7 +203,7 @@ class BaseButton: UIButton, CustomButtonProtocol {
         bgColor = UIImage.init(color: self.backgroundDisabledColor, alpha: bgAlpha)
         self.setBackgroundImage(bgColor, for: UIControlState.disabled)
         
-        let font: UIFont = UIFont(name: self.fontName, size: self.fontSize)!
-        self.titleLabel?.font = font
+        let font: UIFont? = UIFont(name: self.fontName, size: self.fontSize)
+        self.titleLabel?.font = font!
     }
 }

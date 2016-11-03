@@ -29,7 +29,8 @@ import UIKit
 
 extension GenericWebViewControllerProtocol {
 
-    func webView(_ webView: UIWebView, shouldStartLoadWith request: URLRequest, navigationType: UIWebViewNavigationType) -> Bool {
+    // TODO: this causes compilation errors
+    /*func webView(_ webView: UIWebView, shouldStartLoadWith request: URLRequest, navigationType: UIWebViewNavigationType) -> Bool {
         
         self.viewLoader?.showScreenActivityIndicator(containerView: webView)
         
@@ -44,5 +45,5 @@ extension GenericWebViewControllerProtocol {
     func webView(_ webView: UIWebView, didFailLoadWithError error: Error) {
         
         self.viewLoader?.hideScreenActivityIndicator(containerView: webView)
-    }
+    }*/
 }

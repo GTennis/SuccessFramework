@@ -1,8 +1,8 @@
 //
-//  NormalTextField.swift
+//  ButtonWithIconOnRight.swift
 //  _BusinessAppSwift_
 //
-//  Created by Gytenis Mikulenas on 30/10/16.
+//  Created by Gytenis Mikulenas on 03/11/16.
 //  Copyright © 2016 Gytenis Mikulėnas 
 //  https://github.com/GitTennis/SuccessFramework
 //
@@ -27,6 +27,7 @@
 
 import UIKit
 
-class NormalTextField: BaseTextField {
+class ButtonWithIconOnRight: UIButton {
 
+     // ...
 }

@@ -27,6 +27,10 @@
 
 import UIKit
 
+let kTogglePasswordButtonToggleButtonTitleKey = "Toggle"
+let kTogglePasswordButtonToggleButtonTitleFontSize = 12.0
+let kTogglePasswordButtonToggleButtonTitleColor = kColorGrayDark
+
 class PasswordTextField: BaseTextField {
 
     /*

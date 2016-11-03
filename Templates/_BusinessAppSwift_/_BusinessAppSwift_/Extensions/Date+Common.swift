@@ -87,5 +87,100 @@ extension Date {
         _dateFormatterForViewingDates?.locale = Locale.init(identifier:newLocale!)
     }
     
+    // MARK: Retrieving from date
+    
+    func stringFromDate(format: String) -> String? {
+        
+        var dateString: String?
+        
+        synchronize(obj: _dateFormatterForViewingDates!) {
+            
+            _dateFormatterForViewingDates!.timeZone = TimeZone.current
+            _dateFormatterForViewingDates!.dateFormat = format;
+            dateString = _dateFormatterForViewingDates!.string(from: self)
+        }
+        
+        return dateString
+    }
+    
+    func stringFromDate() -> String? {
+        
+        var dateString: String?
+        
+        synchronize(obj: _dateFormatterForViewingDates!) {
+            
+            _dateFormatterForViewingDates!.dateStyle = DateFormatter.Style.short
+            _dateFormatterForViewingDates!.timeZone = TimeZone.current
+            dateString = _dateFormatterForViewingDates!.string(from: self)
+            _dateFormatterForViewingDates!.dateStyle = DateFormatter.Style.none
+        }
+        
+        return dateString
+    }
+    
+    func shortStringFromDate() -> String? {
+        
+        var dateString: String?
+        
+        synchronize(obj: _dateFormatterForViewingDates!) {
+            
+            dateString = self.stringFromDate(format:"EEE d MMM")
+        }
+        
+        return dateString
+    }
+    
+    
+    
+    /*- (NSString *)dateShortStringFromDate:(NSDate *)date;
+    - (NSString *)timeFromDate;
+    - (NSString *)localTimeFromDate;
+    - (NSString *)stringWithoutDayFromDate:(NSDate *)date;
+    - (NSString *)year:(NSDate *)date;
+    - (NSString *)month:(NSDate *)date;
+    - (NSString *)monthFullName:(NSDate *)date;
+    - (NSString *)day:(NSDate *)date;
+    - (NSString *)previousMonth:(NSDate *)date;
+    - (NSString *)nextMonth:(NSDate *)date;
+    - (NSString *)weekDayShortName:(NSDate *)date;
+    - (NSString *)weekDayLongName:(NSDate *)date;
+    - (NSString *)gmtDateTimeString:(NSDate *)date;
+    - (NSString *)localDate;
+    - (NSString *)localTime;
+    - (NSString *)currentTimeZone;
+    
+    - (NSInteger)timeZoneOffsetFromUTC;
+    + (NSInteger)daysWithinEraFromDate:(NSDate *)startDate toDate:(NSDate *)endDate
+    + (NSInteger)hoursBetweenDate:(NSDate *)startDate andDate:(NSDate *)endDate;
+    + (NSInteger)minutesBetweenDate:(NSDate *)startDate andDate:(NSDate *)endDate;
+    + (NSInteger)secondsBetweenDate:(NSDate *)startDate andDate:(NSDate *)endDate;
+    
+    - (NSInteger)monthTotalDays:(NSDate *)date;
+    - (NSInteger)previousMonthTotalDays:(NSDate *)date;
+    - (NSInteger)weekDay:(NSDate *)date;
+    
+    
+    // MARK: Creating new date
+    
+    + (NSDate *)dateFromString:(NSString *)dateString;
+    + (NSDate *)dateFromString:(NSString *)dateString format:(NSString *)formatString;
+    - (NSDate *)dateFromYear:(NSString *)year month:(NSString *)month day:(NSString *)day;
+    - (NSDate *)dateFromYear:(NSString *)year month:(NSString *)month day:(NSString *)day hour:(NSString *)hour minute:(NSString *)minute;
+    - (NSDate *)dateFromIntegersYear:(NSInteger)year month:(NSInteger)month day:(NSInteger)day hour:(NSInteger)hour minute:(NSInteger)minute;
+    - (NSDate *)dateWithMidnightTimeFromDate:(NSDate *)date;
+    - (NSDate *)monthFirstDayDate:(NSDate *)date;
+    - (NSDate *)monthLastDayDate:(NSDate *)date;
+    - (NSDate *)dateFromDate:(NSDate *)date byAddingNumberOfDays:(NSInteger)dayNum;
+    - (NSDate *)dateWithoutTime:(NSDate *)date;
+    
+    + (BOOL)date:(NSDate *)date1 isLaterThanOrEqualTo:(NSDate *)date2;
+    + (BOOL)date:(NSDate *)date1 isEarlierThanOrEqualTo:(NSDate*)date2;
+    + (BOOL)date:(NSDate *)date1 isLaterThan:(NSDate*)date2;
+    + (BOOL)date:(NSDate *)date1 isEarlierThan:(NSDate*)date2;
+    + (BOOL)isSameDayWithDate1:(NSDate*)date1 date2:(NSDate*)date2;
+    + (BOOL)isSameMonthWithDate1:(NSDate*)date1 date2:(NSDate*)date2;
+    
+    - (void)calculateSiblingMonthsForDate:(NSDate *)date siblingLength:(NSInteger)months earlierDate:(NSDate **)earlierDate laterDate:(NSDate **)laterDate;*/
+    
     
 }

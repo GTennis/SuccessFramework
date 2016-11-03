@@ -1,8 +1,8 @@
 //
-//  CountryPickerViewController.swift
+//  MapsViewController.swift
 //  _BusinessAppSwift_
 //
-//  Created by Gytenis Mikulenas on 30/10/16.
+//  Created by Gytenis Mikulenas on 03/11/2016.
 //  Copyright © 2016 Gytenis Mikulėnas 
 //  https://github.com/GitTennis/SuccessFramework
 //
@@ -27,12 +27,7 @@
 
 import UIKit
 
-protocol CountryPickerViewControllerDelegate: AnyObject {
-    
-    func didSelectCountry(countryCode: String)
-}
-
-class CountryPickerViewController: UIViewController, GenericViewControllerProtocol {
+class MapsViewController: UIViewController, GenericViewControllerProtocol {
 
     var context: Any?
     var viewLoader: ViewLoaderProtocol?
@@ -45,7 +40,7 @@ class CountryPickerViewController: UIViewController, GenericViewControllerProtoc
     var userManager: UserManagerProtocol?
     @IBOutlet weak var modalContainerView4Ipad: UIView?
     
-    var model: CountryPickerModel?
+    var model: MapsModel?
     
     deinit {
         

@@ -36,34 +36,12 @@ class ViewControllerFactory: ViewControllerFactoryProtocol {
         _managerFactory = managerFactory
     }
     
+    // MARK: Intro
+    
     func launchViewController(context: Any?)->LaunchViewController {
         
         let vc = viewControllerFromXib(classType: LaunchViewController.self, context: context) as! LaunchViewController
         vc.model = self.model(classType: LaunchModel.self as AnyClass, context: context) as? LaunchModel
-        
-        return vc
-    }
-    
-    /*func homeViewController(context: Any?)->HomeViewController {
-        
-        let vc = viewController(classType: HomeViewController.self, context: context) as! HomeViewController
-        vc.model = self.model(classType: HomeModel.self as AnyClass, context: context) as? HomeModel
-        
-        return vc
-    }*/
-    
-    func homeViewController(context: Any?)->HomeViewController {
-        
-        let vc = viewControllerFromSb(classType: HomeViewController.self, context: context) as! HomeViewController
-        vc.model = self.model(classType: HomeModel.self as AnyClass, context: context) as? HomeModel
-        
-        return vc;
-    }    
-    
-    func contactViewController(context: Any?)->ContactViewController {
-        
-        let vc = viewControllerFromXib(classType: LaunchViewController.self, context: context) as! ContactViewController
-        vc.model = self.model(classType: ContactModel.self as AnyClass, context: context) as? ContactModel
         
         return vc
     }
@@ -76,27 +54,132 @@ class ViewControllerFactory: ViewControllerFactoryProtocol {
         return vc
     }
     
-    /*func walkthroughViewController(context: Any?)->WalkthroughViewController {
-     
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let vc = storyboard.instantiateViewController(withIdentifier: "WalkthroughViewController") as! WalkthroughViewController
-        vc.model = self.model(classType: WalkthroughModel.self as AnyClass, context: context) as? WalkthroughModel
-        
-        return vc;
-     }*/
+    // MARK: Content
     
-    func countryPickerViewController(context: Any?)->CountryPickerViewController {
+    func homeViewController(context: Any?)->HomeViewController {
         
-        // TODO:
-        return CountryPickerViewController()
+        let vc = viewControllerFromSb(classType: HomeViewController.self, context: context) as! HomeViewController
+        vc.model = self.model(classType: HomeModel.self as AnyClass, context: context) as? HomeModel
+        
+        return vc
+    }
+    
+    func photoDetailsViewController(context: Any?)->PhotoDetailsViewController {
+        
+        let vc = viewControllerFromSb(classType: PhotoDetailsViewController.self, context: context) as! PhotoDetailsViewController
+        vc.model = self.model(classType: PhotoDetailsModel.self as AnyClass, context: context) as? PhotoDetailsModel
+        
+        return vc
     }
     
     // MARK: User
     
+    func userContainerViewController(context: Any?)->UserContainerViewController {
+        
+        let vc = viewControllerFromSb(classType: UserContainerViewController.self, context: context) as! UserContainerViewController
+        vc.model = self.model(classType: UserContainerModel.self as AnyClass, context: context) as? UserContainerModel
+        
+        return vc
+    }
+    
+    func userLoginViewController(context: Any?)->UserLoginViewController {
+        
+        let vc = viewControllerFromSb(classType: UserLoginViewController.self, context: context) as! UserLoginViewController
+        vc.model = self.model(classType: UserLoginModel.self as AnyClass, context: context) as? UserLoginModel
+        
+        return vc
+    }
+
     func userSignUpViewController(context: Any?)->UserSignUpViewController {
         
         let vc = viewControllerFromSb(classType: UserSignUpViewController.self, context: context) as! UserSignUpViewController
         vc.model = self.model(classType: SignUpModel.self as AnyClass, context: context) as? SignUpModel
+        
+        return vc
+    }
+    
+    func userResetPasswordViewController(context: Any?)->UserResetPasswordViewController {
+        
+        let vc = viewControllerFromSb(classType: UserResetPasswordViewController.self, context: context) as! UserResetPasswordViewController
+        vc.model = self.model(classType: UserResetPasswordModel.self as AnyClass, context: context) as? UserResetPasswordModel
+        
+        return vc
+    }
+    
+    func userProfileViewController(context: Any?)->UserProfileViewController {
+        
+        let vc = viewControllerFromSb(classType: UserProfileViewController.self, context: context) as! UserProfileViewController
+        vc.model = self.model(classType: UserProfileModel.self as AnyClass, context: context) as? UserProfileModel
+        
+        return vc
+    }
+    
+    // Legal
+    func termsConditionsViewController(context: Any?)->TermsConditionsViewController {
+        
+        let vc = viewControllerFromSb(classType: TermsConditionsViewController.self, context: context) as! TermsConditionsViewController
+        vc.model = self.model(classType: TermsConditionsModel.self as AnyClass, context: context) as? TermsConditionsModel
+        
+        return vc
+    }
+    
+    func privacyPolicyViewController(context: Any?)->PrivacyPolicyViewController {
+        
+        let vc = viewControllerFromSb(classType: PrivacyPolicyViewController.self, context: context) as! PrivacyPolicyViewController
+        vc.model = self.model(classType: PrivacyPolicyModel.self as AnyClass, context: context) as? PrivacyPolicyModel
+        
+        return vc
+    }
+    
+    // Maps
+    func mapsViewController(context: Any?)->MapsViewController {
+        
+        let vc = viewControllerFromSb(classType: MapsViewController.self, context: context) as! MapsViewController
+        vc.model = self.model(classType: MapsModel.self as AnyClass, context: context) as? MapsModel
+        
+        return vc
+    }
+    
+    // MARK: Reusable
+    
+    func countryPickerViewController(context: Any?)->CountryPickerViewController {
+        
+        let vc = viewControllerFromSb(classType: CountryPickerViewController.self, context: context) as! CountryPickerViewController
+        vc.model = self.model(classType: CountryPickerModel.self as AnyClass, context: context) as? CountryPickerModel
+        
+        return vc
+    }
+    
+    func contactViewController(context: Any?)->ContactViewController {
+        
+        let vc = viewControllerFromXib(classType: LaunchViewController.self, context: context) as! ContactViewController
+        vc.model = self.model(classType: ContactModel.self as AnyClass, context: context) as? ContactModel
+        
+        return vc
+    }
+    
+    func settingsViewController(context: Any?)->SettingsViewController {
+        
+        let vc = viewControllerFromSb(classType: SettingsViewController.self, context: context) as! SettingsViewController
+        vc.model = self.model(classType: SettingsModel.self as AnyClass, context: context) as? SettingsModel
+        
+        return vc
+    }
+    
+    // MARK: Demo
+    
+    func tableViewExampleViewController(context: Any?)->TableViewExampleViewController {
+        
+        let vc = viewControllerFromSb(classType: TableViewExampleViewController.self, context: context) as! TableViewExampleViewController
+        vc.model = self.model(classType: TableViewExampleModel.self as AnyClass, context: context) as? TableViewExampleModel
+        
+        return vc
+    }
+    
+    func tableWithSearchViewController(context: Any?)->TableWithSearchViewController {
+        
+        let vc = viewControllerFromSb(classType: TableWithSearchViewController.self, context: context) as! TableWithSearchViewController
+        vc.model = self.model(classType: TableWithSearchModel.self as AnyClass, context: context) as? TableWithSearchModel
         
         return vc
     }

@@ -1,8 +1,8 @@
 //
-//  NormalTextField.swift
+//  PhotoDetailsViewController_iphone.swift
 //  _BusinessAppSwift_
 //
-//  Created by Gytenis Mikulenas on 30/10/16.
+//  Created by Gytenis Mikulenas on 03/11/2016.
 //  Copyright © 2016 Gytenis Mikulėnas 
 //  https://github.com/GitTennis/SuccessFramework
 //
@@ -27,6 +27,28 @@
 
 import UIKit
 
-class NormalTextField: BaseTextField {
+class PhotoDetailsViewController_iphone: PhotoDetailsViewController {
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+        // Do any additional setup after loading the view.
+    }
+
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+    
+
+    /*
+    // MARK: - Navigation
+
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // Get the new view controller using segue.destinationViewController.
+        // Pass the selected object to the new view controller.
+    }
+    */
 
 }

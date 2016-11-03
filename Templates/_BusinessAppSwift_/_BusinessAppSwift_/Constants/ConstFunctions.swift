@@ -87,6 +87,12 @@ func stringify<T>(object: T) -> String {
     return result
 }
 
+func synchronize(obj: AnyObject, blk:() -> ()) {
+    objc_sync_enter(obj)
+    blk()
+    objc_sync_exit(obj)
+}
+
 // Other handful tips
 
 // Singleton
