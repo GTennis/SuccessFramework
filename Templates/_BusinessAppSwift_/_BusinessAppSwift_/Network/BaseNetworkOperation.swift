@@ -3,7 +3,7 @@
 //  _BusinessAppSwift_
 //
 //  Created by Gytenis Mikulenas on 22/10/16.
-//  Copyright © 2016 Gytenis Mikulėnas 
+//  Copyright © 2016 Gytenis Mikulėnas
 //  https://github.com/GitTennis/SuccessFramework
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -46,10 +46,10 @@ struct NetworkRequestError {
     }
     
     /*struct server {
-        
-        static let code = 500
-        static let name = "NetworkRequestServerError"
-    }*/
+     
+     static let code = 500
+     static let name = "NetworkRequestServerError"
+     }*/
     
     struct canceled {
         
@@ -71,9 +71,9 @@ struct NetworkRequestError {
 }
 
 class BaseNetworkOperation: NetworkOperationProtocol {
-
+    
     // MARK: NetworkOperationProtocol
-
+    
     var networkRequest: NetworkRequestEntityProtocol
     var context: Any?
     var isSilent: Bool = false
@@ -105,22 +105,16 @@ class BaseNetworkOperation: NetworkOperationProtocol {
         urlString = urlString.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)!
         
         // Validate url
-        if !urlString.isValidUrlString() {
-            
-            DDLogError(log: "Invalid url: " + urlString)
-        }
+        /*if !urlString.isValidUrlString() {
+         
+         DDLogError(log: "Invalid url: " + urlString)
+         }*/
         
         // Method
         let requestMethod: HTTPMethod = self.methodForName(name: self.requestMethod())
         
         // Headers
-        var requestHeaders: Dictionary<String, String>? = self.defaultRequestHeaders()
-        
-        // Merge with custom headers if any
-        if let customHeaders = self.requestHeaders() {
-            
-            requestHeaders = requestHeaders?.merged(with: customHeaders)
-        }
+        let requestHeaders: Dictionary<String, String> = self.requestHeaders()
         
         // Body
         let requestBody: Dictionary<String, String>? = self.requestBodyParams()
@@ -130,26 +124,45 @@ class BaseNetworkOperation: NetworkOperationProtocol {
         //self.securityPolicy.allowInvalidCertificates = YES;
         //#endif
         
-        Alamofire.request(urlString, method: requestMethod, parameters: requestBody, encoding: URLEncoding.default, headers: requestHeaders).responseJSON { response in
-            
-            switch response.result {
+        Alamofire.request(urlString, method: requestMethod, parameters: requestBody, encoding: JSONEncoding.default, headers: requestHeaders)/*validate(statusCode: 200..<300)*/
+            .validate(contentType: ["application/json"]).responseJSON { response in
                 
-            case .success(let value):
+                // Useful links for validation:
+                // http://stackoverflow.com/a/34738244
+                // http://stackoverflow.com/a/33102907
                 
-                DDLogDebug(log: "[" + className(object: self) + "]: success")
-                self.handleResponse(success: true, result: value, error: nil, callback: callback)
+                let validationError = self.validate(response: response)
                 
-                break
-                
-            case .failure(let error):
-                
-                let errorEntity = ErrorEntity.init(code: 0, message: "[" + className(object: self) + "]: failed with error: " + error.localizedDescription)
-                DDLogDebug(log: errorEntity.message)
-                
-                self.handleResponse(success: false, result: nil, error: errorEntity, callback: callback)
-                
-                break
-            }
+                // Immediatelly return error if custom validation fails
+                if let error = validationError {
+                    
+                    let errorEntity = ErrorEntity.init(code: 0, message: "[" + className(object: self) + "]: failed with error: " + error.message)
+                    DDLogError(log: errorEntity.message)
+                    
+                    self.handleResponse(success: false, result: nil, error: errorEntity, callback: callback)
+                    
+                    // Use Alamofire default validation
+                } else {
+                    
+                    switch response.result {
+                        
+                    case .success(let value):
+                        
+                        DDLogDebug(log: "[" + className(object: self) + "]: success")
+                        self.handleResponse(success: true, result: value, error: nil, callback: callback)
+                        
+                        break
+                        
+                    case .failure(let error):
+                        
+                        let errorEntity = ErrorEntity.init(code: 0, message: "[" + className(object: self) + "]: failed with error: " + error.localizedDescription)
+                        DDLogError(log: errorEntity.message)
+                        
+                        self.handleResponse(success: false, result: nil, error: errorEntity, callback: callback)
+                        
+                        break
+                    }
+                }
         }
     }
     
@@ -172,42 +185,7 @@ class BaseNetworkOperation: NetworkOperationProtocol {
         return networkRequest.method
     }
     
-    func requestHeaders() -> Dictionary<String, String>? {
-        
-        if let user = _userManager.user {
-            
-            if let token = user.token {
-                
-                return ["Authorization" : "Bearer " + token]
-            }
-        }
-        
-        return nil
-    }
-
-    func requestBodyParams() -> Dictionary<String, String>? {
-        
-        return nil
-    }
-    
-    func requestUrlParams() -> String? {
-        
-        return nil
-    }
-    
-    func handleResponse(success: Bool, result: Any?, error: ErrorEntity?, callback: Callback) {
-  
-        fatalError("handleResponse is not implemented in class: " + className(object: self))
-    }
-    
-    // MARK:
-    // MARK: Internal
-    // MARK: 
-    
-    internal var _userManager: UserManagerProtocol
-    internal var _settingsManager: SettingsManagerProtocol
-
-    func defaultRequestHeaders() -> Dictionary<String, String> {
+    func requestHeaders() -> Dictionary<String, String> {
         
         var headers: Dictionary<String, String> = Dictionary()
         
@@ -225,11 +203,42 @@ class BaseNetworkOperation: NetworkOperationProtocol {
         
         headers["Accept-Language"] = acceptLanguage
         
+        // Add authorization if needed
+        if let user = _userManager.user {
+            
+            if let token = user.token {
+                
+                headers["Authorization"] = "Bearer " + token
+            }
+        }
+        
         return headers
     }
     
-    func methodForName(name: String) -> HTTPMethod {
+    func requestBodyParams() -> Dictionary<String, String>? {
+        
+        return nil
+    }
     
+    func requestUrlParams() -> String? {
+        
+        return nil
+    }
+    
+    func handleResponse(success: Bool, result: Any?, error: ErrorEntity?, callback: Callback) {
+        
+        fatalError("handleResponse is not implemented in class: " + className(object: self))
+    }
+    
+    // MARK:
+    // MARK: Internal
+    // MARK:
+    
+    internal var _userManager: UserManagerProtocol
+    internal var _settingsManager: SettingsManagerProtocol
+    
+    func methodForName(name: String) -> HTTPMethod {
+        
         var result: HTTPMethod = HTTPMethod.get
         
         switch name {
@@ -258,41 +267,54 @@ class BaseNetworkOperation: NetworkOperationProtocol {
         
         return result
     }
-
-    /*internal func successWrappedCallback(callback: ) -> <#return type#> {
-        <#function body#>
-    }*/
     
-    /*- (void(^)(AFHTTPRequestOperation *operation, id responseObject))successWrappedCallbackWithPassedCallback:(Callback)callback {
-    
-    __weak __typeof(self)weakSelf = self;
-    
-    void (^successCallback)(AFHTTPRequestOperation *operation, id responseObject) = ^(AFHTTPRequestOperation *operation, id responseObject) {
-    
-    DDLogDebug(@"[%@]: success", [self class]);
-    
-    [weakSelf handleReceivedDataWithSuccess:YES result:responseObject error:nil callback:callback];
-    };
-    
-    return successCallback;
+    func validate(response: DataResponse<Any>)->ErrorEntity? {
+        
+        var result: ErrorEntity?
+        
+        if let httpStatusCode = response.response?.statusCode {
+            
+            var message : String = String(describing: response)
+            
+            let httpStatusCodeString: String = String(httpStatusCode)
+            let index = httpStatusCodeString.index(httpStatusCodeString.startIndex, offsetBy: 1)
+            let httpResponseStatusFirstDigit: String = httpStatusCodeString.substring(to: index)
+            
+            switch(httpResponseStatusFirstDigit) {
+                
+            case "2":
+                
+                // Everything is ok.
+                break
+                
+            case "4":
+                
+                // Unauthorized
+                if (httpStatusCodeString.isEqual(401)) {
+                    
+                    message = NetworkRequestError.unauthorized.name
+                    
+                    // 4XX bad data was passed
+                } else {
+                    
+                    // ...
+                }
+                
+                result = ErrorEntity.init(code: httpStatusCode, message: message)
+                break
+                
+            case "5":
+                
+                result = ErrorEntity.init(code: httpStatusCode, message: message)
+                break
+                
+            default:
+                
+                result = ErrorEntity.init(code: httpStatusCode, message: message)
+                break
+            }
+        }
+        
+        return result
     }
-    
-    - (void(^)(AFHTTPRequestOperation *operation, NSError *error))failWrappedCallbackWithPassedCallback:(Callback)callback {
-    
-    __weak __typeof(self)weakSelf = self;
-    
-    void (^failCallback)(AFHTTPRequestOperation *operation, NSError *error) = ^(AFHTTPRequestOperation *operation, NSError *error) {
-    
-    DDLogWarn(@"[%@]: failed with error: %@", [self class], error);
-    
-    if (error.code != kNetworkRequestErrorCanceledCode && !weakSelf.isSilent) {
-    
-    [[NSNotificationCenter defaultCenter] postNotificationName:kNetworkRequestErrorNotification object:nil userInfo:@{kNetworkRequestErrorNotificationUserInfoKey:error}];
-    }
-    
-    [weakSelf handleReceivedDataWithSuccess:NO result:nil error:error callback:callback];
-    };
-    
-    return failCallback;
-    }*/
 }

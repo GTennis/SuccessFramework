@@ -29,6 +29,6 @@ import Foundation
 
 protocol ParsableEntityProtocol {
     
-    init(dict: Dictionary <String, AnyObject>)
-    func serializedDict()-> Dictionary <String, AnyObject>?
+    init(dict: Dictionary <String, Any>)
+    func serializedDict()-> Dictionary <String, Any>?
 }

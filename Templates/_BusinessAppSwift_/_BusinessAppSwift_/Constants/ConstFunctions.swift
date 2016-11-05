@@ -28,9 +28,16 @@
 import UIKit
 
 // Handy functions
-func className(object: AnyObject)->String {
+func className(object: AnyObject?)->String {
     
-    return String(describing: type(of: object))
+    var result = "is nil"
+    
+    if let object = object {
+        
+        result = String(describing: type(of: object))
+    }
+    
+    return result
 }
 
 func classNameFromClassType(classType: AnyClass)->String {
@@ -91,6 +98,32 @@ func synchronize(obj: AnyObject, blk:() -> ()) {
     objc_sync_enter(obj)
     blk()
     objc_sync_exit(obj)
+}
+
+func readJsonFile(filename: String)->Dictionary<String, Any?>? {
+    
+    let ext: String = "json"
+    
+    let filePath = Bundle.main.path(forResource: filename, ofType: ext)
+    
+    if (filePath == nil) {
+        
+        DDLogError(log: "Cannot read file: " + filename + "." + ext)
+        return nil
+    }
+    
+    do {
+        
+        let jsonData = try Data(contentsOf: URL(fileURLWithPath: filePath!), options: .alwaysMapped)
+        let dict = try JSONSerialization.jsonObject(with: jsonData as Data, options: .mutableContainers)
+        
+        return dict as? [String:Any]
+        
+    } catch (let error) {
+        
+        DDLogError(log: "Cannot read file: " + error.localizedDescription)
+        return nil
+    }
 }
 
 // Other handful tips

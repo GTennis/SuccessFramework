@@ -17,4 +17,4 @@
 #import "NSString+Validator.h"
 
 // And then create object using it's designated initializer:
-// GMObserverList.init(observedSubject: <#T##Any!#>)
+// SFObserverList.init(observedSubject: <#T##Any!#>)

@@ -38,7 +38,7 @@ protocol ManagerFactoryProtocol {
     var analyticsManager: AnalyticsManagerProtocol {get}
     var messageBarManager: MessageBarManagerProtocol {get}
     var reachabilityManager: ReachabilityManagerProtocol {get}
-    var networkOperationFactory: NetworkOperationFactoryProtocol {get}
+    var networkOperationFactory: NetworkOperationFactoryProtocol {get set}
     var localizationManager: LocalizationManagerProtocol {get}
     var logManager: LogManagerProtocol {get}
     var pushNotificationManager: PushNotificationManagerProtocol {get}

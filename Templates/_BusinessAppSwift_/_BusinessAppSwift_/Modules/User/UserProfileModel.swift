@@ -29,4 +29,15 @@ import UIKit
 
 class UserProfileModel: BaseModel {
 
+    var user: UserEntityProtocol?
+    
+    override func willStartModelLoading(callback: @escaping Callback) {
+        
+        // ...
+    }
+    
+    override func didFinishModelLoading(data: Any?, error: ErrorEntity?) {
+        
+        self.user = data as? UserEntityProtocol
+    }
 }

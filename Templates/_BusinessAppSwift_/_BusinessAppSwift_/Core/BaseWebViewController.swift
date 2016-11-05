@@ -1,8 +1,8 @@
 //
-//  UITabBarController+Rotation.swift
+//  BaseWebViewController.swift
 //  _BusinessAppSwift_
 //
-//  Created by Gytenis Mikulenas on 22/10/16.
+//  Created by Gytenis Mikulenas on 06/11/16.
 //  Copyright © 2016 Gytenis Mikulėnas 
 //  https://github.com/GitTennis/SuccessFramework
 //
@@ -27,33 +27,24 @@
 
 import UIKit
 
-// http://stackoverflow.com/a/31073949
-extension UITabBarController {
+class BaseWebViewController: BaseViewController, UIWebViewDelegate {
+
+    @IBOutlet weak var webView: UIWebView?
     
-    override open var shouldAutorotate: Bool {
-        get {
-            if let selectedVC = selectedViewController{
-                return selectedVC.shouldAutorotate
-            }
-            return super.shouldAutorotate
-        }
-    }
-    
-    override open var preferredInterfaceOrientationForPresentation: UIInterfaceOrientation{
-        get {
-            if let selectedVC = selectedViewController{
-                return selectedVC.preferredInterfaceOrientationForPresentation
-            }
-            return super.preferredInterfaceOrientationForPresentation
-        }
-    }
-    
-    override open var supportedInterfaceOrientations: UIInterfaceOrientationMask{
-        get {
-            if let selectedVC = selectedViewController{
-                return selectedVC.supportedInterfaceOrientations
-            }
-            return super.supportedInterfaceOrientations
-        }
-    }
+    func webView(_ webView: UIWebView, shouldStartLoadWith request: URLRequest, navigationType: UIWebViewNavigationType) -> Bool {
+     
+        self.viewLoader?.showScreenActivityIndicator(containerView: webView)
+     
+        return true
+     }
+     
+     func webViewDidFinishLoad(_ webView: UIWebView) {
+     
+        self.viewLoader?.hideScreenActivityIndicator(containerView: webView)
+     }
+     
+     func webView(_ webView: UIWebView, didFailLoadWithError error: Error) {
+     
+        self.viewLoader?.hideScreenActivityIndicator(containerView: webView)
+     }
 }

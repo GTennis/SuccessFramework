@@ -1,8 +1,8 @@
 //
-//  ImageDownloadNetworkOperation.swift
+//  StartViewController_iphone.swift
 //  _BusinessAppSwift_
 //
-//  Created by Gytenis Mikulenas on 21/10/2016.
+//  Created by Gytenis Mikulenas on 05/11/16.
 //  Copyright © 2016 Gytenis Mikulėnas 
 //  https://github.com/GitTennis/SuccessFramework
 //
@@ -27,16 +27,28 @@
 
 import UIKit
 
+class StartViewController_iphone: StartViewController {
 
-class ImageDownloadNetworkOperation: BaseNetworkOperation {
+    override func viewDidLoad() {
+        super.viewDidLoad()
 
-    // MARK: NetworkOperationProtocol
-    
-    override func perform(callback callBack: @escaping Callback) {
-        
-        
-        
+        // Do any additional setup after loading the view.
+    }
+
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
     }
     
-    
+
+    /*
+    // MARK: - Navigation
+
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // Get the new view controller using segue.destinationViewController.
+        // Pass the selected object to the new view controller.
+    }
+    */
+
 }

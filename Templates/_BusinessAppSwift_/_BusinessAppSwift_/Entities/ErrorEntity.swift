@@ -45,7 +45,7 @@ class ErrorEntity: ErrorEntityProtocol {
     var code: Int!
     var message: String!
     
-    required init(dict: Dictionary <String, AnyObject>) {
+    required init(dict: Dictionary <String, Any>) {
         
         let errorCodeString: String? = dict[kNetworkErrorCodeKey] as? String
         
@@ -58,23 +58,26 @@ class ErrorEntity: ErrorEntityProtocol {
     
     convenience required init(code: Int?, message: String?) {
         
-        var errorDict: Dictionary <String, AnyObject> = Dictionary()
+        var errorDict: Dictionary <String, Any> = Dictionary()
         
         if let code = code {
             
-            errorDict[kNetworkErrorCodeKey] = code as AnyObject?
+            errorDict[kNetworkErrorCodeKey] = code
         }
         
         if let message = message {
             
-            errorDict[kNetworkErrorMessageKey] = message as AnyObject?
+            errorDict[kNetworkErrorMessageKey] = message
         }
 
         self.init(dict: errorDict)
+        
+        self.code = code
+        self.message = message
     }
     
-    func serializedDict()-> Dictionary <String, AnyObject>? {
+    func serializedDict()-> Dictionary <String, Any>? {
         
-        return nil;
+        return nil
     }
 }

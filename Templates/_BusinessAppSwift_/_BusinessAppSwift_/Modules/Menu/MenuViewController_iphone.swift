@@ -1,8 +1,8 @@
 //
-//  UINavigationController+Rotation.swift
+//  MenuViewController_iphone.swift
 //  _BusinessAppSwift_
 //
-//  Created by Gytenis Mikulenas on 22/10/16.
+//  Created by Gytenis Mikulenas on 06/11/16.
 //  Copyright © 2016 Gytenis Mikulėnas 
 //  https://github.com/GitTennis/SuccessFramework
 //
@@ -27,33 +27,6 @@
 
 import UIKit
 
-// http://stackoverflow.com/a/31073949
-extension UINavigationController {
-    
-    override open var shouldAutorotate: Bool {
-        get {
-            if let visibleVC = visibleViewController {
-                return visibleVC.shouldAutorotate
-            }
-            return super.shouldAutorotate
-        }
-    }
-    
-    override open var preferredInterfaceOrientationForPresentation: UIInterfaceOrientation{
-        get {
-            if let visibleVC = visibleViewController {
-                return visibleVC.preferredInterfaceOrientationForPresentation
-            }
-            return super.preferredInterfaceOrientationForPresentation
-        }
-    }
-    
-    override open var supportedInterfaceOrientations: UIInterfaceOrientationMask{
-        get {
-            if let visibleVC = visibleViewController {
-                return visibleVC.supportedInterfaceOrientations
-            }
-            return super.supportedInterfaceOrientations
-        }
-    }
+class MenuViewController_iphone: MenuViewController {
+
 }

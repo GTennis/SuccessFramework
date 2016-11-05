@@ -30,42 +30,15 @@ import UIKit
 let kHomeViewControllerTitleKey = "HomeTitle"
 let kHomeViewControllerDataLoadingProgressLabelKey = "HomeProgressLabel"
 
-class HomeViewController: UIViewController, GenericViewControllerProtocol, UICollectionViewDataSource, UICollectionViewDelegate, HomeListItemViewDelegate {
+class HomeViewController: BaseViewController, UICollectionViewDataSource, UICollectionViewDelegate, HomeListItemViewDelegate {
 
-    var context: Any?
-    var viewLoader: ViewLoaderProtocol?
-    var crashManager: CrashManagerProtocol?
-    var analyticsManager: AnalyticsManagerProtocol?
-    var messageBarManager: MessageBarManagerProtocol?
-    var viewControllerFactory: ViewControllerFactoryProtocol?
-    var reachabilityManager: ReachabilityManagerProtocol?
-    var localizationManager: LocalizationManagerProtocol?
-    var userManager: UserManagerProtocol?
-    @IBOutlet weak var modalContainerView4Ipad: UIView?
-    
     var model: HomeModel?
     
     @IBOutlet weak var collectionView: UICollectionView!
     
-    deinit {
-        
-        self.removeFromAllFromObserving()
-    }
-    
-    /*required init() {
-     
-     super.init(nibName: nil, bundle: nil);
-     }
-     
-     required init(coder aDecoder: NSCoder) {
-     
-     super.init(coder: aDecoder)!
-     }*/
-    
     override func viewDidLoad() {
         
         super.viewDidLoad();
-        self.commonViewDidLoad()
         
         self.prepareUI()
         self.loadModel()        
@@ -74,7 +47,6 @@ class HomeViewController: UIViewController, GenericViewControllerProtocol, UICol
     override func viewWillAppear(_ animated: Bool) {
         
         super.viewWillAppear(animated)
-        self.commonViewWillAppear(animated)
         
         // Log user behaviour
         self.analyticsManager?.log(screenName: kAnalyticsManagerScreenHome)
@@ -83,19 +55,14 @@ class HomeViewController: UIViewController, GenericViewControllerProtocol, UICol
     override func viewWillDisappear(_ animated: Bool) {
         
         super.viewWillDisappear(animated)
-        self.commonViewWillDisappear(animated)
-        
-    }
-    
-    override func didReceiveMemoryWarning() {
-        
-        super.didReceiveMemoryWarning()
-        self.commonDidReceiveMemoryWarning()
     }
     
     // MARK: GenericViewControllerProtocol
     
-    func prepareUI() {
+    
+    override func prepareUI() {
+        
+        super.prepareUI()
         
         // ...
         //self.collectionView.register(HomeListItemView.self, forCellWithReuseIdentifier: HomeListItemView.ReuseIdentifier)
@@ -104,23 +71,24 @@ class HomeViewController: UIViewController, GenericViewControllerProtocol, UICol
         self.title = localizedString(key: kHomeViewControllerTitleKey)
     }
     
-    func renderUI() {
+    override func renderUI() {
+        
+        super.renderUI()
         
         // Reload
         self.collectionView.reloadData()
     }
     
-    func loadModel() {
+    override func loadModel() {
         
         self.renderUI()
         
         
-        self.showScreenActivityIndicator()
-        
+        self.viewLoader?.showScreenActivityIndicator(containerView: self.view)
         
         self.model?.loadData(callback: {[weak self] (success, result, context, error) in
            
-            self?.hideScreenActivityIndicator()
+            self?.viewLoader?.hideScreenActivityIndicator(containerView: (self?.view)!)
             
             if (success) {
                 

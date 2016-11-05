@@ -35,7 +35,7 @@ protocol SettingsManagerProtocol {
     var isFirstTimeAppLaunch: Bool {get set}
     
     // User
-    var loggedInUser: Dictionary <String, AnyObject>? {get set}
+    var loggedInUser: Dictionary <String, Any>? {get set}
     
     // Languages
     var language: String? {get}

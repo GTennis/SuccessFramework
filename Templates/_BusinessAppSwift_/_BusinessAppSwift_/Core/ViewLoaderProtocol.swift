@@ -37,14 +37,24 @@ protocol ViewLoaderProtocol {
     func showScreenActivityIndicator(containerView: UIView)
     func hideScreenActivityIndicator(containerView: UIView)
     
+    // MARK: Refresh control
+    func addRefreshControl(containerView: UIView, callback: @escaping SimpleCallback)
+    
     // MARK: Internet connection status labels
     func showNoInternetConnectionLabel(containerView: UIView)
     func hideNoInternetConnectionLabel(containerView: UIView)
     
     // MARK: Empty list label
-    func addEmptyListLabel(containerView: UIView, message: String, refreshCallback: Callback?)
-    func removeEmptyListLabelIfWasAddedBefore(containerView: UIView)
+    func addEmptyListLabel(containerView: UIView, message: String, refreshCallback: SimpleCallback?)
+    func removeEmptyListLabel(containerView: UIView)
     
     // MARK: For functional testing
     func prepareAccesibility(viewController: UIViewController)
+    
+    // MARK: navigation bars
+    func addDefaultNavigationBar(viewController: GenericViewControllerProtocol)->TopNavigationBar?
+    func addDefaultModalNavigationBar(viewController: GenericViewControllerProtocol)->TopNavigationBarModal?
+    func showNavigationBar(viewController: UIViewController)
+    func hideNavigationBar(viewController: UIViewController)
+    func hasNavigationBar(viewController: UIViewController) -> Bool
 }

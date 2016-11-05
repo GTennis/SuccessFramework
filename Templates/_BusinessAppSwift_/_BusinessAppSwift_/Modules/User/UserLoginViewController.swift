@@ -27,40 +27,25 @@
 
 import UIKit
 
-class UserLoginViewController: UITableViewController, GenericViewControllerProtocol {
+protocol UserLoginViewControllerDelegate: AnyObject {
+    
+    func didFinishLogin()
+}
 
-    var context: Any?
-    var viewLoader: ViewLoaderProtocol?
-    var crashManager: CrashManagerProtocol?
-    var analyticsManager: AnalyticsManagerProtocol?
-    var messageBarManager: MessageBarManagerProtocol?
-    var viewControllerFactory: ViewControllerFactoryProtocol?
-    var reachabilityManager: ReachabilityManagerProtocol?
-    var localizationManager: LocalizationManagerProtocol?
-    var userManager: UserManagerProtocol?
-    @IBOutlet weak var modalContainerView4Ipad: UIView?
+class UserLoginViewController: BaseTableViewController {
     
     var model: UserLoginModel?
+    weak var delegate: UserLoginViewControllerDelegate?
     
-    deinit {
-        
-        self.removeFromAllFromObserving()
-    }
-    
-    /*required init() {
-     
-     super.init(nibName: nil, bundle: nil);
-     }
-     
-     required init(coder aDecoder: NSCoder) {
-     
-     super.init(coder: aDecoder)!
-     }*/
+    @IBOutlet weak var emailTextField: NormalTextField!
+    @IBOutlet weak var passwordTextField: PasswordTextField!
+    @IBOutlet weak var loginButton: NormalButton!
     
     override func viewDidLoad() {
         
         super.viewDidLoad();
-        self.commonViewDidLoad()
+        
+        self.viewLoader?.hideNavigationBar(viewController: self)
         
         self.prepareUI()
         self.loadModel()
@@ -69,36 +54,60 @@ class UserLoginViewController: UITableViewController, GenericViewControllerProto
     override func viewWillAppear(_ animated: Bool) {
         
         super.viewWillAppear(animated)
-        self.commonViewWillAppear(animated)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         
         super.viewWillDisappear(animated)
-        self.commonViewWillDisappear(animated)
-        
     }
     
     override func didReceiveMemoryWarning() {
         
         super.didReceiveMemoryWarning()
-        self.commonDidReceiveMemoryWarning()
     }
     
     // MARK: GenericViewControllerProtocol
     
-    func prepareUI() {
+    override func prepareUI() {
         
-        // ...
+        super.prepareUI()
     }
     
-    func renderUI() {
+    override func renderUI() {
         
-        // ...
+        super.renderUI()
     }
     
-    func loadModel() {
+    override func loadModel() {
         
-        self.renderUI()
+        model?.loadData(callback: { [weak self] (success, result, context, error) in
+            
+            self?.renderUI()
+        })
+    }
+        
+    // MARK: IBActions
+    
+    @IBAction func loginPressed(_ sender: AnyObject) {
+        
+        let user = UserEntity()
+        user.email = self.emailTextField.text!
+        user.password = self.passwordTextField.text!
+        
+        self.viewLoader?.showScreenActivityIndicator(containerView: self.view)
+        
+        self.model?.login(user: user, callback: { [weak self] (success, result, context, error) in
+            
+            self?.viewLoader?.hideScreenActivityIndicator(containerView: (self?.view)!)
+            
+            if success {
+                
+                self?.delegate?.didFinishLogin()
+                
+            } else {
+                
+                self?.messageBarManager?.showMessage(title: nil, description: error?.message, type: MessageBarMessageType.error)
+            }
+        })
     }
 }

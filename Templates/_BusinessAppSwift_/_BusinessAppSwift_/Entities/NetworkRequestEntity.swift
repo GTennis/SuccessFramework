@@ -101,7 +101,7 @@ class NetworkRequestEntity: NetworkRequestEntityProtocol {
         }
     }
     
-    required init(dict: Dictionary <String, AnyObject>) {
+    required init(dict: Dictionary <String, Any>) {
         
         // as! is a forced downcast
         baseUrl = dict[kNetworkRequestBaseUrlKey] as? String;
@@ -110,7 +110,7 @@ class NetworkRequestEntity: NetworkRequestEntityProtocol {
         group = dict[kNetworkRequestGroupKey] as? String;
     }
     
-    func serializedDict()-> Dictionary <String, AnyObject>? {
+    func serializedDict()-> Dictionary <String, Any>? {
         
         return nil;
     }

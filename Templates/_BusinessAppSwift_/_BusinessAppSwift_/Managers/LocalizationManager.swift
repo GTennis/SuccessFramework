@@ -153,7 +153,7 @@ class LocalizationManager: /*NSObject,*/ LocalizationManagerProtocol {
     // MARK:
     
     // http://mikebuss.com/2014/06/22/lazy-initialization-swift/
-    internal lazy var _observers: ObserverListProtocol = GMObserverList.init(observedSubject: self)
+    internal lazy var _observers: ObserverListProtocol = SFObserverList.init(observedSubject: self)
     
     internal lazy var _bundle: Bundle = Bundle.main
     

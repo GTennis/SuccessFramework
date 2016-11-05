@@ -29,4 +29,13 @@ import UIKit
 
 class SettingsModel: BaseModel {
 
+    override func willStartModelLoading(callback: @escaping Callback) {
+        
+        callback(true, nil, nil, nil)
+    }
+    
+    override func didFinishModelLoading(data: Any?, error: ErrorEntity?) {
+        
+        // ...
+    }
 }

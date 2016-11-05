@@ -27,40 +27,13 @@
 
 import UIKit
 
-class MapsViewController: UIViewController, GenericViewControllerProtocol {
+class MapsViewController: BaseViewController {
 
-    var context: Any?
-    var viewLoader: ViewLoaderProtocol?
-    var crashManager: CrashManagerProtocol?
-    var analyticsManager: AnalyticsManagerProtocol?
-    var messageBarManager: MessageBarManagerProtocol?
-    var viewControllerFactory: ViewControllerFactoryProtocol?
-    var reachabilityManager: ReachabilityManagerProtocol?
-    var localizationManager: LocalizationManagerProtocol?
-    var userManager: UserManagerProtocol?
-    @IBOutlet weak var modalContainerView4Ipad: UIView?
-    
     var model: MapsModel?
-    
-    deinit {
-        
-        self.removeFromAllFromObserving()
-    }
-    
-    /*required init() {
-     
-     super.init(nibName: nil, bundle: nil);
-     }
-     
-     required init(coder aDecoder: NSCoder) {
-     
-     super.init(coder: aDecoder)!
-     }*/
     
     override func viewDidLoad() {
         
         super.viewDidLoad();
-        self.commonViewDidLoad()
         
         self.prepareUI()
         self.loadModel()
@@ -69,35 +42,26 @@ class MapsViewController: UIViewController, GenericViewControllerProtocol {
     override func viewWillAppear(_ animated: Bool) {
         
         super.viewWillAppear(animated)
-        self.commonViewWillAppear(animated)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         
         super.viewWillDisappear(animated)
-        self.commonViewWillDisappear(animated)
-        
     }
-    
-    override func didReceiveMemoryWarning() {
         
-        super.didReceiveMemoryWarning()
-        self.commonDidReceiveMemoryWarning()
-    }
-    
     // MARK: GenericViewControllerProtocol
     
-    func prepareUI() {
+    override func prepareUI() {
         
-        // ...
+        super.prepareUI()
     }
     
-    func renderUI() {
+    override func renderUI() {
         
-        // ...
+        super.renderUI()
     }
     
-    func loadModel() {
+    override func loadModel() {
         
         self.renderUI()
     }

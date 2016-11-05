@@ -29,4 +29,31 @@ import UIKit
 
 class UserLoginModel: BaseModel {
 
+    var user: UserEntityProtocol?
+    
+    override func willStartModelLoading(callback: @escaping Callback) {
+        
+        callback(true, nil, nil, nil)
+    }
+    
+    override func didFinishModelLoading(data: Any?, error: ErrorEntity?) {
+        
+        // ...
+    }
+    
+    func login(user: UserEntity, callback: @escaping Callback) {
+        
+        self.userManager.login(user: user, callback: { [weak self] (success, result, context, error) in
+            
+            if success {
+                
+                self?.userManager.getUserProfile(user: result as! UserEntity, callback: callback)
+            }
+        })
+    }
+    
+    func logout(callback: @escaping Callback) {
+        
+        self.userManager.logout(callback: callback)
+    }
 }

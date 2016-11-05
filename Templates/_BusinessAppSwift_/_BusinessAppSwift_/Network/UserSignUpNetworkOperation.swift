@@ -29,11 +29,16 @@ import UIKit
 
 class UserSignUpNetworkOperation: BaseNetworkOperation {
     
+    override func requestBodyParams() -> Dictionary<String, String> {
+        
+        return self.context as! Dictionary<String, String>
+    }
+    
     override func handleResponse(success: Bool, result: Any?, error: ErrorEntity?, callback: Callback) {
         
         if (success) {
             
-            let item: UserEntityProtocol = UserEntity.init(dict: result as! Dictionary<String, AnyObject>)
+            let item: UserEntityProtocol = UserEntity.init(dict: result as! Dictionary<String, Any>)
             callback(success, item, nil, nil)
             
         } else {
@@ -41,4 +46,16 @@ class UserSignUpNetworkOperation: BaseNetworkOperation {
             callback(success, nil, nil, error);
         }
     }
+    
+    #if DEMO_MODE
+    
+    // Stub
+    override func perform(callback: @escaping Callback) {
+    
+        let dict = readJsonFile(filename: "userSignUp")
+    
+        self.handleResponse(success: true, result: dict, error: nil, callback: callback)
+    }
+    
+    #endif
 }

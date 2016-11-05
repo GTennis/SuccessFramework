@@ -27,40 +27,13 @@
 
 import UIKit
 
-class PrivacyPolicyViewController: UIViewController, GenericViewControllerProtocol {
-
-    var context: Any?
-    var viewLoader: ViewLoaderProtocol?
-    var crashManager: CrashManagerProtocol?
-    var analyticsManager: AnalyticsManagerProtocol?
-    var messageBarManager: MessageBarManagerProtocol?
-    var viewControllerFactory: ViewControllerFactoryProtocol?
-    var reachabilityManager: ReachabilityManagerProtocol?
-    var localizationManager: LocalizationManagerProtocol?
-    var userManager: UserManagerProtocol?
-    @IBOutlet weak var modalContainerView4Ipad: UIView?
+class PrivacyPolicyViewController: BaseWebViewController {
     
     var model: PrivacyPolicyModel?
-    
-    deinit {
-        
-        self.removeFromAllFromObserving()
-    }
-    
-    /*required init() {
-     
-     super.init(nibName: nil, bundle: nil);
-     }
-     
-     required init(coder aDecoder: NSCoder) {
-     
-     super.init(coder: aDecoder)!
-     }*/
     
     override func viewDidLoad() {
         
         super.viewDidLoad();
-        self.commonViewDidLoad()
         
         self.prepareUI()
         self.loadModel()
@@ -69,36 +42,37 @@ class PrivacyPolicyViewController: UIViewController, GenericViewControllerProtoc
     override func viewWillAppear(_ animated: Bool) {
         
         super.viewWillAppear(animated)
-        self.commonViewWillAppear(animated)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         
         super.viewWillDisappear(animated)
-        self.commonViewWillDisappear(animated)
-        
     }
     
     override func didReceiveMemoryWarning() {
         
         super.didReceiveMemoryWarning()
-        self.commonDidReceiveMemoryWarning()
     }
     
     // MARK: GenericViewControllerProtocol
     
-    func prepareUI() {
+    override func prepareUI() {
         
         // ...
     }
     
-    func renderUI() {
+    override func renderUI() {
         
         // ...
     }
     
-    func loadModel() {
+    override func loadModel() {
         
-        self.renderUI()
+        model?.loadData(callback: { [weak self] (success, result, context, error) in
+            
+            self?.renderUI()
+            })
     }
+    
+    // MARK: IBActions
 }

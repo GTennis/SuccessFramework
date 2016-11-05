@@ -29,7 +29,7 @@ import UIKit
 
 let networkEnvironmentChangeNotification = Notification.Name("NetworkEnvironmentChangeNotification")
 
-class BaseModel: BaseModelProtocol, ViewControllerModelProtocol {
+class BaseModel: ViewControllerModelProtocol {
 
     // Dependencies
     var userManager: UserManagerProtocol!

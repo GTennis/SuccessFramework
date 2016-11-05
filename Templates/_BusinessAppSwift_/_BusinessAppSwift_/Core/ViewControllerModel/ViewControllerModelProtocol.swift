@@ -2,7 +2,7 @@
 //  ViewControllerModelProtocol.swift
 //  _BusinessAppSwift_
 //
-//  Created by Gytenis Mikulenas on 24/10/2016.
+//  Created by Gytenis Mikulenas on 06/11/16.
 //  Copyright © 2016 Gytenis Mikulėnas 
 //  https://github.com/GitTennis/SuccessFramework
 //
@@ -28,7 +28,19 @@
 import UIKit
 
 protocol ViewControllerModelProtocol {
-
-    func willStartModelLoading(callback: @escaping Callback)    
+    
+    var userManager: UserManagerProtocol! {get set}
+    var settingsManager: SettingsManagerProtocol! {get set}
+    var networkOperationFactory: NetworkOperationFactoryProtocol! {get set}
+    var reachabilityManager: ReachabilityManagerProtocol! {get set}
+    var analyticsManager: AnalyticsManagerProtocol! {get set}
+    var context: Any? {get set}
+    
+    var isLoaded: Bool {get}
+    var delegate: ViewControllerModelDelegate? {get set}
+    
+    func loadData(callback: @escaping Callback)
+    
+    func willStartModelLoading(callback: @escaping Callback)
     func didFinishModelLoading(data: Any?, error: ErrorEntity?)
 }

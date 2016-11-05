@@ -1,8 +1,8 @@
 //
-//  GenericWebViewControllerProtocol+Core.swift
+//  MenuViewController.swift
 //  _BusinessAppSwift_
 //
-//  Created by Gytenis Mikulenas on 02/11/16.
+//  Created by Gytenis Mikulenas on 06/11/16.
 //  Copyright © 2016 Gytenis Mikulėnas 
 //  https://github.com/GitTennis/SuccessFramework
 //
@@ -27,23 +27,67 @@
 
 import UIKit
 
-extension GenericWebViewControllerProtocol {
+class MenuViewController: BaseTableViewController {
 
-    // TODO: this causes compilation errors
-    /*func webView(_ webView: UIWebView, shouldStartLoadWith request: URLRequest, navigationType: UIWebViewNavigationType) -> Bool {
+    var model: MenuModel?
+    
+    override func viewDidLoad() {
         
-        self.viewLoader?.showScreenActivityIndicator(containerView: webView)
+        super.viewDidLoad();
         
-        return true
-    }
-
-    func webViewDidFinishLoad(_ webView: UIWebView) {
-        
-        self.viewLoader?.hideScreenActivityIndicator(containerView: webView)
+        self.prepareUI()
+        self.loadModel()
     }
     
-    func webView(_ webView: UIWebView, didFailLoadWithError error: Error) {
+    override func viewWillAppear(_ animated: Bool) {
         
-        self.viewLoader?.hideScreenActivityIndicator(containerView: webView)
-    }*/
+        super.viewWillAppear(animated)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        
+        super.viewWillDisappear(animated)
+    }
+    
+    // MARK: GenericViewControllerProtocol
+    
+    override func prepareUI() {
+        
+        super.prepareUI()
+    }
+    
+    override func renderUI() {
+        
+        super.renderUI()
+    }
+    
+    override func loadModel() {
+        
+        model?.loadData(callback: { [weak self] (success, result, context, error) in
+            
+            self?.renderUI()
+        })
+    }
+    
+    // MARK: IBActions
+    
+    @IBAction func termsPressed(_ sender: AnyObject) {
+        
+        
+    }
+    
+    @IBAction func privacyPressed(_ sender: AnyObject) {
+        
+        
+    }
+    
+    @IBAction func settingsPressed(_ sender: AnyObject) {
+        
+        
+    }
+    
+    @IBAction func logoutPressed(_ sender: AnyObject) {
+        
+        self.logoutAndGoBackToAppStart(error: nil)
+    }
 }

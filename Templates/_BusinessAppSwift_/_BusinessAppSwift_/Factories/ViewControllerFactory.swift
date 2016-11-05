@@ -74,10 +74,23 @@ class ViewControllerFactory: ViewControllerFactoryProtocol {
     
     // MARK: User
     
+    func startViewController(context: Any?)->StartViewController {
+        
+        let vc = viewControllerFromSb(classType: StartViewController.self, context: context) as! StartViewController
+        vc.model = self.model(classType: StartModel.self as AnyClass, context: context) as? StartModel
+        
+        return vc
+    }
+    
     func userContainerViewController(context: Any?)->UserContainerViewController {
         
         let vc = viewControllerFromSb(classType: UserContainerViewController.self, context: context) as! UserContainerViewController
         vc.model = self.model(classType: UserContainerModel.self as AnyClass, context: context) as? UserContainerModel
+        
+        vc.startVC = self.startViewController(context: nil)
+        vc.startVC?.delegate = vc
+        vc.loginVc = self.userLoginViewController(context: nil)
+        vc.loginVc?.delegate = vc
         
         return vc
     }
@@ -131,11 +144,22 @@ class ViewControllerFactory: ViewControllerFactoryProtocol {
         return vc
     }
     
-    // Maps
+    // MARK: Maps
+    
     func mapsViewController(context: Any?)->MapsViewController {
         
         let vc = viewControllerFromSb(classType: MapsViewController.self, context: context) as! MapsViewController
         vc.model = self.model(classType: MapsModel.self as AnyClass, context: context) as? MapsModel
+        
+        return vc
+    }
+    
+    // MARK: Menu
+    
+    func menuViewController(context: Any?)->MenuViewController {
+        
+        let vc = viewControllerFromSb(classType: MenuViewController.self, context: context) as! MenuViewController
+        vc.model = self.model(classType: MenuModel.self as AnyClass, context: context) as? MenuModel
         
         return vc
     }
@@ -152,7 +176,7 @@ class ViewControllerFactory: ViewControllerFactoryProtocol {
     
     func contactViewController(context: Any?)->ContactViewController {
         
-        let vc = viewControllerFromXib(classType: LaunchViewController.self, context: context) as! ContactViewController
+        let vc = viewControllerFromSb(classType: ContactViewController.self, context: context) as! ContactViewController
         vc.model = self.model(classType: ContactModel.self as AnyClass, context: context) as? ContactModel
         
         return vc
@@ -197,27 +221,28 @@ class ViewControllerFactory: ViewControllerFactoryProtocol {
         
         var result: Bool = false
         
-        // Check base class first
-        if let baseViewController = Mirror(reflecting: viewController).superclassMirror {
+        let vcMirror = Mirror(reflecting: viewController)
+        let superVcMirror: Mirror? = vcMirror.superclassMirror
+        let superSuperVcMirror: Mirror? = superVcMirror?.superclassMirror
+        
+        result = self.containsProperty(mirror: vcMirror, propertyName: propertyName)
+        result = result || self.containsProperty(mirror: superVcMirror, propertyName: propertyName)
+        result = result || self.containsProperty(mirror: superSuperVcMirror, propertyName: propertyName)
+        
+        return result
+    }
+    
+    internal func containsProperty(mirror: Mirror?, propertyName: String) -> Bool {
+        
+        var result: Bool = false
+        
+        if let mirror = mirror {
             
-            let properties = baseViewController.children.filter {
-                ($0.label ?? "").isEqual(propertyName)}
+            let vcProperties = mirror.children.filter { ($0.label ?? "").isEqual(propertyName) }
             
-            if properties.first != nil {
+            if vcProperties.first != nil {
                 
-                //viewController.setValue(value, forKey: propertyName)
                 result = true
-                
-            } else {
-                
-                // Check current class
-                let vcProperties = Mirror(reflecting: viewController).children.filter { ($0.label ?? "").isEqual(propertyName) }
-                
-                if vcProperties.first != nil {
-                    
-                    //viewController.setValue(value, forKey: propertyName)
-                    result = true
-                }
             }
         }
         

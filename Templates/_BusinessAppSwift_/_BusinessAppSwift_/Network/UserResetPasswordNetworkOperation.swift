@@ -29,5 +29,13 @@ import UIKit
 
 class UserResetPasswordNetworkOperation: BaseNetworkOperation {
     
-
+    #if DEMO_MODE
+    
+    // Stub
+    override func perform(callback: @escaping Callback) {
+    
+        self.handleResponse(success: true, result: nil, error: nil, callback: callback)
+    }
+    
+    #endif
 }

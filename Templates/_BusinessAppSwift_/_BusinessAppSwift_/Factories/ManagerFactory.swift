@@ -98,6 +98,10 @@ class ManagerFactory: ManagerFactoryProtocol {
             
             return self._networkOperationFactory
         }
+        set {
+            
+            self._networkOperationFactory = newValue
+        }
     }
     
     var localizationManager: LocalizationManagerProtocol {

@@ -29,5 +29,28 @@ import UIKit
 
 class UserProfileNetworkOperation: BaseNetworkOperation {
     
-
+    override func handleResponse(success: Bool, result: Any?, error: ErrorEntity?, callback: Callback) {
+        
+        if (success) {
+            
+            let item: UserEntityProtocol = UserEntity.init(dict: result as! Dictionary<String, Any>)
+            callback(success, item, nil, nil)
+            
+        } else {
+            
+            callback(success, nil, nil, error);
+        }
+    }
+    
+    #if DEMO_MODE
+    
+    // Stub
+    override func perform(callback: @escaping Callback) {
+    
+        let dict = readJsonFile(filename: "userLogin")
+    
+        self.handleResponse(success: true, result: dict, error: nil, callback: callback)
+    }
+    
+    #endif
 }

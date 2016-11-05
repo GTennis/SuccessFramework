@@ -69,7 +69,7 @@ class SettingsManager: SettingsManagerProtocol {
     }
     
     // User
-    var loggedInUser: Dictionary <String, AnyObject>? {
+    var loggedInUser: Dictionary <String, Any>? {
      
         set {
             
@@ -79,7 +79,7 @@ class SettingsManager: SettingsManagerProtocol {
             
             let user: Dictionary<String, Any>? = self.value(key: kSettingsLoggedInUser, defaultValueIfNotExists: nil) as! Dictionary<String, Any>?
             
-            return user as Dictionary<String, AnyObject>?
+            return user
         }
     }
     
@@ -155,7 +155,7 @@ class SettingsManager: SettingsManagerProtocol {
     // MARK: Generic
     
     // Generic setter
-    internal func set(value: Any, key: String) {
+    internal func set(value: Any?, key: String) {
         
         let userDefaults: UserDefaults = UserDefaults.standard
         let oldDict: Dictionary<String, Any>? = userDefaults.object(forKey: kSettingsGroupKey) as? Dictionary<String, Any>
@@ -172,11 +172,18 @@ class SettingsManager: SettingsManagerProtocol {
         if value is Bool {
             
             newDict.removeValue(forKey: key)
+        }
+        
+        if let val = value {
+        
+            newDict[key] = val
             
         } else {
             
-            newDict[key] = value
+            newDict.removeValue(forKey: key)
         }
+        
+        //newDict = newDict.dictionaryWithoutNils()
         
         userDefaults.set(newDict, forKey: kSettingsGroupKey)
         userDefaults.synchronize()

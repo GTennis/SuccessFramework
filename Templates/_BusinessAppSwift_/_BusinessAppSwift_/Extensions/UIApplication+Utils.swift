@@ -1,8 +1,8 @@
 //
-//  GenericWebViewControllerProtocol.swift
+//  UIApplication+Utils.swift
 //  _BusinessAppSwift_
 //
-//  Created by Gytenis Mikulenas on 02/11/16.
+//  Created by Gytenis Mikulenas on 06/11/16.
 //  Copyright © 2016 Gytenis Mikulėnas 
 //  https://github.com/GitTennis/SuccessFramework
 //
@@ -27,7 +27,29 @@
 
 import UIKit
 
-protocol GenericWebViewControllerProtocol: UIWebViewDelegate, GenericViewControllerProtocol {
+extension UIApplication {
 
-    weak var webView: UIWebView? {get set}
+    // http://stackoverflow.com/a/30858591
+    class func topViewController(base: UIViewController? = UIApplication.shared.keyWindow?.rootViewController) -> UIViewController? {
+        
+        if let nav = base as? UINavigationController {
+            
+            return topViewController(base: nav.visibleViewController)
+        }
+        
+        if let tab = base as? UITabBarController {
+            
+            if let selected = tab.selectedViewController {
+                
+                return topViewController(base: selected)
+            }
+        }
+        
+        if let presented = base?.presentedViewController {
+            
+            return topViewController(base: presented)
+        }
+        
+        return base
+    }
 }

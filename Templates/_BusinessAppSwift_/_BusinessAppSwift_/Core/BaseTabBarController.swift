@@ -1,8 +1,8 @@
 //
-//  BaseModelProtocol.swift
+//  BaseTabBarController.swift
 //  _BusinessAppSwift_
 //
-//  Created by Gytenis Mikulenas on 08/09/16.
+//  Created by Gytenis Mikulenas on 06/11/16.
 //  Copyright © 2016 Gytenis Mikulėnas 
 //  https://github.com/GitTennis/SuccessFramework
 //
@@ -25,19 +25,37 @@
 //  SOFTWARE. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
-protocol BaseModelProtocol {
+class BaseTabBarController: UITabBarController {
+
+    // MARK: Rotation
+    // http://stackoverflow.com/a/31073949
     
-    var userManager: UserManagerProtocol! {get set}
-    var settingsManager: SettingsManagerProtocol! {get set}
-    var networkOperationFactory: NetworkOperationFactoryProtocol! {get set}
-    var reachabilityManager: ReachabilityManagerProtocol! {get set}
-    var analyticsManager: AnalyticsManagerProtocol! {get set}
-    var context: Any? {get set}
+    override open var shouldAutorotate: Bool {
+        get {
+            if let selectedVC = selectedViewController {
+                return selectedVC.shouldAutorotate
+            }
+            return super.shouldAutorotate
+        }
+    }
     
-    var isLoaded: Bool {get}
-    var delegate: ViewControllerModelDelegate? {get set}
+    override open var preferredInterfaceOrientationForPresentation: UIInterfaceOrientation{
+        get {
+            if let selectedVC = selectedViewController {
+                return selectedVC.preferredInterfaceOrientationForPresentation
+            }
+            return super.preferredInterfaceOrientationForPresentation
+        }
+    }
     
-    func loadData(callback: @escaping Callback)
+    override open var supportedInterfaceOrientations: UIInterfaceOrientationMask{
+        get {
+            if let selectedVC = selectedViewController {
+                return selectedVC.supportedInterfaceOrientations
+            }
+            return super.supportedInterfaceOrientations
+        }
+    }
 }

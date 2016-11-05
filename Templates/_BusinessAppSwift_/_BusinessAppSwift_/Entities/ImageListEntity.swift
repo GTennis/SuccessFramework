@@ -40,14 +40,14 @@ class ImageListEntity: ImageListEntityProtocol {
     
     var list: Array <ImageEntityProtocol>
     
-    required init(dict: Dictionary <String, AnyObject>) {
+    required init(dict: Dictionary <String, Any>) {
         
-        let imageList: Array <AnyObject> = dict[kImagesKey] as! Array
+        let imageList = dict[kImagesKey]
         
         var resultList: Array <ImageEntityProtocol> = Array()
         var item: ImageEntityProtocol
         
-        for itemDict in imageList as! Array <Dictionary <String, AnyObject>> {
+        for itemDict in imageList as! Array <Dictionary <String, Any>> {
             
             item = ImageEntity.init(dict: itemDict)
             resultList.append(item)
@@ -56,7 +56,7 @@ class ImageListEntity: ImageListEntityProtocol {
         list = resultList
     }
     
-    func serializedDict()-> Dictionary <String, AnyObject>? {
+    func serializedDict()-> Dictionary <String, Any>? {
         
         return nil;
     }

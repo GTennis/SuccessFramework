@@ -29,4 +29,13 @@ import UIKit
 
 class UserContainerModel: BaseModel {
 
+    override func willStartModelLoading(callback: @escaping Callback) {
+        
+        // ...
+    }
+    
+    override func didFinishModelLoading(data: Any?, error: ErrorEntity?) {
+        
+        // ...
+    }
 }

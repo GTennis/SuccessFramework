@@ -45,13 +45,13 @@ class ImageEntity: ImageEntityProtocol {
     var urlString: String!
     var image: UIImage?
     
-    required init(dict: Dictionary <String, AnyObject>) {
+    required init(dict: Dictionary <String, Any>) {
         
         title = dict[kImagetitleKey] as! String
         urlString = dict[kImageUrlKey] as! String
     }
     
-    func serializedDict()-> Dictionary <String, AnyObject>? {
+    func serializedDict()-> Dictionary <String, Any>? {
         
         return nil;
     }

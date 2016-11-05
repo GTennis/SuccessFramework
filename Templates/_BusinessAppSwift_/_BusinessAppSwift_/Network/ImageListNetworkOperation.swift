@@ -42,4 +42,16 @@ class ImageListNetworkOperation: BaseNetworkOperation {
             callback(success, nil, nil, error);
         }
     }
+    
+    #if DEMO_MODE
+    
+    // Stub
+    override func perform(callback: @escaping Callback) {
+    
+        let dict = readJsonFile(filename: "imageList")
+    
+        self.handleResponse(success: true, result: dict, error: nil, callback: callback)
+    }
+    
+    #endif
 }

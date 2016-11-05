@@ -38,15 +38,9 @@ class TopNavigationBarModal: BaseNavigationBar {
     
     var delegate: TopNavigationBarModalDelegate?
     
-    @IBOutlet weak var backButton: UIButton?
     @IBOutlet weak var cancelButton: UIButton?
     
     func showCancelButton() {
-        
-        
-    }
-    
-    func showBackButton() {
         
         
     }
@@ -60,11 +54,11 @@ class TopNavigationBarModal: BaseNavigationBar {
     
     @IBAction func backPressed(sender: UIButton) {
         
-        
+        self.delegate?.didPressedBackModal()
     }
     
     @IBAction func cancelPressed(sender: UIButton) {
         
-        
+        self.delegate?.didPressedCancelModal()
     }
 }

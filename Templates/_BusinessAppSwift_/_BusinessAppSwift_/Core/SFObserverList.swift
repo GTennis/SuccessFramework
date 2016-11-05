@@ -1,9 +1,9 @@
 //
-//  GMObserverList.swift
+//  SFObserverList.swift
 //  _BusinessAppSwift_
 //
 //  Created by Gytenis Mikulenas on 18/10/2016.
-//  Copyright © 2016 Gytenis Mikulėnas 
+//  Copyright © 2016 Gytenis Mikulėnas
 //  https://github.com/GitTennis/SuccessFramework
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -27,8 +27,8 @@
 
 import UIKit
 
-class GMObserverList: ObserverListProtocol {
-
+class SFObserverList: ObserverListProtocol {
+    
     // MARK: ObserverListProtocol
     
     required init(observedSubject: AnyObject) {
@@ -56,7 +56,7 @@ class GMObserverList: ObserverListProtocol {
     }
     
     func add(observer: AnyObject, notificationName:String, callback: @escaping Callback, context: Any?) {
-    
+        
         var contains: Bool = false
         let key = self.key(observer: observer, notificationName: notificationName)
         
@@ -82,7 +82,7 @@ class GMObserverList: ObserverListProtocol {
             
             // Store observer callback
             let wrappedObserver: WeakObserver = self.wrappedWeakObserver(observer: observer, notificationName: notificationName, callback: callback, context: context)
-                
+            
             _observers?[key] = wrappedObserver
         }
     }
@@ -94,7 +94,7 @@ class GMObserverList: ObserverListProtocol {
         _ = _observers?.removeValue(forKey: key)
     }
     
-    func remove(observer: AnyObject) {        
+    func remove(observer: AnyObject) {
         
         let observerClassName: String = className(object: observer)
         
@@ -124,9 +124,9 @@ class GMObserverList: ObserverListProtocol {
     // Broadcasting to observers
     
     func notifyObservers(notificationName: String) {
-    
-        if (_observers == nil) {
         
+        if (_observers == nil) {
+            
             return;
         }
         
@@ -144,7 +144,7 @@ class GMObserverList: ObserverListProtocol {
                 weakObserver = (_observers?[key])!
                 
                 if let callback = weakObserver.callback {
-                
+                    
                     callback(true, nil, nil, nil)
                 }
             }
@@ -223,10 +223,10 @@ class GMObserverList: ObserverListProtocol {
         if let observers = _observers {
             
             let keys: Array <String> = allKeys(dict: observers)
-        
+            
             if (keys.count > 0) {
                 
-               result = true
+                result = true
             }
         }
         
@@ -234,7 +234,7 @@ class GMObserverList: ObserverListProtocol {
     }
     
     internal func key(observer:AnyObject, notificationName: String)->String {
-    
+        
         let observerClassName: String = className(object: observer)
         let key = observerClassName + notificationName
         

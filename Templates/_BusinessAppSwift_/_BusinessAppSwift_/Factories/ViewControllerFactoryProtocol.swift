@@ -41,10 +41,14 @@ protocol ViewControllerFactoryProtocol {
     
     // User
     func userContainerViewController(context: Any?)->UserContainerViewController
+    func startViewController(context: Any?)->StartViewController
     func userLoginViewController(context: Any?)->UserLoginViewController
     func userSignUpViewController(context: Any?)->UserSignUpViewController
     func userResetPasswordViewController(context: Any?)->UserResetPasswordViewController
     func userProfileViewController(context: Any?)->UserProfileViewController
+    
+    // Menu
+    func menuViewController(context: Any?)->MenuViewController
     
     // Legal
     func termsConditionsViewController(context: Any?)->TermsConditionsViewController

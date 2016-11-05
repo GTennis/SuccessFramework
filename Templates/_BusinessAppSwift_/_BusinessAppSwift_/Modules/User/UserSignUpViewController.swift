@@ -49,20 +49,8 @@ protocol UserSignUpViewControllerDelegate: AnyObject {
     func didFinishSignUp()
 }
 
-class UserSignUpViewController: UITableViewController, GenericViewControllerProtocol, GenericDetailsViewControllerProtocol, KeyboardControlDelegate, CountryPickerViewControllerDelegate {
+class UserSignUpViewController: BaseTableViewController, CountryPickerViewControllerDelegate {
 
-    var context: Any?
-    var viewLoader: ViewLoaderProtocol?
-    var crashManager: CrashManagerProtocol?
-    var analyticsManager: AnalyticsManagerProtocol?
-    var messageBarManager: MessageBarManagerProtocol?
-    var viewControllerFactory: ViewControllerFactoryProtocol?
-    var reachabilityManager: ReachabilityManagerProtocol?
-    var localizationManager: LocalizationManagerProtocol?
-    var userManager: UserManagerProtocol?
-    var keyboardControls: KeyboardControlProtocol?
-    
-    
     var model: SignUpModel?
     weak var delegate: UserSignUpViewControllerDelegate?
     
@@ -81,15 +69,11 @@ class UserSignUpViewController: UITableViewController, GenericViewControllerProt
     @IBOutlet weak var privacyAndTermsTextView: UITextView!
     @IBOutlet weak var actionButton: UIButton!
     
-    deinit {
-        
-        self.removeFromAllFromObserving()
-    }
-    
     override func viewDidLoad() {
         
-        super.viewDidLoad();
-        self.commonViewDidLoad()
+        super.viewDidLoad()
+        
+        self.viewLoader?.hideNavigationBar(viewController: self)
         
         self.prepareUI()
         self.loadModel()
@@ -98,7 +82,6 @@ class UserSignUpViewController: UITableViewController, GenericViewControllerProt
     override func viewWillAppear(_ animated: Bool) {
         
         super.viewWillAppear(animated)
-        self.commonViewWillAppear(animated)
         
         // Log user behaviour
         self.analyticsManager?.log(screenName: kAnalyticsManagerScreenUserSignUp)
@@ -107,14 +90,6 @@ class UserSignUpViewController: UITableViewController, GenericViewControllerProt
     override func viewWillDisappear(_ animated: Bool) {
         
         super.viewWillDisappear(animated)
-        self.commonViewWillDisappear(animated)
-        
-    }
-    
-    override func didReceiveMemoryWarning() {
-        
-        super.didReceiveMemoryWarning()
-        self.commonDidReceiveMemoryWarning()
     }
     
     func clearTextFields() {
@@ -166,11 +141,11 @@ class UserSignUpViewController: UITableViewController, GenericViewControllerProt
             // Reset previous warnings from fields
             self.resetStyleForMissingRequiredFields()
     
-            self.showScreenActivityIndicator()
+            self.viewLoader?.showScreenActivityIndicator(containerView: self.view)
     
             self.model?.signUp(callback: {[weak self] (success, result, context, error) in
                 
-                self?.hideScreenActivityIndicator()
+                self?.viewLoader?.hideScreenActivityIndicator(containerView: (self?.view)!)
                 
                 if (success) {
                     
@@ -191,7 +166,9 @@ class UserSignUpViewController: UITableViewController, GenericViewControllerProt
     
     // MARK: GenericViewControllerProtocol
     
-    func prepareUI() {
+    override func prepareUI() {
+        
+        super.prepareUI()
         
         self.title = localizedString(key: kUserSignUpViewControllerTitle)
         
@@ -199,19 +176,19 @@ class UserSignUpViewController: UITableViewController, GenericViewControllerProt
         self.setupTappablePrivacyAndTermsTextView()
     }
     
-    func renderUI() {
+    override func renderUI() {
         
-        // ...
+        super.renderUI()
     }
     
-    func loadModel() {
+    override func loadModel() {
         
         self.renderUI()
     }
     
     // MARK: KeyboardControlDelegate
     
-    func didPressGo() {
+    override func didPressGo() {
         
         self.signUpPressed(self.actionButton)
     }

@@ -55,7 +55,7 @@ class UserManager : UserManagerProtocol {
         self.keychainManager = keychainManager
         
         // Load user
-        let dict: Dictionary <String, AnyObject>? = settingsManager.loggedInUser
+        let dict: Dictionary <String, Any>? = settingsManager.loggedInUser
         
         if (dict == nil) {
             
@@ -68,10 +68,10 @@ class UserManager : UserManagerProtocol {
             
             if let dict = dict {
                 
-                var dictWithToken: Dictionary<String, AnyObject> = Dictionary()
+                var dictWithToken: Dictionary<String, Any> = Dictionary()
                 
                 dictWithToken = dictWithToken.merged(with: dict)
-                dictWithToken[kUserTokenKey] = token as AnyObject
+                dictWithToken[kUserTokenKey] = token as Any
                 
                 user = UserEntity.init(dict: dictWithToken)
             }
@@ -131,8 +131,11 @@ class UserManager : UserManagerProtocol {
             callback(success, result, nil, error);
         }
         
-        let hashedPwd: String = (user.password as NSString).sha512(withSalt: nil);
-        user.password = hashedPwd
+        if let password = user.password {
+            
+            let hashedPwd: String = (password as NSString).sha512(withSalt: nil);
+            user.password = hashedPwd
+        }
         
         let userLoginOperation: NetworkOperationProtocol = networkOperationFactory.userLoginNetworkOperation(context: user.serializedDict())
         userLoginOperation.perform(callback: wrappedCallback)
@@ -167,8 +170,11 @@ class UserManager : UserManagerProtocol {
             callback(success, result, nil, error);
         }
         
-        let hashedPwd: String = (user.password as NSString).sha512(withSalt: nil);
-        user.password = hashedPwd
+        if let password = user.password {
+            
+            let hashedPwd: String = (password as NSString).sha512(withSalt: nil);
+            user.password = hashedPwd
+        }
         
         let userSignUpOperation: NetworkOperationProtocol = networkOperationFactory.userSignUpNetworkOperation(context: user.serializedDict())
         userSignUpOperation.perform(callback: wrappedCallback)
@@ -233,14 +239,15 @@ class UserManager : UserManagerProtocol {
 
         } else {
             
-            settingsManager.loggedInUser = nil
-            
-            let loggedOutUser: UserEntity = self.user!
+            if let user = self.user {
+                
+                let loggedOutUser = user
+                
+                // There should be a webservice which does login and invalides token (if somebody sniffed and stole it). However there's no such webservice and we do logout locally only and so always consider logout as success immediatelly
+                self.notifyObserversWithLogoutSuccess(user: loggedOutUser)
+            }
             
             self.user = nil
-            
-            // There should be a webservice which does login and invalides token (if somebody sniffed and stole it). However there's no such webservice and we do logout locally only and so always consider logout as success immediatelly
-            self.notifyObserversWithLogoutSuccess(user: loggedOutUser)
             
             callback(true, nil, nil, nil)
         }
@@ -268,7 +275,7 @@ class UserManager : UserManagerProtocol {
     // MARK:
     
     // http://mikebuss.com/2014/06/22/lazy-initialization-swift/
-    internal lazy var _observers: ObserverListProtocol = GMObserverList.init(observedSubject: self)
+    internal lazy var _observers: ObserverListProtocol = SFObserverList.init(observedSubject: self)
     //lazy var _user: UserEntity = UserEntity()
     //_user = [[UserObject alloc] init]; haven't ported this line. IMHO it's not needed anymore, maybe legacy stuff
     
@@ -286,7 +293,8 @@ class UserManager : UserManagerProtocol {
             } else {
                 
                 // Serialize and store user in settings
-                let dict: Dictionary <String, AnyObject>? = user.serializedDict()
+                let dict: Dictionary <String, Any>? = user.serializedDict()
+                
                 settingsManager.loggedInUser = dict
                 
                 // Update in-memory user

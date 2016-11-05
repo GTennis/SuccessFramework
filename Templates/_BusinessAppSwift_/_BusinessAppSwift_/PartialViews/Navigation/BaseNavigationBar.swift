@@ -30,6 +30,7 @@ import UIKit
 class BaseNavigationBar: UIView {
 
     @IBOutlet weak var titleLabel: NormalLabel?
+    @IBOutlet weak var backButton: UIButton?
     
     override init (frame : CGRect) {
         super.init(frame : frame)
@@ -43,5 +44,15 @@ class BaseNavigationBar: UIView {
     required init(coder aDecoder: NSCoder) {
      
         super.init(coder: aDecoder)!
+    }
+    
+    func showBackButton() {
+        
+        self.backButton?.isHidden = false
+    }
+    
+    func hideBackButton() {
+        
+        self.backButton?.isHidden = true
     }
 }

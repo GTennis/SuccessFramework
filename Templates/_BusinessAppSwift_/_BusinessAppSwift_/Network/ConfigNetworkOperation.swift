@@ -42,12 +42,24 @@ class ConfigNetworkOperation: BaseNetworkOperation {
         
         if (success) {
             
-            let item: AppConfigEntityProtocol = AppConfigEntity.init(dict: result as! Dictionary<String, AnyObject>)
+            let item: AppConfigEntityProtocol = AppConfigEntity.init(dict: result as! Dictionary<String, Any>)
             callback(success, item, nil, nil)
             
         } else {
             
             callback(success, nil, nil, error);
         }
-    }    
+    }
+    
+    #if DEMO_MODE
+    
+    // Stub
+    override func perform(callback: @escaping Callback) {
+    
+        let dict = readJsonFile(filename: "config")
+    
+        self.handleResponse(success: true, result: dict, error: nil, callback: callback)
+    }
+    
+    #endif
 }

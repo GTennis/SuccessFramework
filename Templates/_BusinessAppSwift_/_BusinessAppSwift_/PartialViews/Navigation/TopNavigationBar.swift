@@ -36,24 +36,18 @@ protocol TopNavigationBarDelegate {
 class TopNavigationBar: BaseNavigationBar {
     
     var delegate: TopNavigationBarDelegate?
-    
-    @IBOutlet weak var backButton: UIButton?
+        
     @IBOutlet weak var contactButton: UIButton?
-    
-    func showBackButton() {
-        
-        
-    }
     
     // MARK: IBActions
     
     @IBAction func backPressed(sender: UIButton) {
         
-        
+        self.delegate?.didPressedBack()
     }
     
     @IBAction func contactPressed(sender: UIButton) {
         
-        
+        self.delegate?.didPressedContacts()
     }
 }

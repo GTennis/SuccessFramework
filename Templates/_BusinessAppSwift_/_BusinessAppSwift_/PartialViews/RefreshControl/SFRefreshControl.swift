@@ -1,8 +1,8 @@
 //
-//  GMRefreshControl.swift
+//  SFRefreshControl.swift
 //  _BusinessAppSwift_
 //
-//  Created by Gytenis Mikulenas on 31/10/16.
+//  Created by Gytenis Mikulenas on 06/11/16.
 //  Copyright © 2016 Gytenis Mikulėnas 
 //  https://github.com/GitTennis/SuccessFramework
 //
@@ -27,8 +27,8 @@
 
 import UIKit
 
-class GMRefreshControl: NSObject {
-
+class SFRefreshControl: NSObject {
+    
     var view: UIRefreshControl
     
     required init(callback: @escaping SimpleCallback) {
@@ -38,16 +38,36 @@ class GMRefreshControl: NSObject {
         
         super.init()
         
-        view.addTarget(self, action: #selector(GMRefreshControl.didRefresh), for: UIControlEvents.valueChanged)
+        view.addTarget(self, action: #selector(SFRefreshControl.didRefresh), for: UIControlEvents.valueChanged)
     }
     
-    // MARK: 
+    required init(target: UIViewController, callbackSelector: Selector) {
+        
+        _selector = callbackSelector
+        view = UIRefreshControl()
+        
+        super.init()
+        
+        view.addTarget(self, action: #selector(SFRefreshControl.didRefresh), for: UIControlEvents.valueChanged)
+    }
+    
+    // MARK:
     // MARK: Internal
     // MARK:
-    internal var _callback: SimpleCallback
+    
+    internal var _callback: SimpleCallback?
+    internal var _selector: Selector?
+    internal weak var _target: UIViewController?
     
     internal func didRefresh() {
         
-        _callback()
+        if let callback = _callback {
+            
+            callback()
+            
+        } else if let target = _target, let selector = _selector {
+            
+            target.perform(selector)
+        }
     }
 }

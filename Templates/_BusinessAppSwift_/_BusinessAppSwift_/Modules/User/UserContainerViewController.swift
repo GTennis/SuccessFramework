@@ -3,7 +3,7 @@
 //  _BusinessAppSwift_
 //
 //  Created by Gytenis Mikulenas on 03/11/2016.
-//  Copyright © 2016 Gytenis Mikulėnas 
+//  Copyright © 2016 Gytenis Mikulėnas
 //  https://github.com/GitTennis/SuccessFramework
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -27,40 +27,24 @@
 
 import UIKit
 
-class UserContainerViewController: UIViewController, GenericViewControllerProtocol {
+protocol UserContainerViewControllerDelegate: AnyObject {
+    
+    func didAuthentificateUser()
+}
 
-    var context: Any?
-    var viewLoader: ViewLoaderProtocol?
-    var crashManager: CrashManagerProtocol?
-    var analyticsManager: AnalyticsManagerProtocol?
-    var messageBarManager: MessageBarManagerProtocol?
-    var viewControllerFactory: ViewControllerFactoryProtocol?
-    var reachabilityManager: ReachabilityManagerProtocol?
-    var localizationManager: LocalizationManagerProtocol?
-    var userManager: UserManagerProtocol?
-    @IBOutlet weak var modalContainerView4Ipad: UIView?
+class UserContainerViewController: BaseNavigationController, StartViewControllerDelegate, UserLoginViewControllerDelegate {
     
     var model: UserContainerModel?
+    weak var delegate_: UserContainerViewControllerDelegate?
     
-    deinit {
-        
-        self.removeFromAllFromObserving()
-    }
-    
-    /*required init() {
-     
-     super.init(nibName: nil, bundle: nil);
-     }
-     
-     required init(coder aDecoder: NSCoder) {
-     
-     super.init(coder: aDecoder)!
-     }*/
+    var startVC: StartViewController?
+    var loginVc: UserLoginViewController?
     
     override func viewDidLoad() {
         
-        super.viewDidLoad();
-        self.commonViewDidLoad()
+        super.viewDidLoad()
+        
+        self.viewControllers = [self.startVC!]
         
         self.prepareUI()
         self.loadModel()
@@ -69,36 +53,50 @@ class UserContainerViewController: UIViewController, GenericViewControllerProtoc
     override func viewWillAppear(_ animated: Bool) {
         
         super.viewWillAppear(animated)
-        self.commonViewWillAppear(animated)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         
         super.viewWillDisappear(animated)
-        self.commonViewWillDisappear(animated)
-        
-    }
-    
-    override func didReceiveMemoryWarning() {
-        
-        super.didReceiveMemoryWarning()
-        self.commonDidReceiveMemoryWarning()
     }
     
     // MARK: GenericViewControllerProtocol
     
-    func prepareUI() {
+    override func prepareUI() {
         
-        // ...
+        super.prepareUI()
     }
     
-    func renderUI() {
+    override func renderUI() {
         
-        // ...
+        super.renderUI()
     }
     
-    func loadModel() {
+    override func loadModel() {
         
-        self.renderUI()
+        model?.loadData(callback: { [weak self] (success, result, context, error) in
+            
+            self?.renderUI()
+        })
     }
+    
+    // MARK: StartViewControllerDelegate
+    
+    func didPressedLogin() {
+        
+        // Add
+        self.pushViewController(self.loginVc!, animated: true)
+    }
+    
+    func didPressedSkip() {
+        
+        self.delegate_?.didAuthentificateUser()
+    }
+    
+    // MARK: UserLoginViewControllerDelegate
+    
+    func didFinishLogin() {
+        
+        self.delegate_?.didAuthentificateUser()
+    }    
 }

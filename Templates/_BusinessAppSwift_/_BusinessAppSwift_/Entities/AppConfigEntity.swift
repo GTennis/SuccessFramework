@@ -71,7 +71,7 @@ class AppConfigEntity: AppConfigEntityProtocol {
     
     var isAppNeedUpdate: Bool {
         
-        let nsObject: AnyObject? = Bundle.main.infoDictionary!["CFBundleShortVersionString"] as AnyObject?
+        let nsObject: Any? = Bundle.main.infoDictionary!["CFBundleShortVersionString"] as Any?
         let version = nsObject as! String
         
         return !self._contains(appVersion: version)
@@ -104,16 +104,16 @@ class AppConfigEntity: AppConfigEntityProtocol {
         }
     }
     
-    required init(dict: Dictionary <String, AnyObject>) {
+    required init(dict: Dictionary <String, Any>) {
         
         _platform = dict[kAppConfigPlatformKey] as! String;
         
-        let backendAPIsDict: Dictionary <String, AnyObject> = dict[kAppConfigBackendAPIsKey] as! Dictionary;
-        let backendEnvironmentDict: Dictionary <String, AnyObject> = backendAPIsDict[kAppConfigBackendEnvironmentsKey] as! Dictionary;
+        let backendAPIsDict: Dictionary <String, Any> = dict[kAppConfigBackendAPIsKey] as! Dictionary;
+        let backendEnvironmentDict: Dictionary <String, Any> = backendAPIsDict[kAppConfigBackendEnvironmentsKey] as! Dictionary;
         
-        let productionEnvironmentDict: Dictionary <String, AnyObject> = backendEnvironmentDict[kAppConfigBackendProductionGroupKey] as! Dictionary;
-        let stageEnvironmentDict: Dictionary <String, AnyObject> = backendEnvironmentDict[kAppConfigBackendStageGroupKey] as! Dictionary;
-        let developmentEnvironmentDict: Dictionary <String, AnyObject> = backendEnvironmentDict[kAppConfigBackendDevelopmentGroupKey] as! Dictionary;
+        let productionEnvironmentDict: Dictionary <String, Any> = backendEnvironmentDict[kAppConfigBackendProductionGroupKey] as! Dictionary;
+        let stageEnvironmentDict: Dictionary <String, Any> = backendEnvironmentDict[kAppConfigBackendStageGroupKey] as! Dictionary;
+        let developmentEnvironmentDict: Dictionary <String, Any> = backendEnvironmentDict[kAppConfigBackendDevelopmentGroupKey] as! Dictionary;
         
         //----- Check app config version -----//
         appConfigVersion = dict[kAppConfigVersionKey] as! Int;
@@ -124,23 +124,23 @@ class AppConfigEntity: AppConfigEntityProtocol {
         
         // Add production log level
         
-        let productionEnvironmentLogsDict: Dictionary <String, AnyObject> = productionEnvironmentDict[kAppConfigLoggingGroupKey] as! Dictionary;
+        let productionEnvironmentLogsDict: Dictionary <String, Any> = productionEnvironmentDict[kAppConfigLoggingGroupKey] as! Dictionary;
         var logLevel = productionEnvironmentLogsDict[kAppConfigLogLevelKey] as! String;
         
         _environmentLogLevels[BackendEnvironmentType.production.rawValue] = logLevel
         
         // Add stage log level
-        let stageEnvironmentLogsDict: Dictionary <String, AnyObject> = stageEnvironmentDict[kAppConfigLoggingGroupKey] as! Dictionary;
+        let stageEnvironmentLogsDict: Dictionary <String, Any> = stageEnvironmentDict[kAppConfigLoggingGroupKey] as! Dictionary;
         logLevel = stageEnvironmentLogsDict[kAppConfigLogLevelKey] as! String
         _environmentLogLevels[BackendEnvironmentType.staging.rawValue] = logLevel
         
         // Add development log level
-        let developmentEnvironmentLogsDict: Dictionary <String, AnyObject> = developmentEnvironmentDict[kAppConfigLoggingGroupKey] as! Dictionary;
+        let developmentEnvironmentLogsDict: Dictionary <String, Any> = developmentEnvironmentDict[kAppConfigLoggingGroupKey] as! Dictionary;
         logLevel = developmentEnvironmentLogsDict[kAppConfigLogLevelKey] as! String;
         _environmentLogLevels[BackendEnvironmentType.development.rawValue] = logLevel
         
         //----- Check for supported version -----//
-        let supportedAppVersionsDict: Dictionary <String, AnyObject> = dict[kAppConfigSupportedAppVersionsKey] as! Dictionary
+        let supportedAppVersionsDict: Dictionary <String, Any> = dict[kAppConfigSupportedAppVersionsKey] as! Dictionary
         let supportedAppVersionsArray: Array <String> = supportedAppVersionsDict[kAppConfigSupportedAppVersionListKey] as! Array;
         
         supportedAppVersions = Array();
@@ -154,7 +154,7 @@ class AppConfigEntity: AppConfigEntityProtocol {
         //----- Parse and check production backend urls -----//
         
         let productionBaseUrl:String = productionEnvironmentDict[kAppConfigBackendEnvironmentBaseUrlKey] as! String
-        let productionNetworkRequestsDict: Dictionary <String, AnyObject> = productionEnvironmentDict[kAppConfigBackendEnvironmentActionsKey] as! Dictionary;
+        let productionNetworkRequestsDict: Dictionary <String, Any> = productionEnvironmentDict[kAppConfigBackendEnvironmentActionsKey] as! Dictionary;
         
         _productionNetworkRequests = AppConfigEntity._networkRequests(networkRequestsDict: productionNetworkRequestsDict, baseUrl: productionBaseUrl)
         
@@ -162,7 +162,7 @@ class AppConfigEntity: AppConfigEntityProtocol {
         // No need to check because it's not important on production environment if they would become empty
         
         let stageBaseUrl:String = stageEnvironmentDict[kAppConfigBackendEnvironmentBaseUrlKey] as! String
-        let stageNetworkRequestsDict: Dictionary <String, AnyObject> = stageEnvironmentDict[kAppConfigBackendEnvironmentActionsKey] as! Dictionary;
+        let stageNetworkRequestsDict: Dictionary <String, Any> = stageEnvironmentDict[kAppConfigBackendEnvironmentActionsKey] as! Dictionary;
         
         _stageNetworkRequests = AppConfigEntity._networkRequests(networkRequestsDict: stageNetworkRequestsDict, baseUrl: stageBaseUrl)
         
@@ -170,12 +170,12 @@ class AppConfigEntity: AppConfigEntityProtocol {
         // No need to check because it's not important on production environment if they would become empty
         
         let developmentBaseUrl:String = developmentEnvironmentDict[kAppConfigBackendEnvironmentBaseUrlKey] as! String;
-        let developmentNetworkRequestsDict: Dictionary <String, AnyObject> = developmentEnvironmentDict[kAppConfigBackendEnvironmentActionsKey] as! Dictionary;
+        let developmentNetworkRequestsDict: Dictionary <String, Any> = developmentEnvironmentDict[kAppConfigBackendEnvironmentActionsKey] as! Dictionary;
         
         _developmentNetworkRequests = AppConfigEntity._networkRequests(networkRequestsDict: developmentNetworkRequestsDict, baseUrl: developmentBaseUrl)
     }
     
-    func serializedDict()-> Dictionary <String, AnyObject>? {
+    func serializedDict()-> Dictionary <String, Any>? {
         
         return nil;
     }
@@ -192,13 +192,13 @@ class AppConfigEntity: AppConfigEntityProtocol {
     var _platform: String
     var _environmentLogLevels: Dictionary <Int, String>
     var _currentNetworkEnvironment: BackendEnvironmentType!
-    //var environmentsDict: [String : AnyObject] = [:]
-    var _productionEnvironmentDict: [String : AnyObject] = [:]
-    var _stageEnvironmentDict: [String : AnyObject] = [:]
-    var _developmentEnvironmentDict: [String : AnyObject] = [:]
+    //var environmentsDict: [String : Any] = [:]
+    var _productionEnvironmentDict: [String : Any] = [:]
+    var _stageEnvironmentDict: [String : Any] = [:]
+    var _developmentEnvironmentDict: [String : Any] = [:]
     
     // Static because this method cannot be called in init with self because init should initialize variables first, and if some variable and optional then you need to use static
-    static func _networkRequests(networkRequestsDict: Dictionary<String, AnyObject>, baseUrl: String) -> Dictionary<String, NetworkRequestEntity> {
+    static func _networkRequests(networkRequestsDict: Dictionary<String, Any>, baseUrl: String) -> Dictionary<String, NetworkRequestEntity> {
         
         //return Dictionary()
         
@@ -206,7 +206,7 @@ class AppConfigEntity: AppConfigEntityProtocol {
         
         //TODO
         var result: Dictionary <String, NetworkRequestEntity> = Dictionary()
-        var dict:Dictionary<String, AnyObject>
+        var dict:Dictionary<String, Any>
         var networkRequest: NetworkRequestEntity
         
         for networkRequestName in networkRequestNames {

@@ -38,4 +38,15 @@ extension Dictionary {
         dict.merge(with: dictionary)
         return dict
     }
+    
+    func dictionaryWithoutNils() -> Dictionary {
+        var dict = self
+        
+        let keysToRemove = self.keys.filter { dict[$0] is NSNull }
+        for key in keysToRemove {
+            dict.removeValue(forKey: key)
+        }
+        
+        return dict
+    }
 }

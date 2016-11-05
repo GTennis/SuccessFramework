@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11201" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11201" systemVersion="15G1108" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" colorMatched="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
@@ -22,20 +22,7 @@
                         <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </state>
                     <connections>
-                        <action selector="backPressedWithSender:" destination="riP-OY-PwU" eventType="touchUpInside" id="jRN-66-jwC"/>
-                    </connections>
-                </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d11-JL-a5V" userLabel="Menu">
-                    <rect key="contentStretch" x="1" y="0.0" width="1" height="1"/>
-                    <constraints>
-                        <constraint firstAttribute="width" constant="51" id="dgR-Jf-b4U"/>
-                    </constraints>
-                    <inset key="contentEdgeInsets" minX="-10" minY="0.0" maxX="0.0" maxY="0.0"/>
-                    <state key="normal" image="iconMenu">
-                        <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    </state>
-                    <connections>
-                        <action selector="menuPressed:" destination="riP-OY-PwU" eventType="touchUpInside" id="Axw-gL-FnV"/>
+                        <action selector="backPressedWithSender:" destination="riP-OY-PwU" eventType="touchUpInside" id="P8e-mq-0ux"/>
                     </connections>
                 </button>
                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zMT-Mp-FZv" customClass="NormalLabel" customModule="_BusinessAppSwift_" customModuleProvider="target">
@@ -57,13 +44,10 @@
             <constraints>
                 <constraint firstItem="zMT-Mp-FZv" firstAttribute="leading" secondItem="riP-OY-PwU" secondAttribute="leading" constant="48" id="4iv-No-6e9"/>
                 <constraint firstItem="pmo-i2-gpg" firstAttribute="leading" secondItem="riP-OY-PwU" secondAttribute="leading" id="5zc-pL-s7g"/>
-                <constraint firstItem="d11-JL-a5V" firstAttribute="leading" secondItem="riP-OY-PwU" secondAttribute="leading" id="AEZ-Nw-SUJ"/>
                 <constraint firstAttribute="trailing" secondItem="VAd-8e-UHf" secondAttribute="trailing" constant="7" id="KMZ-zQ-8fr"/>
-                <constraint firstAttribute="bottom" secondItem="d11-JL-a5V" secondAttribute="bottom" id="OED-qP-GGR"/>
                 <constraint firstAttribute="trailing" secondItem="zMT-Mp-FZv" secondAttribute="trailing" constant="37" id="Wdh-0V-dKF"/>
                 <constraint firstAttribute="centerY" secondItem="VAd-8e-UHf" secondAttribute="centerY" id="Yo9-pI-TbR"/>
                 <constraint firstItem="pmo-i2-gpg" firstAttribute="top" secondItem="riP-OY-PwU" secondAttribute="top" id="aXb-46-cja"/>
-                <constraint firstItem="d11-JL-a5V" firstAttribute="top" secondItem="riP-OY-PwU" secondAttribute="top" id="hd1-Ng-pFb"/>
                 <constraint firstAttribute="centerY" secondItem="zMT-Mp-FZv" secondAttribute="centerY" id="uyG-gX-gkm"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
@@ -78,7 +62,6 @@
     </objects>
     <resources>
         <image name="iconBack" width="11" height="20"/>
-        <image name="iconMenu" width="11" height="20"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>

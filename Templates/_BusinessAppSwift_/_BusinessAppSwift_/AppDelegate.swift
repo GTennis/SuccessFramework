@@ -30,13 +30,14 @@ import iVersion
 import UserNotifications
 
 let kAppConfigRetryDelayDuration = 1.5
+let kTabHomeItemTitle = "TabItemHome"
+let kTabMenuItemTitle = "TabItemMenu"
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterDelegate, WalkthroughViewControllerDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterDelegate, WalkthroughViewControllerDelegate, UserContainerViewControllerDelegate {
 
     // Common
     var window: UIWindow?
-    var navigationController: UINavigationController?
     
     // Configuration
     var backendEnvironment: BackendEnvironmentType!
@@ -144,6 +145,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         }
     }
     
+    // MARK: WalkthroughViewControllerDelegate
+    
+    func didFinishShowingWalkthrough() {
+        
+        // Proceed to the app after user completes walkthrough
+        self.continueLaunchTheApp()
+    }
+    
+    // MARK: UserContainerViewControllerDelegate
+    
+    func didAuthentificateUser() {
+        
+        // Proceed to the app after user completes walkthrough
+        self.proceedToTheApp()
+    }
+    
     // MARK: Push and local Notifications
     // Source1: http://stackoverflow.com/a/39618207/597292
     // Source2: https://makeapppie.com/2016/08/08/how-to-make-local-notifications-in-ios-10/
@@ -236,7 +253,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         
         DDLogDebug(log: "AppDelegate: didReceiveRemoteNotification: " + userInfo.description);
         
-        let topVC: UIViewController = (navigationController?.topViewController)!
+        let topVC: UIViewController = UIApplication.topViewController()!
         pushNotificationManager.handleReceivedPushNotification(userInfo: userInfo, application: application, topViewController: topVC)
         
         // Check if force app reload notification was received
@@ -249,14 +266,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
                 self.performForceReload()
             }
         }
-    }
-    
-    // MARK: WalkthroughViewControllerDelegate
-    
-    func didFinishShowingWalkthrough() {
-        
-        // Proceed to the app after user completes walkthrough
-        self.proceedToTheApp()
     }
     
     // MARK: iVersionDelegate
@@ -367,6 +376,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         // Update with new appConfig
         self.networkOperationFactory = NetworkOperationFactory.init(appConfig: appConfig, settingsManager: self.settingsManager)
         self.networkOperationFactory.userManager = self.userManager
+        self.userManager.networkOperationFactory = self.networkOperationFactory
+        self.managerFactory.networkOperationFactory = self.networkOperationFactory
     }
     
     func getAppConfig(isAppLaunch: Bool) {
@@ -413,7 +424,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
                         self?.checkAndOverrideGeneralSettingsLanguageIfNotSupported()
                         
                         // Continue
-                        self?.continueLaunchTheApp()
+                        
+                        // Check if app runs the very first time
+                        if let settingsManager = self?.settingsManager {
+                            
+                            if (settingsManager.isFirstTimeAppLaunch) {
+                                
+                                self?.showWalkthrough()
+                                
+                            } else {
+                                
+                                self?.continueLaunchTheApp()
+                            }
+                        }
                     }
                 }
             }
@@ -423,33 +446,81 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     // MARK: 
     // MARK: Internal
     // MARK:
-    internal
     
-    func continueLaunchTheApp() {
+    internal func tabBar() -> BaseTabBarController {
         
-        // Check if app runs the very first time
-        if (self.settingsManager.isFirstTimeAppLaunch) {
-            
-            // Show tutorial
-            self.showWalkthrough(error:nil)
-            
-        } else {
+        let tab0Vc: HomeViewController = viewControllerFactory.homeViewController(context: nil)
+        let tab1Vc: MenuViewController = viewControllerFactory.menuViewController(context: nil)
+
+        let tab0NavCtrl: BaseNavigationController = BaseNavigationController.init(rootViewController: tab0Vc)
+        let tab1NavCtrl: BaseNavigationController = BaseNavigationController.init(rootViewController: tab1Vc)
+        
+        let tabBarController: BaseTabBarController = BaseTabBarController()
+        
+        tabBarController.viewControllers = [tab0NavCtrl, tab1NavCtrl]
+        
+        UITabBarItem.appearance().setTitleTextAttributes([NSForegroundColorAttributeName : kColorGray], for: UIControlState.normal)
+        UITabBarItem.appearance().setTitleTextAttributes([NSForegroundColorAttributeName : kColorBlue], for: UIControlState.selected)
+        
+        //------ Configure first tab -------//
+        let tabBarItem0 = tabBarController.tabBar.items?[0]
+        
+        var deselectedImage: UIImage = (UIImage(named:"iconTabHomeInactive")?.withRenderingMode(.alwaysOriginal))!
+        var selectedImage: UIImage = (UIImage(named:"iconTabHomeActive")?.withRenderingMode(.alwaysOriginal))!
+        
+        tabBarItem0?.title = localizedString(key: kTabHomeItemTitle)
+        tabBarItem0?.image = deselectedImage
+        tabBarItem0?.selectedImage = selectedImage
+        
+        //------ Configure second tab -------//
+        let tabBarItem1 = tabBarController.tabBar.items?[1]
+        
+        deselectedImage = (UIImage(named:"iconTabMenuInactive")?.withRenderingMode(.alwaysOriginal))!
+        selectedImage = (UIImage(named:"iconTabMenuActive")?.withRenderingMode(.alwaysOriginal))!
+        
+        tabBarItem1?.title = localizedString(key: kTabMenuItemTitle)
+        tabBarItem1?.image = deselectedImage
+        tabBarItem1?.selectedImage = selectedImage
+        
+        return tabBarController
+    }
+    
+    internal func continueLaunchTheApp() {
+        
+        if (self.userManager.isUserLoggedIn()) {
             
             // Or jump straight to the app
             self.proceedToTheApp()
+            
+        } else {
+            
+            // Show tutorial
+            self.showLogin(error: nil)
         }
     }
     
-    func showWalkthrough(error: ErrorEntity?) {
-    
+    internal func showWalkthrough() {
+        
         // Protection: don't show twice
         if (!(self.window?.rootViewController is WalkthroughViewController)) {
-    
+            
             let walkthroughVC: WalkthroughViewController = viewControllerFactory.walkthroughViewController(context: nil)
             walkthroughVC.delegate = self
-     
-            self.window?.rootViewController = walkthroughVC
+            
+            self.window?.rootViewController = walkthroughVC            
+        }
+    }
     
+    internal func showLogin(error: ErrorEntity?) {
+        
+        // Protection: don't show twice
+        if (!(self.window?.rootViewController is UserContainerViewController)) {
+            
+            let userContainerVc: UserContainerViewController = viewControllerFactory.userContainerViewController(context: nil)
+            userContainerVc.delegate_ = self
+            
+            self.window?.rootViewController = userContainerVc
+            
             if let error = error {
                 
                 self.messageBarManager .showMessage(title: "", description: error.message, type: MessageBarMessageType.error)
@@ -457,19 +528,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         }
     }
     
-    func proceedToTheApp() {
+    internal func proceedToTheApp() {
         
-        //let vc: HomeViewController = viewControllerFactory.homeViewController(context: nil)
-        let vc: UserSignUpViewController = viewControllerFactory.userSignUpViewController(context: nil)
-        self.navigationController = UINavigationController.init(rootViewController: vc)
-    
-        self.animateTransitioning(newView: vc.view, newRootViewController: self.navigationController!, callback: nil)
+        // set as the root window
+        let rootVc: BaseTabBarController = self.tabBar()
         
-        //[self animateTransitioningWithNewView:homeVC.view newRootViewController:_menuNavigator  callback:nil];
+        self.animateTransitioning(newView: rootVc.view, newRootViewController: rootVc, callback: nil)
     }
 
     // TODO: temporary
-    func animateTransitioning(newView: UIView, newRootViewController: UIViewController, callback: Callback?) {
+    internal func animateTransitioning(newView: UIView, newRootViewController: UIViewController, callback: Callback?) {
         
         self.window?.rootViewController = newRootViewController
         
@@ -515,7 +583,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
 
     }
     
-    func checkAndOverrideGeneralSettingsLanguageIfNotSupported() {
+    internal func checkAndOverrideGeneralSettingsLanguageIfNotSupported() {
         
         if let language = settingsManager.language {
             
