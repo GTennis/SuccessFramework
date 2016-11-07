@@ -3,7 +3,7 @@
 //  _BusinessAppSwift_
 //
 //  Created by Gytenis Mikulenas on 23/10/16.
-//  Copyright © 2016 Gytenis Mikulėnas 
+//  Copyright © 2016 Gytenis Mikulėnas
 //  https://github.com/GitTennis/SuccessFramework
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -27,23 +27,32 @@
 
 import UIKit
 
-class BaseNavigationBar: UIView {
+#if DEBUG
+    import FLEX
+#endif
 
+class BaseNavigationBar: UIView {
+    
     @IBOutlet weak var titleLabel: NormalLabel?
     @IBOutlet weak var backButton: UIButton?
     
     override init (frame : CGRect) {
         super.init(frame : frame)
         
+        self.commonInit()
     }
     
     convenience init () {
         self.init(frame:CGRect.zero)
+        
+        self.commonInit()
     }
     
     required init(coder aDecoder: NSCoder) {
-     
+        
         super.init(coder: aDecoder)!
+        
+        self.commonInit()
     }
     
     func showBackButton() {
@@ -54,5 +63,25 @@ class BaseNavigationBar: UIView {
     func hideBackButton() {
         
         self.backButton?.isHidden = true
+    }
+    
+    // MARK:
+    // MARK: Internal
+    // MARK:
+    
+    internal func commonInit() {
+        
+        #if DEBUG
+            
+            let gestureRecognizer: UITapGestureRecognizer = UITapGestureRecognizer.init(target: self, action: #selector(BaseNavigationBar.debugConsoleTapDetected(gestureRecognizer:)))
+            gestureRecognizer.numberOfTapsRequired = 4
+            self.addGestureRecognizer(gestureRecognizer)
+            
+        #endif
+    }
+    
+    internal func debugConsoleTapDetected(gestureRecognizer: UITapGestureRecognizer) {
+        
+        (FLEXManager.shared().isHidden) ? FLEXManager.shared().showExplorer() : FLEXManager.shared().hideExplorer()
     }
 }

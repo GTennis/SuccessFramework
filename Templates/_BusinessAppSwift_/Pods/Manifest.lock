@@ -44,7 +44,7 @@ PODS:
   - JVFloatLabeledTextField (1.1.1)
   - KeychainAccess (3.0.1)
   - MBProgressHUD (1.0.0)
-  - ObjectMapper (2.2.0)
+  - ObjectMapper (2.2.1)
   - SCLAlertView (0.7.0)
   - SwiftMessageBar (3.0.1)
   - SwiftyJSON (3.1.1)
@@ -91,11 +91,11 @@ SPEC CHECKSUMS:
   JVFloatLabeledTextField: 0e5524b097f102036214dd8279edc8ecf08b5e18
   KeychainAccess: 017ea25e313a49eda10bb19b0bb0760fb1edfe1a
   MBProgressHUD: 4890f671c94e8a0f3cf959aa731e9de2f036d71a
-  ObjectMapper: 4060d739febae11ab0c6af8d786f98667c82e1bd
+  ObjectMapper: 41e43e1a89f8060ef5ea5d04ba852e269a621d68
   SCLAlertView: 8a14ffc40590c619e183eed2298b854385f30be1
   SwiftMessageBar: 57f7004a4e224b0668c7e2825d08dfbc5ab7267b
   SwiftyJSON: f0be2e604f83e8405a624e9f891898bf6ed4e019
 
-PODFILE CHECKSUM: 24d390643632c91f6d060ef5add6f8eae64e7ebf
+PODFILE CHECKSUM: 2adbd70f9488dc55a18d22e4df6df90ad55e3731
 
 COCOAPODS: 1.1.0.beta.2
