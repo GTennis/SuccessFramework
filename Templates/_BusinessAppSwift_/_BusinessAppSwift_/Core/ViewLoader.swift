@@ -219,17 +219,13 @@ class ViewLoader : ViewLoaderProtocol {
         // Creating and adding custom navigation bar
         let navigationBar: TopNavigationBar? = self.loadViewFromXib(classType: TopNavigationBar.self) as! TopNavigationBar?
         
-        if navigationBar == nil {
-            
-            return nil
-        }
-        
         // Add navigation bar style
         // Could be applied blogaly in AppDelegate didFinish launch
         // UINavigationBar.appearance().isTranslucent = true
         vc.navigationController?.navigationBar.isTranslucent = true
         
-        vc.navigationItem.titleView = navigationBar!
+        //vc.navigationItem.titleView = navigationBar!
+        vc.navigationController?.navigationBar.addSubview(navigationBar!)
         
         // Hides default 1px gray bottom separator line
         //[self.navigationController.navigationBar setBackgroundImage:[[UIImage alloc] init] forBarMetrics:UIBarMetricsDefault];
@@ -250,6 +246,7 @@ class ViewLoader : ViewLoaderProtocol {
                 
                 navigationBar!.hideBackButton()
             }
+            
         } else {
             
             navigationBar!.hideBackButton()
@@ -265,11 +262,6 @@ class ViewLoader : ViewLoaderProtocol {
         // Creating and adding custom navigation bar
         let navigationBar: TopNavigationBarModal? = self.loadViewFromXib(classType: TopNavigationBarModal.self) as! TopNavigationBarModal?
         
-        if navigationBar == nil {
-            
-            return nil
-        }
-        
         // Add navigation bar style
         vc.navigationController?.navigationBar.isTranslucent = false
         
@@ -280,7 +272,9 @@ class ViewLoader : ViewLoaderProtocol {
         } else {
             
             // This will add navigation bar onto navigation controller's bar
-            vc.navigationItem.titleView = navigationBar;
+            //vc.navigationItem.titleView = navigationBar
+            vc.navigationController?.navigationBar.addSubview(navigationBar!)
+            
             // this is a work around to get rid of ellipsis when navigating back
             // taken from http://stackoverflow.com/questions/19151309/strange-ellipsis-appearing-in-uinavigationbar
             vc.navigationItem.leftBarButtonItem = UIBarButtonItem.init(customView: UIView())
@@ -307,13 +301,13 @@ class ViewLoader : ViewLoaderProtocol {
     func showNavigationBar(viewController: UIViewController) {
         
         viewController.navigationController?.navigationBar.isTranslucent = false
-        viewController.navigationController?.isNavigationBarHidden = false
+        viewController.navigationController?.setNavigationBarHidden(false, animated: true)
     }
     
     func hideNavigationBar(viewController: UIViewController) {
         
         viewController.navigationController?.navigationBar.isTranslucent = true
-        viewController.navigationController?.isNavigationBarHidden = true
+        viewController.navigationController?.setNavigationBarHidden(true, animated: true)
     }
     
     func hasNavigationBar(viewController: UIViewController) -> Bool {
@@ -321,6 +315,20 @@ class ViewLoader : ViewLoaderProtocol {
         let isHidden = viewController.navigationController?.isNavigationBarHidden
         
         return !isHidden!
+    }
+    
+    func setTitle(viewController: UIViewController, title: String) {
+        
+        if let navCtrl = viewController.navigationController {
+            
+            for subView in navCtrl.navigationBar.subviews {
+                
+                if subView is BaseNavigationBar {
+                    
+                    (subView as! BaseNavigationBar).titleLabel?.text = title
+                }
+            }
+        }
     }
     
     // MARK:

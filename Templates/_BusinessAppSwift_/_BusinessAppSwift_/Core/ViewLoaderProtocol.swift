@@ -57,4 +57,5 @@ protocol ViewLoaderProtocol {
     func showNavigationBar(viewController: UIViewController)
     func hideNavigationBar(viewController: UIViewController)
     func hasNavigationBar(viewController: UIViewController) -> Bool
+    func setTitle(viewController: UIViewController, title: String)
 }

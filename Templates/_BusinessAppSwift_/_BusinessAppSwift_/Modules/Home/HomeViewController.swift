@@ -30,7 +30,7 @@ import UIKit
 let kHomeViewControllerTitleKey = "HomeTitle"
 let kHomeViewControllerDataLoadingProgressLabelKey = "HomeProgressLabel"
 
-class HomeViewController: BaseViewController, UICollectionViewDataSource, UICollectionViewDelegate, HomeListItemViewDelegate {
+class HomeViewController: BaseViewController, UICollectionViewDataSource, UICollectionViewDelegate, HomeCellDelegate {
 
     var model: HomeModel?
     
@@ -39,6 +39,8 @@ class HomeViewController: BaseViewController, UICollectionViewDataSource, UIColl
     override func viewDidLoad() {
         
         super.viewDidLoad();
+        
+        self.collectionView.scrollsToTop = true
         
         self.prepareUI()
         self.loadModel()        
@@ -65,10 +67,10 @@ class HomeViewController: BaseViewController, UICollectionViewDataSource, UIColl
         super.prepareUI()
         
         // ...
-        //self.collectionView.register(HomeListItemView.self, forCellWithReuseIdentifier: HomeListItemView.ReuseIdentifier)
+        //self.collectionView.register(HomeCell.self, forCellWithReuseIdentifier: HomeCell.reuseIdentifier)
         
         // Set title
-        self.title = localizedString(key: kHomeViewControllerTitleKey)
+        self.viewLoader?.setTitle(viewController: self, title: localizedString(key: kHomeViewControllerTitleKey))
     }
     
     override func renderUI() {
@@ -112,9 +114,9 @@ class HomeViewController: BaseViewController, UICollectionViewDataSource, UIColl
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
-        if let images = self.model?.images {
+        if let list = self.model?.images?.list {
         
-            return images.list.count
+            return list.count
             
         } else {
             
@@ -125,13 +127,13 @@ class HomeViewController: BaseViewController, UICollectionViewDataSource, UIColl
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         let cell = collectionView.dequeueReusableCell(
-            withReuseIdentifier: HomeListItemView.ReuseIdentifier,
+            withReuseIdentifier: HomeCell.reuseIdentifier,
             for: indexPath
-            ) as! HomeListItemView
+            ) as! HomeCell
         cell.delegate = self
         
-        let image = self.model?.images?.list[(indexPath as NSIndexPath).row]
-        cell.render(object: image!)
+        let image = self.model?.images?.list?[(indexPath as NSIndexPath).row]
+        cell.render(withEntity: image!)
         
         return cell
     }
@@ -147,7 +149,7 @@ class HomeViewController: BaseViewController, UICollectionViewDataSource, UIColl
         return CGSizeZero;
     }*/
     
-    // MARK: HomeListItemViewDelegate
+    // MARK: HomeCellDelegate
     
     func didPressedWithImage(image: ImageEntityProtocol) {
         

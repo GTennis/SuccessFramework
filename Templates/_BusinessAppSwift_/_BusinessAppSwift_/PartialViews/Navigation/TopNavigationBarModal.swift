@@ -42,14 +42,16 @@ class TopNavigationBarModal: BaseNavigationBar {
     
     func showCancelButton() {
         
-        
+        self.cancelButton?.isHidden = false
+        self.backButton?.isHidden = true
     }
     
-    func showHoritontalSeparatorLineView() {
+    override func showBackButton() {
         
-        
+        self.cancelButton?.isHidden = true
+        self.backButton?.isHidden = false
     }
-    
+        
     // MARK: IBActions
     
     @IBAction func backPressed(sender: UIButton) {
@@ -60,5 +62,12 @@ class TopNavigationBarModal: BaseNavigationBar {
     @IBAction func cancelPressed(sender: UIButton) {
         
         self.delegate?.didPressedCancelModal()
+    }
+    
+    override func commonInit() {
+        
+        super.commonInit()
+        
+        self.cancelButton?.setTitle(localizedString(key: kCancelKey), for: UIControlState.normal)
     }
 }

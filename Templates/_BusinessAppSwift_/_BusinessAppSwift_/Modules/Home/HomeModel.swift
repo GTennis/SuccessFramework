@@ -30,11 +30,20 @@ import UIKit
 class HomeModel: BaseModel {
 
     var images: ImageListEntity?
+    var cacheManager: CacheManagerProtocol?
     
     override func willStartModelLoading(callback: @escaping Callback) {
         
         let operation: NetworkOperationProtocol = self.networkOperationFactory.imageListNetworkOperation(context: nil);
         operation.perform(callback: callback)
+        
+        /*self.cacheManager = CacheManager()
+        self.cacheManager?.imageList(callback: { (success, result, error) in
+
+            let imageListEntity = ImageListEntity()
+            imageListEntity.list = result
+            callback(true, imageListEntity, nil, nil)
+        })*/
     }
     
     override func didFinishModelLoading(data: Any?, error: ErrorEntity?) {

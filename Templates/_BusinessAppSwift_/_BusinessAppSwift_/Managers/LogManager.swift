@@ -96,14 +96,19 @@ class LogManager: LogManagerProtocol {
     func set(logLevel: LogLevelType) {
         
         let logLevel: DDLogLevel = self.convertedLogLevel(logLevel: logLevel)
-
-        // Add device logging
-        DDLog.add(DDASLLogger.sharedInstance(), with: logLevel)
         
         #if DEBUG
             
-            // Add Xcode console logging
-            DDLog.add(DDTTYLogger.sharedInstance(), with: logLevel)
+            if (ProcessInfo.processInfo.environment["SIMULATOR_DEVICE_NAME"] != nil) {
+                
+                // Add Xcode console logging
+                DDLog.add(DDTTYLogger.sharedInstance(), with: logLevel)
+                
+            } else {
+                
+                // Add device logging
+                DDLog.add(DDASLLogger.sharedInstance(), with: logLevel)
+            }
             
         #endif
         

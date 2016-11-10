@@ -94,9 +94,9 @@ func stringify<T>(object: T) -> String {
     return result
 }
 
-func synchronize(obj: AnyObject, blk:() -> ()) {
+func synchronized(obj: AnyObject, callback:() -> ()) {
     objc_sync_enter(obj)
-    blk()
+    callback()
     objc_sync_exit(obj)
 }
 

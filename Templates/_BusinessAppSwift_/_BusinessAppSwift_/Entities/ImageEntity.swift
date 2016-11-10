@@ -30,25 +30,31 @@ import UIKit
 let kImagetitleKey: String = "title"
 let kImageUrlKey: String = "url"
 
-protocol ImageEntityProtocol {
+protocol ImageEntityProtocol: ParsableEntityProtocol {
     
-    var title: String! {get set}
-    var urlString: String! {get set}
+    var title: String? {get set}
+    var urlString: String? {get set}
     var image: UIImage? {get set}
+    
+    init()
 }
 
 class ImageEntity: ImageEntityProtocol {
 
     // MARK: ImageEntityProtocol
     
-    var title: String!
-    var urlString: String!
+    var title: String?
+    var urlString: String?
     var image: UIImage?
     
     required init(dict: Dictionary <String, Any>) {
         
-        title = dict[kImagetitleKey] as! String
-        urlString = dict[kImageUrlKey] as! String
+        title = dict[kImagetitleKey] as? String
+        urlString = dict[kImageUrlKey] as? String
+    }
+    
+    required init() {
+        
     }
     
     func serializedDict()-> Dictionary <String, Any>? {

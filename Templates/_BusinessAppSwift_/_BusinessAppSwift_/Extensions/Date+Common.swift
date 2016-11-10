@@ -93,7 +93,7 @@ extension Date {
         
         var dateString: String?
         
-        synchronize(obj: _dateFormatterForViewingDates!) {
+        synchronized(obj: _dateFormatterForViewingDates!) {
             
             _dateFormatterForViewingDates!.timeZone = TimeZone.current
             _dateFormatterForViewingDates!.dateFormat = format;
@@ -107,7 +107,7 @@ extension Date {
         
         var dateString: String?
         
-        synchronize(obj: _dateFormatterForViewingDates!) {
+        synchronized(obj: _dateFormatterForViewingDates!) {
             
             _dateFormatterForViewingDates!.dateStyle = DateFormatter.Style.short
             _dateFormatterForViewingDates!.timeZone = TimeZone.current
@@ -122,7 +122,7 @@ extension Date {
         
         var dateString: String?
         
-        synchronize(obj: _dateFormatterForViewingDates!) {
+        synchronized(obj: _dateFormatterForViewingDates!) {
             
             dateString = self.stringFromDate(format:"EEE d MMM")
         }

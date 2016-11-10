@@ -35,17 +35,44 @@ class BaseNavigationBar: UIView {
     
     @IBOutlet weak var titleLabel: NormalLabel?
     @IBOutlet weak var backButton: UIButton?
-    
-    override init (frame : CGRect) {
-        super.init(frame : frame)
+
+    // The code deals with the following issue: navigation bar leaves some small blank margin space on the left and right sides of custom titleView. The workaround is protect and make width always be full width
+    override var frame: CGRect {
         
-        self.commonInit()
-    }
-    
-    convenience init () {
-        self.init(frame:CGRect.zero)
+        get {
+            
+            return super.frame
+        }
+        set {
+            
+            var rect: CGRect = newValue
+            var newWidth: CGFloat = newValue.size.width
+            
+            // This statement will always return size in portrait
+            let screenSize: CGSize = UIScreen.main.bounds.size
+            
+            // Remove left margin space
+            rect.origin.x = 0
+            
+            // If running in landscape mode
+            if (newWidth > screenSize.width) {
+                
+                // Adjusting to full width
+                newWidth = screenSize.height
+                
+            // portrait mode
+            } else {
+                
+                // Adjusting to full width
+                newWidth = screenSize.width
+            }
+            
+            // Set adjusted full width
+            rect.size.width = newWidth
         
-        self.commonInit()
+            // Modify
+            super.frame = rect
+        }
     }
     
     required init(coder aDecoder: NSCoder) {
@@ -70,6 +97,11 @@ class BaseNavigationBar: UIView {
     // MARK:
     
     internal func commonInit() {
+        
+        // Currently supporting single rotation (landscape for iPad, portrait for iPhone).
+        // Todo: Check this link for rotation issues if need to support multiple orientations: http://stackoverflow.com/questions/4688137/ios-navigation-bars-titleview-doesnt-resize-correctly-when-phone-rotates
+        
+        self.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         
         #if DEBUG
             

@@ -31,14 +31,15 @@ let kImagesKey: String = "images"
 
 protocol ImageListEntityProtocol: ParsableEntityProtocol {
     
-    var list: Array <ImageEntityProtocol> {get set}
+    var list: Array <ImageEntityProtocol>? {get set}
+    init()
 }
 
 class ImageListEntity: ImageListEntityProtocol {
 
     // MARK: ImageListEntityProtocol
     
-    var list: Array <ImageEntityProtocol>
+    var list: Array <ImageEntityProtocol>?
     
     required init(dict: Dictionary <String, Any>) {
         
@@ -54,6 +55,10 @@ class ImageListEntity: ImageListEntityProtocol {
         }
         
         list = resultList
+    }
+    
+    required init() {
+        
     }
     
     func serializedDict()-> Dictionary <String, Any>? {

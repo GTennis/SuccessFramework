@@ -1,8 +1,8 @@
 //
-//  NetworkUtils.swift
+//  HomeCell_iphone.swift
 //  _BusinessAppSwift_
 //
-//  Created by Gytenis Mikulenas on 30/10/16.
+//  Created by Gytenis Mikulenas on 12/11/16.
 //  Copyright © 2016 Gytenis Mikulėnas 
 //  https://github.com/GitTennis/SuccessFramework
 //
@@ -26,23 +26,15 @@
 //
 
 import UIKit
-import AlamofireImage
 
-func downloadImage(imageView: UIImageView, activityIndicator: UIActivityIndicatorView, urlString: String) {
+class HomeCell_iphone: HomeCell {
 
-    let placeholderImage: UIImage = UIImage.init(named: kContentPlaceholderImage)!
-    
-    activityIndicator.startAnimating()
-    
-    imageView.af_setImage(
-        withURL: URL(string: urlString)!,
-        placeholderImage: placeholderImage,
-        //filter: AspectScaledToFillSizeWithRoundedCornersFilter(size: size, radius: 20.0),
-        filter: nil,
-        imageTransition: .crossDissolve(0.2),
-        completion: { [weak activityIndicator] (dataResponseImage) in
-            
-            activityIndicator?.stopAnimating()
-        }
-    )
+    /*
+    // Only override draw() if you perform custom drawing.
+    // An empty implementation adversely affects performance during animation.
+    override func draw(_ rect: CGRect) {
+        // Drawing code
+    }
+    */
+
 }

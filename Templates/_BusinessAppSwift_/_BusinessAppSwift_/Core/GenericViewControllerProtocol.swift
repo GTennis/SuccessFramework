@@ -54,7 +54,6 @@ protocol GenericViewControllerProtocol: class, ReachabilityManagerObserver, Loca
     func isModal() -> Bool
     func presentModal(viewController:UIViewController, animated: Bool)
     func dismissModalViewController(animated: Bool)
-    func setTitle(title: String)
 }
 
 extension GenericViewControllerProtocol {
@@ -124,22 +123,6 @@ extension GenericViewControllerProtocol {
         vc.presentingViewController?.dismiss(animated: animated, completion: {
             //...
         })
-    }
-    
-    // MARK: Screen title
-    func setTitle(title: String) {
-        
-        let vc = self as! UIViewController
-        
-        vc.title = title
-        vc.navigationItem.title = title;
-        
-        // Setting title for top main or modal navigation bar
-        if vc.navigationItem.titleView is BaseNavigationBar {
-            
-            let navigationBar: BaseNavigationBar = vc.navigationItem.titleView as! BaseNavigationBar
-            navigationBar.titleLabel?.text = title;
-        }
     }
     
     // MARK: Logout

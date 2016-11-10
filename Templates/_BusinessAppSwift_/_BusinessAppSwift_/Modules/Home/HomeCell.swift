@@ -1,8 +1,8 @@
 //
-//  HomeListItemView.swift
+//  HomeCell.swift
 //  _BusinessAppSwift_
 //
-//  Created by Gytenis Mikulenas on 30/10/16.
+//  Created by Gytenis Mikulenas on 12/11/16.
 //  Copyright © 2016 Gytenis Mikulėnas 
 //  https://github.com/GitTennis/SuccessFramework
 //
@@ -27,20 +27,23 @@
 
 import UIKit
 
-protocol HomeListItemViewDelegate: AnyObject {
-
+protocol HomeCellDelegate: AnyObject {
+    
     func didPressedWithImage(image: ImageEntityProtocol)
 }
 
-class HomeListItemView: UICollectionViewCell {
- 
-    //class var ReuseIdentifier: String { return "org.alamofire.identifier.\(type(of: self))" }
-    class var ReuseIdentifier: String {
+class HomeCell: UICollectionViewCell, GenericCellProtocol {
     
-        return "HomeListItemView"
+    //class var ReuseIdentifier: String { return "org.alamofire.identifier.\(type(of: self))" }
+    class var reuseIdentifier: String {
+        
+        get {
+            
+            return "HomeCell"
+        }
     }
     
-    weak var delegate:HomeListItemViewDelegate?
+    weak var delegate:HomeCellDelegate?
     
     @IBOutlet weak var titleLabel: NormalLabel!
     @IBOutlet weak var authorLabel: NormalLabel!
@@ -55,16 +58,19 @@ class HomeListItemView: UICollectionViewCell {
         imageView.image = nil
     }
     
-    func render(object:ImageEntityProtocol) {
-        
+    func render<T>(withEntity: T) {
+    
         // Store object
-        _image = object
+        _image = withEntity as! ImageEntityProtocol
         
         // Render UI
-        self.titleLabel.text = object.title
+        self.titleLabel.text = _image.title
         //self.authorLabel.text = object.author
         
-        downloadImage(imageView: self.imageView, urlString: object.urlString)
+        if let imageUrl = _image.urlString {
+            
+            downloadImage(imageView: self.imageView, activityIndicator: self.activityIndicatorView, urlString: imageUrl)
+        }
     }
     
     // MARK: IBActions
