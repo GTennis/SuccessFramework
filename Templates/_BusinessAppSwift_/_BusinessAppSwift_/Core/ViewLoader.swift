@@ -224,8 +224,7 @@ class ViewLoader : ViewLoaderProtocol {
         // UINavigationBar.appearance().isTranslucent = true
         vc.navigationController?.navigationBar.isTranslucent = true
         
-        //vc.navigationItem.titleView = navigationBar!
-        vc.navigationController?.navigationBar.addSubview(navigationBar!)
+        vc.navigationItem.titleView = navigationBar!
         
         // Hides default 1px gray bottom separator line
         //[self.navigationController.navigationBar setBackgroundImage:[[UIImage alloc] init] forBarMetrics:UIBarMetricsDefault];
@@ -272,8 +271,7 @@ class ViewLoader : ViewLoaderProtocol {
         } else {
             
             // This will add navigation bar onto navigation controller's bar
-            //vc.navigationItem.titleView = navigationBar
-            vc.navigationController?.navigationBar.addSubview(navigationBar!)
+            vc.navigationItem.titleView = navigationBar
             
             // this is a work around to get rid of ellipsis when navigating back
             // taken from http://stackoverflow.com/questions/19151309/strange-ellipsis-appearing-in-uinavigationbar
