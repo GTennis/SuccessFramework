@@ -167,4 +167,18 @@ class BaseViewController: UIViewController, GenericViewControllerProtocol {
             return UIInterfaceOrientationMask.portrait
         }
     }
+    
+    // MARK: ViewControllerModelDelegate
+    
+    func modelHasChangedWithData(data: Any?, context: Any?) {
+        
+        // Override
+        // ...
+    }
+    
+    func modelHasFailedToChangeDataWithError(error: Error, context: Any?) {
+        
+        // Override
+        // ...
+    }
 }

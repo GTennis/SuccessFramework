@@ -39,6 +39,7 @@ protocol ViewControllerModelProtocol {
     var isLoaded: Bool {get}
     var delegate: ViewControllerModelDelegate? {get set}
     
+    func commonInit()
     func loadData(callback: @escaping Callback)
     
     func willStartModelLoading(callback: @escaping Callback)

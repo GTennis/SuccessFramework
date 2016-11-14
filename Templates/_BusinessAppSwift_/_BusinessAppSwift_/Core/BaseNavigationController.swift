@@ -163,4 +163,18 @@ class BaseNavigationController: UINavigationController, GenericViewControllerPro
             return super.supportedInterfaceOrientations
         }
     }
+    
+    // MARK: ViewControllerModelDelegate
+    
+    func modelHasChangedWithData(data: Any?, context: Any?) {
+        
+        // Override
+        // ...
+    }
+    
+    func modelHasFailedToChangeDataWithError(error: Error, context: Any?) {
+        
+        // Override
+        // ...
+    }
 }

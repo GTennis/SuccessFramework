@@ -417,6 +417,8 @@ class ViewControllerFactory: ViewControllerFactoryProtocol {
         model.analyticsManager = _managerFactory.analyticsManager
         model.context = context
         
+        model.commonInit()
+        
         return model
     }
     

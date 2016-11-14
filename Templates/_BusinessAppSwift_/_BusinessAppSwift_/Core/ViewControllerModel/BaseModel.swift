@@ -50,6 +50,11 @@ class BaseModel: ViewControllerModelProtocol {
     
     var delegate: ViewControllerModelDelegate?
 
+    func commonInit() {
+        
+        // ...
+    }
+    
     func loadData(callback: @escaping Callback) {
         
         let wrappedCallback: Callback = { [weak self] (_ success: Bool, _ result: Any?, _ context: Any?, _ error: ErrorEntity?) -> Void in

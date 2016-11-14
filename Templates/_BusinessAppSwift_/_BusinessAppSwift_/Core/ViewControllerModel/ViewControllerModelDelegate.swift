@@ -32,18 +32,3 @@ protocol ViewControllerModelDelegate {
     func modelHasChangedWithData(data: Any?, context: Any?)
     func modelHasFailedToChangeDataWithError(error: Error, context: Any?)
 }
-
-extension ViewControllerModelDelegate {
-    
-    func modelHasChangedWithData(data: Any?, context: Any?) {
-        
-        // Override
-        // ...
-    }
-    
-    func modelHasFailedToChangeDataWithError(error: Error, context: Any?) {
-        
-        // Override
-        // ...
-    }
-}
