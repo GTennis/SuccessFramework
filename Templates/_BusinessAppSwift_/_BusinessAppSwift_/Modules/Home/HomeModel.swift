@@ -49,5 +49,17 @@ class HomeModel: BaseModel {
     override func didFinishModelLoading(data: Any?, error: ErrorEntity?) {
         
         self.images = data as? ImageListEntity
+        
+        // Example of sorting
+        
+        self.images?.list?.sort {
+            
+            // $0.timeString?.localizedCaseInsensitiveCompare($1.timeString!) == ComparisonResult.orderedAscending
+            
+            let t1 = $0.title ?? "0" // Distant past
+            let t2 = $1.title ?? "0" // Distant past
+            //return t1.localizedCaseInsensitiveCompare(t2) == ComparisonResult.orderedAscending
+            return t1.compare(t2) == ComparisonResult.orderedAscending
+        }
     }
 }

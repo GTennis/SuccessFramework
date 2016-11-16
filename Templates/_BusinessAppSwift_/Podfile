@@ -51,11 +51,15 @@ target '_BusinessAppSwift_' do
   target '_BusinessAppSwift_Tests' do
     inherit! :search_paths
     # Pods for testing
+    # Need to add again otherwise framework not found is shown
+    pod 'Google/Analytics'
   end
 
   target '_BusinessAppSwift_UITests' do
     inherit! :search_paths
-    # Pods for testing
+    # Pods for testing    
+    # Need to add again otherwise framework not found is shown
+    pod 'Google/Analytics'
   end
 
 end

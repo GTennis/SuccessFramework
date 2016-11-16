@@ -1,8 +1,8 @@
 //
-//  ImageEntity.swift
+//  MessageBarManagerMock.swift
 //  _BusinessAppSwift_
 //
-//  Created by Gytenis Mikulenas on 18/10/2016.
+//  Created by Gytenis Mikulenas on 16/11/16.
 //  Copyright © 2016 Gytenis Mikulėnas 
 //  https://github.com/GitTennis/SuccessFramework
 //
@@ -25,45 +25,44 @@
 //  SOFTWARE. All rights reserved.
 //
 
-import UIKit
+import Foundation
+import XCTest
+@testable import _BusinessAppSwift_
 
-let kImagetitleKey: String = "title"
-let kImageUrlKey: String = "url"
-
-protocol ImageEntityProtocol: ParsableEntityProtocol, CustomStringConvertible {
+class MessageBarManagerMock: MessageBarManagerProtocol {
     
-    var title: String? {get set}
-    var urlString: String? {get set}
-    var image: UIImage? {get set}
-    
-    init()
-}
-
-class ImageEntity: ImageEntityProtocol {
-
-    // MARK: ImageEntityProtocol
-    
-    var title: String?
-    var urlString: String?
-    var image: UIImage?
-    
-    var description: String {
+    func showMessage(title: String?, description: String?, type: MessageBarMessageType) {
         
-        return "title: \(title), urlString: \(urlString)"
-    }
-    
-    required init(dict: Dictionary <String, Any>) {
         
-        title = dict[kImagetitleKey] as? String
-        urlString = dict[kImageUrlKey] as? String
     }
-    
-    required init() {
+
+    func showMessage(title: String?, description: String?, type: MessageBarMessageType, callback: SimpleCallback?) {
+        
         
     }
     
-    func serializedDict()-> Dictionary <String, Any>? {
+    func showMessage(title: String?, description: String?, type: MessageBarMessageType, duration: Double) {
         
-        return nil;
+        
+    }
+    
+    func showMessage(title: String?, description: String?, type: MessageBarMessageType, duration: Double, callback: SimpleCallback?) {
+        
+        
+    }
+    
+    func dismissAll(animated:Bool) {
+        
+        
+    }
+    
+    func showAlertOkWithTitle(title: String?, description: String?, okTitle: String, okCallback:  SimpleCallback?) {
+        
+        
+    }
+    
+    func showAlertOkWithTitle(title: String?, description: String?, okTitle: String, okCallback: SimpleCallback?, cancelTitle: String, cancelCallback: SimpleCallback?) {
+        
+        
     }
 }

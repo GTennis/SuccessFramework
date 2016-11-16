@@ -1,8 +1,8 @@
 //
-//  ImageEntity.swift
+//  LocalizationManagerMock.swift
 //  _BusinessAppSwift_
 //
-//  Created by Gytenis Mikulenas on 18/10/2016.
+//  Created by Gytenis Mikulenas on 16/11/16.
 //  Copyright © 2016 Gytenis Mikulėnas 
 //  https://github.com/GitTennis/SuccessFramework
 //
@@ -25,45 +25,51 @@
 //  SOFTWARE. All rights reserved.
 //
 
-import UIKit
+import Foundation
+import XCTest
+@testable import _BusinessAppSwift_
 
-let kImagetitleKey: String = "title"
-let kImageUrlKey: String = "url"
-
-protocol ImageEntityProtocol: ParsableEntityProtocol, CustomStringConvertible {
+class LocalizationManagerMock: LocalizationManagerProtocol {
     
-    var title: String? {get set}
-    var urlString: String? {get set}
-    var image: UIImage? {get set}
-    
-    init()
-}
-
-class ImageEntity: ImageEntityProtocol {
-
-    // MARK: ImageEntityProtocol
-    
-    var title: String?
-    var urlString: String?
-    var image: UIImage?
-    
-    var description: String {
+    // Strings
+    func localizedString(key: String) -> String {
         
-        return "title: \(title), urlString: \(urlString)"
+        return key
     }
     
-    required init(dict: Dictionary <String, Any>) {
+    // Language
+    func setLanguage(lang: String) {
         
-        title = dict[kImagetitleKey] as? String
-        urlString = dict[kImageUrlKey] as? String
-    }
-    
-    required init() {
         
     }
     
-    func serializedDict()-> Dictionary <String, Any>? {
+    func getLanguage() -> String {
         
-        return nil;
+        return "en"
+    }
+    func getCurrentACLanguage() -> LanguageEntity {
+        
+        return LanguageEntity(shortName: "en", longName: "English")
+    }
+    
+    func getFullLanguageName(key: String) -> String {
+        
+        return "english"
+    }
+    
+    // State observers
+    func addServiceObserver(observer: LocalizationManagerObserver, notificationType: LocalizationManagerNotificationType, callback: @escaping Callback, context: Any?) {
+        
+        
+    }
+    
+    func removeServiceObserver(observer: LocalizationManagerObserver, notificationType: LocalizationManagerNotificationType) {
+        
+        
+    }
+    
+    func removeServiceObserver(observer: LocalizationManagerObserver) {
+        
+        
     }
 }

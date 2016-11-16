@@ -1,8 +1,8 @@
 //
-//  ImageEntity.swift
+//  CacheManagerMock.swift
 //  _BusinessAppSwift_
 //
-//  Created by Gytenis Mikulenas on 18/10/2016.
+//  Created by Gytenis Mikulenas on 16/11/16.
 //  Copyright © 2016 Gytenis Mikulėnas 
 //  https://github.com/GitTennis/SuccessFramework
 //
@@ -25,45 +25,44 @@
 //  SOFTWARE. All rights reserved.
 //
 
-import UIKit
+import Foundation
+import XCTest
+@testable import _BusinessAppSwift_
 
-let kImagetitleKey: String = "title"
-let kImageUrlKey: String = "url"
-
-protocol ImageEntityProtocol: ParsableEntityProtocol, CustomStringConvertible {
+class CacheManagerMock: CacheManagerProtocol {
     
-    var title: String? {get set}
-    var urlString: String? {get set}
-    var image: UIImage? {get set}
-    
-    init()
-}
-
-class ImageEntity: ImageEntityProtocol {
-
-    // MARK: ImageEntityProtocol
-    
-    var title: String?
-    var urlString: String?
-    var image: UIImage?
-    
-    var description: String {
-        
-        return "title: \(title), urlString: \(urlString)"
-    }
-    
-    required init(dict: Dictionary <String, Any>) {
-        
-        title = dict[kImagetitleKey] as? String
-        urlString = dict[kImageUrlKey] as? String
-    }
+    var updateDate: Date?
     
     required init() {
         
+        
     }
     
-    func serializedDict()-> Dictionary <String, Any>? {
+    // Removes cache from memory and deletes cache file
+    func clearCache(callback: @escaping SimpleCallback) {
         
-        return nil;
+        
+    }
+    
+    // Override cache with new data
+    func updateCache(newData: Array<ImageEntityProtocol>, callback: @escaping Callback) {
+        
+        callback(true, nil, nil, nil)
+    }
+    
+    // Retrieve cached data
+    func imageList(callback: @escaping (_ success: Bool, _ result: Array<ImageEntityProtocol>?, _ error: ErrorEntity?)->Void) {
+        
+        
+    }
+    
+    func image(imageTitle: String, callback: @escaping (_ success: Bool, _ result: ImageEntityProtocol?, _ error: ErrorEntity?)->Void) {
+        
+        
+    }
+    
+    func containsImage(imageTitle: String, callback: @escaping (_ success: Bool, _ error: ErrorEntity?)->Void) {
+        
+        
     }
 }

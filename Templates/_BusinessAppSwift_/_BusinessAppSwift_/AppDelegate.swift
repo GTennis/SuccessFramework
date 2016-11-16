@@ -33,7 +33,6 @@ let kAppConfigRetryDelayDuration = 1.5
 let kTabHomeItemTitle = "TabItemHome"
 let kTabMenuItemTitle = "TabItemMenu"
 
-@UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterDelegate, WalkthroughViewControllerDelegate, UserContainerViewControllerDelegate {
 
     // Common

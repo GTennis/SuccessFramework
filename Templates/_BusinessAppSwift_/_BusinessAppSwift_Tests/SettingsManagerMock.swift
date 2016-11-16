@@ -1,8 +1,8 @@
 //
-//  ImageEntity.swift
+//  SettingsManagerMock.swift
 //  _BusinessAppSwift_
 //
-//  Created by Gytenis Mikulenas on 18/10/2016.
+//  Created by Gytenis Mikulenas on 16/11/16.
 //  Copyright © 2016 Gytenis Mikulėnas 
 //  https://github.com/GitTennis/SuccessFramework
 //
@@ -25,45 +25,38 @@
 //  SOFTWARE. All rights reserved.
 //
 
-import UIKit
+import Foundation
+import XCTest
+@testable import _BusinessAppSwift_
 
-let kImagetitleKey: String = "title"
-let kImageUrlKey: String = "url"
-
-protocol ImageEntityProtocol: ParsableEntityProtocol, CustomStringConvertible {
+class SettingsManagerMock: SettingsManagerProtocol {
     
-    var title: String? {get set}
-    var urlString: String? {get set}
-    var image: UIImage? {get set}
-    
-    init()
-}
-
-class ImageEntity: ImageEntityProtocol {
-
-    // MARK: ImageEntityProtocol
-    
-    var title: String?
-    var urlString: String?
-    var image: UIImage?
-    
-    var description: String {
+    required init(localizationManager: LocalizationManagerProtocol) {
         
-        return "title: \(title), urlString: \(urlString)"
+        self.isFirstTimeAppLaunch = true
+        self.isGrantedNotificationAccess = true
     }
     
-    required init(dict: Dictionary <String, Any>) {
-        
-        title = dict[kImagetitleKey] as? String
-        urlString = dict[kImageUrlKey] as? String
-    }
+    // First time app launch
+    var isFirstTimeAppLaunch: Bool
     
-    required init() {
+    // User
+    var loggedInUser: Dictionary <String, Any>?
+    
+    // Languages
+    var language: String?
+    var languageFullName: String?
+    
+    func setLanguageEnglish() {
+        
         
     }
     
-    func serializedDict()-> Dictionary <String, Any>? {
+    func setLanguageGerman() {
         
-        return nil;
+        
     }
+    
+    // User's preference: notifications granted
+    var isGrantedNotificationAccess: Bool
 }

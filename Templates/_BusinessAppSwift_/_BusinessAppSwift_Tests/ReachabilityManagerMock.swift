@@ -1,8 +1,8 @@
 //
-//  ImageEntity.swift
+//  ReachabilityManagerMock.swift
 //  _BusinessAppSwift_
 //
-//  Created by Gytenis Mikulenas on 18/10/2016.
+//  Created by Gytenis Mikulenas on 16/11/16.
 //  Copyright © 2016 Gytenis Mikulėnas 
 //  https://github.com/GitTennis/SuccessFramework
 //
@@ -25,45 +25,35 @@
 //  SOFTWARE. All rights reserved.
 //
 
-import UIKit
+import Foundation
+import XCTest
+@testable import _BusinessAppSwift_
 
-let kImagetitleKey: String = "title"
-let kImageUrlKey: String = "url"
-
-protocol ImageEntityProtocol: ParsableEntityProtocol, CustomStringConvertible {
+class ReachabilityManagerMock: ReachabilityManagerProtocol {
     
-    var title: String? {get set}
-    var urlString: String? {get set}
-    var image: UIImage? {get set}
-    
-    init()
-}
-
-class ImageEntity: ImageEntityProtocol {
-
-    // MARK: ImageEntityProtocol
-    
-    var title: String?
-    var urlString: String?
-    var image: UIImage?
-    
-    var description: String {
+    func isInternetOn() -> Bool {
         
-        return "title: \(title), urlString: \(urlString)"
+        return true
     }
     
-    required init(dict: Dictionary <String, Any>) {
+    func isAppActive() -> Bool {
         
-        title = dict[kImagetitleKey] as? String
-        urlString = dict[kImageUrlKey] as? String
+        return true
     }
     
-    required init() {
+    // State observers
+    func addServiceObserver(observer: ReachabilityManagerObserver, notificationType: ReachabilityManagerNotificationType, callback: @escaping Callback, context: Any?) {
+        
         
     }
     
-    func serializedDict()-> Dictionary <String, Any>? {
+    func removeServiceObserver(observer: ReachabilityManagerObserver, notificationType: ReachabilityManagerNotificationType) {
         
-        return nil;
+        
+    }
+    
+    func removeServiceObserver(observer: ReachabilityManagerObserver) {
+        
+        
     }
 }

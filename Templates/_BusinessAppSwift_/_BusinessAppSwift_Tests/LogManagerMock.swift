@@ -1,8 +1,8 @@
 //
-//  ImageEntity.swift
+//  LogManagerMock.swift
 //  _BusinessAppSwift_
 //
-//  Created by Gytenis Mikulenas on 18/10/2016.
+//  Created by Gytenis Mikulenas on 16/11/16.
 //  Copyright © 2016 Gytenis Mikulėnas 
 //  https://github.com/GitTennis/SuccessFramework
 //
@@ -25,45 +25,45 @@
 //  SOFTWARE. All rights reserved.
 //
 
-import UIKit
+import Foundation
+import XCTest
+@testable import _BusinessAppSwift_
 
-let kImagetitleKey: String = "title"
-let kImageUrlKey: String = "url"
-
-protocol ImageEntityProtocol: ParsableEntityProtocol, CustomStringConvertible {
+class LogManagerMock: LogManagerProtocol {
     
-    var title: String? {get set}
-    var urlString: String? {get set}
-    var image: UIImage? {get set}
+    var logLevel: LogLevelType
     
-    init()
-}
-
-class ImageEntity: ImageEntityProtocol {
-
-    // MARK: ImageEntityProtocol
-    
-    var title: String?
-    var urlString: String?
-    var image: UIImage?
-    
-    var description: String {
+    init() {
         
-        return "title: \(title), urlString: \(urlString)"
+        logLevel = LogLevelType.none
     }
     
-    required init(dict: Dictionary <String, Any>) {
-        
-        title = dict[kImagetitleKey] as? String
-        urlString = dict[kImageUrlKey] as? String
+    func set(logLevel: LogLevelType) {
+    
+    
     }
     
-    required init() {
-        
+    func verbose(log: String) {
+    
     }
     
-    func serializedDict()-> Dictionary <String, Any>? {
-        
-        return nil;
+    func debug(log: String) {
+    
+    
+    }
+    
+    func info(log: String) {
+    
+    
+    }
+    
+    func warn(log: String) {
+    
+    
+    }
+    
+    func error(log: String) {
+    
+    
     }
 }

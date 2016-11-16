@@ -40,6 +40,21 @@
 		0F4BB9131DCF8DC900A911EF /* MenuModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F4BB9121DCF8DC900A911EF /* MenuModel.swift */; };
 		0F4BB9151DCF939800A911EF /* UIApplication+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F4BB9141DCF939800A911EF /* UIApplication+Utils.swift */; };
 		0F4BB9221DCFCBEF00A911EF /* SFObserverList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F4BB9211DCFCBEF00A911EF /* SFObserverList.swift */; };
+		0F5642071DDCFA3E00DE703A /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F5642061DDCFA3E00DE703A /* main.swift */; };
+		0F56420A1DDCFAAF00DE703A /* DataManagerMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F5642091DDCFAAF00DE703A /* DataManagerMock.swift */; };
+		0F56420C1DDCFABF00DE703A /* CacheManagerMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F56420B1DDCFABF00DE703A /* CacheManagerMock.swift */; };
+		0F5642101DDCFADD00DE703A /* AnalyticsManagerMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F56420F1DDCFADD00DE703A /* AnalyticsManagerMock.swift */; };
+		0F5642121DDCFAEC00DE703A /* UserManagerMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F5642111DDCFAEC00DE703A /* UserManagerMock.swift */; };
+		0F5642141DDCFAFB00DE703A /* SettingsManagerMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F5642131DDCFAFB00DE703A /* SettingsManagerMock.swift */; };
+		0F5642161DDCFB0E00DE703A /* LogManagerMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F5642151DDCFB0E00DE703A /* LogManagerMock.swift */; };
+		0F5642181DDCFB1D00DE703A /* PushNotificationManagerMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F5642171DDCFB1D00DE703A /* PushNotificationManagerMock.swift */; };
+		0F56421A1DDCFB2D00DE703A /* LocalizationManagerMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F5642191DDCFB2D00DE703A /* LocalizationManagerMock.swift */; };
+		0F56421C1DDCFB3B00DE703A /* KeychainManagerMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F56421B1DDCFB3B00DE703A /* KeychainManagerMock.swift */; };
+		0F56421E1DDCFB5200DE703A /* MessageBarManagerMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F56421D1DDCFB5200DE703A /* MessageBarManagerMock.swift */; };
+		0F5642201DDCFB6200DE703A /* CrashManagerMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F56421F1DDCFB6200DE703A /* CrashManagerMock.swift */; };
+		0F5642221DDCFB7C00DE703A /* SocialManagerMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F5642211DDCFB7C00DE703A /* SocialManagerMock.swift */; };
+		0F5642241DDCFB8700DE703A /* ReachabilityManagerMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F5642231DDCFB8700DE703A /* ReachabilityManagerMock.swift */; };
+		0F5642261DDD00E500DE703A /* config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F5642251DDD00E500DE703A /* config.swift */; };
 		0F5B70F51DC5EF860094DA0F /* HomeViewController_iphone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0F5B70F41DC5EF860094DA0F /* HomeViewController_iphone.storyboard */; };
 		0F5B70FA1DC5F6950094DA0F /* NetworkUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F5B70F91DC5F6950094DA0F /* NetworkUtils.swift */; };
 		0F5B71051DC653240094DA0F /* UserSignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F5B71041DC653240094DA0F /* UserSignUpViewController.swift */; };
@@ -301,6 +316,21 @@
 		0F4BB9121DCF8DC900A911EF /* MenuModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuModel.swift; sourceTree = "<group>"; };
 		0F4BB9141DCF939800A911EF /* UIApplication+Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIApplication+Utils.swift"; sourceTree = "<group>"; };
 		0F4BB9211DCFCBEF00A911EF /* SFObserverList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SFObserverList.swift; sourceTree = "<group>"; };
+		0F5642061DDCFA3E00DE703A /* main.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		0F5642091DDCFAAF00DE703A /* DataManagerMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataManagerMock.swift; sourceTree = "<group>"; };
+		0F56420B1DDCFABF00DE703A /* CacheManagerMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CacheManagerMock.swift; sourceTree = "<group>"; };
+		0F56420F1DDCFADD00DE703A /* AnalyticsManagerMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnalyticsManagerMock.swift; sourceTree = "<group>"; };
+		0F5642111DDCFAEC00DE703A /* UserManagerMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserManagerMock.swift; sourceTree = "<group>"; };
+		0F5642131DDCFAFB00DE703A /* SettingsManagerMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsManagerMock.swift; sourceTree = "<group>"; };
+		0F5642151DDCFB0E00DE703A /* LogManagerMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogManagerMock.swift; sourceTree = "<group>"; };
+		0F5642171DDCFB1D00DE703A /* PushNotificationManagerMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PushNotificationManagerMock.swift; sourceTree = "<group>"; };
+		0F5642191DDCFB2D00DE703A /* LocalizationManagerMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalizationManagerMock.swift; sourceTree = "<group>"; };
+		0F56421B1DDCFB3B00DE703A /* KeychainManagerMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeychainManagerMock.swift; sourceTree = "<group>"; };
+		0F56421D1DDCFB5200DE703A /* MessageBarManagerMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageBarManagerMock.swift; sourceTree = "<group>"; };
+		0F56421F1DDCFB6200DE703A /* CrashManagerMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CrashManagerMock.swift; sourceTree = "<group>"; };
+		0F5642211DDCFB7C00DE703A /* SocialManagerMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SocialManagerMock.swift; sourceTree = "<group>"; };
+		0F5642231DDCFB8700DE703A /* ReachabilityManagerMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReachabilityManagerMock.swift; sourceTree = "<group>"; };
+		0F5642251DDD00E500DE703A /* config.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = config.swift; sourceTree = "<group>"; };
 		0F5B70F41DC5EF860094DA0F /* HomeViewController_iphone.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = HomeViewController_iphone.storyboard; sourceTree = "<group>"; };
 		0F5B70F91DC5F6950094DA0F /* NetworkUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkUtils.swift; sourceTree = "<group>"; };
 		0F5B71041DC653240094DA0F /* UserSignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserSignUpViewController.swift; sourceTree = "<group>"; };
@@ -716,6 +746,26 @@
 			path = RefreshControl;
 			sourceTree = "<group>";
 		};
+		0F5642081DDCFA8000DE703A /* Mocks */ = {
+			isa = PBXGroup;
+			children = (
+				0F5642091DDCFAAF00DE703A /* DataManagerMock.swift */,
+				0F56420B1DDCFABF00DE703A /* CacheManagerMock.swift */,
+				0F56420F1DDCFADD00DE703A /* AnalyticsManagerMock.swift */,
+				0F5642111DDCFAEC00DE703A /* UserManagerMock.swift */,
+				0F5642131DDCFAFB00DE703A /* SettingsManagerMock.swift */,
+				0F5642151DDCFB0E00DE703A /* LogManagerMock.swift */,
+				0F5642171DDCFB1D00DE703A /* PushNotificationManagerMock.swift */,
+				0F5642191DDCFB2D00DE703A /* LocalizationManagerMock.swift */,
+				0F56421B1DDCFB3B00DE703A /* KeychainManagerMock.swift */,
+				0F56421D1DDCFB5200DE703A /* MessageBarManagerMock.swift */,
+				0F56421F1DDCFB6200DE703A /* CrashManagerMock.swift */,
+				0F5642211DDCFB7C00DE703A /* SocialManagerMock.swift */,
+				0F5642231DDCFB8700DE703A /* ReachabilityManagerMock.swift */,
+			);
+			name = Mocks;
+			sourceTree = "<group>";
+		};
 		0F5B70F81DC5F6850094DA0F /* Utils */ = {
 			isa = PBXGroup;
 			children = (
@@ -1077,6 +1127,7 @@
 				39D5D3461DBF9087004D5E41 /* _BusinessAppSwift_.entitlements */,
 				397378E21DB66DE400B817BC /* _BusinessAppSwift_-Bridging-Header.h */,
 				0FB039431D7EB82400B67C40 /* AppDelegate.swift */,
+				0F5642061DDCFA3E00DE703A /* main.swift */,
 				0F98B1521D7EBA2D002F8259 /* LaunchScreen.xib */,
 				39A0B1401DBE659800DD1EB7 /* Core */,
 				0FF09BE11D7EE53500DBBF46 /* Factories */,
@@ -1097,6 +1148,7 @@
 		0FB039591D7EB82500B67C40 /* _BusinessAppSwift_Tests */ = {
 			isa = PBXGroup;
 			children = (
+				0F5642251DDD00E500DE703A /* config.swift */,
 				394203B91DC0FD7A000D58EE /* Utils */,
 				394203B61DC0FBAC000D58EE /* Managers */,
 				397378AC1DB623E000B817BC /* Mocks */,
@@ -1396,6 +1448,7 @@
 		394203B61DC0FBAC000D58EE /* Managers */ = {
 			isa = PBXGroup;
 			children = (
+				0F5642081DDCFA8000DE703A /* Mocks */,
 				394203B71DC0FBBF000D58EE /* KeychainManagerTests.swift */,
 				39ACE07D1DC118CF009D70F9 /* SettingsManagerTests.swift */,
 			);
@@ -2537,6 +2590,7 @@
 				0F4BB9221DCFCBEF00A911EF /* SFObserverList.swift in Sources */,
 				397378CC1DB660E500B817BC /* ReachabilityManagerProtocol.swift in Sources */,
 				394203C71DC103CB000D58EE /* UITextFieldStylingIvars.m in Sources */,
+				0F5642071DDCFA3E00DE703A /* main.swift in Sources */,
 				0FF5EE641DD257F0002F3450 /* DataManagerProtocol.swift in Sources */,
 				0F63B15F1DCBBF7F00D2793C /* SeparatorHorizontalLineView.swift in Sources */,
 				39D856901DB9FFDA0062041F /* PrivacyPolicyNetworkOperation.swift in Sources */,
@@ -2634,11 +2688,25 @@
 			buildActionMask = 2147483647;
 			files = (
 				394203BB1DC0FD8D000D58EE /* NLAssertEqualOptional.swift in Sources */,
+				0F5642141DDCFAFB00DE703A /* SettingsManagerMock.swift in Sources */,
+				0F5642221DDCFB7C00DE703A /* SocialManagerMock.swift in Sources */,
+				0F5642201DDCFB6200DE703A /* CrashManagerMock.swift in Sources */,
+				0F56421C1DDCFB3B00DE703A /* KeychainManagerMock.swift in Sources */,
 				397378AE1DB6240500B817BC /* UILabelMock.swift in Sources */,
+				0F56420C1DDCFABF00DE703A /* CacheManagerMock.swift in Sources */,
+				0F56421E1DDCFB5200DE703A /* MessageBarManagerMock.swift in Sources */,
+				0F56421A1DDCFB2D00DE703A /* LocalizationManagerMock.swift in Sources */,
+				0F5642101DDCFADD00DE703A /* AnalyticsManagerMock.swift in Sources */,
 				39ACE07E1DC118CF009D70F9 /* SettingsManagerTests.swift in Sources */,
+				0F5642161DDCFB0E00DE703A /* LogManagerMock.swift in Sources */,
 				0FB0395B1D7EB82500B67C40 /* _BusinessAppSwift_Tests.swift in Sources */,
+				0F5642261DDD00E500DE703A /* config.swift in Sources */,
+				0F56420A1DDCFAAF00DE703A /* DataManagerMock.swift in Sources */,
 				397378B01DB6242400B817BC /* UIImageViewMock.swift in Sources */,
+				0F5642121DDCFAEC00DE703A /* UserManagerMock.swift in Sources */,
+				0F5642241DDCFB8700DE703A /* ReachabilityManagerMock.swift in Sources */,
 				394203B81DC0FBBF000D58EE /* KeychainManagerTests.swift in Sources */,
+				0F5642181DDCFB1D00DE703A /* PushNotificationManagerMock.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
