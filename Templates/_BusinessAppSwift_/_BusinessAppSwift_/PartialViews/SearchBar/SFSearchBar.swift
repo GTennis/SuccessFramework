@@ -27,14 +27,182 @@
 
 import UIKit
 
-class SFSearchBar: UISearchBar {
+let kOKSearchBarCustomSearchIconTraillingOffset = -15.0
+let kOKSearchBarCustomSearchIconBottomOffset = -10.0
 
-    /*
-    // Only override draw() if you perform custom drawing.
-    // An empty implementation adversely affects performance during animation.
-    override func draw(_ rect: CGRect) {
-        // Drawing code
+class SFSearchBar: UISearchBar, UISearchBarDelegate {
+    
+    var isCancelShown: Bool
+    
+    required init?(coder aDecoder: NSCoder) {
+        
+        self.isCancelShown = true
+        super.init(coder: aDecoder)
+        
+        self.commonInit()
     }
-    */
-
+    
+    func setDelegate(delegate: UISearchBarDelegate) {
+        
+        super.delegate = self
+        
+        _externalDelegate = delegate
+    }
+    
+    override var text: String? {
+        
+        get {
+            
+            return super.text
+        }
+        set {
+            
+            super.text = newValue
+            self.setIsShownCustomSearchIcon(isShown: false)
+        }
+    }
+    
+    // MARK:
+    // MARK: Internal
+    // MARK:
+    
+    var _customSearchIconImageView: UIImageView?
+    weak var _externalDelegate: AnyObject?
+    
+    func setIsShownCustomSearchIcon(isShown: Bool) {
+        
+        if isShown {
+            
+            UIView.animate(withDuration: 0.2, delay:0.2, options: UIViewAnimationOptions.curveEaseIn, animations: { [weak self] in
+                
+                self?._customSearchIconImageView?.alpha = 1.0
+                
+                }, completion: nil)
+            
+        } else {
+            
+            self._customSearchIconImageView?.alpha = 0
+        }
+    }
+    
+    internal func commonInit() {
+        
+        // Adjust search style
+        self.backgroundColor = UIColor.clear
+        self.backgroundImage = UIImage()
+        
+        // Customize cancel color
+        UIBarButtonItem.appearance(whenContainedInInstancesOf: [UISearchBar.self]).tintColor = kColorGreen
+        let searchBarIconImage: UIImage = UIImage(named: "iconSearchBar")!
+        _customSearchIconImageView = UIImageView.init(image: searchBarIconImage)
+        
+        // Change search bar icon. Using a workaround:
+        
+        // 1. Hide search icon
+        UITextField.appearance(whenContainedInInstancesOf: [UISearchBar.self]).leftViewMode = UITextFieldViewMode.never
+        
+        // For changing cursor color
+        //[[UITextField appearanceWhenContainedIn:[UISearchBar class], nil] setTintColor:kColorBlueLight];
+        
+        // 2. Add search image as subView
+        self.addSubview(_customSearchIconImageView!)
+        
+        // 3. Add needed constraints
+        _ = _customSearchIconImageView?.viewAddBottomSpace(CGFloat(kOKSearchBarCustomSearchIconBottomOffset), containerView: self)
+        _ = _customSearchIconImageView?.viewAddTrailingSpace(CGFloat(kOKSearchBarCustomSearchIconTraillingOffset), containerView: self)
+        
+        // Change search bar icon
+        //[_searchBar setImage:customSearcBarIconImage forSearchBarIcon:UISearchBarIconSearch state:UIControlStateNormal];
+        UITextField.appearance(whenContainedInInstancesOf: [SFSearchBar.self]).textColor = kColorGreen
+        UITextField.appearance(whenContainedInInstancesOf: [SFSearchBar.self]).backgroundColor = kColorGrayLight2
+    }
+    
+    // MARK: Forwarding events
+    
+    func searchBarShouldBeginEditing(_ searchBar: UISearchBar) -> Bool {
+        
+        var result: Bool = true
+        result = (_externalDelegate?.searchBarShouldBeginEditing(searchBar))!
+        
+        return result
+    }
+    
+    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+        
+        self.setIsShownCustomSearchIcon(isShown: false)
+        
+        if (self.isCancelShown) {
+            
+            self.setShowsCancelButton(true, animated: true)
+        }
+        
+        _externalDelegate?.searchBarTextDidBeginEditing(searchBar)
+    }
+    
+    func searchBarShouldEndEditing(_ searchBar: UISearchBar) -> Bool {
+        
+        var result = true
+        result = (_externalDelegate?.searchBarShouldEndEditing(searchBar))!
+        
+        return result
+    }
+    
+    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
+        
+        // Search bar shows clear button even after resign first responder if there's a text
+        // Therefore we won't show search icon on top
+        if let text = searchBar.text {
+            
+            if text.characters.count == 0 {
+                
+                self.setIsShownCustomSearchIcon(isShown: true)
+            }
+        }
+        
+        self.setShowsCancelButton(false, animated: true)
+        
+        _externalDelegate?.searchBarTextDidEndEditing(searchBar)
+    }
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        
+        _externalDelegate?.searchBarSearchButtonClicked(searchBar)
+    }
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        
+        self.text = ""
+        self.setShowsCancelButton(false, animated: true)
+        
+        _externalDelegate?.searchBarCancelButtonClicked(searchBar)
+    }
+    
+    func searchBarResultsListButtonClicked(_ searchBar: UISearchBar) {
+        
+        _externalDelegate?.searchBarResultsListButtonClicked(searchBar)
+    }
+    
+    func searchBarBookmarkButtonClicked(_ searchBar: UISearchBar) {
+        
+        _externalDelegate?.searchBarBookmarkButtonClicked(searchBar)
+    }
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        
+        _externalDelegate?.searchBar(searchBar, textDidChange: searchText)
+    }
+    
+    func searchBar(_ searchBar: UISearchBar, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+        
+        var result: Bool = true
+        
+        result = (_externalDelegate?.searchBar(searchBar, shouldChangeTextIn: range, replacementText: text))!
+        
+        return result
+    }
+    
+    func searchBar(_ searchBar: UISearchBar, selectedScopeButtonIndexDidChange selectedScope: Int) {
+        
+        _externalDelegate?.searchBar(searchBar, selectedScopeButtonIndexDidChange: selectedScope)
+    }
 }
