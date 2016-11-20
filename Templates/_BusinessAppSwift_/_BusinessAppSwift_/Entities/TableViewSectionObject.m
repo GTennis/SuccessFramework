@@ -1,9 +1,9 @@
 //
-//  ButtonWithIconOnRight.swift
-//  _BusinessAppSwift_
+//  TableViewSectionObject.m
+//  _BusinessApp_
 //
-//  Created by Gytenis Mikulenas on 03/11/16.
-//  Copyright © 2016 Gytenis Mikulėnas 
+//  Created by Gytenis Mikulėnas on 1/14/16.
+//  Copyright (c) 2015 Gytenis Mikulėnas
 //  https://github.com/GitTennis/SuccessFramework
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -25,9 +25,12 @@
 //  SOFTWARE. All rights reserved.
 //
 
-import UIKit
+#import "TableViewSectionObject.h"
 
-class ButtonWithIconOnRight: UIButton {
+@implementation TableViewSectionObject
 
-     // ...
-}
+@synthesize sectionTitle = _sectionTitle;
+@synthesize sectionRows = _sectionRows;
+@synthesize context = _context;
+
+@end

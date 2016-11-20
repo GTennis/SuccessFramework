@@ -1,9 +1,9 @@
 //
-//  ButtonWithIconOnTop.swift
-//  _BusinessAppSwift_
+//  TableViewSortRuleObject.m
+//  _BusinessApp_
 //
-//  Created by Gytenis Mikulenas on 03/11/16.
-//  Copyright © 2016 Gytenis Mikulėnas 
+//  Created by Gytenis Mikulėnas on 1/14/16.
+//  Copyright (c) 2015 Gytenis Mikulėnas
 //  https://github.com/GitTennis/SuccessFramework
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -25,16 +25,11 @@
 //  SOFTWARE. All rights reserved.
 //
 
-import UIKit
+#import "TableViewSortRuleObject.h"
 
-class ButtonWithIconOnTop: UIButton {
+@implementation TableViewSortRuleObject
 
-    /*
-    // Only override draw() if you perform custom drawing.
-    // An empty implementation adversely affects performance during animation.
-    override func draw(_ rect: CGRect) {
-        // Drawing code
-    }
-    */
+@synthesize propertyName = _propertyName;
+@synthesize isAscending = _isAscending;
 
-}
+@end

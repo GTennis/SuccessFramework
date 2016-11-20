@@ -11,8 +11,6 @@
 		0F091CC31DCBCAF6001F69E9 /* BaseLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F091CC21DCBCAF6001F69E9 /* BaseLabel.swift */; };
 		0F091CC51DCBCE6F001F69E9 /* CustomLabelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F091CC41DCBCE6F001F69E9 /* CustomLabelProtocol.swift */; };
 		0F091CC81DCBD104001F69E9 /* NormalCheckbox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F091CC71DCBD104001F69E9 /* NormalCheckbox.swift */; };
-		0F091CCC1DCBDEC5001F69E9 /* ButtonWithIconOnRight.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F091CCB1DCBDEC5001F69E9 /* ButtonWithIconOnRight.swift */; };
-		0F091CCE1DCBDEE6001F69E9 /* ButtonWithIconOnTop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F091CCD1DCBDEE6001F69E9 /* ButtonWithIconOnTop.swift */; };
 		0F091CD11DCBDF1E001F69E9 /* SFSearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F091CD01DCBDF1E001F69E9 /* SFSearchBar.swift */; };
 		0F091CD31DCBE00D001F69E9 /* UIView+Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F091CD21DCBE00D001F69E9 /* UIView+Fonts.swift */; };
 		0F091CD51DCBE43E001F69E9 /* glockenspiel.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0F091CD41DCBE43E001F69E9 /* glockenspiel.ttf */; };
@@ -71,6 +69,11 @@
 		0F5B71231DC663490094DA0F /* KeyboardControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F5B71221DC663490094DA0F /* KeyboardControl.swift */; };
 		0F5CEC711DC298BF00F41761 /* ConstTrackables.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F5CEC701DC298BF00F41761 /* ConstTrackables.swift */; };
 		0F63B15F1DCBBF7F00D2793C /* SeparatorHorizontalLineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F63B15E1DCBBF7F00D2793C /* SeparatorHorizontalLineView.swift */; };
+		0F68070A1DE1ACC900DA52FD /* ButtonWithIconOnRight.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F6807071DE1ACC900DA52FD /* ButtonWithIconOnRight.m */; };
+		0F68070B1DE1ACC900DA52FD /* ButtonWithIconOnTop.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F6807091DE1ACC900DA52FD /* ButtonWithIconOnTop.m */; };
+		0F6807191DE1AE5900DA52FD /* TableViewSectionObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F6807141DE1AE5900DA52FD /* TableViewSectionObject.m */; };
+		0F68071A1DE1AE5900DA52FD /* TableViewSectionsObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F6807161DE1AE5900DA52FD /* TableViewSectionsObject.m */; };
+		0F68071B1DE1AE5900DA52FD /* TableViewSortRuleObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F6807181DE1AE5900DA52FD /* TableViewSortRuleObject.m */; };
 		0F6C157E1DBCB0E900169C13 /* UIView+Autolayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F6C157D1DBCB0E900169C13 /* UIView+Autolayout.m */; };
 		0F6C15841DBCBB1C00169C13 /* ContactViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F6C15831DBCBB1C00169C13 /* ContactViewController.swift */; };
 		0F6C15871DBCBB3800169C13 /* ContactViewController_iphone.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F6C15851DBCBB3800169C13 /* ContactViewController_iphone.swift */; };
@@ -287,8 +290,6 @@
 		0F091CC21DCBCAF6001F69E9 /* BaseLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseLabel.swift; sourceTree = "<group>"; };
 		0F091CC41DCBCE6F001F69E9 /* CustomLabelProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomLabelProtocol.swift; sourceTree = "<group>"; };
 		0F091CC71DCBD104001F69E9 /* NormalCheckbox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NormalCheckbox.swift; sourceTree = "<group>"; };
-		0F091CCB1DCBDEC5001F69E9 /* ButtonWithIconOnRight.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ButtonWithIconOnRight.swift; sourceTree = "<group>"; };
-		0F091CCD1DCBDEE6001F69E9 /* ButtonWithIconOnTop.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ButtonWithIconOnTop.swift; sourceTree = "<group>"; };
 		0F091CD01DCBDF1E001F69E9 /* SFSearchBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SFSearchBar.swift; sourceTree = "<group>"; };
 		0F091CD21DCBE00D001F69E9 /* UIView+Fonts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Fonts.swift"; sourceTree = "<group>"; };
 		0F091CD41DCBE43E001F69E9 /* glockenspiel.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = glockenspiel.ttf; sourceTree = "<group>"; };
@@ -347,6 +348,16 @@
 		0F5B71221DC663490094DA0F /* KeyboardControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyboardControl.swift; sourceTree = "<group>"; };
 		0F5CEC701DC298BF00F41761 /* ConstTrackables.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConstTrackables.swift; sourceTree = "<group>"; };
 		0F63B15E1DCBBF7F00D2793C /* SeparatorHorizontalLineView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SeparatorHorizontalLineView.swift; sourceTree = "<group>"; };
+		0F6807061DE1ACC900DA52FD /* ButtonWithIconOnRight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ButtonWithIconOnRight.h; sourceTree = "<group>"; };
+		0F6807071DE1ACC900DA52FD /* ButtonWithIconOnRight.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ButtonWithIconOnRight.m; sourceTree = "<group>"; };
+		0F6807081DE1ACC900DA52FD /* ButtonWithIconOnTop.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ButtonWithIconOnTop.h; sourceTree = "<group>"; };
+		0F6807091DE1ACC900DA52FD /* ButtonWithIconOnTop.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ButtonWithIconOnTop.m; sourceTree = "<group>"; };
+		0F6807131DE1AE5900DA52FD /* TableViewSectionObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableViewSectionObject.h; sourceTree = "<group>"; };
+		0F6807141DE1AE5900DA52FD /* TableViewSectionObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableViewSectionObject.m; sourceTree = "<group>"; };
+		0F6807151DE1AE5900DA52FD /* TableViewSectionsObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableViewSectionsObject.h; sourceTree = "<group>"; };
+		0F6807161DE1AE5900DA52FD /* TableViewSectionsObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableViewSectionsObject.m; sourceTree = "<group>"; };
+		0F6807171DE1AE5900DA52FD /* TableViewSortRuleObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableViewSortRuleObject.h; sourceTree = "<group>"; };
+		0F6807181DE1AE5900DA52FD /* TableViewSortRuleObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableViewSortRuleObject.m; sourceTree = "<group>"; };
 		0F6C157C1DBCB0E900169C13 /* UIView+Autolayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Autolayout.h"; sourceTree = "<group>"; };
 		0F6C157D1DBCB0E900169C13 /* UIView+Autolayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Autolayout.m"; sourceTree = "<group>"; };
 		0F6C15831DBCBB1C00169C13 /* ContactViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactViewController.swift; sourceTree = "<group>"; };
@@ -617,8 +628,10 @@
 			isa = PBXGroup;
 			children = (
 				0F6C15B41DBD5C6100169C13 /* ConnectionStatusButton.swift */,
-				0F091CCB1DCBDEC5001F69E9 /* ButtonWithIconOnRight.swift */,
-				0F091CCD1DCBDEE6001F69E9 /* ButtonWithIconOnTop.swift */,
+				0F6807061DE1ACC900DA52FD /* ButtonWithIconOnRight.h */,
+				0F6807071DE1ACC900DA52FD /* ButtonWithIconOnRight.m */,
+				0F6807081DE1ACC900DA52FD /* ButtonWithIconOnTop.h */,
+				0F6807091DE1ACC900DA52FD /* ButtonWithIconOnTop.m */,
 			);
 			name = Specific;
 			sourceTree = "<group>";
@@ -635,6 +648,7 @@
 			isa = PBXGroup;
 			children = (
 				0F0C888C1D82F4BA000688AB /* ParsableEntityProtocol.swift */,
+				0F68070C1DE1ADC900DA52FD /* TableviewSections */,
 				397378B91DB65B9700B817BC /* Image */,
 				397378B61DB6560B00B817BC /* Error */,
 				397378B31DB62A1A00B817BC /* User */,
@@ -882,6 +896,19 @@
 				0F091CC01DCBCAC1001F69E9 /* SeparatorVerticalLineView.swift */,
 			);
 			path = SeparatorLines;
+			sourceTree = "<group>";
+		};
+		0F68070C1DE1ADC900DA52FD /* TableviewSections */ = {
+			isa = PBXGroup;
+			children = (
+				0F6807131DE1AE5900DA52FD /* TableViewSectionObject.h */,
+				0F6807141DE1AE5900DA52FD /* TableViewSectionObject.m */,
+				0F6807151DE1AE5900DA52FD /* TableViewSectionsObject.h */,
+				0F6807161DE1AE5900DA52FD /* TableViewSectionsObject.m */,
+				0F6807171DE1AE5900DA52FD /* TableViewSortRuleObject.h */,
+				0F6807181DE1AE5900DA52FD /* TableViewSortRuleObject.m */,
+			);
+			name = TableviewSections;
 			sourceTree = "<group>";
 		};
 		0F6C157F1DBCBAEF00169C13 /* Contact */ = {
@@ -2485,6 +2512,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				390317131DBF803A001660C1 /* LogManager.swift in Sources */,
+				0F68070B1DE1ACC900DA52FD /* ButtonWithIconOnTop.m in Sources */,
 				39ABE7131DCB45AA003D80ED /* PrivacyPolicyViewController.swift in Sources */,
 				0FF09BD81D7EDCDB00DBBF46 /* UserManagerProtocol.swift in Sources */,
 				397378D91DB661F300B817BC /* NetworkOperationFactoryProtocol.swift in Sources */,
@@ -2498,6 +2526,7 @@
 				39ABE7271DCB47C7003D80ED /* TableWithSearchModel.swift in Sources */,
 				397378C61DB6608500B817BC /* MessageBarManagerProtocol.swift in Sources */,
 				397378D31DB6616400B817BC /* SocialManagerProtocol.swift in Sources */,
+				0F6807191DE1AE5900DA52FD /* TableViewSectionObject.m in Sources */,
 				397378ED1DB672FE00B817BC /* KeychainManager.swift in Sources */,
 				0F7FE5BA1DD4622100E8F24B /* DataEntity.swift in Sources */,
 				3903170E1DBF7EB0001660C1 /* PushNotificationManagerProtocol.swift in Sources */,
@@ -2630,8 +2659,6 @@
 				0FAFF2EA1DCA8CD50039E685 /* UIView+Colors.swift in Sources */,
 				397378B81DB6561F00B817BC /* ErrorEntity.swift in Sources */,
 				39A0B1561DBE6B5000DD1EB7 /* HomeViewController_iphone.swift in Sources */,
-				0F091CCE1DCBDEE6001F69E9 /* ButtonWithIconOnTop.swift in Sources */,
-				0F091CCC1DCBDEC5001F69E9 /* ButtonWithIconOnRight.swift in Sources */,
 				394203B31DC0D823000D58EE /* LogEntity.swift in Sources */,
 				0F5B71051DC653240094DA0F /* UserSignUpViewController.swift in Sources */,
 				0FF09BD51D7EDC7000DBBF46 /* UserManager.swift in Sources */,
@@ -2642,6 +2669,7 @@
 				394203CA1DC1042C000D58EE /* NSString+Validator.m in Sources */,
 				0F6C159E1DBD2C9700169C13 /* TopNavigationBar_iphone.swift in Sources */,
 				0F5B710E1DC654990094DA0F /* NormalTextField.swift in Sources */,
+				0F68071A1DE1AE5900DA52FD /* TableViewSectionsObject.m in Sources */,
 				0F6C15A21DBD2D1B00169C13 /* TopNavigationBarModal.swift in Sources */,
 				395D58E11DB8B6EE00D74DBC /* Dictionary+Extension.swift in Sources */,
 				39ABE7211DCB479D003D80ED /* TableWithSearchViewController.swift in Sources */,
@@ -2657,6 +2685,7 @@
 				394203BE1DC10220000D58EE /* NSString+Size.m in Sources */,
 				0F129CFC1DBC08F80068F292 /* ExampleDetailsViewController.swift in Sources */,
 				397378B51DB62A2900B817BC /* UserEntity.swift in Sources */,
+				0F68070A1DE1ACC900DA52FD /* ButtonWithIconOnRight.m in Sources */,
 				390317151DBF8045001660C1 /* LogManagerProtocol.swift in Sources */,
 				397378E71DB672CC00B817BC /* AnalyticsManager.swift in Sources */,
 				390317101DBF7EB7001660C1 /* PushNotificationManager.swift in Sources */,
@@ -2667,6 +2696,7 @@
 				0F6C15AA1DBD2E9C00169C13 /* TopNavigationBar_ipad.swift in Sources */,
 				39ABE70B1DCB4560003D80ED /* TermsConditionsViewController.swift in Sources */,
 				39A0B1471DBE662300DD1EB7 /* BaseModel.swift in Sources */,
+				0F68071B1DE1AE5900DA52FD /* TableViewSortRuleObject.m in Sources */,
 				0F5B71171DC65AEB0094DA0F /* KeyboardControlProtocol.swift in Sources */,
 				39ABE7571DCB4B6B003D80ED /* UserLoginViewController_iphone.swift in Sources */,
 				397378CE1DB6611100B817BC /* ReachabilityManagerObserver.swift in Sources */,
