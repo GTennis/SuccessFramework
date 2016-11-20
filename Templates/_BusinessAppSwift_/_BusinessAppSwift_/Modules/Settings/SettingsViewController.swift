@@ -42,6 +42,8 @@ class SettingsViewController: BaseViewController {
     override func viewWillAppear(_ animated: Bool) {
         
         super.viewWillAppear(animated)
+        
+        self.viewLoader?.showNavigationBar(viewController: self)
     }
     
     override func viewWillDisappear(_ animated: Bool) {

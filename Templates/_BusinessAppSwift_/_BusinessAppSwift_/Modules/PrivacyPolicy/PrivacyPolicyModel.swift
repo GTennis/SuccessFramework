@@ -29,9 +29,16 @@ import UIKit
 
 class PrivacyPolicyModel: BaseModel {
 
+    var urlRequest: URLRequest?
+    
     override func willStartModelLoading(callback: @escaping Callback) {
         
-        callback(true, nil, nil, nil)
+        let operation = self.networkOperationFactory.privacyPolicyNetworkOperation(context: nil)
+        
+        let urlString = operation.networkRequest.baseUrl! + operation.networkRequest.relativeUrl
+        self.urlRequest = URLRequest(url: URL.init(string: urlString)!)
+        
+        callback(true, self.urlRequest, nil, nil)
     }
     
     override func didFinishModelLoading(data: Any?, error: ErrorEntity?) {

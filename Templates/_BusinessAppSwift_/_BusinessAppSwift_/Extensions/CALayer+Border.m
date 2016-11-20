@@ -1,9 +1,9 @@
 //
-//  TermsConditionsModel.swift
-//  _BusinessAppSwift_
+//  CALayer+Border.m
+//  _BusinessApp_
 //
-//  Created by Gytenis Mikulenas on 03/11/2016.
-//  Copyright © 2016 Gytenis Mikulėnas 
+//  Created by Gytenis Mikulėnas on 6/4/14.
+//  Copyright (c) 2015 Gytenis Mikulėnas
 //  https://github.com/GitTennis/SuccessFramework
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -24,25 +24,18 @@
 //  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 //  SOFTWARE. All rights reserved.
 //
+#import "CALayer+Border.h"
 
-import UIKit
+@implementation CALayer (Border)
 
-class TermsConditionsModel: BaseModel {
-
-    var urlRequest: URLRequest?
+- (void)setBorderUIColor:(UIColor*)color {
     
-    override func willStartModelLoading(callback: @escaping Callback) {
-        
-        let operation = self.networkOperationFactory.termsConditionsNetworkOperation(context: nil)
-        
-        let urlString = operation.networkRequest.baseUrl! + operation.networkRequest.relativeUrl
-        self.urlRequest = URLRequest(url: URL.init(string: urlString)!)
-        
-        callback(true, self.urlRequest, nil, nil)
-    }
-    
-    override func didFinishModelLoading(data: Any?, error: ErrorEntity?) {
-        
-        // ...
-    }
+    self.borderColor = color.CGColor;
 }
+
+- (UIColor*)borderUIColor {
+    
+    return [UIColor colorWithCGColor:self.borderColor];
+}
+
+@end

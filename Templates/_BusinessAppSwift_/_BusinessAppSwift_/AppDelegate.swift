@@ -486,16 +486,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     
     internal func continueLaunchTheApp() {
         
-        if (self.userManager.isUserLoggedIn()) {
+        //if (self.userManager.isUserLoggedIn()) {
             
             // Or jump straight to the app
             self.proceedToTheApp()
             
-        } else {
+        /*} else {
             
             // Show tutorial
             self.showLogin(error: nil)
-        }
+        }*/
     }
     
     internal func showWalkthrough() {

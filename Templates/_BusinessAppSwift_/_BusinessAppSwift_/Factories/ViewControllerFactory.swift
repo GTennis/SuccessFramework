@@ -160,6 +160,7 @@ class ViewControllerFactory: ViewControllerFactoryProtocol {
         
         let vc = viewControllerFromSb(classType: MenuViewController.self, context: context) as! MenuViewController
         vc.model = self.model(classType: MenuModel.self as AnyClass, context: context) as? MenuModel
+        vc.model?.viewControllerFactory = self
         
         return vc
     }
@@ -224,10 +225,12 @@ class ViewControllerFactory: ViewControllerFactoryProtocol {
         let vcMirror = Mirror(reflecting: viewController)
         let superVcMirror: Mirror? = vcMirror.superclassMirror
         let superSuperVcMirror: Mirror? = superVcMirror?.superclassMirror
+        let superSuperSuperVcMirror: Mirror? = superSuperVcMirror?.superclassMirror
         
         result = self.containsProperty(mirror: vcMirror, propertyName: propertyName)
         result = result || self.containsProperty(mirror: superVcMirror, propertyName: propertyName)
         result = result || self.containsProperty(mirror: superSuperVcMirror, propertyName: propertyName)
+        result = result || self.containsProperty(mirror: superSuperSuperVcMirror, propertyName: propertyName)
         
         return result
     }

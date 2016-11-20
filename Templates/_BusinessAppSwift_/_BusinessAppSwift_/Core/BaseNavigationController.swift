@@ -51,18 +51,6 @@ class BaseNavigationController: UINavigationController, GenericViewControllerPro
         
         super.viewDidLoad();
         
-        // Add navigation bar
-        if self.isModal() {
-            
-            let navigatioBar = self.viewLoader?.addDefaultModalNavigationBar(viewController: self)
-            navigatioBar?.delegate = self
-            
-        } else {
-            
-            let navigatioBar = self.viewLoader?.addDefaultNavigationBar(viewController: self)
-            navigatioBar?.delegate = self
-        }
-        
         // Prepare for functional tests
         self.viewLoader?.prepareAccesibility(viewController: self)
         

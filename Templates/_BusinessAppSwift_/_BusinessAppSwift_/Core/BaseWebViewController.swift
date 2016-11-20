@@ -31,6 +31,15 @@ class BaseWebViewController: BaseViewController, UIWebViewDelegate {
 
     @IBOutlet weak var webView: UIWebView?
     
+    override func prepareUI() {
+        
+        super.prepareUI()
+        
+        self.webView?.scalesPageToFit = true
+    }
+    
+    // MARK: UIWebViewDelegate
+    
     func webView(_ webView: UIWebView, shouldStartLoadWith request: URLRequest, navigationType: UIWebViewNavigationType) -> Bool {
      
         self.viewLoader?.showScreenActivityIndicator(containerView: webView)

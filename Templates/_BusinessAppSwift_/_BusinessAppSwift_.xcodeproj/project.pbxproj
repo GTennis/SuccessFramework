@@ -114,6 +114,9 @@
 		0FB0394D1D7EB82400B67C40 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0FB0394C1D7EB82400B67C40 /* Assets.xcassets */; };
 		0FB0395B1D7EB82500B67C40 /* _BusinessAppSwift_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FB0395A1D7EB82500B67C40 /* _BusinessAppSwift_Tests.swift */; };
 		0FB039661D7EB82500B67C40 /* _BusinessAppSwift_UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FB039651D7EB82500B67C40 /* _BusinessAppSwift_UITests.swift */; };
+		0FBACC001DE203B80098C340 /* MenuEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FBACBFF1DE203B80098C340 /* MenuEntity.swift */; };
+		0FBACC051DE2356A0098C340 /* CALayer+Border.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FBACC021DE2356A0098C340 /* CALayer+Border.m */; };
+		0FBACC061DE2356A0098C340 /* NSDate+Common.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FBACC041DE2356A0098C340 /* NSDate+Common.m */; };
 		0FF09BB71D7EBDAE00DBBF46 /* 1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0FF09BB21D7EBDAE00DBBF46 /* 1.jpg */; };
 		0FF09BB81D7EBDAE00DBBF46 /* 2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0FF09BB31D7EBDAE00DBBF46 /* 2.jpg */; };
 		0FF09BB91D7EBDAE00DBBF46 /* 3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0FF09BB41D7EBDAE00DBBF46 /* 3.jpg */; };
@@ -406,6 +409,11 @@
 		0FB039611D7EB82500B67C40 /* _BusinessAppSwift_UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = _BusinessAppSwift_UITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0FB039651D7EB82500B67C40 /* _BusinessAppSwift_UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = _BusinessAppSwift_UITests.swift; sourceTree = "<group>"; };
 		0FB039671D7EB82500B67C40 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0FBACBFF1DE203B80098C340 /* MenuEntity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuEntity.swift; sourceTree = "<group>"; };
+		0FBACC011DE2356A0098C340 /* CALayer+Border.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CALayer+Border.h"; sourceTree = "<group>"; };
+		0FBACC021DE2356A0098C340 /* CALayer+Border.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CALayer+Border.m"; sourceTree = "<group>"; };
+		0FBACC031DE2356A0098C340 /* NSDate+Common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+Common.h"; sourceTree = "<group>"; };
+		0FBACC041DE2356A0098C340 /* NSDate+Common.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+Common.m"; sourceTree = "<group>"; };
 		0FF09BB21D7EBDAE00DBBF46 /* 1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 1.jpg; sourceTree = "<group>"; };
 		0FF09BB31D7EBDAE00DBBF46 /* 2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 2.jpg; sourceTree = "<group>"; };
 		0FF09BB41D7EBDAE00DBBF46 /* 3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 3.jpg; sourceTree = "<group>"; };
@@ -746,6 +754,7 @@
 		0F4BB90A1DCF8D5700A911EF /* Base */ = {
 			isa = PBXGroup;
 			children = (
+				0FBACBFF1DE203B80098C340 /* MenuEntity.swift */,
 				0F4BB9121DCF8DC900A911EF /* MenuModel.swift */,
 				0F4BB90B1DCF8D6C00A911EF /* MenuViewController.swift */,
 			);
@@ -1496,6 +1505,10 @@
 				395D58E81DB8E8CE00D74DBC /* JSON */,
 				395D58E51DB8E6DC00D74DBC /* NSString+Utils.h */,
 				395D58E61DB8E6DC00D74DBC /* NSString+Utils.m */,
+				0FBACC011DE2356A0098C340 /* CALayer+Border.h */,
+				0FBACC021DE2356A0098C340 /* CALayer+Border.m */,
+				0FBACC031DE2356A0098C340 /* NSDate+Common.h */,
+				0FBACC041DE2356A0098C340 /* NSDate+Common.m */,
 				0F6C157C1DBCB0E900169C13 /* UIView+Autolayout.h */,
 				0F6C157D1DBCB0E900169C13 /* UIView+Autolayout.m */,
 				394203BC1DC10220000D58EE /* NSString+Size.h */,
@@ -2658,6 +2671,7 @@
 				39ABE6F91DCB4498003D80ED /* PhotoDetailsModel.swift in Sources */,
 				0FAFF2EA1DCA8CD50039E685 /* UIView+Colors.swift in Sources */,
 				397378B81DB6561F00B817BC /* ErrorEntity.swift in Sources */,
+				0FBACC051DE2356A0098C340 /* CALayer+Border.m in Sources */,
 				39A0B1561DBE6B5000DD1EB7 /* HomeViewController_iphone.swift in Sources */,
 				394203B31DC0D823000D58EE /* LogEntity.swift in Sources */,
 				0F5B71051DC653240094DA0F /* UserSignUpViewController.swift in Sources */,
@@ -2668,6 +2682,7 @@
 				39ABE6F31DCB444D003D80ED /* MapsViewController.swift in Sources */,
 				394203CA1DC1042C000D58EE /* NSString+Validator.m in Sources */,
 				0F6C159E1DBD2C9700169C13 /* TopNavigationBar_iphone.swift in Sources */,
+				0FBACC001DE203B80098C340 /* MenuEntity.swift in Sources */,
 				0F5B710E1DC654990094DA0F /* NormalTextField.swift in Sources */,
 				0F68071A1DE1AE5900DA52FD /* TableViewSectionsObject.m in Sources */,
 				0F6C15A21DBD2D1B00169C13 /* TopNavigationBarModal.swift in Sources */,
@@ -2706,6 +2721,7 @@
 				39ABE7411DCB4A77003D80ED /* UserResetPasswordViewController_iphone.swift in Sources */,
 				0F6C15981DBCCAB000169C13 /* PhoneCallCommand.swift in Sources */,
 				0FF09BDF1D7EE44300DBBF46 /* LaunchViewController.swift in Sources */,
+				0FBACC061DE2356A0098C340 /* NSDate+Common.m in Sources */,
 				394203B11DC0D6DC000D58EE /* ObserverListProtocol.swift in Sources */,
 				399AB90B1DB8F06F004467F2 /* UserProfileNetworkOperation.swift in Sources */,
 				0F0C88901D82F53F000688AB /* ConstNetworkConfig.swift in Sources */,

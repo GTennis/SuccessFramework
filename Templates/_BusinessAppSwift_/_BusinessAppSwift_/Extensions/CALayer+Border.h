@@ -1,9 +1,9 @@
 //
-//  TermsConditionsModel.swift
-//  _BusinessAppSwift_
+//  CALayer+Border.h
+//  _BusinessApp_
 //
-//  Created by Gytenis Mikulenas on 03/11/2016.
-//  Copyright © 2016 Gytenis Mikulėnas 
+//  Created by Gytenis Mikulėnas on 6/4/14.
+//  Copyright (c) 2015 Gytenis Mikulėnas
 //  https://github.com/GitTennis/SuccessFramework
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -25,24 +25,12 @@
 //  SOFTWARE. All rights reserved.
 //
 
-import UIKit
+#import <UIKit/UIKit.h>
+#import <QuartzCore/QuartzCore.h>
 
-class TermsConditionsModel: BaseModel {
+@interface CALayer (Border)
 
-    var urlRequest: URLRequest?
-    
-    override func willStartModelLoading(callback: @escaping Callback) {
-        
-        let operation = self.networkOperationFactory.termsConditionsNetworkOperation(context: nil)
-        
-        let urlString = operation.networkRequest.baseUrl! + operation.networkRequest.relativeUrl
-        self.urlRequest = URLRequest(url: URL.init(string: urlString)!)
-        
-        callback(true, self.urlRequest, nil, nil)
-    }
-    
-    override func didFinishModelLoading(data: Any?, error: ErrorEntity?) {
-        
-        // ...
-    }
-}
+// Interface builder does not allow to pass CGColor, so need to make proxy property for using in IB, in runtime attributes when setting border color
+@property (nonatomic, strong) UIColor *borderUIColor;
+
+@end

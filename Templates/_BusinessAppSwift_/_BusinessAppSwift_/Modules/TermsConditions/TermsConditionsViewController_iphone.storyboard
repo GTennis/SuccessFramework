@@ -1,18 +1,16 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
-    <device id="retina4_7" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="15G1108" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--Terms Conditions View Controller iphone-->
         <scene sceneID="r4e-cj-5CX">
             <objects>
-                <viewController storyboardIdentifier="TermsConditionsViewController_iphone" id="ytk-8K-5tD" customClass="TermsConditionsViewController_iphone" customModule="_BusinessAppSwift_" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="TermsConditionsViewController_iphone" automaticallyAdjustsScrollViewInsets="NO" id="ytk-8K-5tD" customClass="TermsConditionsViewController_iphone" customModule="_BusinessAppSwift_" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="7oy-2s-qzU"/>
                         <viewControllerLayoutGuide type="bottom" id="4o9-Kc-S9q"/>
@@ -20,12 +18,29 @@
                     <view key="view" contentMode="scaleToFill" id="c5c-yD-Y5w">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VLE-Jq-cBL">
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <connections>
+                                    <outlet property="delegate" destination="ytk-8K-5tD" id="cuH-Ea-BQp"/>
+                                </connections>
+                            </webView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="VLE-Jq-cBL" firstAttribute="leading" secondItem="c5c-yD-Y5w" secondAttribute="leadingMargin" constant="-16" id="00u-RS-AxH"/>
+                            <constraint firstItem="4o9-Kc-S9q" firstAttribute="top" secondItem="VLE-Jq-cBL" secondAttribute="bottom" id="07l-al-bqV"/>
+                            <constraint firstItem="VLE-Jq-cBL" firstAttribute="top" secondItem="7oy-2s-qzU" secondAttribute="bottom" constant="-20" id="ZV8-Zm-ZAj"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="VLE-Jq-cBL" secondAttribute="trailing" constant="-16" id="xDK-XY-tDv"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="webView" destination="VLE-Jq-cBL" id="Tss-PT-0ce"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yp8-cA-OgI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="38" y="251"/>
+            <point key="canvasLocation" x="37.600000000000001" y="250.52473763118442"/>
         </scene>
     </scenes>
 </document>

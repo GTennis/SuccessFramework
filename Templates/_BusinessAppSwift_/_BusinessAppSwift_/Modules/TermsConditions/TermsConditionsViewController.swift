@@ -27,6 +27,8 @@
 
 import UIKit
 
+let kTermsConditionsViewControllerTitleKey = "TermsConditionsTitle"
+
 class TermsConditionsViewController: BaseWebViewController {
 
     var model: TermsConditionsModel?
@@ -42,6 +44,11 @@ class TermsConditionsViewController: BaseWebViewController {
     override func viewWillAppear(_ animated: Bool) {
         
         super.viewWillAppear(animated)
+        
+        self.viewLoader?.showNavigationBar(viewController: self)
+        
+        // Log user behaviour
+        self.analyticsManager?.log(screenName: kAnalyticsManagerScreenTermsConditions)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -54,15 +61,23 @@ class TermsConditionsViewController: BaseWebViewController {
     override func prepareUI() {
         
         super.prepareUI()
+        
+        // This will set title for standard navigation bar title
+        self.title = localizedString(key: kTermsConditionsViewControllerTitleKey)
     }
     
     override func renderUI() {
         
         super.renderUI()
+        
+        self.webView?.loadRequest(self.model!.urlRequest!)
     }
     
     override func loadModel() {
         
-        self.renderUI()
+        self.model?.loadData(callback: { [weak self] (success, result, context, error) in
+            
+            self?.renderUI()
+        })
     }
 }

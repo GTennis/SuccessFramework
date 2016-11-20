@@ -73,7 +73,7 @@ class UserSignUpViewController: BaseTableViewController, CountryPickerViewContro
         
         super.viewDidLoad()
         
-        self.viewLoader?.hideNavigationBar(viewController: self)
+        //self.viewLoader?.hideNavigationBar(viewController: self)
         
         self.prepareUI()
         self.loadModel()

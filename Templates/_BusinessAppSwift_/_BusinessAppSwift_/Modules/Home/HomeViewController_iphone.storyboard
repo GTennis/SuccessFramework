@@ -10,7 +10,7 @@
         <!--Home View Controller iphone-->
         <scene sceneID="NMW-fL-hQG">
             <objects>
-                <viewController storyboardIdentifier="HomeViewController_iphone" id="df0-ah-n5i" customClass="HomeViewController_iphone" customModule="_BusinessAppSwift_" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="HomeViewController_iphone" automaticallyAdjustsScrollViewInsets="NO" id="df0-ah-n5i" customClass="HomeViewController_iphone" customModule="_BusinessAppSwift_" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="K7s-pe-zq2"/>
                         <viewControllerLayoutGuide type="bottom" id="MUM-yO-3JL"/>
@@ -29,7 +29,7 @@
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="HomeCell" id="qwE-3z-AYs" customClass="HomeCell_iphone" customModule="_BusinessAppSwift_" customModuleProvider="target">
-                                        <rect key="frame" x="0.5" y="0.0" width="374" height="463"/>
+                                        <rect key="frame" x="1" y="0.0" width="374" height="463"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="0.0" y="0.0" width="374" height="463"/>

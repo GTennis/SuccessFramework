@@ -1,9 +1,9 @@
 //
-//  TermsConditionsModel.swift
-//  _BusinessAppSwift_
+//  NSDate+Common.h
+//  _BusinessApp_
 //
-//  Created by Gytenis Mikulenas on 03/11/2016.
-//  Copyright © 2016 Gytenis Mikulėnas 
+//  Created by Gytenis Mikulėnas on 6/5/13.
+//  Copyright (c) 2015 Gytenis Mikulėnas
 //  https://github.com/GitTennis/SuccessFramework
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -25,24 +25,8 @@
 //  SOFTWARE. All rights reserved.
 //
 
-import UIKit
+#import <Foundation/Foundation.h>
 
-class TermsConditionsModel: BaseModel {
+@interface NSDate (Common)
 
-    var urlRequest: URLRequest?
-    
-    override func willStartModelLoading(callback: @escaping Callback) {
-        
-        let operation = self.networkOperationFactory.termsConditionsNetworkOperation(context: nil)
-        
-        let urlString = operation.networkRequest.baseUrl! + operation.networkRequest.relativeUrl
-        self.urlRequest = URLRequest(url: URL.init(string: urlString)!)
-        
-        callback(true, self.urlRequest, nil, nil)
-    }
-    
-    override func didFinishModelLoading(data: Any?, error: ErrorEntity?) {
-        
-        // ...
-    }
-}
+@end

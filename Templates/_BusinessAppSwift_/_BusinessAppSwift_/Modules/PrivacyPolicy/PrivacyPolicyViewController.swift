@@ -27,6 +27,8 @@
 
 import UIKit
 
+let kPrivacyPolicyViewControllerTitleKey = "PrivacyPolicyTitle"
+
 class PrivacyPolicyViewController: BaseWebViewController {
     
     var model: PrivacyPolicyModel?
@@ -42,6 +44,11 @@ class PrivacyPolicyViewController: BaseWebViewController {
     override func viewWillAppear(_ animated: Bool) {
         
         super.viewWillAppear(animated)
+        
+        self.viewLoader?.showNavigationBar(viewController: self)
+        
+        // Log user behaviour
+        self.analyticsManager?.log(screenName: kAnalyticsManagerScreenPrivacyPolicy)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -58,17 +65,21 @@ class PrivacyPolicyViewController: BaseWebViewController {
     
     override func prepareUI() {
         
-        // ...
+        super.prepareUI()
+        
+        self.title = localizedString(key: kPrivacyPolicyViewControllerTitleKey)
     }
     
     override func renderUI() {
         
-        // ...
+        super.renderUI()
+        
+        self.webView?.loadRequest(self.model!.urlRequest!)
     }
     
     override func loadModel() {
         
-        model?.loadData(callback: { [weak self] (success, result, context, error) in
+        self.model?.loadData(callback: { [weak self] (success, result, context, error) in
             
             self?.renderUI()
             })

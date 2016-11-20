@@ -1,8 +1,8 @@
 //
-//  TermsConditionsModel.swift
+//  MenuEntity.swift
 //  _BusinessAppSwift_
 //
-//  Created by Gytenis Mikulenas on 03/11/2016.
+//  Created by Gytenis Mikulenas on 20/11/16.
 //  Copyright © 2016 Gytenis Mikulėnas 
 //  https://github.com/GitTennis/SuccessFramework
 //
@@ -27,22 +27,25 @@
 
 import UIKit
 
-class TermsConditionsModel: BaseModel {
+protocol MenuEntityProtocol {
+    
+    var menuTitle: String {get set}
+    var viewController: UIViewController {get set}
+    var isPresentedModally: Bool {get set}
+    
+    init(title: String, viewController: UIViewController, isModal: Bool)
+}
 
-    var urlRequest: URLRequest?
+class MenuEntity: MenuEntityProtocol {
+
+    var menuTitle: String
+    var viewController: UIViewController
+    var isPresentedModally: Bool
     
-    override func willStartModelLoading(callback: @escaping Callback) {
+    required init(title: String, viewController: UIViewController, isModal: Bool) {
         
-        let operation = self.networkOperationFactory.termsConditionsNetworkOperation(context: nil)
-        
-        let urlString = operation.networkRequest.baseUrl! + operation.networkRequest.relativeUrl
-        self.urlRequest = URLRequest(url: URL.init(string: urlString)!)
-        
-        callback(true, self.urlRequest, nil, nil)
-    }
-    
-    override func didFinishModelLoading(data: Any?, error: ErrorEntity?) {
-        
-        // ...
+        self.menuTitle = title
+        self.viewController = viewController
+        self.isPresentedModally = isModal
     }
 }
