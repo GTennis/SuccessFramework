@@ -44,7 +44,7 @@ class BaseModel: ViewControllerModelProtocol {
         
         get {
             
-            return true
+            return _isLoaded
         }
     }
     
