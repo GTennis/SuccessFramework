@@ -48,7 +48,7 @@ class TermsConditionsViewController: BaseWebViewController {
         self.viewLoader?.showNavigationBar(viewController: self)
         
         // Log user behaviour
-        self.analyticsManager?.log(screenName: kAnalyticsManagerScreenTermsConditions)
+        self.analyticsManager?.log(screenName: kAnalyticsScreen.termsConditions)
     }
     
     override func viewWillDisappear(_ animated: Bool) {

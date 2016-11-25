@@ -34,16 +34,19 @@ import UIKit
 
 //---------- Screens -----------//
 
-let kAnalyticsManagerScreenHome = "Home"
-let kAnalyticsManagerScreenPhotoDetails = "PhotoDetails"
-let kAnalyticsManagerScreenTermsConditions = "TermsConditions"
-let kAnalyticsManagerScreenPrivacyPolicy = "PrivacyPolicy"
-let kAnalyticsManagerScreenUserLogin = "UserLogin"
-let kAnalyticsManagerScreenUserSignUp = "UserSignUp"
-let kAnalyticsManagerScreenUserForgotPassword = "UserForgotPassword"
-let kAnalyticsManagerScreenUserProfile = "UserProfile"
-let kAnalyticsManagerScreenSettings = "Settings"
-let kAnalyticsManagerScreenMap = "Map"
+struct kAnalyticsScreen {
+    
+    static let home = "Home"
+    static let photoDetails = "PhotoDetails"
+    static let termsConditions = "TermsConditions"
+    static let privacy = "Privacy"
+    static let userLogin = "UserLogin"
+    static let userSignUp = "UserSignUp"
+    static let forgotPassword = "UserForgotPassword"
+    static let UserProfile = "UserProfile"
+    static let Settings = "Settings"
+    static let Map = "Map"
+}
 
 // Define events and other custom things here ...
 // ...

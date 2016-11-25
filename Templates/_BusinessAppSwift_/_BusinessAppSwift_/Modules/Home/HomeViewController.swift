@@ -51,7 +51,7 @@ class HomeViewController: BaseViewController, UICollectionViewDataSource, UIColl
         super.viewWillAppear(animated)
         
         // Log user behaviour
-        self.analyticsManager?.log(screenName: kAnalyticsManagerScreenHome)
+        self.analyticsManager?.log(screenName: kAnalyticsScreen.home)
     }
     
     override func viewWillDisappear(_ animated: Bool) {

@@ -48,7 +48,7 @@ class PrivacyPolicyViewController: BaseWebViewController {
         self.viewLoader?.showNavigationBar(viewController: self)
         
         // Log user behaviour
-        self.analyticsManager?.log(screenName: kAnalyticsManagerScreenPrivacyPolicy)
+        self.analyticsManager?.log(screenName: kAnalyticsScreen.privacy)
     }
     
     override func viewWillDisappear(_ animated: Bool) {

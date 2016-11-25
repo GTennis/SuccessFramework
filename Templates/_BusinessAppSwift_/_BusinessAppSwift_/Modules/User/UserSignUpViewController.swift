@@ -84,7 +84,7 @@ class UserSignUpViewController: BaseTableViewController, CountryPickerViewContro
         super.viewWillAppear(animated)
         
         // Log user behaviour
-        self.analyticsManager?.log(screenName: kAnalyticsManagerScreenUserSignUp)
+        self.analyticsManager?.log(screenName: kAnalyticsScreen.userSignUp)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
