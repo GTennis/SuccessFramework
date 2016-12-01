@@ -69,6 +69,11 @@ class HomeViewController: BaseViewController, UICollectionViewDataSource, UIColl
         // ...
         //self.collectionView.register(HomeCell.self, forCellWithReuseIdentifier: HomeCell.reuseIdentifier)
         
+        self.viewLoader?.addRefreshControl(containerView: self.collectionView, callback: { [weak self] in
+            
+            self?.loadModel()
+            })
+        
         // Set title
         self.viewLoader?.setTitle(viewController: self, title: localizedString(key: kHomeViewControllerTitleKey))
     }

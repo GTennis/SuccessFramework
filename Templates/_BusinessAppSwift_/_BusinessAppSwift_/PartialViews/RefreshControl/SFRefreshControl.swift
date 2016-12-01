@@ -3,7 +3,7 @@
 //  _BusinessAppSwift_
 //
 //  Created by Gytenis Mikulenas on 06/11/16.
-//  Copyright © 2016 Gytenis Mikulėnas 
+//  Copyright © 2016 Gytenis Mikulėnas
 //  https://github.com/GitTennis/SuccessFramework
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -27,28 +27,28 @@
 
 import UIKit
 
-class SFRefreshControl: NSObject {
+class SFRefreshControl: UIRefreshControl {
     
-    var view: UIRefreshControl
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+    }
     
     required init(callback: @escaping SimpleCallback) {
         
         _callback = callback
-        view = UIRefreshControl()
         
         super.init()
         
-        view.addTarget(self, action: #selector(SFRefreshControl.didRefresh), for: UIControlEvents.valueChanged)
+        self.addTarget(self, action: #selector(SFRefreshControl.didRefresh), for: UIControlEvents.valueChanged)
     }
     
     required init(target: UIViewController, callbackSelector: Selector) {
         
         _selector = callbackSelector
-        view = UIRefreshControl()
         
         super.init()
         
-        view.addTarget(self, action: #selector(SFRefreshControl.didRefresh), for: UIControlEvents.valueChanged)
+        self.addTarget(self, action: #selector(SFRefreshControl.didRefresh), for: UIControlEvents.valueChanged)
     }
     
     // MARK:
@@ -60,6 +60,8 @@ class SFRefreshControl: NSObject {
     internal weak var _target: UIViewController?
     
     internal func didRefresh() {
+        
+        self.endRefreshing()
         
         if let callback = _callback {
             

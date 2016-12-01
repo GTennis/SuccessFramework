@@ -53,9 +53,12 @@ protocol ViewLoaderProtocol {
     
     // MARK: navigation bars
     func addDefaultNavigationBar(viewController: GenericViewControllerProtocol)->TopNavigationBar?
+    // Acts as status bar text color datasource for each controller
+    func statusBarStyle() -> UIStatusBarStyle
     func addDefaultModalNavigationBar(viewController: GenericViewControllerProtocol)->TopNavigationBarModal?
     func showNavigationBar(viewController: UIViewController)
     func hideNavigationBar(viewController: UIViewController)
+    func navigationBar(viewController: UIViewController)->BaseNavigationBar?
     func hasNavigationBar(viewController: UIViewController) -> Bool
     func setTitle(viewController: UIViewController, title: String)
 }

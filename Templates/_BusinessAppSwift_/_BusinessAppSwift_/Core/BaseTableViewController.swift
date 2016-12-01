@@ -51,7 +51,7 @@ class BaseTableViewController: UITableViewController, GenericViewControllerProto
     
     override func viewDidLoad() {
         
-        super.viewDidLoad();
+        super.viewDidLoad()
         
         // Add navigation bar
         if self.isModal() {
@@ -117,6 +117,13 @@ class BaseTableViewController: UITableViewController, GenericViewControllerProto
         super.didReceiveMemoryWarning()
         
         DDLogDebug(log: className(object: self) + ": didReceiveMemoryWarning")
+    }
+    
+    // MARK: StatusBar text style
+    
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        
+        return viewLoader!.statusBarStyle()
     }
     
     // MARK: GenericViewControllerProtocol

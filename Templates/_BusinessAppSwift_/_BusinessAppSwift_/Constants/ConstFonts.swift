@@ -35,6 +35,17 @@ let kFontBold = "Glockenspiel"
 let kFontNormalType = "FontNormal"
 let kFontNormal = "Glockenspiel"
 
+// How to add custom fonts: http://codewithchris.com/common-mistakes-with-adding-custom-fonts-to-your-ios-app/
+// How to find the name of added custom font: run this code in didFinishLaunching to find out all available fonts, including added custom ones:
+/*for family: String in UIFont.familyNames
+{
+    print("\(family)")
+    for names: String in UIFont.fontNames(forFamilyName: family)
+    {
+        print("== \(names)")
+    }
+}*/
+
 // Aliases for fontWithName: method
 func fontBoldWithSize(size: CGFloat)->UIFont {
     

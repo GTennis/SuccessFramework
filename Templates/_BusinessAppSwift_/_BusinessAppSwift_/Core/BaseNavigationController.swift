@@ -166,3 +166,15 @@ class BaseNavigationController: UINavigationController, GenericViewControllerPro
         // ...
     }
 }
+
+// This is needed for setting custom status bar text color
+extension UINavigationController {
+    
+    open override var preferredStatusBarStyle: UIStatusBarStyle {
+        
+        if let rootViewController = self.viewControllers.first {
+            return rootViewController.preferredStatusBarStyle
+        }
+        return super.preferredStatusBarStyle
+    }
+}

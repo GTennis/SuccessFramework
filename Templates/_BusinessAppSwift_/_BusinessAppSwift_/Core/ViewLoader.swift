@@ -116,12 +116,12 @@ class ViewLoader : ViewLoaderProtocol {
     
     func addRefreshControl(containerView: UIView, callback: @escaping SimpleCallback) {
         
-        let refreshControl: UIRefreshControl? = containerView.viewWithTag(kViewManagerRefreshControlTag) as! UIRefreshControl?
+        var refreshControl: SFRefreshControl? = containerView.viewWithTag(kViewManagerRefreshControlTag) as! SFRefreshControl?
         
         if refreshControl == nil {
             
-            let ctrl = SFRefreshControl.init(callback: callback)
-            containerView.addSubview(ctrl.view)
+            refreshControl = SFRefreshControl.init(callback:callback)
+            containerView.addSubview(refreshControl!)
         }
     }
     
@@ -251,7 +251,18 @@ class ViewLoader : ViewLoaderProtocol {
             navigationBar!.hideBackButton()
         }
         
+        // Set status bar bg color the same as navigation bar
+        let statusBarView: UIView? = UIApplication.shared.value(forKey: "statusBar") as? UIView
+        statusBarView?.backgroundColor = navigationBar?.backgroundColor
+        
+        // Return
         return navigationBar
+    }
+    
+    // Acts as status bar text color datasource for each controller
+    func statusBarStyle() -> UIStatusBarStyle {
+        
+        return .default//.lightContent
     }
     
     func addDefaultModalNavigationBar(viewController: GenericViewControllerProtocol)->TopNavigationBarModal? {
@@ -306,6 +317,24 @@ class ViewLoader : ViewLoaderProtocol {
         
         viewController.navigationController?.navigationBar.isTranslucent = true
         viewController.navigationController?.setNavigationBarHidden(true, animated: true)
+    }
+    
+    func navigationBar(viewController: UIViewController)->BaseNavigationBar? {
+        
+        var result: BaseNavigationBar?
+        
+        if let navCtrl = viewController.navigationController {
+            
+            for subView in navCtrl.navigationBar.subviews {
+                
+                if subView is BaseNavigationBar {
+                    
+                    result = subView as? BaseNavigationBar
+                }
+            }
+        }
+        
+        return result
     }
     
     func hasNavigationBar(viewController: UIViewController) -> Bool {
