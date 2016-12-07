@@ -355,7 +355,10 @@ class BaseTextField: JVFloatLabeledTextField, DataInputFormTextFieldProtocol {
         
         let originalString: String = "Text"
         let myString: NSString = originalString as NSString
-        let size: CGSize = myString.size(attributes: [NSFontAttributeName: self.font])
+        // Causes to crash with [_SwiftValue pointSize] unrecognized selector sent to instance
+        //let attributes = [NSFontAttributeName: self.font]
+        //let size: CGSize = myString.size(attributes: attributes)
+        let size: CGSize = myString.size(attributes: [NSFontAttributeName: UIFont.systemFont(ofSize: self.font!.pointSize)])
         
         let resultSize: CGSize = CGSize(width: size.width + self.insidePadding.left + self.insidePadding.right + self.outsidePadding.left + self.outsidePadding.right, height: size.height + self.insidePadding.top + self.insidePadding.bottom + self.outsidePadding.top + self.outsidePadding.bottom)
         
