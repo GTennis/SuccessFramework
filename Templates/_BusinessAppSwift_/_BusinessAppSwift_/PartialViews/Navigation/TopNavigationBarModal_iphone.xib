@@ -38,7 +38,7 @@
                         <action selector="cancelPressedWithSender:" destination="8im-w4-d6i" eventType="touchUpInside" id="c84-Pr-V49"/>
                     </connections>
                 </button>
-                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MAX-dP-846">
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MAX-dP-846" customClass="NormalLabel" customModule="_BusinessAppSwift_" customModuleProvider="target">
                     <constraints>
                         <constraint firstAttribute="height" constant="21" id="Out-j7-LLN"/>
                     </constraints>
@@ -61,8 +61,9 @@
             <connections>
                 <outlet property="backButton" destination="JXl-aW-VyJ" id="LxU-xo-iuf"/>
                 <outlet property="cancelButton" destination="0db-yh-iF2" id="hXs-uX-3IQ"/>
+                <outlet property="titleLabel" destination="MAX-dP-846" id="vzY-ts-1Ng"/>
             </connections>
-            <point key="canvasLocation" x="58" y="70"/>
+            <point key="canvasLocation" x="-198" y="50"/>
         </view>
     </objects>
     <resources>
