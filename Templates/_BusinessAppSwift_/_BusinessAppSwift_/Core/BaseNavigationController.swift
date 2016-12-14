@@ -122,36 +122,6 @@ class BaseNavigationController: UINavigationController, GenericViewControllerPro
         self.renderUI()
     }
     
-    // MARK: Rotation
-    // http://stackoverflow.com/a/31073949
-    
-    override open var shouldAutorotate: Bool {
-        get {
-            if let visibleVC = visibleViewController {
-                return visibleVC.shouldAutorotate
-            }
-            return super.shouldAutorotate
-        }
-    }
-    
-    override open var preferredInterfaceOrientationForPresentation: UIInterfaceOrientation{
-        get {
-            if let visibleVC = visibleViewController {
-                return visibleVC.preferredInterfaceOrientationForPresentation
-            }
-            return super.preferredInterfaceOrientationForPresentation
-        }
-    }
-    
-    override open var supportedInterfaceOrientations: UIInterfaceOrientationMask{
-        get {
-            if let visibleVC = visibleViewController {
-                return visibleVC.supportedInterfaceOrientations
-            }
-            return super.supportedInterfaceOrientations
-        }
-    }
-    
     // MARK: ViewControllerModelDelegate
     
     func modelHasChangedWithData(data: Any?, context: Any?) {
@@ -164,17 +134,5 @@ class BaseNavigationController: UINavigationController, GenericViewControllerPro
         
         // Override
         // ...
-    }
-}
-
-// This is needed for setting custom status bar text color
-extension UINavigationController {
-    
-    open override var preferredStatusBarStyle: UIStatusBarStyle {
-        
-        if let rootViewController = self.viewControllers.first {
-            return rootViewController.preferredStatusBarStyle
-        }
-        return super.preferredStatusBarStyle
     }
 }

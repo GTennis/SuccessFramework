@@ -1,8 +1,8 @@
 //
-//  BaseTabBarController.swift
+//  BaseNavigationController+StatusBar.swift
 //  _BusinessAppSwift_
 //
-//  Created by Gytenis Mikulenas on 06/11/16.
+//  Created by Gytenis Mikulenas on 14/12/16.
 //  Copyright © 2016 Gytenis Mikulėnas 
 //  https://github.com/GitTennis/SuccessFramework
 //
@@ -27,7 +27,25 @@
 
 import UIKit
 
-class BaseTabBarController: UITabBarController {
+extension BaseNavigationController {
 
-    // ...
+    open override var preferredStatusBarStyle: UIStatusBarStyle {
+        
+        if let rootViewController = self.viewControllers.first {
+            return rootViewController.preferredStatusBarStyle
+        }
+        return super.preferredStatusBarStyle
+    }
+}
+
+// This is needed for setting custom status bar text color
+extension UINavigationController {
+    
+    open override var preferredStatusBarStyle: UIStatusBarStyle {
+        
+        if let rootViewController = self.viewControllers.first {
+            return rootViewController.preferredStatusBarStyle
+        }
+        return super.preferredStatusBarStyle
+    }
 }

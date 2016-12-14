@@ -1,8 +1,8 @@
 //
-//  BaseTabBarController.swift
+//  BaseViewController+StatusBar.swift
 //  _BusinessAppSwift_
 //
-//  Created by Gytenis Mikulenas on 06/11/16.
+//  Created by Gytenis Mikulenas on 14/12/16.
 //  Copyright © 2016 Gytenis Mikulėnas 
 //  https://github.com/GitTennis/SuccessFramework
 //
@@ -27,7 +27,10 @@
 
 import UIKit
 
-class BaseTabBarController: UITabBarController {
+extension BaseViewController {
 
-    // ...
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        
+        return viewLoader!.statusBarStyle()
+    }
 }

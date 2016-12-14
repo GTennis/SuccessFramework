@@ -115,13 +115,6 @@ class BaseViewController: UIViewController, GenericViewControllerProtocol {
         DDLogDebug(log: className(object: self) + ": didReceiveMemoryWarning")
     }
     
-    // MARK: StatusBar text style
-    
-    override var preferredStatusBarStyle: UIStatusBarStyle {
-        
-        return viewLoader!.statusBarStyle()
-    }
-    
     // MARK: GenericViewControllerProtocol
     
     func prepareUI() {
@@ -137,42 +130,6 @@ class BaseViewController: UIViewController, GenericViewControllerProtocol {
     func loadModel() {
         
         self.renderUI()
-    }
-    
-    // MARK: Rotation
-    
-    override var shouldAutorotate: Bool {
-        
-        return false
-    }
-    
-    // This method is needed when we support several orientations but screen looks best for one particular rotation. This is good when need to present screen in specific exceptional orientation. However, in our partical case we don't have and it causes screens to flip upside when app launched in not prefered orientation.
-    /*func preferredInterfaceOrientationForPresentation() -> UIInterfaceOrientation {
-     
-     if (isIpad) {
-     
-     return UIInterfaceOrientation.landscapeLeft
-     
-     } else if (isIphone) {
-     
-     return UIInterfaceOrientation.portrait
-     }
-     }*/
-    
-    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
-        
-        if (isIpad) {
-            
-            return [UIInterfaceOrientationMask.landscapeRight, UIInterfaceOrientationMask.landscapeLeft]
-            
-        } else if (isIphone) {
-            
-            return [UIInterfaceOrientationMask.landscapeRight, UIInterfaceOrientationMask.landscapeLeft]
-            
-        } else {
-            
-            return UIInterfaceOrientationMask.portrait
-        }
     }
     
     // MARK: ViewControllerModelDelegate

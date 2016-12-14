@@ -26,6 +26,14 @@
 		0F129D011DBC13DE0068F292 /* BaseNetworkOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F129D001DBC13DE0068F292 /* BaseNetworkOperation.swift */; };
 		0F129D091DBC249F0068F292 /* NormalLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F129D081DBC249F0068F292 /* NormalLabel.swift */; };
 		0F129D0B1DBC25620068F292 /* BaseNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F129D0A1DBC25620068F292 /* BaseNavigationBar.swift */; };
+		0F1789C81E01E33D00C15349 /* UIAlertController+Rotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F1789C71E01E33D00C15349 /* UIAlertController+Rotation.swift */; };
+		0F1789CA1E01E36200C15349 /* BaseViewController+Rotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F1789C91E01E36200C15349 /* BaseViewController+Rotation.swift */; };
+		0F1789CC1E01E3B000C15349 /* BaseTableViewController+Rotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F1789CB1E01E3B000C15349 /* BaseTableViewController+Rotation.swift */; };
+		0F1789CE1E01E3E700C15349 /* BaseNavigationController+Rotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F1789CD1E01E3E700C15349 /* BaseNavigationController+Rotation.swift */; };
+		0F1789D01E01E41000C15349 /* BaseTabBarController+Rotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F1789CF1E01E41000C15349 /* BaseTabBarController+Rotation.swift */; };
+		0F1789D31E01E46300C15349 /* BaseViewController+StatusBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F1789D21E01E46300C15349 /* BaseViewController+StatusBar.swift */; };
+		0F1789D51E01E49100C15349 /* BaseTableViewController+StatusBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F1789D41E01E49100C15349 /* BaseTableViewController+StatusBar.swift */; };
+		0F1789D71E01E4D000C15349 /* BaseNavigationController+StatusBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F1789D61E01E4D000C15349 /* BaseNavigationController+StatusBar.swift */; };
 		0F4094FD1DD71ED5000F14B0 /* GenericCellProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F4094FC1DD71ED5000F14B0 /* GenericCellProtocol.swift */; };
 		0F4094FF1DD71F94000F14B0 /* HomeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F4094FE1DD71F94000F14B0 /* HomeCell.swift */; };
 		0F4095011DD720EE000F14B0 /* HomeCell_iphone.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F4095001DD720EE000F14B0 /* HomeCell_iphone.swift */; };
@@ -308,6 +316,14 @@
 		0F129D001DBC13DE0068F292 /* BaseNetworkOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseNetworkOperation.swift; sourceTree = "<group>"; };
 		0F129D081DBC249F0068F292 /* NormalLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NormalLabel.swift; sourceTree = "<group>"; };
 		0F129D0A1DBC25620068F292 /* BaseNavigationBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseNavigationBar.swift; sourceTree = "<group>"; };
+		0F1789C71E01E33D00C15349 /* UIAlertController+Rotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIAlertController+Rotation.swift"; sourceTree = "<group>"; };
+		0F1789C91E01E36200C15349 /* BaseViewController+Rotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "BaseViewController+Rotation.swift"; sourceTree = "<group>"; };
+		0F1789CB1E01E3B000C15349 /* BaseTableViewController+Rotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "BaseTableViewController+Rotation.swift"; sourceTree = "<group>"; };
+		0F1789CD1E01E3E700C15349 /* BaseNavigationController+Rotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "BaseNavigationController+Rotation.swift"; sourceTree = "<group>"; };
+		0F1789CF1E01E41000C15349 /* BaseTabBarController+Rotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "BaseTabBarController+Rotation.swift"; sourceTree = "<group>"; };
+		0F1789D21E01E46300C15349 /* BaseViewController+StatusBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "BaseViewController+StatusBar.swift"; sourceTree = "<group>"; };
+		0F1789D41E01E49100C15349 /* BaseTableViewController+StatusBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "BaseTableViewController+StatusBar.swift"; sourceTree = "<group>"; };
+		0F1789D61E01E4D000C15349 /* BaseNavigationController+StatusBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "BaseNavigationController+StatusBar.swift"; sourceTree = "<group>"; };
 		0F4094FC1DD71ED5000F14B0 /* GenericCellProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GenericCellProtocol.swift; sourceTree = "<group>"; };
 		0F4094FE1DD71F94000F14B0 /* HomeCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeCell.swift; sourceTree = "<group>"; };
 		0F4095001DD720EE000F14B0 /* HomeCell_iphone.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeCell_iphone.swift; sourceTree = "<group>"; };
@@ -715,6 +731,28 @@
 				0F129D081DBC249F0068F292 /* NormalLabel.swift */,
 			);
 			path = Labels;
+			sourceTree = "<group>";
+		};
+		0F1789C61E01E32700C15349 /* Rotation */ = {
+			isa = PBXGroup;
+			children = (
+				0F1789C71E01E33D00C15349 /* UIAlertController+Rotation.swift */,
+				0F1789C91E01E36200C15349 /* BaseViewController+Rotation.swift */,
+				0F1789CB1E01E3B000C15349 /* BaseTableViewController+Rotation.swift */,
+				0F1789CD1E01E3E700C15349 /* BaseNavigationController+Rotation.swift */,
+				0F1789CF1E01E41000C15349 /* BaseTabBarController+Rotation.swift */,
+			);
+			name = Rotation;
+			sourceTree = "<group>";
+		};
+		0F1789D11E01E43400C15349 /* StatusBar */ = {
+			isa = PBXGroup;
+			children = (
+				0F1789D21E01E46300C15349 /* BaseViewController+StatusBar.swift */,
+				0F1789D41E01E49100C15349 /* BaseTableViewController+StatusBar.swift */,
+				0F1789D61E01E4D000C15349 /* BaseNavigationController+StatusBar.swift */,
+			);
+			name = StatusBar;
 			sourceTree = "<group>";
 		};
 		0F4094FB1DD71EB9000F14B0 /* Cells */ = {
@@ -1686,6 +1724,8 @@
 		39A0B1401DBE659800DD1EB7 /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				0F1789D11E01E43400C15349 /* StatusBar */,
+				0F1789C61E01E32700C15349 /* Rotation */,
 				0F6CF4B51DCF17450016A57F /* Base */,
 				39A0B1411DBE65DB00DD1EB7 /* ViewControllerModel */,
 				3942039C1DC0D553000D58EE /* ViewLoader */,
@@ -2531,10 +2571,13 @@
 				397378D91DB661F300B817BC /* NetworkOperationFactoryProtocol.swift in Sources */,
 				0F6C158A1DBCBBAD00169C13 /* ContactModel.swift in Sources */,
 				39D8568D1DB9FF960062041F /* ImageListNetworkOperation.swift in Sources */,
+				0F1789D31E01E46300C15349 /* BaseViewController+StatusBar.swift in Sources */,
 				0F091CC51DCBCE6F001F69E9 /* CustomLabelProtocol.swift in Sources */,
 				0F4BB90C1DCF8D6C00A911EF /* MenuViewController.swift in Sources */,
+				0F1789D51E01E49100C15349 /* BaseTableViewController+StatusBar.swift in Sources */,
 				0F6CF4BD1DCF1CD00016A57F /* BaseTableViewController.swift in Sources */,
 				0F4BB90E1DCF8D7A00A911EF /* MenuViewController_iphone.swift in Sources */,
+				0F1789CC1E01E3B000C15349 /* BaseTableViewController+Rotation.swift in Sources */,
 				0F5B71081DC6537C0094DA0F /* UserSignUpViewController_iphone.swift in Sources */,
 				39ABE7271DCB47C7003D80ED /* TableWithSearchModel.swift in Sources */,
 				397378C61DB6608500B817BC /* MessageBarManagerProtocol.swift in Sources */,
@@ -2573,6 +2616,7 @@
 				0F4BB9041DCF3CC500A911EF /* BaseTabBarController.swift in Sources */,
 				394203A01DC0D567000D58EE /* ViewLoaderProtocol.swift in Sources */,
 				0FF09BE51D7EE56F00DBBF46 /* ViewControllerFactoryProtocol.swift in Sources */,
+				0F1789D01E01E41000C15349 /* BaseTabBarController+Rotation.swift in Sources */,
 				399AB9071DB8EE09004467F2 /* NetworkOperationProtocol.swift in Sources */,
 				39A0B1531DBE6B4200DD1EB7 /* HomeViewController.swift in Sources */,
 				39ABE70D1DCB4570003D80ED /* TermsConditionsViewController_iphone.swift in Sources */,
@@ -2665,6 +2709,7 @@
 				0F091CD11DCBDF1E001F69E9 /* SFSearchBar.swift in Sources */,
 				397378C31DB6603600B817BC /* CrashManagerProtocol.swift in Sources */,
 				397378E91DB672E000B817BC /* SocialManager.swift in Sources */,
+				0F1789CE1E01E3E700C15349 /* BaseNavigationController+Rotation.swift in Sources */,
 				0F6C15A41DBD2D5D00169C13 /* TopNavigationBarModal_iphone.swift in Sources */,
 				39ABE7191DCB468B003D80ED /* TableViewExampleViewController.swift in Sources */,
 				39ABE7151DCB45B8003D80ED /* PrivacyPolicyViewController_iphone.swift in Sources */,
@@ -2691,6 +2736,7 @@
 				39D856921DB9FFF70062041F /* TermsConditionsNetworkOperation.swift in Sources */,
 				0F6CF4B71DCF17580016A57F /* BaseViewController.swift in Sources */,
 				39ABE7071DCB452E003D80ED /* SettingsModel.swift in Sources */,
+				0F1789D71E01E4D000C15349 /* BaseNavigationController+StatusBar.swift in Sources */,
 				39ABE6FD1DCB44C2003D80ED /* PhotoDetailsViewController_iphone.swift in Sources */,
 				397378DB1DB6634400B817BC /* ConstBlocks.swift in Sources */,
 				0F6CF4BB1DCF1A8F0016A57F /* BaseNavigationController.swift in Sources */,
@@ -2719,6 +2765,8 @@
 				39DAB3441DC7767C00420AFC /* ManagerFactoryProtocol.swift in Sources */,
 				3942039F1DC0D567000D58EE /* ViewLoader.swift in Sources */,
 				39ABE7411DCB4A77003D80ED /* UserResetPasswordViewController_iphone.swift in Sources */,
+				0F1789CA1E01E36200C15349 /* BaseViewController+Rotation.swift in Sources */,
+				0F1789C81E01E33D00C15349 /* UIAlertController+Rotation.swift in Sources */,
 				0F6C15981DBCCAB000169C13 /* PhoneCallCommand.swift in Sources */,
 				0FF09BDF1D7EE44300DBBF46 /* LaunchViewController.swift in Sources */,
 				0FBACC061DE2356A0098C340 /* NSDate+Common.m in Sources */,

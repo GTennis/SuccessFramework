@@ -1,8 +1,8 @@
 //
-//  BaseTabBarController.swift
+//  UIAlertController+Rotation.swift
 //  _BusinessAppSwift_
 //
-//  Created by Gytenis Mikulenas on 06/11/16.
+//  Created by Gytenis Mikulenas on 14/12/16.
 //  Copyright © 2016 Gytenis Mikulėnas 
 //  https://github.com/GitTennis/SuccessFramework
 //
@@ -27,7 +27,26 @@
 
 import UIKit
 
-class BaseTabBarController: UITabBarController {
-
-    // ...
+extension UIAlertController {
+    
+    override open var shouldAutorotate: Bool {
+        
+        return true
+    }
+    
+    override open var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+        
+        if (isIpad) {
+            
+            return [UIInterfaceOrientationMask.landscapeRight, UIInterfaceOrientationMask.landscapeLeft]
+            
+        } else if (isIphone) {
+            
+            return [UIInterfaceOrientationMask.portrait, UIInterfaceOrientationMask.portraitUpsideDown]
+            
+        } else {
+            
+            return UIInterfaceOrientationMask.portrait
+        }
+    }
 }
