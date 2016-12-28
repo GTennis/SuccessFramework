@@ -31,7 +31,7 @@ protocol TopNavigationBarModalDelegate {
     
     func didPressedCancelModal()
     func didPressedBackModal()
-    
+    func didPressedRightModal()
 }
 
 class TopNavigationBarModal: BaseNavigationBar {
@@ -39,6 +39,7 @@ class TopNavigationBarModal: BaseNavigationBar {
     var delegate: TopNavigationBarModalDelegate?
     
     @IBOutlet weak var cancelButton: UIButton?
+    @IBOutlet weak var rightButton: UIButton?
     
     func showCancelButton() {
         
@@ -64,10 +65,16 @@ class TopNavigationBarModal: BaseNavigationBar {
         self.delegate?.didPressedCancelModal()
     }
     
+    @IBAction func rightPressed(sender: UIButton) {
+        
+        self.delegate?.didPressedRightModal()
+    }
+    
     override func commonInit() {
         
         super.commonInit()
         
         self.cancelButton?.setTitle(localizedString(key: kCancelKey), for: UIControlState.normal)
+        self.rightButton?.setTitle(localizedString(key: kDeleteKey), for: UIControlState.normal)
     }
 }

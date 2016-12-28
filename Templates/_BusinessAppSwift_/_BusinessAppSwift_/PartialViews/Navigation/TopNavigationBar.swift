@@ -29,16 +29,15 @@ import UIKit
 
 protocol TopNavigationBarDelegate {
     
-    func didPressedContacts()
     func didPressedBack()
+    func didPressedRight()
 }
 
 class TopNavigationBar: BaseNavigationBar {
     
     var delegate: TopNavigationBarDelegate?
-        
-    @IBOutlet weak var contactButton: UIButton?
-    
+    @IBOutlet weak var rightButton: UIButton?
+            
     // MARK: IBActions
     
     @IBAction func backPressed(sender: UIButton) {
@@ -46,8 +45,15 @@ class TopNavigationBar: BaseNavigationBar {
         self.delegate?.didPressedBack()
     }
     
-    @IBAction func contactPressed(sender: UIButton) {
+    @IBAction func rightPressed(sender: UIButton) {
         
-        self.delegate?.didPressedContacts()
+        self.delegate?.didPressedRight()
+    }
+    
+    override func commonInit() {
+        
+        super.commonInit()
+        
+        self.rightButton?.setTitle("", for: UIControlState.normal)
     }
 }

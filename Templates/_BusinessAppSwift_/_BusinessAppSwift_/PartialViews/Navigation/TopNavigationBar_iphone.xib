@@ -32,32 +32,36 @@
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="infoLight" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VAd-8e-UHf" userLabel="Contact">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VAd-8e-UHf" userLabel="RightButton">
+                    <constraints>
+                        <constraint firstAttribute="width" constant="53" id="0HW-To-WyT"/>
+                    </constraints>
                     <state key="normal">
                         <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </state>
                     <connections>
-                        <action selector="contactPressedWithSender:" destination="riP-OY-PwU" eventType="touchUpInside" id="N1i-V9-K1g"/>
+                        <action selector="rightPressedWithSender:" destination="riP-OY-PwU" eventType="touchUpInside" id="3gz-YQ-D2f"/>
                     </connections>
                 </button>
             </subviews>
             <constraints>
                 <constraint firstItem="zMT-Mp-FZv" firstAttribute="leading" secondItem="riP-OY-PwU" secondAttribute="leading" constant="48" id="4iv-No-6e9"/>
                 <constraint firstItem="pmo-i2-gpg" firstAttribute="leading" secondItem="riP-OY-PwU" secondAttribute="leading" id="5zc-pL-s7g"/>
-                <constraint firstAttribute="trailing" secondItem="VAd-8e-UHf" secondAttribute="trailing" constant="7" id="KMZ-zQ-8fr"/>
-                <constraint firstAttribute="trailing" secondItem="zMT-Mp-FZv" secondAttribute="trailing" constant="37" id="Wdh-0V-dKF"/>
-                <constraint firstAttribute="centerY" secondItem="VAd-8e-UHf" secondAttribute="centerY" id="Yo9-pI-TbR"/>
+                <constraint firstItem="VAd-8e-UHf" firstAttribute="leading" secondItem="zMT-Mp-FZv" secondAttribute="trailing" id="6uq-e0-TXV"/>
+                <constraint firstAttribute="trailing" secondItem="VAd-8e-UHf" secondAttribute="trailing" id="Ro3-aC-jfh"/>
                 <constraint firstItem="pmo-i2-gpg" firstAttribute="top" secondItem="riP-OY-PwU" secondAttribute="top" id="aXb-46-cja"/>
+                <constraint firstAttribute="bottom" secondItem="VAd-8e-UHf" secondAttribute="bottom" id="ceP-EY-dIF"/>
                 <constraint firstAttribute="centerY" secondItem="zMT-Mp-FZv" secondAttribute="centerY" id="uyG-gX-gkm"/>
+                <constraint firstItem="VAd-8e-UHf" firstAttribute="top" secondItem="riP-OY-PwU" secondAttribute="top" id="yj1-jG-Tek"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
                 <outlet property="backButton" destination="pmo-i2-gpg" id="0jK-Qn-V5M"/>
-                <outlet property="contactButton" destination="VAd-8e-UHf" id="mzD-Tj-qeq"/>
+                <outlet property="rightButton" destination="VAd-8e-UHf" id="F3N-Qh-Qia"/>
                 <outlet property="titleLabel" destination="zMT-Mp-FZv" id="hwH-A3-39z"/>
             </connections>
-            <point key="canvasLocation" x="-116" y="55"/>
+            <point key="canvasLocation" x="-327" y="153"/>
         </view>
     </objects>
     <resources>

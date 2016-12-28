@@ -154,13 +154,20 @@ extension GenericViewControllerProtocol {
         topModalNavigationBar.showCancelButton()
     }
     
+    func didPressedRightModal() {
+        
+        //let vc = self as! ActivityDetailsViewController
+        
+        //vc.deletePressed()
+    }
+    
     // MARK: TopNavigationBarDelegate
     
-    func didPressedContacts() {
+    func didPressedRight() {
         
-        let contactVC: UIViewController = (self.viewControllerFactory?.contactViewController(context: nil))!
+        let vc: UIViewController = (self.viewControllerFactory?.contactViewController(context: nil))!
         
-        self.presentModal(viewController:contactVC, animated: true)
+        self.presentModal(viewController:vc, animated: true)
     }
     
     internal func didPressedBack() {
