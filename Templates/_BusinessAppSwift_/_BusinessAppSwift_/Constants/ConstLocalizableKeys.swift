@@ -30,11 +30,19 @@ import UIKit
 //  Define only the very global strings here. Otherwise each component should encapsulate all related inner logic (including strings and keys) inside their implementation or header files
 //
 
-let kEmptyString = ""
-
-let kCancelKey = "Cancel"
-let kOkKey = "Ok"
-let kDoneKey = "Done"
-let kBackKey = "Back"
-let kDeleteKey = "Delete"
-let kEmptyListMessageKey = "EmptyListMessage"
+struct ConstLangKeys {
+    
+    static let langEnglish = "en"
+    static let langGerman = "de"
+    
+    static let emptyString = ""
+    
+    static let cancel = "Cancel"
+    static let ok = "Ok"
+    static let done = "Done"
+    static let back = "Back"
+    static let add = "Add"
+    static let update = "Update"
+    static let delete = "Delete"
+    static let emptyListMessage = "EmptyListMessage"
+}

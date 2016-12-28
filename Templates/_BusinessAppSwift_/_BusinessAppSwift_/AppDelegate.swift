@@ -586,7 +586,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         
         if let language = settingsManager.language {
             
-            if (language != kLanguageEnglish && language != kLanguageGerman){
+            if (language != ConstLangKeys.langEnglish && language != ConstLangKeys.langGerman){
                 
                 settingsManager.setLanguageGerman()
             }

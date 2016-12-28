@@ -71,11 +71,11 @@ extension Date {
         
         var newLocale: String?
         
-        if (language.isEqual(kLanguageEnglish)) {
+        if (language.isEqual(ConstLangKeys.langEnglish)) {
             
             newLocale = kLocaleEnglish
             
-        } else if (language.isEqual(kLanguageGerman)) {
+        } else if (language.isEqual(ConstLangKeys.langGerman)) {
             
             newLocale = kLocaleGerman
             

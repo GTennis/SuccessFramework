@@ -74,7 +74,7 @@ class TopNavigationBarModal: BaseNavigationBar {
         
         super.commonInit()
         
-        self.cancelButton?.setTitle(localizedString(key: kCancelKey), for: UIControlState.normal)
-        self.rightButton?.setTitle(localizedString(key: kDeleteKey), for: UIControlState.normal)
+        self.cancelButton?.setTitle(localizedString(key: ConstLangKeys.cancel), for: UIControlState.normal)
+        self.rightButton?.setTitle(localizedString(key: ConstLangKeys.delete), for: UIControlState.normal)
     }
 }

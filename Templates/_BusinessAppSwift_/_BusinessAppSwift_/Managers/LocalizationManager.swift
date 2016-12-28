@@ -85,7 +85,7 @@ class LocalizationManager: /*NSObject,*/ LocalizationManagerProtocol {
     // Just gets the current setted up language
     func getLanguage() -> String {
         
-        var result: String = kLanguageEnglish
+        var result: String = ConstLangKeys.langEnglish
         
         if let languages = UserDefaults.standard.value(forKey: "AppleLanguages") as? Array<String> {
             

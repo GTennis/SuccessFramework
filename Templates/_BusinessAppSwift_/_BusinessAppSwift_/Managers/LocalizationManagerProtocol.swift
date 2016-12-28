@@ -27,9 +27,6 @@
 
 import UIKit
 
-let kLanguageEnglish = "en"
-let kLanguageGerman = "de"
-
 protocol LocalizationManagerProtocol {
 
     // Strings

@@ -270,7 +270,7 @@ class UserSignUpViewController: BaseTableViewController, CountryPickerViewContro
         
         // Setup keyboard controls
         let textFields: Array<UITextInput> = [self.salutationTextField, self.firstNameTextField, self.lastNameTextField, self.addressTextField, self.addressOptionalTextField, self.countryCodeTextField, self.stateCodeTextField, self.cityTextField, self.zipCodeTextField, self.phoneTextField, self.emailTextField, self.passwordTextField];
-        self.keyboardControls = self.newKeyboardControls(fields: textFields, actionTitle: localizedString(key: kDoneKey))
+        self.keyboardControls = self.newKeyboardControls(fields: textFields, actionTitle: localizedString(key: ConstLangKeys.done))
     }
     
     internal func setupTappablePrivacyAndTermsTextView() {

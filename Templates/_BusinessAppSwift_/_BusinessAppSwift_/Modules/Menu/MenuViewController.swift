@@ -180,11 +180,11 @@ class MenuViewController: BaseViewController, UITableViewDataSource, UITableView
     
     @IBAction func logoutPressed(_ sender: AnyObject) {
         
-        self.messageBarManager?.showAlertOkWithTitle(title: nil, description: localizedString(key: kMenuModelMenuItemLogoutConfirmationMessageKey), okTitle: localizedString(key: kOkKey), okCallback: { [weak self] in
+        self.messageBarManager?.showAlertOkWithTitle(title: nil, description: localizedString(key: kMenuModelMenuItemLogoutConfirmationMessageKey), okTitle: localizedString(key: ConstLangKeys.ok), okCallback: { [weak self] in
             
                 self?.logoutAndGoBackToAppStart(error: nil)
             
-            }, cancelTitle: localizedString(key: kCancelKey), cancelCallback: nil)
+            }, cancelTitle: localizedString(key: ConstLangKeys.cancel), cancelCallback: nil)
     }
     
     // MARK:

@@ -101,14 +101,14 @@ class SettingsManager: SettingsManagerProtocol {
     
     func setLanguageEnglish() {
         
-        self._localizationManager.setLanguage(lang: kLanguageEnglish)
-        Date.setLocale(language: kLanguageEnglish)
+        self._localizationManager.setLanguage(lang: ConstLangKeys.langEnglish)
+        Date.setLocale(language: ConstLangKeys.langEnglish)
     }
     
     func setLanguageGerman() {
         
-        self._localizationManager.setLanguage(lang: kLanguageGerman)
-        Date.setLocale(language: kLanguageGerman)
+        self._localizationManager.setLanguage(lang: ConstLangKeys.langGerman)
+        Date.setLocale(language: ConstLangKeys.langGerman)
     }
     
     var isGrantedNotificationAccess: Bool {
@@ -146,7 +146,7 @@ class SettingsManager: SettingsManagerProtocol {
         
         let currentLanguage: String = self._localizationManager.getLanguage()
         
-        if (!currentLanguage.isEqual(kLanguageEnglish) && !currentLanguage.isEqual(kLanguageGerman)) {
+        if (!currentLanguage.isEqual(ConstLangKeys.langEnglish) && !currentLanguage.isEqual(ConstLangKeys.langGerman)) {
             
             self.setLanguageEnglish()
         }

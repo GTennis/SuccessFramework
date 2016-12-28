@@ -161,7 +161,7 @@ class KeyboardControl: NSObject, KeyboardControlProtocol {
         toolbar.isTranslucent = false
         //toolbar.barTintColor = kColorGrayLight2;
         toolbar.barStyle = UIBarStyle.default
-        let cancelButton: UIBarButtonItem = UIBarButtonItem(title: localizedString(key: kCancelKey), style: UIBarButtonItemStyle.plain, target: self, action: #selector(KeyboardControl.toolbarCancelPressed))
+        let cancelButton: UIBarButtonItem = UIBarButtonItem(title: localizedString(key: ConstLangKeys.cancel), style: UIBarButtonItemStyle.plain, target: self, action: #selector(KeyboardControl.toolbarCancelPressed))
         cancelButton.accessibilityLabel = "keyboardToolbarCancelButton"
         cancelButton.setTitleTextAttributes([NSForegroundColorAttributeName:kColorGrayDark], for: UIControlState.normal)
         
