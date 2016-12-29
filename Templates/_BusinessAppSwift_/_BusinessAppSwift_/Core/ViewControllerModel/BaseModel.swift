@@ -77,7 +77,11 @@ class BaseModel: ViewControllerModelProtocol {
             
             self?.didFinishModelLoading(data: result, error: error)
             
-            callback(success, result, context, error);
+            // This fixed a problem when tableView.reloadData() was not to reloading, even if it was main thread
+            DispatchQueue.main.async{
+                
+                callback(success, result, context, error)
+            }
         }
         
         DDLogDebug(log: className(object: self) + ": willStartModelLoading")
