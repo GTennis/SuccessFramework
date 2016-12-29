@@ -40,13 +40,13 @@ protocol GenericViewControllerProtocol: class, ReachabilityManagerObserver, Loca
     var reachabilityManager: ReachabilityManagerProtocol? {get set}
     var localizationManager: LocalizationManagerProtocol? {get set}
     var userManager: UserManagerProtocol? {get set}
-        
+    
     // MARK: Common module loading flow
     
     func prepareUI()
     func renderUI()
     func loadModel()
-        
+    
     // MARK: Logout
     func logoutAndGoBackToAppStart(error: ErrorEntity?)
     
@@ -120,9 +120,13 @@ extension GenericViewControllerProtocol {
     func dismissModalViewController(animated: Bool) {
         
         let vc = self as! UIViewController
-        vc.presentingViewController?.dismiss(animated: animated, completion: {
-            //...
+        vc.dismiss(animated: true, completion: {
+            
+            //
         })
+        /*vc.presentingViewController?.dismiss(animated: animated, completion: {
+         //...
+         })*/
     }
     
     // MARK: Logout
@@ -142,8 +146,7 @@ extension GenericViewControllerProtocol {
     
     func didPressedCancelModal() {
         
-        let vc = self as! UIViewController
-        vc.dismiss(animated: true, completion: nil)
+        self.dismissModalViewController(animated: true)
     }
     
     func didPressedBackModal() {
@@ -165,9 +168,9 @@ extension GenericViewControllerProtocol {
     
     func didPressedRight() {
         
-        let vc: UIViewController = (self.viewControllerFactory?.contactViewController(context: nil))!
+        //let vc: UIViewController = (self.viewControllerFactory?.activityDetailsViewController(context: nil))!
         
-        self.presentModal(viewController:vc, animated: true)
+        //self.presentModal(viewController:vc, animated: true)
     }
     
     internal func didPressedBack() {
