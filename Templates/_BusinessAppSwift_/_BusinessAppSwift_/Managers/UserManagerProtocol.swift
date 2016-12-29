@@ -49,7 +49,7 @@ protocol UserManagerProtocol {
     func logout(callback: @escaping Callback)
     
     // State observers
-    func addServiceObserver(observer: UserManagerObserver, notificationType: UserManagerNotificationType, callback: @escaping Callback, context: Any?)
-    func removeServiceObserver(observer: UserManagerObserver, notificationType: UserManagerNotificationType)
-    func removeServiceObserver(observer: UserManagerObserver) // Removes all entries
+    func addServiceObserver(observer: AnyObject, notificationType: UserManagerNotificationType, callback: @escaping Callback, context: Any?)
+    func removeServiceObserver(observer: AnyObject, notificationType: UserManagerNotificationType)
+    func removeServiceObserver(observer: AnyObject) // Removes all entries
 }

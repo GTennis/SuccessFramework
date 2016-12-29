@@ -125,6 +125,8 @@
 		0FBACC001DE203B80098C340 /* MenuEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FBACBFF1DE203B80098C340 /* MenuEntity.swift */; };
 		0FBACC051DE2356A0098C340 /* CALayer+Border.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FBACC021DE2356A0098C340 /* CALayer+Border.m */; };
 		0FBACC061DE2356A0098C340 /* NSDate+Common.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FBACC041DE2356A0098C340 /* NSDate+Common.m */; };
+		0FDB86031E157B10000BDA8A /* Array+Grouping.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FDB86021E157B10000BDA8A /* Array+Grouping.swift */; };
+		0FDB86061E157B71000BDA8A /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FDB86051E157B71000BDA8A /* CoreDataStack.swift */; };
 		0FF09BB71D7EBDAE00DBBF46 /* 1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0FF09BB21D7EBDAE00DBBF46 /* 1.jpg */; };
 		0FF09BB81D7EBDAE00DBBF46 /* 2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0FF09BB31D7EBDAE00DBBF46 /* 2.jpg */; };
 		0FF09BB91D7EBDAE00DBBF46 /* 3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0FF09BB41D7EBDAE00DBBF46 /* 3.jpg */; };
@@ -430,6 +432,8 @@
 		0FBACC021DE2356A0098C340 /* CALayer+Border.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CALayer+Border.m"; sourceTree = "<group>"; };
 		0FBACC031DE2356A0098C340 /* NSDate+Common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+Common.h"; sourceTree = "<group>"; };
 		0FBACC041DE2356A0098C340 /* NSDate+Common.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+Common.m"; sourceTree = "<group>"; };
+		0FDB86021E157B10000BDA8A /* Array+Grouping.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Array+Grouping.swift"; sourceTree = "<group>"; };
+		0FDB86051E157B71000BDA8A /* CoreDataStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 		0FF09BB21D7EBDAE00DBBF46 /* 1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 1.jpg; sourceTree = "<group>"; };
 		0FF09BB31D7EBDAE00DBBF46 /* 2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 2.jpg; sourceTree = "<group>"; };
 		0FF09BB41D7EBDAE00DBBF46 /* 3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 3.jpg; sourceTree = "<group>"; };
@@ -1241,6 +1245,14 @@
 			path = _BusinessAppSwift_UITests;
 			sourceTree = "<group>";
 		};
+		0FDB86041E157B66000BDA8A /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				0FDB86051E157B71000BDA8A /* CoreDataStack.swift */,
+			);
+			name = CoreData;
+			sourceTree = "<group>";
+		};
 		0FF09BAD1D7EBCEA00DBBF46 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
@@ -1455,6 +1467,7 @@
 		0FF5EE5E1DD2579B002F3450 /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				0FDB86041E157B66000BDA8A /* CoreData */,
 				0FF5EE631DD257F0002F3450 /* DataManagerProtocol.swift */,
 				0FF5EE651DD257F9002F3450 /* DataManager.swift */,
 			);
@@ -1701,6 +1714,7 @@
 			children = (
 				395D58E41DB8E6AE00D74DBC /* Categories */,
 				395D58E01DB8B6EE00D74DBC /* Dictionary+Extension.swift */,
+				0FDB86021E157B10000BDA8A /* Array+Grouping.swift */,
 				390317041DBF7600001660C1 /* Bundle+Utils.swift */,
 				394203D31DC1089D000D58EE /* Date+Common.swift */,
 				0FAFF2E91DCA8CD50039E685 /* UIView+Colors.swift */,
@@ -2579,6 +2593,7 @@
 				0F4BB90E1DCF8D7A00A911EF /* MenuViewController_iphone.swift in Sources */,
 				0F1789CC1E01E3B000C15349 /* BaseTableViewController+Rotation.swift in Sources */,
 				0F5B71081DC6537C0094DA0F /* UserSignUpViewController_iphone.swift in Sources */,
+				0FDB86061E157B71000BDA8A /* CoreDataStack.swift in Sources */,
 				39ABE7271DCB47C7003D80ED /* TableWithSearchModel.swift in Sources */,
 				397378C61DB6608500B817BC /* MessageBarManagerProtocol.swift in Sources */,
 				397378D31DB6616400B817BC /* SocialManagerProtocol.swift in Sources */,
@@ -2593,6 +2608,7 @@
 				390317051DBF7600001660C1 /* Bundle+Utils.swift in Sources */,
 				0F6C159A1DBCCAC200169C13 /* SendEmailCommand.swift in Sources */,
 				0F091CD31DCBE00D001F69E9 /* UIView+Fonts.swift in Sources */,
+				0FDB86031E157B10000BDA8A /* Array+Grouping.swift in Sources */,
 				39ABE7111DCB4599003D80ED /* PrivacyPolicyModel.swift in Sources */,
 				397378F51DB67E2A00B817BC /* NetworkOperationFactory.swift in Sources */,
 				394203CC1DC10467000D58EE /* ConstSizes.swift in Sources */,

@@ -38,7 +38,7 @@ let kMenuModelMenuItemTableViewExampleKey = "MenuItemTableViewExample"
 let kMenuModelMenuItemTableViewWithSearchKey = "MenuItemTableViewWithSearch"
 let kMenuModelMenuItemMapWithSearchKey = "MenuItemMapWithSearch"
 
-class MenuModel: BaseModel, UserManagerObserver {
+class MenuModel: BaseModel {
     
     var menuItemList: Array<MenuEntityProtocol>!
     var viewControllerFactory: ViewControllerFactoryProtocol!

@@ -28,8 +28,8 @@
 import UIKit
 
 class UserManager : UserManagerProtocol {
-
-    // MARK: UserManagerProtocol     
+    
+    // MARK: UserManagerProtocol
     var settingsManager: SettingsManagerProtocol!
     var networkOperationFactory: NetworkOperationFactoryProtocol!
     var analyticsManager: AnalyticsManagerProtocol!
@@ -42,9 +42,9 @@ class UserManager : UserManagerProtocol {
     // Every class needs to have at least one designated initializer where all non optional properties are initialized
     // Such init would allow you to create empty object but then all the properties would need to be optionals
     /*required init() {
-        
-        // ...
-    }*/
+     
+     // ...
+     }*/
     
     // User handling
     required init(settingsManager: SettingsManagerProtocol, networkOperationFactory: NetworkOperationFactoryProtocol, analyticsManager: AnalyticsManagerProtocol, keychainManager: KeychainManagerProtocol) {
@@ -84,7 +84,7 @@ class UserManager : UserManagerProtocol {
     }
     
     func isUserLoggedIn()->Bool {
-
+        
         let intCount = user?.token?.characters.count
         
         if let intCount = intCount {
@@ -112,7 +112,7 @@ class UserManager : UserManagerProtocol {
                 
                 if let error = error {
                     
-                    self?.notifyObserversWithLoginFail(error: error)
+                    self?._observers.notifyObservers(notificationName: UserManagerNotificationType.didFailedToLogin.rawValue, context: error)
                     
                 } else {
                     
@@ -120,12 +120,12 @@ class UserManager : UserManagerProtocol {
                     // ...
                     // }];
                     
-                    self?.notifyObserversWithLoginSuccess(user: (self?.user!)!)
+                    self?._observers.notifyObservers(notificationName: UserManagerNotificationType.didLogin.rawValue)
                 }
                 
             } else {
                 
-                self?.notifyObserversWithLoginFail(error: error)
+                self?._observers.notifyObservers(notificationName: UserManagerNotificationType.didFailedToLogin.rawValue, context: error)
             }
             
             callback(success, result, nil, error);
@@ -151,7 +151,7 @@ class UserManager : UserManagerProtocol {
                 
                 if let error = error {
                     
-                    self?.notifyObserversWithSignUpFail(error: error)
+                    self?._observers.notifyObservers(notificationName: UserManagerNotificationType.didFailedToSignUp.rawValue, context: error)
                     
                 } else {
                     
@@ -159,12 +159,12 @@ class UserManager : UserManagerProtocol {
                     // ...
                     // }];
                     
-                    self?.notifyObserversWithSignUpSuccess(user: (self?.user!)!)
+                    self?._observers.notifyObservers(notificationName: UserManagerNotificationType.didSignUp.rawValue)
                 }
                 
             } else {
                 
-                self?.notifyObserversWithSignUpFail(error: error)
+                self?._observers.notifyObservers(notificationName: UserManagerNotificationType.didFailedToSignUp.rawValue, context: error)
             }
             
             callback(success, result, nil, error);
@@ -186,11 +186,11 @@ class UserManager : UserManagerProtocol {
             
             if (success) {
                 
-                self?.notifyObserversWithPasswordResetSuccess(email: user.email)
+                self?._observers.notifyObservers(notificationName: UserManagerNotificationType.didResetPassword.rawValue)
                 
             } else {
                 
-                self?.notifyObserversWithPasswordResetFail(error: error)
+                self?._observers.notifyObservers(notificationName: UserManagerNotificationType.didFailedToResetPassword.rawValue, context: error)
             }
             
             callback(success, result, nil, error)
@@ -210,7 +210,7 @@ class UserManager : UserManagerProtocol {
                 
             } else {
                 
-                self?.notifyObserversWithPasswordResetFail(error:error)
+                self?._observers.notifyObservers(notificationName: UserManagerNotificationType.didFailedToResetPassword.rawValue, context: error)
             }
             
             callback(success, result, nil, error)
@@ -223,7 +223,7 @@ class UserManager : UserManagerProtocol {
     func logout(callback: @escaping Callback) {
         
         var error: ErrorEntity
-
+        
         // [self.pushNotificationManager logoutUserWithCallback:^(BOOL success, id result, NSError *error) {
         // ...
         //    }];
@@ -233,19 +233,19 @@ class UserManager : UserManagerProtocol {
             
             error = ErrorEntity.init(code: 0, message: localizedString(key: "UserManager logout: unable to clear token in keychain. " + keychainError.message))
             
-            self.notifyObserversWithLogoutFail(error: error)
+            self._observers.notifyObservers(notificationName: UserManagerNotificationType.didFailedToLogout.rawValue, context: error)
             
             callback(false, nil, nil, error)
-
+            
         } else {
             
-            if let user = self.user {
+            //if let user = self.user {
                 
-                let loggedOutUser = user
+                //let loggedOutUser = user
                 
                 // There should be a webservice which does login and invalides token (if somebody sniffed and stole it). However there's no such webservice and we do logout locally only and so always consider logout as success immediatelly
-                self.notifyObserversWithLogoutSuccess(user: loggedOutUser)
-            }
+                self._observers.notifyObservers(notificationName: UserManagerNotificationType.didLogout.rawValue)
+            //}
             
             self.user = nil
             
@@ -254,20 +254,20 @@ class UserManager : UserManagerProtocol {
     }
     
     // MARK: State observers
-
-    func addServiceObserver(observer: UserManagerObserver, notificationType: UserManagerNotificationType, callback: @escaping Callback, context: Any?) {
+    
+    func addServiceObserver(observer: AnyObject, notificationType: UserManagerNotificationType, callback: @escaping Callback, context: Any?) {
         
-        _observers.add(observer: observer as AnyObject, notificationName: notificationType.rawValue, callback: callback, context: context)
+        _observers.add(observer: observer, notificationName: notificationType.rawValue, callback: callback, context: context)
     }
     
-    func removeServiceObserver(observer: UserManagerObserver, notificationType: UserManagerNotificationType) {
+    func removeServiceObserver(observer: AnyObject, notificationType: UserManagerNotificationType) {
         
-        _observers.remove(observer: observer as AnyObject, notificationName: notificationType.rawValue)
+        _observers.remove(observer: observer, notificationName: notificationType.rawValue)
     }
     
-    func removeServiceObserver(observer: UserManagerObserver) {
+    func removeServiceObserver(observer: AnyObject) {
         
-        _observers.remove(observer: observer as AnyObject)
+        _observers.remove(observer: observer)
     }
     
     // MARK:
@@ -307,57 +307,5 @@ class UserManager : UserManagerProtocol {
         }
         
         return result
-    }
-    
-    // MARK: UserManagerObserver handling
-    
-    internal func notifyObserversWithLoginSuccess(user: UserEntity) {
-        
-        _observers.notifyObservers(notificationName: UserManagerNotificationType.didLogin.rawValue)
-    }
-
-    internal func notifyObserversWithLoginFail(error: ErrorEntity?) {
-     
-        _observers.notifyObservers(notificationName: UserManagerNotificationType.didFailedToLogin.rawValue)
-    }
-    
-    internal func notifyObserversWithSignUpSuccess(user: UserEntity) {
-        
-        _observers.notifyObservers(notificationName: UserManagerNotificationType.didSignUp.rawValue)
-    }
-    
-    internal func notifyObserversWithSignUpFail(error: ErrorEntity?) {
-        
-        _observers.notifyObservers(notificationName: UserManagerNotificationType.didFailedToSignUp.rawValue)
-    }
-    
-    internal func notifyObserversWithUpdateSuccess(user: UserEntity) {
-        
-        _observers.notifyObservers(notificationName: UserManagerNotificationType.didUpdate.rawValue)
-    }
-    
-    internal func notifyObserversWithUpdateFail(error: ErrorEntity?) {
-        
-        _observers.notifyObservers(notificationName: UserManagerNotificationType.didFailedToUpdate.rawValue)
-    }
-    
-    internal func notifyObserversWithLogoutSuccess(user: UserEntity) {
-    
-        _observers.notifyObservers(notificationName: UserManagerNotificationType.didLogout.rawValue)
-    }
-    
-    internal func notifyObserversWithLogoutFail(error: ErrorEntity?) {
-        
-        _observers.notifyObservers(notificationName: UserManagerNotificationType.didFailedToLogout.rawValue)
-    }
-
-    internal func notifyObserversWithPasswordResetSuccess(email: String) {
-        
-        _observers.notifyObservers(notificationName: UserManagerNotificationType.didResetPassword.rawValue)
-    }
-    
-    internal func notifyObserversWithPasswordResetFail(error: ErrorEntity?) {
-        
-        _observers.notifyObservers(notificationName: UserManagerNotificationType.didFailedToResetPassword.rawValue)
     }
 }
